@@ -13,3 +13,5 @@ With Currents, you can run your cypress tests in parallel on CI provider of your
 ![Cypress tests with Currents](.gitbook/assets/currents-preview.png)
 
 Currents is #1 alternative to Cypress Dashboard and is based on the popular open-source project [Sorry Cypress](https://sorry-cypress.dev).
+
+<meta name="google-site-verification" content="kSDA0cUG2qptzH6TZyk0Dhm5VqI8Ce7gz1U9l3o-K-Y" />
