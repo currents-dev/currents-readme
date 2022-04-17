@@ -7,7 +7,7 @@
 
 ## Concepts
 
-* [Parallelization](concepts/parallelization.md)
+* [Cypress Parallelization](concepts/parallelization.md)
 * [Cypress CI Build ID](concepts/cypress-ci-build-id.md)
 * [Record Key](concepts/record-key.md)
 * [Currents CLI](concepts/currents-cli.md)
