@@ -38,7 +38,7 @@ Triggered when a new run starts. If a run contains multiple groups, the notifica
 
 Triggered when a run finishes its execution or when a run times out. If a run contains multiple groups, the notification will be triggered for each group. For timed out runs, the message will contain the last know results for the run or run group.
 
-![Example of MS Teams notification for Cypress Run Finished](<../.gitbook/assets/cypress-run-canceled-slack (1).png>)
+![Example of MS Teams notification for Cypress Run Finished](../.gitbook/assets/cypress-run-canceled-slack.png)
 
 ![Example of MS Teams notification for Cypress Run Finished with Timeout event ](../.gitbook/assets/cypress-msteams-run-timedout.png)
 

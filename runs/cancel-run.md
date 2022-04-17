@@ -68,7 +68,7 @@ Cancelling a run affects in-progress and pending tests, as well as integrations 
 
 ![Cancelling cypress tests run - Slack message example](<../.gitbook/assets/CleanShot 2022-02-17 at 01.09.18.png>)
 
-![Cancelling cypress tests run - MS Teams example](<../.gitbook/assets/CleanShot 2022-02-17 at 01.12.24.png>)
+![Cancelling cypress tests run - MS Teams example](<../.gitbook/assets/CleanShot 2022-02-17 at 01.12.24 (1).png>)
 
 #### HTTP Webhook Integration
 

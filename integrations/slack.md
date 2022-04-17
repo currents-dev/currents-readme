@@ -49,7 +49,7 @@ Triggered when a run finishes its execution or when a run times out. If a run co
 
 Triggered when a run gets cancelled. If a run contains multiple groups, the notification will be triggered for each group. The message will contain the last know results for the run or run group.
 
-![Example of Slack notification for Cypress Run Canceled event ](../.gitbook/assets/cypress-run-canceled-slack.png)
+![Example of Slack notification for Cypress Run Canceled event ](<../.gitbook/assets/cypress-run-canceled-slack (1).png>)
 
 ### How to disable Slack integration?
 

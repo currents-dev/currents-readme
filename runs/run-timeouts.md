@@ -34,7 +34,7 @@ You can change the default timeout for each individual project in Project Settin
 
 The default timeout value is 30 minutes.&#x20;
 
-![Changing Project timeout settings](<../.gitbook/assets/CleanShot 2022-02-19 at 01.52.33 (2).png>)
+![Changing Project timeout settings](<../.gitbook/assets/CleanShot 2022-02-19 at 01.52.33.png>)
 
 ### How to avoid timeouts for cypress tests?
 
