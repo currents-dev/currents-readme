@@ -4,10 +4,6 @@ description: Understand cypress tests timeouts and how to avoid them
 
 # Run Timeouts
 
-
-
-![Cypress tests parallelization using Currents orchestration ](../.gitbook/assets/parallelization-basic.gif)
-
 ### Why do cypress tests time out?
 
 If any of your spec files takes too long to report the results back to Currents dashboard, the whole run is being marked as timed out. Why is that?
