@@ -41,7 +41,7 @@
 * [HTTP Webhooks](integrations/http-webhooks.md)
 * [Microsoft Teams](integrations/microsoft-teams.md)
 * [Slack](integrations/slack.md)
-* [Gitlab](integrations/gitlab.md)
+* [GitLab Integration](integrations/gitlab.md)
 
 ## Spec Files
 
