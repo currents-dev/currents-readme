@@ -6,7 +6,7 @@ description: Cypress Tests Parallelization explained
 
 ### Why parallelize cypress tests?
 
-As you Cypress Tests suite grows, it becomes crucial to optimize the overall duration in order to get a faster feedback. Once your cypress tests suite volume passed 10 spec files, you'd start looking for solutions to run the tests in parallel.
+As your Cypress Tests suite grows, it becomes crucial to optimize the overall duration in order to get a faster feedback. Once your cypress tests suite volume passed 10 spec files, you'd start looking for solutions to run the tests in parallel.
 
 Parallelization is the most popular technique for reducing the runtime duration of your cypress tests. One of the most convenient and easy solutions is to use cloud service like Currents or Cypress Dashboard.&#x20;
 
