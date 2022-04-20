@@ -1,8 +1,5 @@
 ---
 description: Send cypress tests results straight to your Slack channels
-cover: >-
-  https://images.unsplash.com/photo-1599652523502-1ce28d324493?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxOTcwMjR8MHwxfHNlYXJjaHwxMHx8c2xhY2t8ZW58MHx8fHwxNjQ1NjAyODMy&ixlib=rb-1.2.1&q=85
-coverY: 0
 ---
 
 # Slack
