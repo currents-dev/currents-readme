@@ -69,13 +69,13 @@ Running this command will create a new run in Currents dashboard.
 {% hint style="info" %}
 Learn more about
 
-* [Currents CLI](../concepts/currents-cli.md)
-* [Record Key](../concepts/record-key.md)
-* [CI Build ID](../concepts/cypress-ci-build-id.md)
+* [Currents CLI](../guides/currents-cli.md)
+* [Record Key](../guides/record-key.md)
+* [CI Build ID](../guides/cypress-ci-build-id.md)
 {% endhint %}
 
 ### Update your CI provider configuration
 
 To unlock the full power of Currents dashboard, update your CI provider configuration to use Currents for running your cypress tests in parallel.&#x20;
 
-Please read our [Parallelization Guide](../concepts/parallelization.md) and check out few [CI Setup examples](broken-reference) for popular CI tools.
+Please read our [Parallelization Guide](../guides/parallelization.md) and check out few [CI Setup examples](broken-reference) for popular CI tools.

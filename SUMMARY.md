@@ -5,12 +5,13 @@
 * [What is Currents?](README.md)
 * [You First Cypress Run](getting-started/you-first-cypress-run.md)
 
-## Concepts
+## Guides
 
-* [Cypress Parallelization](concepts/parallelization.md)
-* [Cypress CI Build ID](concepts/cypress-ci-build-id.md)
-* [Record Key](concepts/record-key.md)
-* [Currents CLI](concepts/currents-cli.md)
+* [Cypress Parallelization](guides/parallelization.md)
+* [Load Balancing](guides/load-balancing.md)
+* [Cypress CI Build ID](guides/cypress-ci-build-id.md)
+* [Record Key](guides/record-key.md)
+* [Currents CLI](guides/currents-cli.md)
 
 ## CI Setup
 

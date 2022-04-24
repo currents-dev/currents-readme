@@ -8,17 +8,17 @@ When creating a new run, cypress agents collect various information about their 
 
 ![Cypress run details example](../.gitbook/assets/cypress-run-details.png)
 
-| Field       | Description                                                            |
-| ----------- | ---------------------------------------------------------------------- |
-| Duration    | Run's duration                                                         |
-| Progress    | Completed / overall spec files progress                                |
-| Started at  | Run start timestamp                                                    |
-| Origin      | GIt remote origin                                                      |
-| Branch      | Git branch                                                             |
-| Commit      | Git commit message                                                     |
-| Browser     | Cypress tests browser                                                  |
-| Author      | Git commit author                                                      |
-| CI Build ID | [cypress-ci-build-id.md](../concepts/cypress-ci-build-id.md "mention") |
+| Field       | Description                                                          |
+| ----------- | -------------------------------------------------------------------- |
+| Duration    | Run's duration                                                       |
+| Progress    | Completed / overall spec files progress                              |
+| Started at  | Run start timestamp                                                  |
+| Origin      | GIt remote origin                                                    |
+| Branch      | Git branch                                                           |
+| Commit      | Git commit message                                                   |
+| Browser     | Cypress tests browser                                                |
+| Author      | Git commit author                                                    |
+| CI Build ID | [cypress-ci-build-id.md](../guides/cypress-ci-build-id.md "mention") |
 
 ### Cypress Run Git Information
 
