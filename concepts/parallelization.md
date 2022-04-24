@@ -33,7 +33,7 @@ The simplistic animation below demonstrates parallelization of 6 spec files usin
 
 ### Do I need my own machines to run cypress tests in parallel?
 
-Yes. You still need CI machines that will run actual tests. Orchestration services will help to load-balance and troubleshot your cypress tests.
+Yes. You still need CI machines that will run the actual tests. Currents Dashboard (and other orchestration services) will load-balance the tests between the machines, will record test results to allow troubleshooting your cypress tests.
 
 ### Can I run multiple cypress tests in parallel on the same machine?
 
