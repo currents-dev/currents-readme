@@ -75,7 +75,7 @@ Most chances each CI machine generates a different CI Build ID. Each unique CI B
 
 Most chances you're reusing a CI Build ID for a run that was already completed. In order to create a new run, please use a new, unique CI Build ID.
 
-### How retrying a build affects CI Build ID?
+### How retrying a build affect CI Build ID?
 
 Most CI providers generate a completely new build when retrying a failed build - that generate a new set of environment variables, which are different from the original build attempt. That naturally works with Currents dashboard and creates a completely new run for retries.
 
