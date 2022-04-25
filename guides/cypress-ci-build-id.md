@@ -67,17 +67,25 @@ Here's a list of popular providers and the environment variables that can be use
 
 Refer to your CI provider documentation for the list of available environment variables. Also see the [official cypress documentation on CI Build ID.](https://docs.cypress.io/guides/guides/parallelization#CI-Build-ID-environment-variables-by-provider)
 
+### Why each CI machine runs all the tests?
+
+Most chances each CI machine generates a different CI Build ID. Each unique CI Build ID creates a new run and executes all the tests. Please make sure that you provide the same CI Build ID across different  CI machines.
+
+### Why retrying a build reports all tests as completed?
+
+Most chances you're reusing a CI Build ID for a run that was already completed. In order to create a new run, please use a new, unique CI Build ID.
+
 ### How retrying a build affects CI Build ID?
 
-Most CI providers generate a completely new build when retrying a failed build and generate new environment variables like buildId, which are different from original build.
+Most CI providers generate a completely new build when retrying a failed build - that generate a new set of environment variables, which are different from the original build attempt. That naturally works with Currents dashboard and creates a completely new run for retries.
 
-You can also construct an explicit CI Build ID that changes when retrying a build, for example, for GitHun Actions:
+You can also construct an explicit CI Build ID when retrying a build, for example, for GitHub Actions:
 
 ```
 "${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}"
 ```
 
-&#x20;That naturally works with Currents dashboard and creates a completely new run.
+Keep in mind that you will need to generate a new CI Build ID when retrying a build - refer to your CI tool documentation to explore what environment variable are available for composing a valid CI Build ID.
 
 {% hint style="info" %}
 Some CI providers (e.g. GitLab) behave differently:
