@@ -67,11 +67,11 @@ Here's a list of popular providers and the environment variables that can be use
 
 Refer to your CI provider documentation for the list of available environment variables. Also see the [official cypress documentation on CI Build ID.](https://docs.cypress.io/guides/guides/parallelization#CI-Build-ID-environment-variables-by-provider)
 
-### Why each CI machine runs all the tests?
+### Why each CI machine run all the cypress tests?
 
 Most chances each CI machine generates a different CI Build ID. Each unique CI Build ID creates a new run and executes all the tests. Please make sure that you provide the same CI Build ID across different  CI machines.
 
-### Why retrying a build reports all tests as completed?
+### Why retrying a build run no cypress tests at all?
 
 Most chances you're reusing a CI Build ID for a run that was already completed. In order to create a new run, please use a new, unique CI Build ID.
 
