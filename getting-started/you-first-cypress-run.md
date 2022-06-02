@@ -9,7 +9,7 @@ Setting up Currents for running and recording cypress tests in parallel can be d
 Here's an overview of what steps you'll need to take to start running cypress tests in parallel using Currents dashboard:
 
 * Create an organization and a project
-* Update `cypress.json` with newly created `projectId`
+* Update `cypress.json` or `cypress.config.js` with newly created `projectId`
 * Install `cypress` and `@currents/cli` npm packages
 * Use `currents`  CLI command to create your first run
 * Update your CI provider configuration
@@ -24,7 +24,7 @@ After creating a new organization and a project, you'll see on-screen instructio
 
 ``
 
-### Update `cypress.json` with newly created `projectId`&#x20;
+### Update Cypress configuration
 
 {% hint style="info" %}
 **Please note:** If you don't have cypress project ready, please clone a demo repository with predefined cypress tests and GitHub actions integration.
@@ -32,14 +32,42 @@ After creating a new organization and a project, you'll see on-screen instructio
 [https://github.com/currents-dev/gh-actions-example](https://github.com/currents-dev/gh-actions-example)
 {% endhint %}
 
-Edit `cypress.json` file and set the `projectId` of the newly created project.
+Edit Cypress configuration and set the `projectId` of the newly created project.
 
+{% tabs %}
+{% tab title="cypress.config.js" %}
+```javascript
+const { defineConfig } = require('cypress')
 
+module.exports = defineConfig({
+  projectId: 'a3dS2a'
+})
+```
+{% endtab %}
+
+{% tab title="cypress.config.ts" %}
+```typescript
+import { defineConfig } from 'cypress'
+
+export default defineConfig({
+  projectId: 'a3dS2a'
+})
+```
+{% endtab %}
+
+{% tab title="cypress.json" %}
+```json
+{
+  "projectId": "a3dS2a"
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ### Install `@currents/cli` and `cypress` npm packages
 
 {% hint style="info" %}
-**Please note:** cypress versions `6.7.0` and up are supported
+**Please note:** cypress versions `6.7.0+` are supported
 {% endhint %}
 
 Use your favourite NodeJS package manager to install `@currents/cli` and `cypress` packages.&#x20;
