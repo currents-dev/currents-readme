@@ -52,7 +52,7 @@ Behind the scenes, `currents` CLI tools changes the configuration of cypress run
 
 ### How to use `@currents/cli` programmatically?
 
-`@currents/cli` packages uses [https://www.npmjs.com/package/cy2](https://www.npmjs.com/package/cy2) behind the scenes. It reconfigures cypress runner to use a different dashboard service.
+`@currents/cli` package uses [https://www.npmjs.com/package/cy2](https://www.npmjs.com/package/cy2) behind the scenes. It reconfigures cypress runner to use a different dashboard service.
 
 You can also use `cy2` directly and specify `https://cy.currents.dev` as an alternative dashboard.&#x20;
 
