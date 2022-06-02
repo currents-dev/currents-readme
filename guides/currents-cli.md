@@ -50,6 +50,32 @@ Commands:
 
 Behind the scenes, `currents` CLI tools changes the configuration of cypress runner to use Currents servers (https://cy.currents.dev) for parallelization and recordings.
 
+### How to use `@currents/cli` programmatically?
+
+`@currents/cli` packages uses [https://www.npmjs.com/package/cy2](https://www.npmjs.com/package/cy2) behind the scenes. It reconfigures cypress runner to use a different dashboard service.
+
+You can also use `cy2` directly and specify `https://cy.currents.dev` as an alternative dashboard.&#x20;
+
+For example:
+
+```javascript
+#!/usr/bin/env node
+
+const { patch } = require('cy2');
+const cypress = require('cypress')
+
+async function main() {
+  await patch('https://cy.currents.dev');
+  // run Cypress as usual
+  await cypress.run({
+    // Cypress config goes here
+  })
+  
+}
+
+main().catch(console.error);
+```
+
 ### How to revert the changes to cypress configuration?
 
 Remove cypress NPM package and reinstall it from scratch - that will restore the original cypress configuration.
