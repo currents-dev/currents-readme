@@ -12,6 +12,7 @@
 * [Cypress CI Build ID](guides/cypress-ci-build-id.md)
 * [Record Key](guides/record-key.md)
 * [Currents CLI](guides/currents-cli.md)
+* [Cypress 10](guides/cypress-10.md)
 
 ## CI Setup
 
