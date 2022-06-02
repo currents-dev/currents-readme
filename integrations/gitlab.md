@@ -25,6 +25,14 @@ Follow on-screen instruction to create a new [GitLab OAuth App](https://docs.git
 * `https://hub.currents.dev/gitlab/callback` as **Redirect URI**&#x20;
 * `api` scope in the application permissions
 
+{% hint style="info" %}
+**Please note:** `api` scope is required for the integration to work correctly. At the time of implementation GitLab didn't allow setting more granular permissions. Here's the list of API calls that Currents invokes:
+
+* Getting the list of repositories accessible to OAuth token issuer
+* Posting commit build status updates
+* Posting and deleting Merge Request notes
+{% endhint %}
+
 Enter the details (**App ID** and **App Secret**) of the newly created GitLab OAuth App and click **Connect.**
 
 After a successful connection, you will see a dropdown list of accessible  GitLab projects (repositories)
@@ -35,3 +43,19 @@ Select the repository you'd like to integrate with Currents Dashboard project an
 
 Currents Dashboard will start posting [commit build statuses](https://docs.gitlab.com/ee/api/commits.html#post-the-build-status-to-a-commit) and [merge request comments](https://docs.gitlab.com/ee/user/discussions/) with a summary of your cypress tests to new Merge Request.
 
+### Customizing GitLab Integration&#x20;
+
+Toggling GitLab Integration settings changes the type of content that the is being posted to GitLab
+
+![Customizing GitLab Integration](<../.gitbook/assets/CleanShot 2022-06-02 at 00.52.52@2x.png>)
+
+* Merge Requests Comment - will toggle on / off posting  run results summary to a merge request
+* Commit Status - will toggle on / off updating commit status with run results
+
+### Disabling GitLab Integration
+
+Clicking **Disconnect Project** (1) will detach the integration from the currently selected GitLab project. Disconnecting a project would keep GitLab OAuth App credentials. You would still be able to select a different GitLab project from the list to reactivate the integration.&#x20;
+
+**Uninstalling** (2) the integration removes the associated credentials and the integration altogether.
+
+![Disabling GitLab Integration](<../.gitbook/assets/CleanShot 2022-06-02 at 00.57.05@2x.png>)
