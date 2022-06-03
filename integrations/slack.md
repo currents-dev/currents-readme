@@ -23,6 +23,11 @@ Provide the following details to finalize Slack integration, click "Save" to fin
 * **Slack Webhook URL -** Incoming Webhook URL, e.g. `https://hooks.slack.com/services/XXX/YYY/ZZZ`. Read more about [Slack Incoming Webhooks](https://api.slack.com/messaging/webhooks).
 * **Failed Runs Only** - enabling the toggle would only send results for failed, timed out or canceled runs.
 * **Events (Optional)** - specify the event that trigger the integration and send results. Leaving this field blank activates all the events.
+* Branch name filter
+
+{% embed url="https://stackblitz.com/edit/js-cyn8hh?embed=1&file=index.js&hideExplorer=1" %}
+Branch name filter playground
+{% endembed %}
 
 ### What events trigger notifications for Slack // Currents integration?
 
