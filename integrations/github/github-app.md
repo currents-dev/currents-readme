@@ -45,9 +45,13 @@ Enabling PR comments will post a summary of your run to the associated GitHub PR
 * after run’s completion - with the details of test results
 * after run’s timeout - with the last known test results
 
-Re-running cypress tests for the same PR will delete the previous comment and post a new one with the most recent result.
+Re-running cypress tests for the same PR will delete the previous comment and post a new one with the most recent result, unless **Keep Old Results** option is enabled
 
 ![GitHub integration - PR comment example](../../.gitbook/assets/github-cypress-pr-comment.gif)
+
+#### Keep Old **Results**
+
+When enabled, old results posted as a PR comment will be preserved, i.e. the integration will keep the comments with the results of the previous runs.
 
 #### Commit Status Checks
 
