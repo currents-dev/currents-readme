@@ -10,7 +10,11 @@ Posting the results of cypress tests to GitLab is a convenient way to augment yo
 
 Currents Dashboard integration with GitLab allows posting [commit build statuses](https://docs.gitlab.com/ee/api/commits.html#post-the-build-status-to-a-commit) as well [merge request comments](https://docs.gitlab.com/ee/user/discussions/) with a summary of your cypress tests.
 
+#### Example of GitLab commit status
+
 ![Cypress GitLab Integration - commit build status example](../.gitbook/assets/cypress-gitlab-integration-commit-status.png)
+
+#### Example if GitLab Merge Request note
 
 ![Cypress GitLab Integration - Merge Request comment example](../.gitbook/assets/cypress-gitlab-merge-request-note.png)
 
