@@ -29,10 +29,21 @@
 * [Run Timeouts](runs/run-timeouts.md)
 * [Cancel Run](runs/cancel-run.md)
 
+## Spec Files
+
+* [Spec File Status](spec-files/spec-file-status.md)
+
 ## Tests
 
 * [Flaky Tests](tests/flaky-tests.md)
 * [Test History](tests/test-history.md)
+
+## Insights
+
+* [Runs Analytics](insights/runs-analytics.md)
+* [Tests Analytics](insights/tests-analytics.md)
+* [Top Failed Tests](insights/top-failed-tests.md)
+* [Top Flaky Tests](insights/top-flaky-tests.md)
 
 ## Integrations
 
@@ -44,7 +55,3 @@
 * [Microsoft Teams](integrations/microsoft-teams.md)
 * [Slack](integrations/slack.md)
 * [GitLab Integration](integrations/gitlab.md)
-
-## Spec Files
-
-* [Spec File Status](spec-files/spec-file-status.md)
