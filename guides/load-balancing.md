@@ -23,7 +23,7 @@ Typically cypress tests are running as part of your CI pipeline, having this kin
 
 For larger teams with a significant amount of cypress tests, the cumulative gains of reducing the duration of cypress tests can be significant.
 
-### Fail-Fast for Cypress Tests
+### Fail-Fast for Cypress Tests - Cancelling Runs on Failure
 
 Intentionally failing your cypress tests suite right after the first failed test is called a "fail-fast strategy".
 
