@@ -6,9 +6,9 @@ description: Detailed guide to Cypress Tests Parallelization
 
 ### Why parallelize cypress tests?
 
-As your Cypress Tests suite grows, it becomes crucial to optimize the overall duration in order to get a faster feedback. Once your cypress tests suite volume passed 10 spec files, you'd start looking for solutions to run the tests in parallel.
+As your Cypress Tests suite grows, it becomes crucial to optimize the overall duration in order to get faster feedback. Once your cypress tests suite volume passed 10 spec files, you'd start looking for solutions to run the tests in parallel.
 
-Parallelization is the most popular technique for reducing the runtime duration of your cypress tests. One of the most convenient and easy solutions is to use cloud service like Currents or Cypress Dashboard.&#x20;
+Parallelization is the most popular technique for reducing the runtime duration of your cypress tests. One of the most convenient and easy solutions is to use cloud services like Currents or Cypress Dashboard.&#x20;
 
 Those services integrate with your CI provider and use intelligent techniques to parallelize the tests, reduce overall runtime, as well as providing features like storing video and screenshot recording, tests outputs, providing analytics and integration with 3rd party tools.
 
@@ -16,30 +16,30 @@ Those services integrate with your CI provider and use intelligent techniques to
 
 ### How does cypress parallelization work?
 
-Running cypress tests in parallel on CI environment involves creating multiple containers. Depending on the size of your browser test suite, it can be dozens or hundreds of containers.
+Running cypress tests in parallel in CI environment involves creating multiple containers. Depending on the size of your browser test suite, it can be dozens or hundreds of containers.
 
 Containers use Currents cloud service to get instructions about tests (technically, spec files) to run - every test runs in a different container. Currents uses intelligent orchestration heuristics to optimally distribute the tests between containers and reduce overall runtime.
 
-The simplistic animation below demonstrates parallelization of 6 spec files using 3 containers.
+The simplistic animation below demonstrates the parallelization of 6 spec files using 3 containers.
 
 * Each container runs an identical `cypress` or [`currents`](currents-cli.md) command with `--parallel` flag
 * Each container connects to Currents dashboard to get instructions about the next spec file to run
 * Currents dashboard assigns each container a spec file to run
 * Each container runs its spec file
-* Each container sends the results back to Currents and get the next spec file to run
-* When no more spec files left, containers finish their execution
+* Each container sends the results back to Currents and gets the next spec file to run
+* When no more spec files are left, containers finish their execution
 
 ![Cypress tests parallelization using Currents orchestration ](../.gitbook/assets/parallelization-basic.gif)
 
 ### Do I need my own machines to run cypress tests in parallel?
 
-Yes. You still need CI machines that will run the actual tests. Currents Dashboard (and other orchestration services) will load-balance the tests between the machines, will record test results to allow troubleshooting your cypress tests.
+Yes. You still need CI machines that will run the actual tests. Currents Dashboard (and other orchestration services) will load-balance the tests between the machines, and will record test results to allow troubleshooting of your cypress tests.
 
 ### Can I run multiple cypress tests in parallel on the same machine?
 
 Yes! You don't have to have different machines / containers for running cypress tests in parallel.&#x20;
 
-You can run multiple [`currents`](currents-cli.md) / `cypress` instances on the same machine. Keep in mind that cypress tests are quite resource-demanding - running to many instances of test runner can actually slow down the overall execution or even crash the machine.
+You can run multiple [`currents`](currents-cli.md) / `cypress` instances on the same machine. Keep in mind that cypress tests are quite resource-demanding - running too many instances of a test runner can actually slow down the overall execution or even crash the machine.
 
 ### How to run cypress tests in parallel locally?
 
@@ -55,7 +55,7 @@ You will see that two runners are executing different spec files and are running
 
 You don't need to split files manually when using Cypress / Currents or Sorry Cypress dashboard service - the service does that for you automatically and distributes the spec files between cypress runners.
 
-Moreover, Currents dashboard uses historical data to optimally sort the spec files in order to reduce overall build / run duration.
+Moreover, Currents dashboard uses historical data to optimally sort the spec files in order to reduce the overall build / run duration.
 
 ### What CI providers can run cypress tests in parallel?
 
@@ -70,7 +70,7 @@ Here are a few popular CI providers that can run cypress tests in parallel:
 
 ### How to run cypress tests in parallel?
 
-To run cypress tests in parallel and use Currents as orchestration service, run this command:
+To run cypress tests in parallel and use Currents as an orchestration service, run this command:
 
 ```bash
 npx currents run --parallel --record --key <currents_key> --ci-build-id build-001Follow our  guide for details.
@@ -78,10 +78,10 @@ npx currents run --parallel --record --key <currents_key> --ci-build-id build-00
 
 Read more about the importance of [CI Build ID](cypress-ci-build-id.md). You can generate `currents_key` by creating an organization and a project on [Currents Dashboard](https://app.currents.dev).
 
-### How to distinguish one parallelized build / run from another?
+### How to create parallelized cypress builds?
 
 Currents uses `--ci-build-id` flag to uniquely identify one parallelized build from another.&#x20;
 
 ![Using CI Build ID to create different build](<../.gitbook/assets/cypress-ci-build-id-different-jobs (1).png>)
 
-This value of this flag is calculated automatically for popular CI tools, but you can provide it explicitly to control your. See [cypress-ci-build-id.md](cypress-ci-build-id.md "mention") for details.
+The value of this flag is calculated automatically for popular CI tools, but you can also provide it explicitly. See [cypress-ci-build-id.md](cypress-ci-build-id.md "mention") for details.
