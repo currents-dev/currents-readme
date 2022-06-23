@@ -27,7 +27,7 @@ At the same time, utilizing a "fail-fast" strategy has some caveats:
 If you are dealing with a stable and predictable suite of cypress tests that rarely fail - "fail-fast" can be a great way to optimize your cypress tests.&#x20;
 
 {% hint style="info" %}
-[Read more](../runs/cancel-run.md) about how cancelled runs status, analytics and integrations
+[Read more](../runs/cancel-run.md) about how cancelling runs affect runs status, analytics and integrations
 {% endhint %}
 
 ### Enabling fail-fast strategy
