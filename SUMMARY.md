@@ -28,7 +28,7 @@
 * [Run Status](runs/run-status.md)
 * [Run Details](runs/run-details.md)
 * [Run Timeouts](runs/run-timeouts.md)
-* [Cancel Run](runs/cancel-run.md)
+* [Canceling Runs](runs/cancel-run.md)
 
 ## Spec Files
 

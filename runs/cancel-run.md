@@ -2,9 +2,9 @@
 description: Cancelling cypress tests runs via dashboard
 ---
 
-# Cancel Run
+# Canceling Runs
 
-You can stop cypress test by cancelling runs that are currently in progress using dashboard controls.&#x20;
+Runs that are currently in progress can be cancelled using the dashboard controls.&#x20;
 
 Cancelling a run can be useful for:
 
@@ -13,16 +13,16 @@ Cancelling a run can be useful for:
 * reducing the number of recorded tests
 
 {% hint style="warning" %}
-Please note: Cancelling a run cannot be undone
+**Please note:** Cancelling a run cannot be undone
 {% endhint %}
 
 ### How to cancel Cypress tests run?
 
-In-progress runs can be cancelled by clicking "Cancel Run" button in Runs Feed view.
+In-progress runs can be cancelled by clicking the "Cancel Run" button in the Runs Feed view.
 
 ![Cancelling cypress tests run from Runs Feed view](../.gitbook/assets/cancelling-run.gif)
 
-You can also cancel a run when from Run Details view.
+You can also cancel a run when from the Run Details view.
 
 ![Cancelling cypress tests run from Run Details view](../.gitbook/assets/cancel-run-02.gif)
 
@@ -30,13 +30,14 @@ You can also cancel a run when from Run Details view.
 
 Cancelling a run affects in-progress and pending tests, as well as integrations and runs analytics.
 
-* the run's status will become "Cancelled"
+* the run will be marked as "Cancelled", depending on test's status, it can also become "Failed" or "Passed". See [run-status.md](run-status.md "mention").
 * in-progress tests will run to completion, the dashboard will accept their result
 * attempts to start a new test for a cancelled run would fail with the error message `Run is cancelled`
 
-### How cancelled runs affect insights?
+### How do cancelled runs affect insights?
 
-* Cancelled runs are excluded from Runs Insights - only completed runs appear in Runs Insights charts
+* Cancelled runs are excluded from Runs Duration Insights
+* Cancelled runs are excluded from Test / Spec Size Insights
 * Tests recorded as part of a cancelled run are still included in Tests Insights charts
 
 ### How does cancelling a run affect test records plan usage?
@@ -50,8 +51,8 @@ Cancelling a run affects in-progress and pending tests, as well as integrations 
 
 * Commit status checks will display `Cancelled by <username>` message
 * Commit status check outcome will be set according to the last known run status, for example
-  * if no failed tests were recorded before the cancellation, status check outcome will be `success`
-  * otherwise status check outcome will be `failure`
+  * if no failed tests were recorded before the cancellation, the status check outcome will be a `success`
+  * otherwise, the status check outcome will be a `failure`
 
 ![Cancelling cypress tests run - GitHub commit status message](<../.gitbook/assets/CleanShot 2022-02-17 at 01.27.24.png>)
 
@@ -72,5 +73,5 @@ Cancelling a run affects in-progress and pending tests, as well as integrations 
 
 #### HTTP Webhook Integration
 
-* A new HTTP POST request will be emitted with  last known run results. and event type `RUN_CANCELED`  See [http-webhooks.md](../integrations/http-webhooks.md "mention") for details.
+* A new HTTP POST request will be emitted with the last known run results. and event type `RUN_CANCELED`  See [http-webhooks.md](../integrations/http-webhooks.md "mention") for details.
 
