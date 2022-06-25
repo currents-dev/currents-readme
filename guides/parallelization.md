@@ -10,9 +10,9 @@ As your Cypress Tests suite grows, it becomes crucial to optimize the overall du
 
 Parallelization is the most popular technique for reducing the runtime duration of your cypress tests. One of the most convenient and easy solutions is to use cloud services like Currents or Cypress Dashboard.&#x20;
 
-Those services integrate with your CI provider and use intelligent techniques to parallelize the tests, reduce overall runtime, as well as providing features like storing video and screenshot recording, tests outputs, providing analytics and integration with 3rd party tools.
+Those services integrate with your CI provider and use intelligent techniques to parallelize the tests, reduce overall runtime, as well as provide features like storing video and screenshot recording, test outputs, and providing analytics and integration with 3rd party tools.
 
-![Running cypress test in parallel reduces overall time](<../.gitbook/assets/cypress-parallelization-benefits (1) (1).png>)
+![Running cypress test in parallel reduces the overall time](<../.gitbook/assets/cypress-parallelization-benefits (1) (1).png>)
 
 ### How does cypress parallelization work?
 

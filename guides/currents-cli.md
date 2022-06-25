@@ -76,6 +76,6 @@ async function main() {
 main().catch(console.error);
 ```
 
-### How to revert the changes to cypress configuration?
+### How to revert the changes to Cypress configuration?
 
 Remove cypress NPM package and reinstall it from scratch - that will restore the original cypress configuration.

@@ -6,17 +6,17 @@ description: Running cypress tests in parallel with Currents dashboard
 
 Setting up Currents for running and recording cypress tests in parallel can be done seamlessly within a few minutes.
 
-Here's an overview of what steps you'll need to take to start running cypress tests in parallel using Currents dashboard:
+Here's an overview of what steps you'll need to take to start running cypress tests in parallel using the Currents dashboard:
 
 * Create an organization and a project
-* Update `cypress.json` or `cypress.config.js` with newly created `projectId`
+* Update `cypress.json` or `cypress.config.js` with the newly created `projectId`
 * Install `cypress` and `@currents/cli` npm packages
 * Use `currents`  CLI command to create your first run
 * Update your CI provider configuration
 
 ### Create New Organization and a Project
 
-After signing up to the dashboard service, you will be prompted to create a new organization and a project. You can change the name later.
+After signing up for the dashboard service, you will be prompted to create a new organization and a project. You can change the name later.
 
 ![Creating Organization and Project in Currents dashboard](../.gitbook/assets/currents-create-org.gif)
 

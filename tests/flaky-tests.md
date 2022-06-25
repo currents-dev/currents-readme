@@ -33,7 +33,7 @@ Your team is arguably the **most important factor**. As a first step, admit that
 
 #### Identify flaky cypress tests
 
-Use our Flaky Tests Insights to see the tests with highest flakiness rate. Visit Insights > Top Flaky Tests to see the list of test with highest flakiness rate.
+Use our [#top-flaky-tests](../insights/insights-and-analytics.md#top-flaky-tests "mention") Insights to see the tests with the highest flakiness rate.&#x20;
 
 ![Cypress Top Flaky Tests Insights](../.gitbook/assets/cypress-flaky-tests.png)
 

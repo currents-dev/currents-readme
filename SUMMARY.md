@@ -41,10 +41,7 @@
 
 ## Insights
 
-* [Runs Analytics](insights/runs-analytics.md)
-* [Tests Analytics](insights/tests-analytics.md)
-* [Top Failed Tests](insights/top-failed-tests.md)
-* [Top Flaky Tests](insights/top-flaky-tests.md)
+* [Insights and Analytics](insights/insights-and-analytics.md)
 
 ## Integrations
 
