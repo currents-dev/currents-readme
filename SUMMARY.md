@@ -36,6 +36,7 @@
 
 ## Tests
 
+* [Test Status](tests/test-status.md)
 * [Flaky Tests](tests/flaky-tests.md)
 * [Test History](tests/test-history.md)
 
