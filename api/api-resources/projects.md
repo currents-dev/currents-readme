@@ -11,11 +11,11 @@ This is an object representing your Currents project. You can retrieve the list 
 
 {% endswagger-description %}
 
-{% swagger-parameter in="query" name="limit" type="Number" %}
+{% swagger-parameter in="query" name="limit" type="1-50" %}
 Pagination limit 1-50. Default 10.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="starting_before" %}
+{% swagger-parameter in="query" name="starting_before" type="String" %}
 Pagination cursor. See 
 
 [pagination.md](../pagination.md "mention")
@@ -23,7 +23,7 @@ Pagination cursor. See
 
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="ending_after" %}
+{% swagger-parameter in="query" name="ending_after" type="String" %}
 Pagination cursor. See 
 
 [pagination.md](../pagination.md "mention")
