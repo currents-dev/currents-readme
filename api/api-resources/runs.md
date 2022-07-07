@@ -9,6 +9,10 @@ This is an object representing cypress tests run. You can retrieve a run's detai
 * See [projects.md](projects.md "mention") API resource to list runs associated with a project.
 * See [instances.md](instances.md "mention")API resource for fetching Instance object by an `instanceId`
 
+{% hint style="info" %}
+Asset URLs listed in the responses (videos, screenshots) are "signed" URLs. They are only valid for 2h since their retrieval.
+{% endhint %}
+
 {% swagger method="get" path="/runs/:runId" baseUrl="v1" summary="Get Run details" %}
 {% swagger-description %}
 
@@ -92,7 +96,39 @@ Run ID
                 // Time when a cypress runner reported the results to the dashboard
                 "completedAt": "2022-07-06T08:38:05.113Z",
                 // Cypress runner that requested the spec file 
-                "machineId": "327043fb-f9df-4611-9a5e-8a33bbba7247"
+                "machineId": "327043fb-f9df-4611-9a5e-8a33bbba7247",
+                // The results of the instance associated with the spec file
+                "results": {
+                    // Signed video URL 
+                    "videoUrl": "https://fs-staging.currents.dev/629849461deb0ae7090f97d1/bf89e79f-af2a-43cb-afba-2575e567f103.mp4?Expires=1657219165&Key-Pair-Id=K1ZNDCCIZ3P4FU&Signature=QYVMeagJ~N~~3YHdSzpRZeCevUolGmUkG5Wr45D3V5ucLdqNnIulSRPoqLMFppKYU9e1AqOXz-7AmCZ-796~17t4RHVfURSdl3Fb4D~ksZ6IcVO6xrnkV8dfJEwZmBcQS8423BqXJ2Xs1VL~XLy~2UOwo4HYEHL5BxgEVtT0HgfUOW5xqopV9MHblDn7Ll0VbCnCJlc5oRjUNXwYjlxkTwe9hKMzaM~5nt82C2O3loMJuc2j0ma2UEPsMSC6zxhI4fhkhD2P-vQ0-Vd2iRLYe6FZnoQ73UIeOkucjGSPnaGTBFi~PoxTZ9ZDMkiCEYfCusYi7HtVM3-~Istbg~JJMw__",
+                    // Aggregated test results for the instance
+                    "stats": {
+                        "suites": 1,
+                        "tests": 2,
+                        "passes": 0,
+                        "pending": 1,
+                        "skipped": 0,
+                        "failures": 1,
+                        "wallClockStartedAt": "2022-07-06T07:25:50.856Z",
+                        "wallClockEndedAt": "2022-07-06T07:25:50.992Z",
+                        "wallClockDuration": 136
+                    },
+                    // Screeenshots associated with the instance
+                    "screenshots": [
+                        {
+                            "screenshotId": "wz9n2",
+                            "name": null,
+                            "testId": "r3",
+                            "testAttemptIndex": 0,
+                            "takenAt": "2022-07-06T07:25:50.893Z",
+                            "height": 720,
+                            "width": 1280,
+                            "screenshotURL": "https://fs-staging.currents.dev/629849461deb0ae7090f97d1/50d92085-1493-4483-9cfa-07040876d083.png?Expires=1657219165&Key-Pair-Id=K1ZNDCCIZ3P4FU&Signature=HGGQhays0F~nZriOkuUboDQLI67XEyczK8KdVQLjIAVWwfpPSQMe7YA370QP6t7Xg~PviOlFkBLETtVkG1jI3L2FYojOtnyaDYhcpfqG~0z5rQGw9ScRIm8lq8QYaoI8bBFr6cOmji8Zv3~fcjBEHqpFbkC8tmQMJI~QZC~DbgXcS7ta3qwydMUmEu6RGEWnPuz8CGYC1gh3hnYqgsV7GakR~qWzymqJWBZHM~ZW3R9AbHai4T3Makv4OTMVvXXHl9nZdi6CKev4pfklf2O2w5xju1V4y9FVRpgu7FUz4US7atnSJuqteWiZBse8hpG2mDOVetjUiebiBLNIWx12Kw__"
+                        }
+                    ],
+                    // The amount of flaky tests detected in the instance
+                    "flaky": 0
+                }
             }
         ]
     }

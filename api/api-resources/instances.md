@@ -9,7 +9,7 @@ An instance is an object representing the results of a cypress spec file.&#x20;
 You can obtain the list of instance objects by querying [runs.md](runs.md "mention") API resource.
 
 {% hint style="info" %}
-**Please note,** the asset URLs listed in the responses (videos, screenshots) are "signed" URLs. They are only valid for 2h since their retrieval.
+Asset URLs listed in the responses (videos, screenshots) are "signed" URLs. They are only valid for 2h since their retrieval.
 {% endhint %}
 
 {% swagger method="get" path="/instances/:instanceId" baseUrl="v1" summary="Get Instance item" %}
