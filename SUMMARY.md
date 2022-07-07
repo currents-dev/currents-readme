@@ -62,3 +62,5 @@
 * [API Keys](api/api-keys.md)
 * [Errors](api/errors.md)
 * [Pagination](api/pagination.md)
+* [API Resources](api/api-resources/README.md)
+  * [Projects](api/api-resources/projects.md)
