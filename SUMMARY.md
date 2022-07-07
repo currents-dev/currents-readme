@@ -54,3 +54,11 @@
 * [Microsoft Teams](integrations/microsoft-teams.md)
 * [Slack](integrations/slack.md)
 * [GitLab Integration](integrations/gitlab.md)
+
+## API
+
+* [Introduction](api/introduction.md)
+* [Authentication](api/authentication.md)
+* [API Keys](api/api-keys.md)
+* [Errors](api/errors.md)
+* [Pagination](api/pagination.md)
