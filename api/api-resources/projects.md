@@ -49,4 +49,14 @@ Pagination cursor. See
 {% endswagger-response %}
 {% endswagger %}
 
+{% swagger method="get" path="/projects/:projectId" baseUrl="v1" summary="Get project item" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="projectId" required="true" type="String" %}
+ProjectId
+{% endswagger-parameter %}
+{% endswagger %}
+
 \
