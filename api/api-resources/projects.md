@@ -4,7 +4,7 @@ description: Cypress tests API Reference - Projects resource
 
 # Projects
 
-This is an object representing your Currents project. You can retrieve the list of projects for your organization, get specific project details, retrieve the list of runs for a project.
+This is an object representing your Currents project. You can retrieve the list of projects for your organization, get specific project details, and retrieve the list of runs for a project.
 
 {% swagger method="get" path="projects" baseUrl="v1/" summary="List the projects associated with your organization" %}
 {% swagger-description %}
@@ -117,7 +117,7 @@ Pagination cursor. See
             "tags": ["tagA", "tagB"], // tags
             "cypressVersion": "9.5.4", // cypress version
             // timeout data
-             "timeout": {
+            "timeout": {
                 "isTimeout": true, // whether the run timed out
                 "timeoutValueMs": 3600000 // value used for timeout
             },

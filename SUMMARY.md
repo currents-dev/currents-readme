@@ -63,4 +63,6 @@
 * [Errors](api/errors.md)
 * [Pagination](api/pagination.md)
 * [API Resources](api/api-resources/README.md)
+  * [Instances](api/api-resources/instances.md)
+  * [Runs](api/api-resources/runs.md)
   * [Projects](api/api-resources/projects.md)
