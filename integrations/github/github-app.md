@@ -38,6 +38,16 @@ To change the GitHub repository associated with a project, select the new reposi
 
 Use the following settings to change the behaviour of your GitHub Integration.
 
+#### Commit Status Label
+
+Set the commit status label to distinguish the GitHub status checks one from another. For example, when multiple Current Dashboard projects are connected to the same repository, setting the Commit Status label will conveniently display the status check for each project separately.
+
+{% hint style="info" %}
+**Please note -** using the same status for the same repo across different projects can create a conflict - runs from both projects will overwrite the associated status check item.
+{% endhint %}
+
+![An example of multiple status check items](<../../.gitbook/assets/CleanShot 2022-07-18 at 15.16.04@2x.png>)
+
 #### PR Comment
 
 Enabling PR comments will post a summary of your run to the associated GitHub PR. The comment will be posted:
@@ -45,7 +55,7 @@ Enabling PR comments will post a summary of your run to the associated GitHub PR
 * after run’s completion - with the details of test results
 * after run’s timeout - with the last known test results
 
-Re-running cypress tests for the same PR will delete the previous comment and post a new one with the most recent result, unless **Keep Old Results** option is enabled
+Re-running cypress tests for the same PR will delete the previous comment and post a new one with the most recent result unless **Keep Old Results** option is enabled
 
 ![GitHub integration - PR comment example](../../.gitbook/assets/github-cypress-pr-comment.gif)
 
@@ -69,14 +79,14 @@ To detach a repository from a project, navigate to Project Settings and click �
 
 ![GitHub integration - remove repository](../../.gitbook/assets/cypress-github-remove-integration.gif)
 
-To completely remove GitHub integration, navigate to Project Settings, click “Configure” and then uninstall “currents-bot” Github App. Uninstalling the app will automatically detach all the projects from respective repositories.
+To completely remove GitHub integration, navigate to Project Settings, click “Configure” and then uninstall “currents-bot” Github App. Uninstalling the app will automatically detach all the projects from their respective repositories.
 
 ![Disconnecting GitHub Integration](../../.gitbook/assets/github-cypress-disconnecting.gif)
 
 ### Troubleshooting GitHub Integration
 
 {% hint style="info" %}
-**Please note:** your CI environment must expose git commit information in order for cypress agent to send commit details (sha, repository url etc.) and enable the integration.
+**Please note:** your CI environment must expose git commit information in order for cypress agent to send commit details (sha, repository URL etc.) and enable the integration.
 {% endhint %}
 
 Cypress agents use [https://github.com/cypress-io/commit-info](https://github.com/cypress-io/commit-info) package to discover git-related information.
