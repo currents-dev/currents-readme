@@ -59,6 +59,18 @@ Re-running cypress tests for the same PR will delete the previous comment and po
 
 ![GitHub integration - PR comment example](../../.gitbook/assets/github-cypress-pr-comment.gif)
 
+#### Failed Runs Only
+
+Enabling the "Failed Runs Only" toggle would prevent posting a comment for successful runs - i.e. runs that have 0 failed or skipped tests.
+
+**Events Selection**
+
+You can customize what event can trigger posting a PR comment:
+
+* Run Finish - will post a comment when a run completes its execution without cancellation or a timeout
+* Run Cancelled - will post a comment upon the run's cancellation, due to [fail-fast-strategy.md](../../guides/fail-fast-strategy.md "mention")or cancellation via the Dashboard. See more at [cancel-run.md](../../runs/cancel-run.md "mention")
+* Run Timeout - will post a comment after a run's timeout is detected. Read more about [run-timeouts.md](../../runs/run-timeouts.md "mention").
+
 #### Keep Old **Results**
 
 When enabled, old results posted as a PR comment will be preserved, i.e. the integration will keep the comments with the results of the previous runs.
