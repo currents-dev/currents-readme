@@ -53,7 +53,7 @@
 * [HTTP Webhooks](integrations/http-webhooks.md)
 * [Microsoft Teams](integrations/microsoft-teams.md)
 * [Slack](integrations/slack.md)
-* [GitLab Integration](integrations/gitlab.md)
+* [GitLab](integrations/gitlab.md)
 
 ## API
 
