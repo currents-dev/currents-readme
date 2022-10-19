@@ -10,10 +10,10 @@ description: Using currents CLI tool for running cypress tests with Currents das
 
 * `currents` - reconfigures cypress to use Currents dashboard **and** launches cypress runner
 * `currents-prepare` - reconfigures cypress to use Currents dashboard without automatically launching cypress runner
-* `currents-reset` - restored the original Cypress runner configuration
+* `currents-reset` - restores the original Cypress runner configuration
 
 {% hint style="info" %}
-**Please note:**`currents` needs `cypress` to work correctly - so you will need to install both packages from NPM
+**Please note:** `currents` needs `cypress` to work correctly - so you will need to install both packages from NPM
 
 ```
 npm install @currents/cli cypress
