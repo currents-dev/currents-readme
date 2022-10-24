@@ -99,9 +99,9 @@ Some CI providers (e.g. GitLab, GitHub) allow reruns only for the failed contain
 * it will create a completely new run within the dashboard
 * the dashboard will load balance all the specs among all the available containers
 
-So, you end up running all the tests using a subset of available containers.
+So, you end up running all the tests using a just subset of available containers.
 
-We have been experimenting with alternative load-balancing strategies that would allow seamless reruns. Please reach out to our customer support if you to get updates regarding the progress.
+We have been experimenting with alternative load-balancing strategies that would allow seamless reruns. Please reach out to our customer support if you want to get updates regarding the progress.
 
 {% hint style="info" %}
 **Please note:** GitLab doe not provide a "rerun identifier" within its CI environment. See the WIP [discussion](https://gitlab.com/gitlab-org/gitlab/-/issues/195618#note\_1139938057).
