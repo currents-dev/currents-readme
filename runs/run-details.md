@@ -43,5 +43,5 @@ COMMIT_INFO_REMOTE: remote origin
 {% endhint %}
 
 {% hint style="warning" %}
-Please note: git information is required for Bitbucket, GitHub, Gitlab and other SVC providers
+Please note: git information is required for Bitbucket, GitHub and Gitlab integrations to work properly
 {% endhint %}
