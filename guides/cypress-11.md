@@ -1,5 +1,5 @@
 ---
-description: Migration guide -  Cypress 11 and Currents Dashboard
+description: Migration guide - Cypress 11 and Currents Dashboard
 ---
 
 # Cypress 11
@@ -7,7 +7,7 @@ description: Migration guide -  Cypress 11 and Currents Dashboard
 {% hint style="success" %}
 **TL;DR:  Use the new package versions that are compatible with Cypress 11**
 
-* &#x20;`@currents/cli`  version `3.0.0` or later
+* &#x20;`@currents/cli`  version 3.0.0 or later
 * `cy2` users, please use version 3.2.0 or later
 * `@currents/nx` users, please use version 0.1.0 or later
 {% endhint %}
