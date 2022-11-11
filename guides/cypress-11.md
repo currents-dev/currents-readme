@@ -1,5 +1,5 @@
 ---
-description: Migration guide -  Cypress 11 and Currents Dashboard
+description: Migration guide - Cypress 11 and Currents Dashboard
 ---
 
 # Cypress 11
