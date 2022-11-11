@@ -14,6 +14,7 @@
 * [Record Key](guides/record-key.md)
 * [Currents CLI](guides/currents-cli.md)
 * [Cypress 10](guides/cypress-10.md)
+* [Cypress 11](guides/cypress-11.md)
 
 ## CI Setup
 
