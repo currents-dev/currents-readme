@@ -111,3 +111,17 @@ However, older versions of @currents/cli used to permanently modify cypress inst
 * Remove the [cached Cypress binaries](https://docs.cypress.io/guides/references/advanced-installation#Binary-cache)
 * Run `cypress install --force` to install a fresh version of cypress binaries
 * Reinstall cypress npm package from scratch
+
+{% hint style="warning" %}
+**MacOS Ventura Users**
+
+Running the commands in an interactive shell (or VSCode) can fail with`EPERM: operation not permitted` error.
+
+You need to explicitly allow the shell app (or VSCode) to modify other applications.
+
+Add the app to the App Management allowed list to stop the error.
+
+**Mac OS Settings > Privacy and Security > App Management**
+
+****![](<../.gitbook/assets/CleanShot 2022-11-03 at 00.04.10@2x.png>)****
+{% endhint %}
