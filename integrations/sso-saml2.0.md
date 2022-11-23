@@ -13,15 +13,15 @@ Currents supports SSO integration via SAML 2.0. When enabled, authentication wil
 In order to enable SSO integration, please contact the support via in-app chat or email, and provide the following details:
 
 * **IdP Metadata** or **publicly available metadata document endpoint URL**
-* **Domains list** that your organization members can use to access the dashboard
+* **Domains list** that your organization members will use to access the dashboard (for example user@**example.com**)
 
-Please note that there are certain limitations to Current's SSO integration:
+Please note that there are certain limitations to Currents SSO integration:
 
 * **Custom Roles** for team members are not supported at the moment - the roles need to be manually configured for each user via the dashboard. New accounts will be created with **member** role
 * **User Deletion** - Currents won't be notified if user access is revoked in IdP. You can delete the users on the team page
 * Enabling SSO will mandate the auth method for **all the team members**
 
-Here are the configuration entries you will need to define on your IdP on your end:
+Here are the configuration entries you will need to define on your IdP:
 
 * Call-back URL: `https://auth.currents.dev/saml2/idpresponse`
 * Audience: `urn:amazon:cognito:sp:us-east-1_Z9TVEnj0k`
