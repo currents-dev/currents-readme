@@ -4,11 +4,13 @@ description: Running Cypress test in parallel in Azure DevOps and Currents Dashb
 
 # Azure DevOps
 
-This guide will help you to run Cypress tests in parallel using Azure DevOps and Currents Dashboard. The example showcases using 5 Azure DevOps containers for parallelizing the execution using Currents as an orchestration and reporting service.
+This guide will help you to run Cypress tests in parallel using Azure DevOps and Currents Dashboard. The example showcases using 3 Azure DevOps containers for parallelizing the execution using Currents as an orchestration and reporting service.
 
 {% hint style="info" %}
 TLDR; Check out the example Azure DevOps pipeline [configuration file](https://github.com/currents-dev/azure-devops-example/blob/main/azure-pipelines.yml)
 {% endhint %}
+
+
 
 * Connect a new / existing pipeline to a repository containing your cypress tests
 * Make sure that your `cypress.config.js` file has the correct `projectId`. You can fetch the `projectId` by navigating to [https://app.currents.dev](https://app.currents.dev) and then **Project Name > Manage Project**
@@ -73,3 +75,11 @@ jobs:
 Pipeline executions will be orchestrated via the Currents Dashboard, and execution results and artifacts will be automatically uploaded as well.
 
 <figure><img src="../.gitbook/assets/Azure-Cypress example.png" alt=""><figcaption><p>Running Cypress Tests in Azure DevOps Pipeline</p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/cypress-azure-devops@2x.png" alt=""><figcaption><p>Running Cypress Tests in Azure DevOps Pipeline</p></figcaption></figure>
+
+
+
+
+
+<figure><img src="../.gitbook/assets/Cypress-Currents-AzureDevOps@2x.png" alt=""><figcaption><p>Currents Dashboard executing tests from Azure DevOps Pipeline</p></figcaption></figure>
