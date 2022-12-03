@@ -4,7 +4,7 @@ description: Running cypress tests in parallel with GitHub Action and Currents d
 
 # GitHub Actions
 
-### How to run cypress in parallel with GitHub Actions?
+### Running Cypress in parallel with GitHub Actions
 
 Currents dashboard allows running cypress tests in parallel using multiple containers within your GitHub Actions workflow.
 
@@ -12,11 +12,11 @@ By using [GitHub Actions matrix execution strategy](https://docs.github.com/en/a
 
 Each container will receive a unique set of tests to run, so that your cypress tests will run faster and you can receive faster feedback from your browser test suite.
 
-Currents orchestrates the tests between multiple containers, applying intelligent optimizations to reduce overall runtime of your workflow, records screenshots and videos for later troubleshooting.
+Currents orchestrates the tests between multiple containers, applying intelligent optimizations to reduce the overall runtime of your workflow, records screenshots and videos for later troubleshooting.
 
 ![Cypress Tests Parallelization with Github Actions](<../.gitbook/assets/Cypress-Parallelization-github-actions (1).jpg>)
 
-### How to setup GitHub Workflow to run Cypress Tests in parallel?
+### GitHub Workflow configuration for Cypress tests
 
 Please take a look at the [example repository](https://github.com/currents-dev/gh-actions-example) that showcases running cypress tests in parallel using GitHub Actions.
 
@@ -35,7 +35,7 @@ Here's an example of how the demo workflow appears in Currents dashboard
 
 ### How to setup Git commit data for Cypress when using GitHub Actions
 
-Running Cypress tests using GitHub Actions can generate a confusing git information. For example, instead of last commit message (or pull request title), one can see something like:
+Running Cypress tests using GitHub Actions can generate confusing git information. For example, instead of the last commit message (or pull request title), one can see something like:
 
 ```
 Merge de7282540ac30ee4e32a0b1fede4f6391b4cc321 into fa58941d8a807b83ec5a3e5bfb83418ce12173c7
@@ -43,7 +43,7 @@ Merge de7282540ac30ee4e32a0b1fede4f6391b4cc321 into fa58941d8a807b83ec5a3e5bfb83
 
 Also, the branch name becomes `refs/pull/12/merge` instead of the expected branch name. Why is that happening?
 
-That happens when your GitHub Actions workflow is being triggered by [`pull_request`](https://docs.github.com/en/github-ae@latest/actions/using-workflows/events-that-trigger-workflows#pull\_request).&#x20;
+That happens when your GitHub Actions workflow is triggered by [`pull_request`](https://docs.github.com/en/github-ae@latest/actions/using-workflows/events-that-trigger-workflows#pull\_request).&#x20;
 
 It changes the behaviour of `@actions/checkout` - it creates a **new merge commit,** which is created from merging the base to the head.&#x20;
 

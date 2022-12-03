@@ -23,6 +23,7 @@
 * [GitLab](ci-setup/gitlab.md)
 * [Jenkins](ci-setup/jenkins.md)
 * [NX](ci-setup/nx.md)
+* [Azure DevOps](ci-setup/azure-devops.md)
 
 ## Runs
 
