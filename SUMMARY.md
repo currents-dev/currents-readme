@@ -19,11 +19,11 @@
 ## CI Setup
 
 * [GitHub Actions](ci-setup/github-actions.md)
+* [Azure DevOps](ci-setup/azure-devops.md)
 * [CircleCI](ci-setup/circleci.md)
 * [GitLab](ci-setup/gitlab.md)
 * [Jenkins](ci-setup/jenkins.md)
 * [NX](ci-setup/nx.md)
-* [Azure DevOps](ci-setup/azure-devops.md)
 
 ## Runs
 
