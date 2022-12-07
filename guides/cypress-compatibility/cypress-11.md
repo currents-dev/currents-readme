@@ -18,7 +18,7 @@ Version [11.0.0](https://docs.cypress.io/guides/references/changelog#11-0-0) of 
 
 However, the use of binary snapshot (that allowed a faster startup) introduced a breaking change to the internal structure of the installed package, which broke the integration with `@currents/cli` and `cy2`
 
-We are happy to release an updated version of `@currents/cli,` `cy2` and `@currents/nx` packages, that are [compatible](currents-cli.md#currents-cli-compatibility) with the recent version of cypress runner.
+We are happy to release an updated version of `@currents/cli,` `cy2` and `@currents/nx` packages, that are [compatible](./) with the recent version of cypress runner.
 
 ### Cypress 11 and V8 Snapshots
 

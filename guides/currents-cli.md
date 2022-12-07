@@ -50,14 +50,7 @@ Behind the scenes, `currents` CLI tool changes the configuration of cypress runn
 
 ### Currents CLI Compatibility
 
-Sometimes Cypress.io team changes the internal architecture of cypress installation, which introduces a breaking change for integration with currents.&#x20;
-
-Please use the table below to figure out the compatibility between `@currents/cli` and `cypress`
-
-| Cypress | @currents/cli |         cy2 | @currents/nx |
-| ------- | ------------: | ----------: | -----------: |
-| 11.0.0+ |        3.0.0+ |      3.2.0+ |       0.1.0+ |
-| 6.7.0+  |   any version | any version |  any version |
+Migrated to a separate section: [cypress-compatibility](cypress-compatibility/ "mention")
 
 ### Additional tools within `@currents/cli`
 
