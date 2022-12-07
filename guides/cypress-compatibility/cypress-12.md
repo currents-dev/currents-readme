@@ -24,11 +24,11 @@ This directly affects Currents and Sorry Cypress integration with cypress runner
 
 We are happy to release an updated version of `@currents/cli,` `cy2` and `@currents/nx` packages, that are [compatible](./) with the recent version of cypress runner.
 
-We have been monitoring the new cypress releases and working on various strategies to keep the open-source cypress runner compatible with external cloud services like Sorry Cypress and Currents.
-
 ### Cypress 12 and Currents/Sorry Cypress
 
 The new architecture introduced a breaking change - **@currents/cli** versions prior to 3.1.1 (and **cy2** prior to 3.3.0) are incompatible with Cypress 12 and using those will result in an "Integrity check" exception.&#x20;
+
+We have been monitoring the new cypress releases and working on various strategies to keep the open-source cypress runner compatible with external cloud services like Sorry Cypress and Currents.
 
 ### Cypress 12 Migration Steps
 
