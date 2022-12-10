@@ -7,9 +7,9 @@ description: Migration guide - Cypress 12 and Currents Dashboard
 {% hint style="success" %}
 **TL;DR:  Use the following package versions that are compatible with Cypress 12**
 
-* &#x20;`@currents/cli`  version 3.1.1 or later
-* `cy2` users, please use version 3.3.0 or later
-* `@currents/nx` users, please use version 0.2.0 or later
+* &#x20;`@currents/cli`  version 3.1.3 or later
+* `cy2` users, please use version 3.4.1 or later
+* `@currents/nx` users, please use version 0.2.1 or later
 {% endhint %}
 
 ### Cypress 12 Changes
