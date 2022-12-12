@@ -11,7 +11,7 @@ Cypress.io team has released a few breaking changes that can trigger `Integrity 
 
 The affected cypress versions are 12.0.0, 12.0.1 and 12.0.2&#x20;
 
-The versions listed below fix the integration but still can fail for exotic setups. As a temporary workaround, we recommend downgrading cypress to versions 11 and below.
+The versions listed below fix the integration but still can fail for exotic setups. As a temporary workaround, we recommend pinning cypress to version 12.0.2 or below.
 
 
 
