@@ -20,7 +20,7 @@ The versions listed below fix the integration but still can fail for exotic setu
 👷🏽‍♀️ We have been working on a long-term solution, an announcement will follow soon.
 {% endhint %}
 
-Please use the table below to figure out the compatibility between `@currents/cli` and `cypress`
+Please use the table below for selecting the matching packages version
 
 | Cypress | @currents/cli |         cy2 | @currents/nx |
 | ------- | ------------: | ----------: | -----------: |
