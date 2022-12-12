@@ -4,6 +4,20 @@ description: Migration guide - Cypress 12 and Currents Dashboard
 
 # Cypress 12
 
+{% hint style="warning" %}
+**Please note 🚧**
+
+Cypress.io team has released a few breaking changes that can trigger `Integrity check failed` error when using sorry cypress (cy2) or Currents (@currents/cli).
+
+The affected cypress versions are 12.0.2+.&#x20;
+
+The versions listed [here](./) fix the integration but still can fail for exotic setups. As a temporary workaround, please downgrade cypress version.
+
+
+
+👷🏽‍♀️ We have been working on a long-term solution, an announcement will follow soon.
+{% endhint %}
+
 {% hint style="success" %}
 **TL;DR:  Use the following package versions that are compatible with Cypress 12**
 
