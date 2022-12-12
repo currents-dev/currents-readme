@@ -5,7 +5,7 @@ description: Cypress 12 and Currents Dashboard
 # Cypress 12
 
 {% hint style="warning" %}
-**Dec 12 Update**  **🚧**
+**Dec 11 Update**  **🚧**
 
 Cypress.io team has released a few breaking changes that can trigger `Integrity check failed` error when using sorry cypress (cy2) or Currents (@currents/cli).
 
