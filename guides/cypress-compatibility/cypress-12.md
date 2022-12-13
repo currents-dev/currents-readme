@@ -5,23 +5,17 @@ description: Cypress 12 and Currents Dashboard
 # Cypress 12
 
 {% hint style="warning" %}
-**Dec 11 Update**  **🚧**
+**Breaking change**  **🚧**
 
 Cypress.io team has released a few breaking changes that can trigger `Integrity check failed` error when using sorry cypress (cy2) or Currents (@currents/cli).
 
-The affected cypress versions are 12.0.0, 12.0.1 and 12.0.2.&#x20;
+The affected cypress versions are 12.1.0+
 
-The versions listed below fix the integration:
-
-* &#x20;`@currents/cli`  version 3.1.3 or later
-* `cy2` version 3.4.1 or later
-* `@currents/nx` version 0.2.1 or later
+👷🏽‍♀️  **As a temporary workaround, we recommend pinning cypress to version 12.0.2 or below until we release a new integration.**&#x20;
 
 
 
-👷🏽‍♀️  **As a temporary workaround, we recommend pinning cypress to version 12.0.2 or below until we release a new integration.** We have been working on a long-term solution, and an announcement will follow soon.
-
-
+We have been working on a long-term solution, and an announcement will follow soon.
 {% endhint %}
 
 ### Cypress 12 Changes
