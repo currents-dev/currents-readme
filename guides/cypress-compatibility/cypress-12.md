@@ -11,11 +11,7 @@ Cypress.io team has released a few breaking changes that can trigger `Integrity 
 
 The affected cypress versions are 12.1.0+
 
-👷🏽‍♀️  **As a temporary workaround, we recommend pinning cypress to version 12.0.2 or below until we release a new integration.**&#x20;
-
-
-
-We have been working on a long-term solution, and an announcement will follow soon.
+👷🏽‍♀️  **As a temporary workaround, we recommend pinning cypress to version 12.0.2 or below. We are preparing a new compatible release, a separate announcement and migration instructions will follow.**
 {% endhint %}
 
 ### Cypress 12 Changes
