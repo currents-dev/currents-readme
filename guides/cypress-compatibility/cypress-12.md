@@ -7,7 +7,7 @@ description: Cypress 12 and Currents Dashboard
 {% hint style="info" %}
 **Update Dec 16**
 
-We are looking for your feedback and help with testing the new [`cypress-cloud`](https://currents.notion.site/Cypress-12-and-Currents-Sorry-Cypress-3f9f29285f9242c78b0ba63cf9225c6c) integration. It is compatible with Cypress 12.1.0 (actually all 10.0.0+ packages).
+We are looking for your feedback on the new [`cypress-cloud`](https://currents.notion.site/Cypress-12-and-Currents-Sorry-Cypress-3f9f29285f9242c78b0ba63cf9225c6c) integration. It is compatible with Cypress 12.1.0 (actually all 10.0.0+ packages).
 {% endhint %}
 
 {% hint style="warning" %}
