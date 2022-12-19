@@ -5,9 +5,15 @@ description: Cypress 12 and Currents Dashboard
 # Cypress 12
 
 {% hint style="info" %}
-**Update Dec 16**
+**Update Dec 19**
 
-We are looking for your feedback on the new [`cypress-cloud`](https://currents.notion.site/Cypress-12-and-Currents-Sorry-Cypress-3f9f29285f9242c78b0ba63cf9225c6c) integration. It is compatible with Cypress 12.1.0 (actually all 10.0.0+ packages).
+Please try out the new beta versions that are compatible with Cypress 12
+
+* `npm install @cypress/cli@beta`
+* `npm install cy2@beta`
+* [`cypress-cloud`](https://currents.notion.site/Cypress-12-and-Currents-Sorry-Cypress-3f9f29285f9242c78b0ba63cf9225c6c) is compatible with all Cypress versions and is a complete rewrite of  cloud orchestration services integration
+
+``
 {% endhint %}
 
 {% hint style="warning" %}
@@ -16,8 +22,6 @@ We are looking for your feedback on the new [`cypress-cloud`](https://currents.n
 Cypress.io team has released a few breaking changes that can trigger `Integrity check failed` error when using sorry cypress (cy2) or Currents (@currents/cli).
 
 The affected cypress versions are 12.1.0+
-
-👷🏽‍♀️  **As a temporary workaround, we recommend pinning cypress to version 12.0.2 or below. We are preparing a new compatible release, a separate announcement and migration instructions will follow.**
 {% endhint %}
 
 ### Cypress 12 Changes
