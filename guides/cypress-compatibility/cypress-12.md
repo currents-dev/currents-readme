@@ -9,7 +9,7 @@ description: Cypress 12 and Currents Dashboard
 
 Please try out the new beta versions that are compatible with Cypress 12
 
-* `npm install @cypress/cli@beta`
+* `npm install @currents/cli@beta`
 * `npm install cy2@beta`
 * [`cypress-cloud`](https://currents.notion.site/Cypress-12-and-Currents-Sorry-Cypress-3f9f29285f9242c78b0ba63cf9225c6c) is compatible with all Cypress versions and is a complete rewrite of  cloud orchestration services integration
 
