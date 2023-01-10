@@ -177,3 +177,87 @@ Pagination cursor. See
 ```
 {% endswagger-response %}
 {% endswagger %}
+
+{% swagger method="get" path="/projects/:projectId/insights" baseUrl="v1" summary="Get project insights - aggregated metrics for runs, spec files and tests" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="query" name="date_start" required="true" %}
+ISO Date format indicating the start date for the query
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="projectId" required="true" %}
+Project ID
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="date_end" required="true" %}
+ISO Date format indicating the end date for the query
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="resolution" type="1w | 1d" %}
+Aggregation resolution. Valid values are "1w" or "1d"
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="tags" type="String" %}
+Comma-separated list of tags for filtering the query
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="branches" type="String" %}
+Comma-separated list of branches for filtering the query
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Successful Response" %}
+{% code overflow="wrap" lineNumbers="true" %}
+```typescript
+type response = {
+    "status": "OK";
+    "data": Payload;
+}
+
+type Payload = {
+	"projectId": string;
+	"orgId": string;
+	"dateStart": ISO string;
+	"dateEnd": ISO string;
+	"resolution": string[];
+	"tags": string[];
+	"authors": string[];
+	"branches": string[];
+	"results": {
+		"overall": {
+				runs: RunMetric;
+				tests: TestMetric;
+		},
+		"timeline": {
+			[timestamp: number]: {
+					runs: RunMetric;
+					tests: TestMetric;
+			}
+		}
+	}
+}
+
+
+type RunMetric = {
+	total: number; // overall # of runs for the period
+	cancelled: number; // # of runs for the period
+	timeouts: number; // # of timed-out runs for the period
+	completed: number; // # of completed runs for the period
+	failed: number; // # of failed  runs for the period
+	passed: number; // # of passed runs for the period
+	avgDurationSeconds: number // avg duration of completed runs for the period
+}
+
+type TestMetric = {
+	total: number; // overall # of tests for the period
+	failed: number; // # of failed tests for the period
+	passed: number; // # of passed tests for the period
+	pending: number; // # of pending tests for the period
+	skipped: number; // # of skipped tests for the period
+	flaky: number; // # of flaky tests for the period
+}
+```
+{% endcode %}
+{% endswagger-response %}
+{% endswagger %}
