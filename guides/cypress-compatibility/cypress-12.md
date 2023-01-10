@@ -5,15 +5,23 @@ description: Cypress 12 and Currents Dashboard
 # Cypress 12
 
 {% hint style="info" %}
-**Please note**
+**Update Dec 19**
 
-Make sure to use the latest versions that are compatible with Cypress 12
+Please try out the new beta versions that are compatible with Cypress 12
 
 * `npm install @currents/cli@beta`
-* `npm install cy2`
+* `npm install cy2@beta`
 * [`cypress-cloud`](https://currents.notion.site/Cypress-12-and-Currents-Sorry-Cypress-3f9f29285f9242c78b0ba63cf9225c6c) is compatible with all Cypress versions and is a complete rewrite of  cloud orchestration services integration
 
 ``
+{% endhint %}
+
+{% hint style="warning" %}
+**Breaking change**  **🚧**
+
+Cypress.io team has released a few breaking changes that can trigger `Integrity check failed` error when using sorry cypress (cy2) or Currents (@currents/cli).
+
+The affected cypress versions are 12.1.0+
 {% endhint %}
 
 ### Cypress 12 Changes
@@ -29,3 +37,6 @@ This directly affects Currents and Sorry Cypress integration with cypress runner
 ### Cypress 12 and Currents/Sorry Cypress
 
 The new architecture introduced a breaking change. Please refer to the [reference table](./) to find a compatible version  of `@currents/cli,` `cy2` and `@currents/nx` .
+
+We have been monitoring new cypress releases and working on a long-term solution that is not prone to Integrity check errors.
+
