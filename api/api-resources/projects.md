@@ -208,7 +208,7 @@ Comma-separated list of branches for filtering the query
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Successful Response" %}
-{% code overflow="wrap" lineNumbers="true" %}
+{% code overflow="wrap" %}
 ```typescript
 type ResponsePayload = {
   status: "OK";
