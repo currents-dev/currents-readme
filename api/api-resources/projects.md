@@ -199,12 +199,16 @@ ISO Date format indicating the end date for the query
 Aggregation resolution. Valid values are "1w" or "1d"
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="tags" type="String" %}
-Comma-separated list of tags for filtering the query
+{% swagger-parameter in="query" name="tags[]" type="String" %}
+List of tags for filtering the query. To provide multiple values, use 
+
+`tags[]=valueA&tags[]=valueB`
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="branches" type="String" %}
-Comma-separated list of branches for filtering the query
+{% swagger-parameter in="query" name="branches[]" type="String" %}
+List of branches for filtering the query. 
+
+`branches[]=valueA&branches[]=valueB`
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Successful Response" %}
