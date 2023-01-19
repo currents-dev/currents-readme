@@ -111,7 +111,9 @@ cmd /V /C "set DEBUG=cy2*,cypress:*&& npx currents run ..."
 
 Please capture the whole debug log - that will help the support person to identify the root cause faster.
 
-### Additional tools within `@currents/cli` \[deprecated]
+### Deprecated Functionality
+
+#### Additional tools within `@currents/cli` \[deprecated]
 
 {% hint style="warning" %}
 **Deprecated**: this functionality was deprecated in @currents/cli@4+
@@ -122,7 +124,7 @@ The package contains a few other utilities:
 * `currents-prepare` - reconfigures cypress to use Currents dashboard without automatically launching cypress runner
 * `currents-reset` - restores the original Cypress runner configuration
 
-### Using `currents-prepare` CLI \[deprecated]
+#### Using `currents-prepare` CLI \[deprecated]
 
 {% hint style="warning" %}
 **Deprecated**: this functionality was deprecated in @currents/cli@4+
@@ -138,10 +140,10 @@ npx currents-prepare
 npx cypress-repeat ...
 ```
 
-### Uninstalling currents
+#### Uninstalling currents
 
 {% hint style="warning" %}
-**Deprecated**: this functionality is relevant for deprecated versions lt 3
+**Please note**: this functionality is only relevant for versions 3 and below.
 {% endhint %}
 
 Older versions of @currents/cli  (prior to 3) were used to modify cypress installation. Use one of the following methods for restoring the original cypress configuration and removing Currents from cypress package:
@@ -152,7 +154,7 @@ Older versions of @currents/cli  (prior to 3) were used to modify cypress instal
 * Reinstall cypress npm package from scratch
 
 {% hint style="warning" %}
-**MacOS Ventura Users**
+#### **MacOS Ventura Users**
 
 Running the commands in an interactive shell (or VSCode) can fail with`EPERM: operation not permitted` error.
 
