@@ -141,7 +141,7 @@ npx cypress-repeat ...
 ### Uninstalling currents
 
 {% hint style="warning" %}
-**Please note**: this functionality is only relevant for versions 3 and below.
+**Deprecated**: this functionality is relevant for deprecated versions lt 3
 {% endhint %}
 
 Older versions of @currents/cli  (prior to 3) were used to modify cypress installation. Use one of the following methods for restoring the original cypress configuration and removing Currents from cypress package:
