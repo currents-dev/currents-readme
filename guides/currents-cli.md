@@ -4,11 +4,11 @@ description: Integrate Cypress with Currents using @currents/cli
 
 # Currents CLI
 
-``[`@current/cli`](https://github.com/currents-dev/cli) is a small npm package that allows seamless integration of cypress with Currents cloud orchestration service. The package contains executable script "currents**"** that provides the same CLI and API experience as the original **cypress** package - they are 100% interchangeable.
+``[`@current/cli`](https://github.com/currents-dev/cli) is a small npm package that allows seamless integration of cypress with Currents cloud orchestration service. The package contains an executable script that provides the same CLI and API experience as the original **cypress** package - they are 100% interchangeable.
 
 ```bash
 > npm install @currents/cli cypress
-> npx currents run --record --parallel --key #currents_key
+> npx currents run --record --parallel --key $CURRENTS_RECORD_KEY
 ```
 
 In fact, currents runs cypress command behind the scenes, passing down all the CLI flags or API options. **currents** requires **cypress** to be installed.
