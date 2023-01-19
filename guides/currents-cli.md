@@ -1,65 +1,132 @@
 ---
-description: Using currents CLI tool for running cypress tests with Currents dashboard
+description: Integrate Cypress with Currents using @currents/cli
 ---
 
 # Currents CLI
 
-`currents` is a lightweight executable script - it integrates with `cypress` and allows running cypress with Currents as a parallelization and recording dashboard. The script is available in `@current/cli` npm package.
+``[`@current/cli`](https://github.com/currents-dev/cli) is a small npm package that allows seamless integration of cypress with Currents cloud orchestration service. The package contains executable script "currents**"** that provides the same CLI and API experience as the original **cypress** package - they are 100% interchangeable.
 
-{% hint style="success" %}
-**Please note:** `currents` requires `cypress` to be installed - so you will need to get both packages from NPM
+```bash
+> npm install @currents/cli cypress
+> npx currents run --record --parallel --key #currents_key
+```
 
-```
-npm install @currents/cli cypress
-```
-{% endhint %}
+In fact, currents runs cypress command behind the scenes, passing down all the CLI flags or API options. **currents** requires **cypress** to be installed.
 
 {% hint style="info" %}
-**Please note:** `currents` CLI is intended to be used in CI environments, using it for running cypress tests interactively is not recommended&#x20;
+**Please note:** @currents/cli **** is designed to be used in CI environments. Using it for running cypress tests interactively is not recommended.&#x20;
 {% endhint %}
 
-### Using `currents`
+### Using @currents/cli
 
-Use `currents` the same way you're using `cypress` command. It accepts exactly the same flags. In fact, `currents` is just running `cypress` behind the scenes.
+Install both cypress and @currents/cli packages on your system
 
-```
-$ npx currents --help                                                                             ✖ ✹ ✭
-
-[currents] Running cypress with API URL: https://cy.currents.dev
-
-Usage: cypress <command> [options]
-
-Options:
-  -v, --version      prints Cypress version
-  -h, --help         display help for command
-
-Commands:
-  help               Shows CLI help and exits
-  version            prints Cypress version
-  open [options]     Opens Cypress in the interactive GUI.
-  run [options]      Runs Cypress tests from the CLI without the GUI
-  open-ct [options]  Opens Cypress component testing interactive mode.
-  run-ct [options]   Runs all Cypress Component Testing suites
-  install [options]  Installs the Cypress executable matching this package's version
-  verify [options]   Verifies that Cypress is installed correctly and executable
-  cache [options]    Manages the Cypress binary cache
-  info [options]     Prints Cypress and system information
+```bash
+> npm install @currents/cli cypress
+> npx currents run --record --parallel --key #currents_key
 ```
 
-Behind the scenes, `currents` CLI tool changes the configuration of cypress runner to use Currents servers (https://cy.currents.dev) for parallelization and recordings.
+Use `currents` the same way you are using `cypress`- it accepts the same flags and configuration options. Usually, you end up running a somewhat similar command as part of your CI build:
 
-### Currents CLI Compatibility
+```bash
+npx currents run --record --parallel --ci-build-id $BUILD_ID --key $CURRENTS_KEY
+```
 
-Migrated to a separate section: [cypress-compatibility](cypress-compatibility/ "mention")
+Learn more about obtaining a [record-key.md](record-key.md "mention") and generating a [cypress-ci-build-id.md](cypress-ci-build-id.md "mention")
 
-### Additional tools within `@currents/cli`
+### API - Programmatic Usage
+
+{% hint style="info" %}
+**Please note:** the documentation below is for the most recent version of the package. Please refer to the package [changelog](https://github.com/currents-dev/cli/blob/main/CHANGELOG.md) for details about the previous versions.
+{% endhint %}
+
+#### `run`
+
+Run Cypress via its [Module API](https://docs.cypress.io/guides/guides/module-api)
+
+```typescript
+run(config: CypressCommandLine.CypressRunOptions): Promise<CypressCommandLine.CypressRunResult | CypressCommandLine.CypressFailedRunResult>
+```
+
+Example:
+
+```typescript
+import { run } from "@currents/cli";
+
+const cypressOptions: Partial<CypressCommandLine.CypressRunOptions> = {
+  browser: "chrome",
+  parallel: true,
+  record: true,
+  key: "Currents key from https://app.currents.dev",
+  tag: "smoke",
+};
+const results = await run(cypressOptions);
+```
+
+#### `spawn`
+
+Spawn Cypress as a child process and inherit all the flags and environment variables. It invokes `process.exit` with the child process' exit code at the end of its execution.
+
+```
+spawn(): Promise<void>
+```
+
+Example:
+
+```
+import { spawn } from "@currents/cli";
+
+await spawn();
+```
+
+### Integration Details
+
+`currents` CLI tool uses the public APIs of cypress runner. It connects the runner to Currents servers for orchestration, parallelization and reporting the results. It uses another open-source tool from the sorry-cypress project ([cy2](https://github.com/sorry-cypress/cy2)).
+
+### Compatibility
+
+Please refer to [cypress-compatibility](cypress-compatibility/ "mention").
+
+### Troubleshooting and Debugging
+
+If you are experiencing issues with using @currents/cli, please submit a support request either via in-app support chat or on [GitHub](https://github.com/currents-dev/cli).&#x20;
+
+Modify your CI configuration and add the following commands. Share the output as part of a ticket or conversation with a support person.
+
+* Get the(CI) environment information&#x20;
+
+```bash
+npx envinfo --system --binaries --browsers --npmPackages --duplicates --npmGlobalPackages
+```
+
+* Get the debug logs
+
+```bash
+# on Linux
+DEBUG=cy2*,cypress:* npx currents run ...
+
+# on Windows
+cmd /V /C "set DEBUG=cy2*,cypress:*&& npx currents run ..."
+```
+
+Please capture the whole debug log - that will help the support person to identify the root cause faster.
+
+### Additional tools within `@currents/cli` \[deprecated]
+
+{% hint style="warning" %}
+**Deprecated**: this functionality was deprecated in @currents/cli@4+
+{% endhint %}
 
 The package contains a few other utilities:
 
 * `currents-prepare` - reconfigures cypress to use Currents dashboard without automatically launching cypress runner
 * `currents-reset` - restores the original Cypress runner configuration
 
-### Using `currents-prepare` CLI
+### Using `currents-prepare` CLI \[deprecated]
+
+{% hint style="warning" %}
+**Deprecated**: this functionality was deprecated in @currents/cli@4+
+{% endhint %}
 
 `currents-prepare` can be useful when you need to invoke custom scripts that run `cypress` behind the scenes.&#x20;
 
@@ -71,34 +138,13 @@ npx currents-prepare
 npx cypress-repeat ...
 ```
 
-### `@currents/cli` API
-
-`@currents/cli` exposes an [API](https://github.com/currents-dev/cli#example-api-usage) for programmatic invocation. For example:
-
-```javascript
-#!/usr/bin/env node
-
-const { patch } = require('@currents/cli');
-const cypress = require('cypress');
-
-async function main() {
-  // 
-  await patch();
-  // run Cypress as usual
-  await cypress.run({
-    // Cypress config goes here
-  })
-  
-}
-
-main().catch(console.error);
-```
-
 ### Uninstalling currents
 
-Currents executable script does not permanently change cypress' runner configuration - it temporarily modifies the configuration only for the current invocation. In other words, you can keep using cypress as usual after installing currents.
+{% hint style="warning" %}
+**Deprecated**: this functionality is relevant for deprecated versions lt 3
+{% endhint %}
 
-However, older versions of @currents/cli used to permanently modify cypress installation. Use one of the following methods for restoring the original cypress configuration and removing Currents from cypress package:
+Older versions of @currents/cli  (prior to 3) were used to modify cypress installation. Use one of the following methods for restoring the original cypress configuration and removing Currents from cypress package:
 
 * Run `npx currents-reset`  from `@currents/cli` npm package to restore the original configuration
 * Remove the [cached Cypress binaries](https://docs.cypress.io/guides/references/advanced-installation#Binary-cache)
