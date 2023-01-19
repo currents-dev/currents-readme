@@ -9,7 +9,7 @@ description: Integrating Cypress with Currents - compatibility table
 
 Cypress.io team has released a series of breaking changes in version 12+ - it triggers `Integrity check failed` error when using certain versions of Currents and Sorry Cypress.
 
-Please make sure to use the latest available package.
+Please make sure to use the latest compatible version according to the table below
 {% endhint %}
 
 Please use the table below to select the version of the compatible package
