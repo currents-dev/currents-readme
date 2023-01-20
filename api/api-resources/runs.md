@@ -29,6 +29,8 @@ Run ID
     "data": {
         "runId": "0a91f41ed60abfab9ea509e866ba9d6d", // run id
         "projectId": "bAYZ4a", // associated project Id
+        "completionState": "COMPLETE", // "CANCELED" | "COMPLETE" | "IN_PROGRESS" | "TIMEOUT"
+        "status": "FAILED", // "FAILED" | "FAILING" | "PASSED" | "RUNNING"
         "createdAt": "2022-07-06T08:23:40.939Z", // run creation time
         "tags": ["tagA", "tagB"], // run tags
         "cypressVersion": "9.5.4", // cypress runner version

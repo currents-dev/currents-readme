@@ -114,6 +114,8 @@ Pagination cursor. See
             "cursor": "62c5468c239c55bd1a1a97ce", // pagination cursor
             "projectId": "bAYZ4a", // run's project ID
             "createdAt": "2022-07-06T08:23:40.939Z", // creation time
+            "completionState": "COMPLETE", // "CANCELED" | "COMPLETE" | "IN_PROGRESS" | "TIMEOUT"
+            "status": "FAILED", // "FAILED" | "FAILING" | "PASSED" | "RUNNING"
             "tags": ["tagA", "tagB"], // tags
             "cypressVersion": "9.5.4", // cypress version
             // timeout data
