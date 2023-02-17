@@ -5,12 +5,12 @@ description: Integrating Cypress with Currents - compatibility table
 # Cypress Compatibility
 
 {% hint style="info" %}
-**Please note**&#x20;
+**Please note**
 
 If you are seeing the following errors:
 
 * `Integrity check failed`&#x20;
-*
+* `DecryptionError: JWE Recipients missing or incorrect type`
 
 Please make sure to use the latest compatible version according to the table below
 {% endhint %}
