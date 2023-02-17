@@ -7,7 +7,10 @@ description: Integrating Cypress with Currents - compatibility table
 {% hint style="info" %}
 **Please note**&#x20;
 
-Cypress.io team has released a series of breaking changes in version 12+ - it triggers `Integrity check failed` error when using certain versions of Currents and Sorry Cypress.
+If you are seeing the following errors:
+
+* `Integrity check failed`&#x20;
+*
 
 Please make sure to use the latest compatible version according to the table below
 {% endhint %}
@@ -16,6 +19,7 @@ Please use the table below to select the version of the compatible package
 
 | Cypress | @currents/cli |            cy2 |      @currents/nx |
 | ------- | ------------: | -------------: | ----------------: |
+| 12.6.0+ |        4.0.3+ | cypress-cloud  |            🚧 wip |
 | 12.1.0+ |        4.0.2+ |         4.0.6+ | @currents/nx@beta |
 | 12.0.0+ |        3.1.3+ | 3.4.1+, 4.0.1+ |            0.2.1+ |
 | 11.0.0+ |        3.0.0+ | 3.2.0+, 4.0.1+ |            0.1.0+ |
