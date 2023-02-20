@@ -10,8 +10,8 @@ Cypress test status is mostly straightforward and easy to interpret, however, th
 
 A cypress test can be in one of the following states:
 
-* <mark style="color:blue;">**Passed**</mark> - a test successfully completed all without any exceptions or errors during i
-* <mark style="color:red;">**Failed**</mark> - a test that triggered an exception or one of its assertions failed
+* <mark style="color:blue;">**Passed**</mark> - a test successfully completed all attempts without any exceptions or errors during its execution
+* <mark style="color:red;">**Failed**</mark> - a test that triggered an exception or one of its assertions failed for all of its attempts
 * **Ignored / Pending** - a test was excluded by a developer, e.g. `it.skip()` and was excluded by cypress runner
 * <mark style="color:orange;">**Skipped**</mark> - a test was not excluded by a developer, but wasn't run by cypress runner due to an error&#x20;
 * <mark style="background-color:purple;">**Flaky**</mark> - a test that passed after a few failing attempts
