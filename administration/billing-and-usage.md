@@ -16,7 +16,7 @@ You can add recipients for billing-related notifications:
 * alerts about non-successful payments
 * invoices and receipts
 
-Please note, that billing notifications are different from operations notifications (by default operations notifications are being sent to all the members with Admin rol)
+Please note, that billing notifications are different from operational notifications (by default operations notifications are being sent to all the members with Admin rol)
 
 In order to add additional recipients, navigate to **Organization > Billing & Usage.** Then add a new email in the **Billing Emails** section:
 
