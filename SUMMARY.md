@@ -71,3 +71,7 @@
   * [Instances](api/api-resources/instances.md)
   * [Runs](api/api-resources/runs.md)
   * [Projects](api/api-resources/projects.md)
+
+## Administration
+
+* [Billing & Usage](administration/billing-and-usage.md)
