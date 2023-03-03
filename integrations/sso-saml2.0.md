@@ -12,8 +12,8 @@ Currents supports SSO integration via SAML 2.0. When enabled, authentication wil
 
 The configuration entries you will need to define on your IdP
 
-* Call-back URL: `https://auth.currents.dev/saml2/idpresponse`
-* Audience: `urn:amazon:cognito:sp:us-east-1_Z9TVEnj0k`
+* Call-back URL / ACS URL: `https://auth.currents.dev/saml2/idpresponse`
+* Audience / Entity ID: `urn:amazon:cognito:sp:us-east-1_Z9TVEnj0k`
 * `NameID` **** format (nameIdentifierFormat) should be `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` with a limitation of up to 128 characters
 * Attribute Mappings
 
