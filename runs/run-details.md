@@ -45,3 +45,27 @@ COMMIT_INFO_REMOTE: remote origin
 {% hint style="warning" %}
 Please note: git information is required for Bitbucket, GitHub and Gitlab integrations to work properly
 {% endhint %}
+
+### Run Tags
+
+Tagging is a convenient way to augment your executions with extra data that can be helpful for managing your tests. You can tag the runs (executions) by adding `--tag tagA,tagB` flag to `currents` command.
+
+For example, issues the next command:
+
+```
+currents run --parallel --record --tag currents-cli,gha 
+```
+
+Would generate a run with the corresponding tags:
+
+<figure><img src="../.gitbook/assets/currents-2023-03-03-14.14.26@2x.png" alt=""><figcaption><p>Tagged run example</p></figcaption></figure>
+
+The run, spec and test execution recordings will inherit the tags. You can use the tags as a filter when browsing the dashboard to narrow down the results, for example:
+
+* filter runs by tags
+* filter insights and analytics to only include records with a particular tag
+* filter errors, tests and spec performance explorers to only include records with a particular tag
+
+The tags are also available in the results returned from the [Broken link](broken-reference "mention") and as part of [http-webhooks.md](../integrations/http-webhooks.md "mention")
+
+<figure><img src="../.gitbook/assets/currents-2023-03-03-14.21.10@2x.png" alt=""><figcaption><p>Example of filterin Run Status Metrics by Tags</p></figcaption></figure>
