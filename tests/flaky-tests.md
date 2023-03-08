@@ -6,7 +6,7 @@ description: Guide to Cypress Flaky Tests
 
 ### What is flaky cypress test?
 
-Flaky cypress test is a tests that did not succeed from the first attempt. The build will fail only occasionally: One time it will pass, another time fail, the next time pass again, without any changes to the build having been made. Flaky tests are marked with a special badge on run, spec and individual test level.
+Flaky cypress test is a test that did not succeed from the first attempt. The build will fail only occasionally: One time it will pass, another time fail, the next time pass again, without any changes to the build having been made. Flaky tests are marked with a special badge on run, spec and individual test level.
 
 ![Cypress Run Summary with 1 flaky test detected](<../.gitbook/assets/cypress-flaky-tests (1).png>)
 
