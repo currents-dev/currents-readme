@@ -1,6 +1,5 @@
 ---
 description: Running cypress tests in parallel with Currents dashboard
-layout: landing
 ---
 
 # What is Currents?

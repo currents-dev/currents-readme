@@ -85,7 +85,7 @@ await spawn();
 
 ### Compatibility
 
-Please refer to [cypress-compatibility](cypress-compatibility/ "mention").
+Please refer to [cypress-compatibility.md](cypress-compatibility.md "mention").
 
 ### Troubleshooting and Debugging
 

@@ -13,10 +13,7 @@
 * [Fail Fast Strategy](guides/fail-fast-strategy.md)
 * [Record Key](guides/record-key.md)
 * [Currents CLI](guides/currents-cli.md)
-* [Cypress Compatibility](guides/cypress-compatibility/README.md)
-  * [Cypress 10](guides/cypress-compatibility/cypress-10.md)
-  * [Cypress 11](guides/cypress-compatibility/cypress-11.md)
-  * [Cypress 12](guides/cypress-compatibility/cypress-12.md)
+* [Cypress Compatibility](guides/cypress-compatibility.md)
 
 ## CI Setup
 
