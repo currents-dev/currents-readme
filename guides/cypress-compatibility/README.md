@@ -7,25 +7,52 @@ description: Integrating Cypress with Currents - compatibility table
 {% hint style="info" %}
 **Please note**
 
-If you are seeing the following errors:
+Please make sure to use the most recent version of the integration package, If you are seeing the following errors when running cypress:
 
 * `Integrity check failed`&#x20;
 * `DecryptionError: JWE Recipients missing or incorrect type`
-
-Please make sure to use the latest compatible version according to the table below
+* `Cypress does not support recording test results to this third party service`
 {% endhint %}
 
-Please use the table below to select the version of the compatible package
+We provide several packages to integrate cypress runner with Currents (or Sorry Cypress) orchestration services:
 
-| Cypress | @currents/cli |            cy2 |      @currents/nx |
-| ------- | ------------: | -------------: | ----------------: |
-| 12.6.0+ |        4.0.3+ | cypress-cloud  |            🚧 wip |
-| 12.1.0+ |        4.0.2+ |         4.0.6+ | @currents/nx@beta |
-| 12.0.0+ |        3.1.3+ | 3.4.1+, 4.0.1+ |            0.2.1+ |
-| 11.0.0+ |        3.0.0+ | 3.2.0+, 4.0.1+ |            0.1.0+ |
-| 6.7.0+  |   any version |    any version |       any version |
+* [cy2](https://github.com/sorry-cypress/cy2) - package for integrating arbitrary cloud orchestration services with cypress
+* [@currents/cli](https://www.npmjs.com/package/@currents/cli) - dedicated package for integrating cypress with Currents cloud service
+* ☁️ [cypress-cloud](https://github.com/currents-dev/cypress-cloud) - the latest (Feb 2023) iteration of integration package, compatible with Sorry Cypress and Currents
 
-In addition, we offer publicly available **beta versions** for testing and collecting feedback:
+Please use the table below to select the version of the compatible package.
 
-* The new [`cypress-cloud`](https://currents.notion.site/Cypress-12-and-Currents-Sorry-Cypress-3f9f29285f9242c78b0ba63cf9225c6c) integration is compatible with all Cypress versions and is a complete rewrite of integration with cloud orchestration services
-* The `beta` channel of `@currents/cli` and `cy2` npm packages e.g.  `npm i @currents/cli@beta`
+#### Currents Customers
+
+Currents customers can use either [@currents/cli](https://www.npmjs.com/package/@currents/cli) or [cypress-cloud](https://github.com/currents-dev/cypress-cloud) packages.
+
+| Cypress Version | @currents/cli | cypress-cloud |
+| --------------- | ------------- | ------------- |
+| 12.6.0+         | not supported | 1.4.1+        |
+| 12.1.0+         | 4.0.3+        | 1.4.1+        |
+| 12.0.0+         | 3.1.3+        | 1.4.1+        |
+| 11.0.0+         | 3.0.0+        | 1.4.1+        |
+| 6.7.0+          | any version   | not supported |
+
+#### Sorry Cypress Users
+
+Sorry Cypress users can use either [cy2](https://github.com/sorry-cypress/cy2) or [cypress-cloud](https://github.com/currents-dev/cypress-cloud) packages.
+
+| Cypress Version | cy2           | cypress-cloud |
+| --------------- | ------------- | ------------- |
+| 12.6.0+         | not supported | 1.4.1+        |
+| 12.1.0+         | 4.0.6+        | 1.4.1+        |
+| 11.0.0+         | 4.0.1+        | 1.4.1+        |
+| 6.7.0+          | any version   | not supported |
+
+#### **NX Users**
+
+NX users can use [@currents/nx](https://www.npmjs.com/package/@currents/nx) plugin to conveniently integrate Currents or Sorry Cypress with their project&#x20;
+
+| Cypress |      @currents/nx |
+| ------- | ----------------: |
+| 12.6.0+ |            🚧 wip |
+| 12.1.0+ | @currents/nx@beta |
+| 12.0.0+ |            0.2.1+ |
+| 11.0.0+ |            0.1.0+ |
+| 6.7.0+  |       any version |
