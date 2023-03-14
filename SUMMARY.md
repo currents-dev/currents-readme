@@ -12,7 +12,6 @@
 * [Load Balancing](guides/load-balancing.md)
 * [Fail Fast Strategy](guides/fail-fast-strategy.md)
 * [Record Key](guides/record-key.md)
-* [Integration with Cypress](guides/currents-cli.md)
 
 ## Integration with Cypress
 
