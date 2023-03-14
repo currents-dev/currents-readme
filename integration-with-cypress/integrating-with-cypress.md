@@ -24,9 +24,9 @@ The tools use cypress behind the scenes and provide the same flags and configura
 
 ### What is the difference between @currents/cli and cypress-cloud?
 
-**@cypress/cli** works by rerouting orchestration and recording network requests to currents.dev (or sorry-cypress) servers. It uses the original, "native" orchestration protocol defined by the cypress runner. In Feb 2023 Cypress.io team decided to [restrict](https://github.com/cypress-io/cypress/pull/25837) access[^1] to its internal orchestration and recording protocol, preventing the use of @currents/cli (affected versions are 12.6.0+).
+**@cypress/cli** works by rerouting orchestration and recording network requests to currents.dev (or sorry-cypress) servers. It uses the original, "native" orchestration protocol defined by the cypress runner. In Feb 2023 Cypress.io team decided to [restrict access](#user-content-fn-1)[^1] to its internal orchestration and recording protocol, preventing the use of @currents/cli (affected versions are 12.6.0+).
 
-**cypress-cloud** implements its own parallelization and recording protocol and runs cypress in "offline" mode, without tinkering with the native recording and parallelization. The package uses the conventional public APIs that are available for every developer and that are being used by hundreds of [plugins and complimentary tools](https://docs.cypress.io/plugins) of Cypress ecosystem. It is compatible with versions 10.0.0+.
+**cypress-cloud** implements its own parallelization and recording protocol and runs cypress in "offline" mode, without tinkering with the cypress internals. The package uses the conventional public APIs that are available for every developer and that are being used by hundreds of [plugins and complimentary tools](https://docs.cypress.io/plugins) of Cypress ecosystem. It is compatible with versions 10.0.0+.
 
 ### What package should I use?
 
