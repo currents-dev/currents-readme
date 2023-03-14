@@ -6,7 +6,7 @@ description: Detailed guide to Cypress Tests Parallelization
 
 ### Why parallelize cypress tests?
 
-As your Cypress Tests suite grows, it becomes crucial to optimize the overall duration in order to get faster feedback. Once your cypress tests suite volume passed 10 spec files, you'd start looking for solutions to run the tests in parallel.
+As your Cypress Tests suite grows, it becomes crucial to optimizing the overall duration in order to get faster feedback. Once your cypress tests suite volume passed 10 spec files, you'd start looking for solutions to run the tests in parallel.
 
 Parallelization is the most popular technique for reducing the duration of your cypress tests. One of the most convenient and easy solutions is to use cloud services like Currents or Cypress Dashboard.&#x20;
 
@@ -22,7 +22,7 @@ Containers use Currents cloud service to get instructions about tests (technical
 
 The simplistic animation below demonstrates the parallelization of 6 spec files using 3 containers.
 
-* Each container runs an identical `cypress` or [`currents`](currents-cli.md) command with `--parallel` flag
+* Each container runs an identical `cypress` or [`cypress-cloud`](../integration-with-cypress/cypress-cloud.md) command with `--parallel` flag
 * Each container connects to Currents dashboard to get instructions about the next spec file to run
 * Currents dashboard assigns each container a spec file
 * Each container runs its spec file
@@ -37,21 +37,21 @@ Yes. You still need CI machines that will run the actual tests. Currents Dashboa
 
 ### Can I run multiple cypress tests in parallel on the same machine?
 
-Yes! You don't have to have different machines / containers for running cypress tests in parallel.&#x20;
+Yes! You don't have to have different machines/containers for running cypress tests in parallel.&#x20;
 
-You can run multiple [`currents`](currents-cli.md) / `cypress` instances on the same machine. Keep in mind that cypress tests are quite resource-demanding - running too many instances of a test runner can actually slow down the overall execution or even crash the machine.
+You can run multiple [`cypress-cloud`](../integration-with-cypress/cypress-cloud.md) / `cypress` instances on the same machine. Keep in mind that cypress tests are quite resource-demanding - running too many instances of a test runner can actually slow down the overall execution or even crash the machine.
 
 ### How to run cypress tests in parallel locally?
 
-Running cypress tests in parallel on localhost requires running two or more cypress runners at the same time. Open two separate terminals and run identical [`currents`](currents-cli.md) or [`cy2`](https://www.npmjs.com/package/cy2) command with `--parallel` flag  `--ci-build-id` flag with identical value:
+Running cypress tests in parallel on localhost requires running two or more cypress runners at the same time. Open two separate terminals and run an identical [cypress-cloud](https://github.com/currents-dev/cypress-cloud) command with `--parallel` flag  `--ci-build-id` flag with identical value:
 
 ```
-npx currents run --parallel --record --key <currents_key> --ci-build-id build-001
+npx cypress-cloud run --parallel --record --key <currents_key> --ci-build-id build-001
 ```
 
-You will see that two runners are executing different spec files and are running in parallel.
+You will see that two runners are executing different spec files and running in parallel.
 
-### How to split cypress spec files for running them in parallel?
+### Splitting cypress spec files for running in parallel
 
 You don't need to split files manually when using Cypress / Currents or Sorry Cypress dashboard service - the service does that for you automatically and distributes the spec files between cypress runners.
 
@@ -59,7 +59,7 @@ Moreover, Currents dashboard uses historical data to optimally sort the spec fil
 
 ### What CI providers can run cypress tests in parallel?
 
-Any CI provider or tool that allows creating multiple containers / jobs can be integrated with Currents for running cypress tests in parallel. See [Broken link](broken-reference "mention") section for details.
+Any CI provider or tool that allows creating multiple containers/jobs can be integrated with Currents for running cypress tests in parallel. See [Broken link](broken-reference "mention") section for details.
 
 Here are a few popular CI providers that can run cypress tests in parallel:
 
@@ -73,7 +73,7 @@ Here are a few popular CI providers that can run cypress tests in parallel:
 To run cypress tests in parallel and use Currents as an orchestration service, run this command:
 
 ```bash
-npx currents run --parallel --record --key <currents_key> --ci-build-id build-001
+npx cypress-cloud run --parallel --record --key <currents_key> --ci-build-id build-001
 ```
 
 Read more about the importance of [CI Build ID](cypress-ci-build-id.md). You can generate `currents_key` by creating an organization and a project on [Currents Dashboard](https://app.currents.dev).
