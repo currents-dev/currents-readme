@@ -1,8 +1,14 @@
----
-description: Integrate Cypress with Currents using @currents/cli
----
+# @currents/cli
 
-# Integration with Cypress
+{% hint style="info" %}
+**Please note**
+
+Migrate to [cypress-cloud](cypress-cloud.md) if you are seeing any of the errors below
+
+* `Integrity check failed`&#x20;
+* `DecryptionError: JWE Recipients missing or incorrect type`
+* `Cypress does not support recording test results to this third party service`
+{% endhint %}
 
 ``[`@current/cli`](https://github.com/currents-dev/cli) is a small npm package that allows seamless integration of cypress with Currents cloud orchestration service. The package contains an executable script that provides the same CLI and API experience as the original **cypress** package - they are 100% interchangeable.
 
@@ -32,7 +38,7 @@ Use `currents` the same way you are using `cypress`- it accepts the same flags a
 npx currents run --record --parallel --ci-build-id $BUILD_ID --key $CURRENTS_KEY
 ```
 
-Learn more about obtaining a [record-key.md](record-key.md "mention") and generating a [cypress-ci-build-id.md](cypress-ci-build-id.md "mention")
+Learn more about obtaining a [record-key.md](../guides/record-key.md "mention") and generating a [cypress-ci-build-id.md](../guides/cypress-ci-build-id.md "mention")
 
 ### API - Programmatic Usage
 
@@ -85,31 +91,7 @@ await spawn();
 
 ### Compatibility
 
-Please refer to [compatibility.md](../integration-with-cypress/compatibility.md "mention").
-
-### Troubleshooting and Debugging
-
-If you are experiencing issues with using @currents/cli, please submit a support request either via in-app support chat or on [GitHub](https://github.com/currents-dev/cli).&#x20;
-
-Modify your CI configuration and add the following commands. Share the output as part of a ticket or conversation with a support person.
-
-* Get the(CI) environment information&#x20;
-
-```bash
-npx envinfo --system --binaries --browsers --npmPackages --duplicates --npmGlobalPackages
-```
-
-* Get the debug logs
-
-```bash
-# on Linux
-DEBUG=cy2*,cypress:* npx currents run ...
-
-# on Windows
-cmd /V /C "set DEBUG=cy2*,cypress:*&& npx currents run ..."
-```
-
-Please capture the whole debug log - that will help the support person to identify the root cause faster.
+Please refer to [compatibility.md](compatibility.md "mention").
 
 ### Deprecated Functionality
 

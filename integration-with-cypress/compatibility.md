@@ -2,7 +2,7 @@
 description: Integrating Cypress with Currents - compatibility table
 ---
 
-# Cypress Compatibility
+# Compatibility
 
 {% hint style="info" %}
 **Please note**
@@ -17,8 +17,8 @@ Please make sure to use the most recent version of the integration package, If y
 We provide several packages to integrate cypress runner with Currents (or Sorry Cypress) orchestration services:
 
 * [cy2](https://github.com/sorry-cypress/cy2) - package for integrating arbitrary cloud orchestration services with cypress
-* [@currents/cli](https://www.npmjs.com/package/@currents/cli) - dedicated package for integrating cypress with Currents cloud service
-* ☁️ [cypress-cloud](https://github.com/currents-dev/cypress-cloud) - the latest (Feb 2023) iteration of integration package, compatible with Sorry Cypress and Currents
+* [@currents/cli](https://www.npmjs.com/package/@currents/cli) - a dedicated package for integrating cypress with Currents cloud service
+* ☁️ [cypress-cloud](https://github.com/currents-dev/cypress-cloud) - the latest (Feb 2023) iteration integration, compatible with Sorry Cypress and Currents
 
 Please use the table below to select the version of the compatible package.
 

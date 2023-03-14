@@ -12,8 +12,15 @@
 * [Load Balancing](guides/load-balancing.md)
 * [Fail Fast Strategy](guides/fail-fast-strategy.md)
 * [Record Key](guides/record-key.md)
-* [Currents CLI](guides/currents-cli.md)
-* [Cypress Compatibility](guides/cypress-compatibility.md)
+* [Integration with Cypress](guides/currents-cli.md)
+
+## Integration with Cypress
+
+* [Integrating with Cypress](integration-with-cypress/integrating-with-cypress.md)
+* [Compatibility](integration-with-cypress/compatibility.md)
+* [cypress-cloud](integration-with-cypress/cypress-cloud.md)
+* [@currents/cli](integration-with-cypress/currents-cli.md)
+* [Troubleshooting](integration-with-cypress/troubleshooting.md)
 
 ## CI Setup
 
