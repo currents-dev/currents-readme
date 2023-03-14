@@ -5,7 +5,7 @@ If you are experiencing issues with using @currents/cli or cypress-cloud, please
 * [@currents/cli GitHub Issues](https://github.com/currents-dev/cli/issues)
 * [cypress-cloud GitHub Issues](https://github.com/currents-dev/cypress-cloud/issues)
 
-Please collect the following information to help us effectively debug the problem  Share the output as part of a ticket or conversation with a support person. Modify your CI configuration and add the following commands.
+Please collect the following information to help us effectively debug the problem  Share the output as part of a ticket or conversation with a support person.
 
 {% hint style="info" %}
 Please capture and share the **whole** debug log - that will help the support person identify the root cause faster
