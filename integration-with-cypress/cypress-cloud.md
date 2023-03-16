@@ -90,7 +90,7 @@ Run Cypress tests programmatically
 run(params: CurrentsRunParameters): Promise<CypressCommandLine.CypressRunResult | CypressCommandLine.CypressFailedRunResult>
 ```
 
-* `params` - [CurrentsRunParameters](https://github.com/currents-dev/cypress-cloud/blob/main/.github/packages/cypress-cloud/types.ts#L123) list of params compatible with Cypress [Module API](https://docs.cypress.io/guides/guides/module-api)
+* `params` - [CurrentsRunParameters](https://github.com/currents-dev/cypress-cloud/blob/main/packages/cypress-cloud/types.ts#L127) list of params compatible with Cypress [Module API](https://docs.cypress.io/guides/guides/module-api)
 * returns results as a [CypressRunResult](https://github.com/cypress-io/cypress/blob/19e091d0bc2d1f4e6a6e62d2f81ea6a2f60d531a/cli/types/cypress-npm-api.d.ts#L277)
 
 Example:
