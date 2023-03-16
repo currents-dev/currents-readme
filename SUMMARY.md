@@ -61,7 +61,8 @@
 * [Microsoft Teams](integrations/microsoft-teams.md)
 * [Slack](integrations/slack.md)
 * [GitLab](integrations/gitlab.md)
-* [SSO SAML2.0](integrations/sso-saml2.0.md)
+* [SSO SAML2.0](integrations/sso-saml2.0/README.md)
+  * [Okta](integrations/sso-saml2.0/okta.md)
 
 ## API
 
