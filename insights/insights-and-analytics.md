@@ -65,24 +65,6 @@ Test Results Chart shows the distribution of flaky tests over time.
 
 ![Example chart - Tests Flakiness](<../.gitbook/assets/CleanShot 2022-06-25 at 00.08.26@2x.png>)
 
-* Flaky tests - overall flaky tests detected for the period. See [flaky-tests.md](../tests/flaky-tests.md "mention")
+* were Flaky tests - overall flaky tests detected for the period. See [flaky-tests.md](../tests/flaky-tests.md "mention")
 * Flakiness rate - `flaky tests count / passed tests count`
 
-### Top Flaky Tests
-
-Top Flaky Tests Chart shows a list of the flakiest tests.
-
-![An example of a test with a high flakiness rate](<../.gitbook/assets/CleanShot 2022-06-25 at 00.12.10@2x.png>)
-
-Each item in the list represents a test, the list is sorted in descending order by flakiness rate
-
-* Flakiness rate - `# of flaky test samples / # of overall test samples`
-* Flaky test sample - a test recording where the test didn't succeed from the first attempt. See [flaky-tests.md](../tests/flaky-tests.md "mention")
-
-### Top Failing Tests
-
-Top Failing Tests Chart shows a list of tests with the highest failure ratios.
-
-![An example of a test with a high failure rate](<../.gitbook/assets/CleanShot 2022-06-25 at 00.21.42@2x.png>)
-
-* Failure rate - `# of failure samples / # of overall samples`

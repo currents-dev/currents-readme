@@ -50,6 +50,7 @@
 ## Insights
 
 * [Insights and Analytics](insights/insights-and-analytics.md)
+* [Spec / Tests Explorer](insights/spec-tests-explorer.md)
 
 ## Integrations
 
