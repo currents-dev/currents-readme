@@ -11,7 +11,7 @@ Here's an overview of what steps you'll need to take to start running cypress te
 * Create an organization and a project
 * Install `cypress` and [`cypress-cloud`](https://github.com/currents-dev/cypress-cloud) npm packages
 * Create a  new configuration file `currents.config.js` with the newly created `projectId` and a record key
-* Update cypress configuration to include the cloud plugin
+* Update `cypress.config.js` to include the `cypress-cloud/plugin` plugin
 * Use `cypress-cloud`  CLI command to create your cypress run
 * Update your CI provider configuration
 
