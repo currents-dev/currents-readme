@@ -1,26 +1,36 @@
 ---
-description: Proactive reports to improve tests performance
+description: Proactive detection of regressions in tests performance
 ---
 
 # Automated Reports
 
-An unwanted change in a test performance can go unnoticed for a long time, especially for larger teams where multiple contributors change the tests often.
+✨ Currents **Automated Reports** help teams to proactively identify regressions in test performance and take an action:
 
-✨ Currents Automated Reports help teams to proactively identify unwanted changes and take actions to improve the performance of the tests.
+* Prevent problems that go unnoticed for weeks
+* Reduce the waste of CI resources caused by failed or flaky tests
+* Avoid your QA and developers' team frustration from rerunning unreliable and flaky tests again and again
+
+An unwanted change in a test performance can go unnoticed for a long time, especially for larger teams where multiple contributors change the tests often.&#x20;
 
 When a duration, flakiness, or failure rate change, it can often pass days or weeks before the regression in performance can be noticed. Meanwhile, teams waste time waiting for CI test results to appear, dealing with flaky, non-reliable, or often failing results.
 
-With automated reports sent directly to your inbox, you can quickly identify the troublemakers and the most expensive tests that waste CI resources and frustrate your team.
+When you integrate your Cypress or Playwright tests suite with Currents, we will start tracking the following metrics:
 
-* The most failing specs / tests
-* The longest specs / tests
-* The flakiest specs / tests
+* The **failure rate** for each spec and test
+* Spec files and individual test **duration**
+* Spec files and individual tests' **flakiness rate**
 
-The report also includes specifications and tests that showed a decline in performance compared to the previous period (a week by default).
+With automated reports sent directly to your inbox,  you can quickly identify the most expensive tests that waste CI resources and frustrate your team.
 
-* Specs / tests with the most significant increase in **duration**
-* Specs / tests with the most significant increase in **failure rate**
-* Specs / tests with the most significant increase in **flakiness rate**
+* Items with the **highest duration**
+* Items with the **highest flakiness rate**
+* Items with the **highest failure rate**
+
+In addition, the report includes spec files and tests that showed a decline in performance compared to the previous period (usually a week):
+
+* Specs / tests with the most significant increase in duration
+* Specs / tests with the most significant increase in failure rate
+* Specs / tests with the most significant increase in flakiness rate
 
 ### Enabling Automated Reports
 
@@ -115,7 +125,7 @@ Each line item has the following format:
 | ---------------------------------------------------------------------------------- | --------------------------------------------------- | ---------------------------------------------------------------- |
 | Spec name / Test title - a link to the detailed performance view for the spec file | The metric value calculated for the reported period | The change in the metric’s value compared to the previous period |
 
-Clicking on the item (spec file name or test title) will open the Currents dashboard with the detailed performance view for further investigation.
+Clicking on the item (spec file name or test title) will open the Currents dashboard with a detailed performance view for further investigation.
 
 *   **Spec File / Test Failures Trends**
 
