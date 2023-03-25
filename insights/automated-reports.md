@@ -34,7 +34,7 @@ In addition, the report includes spec files and tests that showed a decline in p
 
 ### Enabling Automated Reports
 
-To enable the reports feature, access the dashboard with a feature flag enabled at [https://app.currents.dev?ff-reports=1](https://app.currents.dev/?ff-reports=1). Once you open the link, you can access the “Automated Reports” section in the org menu.
+To enable the reports open **Automated Reports** section in the org menu.
 
 <figure><img src="../.gitbook/assets/currents-2023-03-07-16.29.58%402x.png" alt=""><figcaption><p>Access to the Automated Reports</p></figcaption></figure>
 
