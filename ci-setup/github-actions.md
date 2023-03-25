@@ -23,10 +23,10 @@ Please take a look at the [example repository](https://github.com/currents-dev/g
 The example [workflow config file](https://github.com/currents-dev/gh-actions-example/blob/main/.github/workflows/currents.yml):
 
 * runs 3 containers with cypress tests in parallel
-* installs `@currents/cli` npm package as a separate step
-* uses [Custom Test Command](https://github.com/cypress-io/github-action#custom-test-command) to run `currents` for recording test results and parallelization with [Currents.dev](https://currents.dev)
-* Note: set the `projectId` in `cypress.json` (you can obtain the project id from [Currents.dev](https://app.currents.dev) in Project Settings)
-* Note: use CLI arguments to customize your cypress runs, e.g.: `currents run --parallel --record --key <your currents.dev key> --group groupA`
+* uses [Custom Test Command](https://github.com/cypress-io/github-action#custom-test-command) to run `cypress-cloud` for recording test results and parallelization with [Currents.dev](https://currents.dev)
+* Note: set the `projectId` in `currents.config.js` (you can obtain the project id from [Currents.dev](https://app.currents.dev) in Project Settings)
+* Note: install `cypress-cloud/plugin` in `cypress.config.js`
+* Note: use CLI arguments to customize your cypress runs, e.g.: `cypress-cloud run --parallel --record --key <your currents.dev key> --group groupA`
 * Note: create an organization, get your record key on [Currents.dev](https://app.currents.dev) and set [GH secret](https://docs.github.com/en/actions/reference/encrypted-secrets) variable `CURRENTS_RECORD_KEY`
 
 Here's an example of how the demo workflow appears in Currents dashboard

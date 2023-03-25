@@ -10,23 +10,23 @@ The pipeline will be running 2 workers, based on `cypress/base:16` Docker image.
 
 The steps are:
 
-* Use `cypress/base:16` as the base image
-* Install the necessary dependencies: `cypress` and `@currents/cli`
+* Use `cypress/base:18` as the base image
+* Install the necessary dependencies: `cypress` and `cypress-cloud`
 * Populate the environment variable `CURRENTS_RECORD_KEY` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/). Learn more about [record-key.md](../guides/record-key.md "mention")
 * Run cypress tests on 2 workers, using CI Build ID for "connecting" the workers to the same parallel run. See [parallelization.md](../guides/parallelization.md "mention") and [cypress-ci-build-id.md](../guides/cypress-ci-build-id.md "mention").
 
 ```
-npx currents run --parallel --record --key ${env.CURRENTS_RECORD_KEY} --ci-build-id ${env.BRANCH_NAME}-${env.BUILD_ID}"
+npx cypress-cloud run --parallel --record --key ${env.CURRENTS_RECORD_KEY} --ci-build-id ${env.BRANCH_NAME}-${env.BUILD_ID}"
 ```
 
-Here's the full Jenkins pipeline configuation file:
+Here's the full Jenkins pipeline configuration file:
 
 ```groovy
 pipeline {
   agent {
     // this image provides everything needed to run Cypress
     docker {
-      image 'cypress/base:16'
+      image 'cypress/base:18'
     }
   }
 
@@ -35,7 +35,7 @@ pipeline {
     stage('build') {
       steps {
         echo "Running build ${env.BUILD_ID} on ${env.JENKINS_URL}"
-        sh 'npm install cypress @currents/cli'
+        sh 'npm install cypress cypress-cloud'
       }
     }
 
@@ -58,7 +58,7 @@ pipeline {
         stage('tester A') {
           steps {
             echo "Running build ${env.BUILD_ID}"
-            sh "npx currents run --parallel --record --key ${env.CURRENTS_RECORD_KEY} --ci-build-id ${env.BRANCH_NAME}-${env.BUILD_ID}""
+            sh "npx cypress-cloud run --parallel --record --key ${env.CURRENTS_RECORD_KEY} --ci-build-id ${env.BRANCH_NAME}-${env.BUILD_ID}""
           }
         }
 
@@ -66,7 +66,7 @@ pipeline {
         stage('tester B') {
           steps {
             echo "Running build ${env.BUILD_ID}"
-            sh "npx currents run --parallel --record --key ${env.CURRENTS_RECORD_KEY} --ci-build-id ${env.BRANCH_NAME}-${env.BUILD_ID}""
+            sh "npx cypress-cloud run --parallel --record --key ${env.CURRENTS_RECORD_KEY} --ci-build-id ${env.BRANCH_NAME}-${env.BUILD_ID}""
           }
         }
       }
