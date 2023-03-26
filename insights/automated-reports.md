@@ -8,7 +8,7 @@ description: Proactive detection of regressions in tests performance
 
 * Prevent problems that go unnoticed for weeks
 * Reduce the waste of CI resources caused by failed or flaky tests
-* Avoid your QA and developers' team frustration from rerunning unreliable and flaky tests again and again
+* Avoid your team's frustration from rerunning unreliable and flaky tests again and again
 
 An unwanted change in a test performance can go unnoticed for a long time, especially for larger teams where multiple contributors change the tests often.&#x20;
 
@@ -20,7 +20,7 @@ When you integrate your Cypress or Playwright tests suite with Currents, we will
 * Spec files and individual test **duration**
 * Spec files and individual tests' **flakiness rate**
 
-With automated reports sent directly to your inbox,  you can quickly identify the most expensive tests that waste CI resources and frustrate your team.
+With automated reports sent directly to your inbox, you can quickly identify the most expensive tests that waste CI resources and frustrate your team.
 
 * Items with the **highest duration**
 * Items with the **highest flakiness rate**
@@ -34,7 +34,7 @@ In addition, the report includes spec files and tests that showed a decline in p
 
 ### Enabling Automated Reports
 
-To enable the reports open **Automated Reports** section in the org menu.
+To enable the reports open the **Automated Reports** section in the org menu.
 
 <figure><img src="../.gitbook/assets/currents-2023-03-07-16.29.58%402x.png" alt=""><figcaption><p>Access to the Automated Reports</p></figcaption></figure>
 
@@ -58,7 +58,7 @@ The report structure includes essential data about the report, summaries of over
 
 #### Header
 
-Essential data about the report - the dates, organization, project details, and filters applied.
+Essential data - the dates, organization, project details, and filters applied.
 
 #### Summary
 
@@ -68,8 +68,10 @@ Review of overall items recorded during the period: runs and tests.
 
 Both metrics contain a changing trend, indicating how the metrics changed compared to the previous period.
 
-* The Average Run Duration of **+23.4s** means that the duration of the average runs increased by 23 seconds.
-* Runs Success Rate of **+24%** means that the success rate increased by 24% compared to the previous period.
+* The Average Run Duration of **+8m 52s** means that the duration of the average runs increased.
+* Success Rate of **+3%** means that the success rate increased compared to the previous period.
+
+<figure><img src="../.gitbook/assets/header@2x.png" alt=""><figcaption><p>Report example: Header and Summary</p></figcaption></figure>
 
 #### Spec Files Performance
 
@@ -93,6 +95,8 @@ Each line item has the following format:
 
     It presents the files with the highest flakiness rate. The flakiness rate is determined by the formula `Flaky Executions / Overall Executions.` A `Flaky Execution` has at least 1 test detected as flaky, according to the [Flaky Tests Documentation](https://currents.dev/readme/tests/flaky-tests).
 
+<figure><img src="../.gitbook/assets/spec-files-performance.png" alt=""><figcaption><p>Spec Files performance report example</p></figcaption></figure>
+
 #### Tests Performance
 
 Tests Performance section focuses on **individual cypress tests** and shows the worst performers based on the executions reported within the period.
@@ -113,11 +117,13 @@ Each line item has the following format:
 
     It presents the tests with the highest flakiness rate. The flakiness rate is determined by the formula `Flaky Executions / Overall Executions.` A `Flaky` execution ihas at least 1 test detected as flaky, according to the [Flaky Tests Documentation](https://currents.dev/readme/tests/flaky-tests).
 
+<figure><img src="../.gitbook/assets/tests-files-performance.png" alt=""><figcaption><p>Tests Performance report example</p></figcaption></figure>
+
 #### Trends Section
 
 The “Trends” section shows the items with the most significant changes in metrics during the reported period compared with the previous period. Currents will detect the items with the highest negative change and list them in the report. For example, when a test’s duration, flakiness rate, or failure drastically increases during the reported week, it will appear in the “Trends” section.
 
-You will be able to take action right now and explore the root cause for the regression in performance.
+<figure><img src="../.gitbook/assets/currents-2023-03-26-01.06.35@2x.png" alt=""><figcaption><p>Trends report example</p></figcaption></figure>
 
 Each line item has the following format:
 
