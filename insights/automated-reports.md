@@ -26,11 +26,15 @@ With automated reports sent directly to your inbox, you can quickly identify the
 * Items with the **highest flakiness rate**
 * Items with the **highest failure rate**
 
+<figure><img src="../.gitbook/assets/automated-reports-001.png" alt=""><figcaption></figcaption></figure>
+
 In addition, the report includes spec files and tests that showed a decline in performance compared to the previous period (usually a week):
 
 * Specs / tests with the most significant increase in duration
 * Specs / tests with the most significant increase in failure rate
 * Specs / tests with the most significant increase in flakiness rate
+
+<figure><img src="../.gitbook/assets/automated-reports-002.png" alt=""><figcaption></figcaption></figure>
 
 ### Enabling Automated Reports
 
