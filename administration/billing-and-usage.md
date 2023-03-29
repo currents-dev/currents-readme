@@ -22,11 +22,13 @@ In order to add additional recipients, navigate to **Organization > Billing & Us
 
 <figure><img src="../.gitbook/assets/currents-2023-03-02-16.22.02@2x.png" alt=""><figcaption><p>Adding additional recipients for Billing Emails</p></figcaption></figure>
 
-### Test Volume
+### Usage Information
 
-The Billing & Usage process will consider the "test results" volume. A test result means a [<mark style="color:blue;">**Failed**</mark>](../tests/test-status.md) or [<mark style="color:orange;">**Passed**</mark> ](../tests/test-status.md)test recorded to Currents Dashboard. Retries of the same test are considered a single test result. Therefore, a [<mark style="background-color:purple;">**Flaky Test**</mark>](../tests/test-status.md) counts as one record, regardless of the number of attempts.&#x20;
+The Billing & Usage view displays the Usage section with a daily/monthly breakdown of the recorded tests.&#x20;
+
+The usage includes a [<mark style="color:blue;">**Failed**</mark>](../tests/test-status.md) or [<mark style="color:orange;">**Passed**</mark> ](../tests/test-status.md)test recorded to Currents Dashboard. Retries of the same test are considered a single test result, therefore, a [<mark style="background-color:purple;">**Flaky Test**</mark>](../tests/test-status.md) counts as one record, regardless of the number of attempts.
 
 If you want to estimate your test volume, count all your `it` statements and multiply by your provider's average number of CI runs.
 
-
+<figure><img src="../.gitbook/assets/currents-2023-03-29-10.33.14@2x.png" alt=""><figcaption><p>Example usage history chart</p></figcaption></figure>
 
