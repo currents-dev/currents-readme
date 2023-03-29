@@ -135,6 +135,13 @@ Override the default configuration values via environment variables:
 * `CURRENTS_PROJECT_ID` - set the `projectId`
 * `CURRENTS_RECORD_KEY` - cloud service record key
 
+The configuration variables will resolve as follows:
+
+* the corresponding CLI flag or `run` function parameter, otherwise
+* environment variable if exist, otherwise
+* `currents.config.js` value, otherwise
+* the default value, otherwise throw
+
 ### API
 
 #### `run`
