@@ -21,3 +21,12 @@ Please note, that billing notifications are different from operational notificat
 In order to add additional recipients, navigate to **Organization > Billing & Usage.** Then add a new email in the **Billing Emails** section:
 
 <figure><img src="../.gitbook/assets/currents-2023-03-02-16.22.02@2x.png" alt=""><figcaption><p>Adding additional recipients for Billing Emails</p></figcaption></figure>
+
+### Test Volume
+
+The Billing & Usage process will consider the "test results" volume. A test result means a [<mark style="color:blue;">**Failed**</mark>](../tests/test-status.md) or [<mark style="color:orange;">**Passed**</mark> ](../tests/test-status.md)test recorded to Currents Dashboard. Retries of the same test are considered a single test result. Therefore, a [<mark style="background-color:purple;">**Flaky Test**</mark>](../tests/test-status.md) counts as one record, regardless of the number of attempts.&#x20;
+
+If you want to estimate your test volume, count all your `it` statements and multiply by your provider's average number of CI runs.
+
+
+
