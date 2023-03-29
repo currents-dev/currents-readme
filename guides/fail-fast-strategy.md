@@ -29,10 +29,21 @@ At the same time, utilizing a "fail-fast" strategy has some caveats:
 If you are dealing with a stable and predictable suite of cypress tests that rarely fail - "fail-fast" can be a great way to optimize your cypress tests.&#x20;
 
 {% hint style="info" %}
-[Read more](../runs/cancel-run.md) about how cancelling runs affect runs status, analytics and integrations
+[Read more](../runs/cancel-run.md) about how cancelling runs affects runs status, analytics and integrations
 {% endhint %}
 
 ### Enabling fail-fast strategy
 
 To enable the "fail-fast" strategy navigate to the **Manage Project** screen and toggle **Enable Fail Fast Strategy** controller.
 
+Customers using our [cypress-cloud.md](../integration-with-cypress/cypress-cloud.md "mention") integration can control the "fail-fast" behaviour using the command line CLI flag `--auto-cancel-after-failures <number | false>`.&#x20;
+
+&#x20;If set, it overrides the project's default fail-fast strategy setting. If not set, uses the default project settings:
+
+* `false` prevents fail-fast
+* `number` aborts the run across all the participating machines failed + skipped tests detected exceed the provided value
+
+For example
+
+* `npx cypress-cloud run --parallel --record --key xxx --ci-build-id id-001 --spec "./cypress/e2e/*.spec.js" --auto-cancel-after-failures`**`false` ** will deactivate the fail-fast strategy, regardless of your project settings&#x20;
+* `npx cypress-cloud run --parallel --record --key xxx --ci-build-id id-001 --spec "./cypress/e2e/*.spec.js" --auto-cancel-after-failures`**`5`** will stop the run if more than 5 failed tests detected
