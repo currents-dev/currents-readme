@@ -28,20 +28,75 @@ module.exports = {
 };
 ```
 
-Add `cypress-cloud/plugin` to `cypress.config.{js|ts|mjs}`
+Add `cypress-cloud/plugin` to `cypress.config.{j|t}s`
 
+{% tabs %}
+{% tab title="cypress.config.js" %}
 ```javascript
 // cypress.config.js
 const { defineConfig } = require("cypress");
 const { cloudPlugin } = require("cypress-cloud/plugin");
 module.exports = defineConfig({
   e2e: {
+    // ...
     setupNodeEvents(on, config) {
       return cloudPlugin(on, config);
     },
   },
 });
 ```
+{% endtab %}
+
+{% tab title="cypress.config.ts" %}
+```typescript
+import { defineConfig } from "cypress";
+import currents from "cypress-cloud/plugin";
+
+export default defineConfig({
+  e2e: {
+    // ...
+    setupNodeEvents(on, config) {
+      return currents(on, config);
+    },
+  }
+});
+```
+{% endtab %}
+{% endtabs %}
+
+#### Setup with existing plugins
+
+`cypress-cloud/plugin` needs access to certain environment variables that are injected into **`config`** parameter of `setupNodeEvents(on,`**`config)`**.&#x20;
+
+Please make sure to preserve the original `config.env` parameters in case you are using additional plugins, e.g.:
+
+```javascript
+// Some code
+const { defineConfig } = require("cypress");
+const { cloudPlugin } = require("cypress-cloud/plugin");
+
+module.exports = defineConfig({
+  e2e: {
+    // ...
+    setupNodeEvents(on, config) {
+      // alternative: activate the plugin first
+      // cloudPlugin(on, config)
+      const enhancedConfig = {
+        env: {
+          // preserve the original env
+          ...config.env,
+          customVariable: "value"
+        }
+      }
+      return cloudPlugin(on, enhancedConfig);
+    },
+  },
+});
+```
+
+As an alternative, you can activate the `cloudPlugin` first and then implement the custom setup.
+
+Please contact our support if you have a complex plugins configuration to get assistance with the setup.
 
 ### Usage
 
