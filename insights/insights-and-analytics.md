@@ -21,11 +21,11 @@ Represents distribution of the outcomes of your builds/runs over time.&#x20;
 
 ### Runs Duration
 
-Runs Duration chart represents the daily/weekly average duration of **fully reported** runs.
+Runs Duration chart represents the daily/weekly average duration of **fully reported** runs. A fully reported run is a run that wasn't cancelled and didn't time out.
+
+**Please note** that cancelled or timed-out runs are excluded from the report.
 
 ![Example chart - Runs Duration Insights](<../.gitbook/assets/CleanShot 2022-06-24 at 23.52.48@2x.png>)
-
-* A fully reported run is a run that wasn't cancelled and didn't time out
 
 ### Runs Completion
 
