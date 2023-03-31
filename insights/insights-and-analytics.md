@@ -40,7 +40,9 @@ Runs Completion chart represents the distribution of runs by their completion ov
 
 ### Spec / Tests Size Chart
 
-Specs / Tests size chart represents the **maximum** daily/weekly amount of specs/tests per run
+Specs / Tests size chart represents the **maximum** daily/weekly amount of specs/tests for fully completed runs. A fully reported run is a run that wasn't cancelled and didn't time out.
+
+**Please note** that cancelled or timed-out runs are excluded from the report.
 
 ![Example chart - Run Specs / Tests Size](<../.gitbook/assets/CleanShot 2022-06-25 at 00.01.00@2x.png>)
 
