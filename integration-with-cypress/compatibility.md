@@ -49,10 +49,10 @@ Sorry Cypress users can use either [cy2](https://github.com/sorry-cypress/cy2) o
 
 NX users can use [@currents/nx](https://www.npmjs.com/package/@currents/nx) plugin to conveniently integrate Currents or Sorry Cypress with their project&#x20;
 
-| Cypress |      @currents/nx |
-| ------- | ----------------: |
-| 12.6.0+ |            🚧 wip |
-| 12.1.0+ | @currents/nx@beta |
-| 12.0.0+ |            0.2.1+ |
-| 11.0.0+ |            0.1.0+ |
-| 6.7.0+  |       any version |
+| Cypress | @currents/nx |
+| ------- | -----------: |
+| 12.6.0+ |       2.0.0+ |
+| 12.1.0+ |       2.0.0+ |
+| 12.0.0+ |       0.2.1+ |
+| 11.0.0+ |       0.1.0+ |
+| 6.7.0+  |  any version |

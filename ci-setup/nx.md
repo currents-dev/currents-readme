@@ -7,16 +7,20 @@ description: Running cypress tests in parallel with Currents for NX projects
 {% hint style="info" %}
 Please note:
 
-The instructions below apply **@currents/nx@beta**
+The instructions below apply **@currents/nx 2.0.0+**
 {% endhint %}
 
 ### Running cypress tests in NX project with Currents
 
-[Nx](https://github.com/nrwl/nx) is a next-generation build system with first-class monorepo support and powerful integrations. You can run cypress tests on Currents using [`@currents/nx` plugin](https://www.npmjs.com/package/@currents/nx) and defining a few configuration options.
+[Nx](https://github.com/nrwl/nx) is a build system with monorepo support and powerful integrations. You can run cypress tests on Currents using [`@currents/nx` plugin](https://www.npmjs.com/package/@currents/nx) and defining a few configuration options.
 
-### How to setup cypress tests in NX project
+### Example
 
-First, install `@currens/nx` npm package.
+See [https://github.com/currents-dev/currents-nx](https://github.com/currents-dev/currents-nx) for an example installation and configuration
+
+### Setting up cypress with NX
+
+First, install `@currents/nx` npm package.
 
 ```
 npm i --save-dev @currents/nx
@@ -42,31 +46,44 @@ Add `currents` target to your project configuration.
 
 ```
 
-Run cypress tests using Currents dashboard service
+Create a new configuration file: `currents.config.js` next to `cypress.config.{jt}s`
 
-```
-nx run project:currents --record --key <key> --ci-build-id hello-currents
-```
-
-* You can set predefined options in `target` definition
-* Update your `cypress.json` file with `projectId` obtained from [https://app.currents.dev](https://app.currents.dev)
-* Use the record key obtained from [https://app.currents.dev](https://app.currents.dev)
-
-You can also omit CLI flags and instead provide cypress options within `@nrwl/cypress:cypress` executor's `options`, for example:
-
-```json
-{
-  "currents": {
-    "executor": "@currents/nx:currents",
-    "options": {
-      "cypressConfig": "apps/frontend-e2e/cypress.json",
-      "devServerTarget": "frontend:serve",
-      "record": true,
-      "parallel": true,
-      "key": "currents key"
-    }
-  }
-}
+```javascript
+// currents.config.js
+module.exports = {
+  // Set the `projected` and the record key obtained from https://app.currents.dev or your self-hosted instance of Sorry Cypress
+  projectId: 'IfERfK',
+  // Sorry Cypress users - set the director service URL
+  cloudServiceUrl: 'https://cy.currents.dev',
+};
 ```
 
-See our example repo at [https://github.com/currents-dev/currents-nx-example](https://github.com/currents-dev/currents-nx-example) for integration details.
+Add `cypress-cloud/plugin` to `cypress.config.{js|ts|mjs}`
+
+```typescript
+import { nxE2EPreset } from '@nrwl/cypress/plugins/cypress-preset';
+import { defineConfig } from 'cypress';
+import cloudPlugin from 'cypress-cloud/plugin';
+
+export default defineConfig({
+  e2e: {
+    ...nxE2EPreset(__dirname, {
+      bundler: 'vite',
+    }),
+    specPattern: './src/**/*.cy.ts',
+    setupNodeEvents(on, config) {
+      return cloudPlugin(on, config);
+    },
+  },
+});
+```
+
+### Usage
+
+```
+npx nx run web-e2e:currents --key <recordKey> --ci-build-id hello-currents-nx
+```
+
+* Update your `currents.config.js` file with `projectId` obtained at [https://app.currents.dev](https://app.currents.dev/)
+* Use the record key obtained at [https://app.currents.dev](https://app.currents.dev/)
+* Learn more about [cypress-ci-build-id.md](../guides/cypress-ci-build-id.md "mention")
