@@ -22,8 +22,10 @@ See [https://github.com/currents-dev/currents-nx](https://github.com/currents-de
 
 First, install `@currents/nx` npm package.
 
-```
-npm i --save-dev @currents/nx
+```sh
+npm i --save-dev @currents/nx cypress-cloud
+# install cypress if needed
+npm i --save-dev cypress
 ```
 
 Add `currents` target to your project configuration.
