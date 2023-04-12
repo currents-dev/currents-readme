@@ -172,13 +172,13 @@ const results = await run({
 
 ### Batched Orchestration
 
-This package uses its own orchestration and reporting protocol that is independent of cypress native implementation. This approach provides several benefits, including more control and the ability to implement new features that are not supported by the native cypress orchestration. The new approach, however, introduced some challenges. Using cypress runner in "offline" mode requires restarting it often, which slows down the testing process.&#x20;
+This package uses its own orchestration and reporting protocol that is independent of cypress native implementation. This approach provides several benefits, including more control, flexibility and the ability to implement new features that are not supported by the native cypress orchestration.&#x20;
 
 {% hint style="info" %}
 Please note: the batched orchestration is not yet available for sorry-cypress users (only for currents.dev)
 {% endhint %}
 
-To improve the performance, the new orchestration protocol allows multiple spec files to be batched together for greater efficiency. You configure the batching in `cypress.config.js` and use different values for different testing types:
+The new approach can present a slightly different performance compared to the previous integration. To enhance its performance, the new orchestration protocol allows multiple spec files to be batched together for greater efficiency. You configure the batching in `cypress.config.js` and use different values for different testing types:
 
 ```javascript
 // currents.config.js
