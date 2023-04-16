@@ -1,8 +1,8 @@
 ---
-description: Running cypress tests in parallel with Currents dashboard
+description: Running Cypress tests in parallel with Currents Dashboard
 ---
 
-# You First Cypress Run
+# Your First Cypress Run
 
 Setting up Currents for running and recording cypress tests in parallel can be done seamlessly within a few minutes.
 
@@ -19,7 +19,7 @@ Here's an overview of what steps you'll need to take to start running cypress te
 
 After signing up for the dashboard service, you will be prompted to create a new organization and a project. You can change the name later.
 
-![Creating Organization and Project in Currents dashboard](../.gitbook/assets/currents-create-org.gif)
+![Creating an Organization and a Project in Currents dashboard](../.gitbook/assets/currents-create-org.gif)
 
 After creating a new organization and a project, you'll see on-screen instructions with your newly created  `projectId`
 
@@ -94,7 +94,7 @@ npx cypress-cloud run \
 
 Running this command will create a new run in Currents dashboard.
 
-![Creating first cypress run with Currents dashboard](../.gitbook/assets/cypress-first-run.gif)
+![Creating the first cypress run with Currents dashboard](../.gitbook/assets/cypress-first-run.gif)
 
 {% hint style="info" %}
 Learn more about
@@ -104,8 +104,10 @@ Learn more about
 * [CI Build ID](../guides/cypress-ci-build-id.md)
 {% endhint %}
 
-### Update your CI provider configuration
+### Update your CI provider configuration <a href="#update-your-ci-provider-configuration" id="update-your-ci-provider-configuration"></a>
 
-To unlock the full power of Currents dashboard, update your CI provider configuration to use Currents for running your cypress tests in parallel.&#x20;
+To unlock the full power of Currents dashboard, update your CI provider configuration to use Currents for running your cypress tests in parallel. Please read our [Parallelization Guide](https://currents.dev/readme/guides/parallelization) and check out few [CI Setup examples](https://currents.dev/readme/ci-setup) for popular CI tools.\
+\
 
-Please read our [Parallelization Guide](../guides/parallelization.md) and check out few [CI Setup examples](broken-reference) for popular CI tools.
+
+###

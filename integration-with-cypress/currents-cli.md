@@ -10,7 +10,7 @@ Migrate to [cypress-cloud](cypress-cloud.md) if you are seeing any of the errors
 * `Cypress does not support recording test results to this third party service`
 {% endhint %}
 
-``[`@current/cli`](https://github.com/currents-dev/cli) is a small npm package that allows seamless integration of cypress with Currents cloud orchestration service. The package contains an executable script that provides the same CLI and API experience as the original **cypress** package - they are 100% interchangeable.
+[`@current/cli`](https://github.com/currents-dev/cli) is a small npm package that allows seamless integration of cypress with Currents cloud orchestration service. The package contains an executable script that provides the same CLI and API experience as the original **cypress** package - they are 100% interchangeable.
 
 ```bash
 > npm install @currents/cli cypress
@@ -20,7 +20,7 @@ Migrate to [cypress-cloud](cypress-cloud.md) if you are seeing any of the errors
 In fact, currents runs cypress command behind the scenes, passing down all the CLI flags or API options. **currents** requires **cypress** to be installed.
 
 {% hint style="info" %}
-**Please note:** @currents/cli **** is designed to be used in CI environments. Using it for running cypress tests interactively is not recommended.&#x20;
+**Please note:** @currents/cli is designed to be used in CI environments. Using it for running cypress tests interactively is not recommended.&#x20;
 {% endhint %}
 
 ### Using @currents/cli
@@ -146,5 +146,5 @@ Add the app to the App Management allowed list to stop the error.
 
 **Mac OS Settings > Privacy and Security > App Management**
 
-****![](<../.gitbook/assets/CleanShot 2022-11-03 at 00.04.10@2x.png>)****
+![](<../.gitbook/assets/CleanShot 2022-11-03 at 00.04.10@2x.png>)
 {% endhint %}

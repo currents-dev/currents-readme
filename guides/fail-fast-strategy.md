@@ -45,5 +45,5 @@ Customers using our [cypress-cloud.md](../integration-with-cypress/cypress-cloud
 
 For example
 
-* `npx cypress-cloud run --parallel --record --key xxx --ci-build-id id-001 --spec "./cypress/e2e/*.spec.js" --auto-cancel-after-failures`**`false` ** will deactivate the fail-fast strategy, regardless of your project settings&#x20;
+* `npx cypress-cloud run --parallel --record --key xxx --ci-build-id id-001 --spec "./cypress/e2e/*.spec.js" --auto-cancel-after-failures`**`false`** will deactivate the fail-fast strategy, regardless of your project settings&#x20;
 * `npx cypress-cloud run --parallel --record --key xxx --ci-build-id id-001 --spec "./cypress/e2e/*.spec.js" --auto-cancel-after-failures`**`5`** will stop the run if more than 5 failed tests detected
