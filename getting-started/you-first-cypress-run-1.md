@@ -6,6 +6,8 @@ description: Running Playwright tests with Currents Dashboard
 
 Integrating Currents with Playwright enables recording test results together with screenshots, videos, and traces to the cloud dashboard. That unlocks more effective troubleshooting, analytics and proactive monitoring, extending your team's workflows using REST API, WebHooks and built-in integration with Slack, GitHub etc.
 
+{% embed url="https://www.loom.com/share/050c43a3cc6a47d08e3735a50a92eb95" %}
+
 {% hint style="info" %}
 The Playwright integration is in public beta mode. Some functionality is limited and not all aspects are fully documented.
 {% endhint %}
