@@ -98,7 +98,7 @@ With the reporter configured, you can run `npx playwright test` to start sending
 
 A link to the newly generated run will appear at the end of the execution:
 
-<figure><img src="../.gitbook/assets/currents-2023-04-16-19.36.20@2x.png" alt=""><figcaption><p>A link the recorded results appearing at the end of Playwright execution</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/currents-2023-04-16-19.36.20@2x.png" alt=""><figcaption><p>A link to recorded results appearing at the end of Playwright tests execution</p></figcaption></figure>
 
 ### Update CI Provider Configuration
 
