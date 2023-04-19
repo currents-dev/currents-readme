@@ -63,7 +63,7 @@ module.exports = defineConfig({
 {% tab title="cypress.config.ts" %}
 ```typescript
 import { defineConfig } from 'cypress'
-import { cloudPlugin } from 'cypress-cloud'
+import { cloudPlugin } from 'cypress-cloud/plugin'
 export default defineConfig({
   // ...
   e2e: {
