@@ -27,6 +27,7 @@
 * [GitHub Actions](ci-setup/github-actions.md)
 * [Azure DevOps](ci-setup/azure-devops.md)
 * [CircleCI](ci-setup/circleci.md)
+* [AWS Code Build](ci-setup/aws-code-build.md)
 * [GitLab](ci-setup/gitlab.md)
 * [Jenkins](ci-setup/jenkins.md)
 * [NX](ci-setup/nx.md)
@@ -51,7 +52,10 @@
 ## Insights
 
 * [Insights and Analytics](insights/insights-and-analytics.md)
-* [Spec / Tests Explorer](insights/spec-tests-explorer.md)
+* [Currents Explorer](insights/currents-explorer/README.md)
+  * [Spec Files Explorer](insights/currents-explorer/spec-files-explorer.md)
+  * [Tests Explorer](insights/currents-explorer/tests-explorer.md)
+  * [Errors Explorer](insights/currents-explorer/errors-explorer.md)
 * [Automated Reports](insights/automated-reports.md)
 
 ## Integrations

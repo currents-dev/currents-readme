@@ -67,6 +67,7 @@ Here are a few popular CI providers that can run cypress tests in parallel:
 * [Jenkins](../ci-setup/jenkins.md)
 * [GitLab](../ci-setup/gitlab.md)
 * [CircleCI](../ci-setup/circleci.md)
+* [AWS Code Build](../ci-setup/aws-code-build.md)
 
 ### How to run cypress tests in parallel?
 
