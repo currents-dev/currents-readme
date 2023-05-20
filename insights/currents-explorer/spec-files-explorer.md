@@ -6,13 +6,19 @@ description: Holistic performance view of your Spec Files
 
 The Spec Files Explorer feature allows users to sort and analyze tests based on specific metrics to detect inconsistencies or challenging spec files that may require further examination. These metrics include:
 
-1. **Duration**: The time taken for spec files to execute.&#x20;
-2. **Failure Rate**: The percentage of spec file executions that failed during the selected time.
-3. **Timeout Rate**: The percentage of spec files timed out during a specific time.&#x20;
-4. **Flakiness Rate**: The percentage of spec file executions that exhibited flakiness during the selected time.
-5. **Suite Size:** The number of tests in the spec files.
+1. **Duration**: The time taken for a spec file to execute
+2. **Failure Rate**: The percentage of spec file executions that failed during the selected time
+3. **Timeout Rate**: The percentage of a spec file executions that timed out during a specific time
+4. **Flakiness Rate**: The percentage of a spec file executions that exhibited flakiness during the selected time
+5. **Suite Size:** The number of tests in a spec file
 
-This feature helps identify the most problematic spec files, such as those with high flakiness, long duration, or high failure rates, during a specific period. In addition to the metrics previously mentioned, the Explorer feature allows users to sort spec files by tags, author, branch, and filename.&#x20;
+This feature helps identify the most problematic spec files, such as:
+
+* spec files with high flakiness&#x20;
+* long duration
+* spec files with high failure rate
+
+In addition to the metrics previously mentioned, the Explorer feature allows users to sort and filter spec files by tags, author, branch, and filename.&#x20;
 
 For the **Duration** metric, the tool provides an option to exclude or include failed executions in the list of spec files, which can be toggled with a flag at the top right of the list panel.
 
