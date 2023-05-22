@@ -8,6 +8,12 @@ description: Setting up SAML2.0 SSO with Okta as an IdP - Cypress SSO
 
 SAML as the SSO mode with provisioning is available for customers with an active subscription. Please follow the guide below to enable the integration and provide the necessary details to Currents support team.
 
+{% hint style="info" %}
+**Please note**
+
+Enabling SSO will affect all users of your organization who access Currents, users would not be able to sign in to Currents using a different authorization method when SSO is enabled for your organization.
+{% endhint %}
+
 ### Supported Features
 
 * SP-initiated SSO (Single Sign-On)
@@ -29,8 +35,8 @@ Install **Currents** application from Okta Integration Network (OIN) application
 <figure><img src="../../.gitbook/assets/currents-2023-05-19-23.56.26@2x.png" alt=""><figcaption><p>Installing Currents from Okta ION</p></figcaption></figure>
 
 1. Copy the Metadata URL from the Okta Admin Console, SAML 2.0 Sign on methods section.
-2. Contact the **Currents** support team (support@currents.dev) and request that they enable SAML 2.0 for your account. Include the "Metadata URL" value from the previous step. The Currents support team processes your request and provides you with an SSO ID and an encryption certificate.
-3. In your Okta Admin Console, select the Sign on tab for the **Currents** SAML app, then click "Edit" and follow the steps below:
+2. Contact the **Currents** support team (support@currents.dev) and request that they enable SAML 2.0 for your account. Include the "Metadata URL" value from the previous step.
+3. In your Okta Admin Console, select the **Sign On** tab for the **Currents** **SAML app**, then click "Edit" and follow the steps below:
    * "Encryption Certificate": Upload the certificate provided by **Currents** support in the previous step.
    * Scroll down to Advanced Sign-on Settings and enter your "SSO ID".
    * Application username format: Select "email".
