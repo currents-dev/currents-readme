@@ -30,18 +30,18 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 
 ### Configuration Steps
 
-Install **Currents** application from Okta Integration Network (OIN) application catalogue: **Applications > Applications > Browse App Catalogue.** Type "**Currents**", select the application from the list, then click **Add Integration** and follow on-screen instructions.&#x20;
+* Install **Currents** application from Okta Integration Network (OIN) application catalogue: **Applications > Applications > Browse App Catalogue.** Type "**Currents**", select the application from the list, then click **Add Integration** and follow on-screen instructions
 
 <figure><img src="../../.gitbook/assets/currents-2023-05-19-23.56.26@2x.png" alt=""><figcaption><p>Installing Currents from Okta ION</p></figcaption></figure>
 
-1. Copy the Metadata URL from the Okta Admin Console, SAML 2.0 Sign on methods section.
-2. Contact the **Currents** support team (support@currents.dev) and request that they enable SAML 2.0 for your account. Include the "Metadata URL" value from the previous step.
-3. In your Okta Admin Console, select the **Sign On** tab for the **Currents** **SAML app**, then click "Edit" and follow the steps below:
-   * "Encryption Certificate": Upload the certificate provided by **Currents** support in the previous step.
-   * Scroll down to Advanced Sign-on Settings and enter your "SSO ID".
-   * Application username format: Select "email".
-   * Click "Save".
-4. Your SAML configuration for **Currents** is complete. You can start assigning people to the application.
+* After installing the app, select the **Sign On** tab for the new installed **Currents app**
+
+<figure><img src="../../.gitbook/assets/currents-2023-05-23-15.07.42@2x.png" alt=""><figcaption><p>Getting Metadata URL from Currents SAML ION application</p></figcaption></figure>
+
+* Copy the Metadata URL from the Okta Admin Console, SAML 2.0 Sign on methods section.
+* Contact the **Currents** support team (support@currents.dev) and request that they enable SAML 2.0 for your account. Include the "Metadata URL" value from the previous step.
+
+Your SAML configuration for **Currents** is complete. You can start assigning people to the application.
 
 ### SP-initiated SSO
 
