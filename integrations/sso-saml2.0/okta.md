@@ -27,14 +27,20 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 * User Deletion - Currents won't be notified if user access is revoked in IdP. You can delete the users on the team page
 * Enabling SSO will mandate the auth method for all the team members
 * IdP-initiated SSO (through [Third-party Initiated Login](https://openid.net/specs/openid-connect-core-1\_0.html#ThirdPartyInitiatedLogin))
+* The following SAML attributes are supported:
 
 ### Configuration Steps
+
+\
+&#x20;  \| Name      | Value          |\
+&#x20;  \| --------- | -------------- |\
+&#x20;  \| [http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress](http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress)   | user.email     |
 
 * Install **Currents** application from Okta Integration Network (OIN) application catalogue: **Applications > Applications > Browse App Catalogue.** Type "**Currents**", select the application from the list, then click **Add Integration** and follow on-screen instructions
 
 <figure><img src="../../.gitbook/assets/currents-2023-05-19-23.56.26@2x.png" alt=""><figcaption><p>Installing Currents from Okta ION</p></figcaption></figure>
 
-* After installing the app, select the **Sign On** tab for the new installed **Currents app**
+* After installing the app, select the **Sign On** tab for the newly installed **Currents app**
 
 <figure><img src="../../.gitbook/assets/currents-2023-05-23-15.07.42@2x.png" alt=""><figcaption><p>Getting Metadata URL from Currents SAML ION application</p></figcaption></figure>
 
@@ -51,13 +57,11 @@ The sign-in process is initiated from https://app.currents.dev
 2. Enter your email, then Continue
 3. Enter your Okta credentials (your email and password) and click "Sign in with Okta". If your credentials are valid, you are redirected to the Currents dashboard.
 
-### Manual Setup Instructions
+### Misc
 
-You can also enable the integration manually. Please use the following settings in your Okta SAML App Integration.&#x20;
+The following SAML attributes are supported:
 
-* Open **Applications > Applications > Create App Integration**
-* Choose **SAML2.0**&#x20;
+| Name                                                                                                                                     | Value      |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| [http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress](http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress) | user.email |
 
-Use the following settings (copy them from [.](./ "mention"))
-
-<figure><img src="../../.gitbook/assets/currents-2023-02-18-02.10.46@2x.png" alt=""><figcaption></figcaption></figure>
