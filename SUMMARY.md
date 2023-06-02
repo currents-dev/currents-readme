@@ -22,6 +22,11 @@
 * [@currents/cli](integration-with-cypress/currents-cli.md)
 * [Troubleshooting](integration-with-cypress/troubleshooting.md)
 
+## Integration with Playwright
+
+* [@currents/playwright](integration-with-playwright/currents-playwright.md)
+* [Troubleshooting](integration-with-playwright/troubleshooting.md)
+
 ## CI Setup
 
 * [GitHub Actions](ci-setup/github-actions.md)

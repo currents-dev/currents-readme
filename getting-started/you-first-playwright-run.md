@@ -16,7 +16,7 @@ Playwright runs
 The Playwright integration is in public beta mode. Some functionality is limited and not all aspects are fully documented.
 {% endhint %}
 
-## **Playwright tests using a Continuous Integration (CI)**
+### **Overview**
 
 Here's an overview of what steps you'll need to take to start running Playwright tests using the Currents dashboard and a CI:
 
@@ -32,7 +32,7 @@ After signing up for the dashboard service, you will be prompted to create a new
 
 ![Creating an Organization and a Project in Currents dashboard](../.gitbook/assets/currents-create-org.gif)
 
-After creating a new organization and a project, you'll see on-screen instructions with your newly created  `projectId` and record key. Selec.t Playwright from the framework selection list and then choose the preferred installation method (see below)
+After creating a new organization and a project, you'll see on-screen instructions with your newly created  `projectId` and record key. Select Playwright from the framework selection list and then choose the preferred installation method (see below)
 
 ### Install `@currents/playwright` package
 
@@ -100,7 +100,7 @@ cmd /V /C "set CURRENTS_PROJECT_ID=PROJECT_ID // the projectId from https://app.
 
 With the reporter configured, you can run `npx playwright test` to start sending the results to Currents dashboard.
 
-### Exploring Newly Created Run
+### Explore the Newly Created Run
 
 A link to the newly generated run will appear at the end of the execution:
 
@@ -116,7 +116,7 @@ Currents support collecting results from parallel executions on multiple machine
 
 Check out the example for popular CI providers below, more examples for different providers will be added in future.
 
-#### GitHub Actions setup example
+### Examples
 
 Check out the example repository for integrating with GitHub Actions: [https://github.com/currents-dev/playwright-gh-actions-demo](https://github.com/currents-dev/playwright-gh-actions-demo). Here’s a quick reference to configuration files:
 
