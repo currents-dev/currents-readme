@@ -28,10 +28,10 @@ Please capture and share the **whole** debug log - that will help the support pe
 {% tab title="pwc" %}
 ```
 # on Linux
-DEBUG=currents:* npx pwc ...
+DEBUG=currents* npx pwc ...
 
 # on Windows
-cmd /V /C "set DEBUG=currents:*&& npx pwc ..."
+cmd /V /C "set DEBUG=currents*&& npx pwc ..."
 ```
 {% endtab %}
 
@@ -41,13 +41,13 @@ cmd /V /C "set DEBUG=currents:*&& npx pwc ..."
 CURRENTS_PROJECT_ID=PROJECT_ID \ // the projectId from https://app.currents.dev
 CURRENTS_RECORD_KEY=RECORD_KEY \ // the record key from https://app.currents.dev
 CURRENTS_CI_BUILD_ID=hello-currents \ // a unique CI build ID
-DEBUG=currents:* \
+DEBUG=currents* \
 npx playwright test
 
 # on Windows
 ## - set the environment variables first
 cmd /V /C ^
-set DEBUG=currents:* ^
+set DEBUG=currents* ^
 set CURRENTS_PROJECT_ID=project_id&& ^
 set CURRENTS_RECORD_KEY=record_key&& ^
 set CURRENTS_CI_BUILD_ID=unique_build_id
