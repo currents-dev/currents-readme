@@ -26,33 +26,16 @@ Please use the table below to select the version of the compatible package.
 
 Currents customers can use either [@currents/cli](https://www.npmjs.com/package/@currents/cli) or [cypress-cloud](https://github.com/currents-dev/cypress-cloud) packages.
 
-| Cypress Version | @currents/cli | cypress-cloud |
-| --------------- | ------------- | ------------- |
-| 12.6.0+         | not supported | 1.4.1+        |
-| 12.1.0+         | 4.0.3+        | 1.4.1+        |
-| 12.0.0+         | 3.1.3+        | 1.4.1+        |
-| 11.0.0+         | 3.0.0+        | 1.4.1+        |
-| 6.7.0+          | any version   | not supported |
+<table><thead><tr><th>Cypress Version</th><th width="242.33333333333331">@currents/cli</th><th>cypress-cloud</th></tr></thead><tbody><tr><td>12.6.0+</td><td>not supported</td><td>1.4.1+</td></tr><tr><td>12.1.0+</td><td>4.0.3+</td><td>1.4.1+</td></tr><tr><td>12.0.0+</td><td>3.1.3+</td><td>1.4.1+</td></tr><tr><td>11.0.0+</td><td>3.0.0+</td><td>1.4.1+</td></tr><tr><td>6.7.0+</td><td>any version</td><td>not supported</td></tr></tbody></table>
 
 #### Sorry Cypress Users
 
 Sorry Cypress users can use either [cy2](https://github.com/sorry-cypress/cy2) or [cypress-cloud](https://github.com/currents-dev/cypress-cloud) packages.
 
-| Cypress Version | cy2           | cypress-cloud |
-| --------------- | ------------- | ------------- |
-| 12.6.0+         | not supported | 1.4.1+        |
-| 12.1.0+         | 4.0.6+        | 1.4.1+        |
-| 11.0.0+         | 4.0.1+        | 1.4.1+        |
-| 6.7.0+          | any version   | not supported |
+<table><thead><tr><th>Cypress Version</th><th width="242.33333333333331">cy2</th><th>cypress-cloud</th></tr></thead><tbody><tr><td>12.6.0+</td><td>not supported</td><td>1.4.1+</td></tr><tr><td>12.1.0+</td><td>4.0.6+</td><td>1.4.1+</td></tr><tr><td>11.0.0+</td><td>4.0.1+</td><td>1.4.1+</td></tr><tr><td>6.7.0+</td><td>any version</td><td>not supported</td></tr></tbody></table>
 
 #### **NX Users**
 
 NX users can use [@currents/nx](https://www.npmjs.com/package/@currents/nx) plugin to conveniently integrate Currents or Sorry Cypress with their project&#x20;
 
-| Cypress | @currents/nx |
-| ------- | -----------: |
-| 12.6.0+ |       2.0.0+ |
-| 12.1.0+ |       2.0.0+ |
-| 12.0.0+ |       0.2.1+ |
-| 11.0.0+ |       0.1.0+ |
-| 6.7.0+  |  any version |
+<table><thead><tr><th width="111">Cypress</th><th width="641" align="right">@currents/nx</th></tr></thead><tbody><tr><td>12.6.0+</td><td align="right">2.0.0+</td></tr><tr><td>12.1.0+</td><td align="right">2.0.0+</td></tr><tr><td>12.0.0+</td><td align="right">0.2.1+</td></tr><tr><td>11.0.0+</td><td align="right">0.1.0+</td></tr><tr><td>6.7.0+</td><td align="right">any version</td></tr></tbody></table>

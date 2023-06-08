@@ -74,6 +74,7 @@
 * [HTTP Webhooks](integrations/http-webhooks.md)
 * [SSO SAML2.0](integrations/sso-saml2.0/README.md)
   * [Okta](integrations/sso-saml2.0/okta.md)
+  * [Troubleshooting SSO](integrations/sso-saml2.0/troubleshooting-sso.md)
 
 ## API
 

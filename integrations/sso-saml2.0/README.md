@@ -17,10 +17,7 @@ The configuration entries you will need to define on your IdP
 * `NameID` format (nameIdentifierFormat) should be `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` with a limitation of up to 128 characters
 * Attribute Mappings
 
-| IdP Attribute |                                            SAML Response Attribute |
-| ------------- | -----------------------------------------------------------------: |
-| Email         | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress |
-| Full Name     |         http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name |
+<table><thead><tr><th width="155.5">IdP Attribute</th><th align="right">SAML Response Attribute</th></tr></thead><tbody><tr><td>Email</td><td align="right">http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress</td></tr><tr><td>Full Name</td><td align="right">http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name</td></tr></tbody></table>
 
 
 

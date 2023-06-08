@@ -107,9 +107,7 @@ Tests Performance section focuses on **individual cypress tests** and shows the 
 
 Each line item has the following format:
 
-| Test Title                                                           | Metric                                              |
-| -------------------------------------------------------------------- | --------------------------------------------------- |
-| \<Test Title> - a link to the detailed performance view for the test | The metric value calculated for the reported period |
+<table><thead><tr><th width="373.5">Test Title</th><th>Metric</th></tr></thead><tbody><tr><td>&#x3C;Test Title> - a link to the detailed performance view for the test</td><td>The metric value calculated for the reported period</td></tr></tbody></table>
 
 *   **Top 3 Failing Tests**
 
