@@ -28,10 +28,10 @@ Please capture and share the **whole** debug log - that will help the support pe
 {% tab title="pwc" %}
 ```
 # on Linux
-DEBUG=currents* npx pwc ...
+npx pwc --pwc-debug ... 
 
 # on Windows
-cmd /V /C "set DEBUG=currents*&& npx pwc ..."
+cmd /V /C npx pwc --pwc-debug ...
 ```
 {% endtab %}
 
