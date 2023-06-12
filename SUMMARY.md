@@ -9,7 +9,7 @@
 ## Guides
 
 * [Cypress Parallelization](guides/parallelization.md)
-* [Cypress CI Build ID](guides/cypress-ci-build-id.md)
+* [CI Build ID](guides/cypress-ci-build-id.md)
 * [Load Balancing](guides/load-balancing.md)
 * [Fail Fast Strategy](guides/fail-fast-strategy.md)
 * [Record Key](guides/record-key.md)
