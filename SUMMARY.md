@@ -58,10 +58,8 @@
 
 * [Insights and Analytics](insights/insights-and-analytics.md)
 * [Currents Explorer](insights/currents-explorer/README.md)
-  * [Spec Files Explorer](insights/currents-explorer/spec-files-explorer/README.md)
-    * [Spec Files Performance](insights/currents-explorer/spec-files-explorer/spec-files-performance.md)
-  * [Tests Explorer](insights/currents-explorer/tests-explorer/README.md)
-    * [Executions History - Tests](insights/currents-explorer/tests-explorer/executions-history-tests.md)
+  * [Spec Files Explorer](insights/currents-explorer/spec-files-explorer.md)
+  * [Tests Explorer](insights/currents-explorer/tests-explorer.md)
   * [Errors Explorer](insights/currents-explorer/errors-explorer.md)
 * [Automated Reports](insights/automated-reports.md)
 
