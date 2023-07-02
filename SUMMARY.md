@@ -57,10 +57,12 @@
 ## Insights
 
 * [Insights and Analytics](insights/insights-and-analytics.md)
-* [Currents Explorer](insights/currents-explorer/README.md)
-  * [Spec Files Explorer](insights/currents-explorer/spec-files-explorer.md)
-  * [Tests Explorer](insights/currents-explorer/tests-explorer.md)
-  * [Errors Explorer](insights/currents-explorer/errors-explorer.md)
+* [Test Suite Performance Explorer](insights/test-suite-performance-explorer/README.md)
+  * [Spec Files Explorer](insights/test-suite-performance-explorer/spec-files-explorer/README.md)
+    * [Spec Files Performance](insights/test-suite-performance-explorer/spec-files-explorer/spec-files-performance.md)
+  * [Tests Explorer](insights/test-suite-performance-explorer/tests-explorer/README.md)
+    * [Tests Performance](insights/test-suite-performance-explorer/tests-explorer/tests-performance.md)
+  * [Errors Explorer](insights/test-suite-performance-explorer/errors-explorer.md)
 * [Automated Reports](insights/automated-reports.md)
 
 ## Integrations
