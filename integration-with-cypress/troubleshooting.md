@@ -27,6 +27,23 @@ npx envinfo --system --binaries --browsers --npmPackages --duplicates --npmGloba
 Please capture and share the **whole** debug log - that will help the support person identify the root cause faster
 {% endhint %}
 
+### Enabling `DEBUG` mode for `cypress-cloud@1.9.0+`
+
+Starting from version 1.9.0 `cypress-cloud` provides a CLI flag for activating the debug mode.&#x20;
+
+```
+npx cypress-cloud run ... --cloud-debug
+```
+
+You can specify the scope of debug messages printed
+
+* `true | all` show all debug messages
+* `cypress` activate debug mode for cypress only
+* `currents` activate the debug mode for currents only
+* `commit-info` activate the debug mode for git commit info only
+
+### Enabling DEBUG mode for `@currents/cli` and `cypress-cloud < 1.9.0`
+
 {% tabs %}
 {% tab title="cypress-cloud" %}
 ```
