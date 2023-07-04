@@ -55,7 +55,7 @@ If you have [fail-fast-strategy.md](../guides/fail-fast-strategy.md "mention") a
 
 ### GitHub Actions workflow cancellation
 
-You can automatically Currents runs (cypress and playwright) when cancelling GitHub Actions workflow using [cancel-run-gh-action](https://github.com/currents-dev/cancel-run-gh-action).
+You can automatically cancel Currents runs (cypress and playwright) when cancelling GitHub Actions workflow using [cancel-run-gh-action](https://github.com/currents-dev/cancel-run-gh-action).
 
 Check out the [example workflow configuration](https://github.com/currents-dev/gh-actions-example/blob/main/.github/workflows/currents.yml#L38):
 
