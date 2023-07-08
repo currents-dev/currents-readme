@@ -1,5 +1,5 @@
 ---
-description: Troubleshooting integrating Playwright integration with Currents
+description: Troubleshooting Playwright integration with Currents
 ---
 
 # Troubleshooting
