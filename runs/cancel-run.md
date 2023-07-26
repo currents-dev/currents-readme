@@ -26,8 +26,6 @@ You can also cancel a run when from the Run Details view.
 
 ![Cancelling cypress tests run from Run Details view](../.gitbook/assets/cancel-run-02.gif)
 
-###
-
 <figure><img src="../.gitbook/assets/currents-2023-07-04-14.07.14@2x.png" alt=""><figcaption><p>Example of a run cancelled by a dashboard user</p></figcaption></figure>
 
 ### Cancelling Cypress or Playwright CI runs via an API call
