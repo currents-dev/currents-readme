@@ -4,9 +4,13 @@ description: Understand cypress tests timeouts and how to avoid them
 
 # Run Timeouts
 
+{% hint style="info" %}
+New! We implements auto-cancellation for GitHub Actions - stopping a workflow on GitHub will automatically cancel the associated run on Currents. See [#github-actions-workflow-cancellation](cancel-run.md#github-actions-workflow-cancellation "mention")
+{% endhint %}
+
 ### Why do cypress tests time out?
 
-If any of your spec files takes too long to report the results back to Currents dashboard, the whole run is being marked as timed out. Why is that?
+If any of your spec files take too long to report the results back to Currents dashboard, the whole run is marked as timed out. Why is that?
 
 Unfortunately, sometimes containers crash or become unresponsive due to various reasons, for example:
 
@@ -24,7 +28,7 @@ The default timeout value is 30 minutes.&#x20;
 
 ![Cypress tests timing out because of a crash](../.gitbook/assets/parallelization-timeout.gif)
 
-### How to change the default time out?
+### How to change the default timeout?
 
 You can change the default timeout for each individual project in Project Settings. The minimum value is 3 minutes, the maximum value is 12 hours.&#x20;
 
@@ -42,7 +46,7 @@ Try rearranging your tests so that every spec file has a lower number of tests s
 
 #### Avoid prolonged `cy.wait`&#x20;
 
-Having a test that has many `cy.wait` waiting for a considerable time can accumulate and increase the overall runtime of your tests. Try reducing the amount of calls to `cy.wait` (which is, in general, a good practice) or reduce the values of your wait periods.
+Having a test that has many `cy.wait` waiting for a considerable time can accumulate and increase the overall runtime of your tests. Try reducing the number of calls to `cy.wait` (which is, in general, a good practice) or reduce the values of your wait periods.
 
 #### Improving runtime performance
 
@@ -58,7 +62,7 @@ Examine your CI jobs log file and eliminate any crashes or instability that caus
 
 Open the Run Details view for a "timed out" run. Make sure that **Run Summary** tab is selected.
 
-Explore the list of cypress agents and identify agents that are still in "Running" state (marked in <mark style="color:orange;">orange</mark>).
+Explore the list of cypress agents and identify agents that are still in a "Running" state (marked in <mark style="color:orange;">orange</mark>).
 
 The spec file name that was will be marked as "Idle", hover the mouse cursor to see the details.
 
@@ -77,9 +81,13 @@ Filter the list of spec files, and make sure that only "Running" and "Idle" spec
 
 ### Runs timeouts FAQ
 
-#### Why are my runs still in-progress after I stopped tests?
+#### Why are my runs still in progress after I stopped tests in a CI?
 
-Cypress agents do not notify the dashboard when they are stopped or halted, that's why the dashboard can't detect their termination. If no results are received for more than 30 minutes, the run will be marked as timed out. You can change the timeout value in project settings.
+Cypress runners do not notify the dashboard when they are stopped or halted, that's why the dashboard can't detect their termination. If no results are received for more than 30 minutes (or another timeout), the run will be marked as timed out. You can change the timeout value in project settings.
+
+Certain CI providers provide a hook/lifecycle event that can be used to cancel Currents run automatically when a CI job is cancelled. See an example  [#github-actions-workflow-cancellation](cancel-run.md#github-actions-workflow-cancellation "mention").
+
+If your CI provider has such kind of a hook, please contact our support to assist with enabling auto-cancellation.
 
 #### How can I  stop a run in the dashboard?
 
