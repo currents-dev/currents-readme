@@ -63,7 +63,7 @@ Tagging is a convenient way to augment your executions with extra data that can 
 For example, issues the next command:
 
 ```
-currents run --parallel --record --tag currents-cli,gha 
+cypress-cloud run --parallel --record --tag currents-cli,gha 
 ```
 
 Would generate a run with the corresponding tags:
