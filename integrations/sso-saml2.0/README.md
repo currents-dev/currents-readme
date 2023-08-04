@@ -31,5 +31,9 @@ Please note that there are certain limitations to Currents SSO integration:
 * Custom Roles for team members are not supported at the moment - the roles need to be manually configured for each user via the dashboard. New accounts will be created with "member" role.
 * User Deletion - Currents won't be notified if user access is revoked in IdP. You can delete the users on the team page.
 * Enabling SSO will mandate the auth method for all the team members**.**
-* IdP-initiated auth requests are not supported (due to lack of support from AWS Cognito)
+* IdP-initiated auth requests are not supported, due to lack of support from AWS Cognito 😤. You can use a custom, dedicated link to start an authentication flow. You can get the link in **Manage Team** section at https://app.currents.dev after the SSO is enabled.
+
+<figure><img src="../../.gitbook/assets/currents-2023-08-04-00.40.51@2x.png" alt=""><figcaption><p>Using a dedicated link to initiate an authentication with your IdP skipping the Currents dashboard login page</p></figcaption></figure>
+
+
 
