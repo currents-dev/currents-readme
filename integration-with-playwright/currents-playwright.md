@@ -82,12 +82,16 @@ reporter: [
 You can provide the required configuration as a parameter of `currentsReporter` function or as environment variables.&#x20;
 
 {% tabs %}
+{% tab title="Untitled" %}
+
+{% endtab %}
+
 {% tab title="Linux" %}
 ```javascript
 CURRENTS_PROJECT_ID=PROJECT_ID \ // the projectId from https://app.currents.dev
 CURRENTS_RECORD_KEY=RECORD_KEY \ // the record key from https://app.currents.dev
 CURRENTS_CI_BUILD_ID=hello-currents \ // the CI build ID 
-CURRENTS_TAGS=tagA,tagB \
+CURRENTS_TAG=tagA,tagB \
 npx playwright test
 ```
 {% endtab %}
