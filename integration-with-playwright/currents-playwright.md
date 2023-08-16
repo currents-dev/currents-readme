@@ -15,13 +15,15 @@ description: >-
 The Playwright integration is in public beta mode. We have been polishing the integration, and improving the documentation and developer experience.
 {% endhint %}
 
-### Install `@currents/playwright` package
+### Setup
+
+#### Install `@currents/playwright` package
 
 ```bash
 npm i -D @currents/playwright
 ```
 
-### Update `playwright.config.js|ts`
+#### Update `playwright.config.js|ts`
 
 * Enabled traces, videos and screenshots in `playwright.config.js|ts` to enhance the dashboard test results.
 * Disable [parallelizing tests in a single file](https://playwright.dev/docs/test-parallel#parallelize-tests-in-a-single-file) because it is not currently supported
@@ -35,12 +37,14 @@ use: {
   }
 ```
 
-Choose the preferred launch method for `@currents/playwright`&#x20;
+### Using @currents/playwright
 
-* executing  a `pwc` CLI command - it runs `playwright` with a predefined configuration
+Choose the preferred usage method for `@currents/playwright`&#x20;
+
+* `pwc` CLI command - it runs `playwright` with a predefined configuration
 * alternatively, you can add `@currents/playwright` reporter to Playwright configuration file
 
-#### Using `pwc` CLI command
+#### `pwc` CLI command
 
 Run `pwc` to create your first Playwright run in Currents dashboard. Set the record key, and project id obtained from Currents dashboard in the previous step. Learn more about [CI Build ID](../guides/cypress-ci-build-id.md).
 
@@ -48,25 +52,42 @@ Run `pwc` to create your first Playwright run in Currents dashboard. Set the rec
 npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id hello-currents
 ```
 
-#### Configuring `@currents/playwright` reporter
+#### `@currents/playwright` reporter
 
 Alternatively, you can manually add the reporter to Playwright configuration and keep using `playwright test` CLI command.&#x20;
 
-```javascript
+```typescript
+import { currentsReporter } from '@currents/playwright';
+
+const currentsConfig = {
+  ciBuildId: process.env.CURRENTS_CI_BUILD_ID,
+  recordKey: process.env.CURRENTS_RECORD_KEY,
+  projectId: process.env.CURRENTS_PROJECT_ID,
+  tag: ["runTagA", "runTagB"],
+};
 reporter: [
-  // ... other reporters, if exist
-  ["@currents/playwright"],
+  // explicitly provide reporter name and configuration
+  [
+    "@currents/playwright",
+    currentsConfig
+  ],
+  // ...or use the helper function that ensures type safety
+  currentsReporter(currentsConfig),
+  /* other reporters, if exist, e.g.:
+  ["html"]
+  */
 ]
 ```
 
-If you choose to add the reported manually, preset environment variables before running `playwright` command
+You can provide the required configuration as a parameter of `currentsReporter` function or as environment variables.&#x20;
 
 {% tabs %}
 {% tab title="Linux" %}
 ```javascript
 CURRENTS_PROJECT_ID=PROJECT_ID \ // the projectId from https://app.currents.dev
 CURRENTS_RECORD_KEY=RECORD_KEY \ // the record key from https://app.currents.dev
-CURRENTS_CI_BUILD_ID=hello-currents \
+CURRENTS_CI_BUILD_ID=hello-currents \ // the CI build ID 
+CURRENTS_TAGS=tagA,tagB \
 npx playwright test
 ```
 {% endtab %}
@@ -75,13 +96,14 @@ npx playwright test
 ```typescript
 cmd /V /C "set CURRENTS_PROJECT_ID=PROJECT_ID // the projectId from https://app.currents.dev
 && set CURRENTS_RECORD_KEY=RECORD_KEY // the record key from https://app.currents.dev
-&& set CURRENTS_CI_BUILD_ID=hello-currents 
+&& set CURRENTS_CI_BUILD_ID=hello-currents  // CI build id
+&& set CURRENTS_TAG=tagA,tagB  // tags for the created run
 && npx playwright test"
 ```
 {% endtab %}
 {% endtabs %}
 
-With the reporter configured, you can run `npx playwright test` to start sending the results to Currents dashboard.
+With the reporter configured, you can run `npx playwright test` to start sending the results to Currents dashboard. Learn more about [cypress-ci-build-id.md](../guides/cypress-ci-build-id.md "mention").
 
 ### Examples
 
