@@ -76,7 +76,6 @@
 * [HTTP Webhooks](integrations/http-webhooks.md)
 * [SSO SAML2.0](integrations/sso-saml2.0/README.md)
   * [Okta](integrations/sso-saml2.0/okta.md)
-  * [Domain Binding](integrations/sso-saml2.0/domain-binding.md)
   * [Troubleshooting SSO](integrations/sso-saml2.0/troubleshooting-sso.md)
 
 ## API
@@ -93,4 +92,5 @@
 
 ## Administration
 
+* [Email Domain Based Access](administration/email-domain-based-access.md)
 * [Billing & Usage](administration/billing-and-usage.md)
