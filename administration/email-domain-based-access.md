@@ -10,7 +10,7 @@ Domain binding allows users to automatically join your Currents organization bas
 
 You can allow users with your company email domain to connect to your Currents organization by activating this option in the onboarding screen.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Enabling Domain Access via Currents onboarding form</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/currents-2023-08-28-11.52.43@2x.png" alt=""><figcaption><p>Enabling Domain Access via Currents onboarding form</p></figcaption></figure>
 
 
 
