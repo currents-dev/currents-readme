@@ -64,6 +64,12 @@ export default defineConfig({
 {% endtab %}
 {% endtabs %}
 
+Add `cypress-cloud/support` to [cypress support](https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests#Support-file) file
+
+```typescript
+require("cypress-cloud/support");
+```
+
 #### Setup with existing plugins
 
 `cypress-cloud/plugin` needs access to certain environment variables that are injected into **`config`** parameter of `setupNodeEvents(on,`**`config)`**.&#x20;
