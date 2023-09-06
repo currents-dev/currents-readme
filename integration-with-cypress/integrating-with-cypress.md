@@ -16,7 +16,7 @@ TL;DR
 Currents and Sorry Cypress provide two ways for integrating with cypress runner using the following npm packages:
 
 * [@currents/cli](currents-cli.md) (and its "community" edition [cy2](https://www.npmjs.com/package/cy2))&#x20;
-* [cypress-cloud](cypress-cloud/)
+* [cypress-cloud](cypress-cloud.md)
 
 Both solutions are open-source tools that provide an executable + a programmatic API for integrating cypress with cloud orchestration and recording services like Currents or Sorry Cypress.&#x20;
 

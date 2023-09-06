@@ -36,7 +36,7 @@ If you are dealing with a stable and predictable suite of cypress tests that rar
 
 To enable the "fail-fast" strategy navigate to the **Manage Project** screen and toggle **Enable Fail Fast Strategy** controller.
 
-Customers using our [cypress-cloud](../integration-with-cypress/cypress-cloud/ "mention") integration can control the "fail-fast" behaviour using the command line CLI flag `--auto-cancel-after-failures <number | false>`.&#x20;
+Customers using our [cypress-cloud.md](../integration-with-cypress/cypress-cloud.md "mention") integration can control the "fail-fast" behaviour using the command line CLI flag `--auto-cancel-after-failures <number | false>`.&#x20;
 
 &#x20;If set, it overrides the project's default fail-fast strategy setting. If not set, uses the default project settings:
 
