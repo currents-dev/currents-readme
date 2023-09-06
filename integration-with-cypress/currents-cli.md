@@ -3,7 +3,7 @@
 {% hint style="info" %}
 **Please note**
 
-Migrate to [cypress-cloud](cypress-cloud.md) if you are seeing any of the errors below
+Migrate to [cypress-cloud](cypress-cloud/) if you are seeing any of the errors below
 
 * `Integrity check failed`&#x20;
 * `DecryptionError: JWE Recipients missing or incorrect type`
