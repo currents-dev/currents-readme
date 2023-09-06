@@ -32,7 +32,7 @@ Currents customers can use either [@currents/cli](https://www.npmjs.com/package/
 
 Sorry Cypress users can use either [cy2](https://github.com/sorry-cypress/cy2) or [cypress-cloud](https://github.com/currents-dev/cypress-cloud) packages.
 
-<table><thead><tr><th>Cypress Version</th><th width="242.33333333333331">cy2</th><th>cypress-cloud</th></tr></thead><tbody><tr><td>13.0.0+</td><td>not supported</td><td>1.10.0-beta.1+</td></tr><tr><td>12.6.0+</td><td>not supported</td><td>1.4.1+</td></tr><tr><td>12.1.0+</td><td>4.0.6+</td><td>1.4.1+</td></tr><tr><td>11.0.0+</td><td>4.0.1+</td><td>1.4.1+</td></tr><tr><td>6.7.0+</td><td>any version</td><td>not supported</td></tr></tbody></table>
+<table><thead><tr><th>Cypress Version</th><th width="242.33333333333331">cy2</th><th>cypress-cloud</th></tr></thead><tbody><tr><td>13.0.0+  (<a href="cypress-cloud/migration-to-cypress-13.md">migration guide</a>)</td><td>not supported</td><td>1.10.0-beta.1+</td></tr><tr><td>12.6.0+</td><td>not supported</td><td>1.4.1+</td></tr><tr><td>12.1.0+</td><td>4.0.6+</td><td>1.4.1+</td></tr><tr><td>11.0.0+</td><td>4.0.1+</td><td>1.4.1+</td></tr><tr><td>6.7.0+</td><td>any version</td><td>not supported</td></tr></tbody></table>
 
 #### **NX Users**
 

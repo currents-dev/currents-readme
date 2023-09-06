@@ -8,7 +8,7 @@ Cypress version 13 introduced breaking changes that require upgrading `cypress-c
 
 The required steps:
 
-* Install the most recent version of `cypress-cloud` (`1.10.0-beta.1+`)
+* Install the compatible version of `cypress-cloud` (as of Sep 06 it's `1.10.0-beta.1+`)
 
 ```
 npm i cypress-cloud@beta
