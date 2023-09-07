@@ -13,6 +13,7 @@
 * [Load Balancing](guides/load-balancing.md)
 * [Fail Fast Strategy](guides/fail-fast-strategy.md)
 * [Record Key](guides/record-key.md)
+* [Coverage](guides/coverage.md)
 
 ## Integration with Cypress
 
