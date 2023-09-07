@@ -30,5 +30,29 @@ The usage includes a [<mark style="color:blue;">**Failed**</mark>](../tests/test
 
 If you want to estimate your test volume, count all your `it` statements and multiply by your provider's average number of CI runs.
 
-<figure><img src="../.gitbook/assets/currents-2023-03-29-10.33.14@2x.png" alt=""><figcaption><p>Example usage history chart</p></figcaption></figure>
+The usage is aggregated **hourly** to allow precise reporting and calculation of recorded tests.
+
+#### Usage Information filters
+
+You can filter usage by period and view all past billing cycles. Moreover, you can filter by **tests** or **runs**. Most customer contracts are metered by **runs**.&#x20;
+
+<figure><img src="../.gitbook/assets/Screenshot 2023-09-01 at 15.34.32.png" alt=""><figcaption><p>Example - Usage history chart and filters</p></figcaption></figure>
+
+#### Usage per project
+
+If you click **Show Usage Details**, you can see a breakdown of all recorded tests and runs per project created within your organization account.&#x20;
+
+<figure><img src="../.gitbook/assets/Screenshot 2023-09-01 at 14.21.03.png" alt=""><figcaption><p>Usage per Project</p></figcaption></figure>
+
+### Extra Usage Plans
+
+If you are still determining how many tests you need per month or if your usage is seasonal, you can opt for an extra usage plan in addition to your test package. These extra usage plans offer customers more flexibility to run tests when needed.
+
+When you reach the test limits, Currents will send you an email notification informing you of the activation of the extra usage plan. You also can see the extra recordings progress on the **Usage Information**:
+
+<figure><img src="../.gitbook/assets/Screenshot 2023-09-01 at 15.28.22.png" alt=""><figcaption><p>Example - Extra usage activated</p></figcaption></figure>
+
+At the end of the monthly cycle, the billing will include the additional usage recorded. In the case of annual plans, Currents will send a separate bill with the extra tests.
+
+The cost for extra recordings ranges from **US$3.00** to **US$4.00** per **1,000 tests**. For detailed pricing information, please check our [**pricing page**](https://currents.dev/#pricing). If you have any questions or concerns, please don't hesitate to contact us via _support@currents.dev_ or our in-app support chat.
 
