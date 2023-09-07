@@ -75,9 +75,6 @@
 * [Slack](integrations/slack.md)
 * [Microsoft Teams](integrations/microsoft-teams.md)
 * [HTTP Webhooks](integrations/http-webhooks.md)
-* [SSO SAML2.0](integrations/sso-saml2.0/README.md)
-  * [Okta](integrations/sso-saml2.0/okta.md)
-  * [Troubleshooting SSO](integrations/sso-saml2.0/troubleshooting-sso.md)
 
 ## API
 
@@ -94,4 +91,7 @@
 ## Administration
 
 * [Email Domain Based Access](administration/email-domain-based-access.md)
+* [SSO SAML2.0](administration/sso-saml2.0/README.md)
+  * [Okta](administration/sso-saml2.0/okta.md)
+  * [Troubleshooting SSO](administration/sso-saml2.0/troubleshooting-sso.md)
 * [Billing & Usage](administration/billing-and-usage.md)
