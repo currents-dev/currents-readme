@@ -7,8 +7,7 @@ description: >-
 # Coverage
 
 {% hint style="info" %}
-Coverage reports collection is in beta mode. \
-Only Cypress support is available at the moment.
+Coverage reports collection is in beta mode. Only Cypress support is available at the moment. [`cypress-cloud`](../integration-with-cypress/cypress-cloud.md) version `1.9.5+` is required.
 
 [Share your use cases and feedback](mailto:support@currents.dev)
 {% endhint %}
@@ -17,7 +16,7 @@ Code coverage provides information on whether and how frequently certain parts o
 
 [Cypress](https://docs.cypress.io/guides/tooling/code-coverage) and [Playwright](https://playwright.dev/docs/api/class-coverage) both support collecting code coverage information from the underlying application. When running tests in a distributed and parallel CI environment, it's necessary to collect coverage data from multiple CI containers, merge the resulting reports, and store them in a central location.
 
-{% hint style="info" %}
+{% hint style="success" %}
 By integrating Cypress or Playwright with Currents, you can easily collect, merge, and track code coverage metrics, along with other test-related metrics. This includes aggregating data across multiple executions and filtering by tags or git branches.
 {% endhint %}
 
@@ -53,7 +52,7 @@ TL;DR
 
 See a working [example GitHub repository](https://github.com/currents-dev/cypress-cloud/tree/main/examples/coverage)&#x20;
 
-* Install cypress-cloud version `1.9.5+`&#x20;
+* Install `cypress-cloud` version `1.9.5+`&#x20;
 * Install and configure Cypress Code coverage plugin as described [here](https://docs.cypress.io/guides/tooling/code-coverage)&#x20;
 * Run `cypress-cloud` with `--experimental-coverage-recording` CLI flag enabled
 {% endhint %}
