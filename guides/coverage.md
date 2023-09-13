@@ -94,16 +94,16 @@ export default defineConfig({
     async setupNodeEvents(on, config) {
       // enable on-the-file instrumentation
       on("file:preprocessor", coverageInstrumenter);
-			// enable coverage plugin to generate a report
+      // enable coverage plugin to generate a report
       const tempConfig = coveragePlugin(on, config);
-			// enable cypress-cloud plugin
+      // enable cypress-cloud plugin
       return await cloudPlugin(on, tempConfig);
     },
     baseUrl: "<http://localhost:8888>",
     supportFile: "cypress/support/e2e.js",
     specPattern: "cypress/**/*.cy.js",
     env: {
-			// @cypress/code-coverage config
+      // @cypress/code-coverage config
       // exclude test files from the reports
       codeCoverage: {
         exclude: ["cypress/**/*.*"],
