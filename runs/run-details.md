@@ -52,23 +52,21 @@ If you're not seeing git information for your runs, most chances it is just not 
 
 ### Run Tags
 
-{% hint style="info" %}
-Note: In Playwright integration version 1.7.0+, we implemented tagging executions using  `--tag a,b` and `CURRENTS_TAG=a,b`through environment variables. Tagging using `--grep` is still under construction.
-{% endhint %}
-
 Tagging is a convenient way to augment your executions with extra data that can be helpful for managing your tests. You can tag the runs (executions) by adding `--tag tagA,tagB` flag to `currents` command.
 
-For example, running the next command:
+For example, running the next command for cypress:
 
 ```
 cypress-cloud run --parallel --record --tag currents-cli,gha 
 ```
 
-or this:
+or for `@currents/playwright` (version 1.7.0+):
 
+{% code overflow="wrap" %}
 ```
-pwc 
+npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id CI_BUILD_ID --tag currents-cli,gha
 ```
+{% endcode %}
 
 Would generate a run with the corresponding tags:
 
