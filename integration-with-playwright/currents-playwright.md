@@ -42,15 +42,23 @@ use: {
 Choose the preferred usage method for `@currents/playwright`&#x20;
 
 * `pwc` CLI command - it runs `playwright` with a predefined configuration
-* alternatively, you can add `@currents/playwright` reporter to Playwright configuration file
+* Alternatively, you can add `@currents/playwright` reporter to Playwright configuration file
 
 #### `pwc` CLI command
 
-Run `pwc` to create your first Playwright run in Currents dashboard. Set the record key, and project id obtained from Currents dashboard in the previous step. Learn more about [CI Build ID](../guides/cypress-ci-build-id.md).
+Run `pwc` to create your first Playwright run in Currents dashboard. Set the record key, and project ID obtained from Currents dashboard in the previous step. Learn more about [CI Build ID](../guides/cypress-ci-build-id.md).
 
 ```
 npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id hello-currents
 ```
+
+Starting from version `1.7.0` you can provide `--tag` CLI flag to add tags that will apply to the whole execution:
+
+{% code overflow="wrap" %}
+```sh
+npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id CI_BUILD_ID --tag tagA,tagB
+```
+{% endcode %}
 
 #### `@currents/playwright` reporter
 
@@ -82,10 +90,6 @@ reporter: [
 You can provide the required configuration as a parameter of `currentsReporter` function or as environment variables.&#x20;
 
 {% tabs %}
-{% tab title="Untitled" %}
-
-{% endtab %}
-
 {% tab title="Linux" %}
 ```javascript
 CURRENTS_PROJECT_ID=PROJECT_ID \ // the projectId from https://app.currents.dev
@@ -143,5 +147,5 @@ For more information see the Playwright [test info attachment](https://playwrigh
 
 * We recommend using the native [Playwright Shards](https://playwright.dev/docs/test-parallel#shard-tests-between-multiple-machines) while we are working on other types of orchestration-related features.
 * Reruns are not supported - rerunning with the same CI build ID would generate a warning and new results would not be uploaded. Please use a new CI build ID.
-* Cross-machines auto-cancellation is not currently supported
+* Cross-machine auto-cancellation is not currently supported
 * Full parallel mode ([parallelizing tests in a single file](https://playwright.dev/docs/test-parallel#parallelize-tests-in-a-single-file)) is not currently supported

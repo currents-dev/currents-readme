@@ -44,10 +44,8 @@ COMMIT_INFO_REMOTE: remote origin
 
 {% hint style="info" %}
 **Please note:** If no git information is available - either from`.git` folder or from environment variables, no git data will be shown&#x20;
-{% endhint %}
 
-{% hint style="warning" %}
-Please note: git information is required for Bitbucket, GitHub and GitLab integrations to work properly
+`git` information is required for Bitbucket, GitHub and GitLab integrations to work properly
 {% endhint %}
 
 If you're not seeing git information for your runs, most chances it is just not available in the CI environment. Please enable the debug mode for [Cypress](../integration-with-cypress/troubleshooting.md#cypress-cloud) or [Playwright](../integration-with-playwright/troubleshooting.md) or add [git commands](https://github.com/cypress-io/commit-info/blob/3edc0e3005873997a15204be7daf45666fb9b932/src/git-api.js#L10) to your CI workflow for troubleshooting.
@@ -60,10 +58,16 @@ Note: In Playwright integration version 1.7.0+, we implemented tagging execution
 
 Tagging is a convenient way to augment your executions with extra data that can be helpful for managing your tests. You can tag the runs (executions) by adding `--tag tagA,tagB` flag to `currents` command.
 
-For example, issues the next command:
+For example, running the next command:
 
 ```
 cypress-cloud run --parallel --record --tag currents-cli,gha 
+```
+
+or this:
+
+```
+pwc 
 ```
 
 Would generate a run with the corresponding tags:
