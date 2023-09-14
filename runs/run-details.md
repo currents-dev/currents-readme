@@ -55,7 +55,7 @@ If you're not seeing git information for your runs, most chances it is just not 
 ### Run Tags
 
 {% hint style="info" %}
-Note: Tagging Playwright runs is under construction
+Note: In Playwright integration version 1.7.0+, we implemented tagging executions using  `--tag a,b` and `CURRENTS_TAG=a,b`through environment variables. Tagging using `--grep` is still under construction.
 {% endhint %}
 
 Tagging is a convenient way to augment your executions with extra data that can be helpful for managing your tests. You can tag the runs (executions) by adding `--tag tagA,tagB` flag to `currents` command.
