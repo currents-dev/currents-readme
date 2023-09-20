@@ -56,8 +56,9 @@ import currents from "cypress-cloud/plugin";
 export default defineConfig({
   e2e: {
     // ...
-    setupNodeEvents(on, config) {
-      return currents(on, config);
+    async setupNodeEvents(on, config) {
+      const result = await currents(on, config);
+      return result;
     },
   }
 });
