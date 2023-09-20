@@ -4,9 +4,11 @@ description: Setup and usage instruction for cypress-cloud
 
 # cypress-cloud
 
-### Requirements
+{% hint style="info" %}
+Please refer to the most recent documentation published in the GitHub repository
 
-The package requires cypress version 10+ and NodeJS 14.7.0+
+[https://github.com/currents-dev/cypress-cloud](https://github.com/currents-dev/cypress-cloud)
+{% endhint %}
 
 ### Setup
 
@@ -74,38 +76,7 @@ require("cypress-cloud/support");
 
 #### Setup with existing plugins
 
-`cypress-cloud/plugin` needs access to certain environment variables that are injected into **`config`** parameter of `setupNodeEvents(on,`**`config)`**.&#x20;
-
-Please make sure to preserve the original `config.env` parameters in case you are using additional plugins, e.g.:
-
-```javascript
-// Some code
-const { defineConfig } = require("cypress");
-const { cloudPlugin } = require("cypress-cloud/plugin");
-
-module.exports = defineConfig({
-  e2e: {
-    // ...
-    async setupNodeEvents(on, config) {
-      // alternative: activate the plugin first
-      // cloudPlugin(on, config)
-      const enhancedConfig = {
-        env: {
-          // preserve the original env
-          ...config.env,
-          customVariable: "value"
-        }
-      }
-      const result = await cloudPlugin(on, enhancedConfig);
-      return result;
-    },
-  },
-});
-```
-
-As an alternative, you can activate the `cloudPlugin` first and then implement the custom setup.
-
-Please contact our support if you have a complex plugins configuration to get assistance with the setup.
+Please refer to our [collection of guides](https://github.com/currents-dev/cypress-cloud#configuration) for setting up `cypress-cloud` together with other plugins
 
 ### Usage
 
@@ -117,120 +88,11 @@ npx cypress-cloud --parallel --record --key your_key --ci-build-id hello-cypress
 
 See all the available options `npx cypress-cloud --help`. Learn more about [CI Build ID](https://currents.dev/readme/guides/cypress-ci-build-id).
 
-### Example
-
-See an example in [examples/webapp](https://github.com/currents-dev/cypress-cloud/blob/main/examples/webapp) directory.
-
-### Configuration
-
-```javascript
-// currents.config.js
-module.exports = {
-  projectId: "Ij0RfK", // ProjectID obtained from https://app.currents.dev or Sorry Cypress
-  recordKey: "XXXXXXX", // Record key obtained from https://app.currents.dev, any value for Sorry Cypress
-  cloudServiceUrl: "https://cy.currents.dev", // Sorry Cypress users - the director service URL
-  e2e: {
-    batchSize: 3, // orchestration batch size for e2e tests (Currents only, read below)
-  },
-  component: {
-    batchSize: 5, // orchestration batch size for component tests (Currents only, read below)
-  },
-};
-```
-
-Override the default configuration values via environment variables:
-
-* `CURRENTS_API_URL` - sorry-cypress users - set the URL of your director service
-* `CURRENTS_PROJECT_ID` - set the `projectId`
-* `CURRENTS_RECORD_KEY` - cloud service record key
-
-The configuration variables will resolve as follows:
-
-* the corresponding CLI flag or `run` function parameter, otherwise
-* environment variable if exist, otherwise
-* `currents.config.js` value, otherwise
-* the default value, otherwise throw
-
-### API
-
-#### `run`
-
-Run Cypress tests programmatically
-
-```
-run(params: CurrentsRunParameters): Promise<CypressCommandLine.CypressRunResult | CypressCommandLine.CypressFailedRunResult>
-```
-
-* `params` - [CurrentsRunParameters](https://github.com/currents-dev/cypress-cloud/blob/main/packages/cypress-cloud/types.ts#L127) list of params compatible with Cypress [Module API](https://docs.cypress.io/guides/guides/module-api)
-* returns results as a [CypressRunResult](https://github.com/cypress-io/cypress/blob/19e091d0bc2d1f4e6a6e62d2f81ea6a2f60d531a/cli/types/cypress-npm-api.d.ts#L277)
-
-Example:
-
-```javascript
-import { run } from "cypress-cloud";
-
-const results = await run({
-  reporter: "junit",
-  browser: "chrome",
-  config: {
-    baseUrl: "http://localhost:8080",
-    video: true,
-  },
-})
-```
-
-### Batched Orchestration
-
-This package uses its own orchestration and reporting protocol that is independent of cypress native implementation. This approach provides several benefits, including more control, flexibility and the ability to implement new features that are not supported by the native cypress orchestration.&#x20;
+### Documentation
 
 {% hint style="info" %}
-Please note: the batched orchestration is not yet available for sorry-cypress users (only for currents.dev)
+Please refer to the most recent documentation published in the GitHub repository
+
+[https://github.com/currents-dev/cypress-cloud](https://github.com/currents-dev/cypress-cloud)
 {% endhint %}
-
-The new approach can present a slightly different performance compared to the previous integration. To enhance its performance, the new orchestration protocol allows multiple spec files to be batched together for greater efficiency. You configure the batching in `cypress.config.js` and use different values for different testing types:
-
-```javascript
-// currents.config.js
-module.exports = {
-  // ...
-  e2e: {
-    batchSize: 3, // orchestration batch size for e2e tests (Currents only)
-  },
-  component: {
-    batchSize: 5, // orchestration batch size for component tests (Currents only)
-  },
-};
-
-```
-
-Based on our benchmarks, the performance is comparable to that of the native orchestration, however, it can vary depending on your specific configuration and setup. Adjusting the batching configuration can help to achieve optimal results for e2e or component tests.
-
-#### Native Orchestration Diagram
-
-```mermaid
-sequenceDiagram
-  loop while no specs left
-	  Cypress Runner ->> Cloud Service: Get Next Spec File
-	  Cloud Service -->> Cypress Runner: Spec File
-	  activate Cypress Runner
-	  Cypress Runner ->> Cypress Runner: executing Spec File
-	  Cypress Runner ->> Cloud Service: Report Result for Spec File
-	  deactivate Cypress Runner 
-	end
-```
-
-#### Batched Orchestration Diagram
-
-```mermaid
-sequenceDiagram
-  loop while no specs are left
-		Cypress Runner ->> Cloud Service: Get Next Spec Files Batch
-	  Cloud Service -->> Cypress Runner: SpecFileA, SpecFileB, SpecFileC
-	  activate Cypress Runner
-	  Cypress Runner ->> Cypress Runner: executing SpecFileA, SpecFileB, SpecFileC
-	  Cypress Runner ->> Cloud Service: Report Result for SpecFileA, SpecFileB, SpecFileC
-	  deactivate Cypress Runner 
-	end
-	 
-```
 
