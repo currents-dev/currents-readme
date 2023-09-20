@@ -46,13 +46,26 @@ If you click **Show Usage Details**, you can see a breakdown of all recorded tes
 
 ### Extra Usage Plans
 
-If you are still determining how many tests you need per month or if your usage is seasonal, you can opt for an extra usage plan in addition to your test package. These extra usage plans offer customers more flexibility to run tests when needed.
+If you are still determining how many tests you need per month or if your usage is seasonal, Currents offers extra usage plans in addition to your test package. These extra usage plans offer customers more flexibility to run tests when needed.
 
 When you reach the test limits, Currents will send you an email notification informing you of the activation of the extra usage plan. You also can see the extra recordings progress on the **Usage Information**:
 
 <figure><img src="../.gitbook/assets/Screenshot 2023-09-01 at 15.28.22.png" alt=""><figcaption><p>Example - Extra usage activated</p></figcaption></figure>
 
-At the end of the monthly cycle, the billing will include the additional usage recorded. In the case of annual plans, Currents will send a separate bill with the extra tests.
+At the end of the monthly cycle, the billing will include the additional usage recorded. In the case of annual plans, Currents will send a separate bill with the extra tests.&#x20;
 
-The cost for extra recordings ranges from **US$3.00** to **US$4.00** per **1,000 tests**. For detailed pricing information, please check our [**pricing page**](https://currents.dev/#pricing). If you have any questions or concerns, please don't hesitate to contact us via _support@currents.dev_ or our in-app support chat.
+The cost for extra recordings ranges and depends on your plan. For detailed pricing information, please check our [**pricing page**](https://currents.dev/#pricing). If you have any questions or concerns, please don't hesitate to contact us via _support@currents.dev_ or our in-app support chat.
 
+### Legacy Plans
+
+Our legacy plans (created before April 2023) do not have extra usage enabled.
+
+When legacy plan subscribers reach the usage limits, our system automatically increases the quota by **10%** to safeguard your usage. Then, you will get emails from our automated system with warnings, asking you to upgrade your subscription or activate an extra usage plan.&#x20;
+
+You can activate an extra-usage or upgrade the plan in **Billing & Usage** section:
+
+<figure><img src="../.gitbook/assets/currents-2023-09-20-00.33.34@2x.png" alt=""><figcaption><p>Enabling Extra Usage for Legacy Plans</p></figcaption></figure>
+
+If upgrading is not an option, you can contact us via _support@currents.dev_ or our in-app support chat to activate an extra usage plan to accommodate your increased usage needs.
+
+Please remember that if you surpass your usage limits, Currents will cease recording tests on your organization dashboard. To avoid service interruption, don't hesitate to contact us to activate an extra usage plan or explore subscription upgrades. We're always here to help!
