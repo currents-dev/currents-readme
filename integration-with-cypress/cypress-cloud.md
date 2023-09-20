@@ -39,8 +39,8 @@ const { cloudPlugin } = require("cypress-cloud/plugin");
 module.exports = defineConfig({
   e2e: {
     // ...
-    setupNodeEvents(on, config) {
-      return cloudPlugin(on, config);
+    async setupNodeEvents(on, config) {
+      return await cloudPlugin(on, config);
     },
   },
 });
@@ -84,7 +84,7 @@ const { cloudPlugin } = require("cypress-cloud/plugin");
 module.exports = defineConfig({
   e2e: {
     // ...
-    setupNodeEvents(on, config) {
+    async setupNodeEvents(on, config) {
       // alternative: activate the plugin first
       // cloudPlugin(on, config)
       const enhancedConfig = {
