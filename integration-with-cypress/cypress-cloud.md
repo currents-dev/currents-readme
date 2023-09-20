@@ -40,7 +40,8 @@ module.exports = defineConfig({
   e2e: {
     // ...
     async setupNodeEvents(on, config) {
-      return await cloudPlugin(on, config);
+      const result = await cloudPlugin(on, config);
+      return result;
     },
   },
 });
@@ -94,7 +95,8 @@ module.exports = defineConfig({
           customVariable: "value"
         }
       }
-      return cloudPlugin(on, enhancedConfig);
+      const result = await cloudPlugin(on, enhancedConfig);
+      return result;
     },
   },
 });
