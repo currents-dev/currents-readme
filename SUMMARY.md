@@ -38,6 +38,7 @@
 * [AWS Code Build](ci-setup/aws-code-build.md)
 * [GitLab](ci-setup/gitlab.md)
 * [Jenkins](ci-setup/jenkins.md)
+* [Jenkins for Playwright](ci-setup/jenkins-playwright.md)
 * [NX](ci-setup/nx.md)
 
 ## Runs
