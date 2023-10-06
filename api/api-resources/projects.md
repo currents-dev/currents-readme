@@ -16,19 +16,11 @@ Pagination limit 1-50. Default 10.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="starting_before" type="String" %}
-Pagination cursor. See 
-
-[pagination.md](../pagination.md "mention")
-
-
+Pagination cursor. See [pagination.md](../pagination.md "mention")
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="ending_after" type="String" %}
-Pagination cursor. See 
-
-[pagination.md](../pagination.md "mention")
-
-
+Pagination cursor. See [pagination.md](../pagination.md "mention")
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Project Items" %}
@@ -88,19 +80,11 @@ Pagination limit 1-50. Default 10.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="starting_before" type="String" %}
-Pagination cursor. See 
-
-[pagination.md](../pagination.md "mention")
-
-
+Pagination cursor. See [pagination.md](../pagination.md "mention")
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="ending_after" type="String" %}
-Pagination cursor. See 
-
-[pagination.md](../pagination.md "mention")
-
-
+Pagination cursor. See [pagination.md](../pagination.md "mention")
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -202,15 +186,11 @@ Aggregation resolution. Valid values are "1w" or "1d"
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="tags[]" type="String" %}
-List of tags for filtering the query. To provide multiple values, use 
-
-`tags[]=valueA&tags[]=valueB`
+List of tags for filtering the query. To provide multiple values, use `tags[]=valueA&tags[]=valueB`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="branches[]" type="String" %}
-List of branches for filtering the query. 
-
-`branches[]=valueA&branches[]=valueB`
+List of branches for filtering the query. `branches[]=valueA&branches[]=valueB`
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Successful Response" %}
