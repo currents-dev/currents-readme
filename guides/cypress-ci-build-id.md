@@ -5,7 +5,7 @@ description: Using --ci-build-id flag for Cypress and Playwright tests paralleli
 # CI Build ID
 
 {% embed url="https://stream.mux.com/rMbteT2Hf028NhSBDQnf2w00Ad2TuQsphLY1ZRVDwoszo/high.mp4" %}
-CI Build ID Ob
+CI Build ID for Cypress and Playwright
 {% endembed %}
 
 ### What is CI Build ID?
