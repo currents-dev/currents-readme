@@ -45,7 +45,7 @@ After a successful connection, you will see a dropdown list of accessible  GitLa
 
 ![Installing GitLab Integration with Cypress](../.gitbook/assets/cypress-gitlab-installation.gif)
 
-Currents Dashboard will start posting [commit build statuses](https://docs.gitlab.com/ee/api/commits.html#post-the-build-status-to-a-commit) and [merge request comments](https://docs.gitlab.com/ee/user/discussions/) with a summary of your cypress tests for Merge Requests in the selected project.
+Currents Dashboard will start posting [commit build statuses](https://docs.gitlab.com/ee/api/commits.html#post-the-build-status-to-a-commit) and [merge request comments](https://docs.gitlab.com/ee/user/discussions/) with a summary of your Playwright tests for Merge Requests in the selected project.
 
 ### Customizing GitLab Integration&#x20;
 

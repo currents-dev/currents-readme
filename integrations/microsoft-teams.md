@@ -1,5 +1,5 @@
 ---
-description: Send cypress tests results to Microsoft Teams
+description: Send Cypress and Playwright tests results to Microsoft Teams
 ---
 
 # Microsoft Teams

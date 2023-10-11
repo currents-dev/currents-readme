@@ -1,10 +1,10 @@
 ---
-description: Cypress tests API Reference - Runs resource
+description: API Reference - Runs resource
 ---
 
 # Runs
 
-This is an object representing cypress tests run. You can retrieve a run's details and cancel a run.&#x20;
+This is an object representing Playwright tests run. You can retrieve a run's details and cancel a run.&#x20;
 
 * See [projects.md](projects.md "mention") API resource to list runs associated with a project.
 * See [instances.md](instances.md "mention")API resource for fetching Instance object by an `instanceId`

@@ -1,5 +1,5 @@
 ---
-description: Cypress Spec files status in Currents Dashboard
+description: Playwright Spec files status in Currents Dashboard
 ---
 
 # Spec File Status

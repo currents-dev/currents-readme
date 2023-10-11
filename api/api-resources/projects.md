@@ -1,5 +1,5 @@
 ---
-description: Cypress tests API Reference - Projects resource
+description: API Reference - Projects resource
 ---
 
 # Projects

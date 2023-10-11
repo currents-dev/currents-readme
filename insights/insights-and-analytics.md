@@ -1,10 +1,10 @@
 ---
-description: Cypress Tests runs and builds - insights and analytics guide
+description: Tests and Runs insights and analytics guide
 ---
 
 # Insights and Analytics
 
-Currents Dashboard Insights allows you to analyze the behaviour and dynamics of your Cypress or Playwright Tests suite over time. You can use the insights to track the performance of your runs/build and tests over time and to identify the most problematic tests - most flaky and most failing - that are worth fixing.
+Currents Dashboard Insights allows you to analyze the behaviour and dynamics of your Playwright or Cypress test suite over time. You can use the insights to track the performance of your runs/build and tests over time and to identify the most problematic tests - most flaky and most failing - that are worth fixing.
 
 See the notes below to discover how specific metrics are getting calculated.
 

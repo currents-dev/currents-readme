@@ -1,5 +1,5 @@
 ---
-description: Cypress tests API Reference - managing API keys
+description: API Reference - managing API keys
 ---
 
 # API Keys

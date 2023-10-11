@@ -1,5 +1,5 @@
 ---
-description: Cypress tests API Reference - pagination and listing
+description: API Reference - pagination and listing
 ---
 
 # Pagination

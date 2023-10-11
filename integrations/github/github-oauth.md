@@ -1,14 +1,14 @@
 # GitHub OAuth
 
-GitHub OAuth integration allows connecting you GitHub repos to Currents dashboard for sharing cypress test results as GitHub [Commit Status checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
+GitHub OAuth integration allows connecting you GitHub repos to Currents dashboard for sharing Playwright test results as GitHub [Commit Status checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
 
 ![GitHub Status check example](../../.gitbook/assets/commit-status-example\_rounded.png)
 
-GitHub OAuth uses  GitHub personal token-based authentication to send the results of your cypress runs to GitHub.
+GitHub OAuth uses  GitHub personal token-based authentication to send the results of your Playwright runs to GitHub.
 
 ### Activating Legacy GitHub Integration
 
-For share your cypress test results as a GitHub status check item:
+For share your Playwright test results as a GitHub status check item:
 
 * Open Project Settings screen and click “+ Add Integration”
 * Select “GitHub (legacy)”

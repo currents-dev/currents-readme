@@ -1,5 +1,5 @@
 ---
-description: Cypress tests API Reference - error codes and responses
+description: API Reference - error codes and responses
 ---
 
 # Errors

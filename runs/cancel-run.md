@@ -16,7 +16,7 @@ Cancelling a run can be useful for:
 **Please note:** Cancelling a run cannot be undone
 {% endhint %}
 
-### Cancelling Cypress or Playwright CI runs from the Currents dashboard
+### Cancelling Playwright or Cypress CI runs from the Currents dashboard
 
 In-progress runs can be cancelled by clicking the "Cancel Run" button in the Runs Feed view.
 
@@ -28,7 +28,7 @@ You can also cancel a run when from the Run Details view.
 
 <figure><img src="../.gitbook/assets/currents-2023-07-04-14.07.14@2x.png" alt=""><figcaption><p>Example of a run cancelled by a dashboard user</p></figcaption></figure>
 
-### Cancelling Cypress or Playwright CI runs via an API call
+### Cancelling Playwright or Cypress CI runs via an API call
 
 You can programmatically cancel a run via the `PUT runs/:runId/cancel` HTTP API call. For example, here is an example of `curl` command that cancels a particular run
 

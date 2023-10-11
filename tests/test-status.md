@@ -1,24 +1,24 @@
 ---
-description: Cypress Test Statuses - detailed guide and explanation
+description: Playwright and Cypress Test Statuses - detailed guide and explanation
 ---
 
 # Test Status
 
-Cypress test status is mostly straightforward and easy to interpret, however, there are a few confusing concepts that can be tricky to figure out.
+Playwright and Cypress test status is mostly straightforward and easy to interpret, however, there are a few confusing concepts that can be tricky to figure out.
 
-### Possible Cypress Tests Statuses
+### Possible Tests Statuses
 
-A cypress test can be in one of the following states:
+A test can be in one of the following states:
 
 * <mark style="color:blue;">**Passed**</mark> - a test successfully completed all attempts without any exceptions or errors during its execution
 * <mark style="color:red;">**Failed**</mark> - a test that triggered an exception or one of its assertions failed for all of its attempts
-* **Ignored / Pending** - a test was excluded by a developer, e.g. `it.skip()` and was excluded by cypress runner
-* <mark style="color:orange;">**Skipped**</mark> - a test was not excluded by a developer, but wasn't run by cypress runner due to an error&#x20;
+* **Ignored / Pending** - a test was excluded by a developer, e.g. `it.skip()` and was excluded by a runner
+* <mark style="color:orange;">**Skipped**</mark> - a test was not excluded by a developer, but wasn't run by Cypress runner due to an error in a hook. This state is exclusive to Cypress executions.
 * <mark style="background-color:purple;">**Flaky**</mark> - a test that passed after a few failing attempts
 
 ### Passing Tests
 
-A passed test was successfully executed by cypress runner, including all `before` and `beforeEach` expressions. During its execution, the test runner didn't encounter any timeouts, exceptions or failed assertions.&#x20;
+A passed test was successfully executed by a runner, including all `before` and `beforeEach` expressions. During its execution, the test runner didn't encounter any timeouts, exceptions or failed assertions.&#x20;
 
 Please note, for tests with multiple attempts, if the last attempt was successful, the whole test will be marked as "Passed" but "Flaky". See [flaky-tests.md](flaky-tests.md "mention") for details.&#x20;
 

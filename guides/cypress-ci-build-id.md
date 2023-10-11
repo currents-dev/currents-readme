@@ -1,18 +1,18 @@
 ---
-description: Using --ci-build-id flag for Cypress and Playwright tests parallelization
+description: Using --ci-build-id flag for Playwright and Cypress tests parallelization
 ---
 
 # CI Build ID
 
-{% embed url="https://stream.mux.com/rMbteT2Hf028NhSBDQnf2w00Ad2TuQsphLY1ZRVDwoszo/high.mp4" %}
-CI Build ID for Cypress and Playwright
+{% embed url="https://stream.mux.com/rMbteT2Hf028NhSBDQnf2w00Ad2TuQsphLY1ZRVDwoszo/high.mp4" fullWidth="true" %}
+CI Build ID for Playwright and Cypress
 {% endembed %}
 
 ### What is CI Build ID?
 
-**CI Build ID** is a unique build identifier used by Currents to distinguish parallel cypress and playwright test runs one from another. Multiple CI machines using the same CI Build ID will belong to the same test run.
+**CI Build ID** is a unique build identifier used by Currents to distinguish parallel playwright and cypress  test runs one from another. Multiple CI machines using the same CI Build ID will belong to the same test run.
 
-Currents use CI build ID for Cypress and Playwright tests in order to identify and distinguish results belonging to different builds, and also to enable orchestration for Cypress builds.
+Currents use CI build ID for Playwright and Cypress tests in order to identify and distinguish results belonging to different builds, and also to enable orchestration for Cypress builds.
 
 ### CI Build ID and parallelization
 

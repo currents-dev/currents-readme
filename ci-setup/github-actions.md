@@ -4,17 +4,32 @@ description: Running cypress tests in parallel with GitHub Action and Currents d
 
 # GitHub Actions
 
-### Running Cypress in parallel with GitHub Actions
+### Running Playwright and Cypress in parallel with GitHub Actions
 
-Currents dashboard allows running cypress tests in parallel using multiple containers within your GitHub Actions workflow.
+Currents dashboard allows running Playwright and cypress tests in parallel using multiple containers within your GitHub Actions workflow.
 
-By using [GitHub Actions matrix execution strategy](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob\_idstrategymatrix), you can create multiple containers that will run your cypress tests in parallel.
+By using [GitHub Actions matrix execution strategy](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob\_idstrategymatrix), you can create multiple containers that will run your Playwright and cypress tests in parallel.
 
-Each container will receive a unique set of tests to run, so that your cypress tests will run faster and you can receive faster feedback from your browser test suite.
+Each container will receive a unique set of tests to run, so that your tests will run faster and you can receive faster feedback from your browser test suite.
 
 Currents orchestrates the tests between multiple containers, applying intelligent optimizations to reduce the overall runtime of your workflow, records screenshots and videos for later troubleshooting.
 
 ![Cypress Tests Parallelization with Github Actions](<../.gitbook/assets/Cypress-Parallelization-github-actions (1).jpg>)
+
+### GitHub Workflow configuration for Playwright tests
+
+Please take a look at the [example repository](https://github.com/currents-dev/playwright-gh-actions-demo) that showcases running Playwright tests in parallel using GitHub Actions.
+
+The example [workflow config file](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-basic-pwc.yml):
+
+* runs 3 containers with Playwright tests in parallel
+* Note: set the `projectId` in `currents.config.js` (you can obtain the project id from [Currents.dev](https://app.currents.dev) in Project Settings)
+* Note: use CLI arguments to customize your Playwright runs, e.g.: `pwc run --record --key <your currents.dev key> --project=chromium`
+* Note: create an organization, get your record key on [Currents.dev](https://app.currents.dev) and set [GH secret](https://docs.github.com/en/actions/reference/encrypted-secrets) variable `CURRENTS_RECORD_KEY`
+
+Here's an example of how the demo workflow appears in Currents dashboard
+
+![Running Playwright tests in parallel - Currents dashboard](../.gitbook/assets/playwright-run.gif)
 
 ### GitHub Workflow configuration for Cypress tests
 
@@ -33,9 +48,9 @@ Here's an example of how the demo workflow appears in Currents dashboard
 
 ![Running Cypress tests in parallel - Currents dashboard](../.gitbook/assets/github-actions-cypress-parallel-execution.gif)
 
-### How to setup Git commit data for Cypress when using GitHub Actions
+### How to setup Git commit data for Playwright and Cypress when using GitHub Actions
 
-Running Cypress tests using GitHub Actions can generate confusing git information. For example, instead of the last commit message (or pull request title), one can see something like:
+Running tests using GitHub Actions can generate confusing git information. For example, instead of the last commit message (or pull request title), one can see something like:
 
 ```
 Merge de7282540ac30ee4e32a0b1fede4f6391b4cc321 into fa58941d8a807b83ec5a3e5bfb83418ce12173c7

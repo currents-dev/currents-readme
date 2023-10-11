@@ -1,10 +1,10 @@
 ---
-description: Cypress tests API Reference - Instance resource
+description: API Reference - Instance resource
 ---
 
 # Instances
 
-An instance is an object representing the results of a cypress spec file.&#x20;
+An instance is an object representing the results of a Playwright spec file.&#x20;
 
 You can obtain the list of instance objects by querying [runs.md](runs.md "mention") API resource.
 

@@ -1,12 +1,14 @@
 ---
-description: Explore historical cypress tests performance with Test History snipper
+description: >-
+  Explore historical Playwright and Cypress tests performance with Test History
+  snipper
 ---
 
 # Test History
 
-### Cypress Test History Snipper overview
+### Test History Snipper overview
 
-Test History helps you to review historical performance of individual test across different runs and branches.
+Test History helps you to review the historical performance of individual tests across different runs and branches.
 
 ![Cypress test history - flaky, passed and failed instances](<../.gitbook/assets/Kapture 2021-09-16 at 01.26.16.gif>)
 
@@ -24,11 +26,11 @@ The dots are coloured as follows:
 
 ### How to access Test History Snippet?
 
-* While browsing tests list, click the "Test History" button, this will open the Test History Snippet in Preview mode:
+* While browsing the tests list, click the "Test History" button, this will open the Test History Snippet in Preview mode:
 
 ![Test History Preview snippet in tests list view](<../.gitbook/assets/CleanShot 2022-02-18 at 00.56.55.png>)
 
-* While browsing Test Details view, full Test History Snippet is shown at the top of the view.
+* While browsing Test Details view, the full Test History Snippet is shown at the top of the view.
 
 ![Test History Snippet in Test Details view](<../.gitbook/assets/CleanShot 2022-02-18 at 01.03.20.gif>)
 
@@ -36,7 +38,7 @@ The dots are coloured as follows:
 
 #### Show Items
 
-Set the number of test instances to fetch - that includes past and future runs, we'll try to fetch equal number of future and past instances.
+Set the number of test instances to fetch - that includes past and future runs, we'll try to fetch an equal number of future and past instances.
 
 {% hint style="info" %}
 **Please note:** "Show Items" control is hidden for Preview mode and shows only 10 items.
@@ -44,7 +46,7 @@ Set the number of test instances to fetch - that includes past and future runs, 
 
 #### Collapse Branches
 
-Toggle "Collapse Branches" to show / collapse timelines for individual branches for more effective troubleshooting.
+Toggle "Collapse Branches" to show/collapse timelines for individual branches for more effective troubleshooting.
 
 #### Branch Filter
 

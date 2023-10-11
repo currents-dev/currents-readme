@@ -3,8 +3,8 @@
 ## Getting Started
 
 * [What is Currents?](README.md)
-* [Your First Cypress Run](getting-started/you-first-cypress-run.md)
 * [Your First Playwright Run](getting-started/you-first-playwright-run.md)
+* [Your First Cypress Run](getting-started/you-first-cypress-run.md)
 
 ## Guides
 

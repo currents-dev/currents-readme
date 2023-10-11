@@ -1,12 +1,12 @@
 ---
-description: Fail-fast or cancelling runs on first failure for Cypress tests
+description: Fail-fast or cancelling runs on first failure
 ---
 
 # Fail Fast Strategy
 
-Automatically cancelling your cypress tests suite right after the first failure is called a "fail-fast strategy". Currents dashboard allows tracking the outcome of your tests and automatically cancel runs whenever the first failed spec file is detected.&#x20;
+Automatically cancelling your tests suite right after the first failure is called a "fail-fast strategy". Currents dashboard allows tracking the outcome of your tests and automatically cancel runs whenever the first failed spec file is detected.&#x20;
 
-After executing a spec file, the cypress runner sends the results to the Currents dashboard. The dashboard receives the results, identifies a failed test, and marks the associated run as "cancelled". Any new requests associated with the run will fail with a warning, as a result, cypress runners will not be able to start executing a new spec file for the run.
+After executing a spec file, the runner sends the results to the Currents dashboard. The dashboard receives the results, identifies a failed test, and marks the associated run as "cancelled". Any new requests associated with the run will fail with a warning, as a result, cypress runners will not be able to start executing a new spec file for the run.
 
 Please note, that any spec file that is still in progress will run to completion and its results will still be accepted.
 

@@ -1,5 +1,5 @@
 ---
-description: Cypress tests API Reference - authenticating requests
+description: Test API Reference - authenticating requests
 ---
 
 # Authentication

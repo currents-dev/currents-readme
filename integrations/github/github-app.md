@@ -1,10 +1,10 @@
 ---
-description: GitHub App integration for Currents dashboard
+description: Cypress and Playwright GitHub App integration for Currents dashboard
 ---
 
 # GitHub App
 
-Currents integration with GitHub allows posting results of your cypress tests as:
+Currents integration with GitHub allows posting results of your Playwright and Cypress tests as:
 
 * [Commit status checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks) and / or
 * Pull Request comment
@@ -16,7 +16,7 @@ Currents integration with GitHub allows posting results of your cypress tests as
 To set up an integration:
 
 * Open your project settings (Manage Project)
-* Click “Connect” in “Connect your GitHub repositories” section.
+* Click “Connect” in the “Connect your GitHub repositories” section.
 
 Your browser will be redirected to GitHub; you will need to approve installing “currents.bot” GitHub App for your organization.
 
@@ -28,7 +28,7 @@ During the installation, the following permissions are requested:
 * read and write to Pull Requests (for posting PR comments)
 * read and write to commit statuses (for posting commit status updates)
 
-After approving the permissions, your browser will navigate back to Project Settings screen. To complete the setup, you will need to associate a repository with the project and then save the changes.
+After approving the permissions, your browser will navigate back to the Project Settings screen. To complete the setup, you will need to associate a repository with the project and then save the changes.
 
 ![Changing repository for GitHub integration](../../.gitbook/assets/github-cypress-change-settings.gif)
 
@@ -55,7 +55,7 @@ Enabling PR comments will post a summary of your run to the associated GitHub PR
 * after run’s completion - with the details of test results
 * after run’s timeout - with the last known test results
 
-Re-running cypress tests for the same PR will delete the previous comment and post a new one with the most recent result unless **Keep Old Results** option is enabled
+Re-running Playwright or cypress tests for the same PR will delete the previous comment and post a new one with the most recent result unless **Keep Old Results** option is enabled
 
 ![GitHub integration - PR comment example](../../.gitbook/assets/github-cypress-pr-comment.gif)
 

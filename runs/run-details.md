@@ -6,7 +6,7 @@ description: >-
 
 # Run Details
 
-When creating a new run, cypress and playwright collect various information about the environment - this information is shown as Run Details in Currents Dashboard.
+When creating a new run, playwright and cypress collect various information about the environment - this information is shown as Run Details in Currents Dashboard.
 
 ![Cypress run details example](../.gitbook/assets/cypress-run-details.png)
 
@@ -22,7 +22,7 @@ When creating a new run, cypress and playwright collect various information abou
 | Author            | Git commit author                                                    |
 | CI Build ID       | [cypress-ci-build-id.md](../guides/cypress-ci-build-id.md "mention") |
 
-### Cypress / Playwright Git Information
+### Playwright / Cypress Git Information
 
 We use [https://github.com/cypress-io/commit-info](https://github.com/cypress-io/commit-info) npm package for fetching git information.
 
@@ -48,25 +48,27 @@ COMMIT_INFO_REMOTE: remote origin
 `git` information is required for Bitbucket, GitHub and GitLab integrations to work properly
 {% endhint %}
 
-If you're not seeing git information for your runs, most chances it is just not available in the CI environment. Please enable the debug mode for [Cypress](../integration-with-cypress/troubleshooting.md#cypress-cloud) or [Playwright](../integration-with-playwright/troubleshooting.md) or add [git commands](https://github.com/cypress-io/commit-info/blob/3edc0e3005873997a15204be7daf45666fb9b932/src/git-api.js#L10) to your CI workflow for troubleshooting.
+If you're not seeing git information for your runs, most chances it is just not available in the CI environment. Please enable the debug mode for [Playwright](../integration-with-playwright/troubleshooting.md) or [Cypress](../integration-with-cypress/troubleshooting.md#cypress-cloud) or add [git commands](https://github.com/cypress-io/commit-info/blob/3edc0e3005873997a15204be7daf45666fb9b932/src/git-api.js#L10) to your CI workflow for troubleshooting.
 
 ### Run Tags
 
 Tagging is a convenient way to augment your executions with extra data that can be helpful for managing your tests. You can tag the runs (executions) by adding `--tag tagA,tagB` flag to `currents` command.
 
-For example, running the next command for cypress:
-
-```
-cypress-cloud run --parallel --record --tag currents-cli,gha 
-```
-
-or for `@currents/playwright` (version 1.7.0+):
+For example, running the next command `@currents/playwright` (version 1.7.0+):
 
 {% code overflow="wrap" %}
 ```
 npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id CI_BUILD_ID --tag currents-cli,gha
 ```
 {% endcode %}
+
+or for cypress:
+
+```
+cypress-cloud run --parallel --record --tag currents-cli,gha 
+```
+
+
 
 Would generate a run with the corresponding tags:
 

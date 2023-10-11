@@ -1,16 +1,16 @@
 ---
-description: Send cypress tests results straight to your Slack channels
+description: Send Playwright and Cypress tests results to Slack
 ---
 
 # Slack
 
-Currents integration with Slack allows posting test results of your Cypress tests directly into Slack channels.
+Currents integration with Slack allows posting test results of your Playwright or Cypress tests directly into Slack channels.
 
 ![Cypress Tests Results in Slack Channel](<../.gitbook/assets/CleanShot 2022-02-22 at 23.51.35.png>)
 
-### How to enable Slack integration for Cypress tests?
+### How to enable Slack integration for Playwright tests?
 
-In order to enable Slack integration and share cypress tests results to Slack channels, follow those steps:
+In order to enable Slack integration and share Playwright tests results to Slack channels, follow those steps:
 
 * Navigate to "Manager Project" section for the selected project
 * Click "Add Integration", select "Slack"
