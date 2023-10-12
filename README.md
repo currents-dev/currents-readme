@@ -10,8 +10,6 @@ Currents is a cloud service that helps QA and software teams debug, troubleshoot
 
 With Currents, you can run your tests in parallel on the CI provider of your choice - Currents will collect the results, distributed between multiple parallel machines, for further investigation and collecting analytics. Currents unlocks running and orchestrating parallel Cypress tests and also is compatible with Playwright native sharding.
 
-{% embed url="https://stream.mux.com/O1Q2msuTwsOZO95QDRyyD01zW34G2sGTAScIDFcs9pWE/high.mp4" %}
-
 <figure><img src=".gitbook/assets/playwright-sharding.png" alt=""><figcaption><p>Currents is a CI-agnostic service to collect results of parallel e2e tests</p></figcaption></figure>
 
 With convenient access to troubleshooting tools:
