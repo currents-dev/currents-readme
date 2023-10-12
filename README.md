@@ -1,5 +1,5 @@
 ---
-description: A testing framework dashboard compatible with Playwright and Cypress.
+description: A cloud service for Playwright and Cypress
 ---
 
 # What is Currents?
