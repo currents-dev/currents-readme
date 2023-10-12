@@ -1,5 +1,5 @@
 ---
-description: A cloud service for Playwright and Cypress
+description: A cloud dashboard for Playwright and Cypress
 ---
 
 # What is Currents?
