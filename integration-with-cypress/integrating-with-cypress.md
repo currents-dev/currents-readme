@@ -7,13 +7,14 @@ description: >-
 # Integrating with Cypress
 
 {% hint style="info" %}
-TL;DR
+**We are suspending our support of integration with Cypress starting from version 13**.&#x20;
 
-* **cypress-cloud** is the preferred way to use Currents, it is compatible with cypress 10.0.0+
-* **@currents/cli** is a legacy integration, it is incompatible with cypress 12.6.0+
+We will continue to support older versions of Cypress and provide assistance to the affected customers. Please contact our support channels for details.
+
+[Read more](https://currents.dev/posts/v13-blocking)
 {% endhint %}
 
-Currents and Sorry Cypress provide two ways for integrating with cypress runner using the following npm packages:
+Currents and Sorry Cypress provide two ways to integrate with cypress runner using the following npm packages:
 
 * [@currents/cli](currents-cli.md) (and its "community" edition [cy2](https://www.npmjs.com/package/cy2))&#x20;
 * [cypress-cloud](cypress-cloud.md)
