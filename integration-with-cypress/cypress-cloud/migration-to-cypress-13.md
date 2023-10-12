@@ -4,6 +4,12 @@ description: Use cypress-cloud with Cypress@13
 
 # Migration to Cypress@13
 
+{% hint style="info" %}
+**We are suspending our support of integration with Cypress starting from version 13**. We will continue to support older versions of Cypress and provide assistance to the affected customers. Please contact our support channels for details.
+
+[Read more](https://currents.dev/posts/v13-blocking)
+{% endhint %}
+
 Cypress version 13 introduced breaking changes that require upgrading `cypress-cloud` package.
 
 The required steps:
