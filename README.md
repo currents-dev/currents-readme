@@ -12,10 +12,17 @@ With Currents, you can run your tests in parallel on the CI provider of your cho
 
 <figure><img src=".gitbook/assets/playwright-sharding.png" alt=""><figcaption><p>Currents is a CI-agnostic service to collect results of parallel e2e tests</p></figcaption></figure>
 
-With convenient access to troubleshooting tools - screenshots, videos, console logs, execution traces, combined with flakiness detection and contextual information like test results history, duration, failure, flakiness and top errors, your team gets better control, resolves CI failures and flakiness more efficiently.
+With convenient access to troubleshooting tools:
 
-{% embed url="https://www.loom.com/share/cc7e279fac854864ba4437ea8c01988b?sid=9b02543f-5c40-4124-b655-d13a583cf6f2" %}
-Currents - debugging failed and flaky tests
+* screenshots
+* videos
+* console logs
+* Playwright Traces
+
+combined with flakiness detection and contextual information like test results history, duration, failure, flakiness and top errors, your team gets better control and resolves CI failures and flakiness more efficiently.
+
+{% embed url="https://www.loom.com/share/cc7e279fac854864ba4437ea8c01988b?sid=95f9c0e8-b55f-4dd7-bdb8-e09a98418572" fullWidth="true" %}
+Currents help to debug failed and flaky CI E2E tests
 {% endembed %}
 
 <figure><img src=".gitbook/assets/flakiness-detection.png" alt=""><figcaption><p>Currents - detecting flakiness</p></figcaption></figure>
