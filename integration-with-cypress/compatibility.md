@@ -24,7 +24,7 @@ Please use the table below to select the version of the compatible package.
 
 #### Sorry Cypress Users
 
-<table><thead><tr><th>Cypress Version</th><th width="242.33333333333331">cy2 [deprecated]</th><th>cypress-cloud</th></tr></thead><tbody><tr><td>13.0.0+  (<a href="cypress-cloud/migration-to-cypress-13.md">migration guide</a>)</td><td>not supported</td><td>1.10.0-beta.1+</td></tr><tr><td>12.6.0+</td><td>not supported</td><td>1.4.1+</td></tr><tr><td>12.1.0+</td><td>4.0.6+</td><td>1.4.1+</td></tr><tr><td>11.0.0+</td><td>4.0.1+</td><td>1.4.1+</td></tr><tr><td>6.7.0+</td><td>any version</td><td>not supported</td></tr></tbody></table>
+<table><thead><tr><th>Cypress Version</th><th width="242.33333333333331">cy2 [deprecated]</th><th>cypress-cloud</th></tr></thead><tbody><tr><td>13.2.0+</td><td>not supported</td><td>not supported</td></tr><tr><td>13.1.0  (<a href="cypress-cloud/migration-to-cypress-13.md">migration guide</a>)</td><td>not supported</td><td>2.0.0-beta.1+</td></tr><tr><td>12.6.0+</td><td>not supported</td><td>1.4.1+</td></tr><tr><td>12.1.0+</td><td>4.0.6+</td><td>1.4.1+</td></tr><tr><td>11.0.0+</td><td>4.0.1+</td><td>1.4.1+</td></tr><tr><td>6.7.0+</td><td>any version</td><td>not supported</td></tr></tbody></table>
 
 #### **NX Users**
 
