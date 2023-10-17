@@ -1,5 +1,7 @@
 ---
-description: Running cypress tests in parallel with GitHub Action and Currents dashboard
+description: >-
+  Running Playwright and cypress tests in parallel with GitHub Action and
+  Currents dashboard
 ---
 
 # GitHub Actions
