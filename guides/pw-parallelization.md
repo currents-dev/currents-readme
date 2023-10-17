@@ -14,7 +14,7 @@ As mentioned, Playwright runs test files in parallel by default, but you can sca
 
 
 
-![Running cypress test in parallel reduces the overall time](<../.gitbook/assets/Playwright parallelization.png>)
+![Running Playwright tests with sharding enabled](<../.gitbook/assets/Playwright parallelization.png>)
 
 This behaviour is activated by using the `--shard` flag. For example:
 
