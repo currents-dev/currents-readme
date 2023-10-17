@@ -10,7 +10,7 @@ After executing a spec file, the runner sends the results to the Currents dashbo
 
 Please note, that any spec file that is still in progress will run to completion and its results will still be accepted.
 
-![Example of a run automatically cancelled via "fail-fast" policy](<../.gitbook/assets/CleanShot 2022-06-23 at 00.07.21@2x (1).png>)
+![Example of a run automatically cancelled via "fail-fast" policy](<../.gitbook/assets/Screenshot 2023-10-12 at 02.23.30.png>)
 
 Using a "fail-fast" strategy can be beneficial because:
 
@@ -24,7 +24,7 @@ At the same time, utilizing a "fail-fast" strategy has some caveats:
 * not all the tests will be executed - you will only see the results of a single test - the first test that triggered the "fail-fast" policy;
 * tackling one failure at a time can result in more runs than necessary - one can invest more time and resources, compared to running all the tests regardless of their results.
 
-![Automatically cancelled runs will be marked as failed and cancelled](<../.gitbook/assets/CleanShot 2022-06-23 at 00.16.31@2x.png>)
+![Automatically cancelled runs will be marked as failed and cancelled](<../.gitbook/assets/Screenshot 2023-10-12 at 02.25.10.png>)
 
 If you are dealing with a stable and predictable suite of cypress tests that rarely fail - "fail-fast" can be a great way to optimize your cypress tests.&#x20;
 
