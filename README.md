@@ -1,5 +1,5 @@
 ---
-description: A cloud dashboard for Playwright and Cypress
+description: A cloud service for Playwright and Cypress
 ---
 
 # What is Currents?
@@ -9,6 +9,8 @@ Currents is a cloud service that helps QA and software teams debug, troubleshoot
 <figure><img src=".gitbook/assets/dashboard-overview (1).png" alt=""><figcaption><p>Currents Dashboard - debug, troubleshoot and analyze their parallel CI Playwright and Cypress CI tests.</p></figcaption></figure>
 
 With Currents, you can run your tests in parallel on the CI provider of your choice - Currents will collect the results, distributed between multiple parallel machines, for further investigation and collecting analytics. Currents unlocks running and orchestrating parallel Cypress tests and also is compatible with Playwright native sharding.
+
+
 
 <figure><img src=".gitbook/assets/playwright-sharding.png" alt=""><figcaption><p>Currents is a CI-agnostic service to collect results of parallel e2e tests</p></figcaption></figure>
 

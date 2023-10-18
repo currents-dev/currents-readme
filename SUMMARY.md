@@ -91,6 +91,7 @@
   * [Instances](api/api-resources/instances.md)
   * [Runs](api/api-resources/runs.md)
   * [Projects](api/api-resources/projects.md)
+  * [Spec Files](api/api-resources/spec-files.md)
 
 ## Administration
 
