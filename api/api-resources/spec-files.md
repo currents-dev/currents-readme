@@ -4,10 +4,25 @@ description: API Reference - Spec Files resource
 
 # Spec Files
 
-This is an object representing your spec files in Currents. You can retrieve the list of spec files for your organization and project.
+This resource represents the spec files and their performance metrics, computed based on the recorded results.
+
+Querying this resource will fetch all the executions recorded between `date_start`, `date_end` with all the filters applied, group the results by spec file name and calculate metrics:
+
+* `overallExecutions` - overall executions included in the aggregation.
+* `avgDuration` - an average value of the durations for non-failed executions, measured in seconds; set `includeFailedInDuration` to `true` to include failed executions in the calculation
+* `failedExecutions` - count of executions with at least 1 failed test.
+* `flakyExecutions` - count of executions with at least 1 flaky test.
+* `timeoutExecutions` - count of executions that were marked as timed out.
+* `fullyReported` - count of executions that were fully reported - i.e. all the known tests fully completed and reported the results
+* `suiteSize` - maximum number of tests across all the included executions
+* `failureRate` - the ratio of `failedExecutions` / `overallExecutions`
+* `timeoutRate` - the ratio of `timeoutExecutions` / `overallExecutions`
+* `flakeRate` - the ratio of `flakyExecutions` / `overallExecutions`
+
+The results will be sorted according to the `order` parameter. Using this query would allow to programmatically access the data that is available in [test-suite-performance-explorer](../../insights/test-suite-performance-explorer/ "mention").
 
 {% hint style="info" %}
-This resource uses Offset Pagination as documented at [pagination.md](../pagination.md "mention")
+This resource uses **Offset Pagination** as documented at [pagination.md](../pagination.md "mention")
 {% endhint %}
 
 {% swagger method="get" path="spec-files/:projectId" baseUrl="v1/" summary="List the spec files associated to your specific organization and project" %}
@@ -92,8 +107,8 @@ Your project ID
                 }
             }
         ],
-        "total": 44,
-        "nextPage": number | false
+        "total": 44, // the total number of spec files detected
+        "nextPage": number | false // offset pagination hint
     }
 }
 ```
