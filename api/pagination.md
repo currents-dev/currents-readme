@@ -4,44 +4,11 @@ description: API Reference - pagination and listing
 
 # Pagination
 
-### Offset Pagination
-
-Some API resources don't have a stable cursor, for example - listing spec files for a project is an aggregative query that doesn't have a corresponding stable database entity. We use offset-based pagination for those resources. The resources using offset pagination have an explicit notice.
-
-The responses for such resources have the following shape:
-
-```typescript
-{
-    "status": "OK",
-    "data": {
-        // ... resource-specific data
-        "nextPage": number | false,
-        "total": number
-    }
-}
-```
-
-* `total` field contains the total number of items retrieved by the query
-* `nextPage` field contains the next page to be used for retrieving additional items. If the value is `false` it means all the items were exhausted and no more pages are available.
-
-To retrieve more items from a paginated response, use the following query parameters:
-
-| Parameter | Description                                                                                                            |
-| --------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `limit`   | Limit the number of returned items. Valid values are **1 to 50**.                                                      |
-| `page`    | Pagination cursor - if specified, the response will return items from the spec files list based on a splice operation. |
-
-The offset will be calculated as follows:
-
-```
-items.splice(page * limit, limit)
-```
-
-
-
 ### Cursor Pagination
 
-Certain API resources have support for bulk fetches via "list" API methods. For instance, you can list projects, list runs for a project.&#x20;
+Most API resources have **list** API methods. For instance, you can list projects, list runs for a project.&#x20;
+
+Those methods utilize cursor-based pagination via the `starting_after` and `ending_before` parameters. Both parameters take an existing pointer value (see below) and return objects in a particular order.&#x20;
 
 These list API methods share a common structure, taking optional parameters: `limit`, `starting_after`, and `ending_before`.
 
@@ -118,4 +85,37 @@ pointer1000
 pointer1004
 pointer1005
 pointer1006
+```
+
+### Offset Pagination
+
+Some API resources don't have a stable cursor, for example - listing spec files for a project is an aggregative query that doesn't have a corresponding stable database entity. We use offset-based pagination for those resources. The resources using offset pagination have an explicit notice.
+
+The responses for such resources have the following shape:
+
+```typescript
+{
+    "status": "OK",
+    "data": {
+        // ... resource-specific data
+        "nextPage": number | false,
+        "total": number
+    }
+}
+```
+
+* `total` field contains the total number of items retrieved by the query
+* `nextPage` field contains the next page to be used for retrieving additional items. If the value is `false` it means all the items were exhausted and no more pages are available.
+
+To retrieve more items from a paginated response, use the following query parameters:
+
+| Parameter | Description                                                                                                            |
+| --------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `limit`   | Limit the number of returned items. Valid values are **1 to 50**.                                                      |
+| `page`    | Pagination cursor - if specified, the response will return items from the spec files list based on a splice operation. |
+
+The offset will be calculated as follows:
+
+```
+items.splice(page * limit, limit)
 ```
