@@ -44,6 +44,8 @@ Specs / Tests size chart represents the **maximum** daily/weekly amount of specs
 
 **Please note** that cancelled or timed-out runs are excluded from the report.
 
+
+
 ![Example chart - Run Specs / Tests Size](<../.gitbook/assets/CleanShot 2022-06-25 at 00.01.00@2x.png>)
 
 * Spec files - the **maximum** number of spec files detected in a run for the selected period
@@ -56,7 +58,7 @@ Test Results Chart shows the distribution of tests outcome over time.
 ![Example chart - Test Results](<../.gitbook/assets/CleanShot 2022-06-25 at 00.02.58@2x.png>)
 
 * Total tests - overall tests recorded for the selected period, regardless of their outcome
-* Passed tests - well...
+* Passed tests - tests that successfully completed all attempts without any exceptions or errors during its execution
 * Failed tests - tests that either failed or were skipped because of an error in `beforeEach/beforeAll`
 * Ignored test - tests that weren't run e.g. `it.skip()`
 * Success Rate - `passed  / (total - pending)`
@@ -65,8 +67,8 @@ Test Results Chart shows the distribution of tests outcome over time.
 
 Test Results Chart shows the distribution of flaky tests over time.
 
-![Example chart - Tests Flakiness](<../.gitbook/assets/CleanShot 2022-06-25 at 00.08.26@2x.png>)
+<figure><img src="../.gitbook/assets/Screenshot 2023-10-18 at 17.04.26.png" alt=""><figcaption><p>Example chart - Tests Flakiness</p></figcaption></figure>
 
-* were Flaky tests - overall flaky tests detected for the period. See [flaky-tests.md](../tests/flaky-tests.md "mention")
+* Flaky tests - overall flaky tests detected for the period. See [flaky-tests.md](../tests/flaky-tests.md "mention")
 * Flakiness rate - `flaky tests count / passed tests count`
 

@@ -48,10 +48,12 @@ The Non-Flaky Duration histogram represents the durations of test executions tha
 
 The Tests Execution History feature organizes every test execution in a timeline format, where colors represent their respective execution status (<mark style="color:red;">**Failed**</mark>, <mark style="color:blue;">**Passed**</mark>**,** and <mark style="color:purple;">**Flaky**</mark>) that the users can filter. Each test execution entry provides users with essential information such as the date, time, duration, branch, commit message, and author. Additionally, for failed tests, the feature presents an error preview.
 
-Moreover, the feature presents the top errors encountered and the Executions History, where users can zoom into a specific period and analyze various metrics related to their runs.
+Moreover, the feature presents the **top errors** and the **top flaky errors** encountered, which shows a detailed view of the most frequently occurring errors from failed and flaky tests. Also, the Explorer has the Executions History, where users can zoom into a specific period and analyze various metrics related to their runs.&#x20;
+
+Within the Execution History, you can **'Pin' branches** by clicking on the currently displayed branches or entering a custom name. This action allows you to freeze a specific branch while navigating the execution history.
 
 {% embed url="https://www.loom.com/share/6b1f630932be473ba578f6a1c288f318?hideEmbedTopBar=true.&hide_owner=true&hide_share=true&hide_title=true" %}
 Executions History - Tests
 {% endembed %}
 
-In general, the Tests Execution History feature empowers users with a timely analysis of the metrics and executions linked to each test, resulting in improved testing practices and more efficient software development processes.
+In general, the Tests Execution History feature empowers users with a timely analysis of the metrics and executions linked to each test to enhance the troubleshooting process.

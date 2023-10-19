@@ -54,7 +54,7 @@ You will then be able to configure the report for each project within the organi
 
 Use **Send Test Report** section to send a preview of a report for the selected period.
 
-<figure><img src="../.gitbook/assets/currents-2023-03-07-16.32.00%402x.png" alt=""><figcaption><p>Automated Reports Configuration</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2023-10-18 at 22.32.04 (3).png" alt=""><figcaption><p>Automated Reports Configuration</p></figcaption></figure>
 
 ### Report Structure
 
