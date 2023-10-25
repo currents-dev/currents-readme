@@ -11,10 +11,6 @@ description: >-
 * NodeJS 14.0.0+
 * Playwright 1.22.2+
 
-{% hint style="info" %}
-The Playwright integration is in public beta mode. We have been polishing the integration, and improving the documentation and developer experience.
-{% endhint %}
-
 ### Setup
 
 #### Install `@currents/playwright` package
