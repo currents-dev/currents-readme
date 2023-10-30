@@ -30,6 +30,7 @@
 
 * [@currents/playwright](integration-with-playwright/currents-playwright.md)
 * [Troubleshooting](integration-with-playwright/troubleshooting.md)
+* [Playwright Tags](integration-with-playwright/playwright-tags.md)
 
 ## CI Setup
 

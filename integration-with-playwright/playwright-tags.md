@@ -1,0 +1,178 @@
+---
+description: How to tag Playwright executions in Currents
+---
+
+# Playwright Tags
+
+{% hint style="info" %}
+Note: Tagging is available in [currents-playwright.md](currents-playwright.md "mention") version **0.10.0+**
+{% endhint %}
+
+Using tags is a common technique for better classifying recorded test results and getting relevant insights about the test suite. Here are a several examples of how software teams use tags:
+
+* manage ownership - e.g. use the team name as a tag
+* categorize product features  - e.g. tagging `onboarding` flow tests
+* manage tests lifecycle - e.g. tag newly introduced tests as `ustable`&#x20;
+
+The tags are available for producing meaningful reports, exploring metrics, narrowing down Slack notifications, filtering the results, API responses and more.
+
+<figure><img src="../.gitbook/assets/currents-2023-10-30-13.41.59@2x.png" alt=""><figcaption><p>Example of using Tags for narrowing down Flakiness chart in Currents Dashboard</p></figcaption></figure>
+
+### Playwright Tags
+
+#### Test title tags
+
+Currents parses the test titles and recognizes the conventional [Playwright Tags](https://playwright.dev/docs/test-annotations#tag-tests) that appear in test definitions. For example, recording the results of the following tests to Currents:
+
+```typescript
+test('Test login page @fast', async ({ page }) => {
+  // ...
+});
+
+test('Test full report @slow', async ({ page }) => {
+  // ...
+});
+```
+
+...will create a run with tags: **`fast`** and **`slow`**
+
+<figure><img src="../.gitbook/assets/currents-2023-10-29-23.13.10@2x.png" alt=""><figcaption><p>Example of Currents run created with tags @fast and @slow</p></figcaption></figure>
+
+#### Test group tags
+
+Tagging a test group (`test.describe`) will "apply" the tag to every included individual test, as well as to the created run. For example, given the following test definition:
+
+```typescript
+test.describe("test group @groupTag", () => { // 👈🏻 not the test group tag
+
+  test('Test login page @fast', async ({ page }) => {
+    // ...
+  });
+  test('Test full report @slow', async ({ page }) => {
+    // ...
+  });
+})
+```
+
+Currents will assign the following tags to the created items:
+
+| Item                                            | Tags                       |
+| ----------------------------------------------- | -------------------------- |
+| Run                                             | `groupTag`, `fast`, `slow` |
+| <pre><code>Test login page @fast
+</code></pre>  | `groupTag`, `fast`         |
+| <pre><code>Test full report @slow
+</code></pre> | `groupTag`, `slow`         |
+
+<figure><img src="../.gitbook/assets/currents-2023-10-30-14.48.36@2x.png" alt=""><figcaption><p>Example of a run created with various tags when tagging a test group</p></figcaption></figure>
+
+#### Tags with `--grep` applied
+
+If certain tags are excluded from the execution, for example by using `--grep` CLI option, only the included tests (and their tags) will be used for tagging.
+
+```
+$ npx playwright test --grep @fast
+```
+
+<figure><img src="../.gitbook/assets/currents-2023-10-30-14.36.53@2x.png" alt=""><figcaption><p>Applying tags when certain tests are excluded using --grep CLI option</p></figcaption></figure>
+
+### Run-level Tags
+
+In addition to encoding tags in test titles, you can explicitly tag the whole run (or a playwright project). There are multiple ways to explicitly tag a run.
+
+#### Tagging a run using `pwc` CLI option
+
+If you're using `pwc` executable script to run the tests, use `--tag` CLI option:
+
+```
+npx pwc --tag tagA,tagB --tag tagC
+```
+
+You can provide a comma-separated list of tags, provide multiple `--tag` options, or use both.&#x20;
+
+#### Tagging a run using Reporter configuration
+
+You can tag playwright execution by providing a list of `tag` values to Currents Reporter in your `playwright.config.ts` file. For example:
+
+```typescript
+import { currentsReporter } from '@currents/playwright';
+
+// ...
+reporter: [
+  currentsReporter({
+    ciBuildId: process.env.CURRENTS_CI_BUILD_ID,
+    recordKey: process.env.CURRENTS_RECORD_KEY,
+    projectId: process.env.CURRENTS_PROJECT_ID,
+    tag: ["runTagA", "runTagB"],
+  }),
+  /* other reporters, if exist, e.g.:
+  ["html"]
+  */
+]
+```
+
+#### Tagging a run using `CURRENTS_TAG` environment variable
+
+You can tag playwright execution by setting the `CURRENTS_TAG` environment variable value to a comma-separated list of tags, for example, with [currents-playwright.md](currents-playwright.md "mention") reporter configured:
+
+```
+CURRENTS_TAG=tagA,tagB npx playwright run ...
+```
+
+#### Precedence of configuration options
+
+If there are multiple definitions of run-level tags, Curretns will pick the tags as follows:
+
+* Use comma-separated tags of `CURRENTS_TAG` environment variable, if provided; otherwise
+* Use `--tag` CLI option values, if provided; otherwise
+* Use reporter configuration values, if provided; otherwise
+* add no run tags
+
+### Project-level Tags
+
+You can tag Playwright projects by using **`metadata.pwc.tags`** field in the project's configuration. For example, given the following Playwright project configuration:
+
+```typescript
+// playwright.config.ts
+
+// ...
+{
+   projects: [
+      {
+        name: "Desktop Chrome",
+        metadata: {
+          pwc: {
+            tags: ["desktop", "chrome"], // 👈🏻 note the tags
+          },
+        },
+        use: {
+          ...devices["Desktop Chrome"],
+        },
+      },
+      // ...
+  ]
+}
+```
+
+Currents will create a run tagged with `desktop`, `chrome` + all the tags extracted from individual tests.
+
+<figure><img src="../.gitbook/assets/currents-2023-10-30-15.12.47@2x.png" alt=""><figcaption><p>Example of using project-level tags</p></figcaption></figure>
+
+### How Tags are Applied
+
+When recording test results, Currents creates a few items that appear in the dashboard, in [Broken link](broken-reference "mention") responses, and can have multiple tags attached to them:
+
+* Run - is a high-level abstraction that represents a CI execution of a test suite
+* Group - is a subset of recorded tests - representing a playwright project
+* Spec File - a recorded execution of tests in a file
+* Test Recording - a recorded execution of a test case
+
+When applying tags to the created items, Currents follows the rules below:
+
+* Apply explicit run-level and project-level tags "downwards" to all the included items
+* Apply individual test tags "upwards" to spec files, projects and runs
+
+The table below shows the details of how the tags are applied:
+
+<table><thead><tr><th width="225">Item</th><th>Tags Applied</th></tr></thead><tbody><tr><td>Run</td><td><ul><li>Own run-level tags</li><li>Tags of all the included projects</li><li>Tags of all the included test cases</li></ul></td></tr><tr><td>Group/Project</td><td><ul><li>Run-level tags</li><li>Own project-level tags</li><li>Tags of all the included test cases</li></ul></td></tr><tr><td>Spec File Recording</td><td><ul><li>Run-level tags</li><li>Project-level tags</li><li>Tags of all the included test cases</li></ul></td></tr><tr><td>Test Case Recording</td><td><ul><li>Run-level tags</li><li>Project-level tags</li><li>Own test title tags</li></ul></td></tr></tbody></table>
+
