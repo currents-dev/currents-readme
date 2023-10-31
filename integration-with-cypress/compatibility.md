@@ -4,7 +4,7 @@ description: Integrating Cypress with Currents - compatibility table
 
 # Compatibility
 
-{% hint style="info" %}
+{% hint style="warning" %}
 **We are suspending our support of integration with Cypress starting from version 13**. We will continue to support older versions of Cypress and provide assistance to the affected customers. Please contact our support channels for details.
 
 [Read more](https://currents.dev/posts/v13-blocking)

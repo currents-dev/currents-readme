@@ -23,6 +23,10 @@ The tags are available for producing meaningful reports, exploring metrics, narr
 
 ### Playwright Tags
 
+{% hint style="info" %}
+[currents-playwright.md](../integration-with-playwright/currents-playwright.md "mention") version **0.10.0+** is required for test title tags
+{% endhint %}
+
 #### Test title tags
 
 Currents parses the test titles and recognizes the conventional [Playwright Tags](https://playwright.dev/docs/test-annotations#tag-tests) that appear in test definitions. For example, recording the results of the following tests to Currents:
@@ -79,7 +83,21 @@ $ npx playwright test --grep @fast
 
 <figure><img src="../.gitbook/assets/currents-2023-10-30-14.36.53@2x.png" alt=""><figcaption><p>Applying tags when certain tests are excluded using --grep CLI option</p></figcaption></figure>
 
+#### Removing tags from test titles
+
+It is often desired to ignore the tags included in the test title to have a consistent view of the test history or preserve the metrics.&#x20;
+
+For example, let's say you have a test named `Test login page @slow` , eventually, you add another tag and the test title becomes `Test login page @slow @login`. However, adding the tag will change the test name - as a result, the history of previous executions and metrics will be lost.&#x20;
+
+To remove the tags from the recorded test titles, add `--pwc-remove-title-tags` CLI option or  `removeTitleTags` reporter configuration. Activating the removal will strip the tags from test titles (including test group names) when recording to Currents dashboard.&#x20;
+
+In the example above, `Test login page @slow` and `Test login page @slow @login` will be recorded as Test login page and tags `slow` + `login` will be attached to the test recording.
+
 ### Run-level Tags
+
+{% hint style="info" %}
+[currents-playwright.md](../integration-with-playwright/currents-playwright.md "mention") version **0.7.0+** is required to use run-level tags
+{% endhint %}
 
 In addition to encoding tags in test titles, you can explicitly tag the whole run (or a playwright project). There are multiple ways to explicitly tag a run.
 
@@ -122,14 +140,6 @@ You can tag playwright execution by setting the `CURRENTS_TAG` environment varia
 CURRENTS_TAG=tagA,tagB npx playwright run ...
 ```
 
-#### Removing tags from test titles
-
-It is often desired to preserve the test history regardless of the tags included in the title. For example, let's say you have a test named `Test login page @slow` , eventually, you add another  tag and the test title becomes `Test login page @slow @login`. However, adding the tag will change the test name - as a result, the history of previous executions and metrics will be lost.&#x20;
-
-To remove the tags from the recorded test titles, add `--pwc-remove-title-tags` CLI option or as `removeTitleTags` reporter configuration. Activating the removal will strip the tags from test titles (including test group names) when recording to Currents dashboard.&#x20;
-
-In the example above, `Test login page @slow` and `Test login page @slow @login` will be recorded as `Test login page`.
-
 #### Precedence of configuration options
 
 If there are multiple definitions of run-level tags, Curretns will pick the tags as follows:
@@ -140,6 +150,10 @@ If there are multiple definitions of run-level tags, Curretns will pick the tags
 * add no run tags
 
 ### Project-level Tags
+
+{% hint style="info" %}
+[currents-playwright.md](../integration-with-playwright/currents-playwright.md "mention") version **0.10.0+** is required for project-level tags
+{% endhint %}
 
 You can tag Playwright projects by using **`metadata.pwc.tags`** field in the project's configuration. For example, given the following Playwright project configuration:
 

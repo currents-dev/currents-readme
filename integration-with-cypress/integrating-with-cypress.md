@@ -6,7 +6,7 @@ description: >-
 
 # Integrating with Cypress
 
-{% hint style="info" %}
+{% hint style="warning" %}
 **We are suspending our support of integration with Cypress starting from version 13**.&#x20;
 
 We will continue to support older versions of Cypress and provide assistance to the affected customers. Please contact our support channels for details.

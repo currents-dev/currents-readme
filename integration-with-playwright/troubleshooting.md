@@ -21,7 +21,7 @@ npx envinfo --system --binaries --browsers --npmPackages --duplicates --npmGloba
 * Activate debug mode and collect the logs
 
 {% hint style="info" %}
-Please capture and share the **whole** debug log - that will help the support person identify the root cause faster
+Please capture and share the **full** debug log - that will help the support person identify the root cause faster
 {% endhint %}
 
 {% tabs %}
