@@ -5,7 +5,10 @@ description: How to tag Playwright executions in Currents
 # Playwright Tags
 
 {% hint style="info" %}
-Note: Tagging is available in [currents-playwright.md](currents-playwright.md "mention") version **0.10.0+**
+**Note**
+
+* Run-level tagging is available in [currents-playwright.md](currents-playwright.md "mention") version **0.7.0+**
+* Project-level and test-level tagging is available in [currents-playwright.md](currents-playwright.md "mention") version **0.7.0+**
 {% endhint %}
 
 Using tags is a common technique for better classifying recorded test results and getting relevant insights about the test suite. Here are a several examples of how software teams use tags:
