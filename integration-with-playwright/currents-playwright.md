@@ -48,13 +48,15 @@ Run `pwc` to create your first Playwright run in Currents dashboard. Set the rec
 npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id hello-currents
 ```
 
-Starting from version `1.7.0` you can provide `--tag` CLI flag to add tags that will apply to the whole execution:
+Starting from version `0.10.0` you can provide `--tag` CLI option to add tags that will apply to the whole execution, for example:
 
 {% code overflow="wrap" %}
 ```sh
 npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id CI_BUILD_ID --tag tagA,tagB
 ```
 {% endcode %}
+
+Explore more about [playwright-tags.md](playwright-tags.md "mention").
 
 #### `@currents/playwright` reporter
 
