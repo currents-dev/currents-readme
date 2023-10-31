@@ -4,6 +4,12 @@ description: Review of paralleling strategies for Cypress tests
 
 # Load Balancing
 
+{% hint style="info" %}
+Load balancing and orchestration are supported for Cypress framework only.
+
+Playwright users - please use the native [Playwright sharding](https://playwright.dev/docs/test-sharding)
+{% endhint %}
+
 Running your cypress tests suite in parallel on multiple machines can greatly reduce the overall duration. You can further optimize the speed of parallel cypress tests by optimally sorting based on their expected duration. In some cases, it's worth prioritizing tests based on a different heuristic - for example, running tests with the highest failure or [flakiness rate](../tests/flaky-tests.md).
 
 Orchestration services like Currents Dashboard use historical data to optimize the execution order of cypress tests and utilize different strategies for ordering the execution.

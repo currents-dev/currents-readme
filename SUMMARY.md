@@ -15,6 +15,7 @@
 * [Fail Fast Strategy](guides/fail-fast-strategy.md)
 * [Record Key](guides/record-key.md)
 * [Coverage](guides/coverage.md)
+* [Playwright Tags](guides/playwright-tags.md)
 
 ## Integration with Cypress
 
@@ -30,7 +31,6 @@
 
 * [@currents/playwright](integration-with-playwright/currents-playwright.md)
 * [Troubleshooting](integration-with-playwright/troubleshooting.md)
-* [Playwright Tags](integration-with-playwright/playwright-tags.md)
 
 ## CI Setup
 

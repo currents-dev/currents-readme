@@ -56,7 +56,7 @@ npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id CI_BUILD_ID --tag
 ```
 {% endcode %}
 
-Explore more about [playwright-tags.md](playwright-tags.md "mention").
+Explore more about [playwright-tags.md](../guides/playwright-tags.md "mention").
 
 #### `@currents/playwright` reporter
 

@@ -7,8 +7,8 @@ description: How to tag Playwright executions in Currents
 {% hint style="info" %}
 **Note**
 
-* Run-level tagging is available in [currents-playwright.md](currents-playwright.md "mention") version **0.7.0+**
-* Project-level and test-level tagging is available in [currents-playwright.md](currents-playwright.md "mention") version **0.10.0+**
+* Run-level tagging is available in [currents-playwright.md](../integration-with-playwright/currents-playwright.md "mention") version **0.7.0+**
+* Project-level and test-level tagging is available in [currents-playwright.md](../integration-with-playwright/currents-playwright.md "mention") version **0.10.0+**
 {% endhint %}
 
 Using tags is a common technique for better classifying recorded test results and getting relevant insights about the test suite. Here are several examples of how software teams use tags:
@@ -116,7 +116,7 @@ reporter: [
 
 #### Tagging a run using `CURRENTS_TAG` environment variable
 
-You can tag playwright execution by setting the `CURRENTS_TAG` environment variable value to a comma-separated list of tags, for example, with [currents-playwright.md](currents-playwright.md "mention") reporter configured:
+You can tag playwright execution by setting the `CURRENTS_TAG` environment variable value to a comma-separated list of tags, for example, with [currents-playwright.md](../integration-with-playwright/currents-playwright.md "mention") reporter configured:
 
 ```
 CURRENTS_TAG=tagA,tagB npx playwright run ...
