@@ -8,10 +8,10 @@ description: How to tag Playwright executions in Currents
 **Note**
 
 * Run-level tagging is available in [currents-playwright.md](currents-playwright.md "mention") version **0.7.0+**
-* Project-level and test-level tagging is available in [currents-playwright.md](currents-playwright.md "mention") version **0.7.0+**
+* Project-level and test-level tagging is available in [currents-playwright.md](currents-playwright.md "mention") version **0.10.0+**
 {% endhint %}
 
-Using tags is a common technique for better classifying recorded test results and getting relevant insights about the test suite. Here are a several examples of how software teams use tags:
+Using tags is a common technique for better classifying recorded test results and getting relevant insights about the test suite. Here are several examples of how software teams use tags:
 
 * manage ownership - e.g. use the team name as a tag
 * categorize product features  - e.g. tagging `onboarding` flow tests
@@ -122,6 +122,14 @@ You can tag playwright execution by setting the `CURRENTS_TAG` environment varia
 CURRENTS_TAG=tagA,tagB npx playwright run ...
 ```
 
+#### Removing tags from test titles
+
+It is often desired to preserve the test history regardless of the tags included in the title. For example, let's say you have a test named `Test login page @slow` , eventually, you add another  tag and the test title becomes `Test login page @slow @login`. However, adding the tag will change the test name - as a result, the history of previous executions and metrics will be lost.&#x20;
+
+To remove the tags from the recorded test titles, add `--pwc-remove-title-tags` CLI option or as `removeTitleTags` reporter configuration. Activating the removal will strip the tags from test titles (including test group names) when recording to Currents dashboard.&#x20;
+
+In the example above, `Test login page @slow` and `Test login page @slow @login` will be recorded as `Test login page`.
+
 #### Precedence of configuration options
 
 If there are multiple definitions of run-level tags, Curretns will pick the tags as follows:
@@ -163,14 +171,14 @@ Currents will create a run tagged with `desktop`, `chrome` + all the tags extrac
 
 ### How Tags are Applied
 
-When recording test results, Currents creates a few items that appear in the dashboard, in [Broken link](broken-reference "mention") responses, and can have multiple tags attached to them:
+Currents stores the recorded results as Runs, Groups, Spec Files and Tests. The items are available in the dashboard and also in [Broken link](broken-reference "mention") responses.&#x20;
 
 * Run - is a high-level abstraction that represents a CI execution of a test suite
 * Group - is a subset of recorded tests - representing a playwright project
 * Spec File - a recorded execution of tests in a file
 * Test Recording - a recorded execution of a test case
 
-When applying tags to the created items, Currents follows the rules below:
+Each of the items can have multiple tags attached, and tagging a particular item can affect the tags of another item. When applying tags, Currents follows the rules below:
 
 * Apply explicit run-level and project-level tags "downwards" to all the included items
 * Apply individual test tags "upwards" to spec files, projects and runs
@@ -179,3 +187,25 @@ The table below shows the details of how the tags are applied:
 
 <table><thead><tr><th width="225">Item</th><th>Tags Applied</th></tr></thead><tbody><tr><td>Run</td><td><ul><li>Own run-level tags</li><li>Tags of all the included projects</li><li>Tags of all the included test cases</li></ul></td></tr><tr><td>Group/Project</td><td><ul><li>Run-level tags</li><li>Own project-level tags</li><li>Tags of all the included test cases</li></ul></td></tr><tr><td>Spec File Recording</td><td><ul><li>Run-level tags</li><li>Project-level tags</li><li>Tags of all the included test cases</li></ul></td></tr><tr><td>Test Case Recording</td><td><ul><li>Run-level tags</li><li>Project-level tags</li><li>Own test title tags</li></ul></td></tr></tbody></table>
 
+For example, given the following tests:
+
+```typescript
+test('Test login A @tagA', async ({ page }) => {
+  // ...
+});
+test('Test login B @tagB', async ({ page }) => {
+  // ...
+});
+```
+
+And adding a run-level tag `runTag01` using the command: `pwc ... --tag runTag01` will result in the following tags:
+
+<figure><img src="../.gitbook/assets/tags-example-application.png" alt=""><figcaption><p>Application of tags example</p></figcaption></figure>
+
+| Item                                  | Applied Tags               |
+| ------------------------------------- | -------------------------- |
+| Run                                   | `runTag01`, `tagA`, `tagB` |
+| <pre><code>Test login A
+</code></pre> | `runTag01, tagA`           |
+| <pre><code>Test login B
+</code></pre> | `runTag01, tagB`           |
