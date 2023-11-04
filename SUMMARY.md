@@ -30,17 +30,30 @@
 ## Integration with Playwright
 
 * [@currents/playwright](integration-with-playwright/currents-playwright.md)
+* [Playwright Component Tests](integration-with-playwright/playwright-component-tests.md)
 * [Troubleshooting](integration-with-playwright/troubleshooting.md)
 
 ## CI Setup
 
-* [GitHub Actions](ci-setup/github-actions.md)
-* [Azure DevOps](ci-setup/azure-devops.md)
-* [CircleCI](ci-setup/circleci.md)
-* [AWS Code Build](ci-setup/aws-code-build.md)
-* [GitLab](ci-setup/gitlab.md)
-* [Jenkins](ci-setup/jenkins.md)
-* [Jenkins for Playwright](ci-setup/jenkins-playwright.md)
+* [GitHub Actions](ci-setup/github-actions/README.md)
+  * [Cypress - GitHub Actions](ci-setup/github-actions/cypress-github-actions.md)
+  * [Playwright - GitHub Actions](ci-setup/github-actions/playwright-github-actions.md)
+  * [Commit data for GitHub Actions](ci-setup/github-actions/commit-data-for-github-actions.md)
+* [GitLab](ci-setup/gitlab/README.md)
+  * [Cypress - GitLab CI/CD](ci-setup/gitlab/cypress-gitlab-ci-cd.md)
+  * [Playwright - GitLab CI/CD](ci-setup/gitlab/playwright-gitlab-ci-cd.md)
+* [Azure DevOps](ci-setup/azure-devops/README.md)
+  * [Cypress - Azure DevOps](ci-setup/azure-devops/cypress-azure-devops.md)
+  * [Playwright - Azure DevOps](ci-setup/azure-devops/playwright-azure-devops.md)
+* [CircleCI](ci-setup/circleci/README.md)
+  * [Cypress - CircleCI](ci-setup/circleci/cypress-circleci.md)
+  * [Playwright - CircleCI](ci-setup/circleci/playwright-circleci.md)
+* [AWS Code Build](ci-setup/aws-code-build/README.md)
+  * [Cypress - AWS Code Build](ci-setup/aws-code-build/cypress-aws-code-build.md)
+  * [Playwright - AWS Code Build](ci-setup/aws-code-build/playwright-aws-code-build.md)
+* [Jenkins](ci-setup/jenkins/README.md)
+  * [Cypress - Jenkins](ci-setup/jenkins/cypress-jenkins.md)
+  * [Playwright - Jenkins](ci-setup/jenkins/jenkins-playwright.md)
 * [NX](ci-setup/nx.md)
 
 ## Runs

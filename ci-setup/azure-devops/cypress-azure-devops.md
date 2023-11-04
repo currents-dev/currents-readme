@@ -1,8 +1,8 @@
 ---
-description: Running Cypress test in parallel in Azure DevOps and Currents Dashboard
+description: Running Cypress test in parallel on Azure DevOps and Currents Dashboard
 ---
 
-# Azure DevOps
+# Cypress - Azure DevOps
 
 This guide will help you to run Cypress tests in parallel using Azure DevOps and Currents Dashboard. The example showcases using 3 Azure DevOps containers for parallelizing the execution using Currents as an orchestration and reporting service.
 
@@ -10,9 +10,9 @@ This guide will help you to run Cypress tests in parallel using Azure DevOps and
 TLDR; Check out the example Azure DevOps pipeline [configuration file](https://github.com/currents-dev/azure-devops-example/blob/main/azure-pipelines.yml)
 {% endhint %}
 
-* Connect a new/existing pipeline to a repository containing your cypress tests
+* Connect a new/existing pipeline to a repository containing your Cypress tests
 * Make sure that your `cypress.config.js` file has the correct `projectId`. You can fetch the `projectId` by navigating to [https://app.currents.dev](https://app.currents.dev) and then **Project Name > Manage Project**
-* Make sure that both `cypress` and [cypress-cloud](../integration-with-cypress/cypress-cloud.md) are listed in your `package.json` as dependencies
+* Make sure that both `cypress` and [cypress-cloud](../../integration-with-cypress/cypress-cloud.md) are listed in your `package.json` as dependencies
 * Create or modify an existing [Variable Group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops\&tabs=yaml), and add a new secret variable called `CURRENTS_SECRET`. You can grab the secret key at **Currents Dashboard > Org Name (Header Menu) > Record Keys**
 * Modify your `azure-pipelines.yml` file and use [this file](https://github.com/currents-dev/azure-devops-example/blob/main/azure-pipelines.yml) as a reference.&#x20;
 
@@ -54,8 +54,10 @@ jobs:
       - script: npm ci
         displayName: "Install NPM dependencies"
 
-      # The next command runs Cypress tests
-      # using Currents as a remote orchestration service.
+      # Grab 
+      # - CURRENTS_PROJECT_ID
+      # - CURRENTS_RECORD_KEY
+      # at https://app.currents.dev 
       #
       # Read more about CI Build ID:
       # https://currents.dev/readme/guides/cypress-ci-build-id
@@ -72,12 +74,12 @@ jobs:
 
 Pipeline executions will be orchestrated via the Currents Dashboard, and execution results and artifacts will be automatically uploaded as well.
 
-<figure><img src="../.gitbook/assets/Azure-Cypress example.png" alt=""><figcaption><p>Running Cypress Tests in Azure DevOps Pipeline</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Azure-Cypress example.png" alt=""><figcaption><p>Running Cypress Tests in Azure DevOps Pipeline</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/cypress-azure-devops@2x.png" alt=""><figcaption><p>Running Cypress Tests in Azure DevOps Pipeline</p></figcaption></figure>
-
-
+<figure><img src="../../.gitbook/assets/cypress-azure-devops@2x.png" alt=""><figcaption><p>Running Cypress Tests in Azure DevOps Pipeline</p></figcaption></figure>
 
 
 
-<figure><img src="../.gitbook/assets/Cypress-Currents-AzureDevOps@2x.png" alt=""><figcaption><p>Currents Dashboard executing tests from Azure DevOps Pipeline</p></figcaption></figure>
+
+
+<figure><img src="../../.gitbook/assets/Cypress-Currents-AzureDevOps@2x.png" alt=""><figcaption><p>Currents Dashboard executing tests from Azure DevOps Pipeline</p></figcaption></figure>

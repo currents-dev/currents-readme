@@ -1,8 +1,8 @@
 ---
-description: Running cypress tests in parallel with Jenkins and Currents Dashboard
+description: Running Cypress tests in parallel with Jenkins and Currents Dashboard
 ---
 
-# Jenkins
+# Cypress - Jenkins
 
 Here's an example of Jenkins pipeline that is running cypress tests in parallel on 2 workers and is connected to Currents Dashboard for orchestrating the parallel runs and reporting the results.&#x20;
 
@@ -12,8 +12,8 @@ The steps are:
 
 * Use `cypress/base:18` as the base image
 * Install the necessary dependencies: `cypress` and `cypress-cloud`
-* Populate the environment variable `CURRENTS_RECORD_KEY` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/). Learn more about [record-key.md](../guides/record-key.md "mention")
-* Run cypress tests on 2 workers, using CI Build ID for "connecting" the workers to the same parallel run. See [parallelization.md](../guides/parallelization.md "mention") and [cypress-ci-build-id.md](../guides/cypress-ci-build-id.md "mention").
+* Populate the environment variable `CURRENTS_RECORD_KEY` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/). Learn more about [record-key.md](../../guides/record-key.md "mention")
+* Run cypress tests on 2 workers, using CI Build ID for "connecting" the workers to the same parallel run. See [parallelization.md](../../guides/parallelization.md "mention") and [cypress-ci-build-id.md](../../guides/cypress-ci-build-id.md "mention").
 
 ```
 npx cypress-cloud run --parallel --record --key ${env.CURRENTS_RECORD_KEY} --ci-build-id ${env.BRANCH_NAME}-${env.BUILD_ID}"

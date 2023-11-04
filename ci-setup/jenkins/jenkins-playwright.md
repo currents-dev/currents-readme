@@ -2,7 +2,7 @@
 description: Running Playwright tests in parallel with Jenkins and Currents Dashboard
 ---
 
-# Jenkins for Playwright
+# Playwright - Jenkins
 
 Here's an example of Jenkins pipeline that is running Playwright tests in parallel on 2 workers.&#x20;
 
@@ -12,9 +12,9 @@ The steps are:
 
 * Use `mcr.microsoft.com/playwright:v1.34.0-jammy` as the base image
 * Install the necessary dependencies: `playwright` and `@currents/playwright`
-* Populate the environment variable `CURRENTS_RECORD_KEY` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/). Learn more about [record-key.md](../guides/record-key.md "mention")
+* Populate the environment variable `CURRENTS_RECORD_KEY` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/). Learn more about [record-key.md](../../guides/record-key.md "mention")
 * Populate the environment variable `CURRENTS_PROJECT_ID` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/).
-* Run Playwright tests on 2 workers, using CI Build ID for "connecting" the workers to the same parallel run. See [cypress-ci-build-id.md](../guides/cypress-ci-build-id.md "mention").
+* Run Playwright tests on 2 workers, using CI Build ID for "connecting" the workers to the same parallel run. See [cypress-ci-build-id.md](../../guides/cypress-ci-build-id.md "mention").
 
 ```
 npx pwc --key WU*****qk --project-id gV4KlW --ci-build-id ${env.BRANCH_NAME}-${env.BUILD_ID}"

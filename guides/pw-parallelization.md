@@ -61,7 +61,7 @@ Here are a few example repositories for popular CI providers
 * [GitHub Actions](https://github.com/currents-dev/gh-actions-pw-example)
 * [GitLab](https://gitlab.com/currents.dev/gitlab-playwright-currents)
 * [CircleCI](https://github.com/currents-dev/circleci-pw-example)
-* [Jenkins](../ci-setup/jenkins-playwright.md)
+* [Jenkins](../ci-setup/jenkins/jenkins-playwright.md)
 
 ### What is CI Build ID?
 
