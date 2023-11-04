@@ -4,7 +4,13 @@ description: Running Cypress test in parallel on GitLab
 
 # Cypress - GitLab CI/CD
 
-GitLab CI/CD platform allows effectively running your Playwright and cypress test in parallel, using multiple containers and Currents for tests orchestration.
+{% hint style="info" %}
+TL;DR Take a look at an example repository:
+
+[https://gitlab.com/currents.dev/gitlab-currents-example](https://gitlab.com/currents.dev/gitlab-currents-example)
+{% endhint %}
+
+GitLab CI/CD platform allows effectively running your Playwright and Cypress test in parallel, using multiple containers and Currents for tests orchestration.
 
 To run Cypress tests in parallel, define [`parallel`](https://docs.gitlab.com/ee/ci/jobs/job\_control.html#parallelize-large-jobs) jobs parameter in GitLab CI/CD pipeline configuration file.
 

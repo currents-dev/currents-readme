@@ -4,6 +4,10 @@ description: Integrating Currents dashboard with GitLab
 
 # GitLab
 
+{% hint style="info" %}
+The integration is available for both Playwright and Cypress. The examples and screenshot below are based on Cypress framework.
+{% endhint %}
+
 Currents Dashboard integration with GitLab allows posting [commit build statuses](https://docs.gitlab.com/ee/api/commits.html#post-the-build-status-to-a-commit) as well [merge request comments](https://docs.gitlab.com/ee/user/discussions/) with a summary of your cypress tests.
 
 #### Example of GitLab commit status
