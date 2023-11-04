@@ -63,11 +63,11 @@ Any CI provider or tool that allows creating multiple containers/jobs can be int
 
 Here are a few popular CI providers that can run cypress tests in parallel:
 
-* [GitHub Actions](../ci-setup/github-actions/)
-* [Jenkins](../ci-setup/jenkins/)
-* [GitLab](../ci-setup/gitlab/)
-* [CircleCI](../ci-setup/circleci/)
-* [AWS Code Build](../ci-setup/aws-code-build/)
+* [GitHub Actions](../ci-setup/github-actions.md)
+* [Jenkins](../ci-setup/jenkins.md)
+* [GitLab](../ci-setup/gitlab.md)
+* [CircleCI](../ci-setup/circleci.md)
+* [AWS Code Build](../ci-setup/aws-code-build.md)
 
 ### How to run cypress tests in parallel?
 

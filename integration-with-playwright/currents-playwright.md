@@ -142,7 +142,7 @@ Example integration of Currents with Circle CI
 
 #### Jenkins&#x20;
 
-Please refer to [jenkins-playwright.md](../ci-setup/jenkins/jenkins-playwright.md "mention")
+Please refer to [jenkins-playwright.md](../ci-setup/jenkins-playwright.md "mention")
 
 ### Good To Know
 
