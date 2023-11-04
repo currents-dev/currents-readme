@@ -6,7 +6,7 @@ description: Using Currents with Playwright Component testing
 
 Run [Playwright Component testing](https://playwright.dev/docs/test-components) and report the results to [Currents](https://currents.dev/playwright)
 
-{% hint style="success" %}
+{% hint style="info" %}
 **Note November 2023:** Playwright support for Component testing is still experimental
 {% endhint %}
 
