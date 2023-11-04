@@ -113,36 +113,12 @@ With the reporter configured, you can run `npx playwright test` to start sending
 
 ### Examples
 
-Check out the example repositories that showcase running Playwright tests on popular CI providers and recording the results to Currents.
+Check out the example repositories that showcase running Playwright tests on popular CI providers and recording the results to Currents:
 
-#### GitHub Actions
-
-{% embed url="https://github.com/currents-dev/playwright-gh-actions-demo" %}
-Example integration of Currents with GitHub Actions
-{% endembed %}
-
-Here’s a quick reference to configuration files:
-
-* [test-basic-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-basic-pwc.yml) - using `pwc` executable script
-* [test-basic-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-basic-reporter.yml) - using `reporter` configuration
-
-#### GitLab
-
-{% embed url="https://gitlab.com/currents.dev/gitlab-playwright-currents" %}
-Example integrartion of Currents with GitLab
-{% endembed %}
-
-#### CircleCI
-
-{% embed url="https://github.com/currents-dev/circleci-pw-example" %}
-Example integration of Currents with Circle CI
-{% endembed %}
-
-* [config.yml](https://github.com/currents-dev/circleci-pw-example/blob/main/.circleci/config.yml) - using `pwc` executable script
-
-#### Jenkins&#x20;
-
-Please refer to [jenkins-playwright.md](../ci-setup/jenkins-playwright.md "mention")
+* [playwright-github-actions.md](../ci-setup/github-actions/playwright-github-actions.md "mention")
+* [playwright-gitlab-ci-cd.md](../ci-setup/gitlab/playwright-gitlab-ci-cd.md "mention")
+* [jenkins-playwright.md](../ci-setup/jenkins-playwright.md "mention")
+* [playwright-circleci.md](../ci-setup/circleci/playwright-circleci.md "mention")
 
 ### Good To Know
 
