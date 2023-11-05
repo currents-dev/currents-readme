@@ -4,6 +4,12 @@ description: Running Cypress tests in parallel on CircleCI and Currents dashboar
 
 # Cypress - CircleCI
 
+{% hint style="info" %}
+TL;DR Check out the example repository:
+
+[https://github.com/currents-dev/circleci-example](https://github.com/currents-dev/circleci-example)
+{% endhint %}
+
 Please refer to [example repository](https://github.com/currents-dev/circleci-example) that demonstrates how to setup [CircleCI](https://circleci.com) for running cypress tests in parallel using [Currents](https://currents.dev) service.
 
 The example [config file](https://github.com/currents-dev/circleci-example/blob/master/.circleci/config.yml):
