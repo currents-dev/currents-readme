@@ -15,12 +15,15 @@ The steps are:
 * Populate the environment variable `CURRENTS_RECORD_KEY` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/). Learn more about [record-key.md](../../guides/record-key.md "mention")
 * Run cypress tests on 2 workers, using CI Build ID for "connecting" the workers to the same parallel run. See [parallelization.md](../../guides/parallelization.md "mention") and [cypress-ci-build-id.md](../../guides/cypress-ci-build-id.md "mention").
 
+{% code overflow="wrap" %}
 ```
 npx cypress-cloud run --parallel --record --key ${env.CURRENTS_RECORD_KEY} --ci-build-id ${env.BRANCH_NAME}-${env.BUILD_ID}"
 ```
+{% endcode %}
 
 Here's the full Jenkins pipeline configuration file:
 
+{% code overflow="wrap" %}
 ```groovy
 pipeline {
   agent {
@@ -75,3 +78,4 @@ pipeline {
   }
 }
 ```
+{% endcode %}

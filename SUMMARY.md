@@ -42,6 +42,9 @@
 * [GitLab](ci-setup/gitlab.md)
   * [Cypress - GitLab CI/CD](ci-setup/gitlab/cypress-gitlab-ci-cd.md)
   * [Playwright - GitLab CI/CD](ci-setup/gitlab/playwright-gitlab-ci-cd.md)
+* [Jenkins](ci-setup/jenkins.md)
+  * [Cypress - Jenkins](ci-setup/jenkins/cypress-jenkins.md)
+  * [Playwright - Jenkins](ci-setup/jenkins-playwright.md)
 * [Azure DevOps](ci-setup/azure-devops.md)
   * [Cypress - Azure DevOps](ci-setup/azure-devops/cypress-azure-devops.md)
   * [Playwright - Azure DevOps](ci-setup/azure-devops/playwright-azure-devops.md)
@@ -51,9 +54,6 @@
 * [AWS Code Build](ci-setup/aws-code-build.md)
   * [Cypress - AWS Code Build](ci-setup/aws-code-build/cypress-aws-code-build.md)
   * [Playwright - AWS Code Build](ci-setup/aws-code-build/playwright-aws-code-build.md)
-* [Jenkins](ci-setup/jenkins.md)
-  * [Cypress - Jenkins](ci-setup/jenkins/cypress-jenkins.md)
-  * [Playwright - Jenkins](ci-setup/jenkins-playwright.md)
 * [NX](ci-setup/nx.md)
 
 ## Runs

@@ -30,6 +30,7 @@ on:
     branches: [main]
   push:
     branches: [main]
+
 jobs:
   basicTests:
     strategy:

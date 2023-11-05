@@ -16,12 +16,15 @@ The steps are:
 * Populate the environment variable `CURRENTS_PROJECT_ID` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/).
 * Run Playwright tests on 2 workers, using CI Build ID for "connecting" the workers to the same parallel run. See [cypress-ci-build-id.md](../guides/cypress-ci-build-id.md "mention").
 
+{% code overflow="wrap" %}
 ```
-npx pwc --key WU*****qk --project-id gV4KlW --ci-build-id ${env.BRANCH_NAME}-${env.BUILD_ID}"
+npx pwc --key CURRENTS_RECORD_KEY --project-id CURRENTS_PROJECT_ID --ci-build-id ${env.BRANCH_NAME}-${env.BUILD_ID}"
 ```
+{% endcode %}
 
 Here's the full Jenkins pipeline configuration file:
 
+{% code overflow="wrap" %}
 ```groovy
 pipeline {
   agent {
@@ -73,3 +76,4 @@ pipeline {
   }
 }
 ```
+{% endcode %}
