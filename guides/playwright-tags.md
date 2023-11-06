@@ -11,6 +11,10 @@ description: How to tag Playwright executions in Currents
 * Project-level and test-level tagging is available in [currents-playwright.md](../integration-with-playwright/currents-playwright.md "mention") version **0.10.0+**
 {% endhint %}
 
+{% hint style="info" %}
+A tag is limited to 128 characters
+{% endhint %}
+
 Using tags is a common technique for better classifying recorded test results and getting relevant insights about the test suite. Here are several examples of how software teams use tags:
 
 * manage ownership - e.g. use the team name as a tag
