@@ -67,7 +67,7 @@ By default, Playwright runs test files in alphabetical order and distributes the
 
 and so on.
 
-In addition, you can enable [parallel test execution](https://playwright.dev/docs/test-parallel#parallelize-tests-in-a-single-file) in a single file, so Playwright will split individual tests instead of test files. Please note, that parallel test execution in a single file is in active development (as of November 2023).
+In addition, you can enable [parallel test execution](https://playwright.dev/docs/test-parallel#parallelize-tests-in-a-single-file) in a single file, so Playwright will split individual tests instead of test files. Please note, that Currents support of parallel test execution in a single file is in active development (as of November 2023).
 
 ### What CI providers can run Playwright sharding?
 
