@@ -26,6 +26,6 @@ Please follow the instructions below to use the alternative version:
 * Download the independent Cypress App binary: `npx cypress install`
 * Run your workflows as usual
 
-**We apologize for the interruption of your workflow and possible downtime.** We received no communication from Cypress.io team - the blocking was done with a clear intent to intimidate and apply pressure on customers who are not willing to subscribe to Cypress Cloud service.
+**We apologize for the interruption of your workflows and possible downtime.** We received no communication from Cypress.io team - the blocking was done with a clear intent to intimidate and apply pressure on customers who are not willing to subscribe to Cypress Cloud service.
 
 Please contact our support channels for additional information and assistance.
