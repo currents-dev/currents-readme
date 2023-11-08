@@ -23,7 +23,7 @@ Please follow the instructions below to use the alternative version:
   * Linux: `export CYPRESS_DOWNLOAD_MIRROR=https://cy-cdn.currents.dev`
   * Windows cmd:  `set CYPRESS_DOWNLOAD_MIRROR=https://cy-cdn.currents.dev`
   * Window PowerShell:  `$env:CYPRESS_DOWNLOAD_MIRROR = "https://cy-cdn.currents.dev"`
-* Download the independent Cypress App binary: `npx cypress install`
+* Reinstall Cypress App binary from the alternative mirror: `npx cypress install`
 * Run your workflows as usual
 
 **We apologize for the interruption of your workflows and possible downtime.** We received no communication from Cypress.io team - the blocking was done with a clear intent to intimidate and apply pressure on customers who are not willing to subscribe to Cypress Cloud service.
