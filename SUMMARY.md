@@ -19,6 +19,7 @@
 
 ## Integration with Cypress
 
+* [Alternative Cypress Binaries](integration-with-cypress/alternative-cypress-binaries.md)
 * [Integrating with Cypress](integration-with-cypress/integrating-with-cypress.md)
 * [Compatibility](integration-with-cypress/compatibility.md)
 * [cypress-cloud](integration-with-cypress/cypress-cloud.md)
