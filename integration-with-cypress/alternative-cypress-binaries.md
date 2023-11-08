@@ -1,12 +1,12 @@
 ---
-description: The list of supported Cypress versions
+description: Using alternative Cypress Binaries
 ---
 
 # Alternative Cypress Binaries
 
 Following the [original blocking of Sorry Cypress, Currents and DeploySentintel users](https://currents.dev/posts/v13-blocking), Cypress.io team decided to apply the blocking to older versions of the app.
 
-As part of our [commitment to support](https://currents.dev/posts/v13-blocking) our customers using old versions of the app, we've compiled independent versions of Cypress App binaries.
+As part of our [commitment to support](https://currents.dev/posts/v13-blocking) our customers using old versions, we've compiled independent versions of Cypress App binaries.
 
 The supported versions are:
 

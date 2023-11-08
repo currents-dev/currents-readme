@@ -4,6 +4,14 @@ description: Troubleshooting Currents integration with Cypress
 
 # Troubleshooting
 
+{% hint style="warning" %}
+**We are suspending our support of integration with Cypress starting from version 13**.&#x20;
+
+We will continue to support [older versions of Cypress](https://currents.dev/readme/integration-with-cypress/alternative-cypress-binaries) and provide assistance to the affected customers. Please contact our support channels for details.
+
+[Read more](https://currents.dev/posts/v13-blocking)
+{% endhint %}
+
 If you are experiencing issues with using `@currents/cli` or `cypress-cloud`, please submit a support request either via in-app support chat or on GitHub:
 
 * [@currents/cli GitHub Issues](https://github.com/currents-dev/cli/issues)
