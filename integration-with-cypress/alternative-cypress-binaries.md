@@ -4,9 +4,9 @@ description: Using alternative Cypress Binaries
 
 # Alternative Cypress Binaries
 
-Following the [original blocking of Sorry Cypress, Currents and DeploySentintel users](https://currents.dev/posts/v13-blocking), Cypress.io team decided to apply the blocking to older versions of the app.
+Following the [original blocking of Sorry Cypress, Currents and DeploySentintel users](https://currents.dev/posts/v13-blocking), Cypress.io team decided to apply the blocking to older app versions.
 
-As part of our [commitment to support](https://currents.dev/posts/v13-blocking) our customers using old versions, we have published block-free versions of Cypress App binaries.
+As part of our commitment to support our customers using old versions, we have published block-free versions of Cypress App binaries.
 
 The supported versions are:
 
@@ -26,6 +26,12 @@ Please follow the instructions below to use the alternative version:
 * Reinstall Cypress App binary from the alternative mirror: `npx cypress install`
 * Run your workflows as usual
 
-**We apologize for the interruption of your workflows and possible downtime.** We received no communication from Cypress.io team - the blocking was done with a clear intent to intimidate and apply pressure on customers who are not willing to subscribe to Cypress Cloud service.
+_Alternatively_, use a one-liner to reinstall cypress binaries:
+
+```
+CYPRESS_DOWNLOAD_MIRROR=https://cy-cdn.currents.dev npx cypress install --force
+```
+
+**We apologize for the interruption of your workflows and possible downtime.** We received no communication from Cypress.io team - the blocking was done with a clear intent to intimidate and pressure customers who are not willing to subscribe to Cypress Cloud service.
 
 Please contact our support channels for additional information and assistance.
