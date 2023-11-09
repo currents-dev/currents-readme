@@ -32,6 +32,12 @@ _Alternatively_, use a one-liner to reinstall cypress binaries:
 CYPRESS_DOWNLOAD_MIRROR=https://cy-cdn.currents.dev npx cypress install --force
 ```
 
+***
+
+Examples:
+
+* Using alternative Cypress binaries with [GitHub Actions](https://github.com/currents-dev/gh-actions-example/blob/main/.github/workflows/currents.yml). Example [workflow](https://github.com/currents-dev/gh-actions-example/actions/runs/6809756956/job/18516652532).
+
 **We apologize for the interruption of your workflows and possible downtime.** We received no communication from Cypress.io team - the blocking was done with a clear intent to intimidate and pressure customers who are not willing to subscribe to Cypress Cloud service.
 
 Please contact our support channels for additional information and assistance.
