@@ -11,6 +11,7 @@ As part of our commitment to support our customers using old versions, we have p
 The supported versions are:
 
 * 9.7.0
+* 10.7.0
 * 10.11.0
 * 11.2.0
 * 12.17.4
