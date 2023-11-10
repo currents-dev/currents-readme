@@ -14,6 +14,7 @@ The supported versions are:
 * 10.7.0
 * 10.11.0
 * 11.2.0
+* 12.17.3 (`linux x64` only)
 * 12.17.4
 
 Please follow the instructions below to use the alternative version:
