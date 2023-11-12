@@ -10,12 +10,19 @@ As part of our commitment to support our customers using old versions, we have p
 
 The supported versions are:
 
-* 9.7.0
-* 10.7.0
-* 10.11.0
-* 11.2.0
-* 12.17.3 (`linux x64` only)
-* 12.17.4
+| Version | Supported OS and Architecture |
+| ------- | ----------------------------- |
+| 9.7.0   | All                           |
+| 10.7.0  | All                           |
+| 10.11.0 | All                           |
+| 11.2.0  | All                           |
+| 12.4.0  | `linux-x64`                   |
+| 12.17.3 | `linux-x64`                   |
+| 12.17.4 | All                           |
+
+{% hint style="success" %}
+Missing specific version, OS or architecture - let us know via support channels.
+{% endhint %}
 
 Please follow the instructions below to use the alternative version:
 
