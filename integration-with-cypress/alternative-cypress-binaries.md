@@ -47,6 +47,6 @@ Examples:
 
 * Using alternative Cypress binaries with [GitHub Actions](https://github.com/currents-dev/gh-actions-example/blob/main/.github/workflows/currents.yml). Example [workflow](https://github.com/currents-dev/gh-actions-example/actions/runs/6809756956/job/18516652532).
 
-**We apologize for the interruption of your workflows and possible downtime.** We received no communication from Cypress.io team - the blocking was done with a clear intent to intimidate and pressure customers who are not willing to subscribe to Cypress Cloud service.
+**We apologize for the interruption of your workflows and possible downtime.** We received no communication from Cypress.io team.
 
 Please contact our support channels for additional information and assistance.
