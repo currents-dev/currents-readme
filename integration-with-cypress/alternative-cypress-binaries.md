@@ -21,7 +21,7 @@ The supported versions are:
 | 12.17.4 | All                           |
 
 {% hint style="success" %}
-Missing specific version, OS or architecture - let us know via support channels.
+Missing specific version, OS or architecture? Let us know!
 {% endhint %}
 
 Please follow the instructions below to use the alternative version:
