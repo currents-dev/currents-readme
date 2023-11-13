@@ -23,7 +23,7 @@ The supported versions are:
 Missing specific version, OS or architecture? Let us know!
 {% endhint %}
 
-Please follow the instructions below to use the alternative version:
+Please follow the instructions below to use the alternative binaries:
 
 * Pin `cypress` version to one of the supported versions in `package.json`
   * For example: `"cypress": "12.17.0"`
