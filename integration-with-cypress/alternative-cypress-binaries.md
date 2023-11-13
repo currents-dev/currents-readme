@@ -17,7 +17,7 @@ The supported versions are:
 | 10.11.0 | All                           |
 | 11.2.0  | All                           |
 | 12.4.0  | `linux-x64`                   |
-| 12.17.3 | `linux-x64`                   |
+| 12.17.3 | `linux-x64, linux-arm64`      |
 | 12.17.4 | All                           |
 
 {% hint style="success" %}
