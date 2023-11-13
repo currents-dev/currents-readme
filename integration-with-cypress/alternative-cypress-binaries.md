@@ -25,7 +25,9 @@ Missing specific version, OS or architecture? Let us know!
 
 Please follow the instructions below to use the alternative version:
 
-* Pin your cypress version to one of the supported versions
+* Pin `cypress` version to one of the supported versions in `package.json`
+  * For example: `"cypress": "12.17.0"`
+  * Update your package manager lock file
 * Clean the existing Cypress binary `npx cypress cache clear`
 * Define download mirror by configuring environment variable:
   * Linux: `export CYPRESS_DOWNLOAD_MIRROR=https://cy-cdn.currents.dev`
@@ -34,7 +36,7 @@ Please follow the instructions below to use the alternative version:
 * Reinstall Cypress App binary from the alternative mirror: `npx cypress install`
 * Run your workflows as usual
 
-_Alternatively_, use a one-liner to reinstall cypress binaries:
+_Alternatively_, use a one-liner to install alternative cypress binaries:
 
 ```
 CYPRESS_DOWNLOAD_MIRROR=https://cy-cdn.currents.dev npx cypress install --force
