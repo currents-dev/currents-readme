@@ -30,7 +30,7 @@ We are hosting independent versions of the electron app that you can use without
 | 9.0.0 - 9.7.0    | All                       |
 | 10.0.0 - 10.11.0 | All                       |
 | 11.0.0 - 11.1.0  | All                       |
-| 12.14.0, 12.17.3 | `linux-x64, linux-arm64`  |
+| 12.0.1 - 12.17.3 | `linux-x64, linux-arm64`  |
 | 12.17.4          | All                       |
 
 {% hint style="success" %}
