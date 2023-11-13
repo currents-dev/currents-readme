@@ -10,7 +10,7 @@ description: Using alternative Cypress Binaries
 We will continue to support prior versions of Cypress.
 {% endhint %}
 
-Following the [blocking of Sorry Cypress, Currents and DeploySentintel ](https://currents.dev/posts/v13-blocking)packages, we are suspending our support of Cypress 13+.
+Following the blocking of [Sorry Cypress, Currents and DeploySentintel](https://currents.dev/posts/v13-blocking) packages, we are suspending our support of Cypress 13+.
 
 We apologize for the interruption of your workflows and possible downtime caused by the sudden blocking on November 7. We received no communication from Cypress.io team about the intent to release the breaking change.
 
@@ -30,7 +30,7 @@ We are hosting independent versions of the electron app that you can use without
 | 9.0.0 - 9.7.0    | All                       |
 | 10.0.0 - 10.11.0 | All                       |
 | 11.0.0 - 11.1.0  | All                       |
-| 12.0.1 - 12.17.3 | `linux-x64, linux-arm64`  |
+| 12.0.0 - 12.17.3 | `linux-x64, linux-arm64`  |
 | 12.17.4          | All                       |
 
 {% hint style="success" %}
