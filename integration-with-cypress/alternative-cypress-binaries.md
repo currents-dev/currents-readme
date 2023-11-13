@@ -4,23 +4,37 @@ description: Using alternative Cypress Binaries
 
 # Alternative Cypress Binaries
 
-Following the [original blocking of Sorry Cypress, Currents and DeploySentintel users](https://currents.dev/posts/v13-blocking), Cypress.io team decided to apply the blocking to older app versions.
+{% hint style="info" %}
+**We are suspending our support of Cypress test runner version 13+**
 
-As part of our commitment to support our customers using old versions, we have published block-free versions of Cypress App binaries.
+We will continue to support prior versions of Cypress.
+{% endhint %}
 
-The supported versions are:
+Following the [blocking of Sorry Cypress, Currents and DeploySentintel ](https://currents.dev/posts/v13-blocking)packages, we are suspending our support of Cypress 13+.
 
-| Version                                                                                                                                                                                                                   | Supported OS and Architecture |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| 9.7.0                                                                                                                                                                                                                     | All                           |
-| 10.7.0                                                                                                                                                                                                                    | All                           |
-| 10.11.0                                                                                                                                                                                                                   | All                           |
-| 11.2.0                                                                                                                                                                                                                    | All                           |
-| 12.0.0, 12.0.1, 12.0.2, 12.1.0, 12.2.0, 12.3.0, 12.4.0, 12.4.1, 12.5.0, 12.5.1, 12.6.0, 12.7.0, 12.8.0, 12.8.1, 12.9.0, 12.10.0, 12.11.0, 12.12.0, 12.13.0, 12.14.0, 12.15.0, 12.16.0, 12.17.0, 12.17.1, 12.17.2, 12.17.3 | `linux-x64, linux-arm64`      |
-| 12.17.4                                                                                                                                                                                                                   | All                           |
+We apologize for the interruption of your workflows and possible downtime caused by the sudden blocking on November 7. We received no communication from Cypress.io team about the intent to release the breaking change.
+
+We will continue supporting prior versions of the MIT-licensed Cypress test runner using independent, block-free versions of binaries.
+
+***
+
+As a background - Cypress installation has 2 components:
+
+* an [npm package](https://www.npmjs.com/package/cypress) `cypress`- a lightweight NodeJS wrapper that parses command line flags, downloads and runs an OS/platform-specific Electron binary application.
+* Electron application (binary) - an OS/platform-specific binary code, it is usually pre-installed and cached on docker images or is being downloaded by the npm package.
+
+We are hosting independent versions of the electron app that you can use without the risk of being blocked. The supported versions:
+
+| Version          | Supported OS-Architecture |
+| ---------------- | ------------------------- |
+| 9.0.0 - 9.7.0    | All                       |
+| 10.0.0 - 10.11.0 | All                       |
+| 11.0.0 - 11.1.0  | All                       |
+| 12.0.0 - 12.17.3 | `linux-x64, linux-arm64`  |
+| 12.17.4          | All                       |
 
 {% hint style="success" %}
-Missing specific version, OS or architecture? Let us know!
+Missing specific version, OS or architecture? Not sure what version to use? Let us know!
 {% endhint %}
 
 Please follow the instructions below to use the alternative binaries:
@@ -29,7 +43,7 @@ Please follow the instructions below to use the alternative binaries:
   * For example: `"cypress": "12.17.0"`
   * Update your package manager lock file
 * Clean the existing Cypress binary `npx cypress cache clear`
-* Define download mirror by configuring environment variable:
+* Define [download mirror](https://docs.cypress.io/guides/references/advanced-installation#Mirroring) by configuring environment variable:
   * Linux: `export CYPRESS_DOWNLOAD_MIRROR=https://cy-cdn.currents.dev`
   * Windows cmd:  `set CYPRESS_DOWNLOAD_MIRROR=https://cy-cdn.currents.dev`
   * Window PowerShell:  `$env:CYPRESS_DOWNLOAD_MIRROR = "https://cy-cdn.currents.dev"`
@@ -46,8 +60,6 @@ CYPRESS_DOWNLOAD_MIRROR=https://cy-cdn.currents.dev npx cypress install --force
 
 Examples:
 
-* Using alternative Cypress binaries with [GitHub Actions](https://github.com/currents-dev/gh-actions-example/blob/main/.github/workflows/currents.yml). Example [workflow](https://github.com/currents-dev/gh-actions-example/actions/runs/6809756956/job/18516652532).
-
-**We apologize for the interruption of your workflows and possible downtime.** We received no communication from Cypress.io team.
+* [GitHub Actions](https://github.com/currents-dev/gh-actions-example/blob/main/.github/workflows/currents.yml) example [workflow](https://github.com/currents-dev/gh-actions-example/actions/runs/6809756956/job/18516652532).
 
 Please contact our support channels for additional information and assistance.
