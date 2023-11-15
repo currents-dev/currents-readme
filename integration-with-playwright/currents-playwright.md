@@ -119,6 +119,7 @@ Check out the example repositories that showcase running Playwright tests on pop
 * [playwright-gitlab-ci-cd.md](../ci-setup/gitlab/playwright-gitlab-ci-cd.md "mention")
 * [jenkins-playwright.md](../ci-setup/jenkins-playwright.md "mention")
 * [playwright-circleci.md](../ci-setup/circleci/playwright-circleci.md "mention")
+* [playwright-aws-code-build.md](../ci-setup/aws-code-build/playwright-aws-code-build.md "mention")
 
 ### Good To Know
 
