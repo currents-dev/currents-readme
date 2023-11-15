@@ -104,7 +104,7 @@ Configure AWS-specific project settings like IAM execution policy, resources cla
 
 This [example repository](https://github.com/currents-dev/playwright-aws-codebuild-example) showcases running Playwright tests on AWS CodeBuild in parallel while using [Currents](https://currents.dev/) as the reporting dashboard. It has an example [AWS CodeBuilld Project configuration](https://github.com/currents-dev/playwright-aws-codebuild-example/blob/main/aws-project-config-output.json).
 
-{% embed url="https://www.loom.com/share/36d9130a292949668cc875599927e83c?sid=cae15fb3-3d4a-4fb6-900a-19ab2738cf45" %}
+{% embed url="https://www.loom.com/share/36d9130a292949668cc875599927e83c?hideEmbedTopBar=true&hide_share=true&sid=4f798cda-d45f-4d05-841b-40aa6eed6f94?hide_owner=true" %}
 Example of triggering an AWS CodeBuild Playwright Tests via a commit
 {% endembed %}
 
