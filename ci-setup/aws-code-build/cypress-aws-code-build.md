@@ -14,10 +14,6 @@ Executing Cypress tests in parallel on AWS CodeBuild can significantly reduce th
 
 Those workers will use Currents as an orchestration service - each worker will run a subset of spec files and report the results to the cloud dashboard for convenient reporting and troubleshooting.
 
-{% hint style="info" %}
-tl;dr - check out the [example repository](https://github.com/currents-dev/aws-codebuild-example)&#x20;
-{% endhint %}
-
 ### Prerequisites
 
 To enable parallel runs, please make sure:
