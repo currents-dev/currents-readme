@@ -23,7 +23,7 @@ As a background - Cypress installation has 2 components:
 * an [npm package](https://www.npmjs.com/package/cypress) `cypress`- a lightweight NodeJS wrapper that parses command line flags, downloads and runs an OS/platform-specific Electron binary application.
 * Electron application (binary) - an OS/platform-specific binary code, it is usually pre-installed and cached on docker images or is being downloaded by the npm package.
 
-We are hosting independent versions of the electron app that you can use without the risk of being blocked. The supported versions:
+We are hosting independent versions of the electron app and docker images with pre-installed binaries that you can use without the risk of being blocked. The supported versions:
 
 | Version          | Supported OS-Architecture |
 | ---------------- | ------------------------- |
@@ -37,7 +37,15 @@ We are hosting independent versions of the electron app that you can use without
 Missing specific version, OS or architecture? Not sure what version to use? Let us know!
 {% endhint %}
 
-Please follow the instructions below to use the alternative binaries:
+#### Using the alternative binaries
+
+Use a one-liner to install alternative cypress binaries:
+
+```
+CYPRESS_DOWNLOAD_MIRROR=https://cy-cdn.currents.dev npx cypress install --force
+```
+
+_Alternatively_, follow the step-by-step instructions below:
 
 * Pin `cypress` version to one of the supported versions in `package.json`
   * For example: `"cypress": "12.17.0"`
@@ -50,15 +58,13 @@ Please follow the instructions below to use the alternative binaries:
 * Reinstall Cypress App binary from the alternative mirror: `npx cypress install`
 * Run your workflows as usual
 
-_Alternatively_, use a one-liner to install alternative cypress binaries:
+#### Using Docker images with pre-installed binaries
 
-```
-CYPRESS_DOWNLOAD_MIRROR=https://cy-cdn.currents.dev npx cypress install --force
-```
+Use the following [docker image](https://hub.docker.com/r/currentsdev/cypress-included) that has pre-installed, block-free binaries to run your workflows:
 
-***
+`docker pull currentsdev/cypress-included:<version>`
 
-Examples:
+#### Examples
 
 * [GitHub Actions](https://github.com/currents-dev/gh-actions-example/blob/main/.github/workflows/currents.yml) example [workflow](https://github.com/currents-dev/gh-actions-example/actions/runs/6809756956/job/18516652532).
 
