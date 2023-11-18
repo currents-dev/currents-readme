@@ -101,7 +101,7 @@ To completely remove GitHub integration, navigate to Project Settings, click “
 **Please note:** your CI environment must expose git commit information in order for cypress agent to send commit details (sha, repository URL etc.) and enable the integration.
 {% endhint %}
 
-Cypress agents use [https://github.com/cypress-io/commit-info](https://github.com/cypress-io/commit-info) package to discover git-related information.
+We use [https://github.com/cypress-io/commit-info](https://github.com/cypress-io/commit-info) package to discover git-related information.
 
 * To expose your git information, please make sure that `.git` directory is present in your CI environment
 * You can explicitly provide git information via environment variables
@@ -118,17 +118,19 @@ remote: COMMIT_INFO_REMOTE
 
 #### I have enabled GitHub integration, but nothing is getting reported to GitHub
 
-Behind the scenes, Currents is using git commit data do to identify the PR (issue) to comment on.&#x20;
+Behind the scenes, Currents is using git commit data to identify the PR (issue) to comment on.&#x20;
 
 The simplified flow is:
 
 1. Get the list of pull requests associated with the commit using an API call: `'GET /repos/{owner}/{repo}/commits/{commit_sha}/pulls',`
 2. Select a PR with HEAD commit matching the reported commit sha
 
-Sometimes the commit sha reported for a run is different from PR's HEAD commit - our integration would not be able to detect the Pull Requests and won't post a comment and status checks.
+Sometimes the commit SHA reported for a run is different from PR's HEAD commit - our integration would not be able to detect the Pull Requests and won't post a comment and status checks.
 
 Please contact our support via in-app chat and share:
 
 * Run that is affected
 * Commit sha of the affected run
 * HEAD commit sha of the associated Pull Request
+
+Read more about [commit-data-for-github-actions.md](../../ci-setup/github-actions/commit-data-for-github-actions.md "mention").
