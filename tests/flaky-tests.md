@@ -12,7 +12,7 @@ A flaky test is a test that did not succeed on the first attempt. The build will
 
 ### How to activate flaky test detection?
 
-Flaky tests are automatically activated for all types of tests with [retries](https://docs.cypress.io/guides/guides/test-retries#How-It-Works) enabled. When a test has retries enabled and doesn't pass on the first attempt, it will be marked as flaky.&#x20;
+Flaky tests are automatically activated for all types of tests with retries enabled. When a test has retries enabled and doesn't pass on the first attempt, it will be marked as flaky.&#x20;
 
 ### Why are flaky tests bad?
 
