@@ -1,5 +1,5 @@
 ---
-description: Playwright and Cypress Test Statuses - detailed guide and explanation
+description: Playwright and Cypress Test Status - detailed guide and explanation
 ---
 
 # Test Status
