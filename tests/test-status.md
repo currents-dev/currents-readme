@@ -104,6 +104,8 @@ test("expectedStatus=failed; timedOut, failed", async ({ page }, { retry }) => {
 });
 ```
 
+See [flaky-tests.md](flaky-tests.md "mention")for more details about learning how to use Currents Dashboard when dealing with flaky tests.
+
 #### Playwright Test Status - Summary Table
 
 Refer to the table below to determine how a certain combination of `expectedStatus` and  `outcome` affects the status reported to Currents Dashboard.
@@ -132,4 +134,4 @@ Cypress test can be in one of the following states:
       `describe('Skip in Chrome', { browser: '!chrome' }, () => {/* ... */})`
 * <mark style="color:orange;">**Skipped**</mark> - a test that **was supposed to run but has been skipped** because of a runtime error. This state is exclusive to Cypress executions. One of the most common examples is a situation where there's a crash in `beforeEach.` After unsuccessfully running the first test and recognizing an error in `beforeEach,` Cypress runner "skips" the rest of the tests because they would fail due to the same error. Currents marks spec files and runs with skipped tests as "failed".
 
-In addition to the statuses above, a test can be marked as <mark style="background-color:purple;">**Flaky**</mark> - a test that passed after a few failing attempts. See [flaky-tests.md](flaky-tests.md "mention").
+In addition to the statuses above, a test can be marked as <mark style="background-color:purple;">**Flaky**</mark> if the test passes after a few failing attempts. See [flaky-tests.md](flaky-tests.md "mention").
