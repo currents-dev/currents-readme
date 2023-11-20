@@ -8,12 +8,14 @@ Playwright and Cypress test status is mostly straightforward to interpret, howev
 
 ### Playwright Test Status
 
-A Playwright test's status is a composition of:
+Playwright test's status is a composition of:
 
 * the status of its [attempts](https://playwright.dev/docs/test-retries#retries)
 * its [expected status](https://playwright.dev/docs/api/class-testcase#test-case-expected-status)
 
-The final status is determined after a test finished all its retries, [test.afterEach()](https://playwright.dev/docs/api/class-test#test-after-each-1) hook and fixtures and depends on the **expected status** and the **status of all the retries.**
+The final status is determined after a test has finished all its retries, [test.afterEach()](https://playwright.dev/docs/api/class-test#test-after-each-1) hook and fixtures and depends on the **expected status** and the **status of all the retries.**&#x20;
+
+See [#playwright-test-status-summary-table](test-status.md#playwright-test-status-summary-table "mention") for reference of how Playwright statuses appear in Currents.&#x20;
 
 #### Playwright Test Retry Status
 
@@ -59,7 +61,7 @@ Playwright marks a test as flaky if some attempts match the expected status and 
 * there is at least one `passed` attempt **and**
 * there's at least one `failed` or `timedOut` attempt
 
-Depending on the expected status, it can be tricky to interpret the result. For example, all the tests below will be considered flaky:
+It can be tricky to interpret the result depending on the expected status. For example, all the tests below will be considered flaky:
 
 ```typescript
 
@@ -105,6 +107,20 @@ test("expectedStatus=failed; timedOut, failed", async ({ page }, { retry }) => {
 ```
 
 See [flaky-tests.md](flaky-tests.md "mention")for more details about learning how to use Currents Dashboard when dealing with flaky tests.
+
+#### Serial Mode and Playwright Test Status
+
+{% hint style="info" %}
+It is recommended to avoid dependencies between tests and ensure that every test is isolated for more efficient retries and parallelization
+{% endhint %}
+
+Enabling [Serial Mode](https://playwright.dev/docs/test-retries#serial-mode) for Playwright Tests changes the default behaviour: a group of tests designated to run serially always run together, one after another. A failure or a timeout in a test causes all the subsequent tests in the group to become `skipped`. Depending on the number of retries left, all the tests will run again until completion.
+
+> Use [test.describe.serial()](https://playwright.dev/docs/api/class-test#test-describe-serial) to group dependent tests to ensure they will always run together and in order. If one of the tests fails, all subsequent tests are skipped. All tests in the group are retried together.
+
+Determining test status for serial tests follows the same principles as for other tests, however, you should be aware of that behaviour and interpret the results accordingly.
+
+
 
 #### Playwright Test Status - Summary Table
 
