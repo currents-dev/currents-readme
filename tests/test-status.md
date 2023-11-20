@@ -33,6 +33,7 @@ Each **test retry** can be in one of the following statuses:
   * If you programmatically skip tests based on certain conditions.
   * If you explicitly skip a test with [test.skip()](https://playwright.dev/docs/api/class-test#test-skip-1) or [test.fixme()](https://playwright.dev/docs/api/class-test#test-fixme-1).
   * If you're using a feature like `.only` to focus on specific test.
+  * If a previous test in a test group failed or timed out (see below).
 
 #### Playwright Expected Status
 
