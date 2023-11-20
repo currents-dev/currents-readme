@@ -20,7 +20,7 @@ The final status is determined after a test finished all its retries, [test.afte
 Each **test retry** can be in one of the following statuses:
 
 * <mark style="color:green;">**passed**</mark> - means that the test retry didn't encounter any error or exception while executing the test body or the associated `test.beforeEach` or `test.afterEach` hooks
-* <mark style="color:red;">**failed**</mark> - means that the test retry failed due to an assertion error, exception in the test's body or the associated `test.beforeEach` or `test.afterEach` hooks. An exception or failure of  `test.beforeAll` hooks will cause a failure in the first test according to the execution order.
+* <mark style="color:red;">**failed**</mark> - means that the test retry failed due to an assertion error, exception in the test's body or the associated `test.beforeEach` or `test.afterEach` hooks. An exception or failure of  `test.beforeAll` hooks will cause a `failed` status in the first test attempt according to the execution order.
 * <mark style="color:orange;">**interrupted**</mark> - means that the execution of a test retry was halted before it could be completed. This interruption could occur due to a variety of reasons, such as:
   * Uncaught Exception.
   * Unhandled Rejection.
@@ -44,29 +44,78 @@ Playwright tests have [expected status](https://playwright.dev/docs/api/class-te
 
 Combining the expected status with test retries status defines [Playwright test outcome](https://playwright.dev/docs/api/class-testcase#test-case-outcome):
 
-* `skipped` - means a test was marked as [test.skip()](https://playwright.dev/docs/api/class-test#test-skip-1) or [test.fixme()](https://playwright.dev/docs/api/class-test#test-fixme-1) and all the attempts were skipped
-* `expected` - means&#x20;
-  * a test has `expectedStatus=failed` has status `failed` (but **not** `timedOut` or `interrupted`)
-  * a test that has `expectedStatus=passed` passed
-* `flaky` - Playwright marks a test as flaky if:
-  * there is at least one `passed` attempt **and**
-  * there's at least one `failed`, `interrupted` or `timedOut` attempt
-* `unexpected` - all the rest combinations of `expectedStatus` and test attempt status
+* `skipped` - means all the attempts were skipped (because the test was marked as [test.skip()](https://playwright.dev/docs/api/class-test#test-skip-1) or [test.fixme()](https://playwright.dev/docs/api/class-test#test-fixme-1))&#x20;
+* `expected` - means all the attempts' status matches the `expectedStatus`
+  * a test has `expectedStatus=failed` all attempts were `failed` (but not `timedOut` )
+  * a test has `expectedStatus=passed` and all attempts have a status `passed`
+* `unexpected` - all attempts' status does not match the `expectedStatus`
+* `flaky` - some attempts' status matches the expected status, and some do not. See below.
+
+#### Playwright Flaky Tests
+
+Playwright marks a test as flaky if some attempts match the expected status and some don't. For example:
+
+* there are multiple test attempts **and**
+* there is at least one `passed` attempt **and**
+* there's at least one `failed` or `timedOut` attempt
+
+Depending on the expected status, it can be tricky to interpret the result. For example, all the tests below will be considered flaky:
+
+```typescript
+
+import { expect, test } from "@playwright/test";
+
+const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
+test.describe.configure({ timeout: 500 });
+
+test("expectedStatus=passed; failed, passed", async ({ page }, { retry }) => {
+  if (retry === 0) {
+    throw new Error("oh!");
+  }
+
+  expect(true).toBe(true);
+});
+
+test("expectedStatus=failed; timedOut, passed", async ({ page }, { retry }) => {
+  if (retry === 0) {
+    await wait(1000);
+  }
+  expect(true).toBe(true);
+});
+
+test("expectedStatus=failed; passed, failed", async ({ page }, { retry }) => {
+  test.fail();
+  if (retry === 0) {
+    expect(true).toBe(true);
+  }
+  if (retry === 1) {
+    expect(true).toBe(false);
+  }
+});
+
+test("expectedStatus=failed; timedOut, failed", async ({ page }, { retry }) => {
+  test.fail();
+  if (retry === 0) {
+    await wait(1000);
+  }
+  if (retry === 1) {
+    expect(true).toBe(false);
+  }
+});
+```
 
 #### Playwright Test Status - Summary Table
 
-Refer to the table below to determine how a certain combination of `expectedStatus` and outcome affects the status reported to Currents Dashboard.
+Refer to the table below to determine how a certain combination of `expectedStatus` and  `outcome` affects the status reported to Currents Dashboard.
 
 | PW Expected Status | PW Actual Status | PW Outcome | Currents Status |
 | ------------------ | ---------------- | ---------- | --------------- |
 | failed             | passed           | unexpected | failed          |
 | failed             | timedOut         | unexpected | failed          |
 | failed             | failed           | expected   | passed          |
-| failed             | interrupted      | unexpected | failed          |
 | passed             | passed           | expected   | passed          |
 | passed             | timedOut         | unexpected | failed          |
 | passed             | failed           | unexpected | failed          |
-| passed             | interrupted      | unexpected | failed          |
 | skipped            | skipped          | expected   | ignored         |
 
 ### Cypress Tests Status
