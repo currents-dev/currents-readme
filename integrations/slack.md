@@ -28,6 +28,9 @@ Provide the following details to finalize Slack integration, click "Save" to fin
 
 {% hint style="info" %}
 **Please note:** We use [glob patterns](https://www.npmjs.com/package/micromatch) to evaluate the filters. Test your filtering rules using the [playground](https://currents-branch-filter.stackblitz.io/).
+
+* Example filter to exclude certain tags **`tagA`** and **`tagB`**`: !(tagA|tagB)`
+* Example filter to include only tags starting with **`production`**: `production*`
 {% endhint %}
 
 ### What events trigger notifications for Slack // Currents integration?
