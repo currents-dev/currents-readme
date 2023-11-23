@@ -10,17 +10,17 @@ When creating a new run, playwright and cypress collect various information abou
 
 ![Cypress run details example](../.gitbook/assets/cypress-run-details.png)
 
-| Field             | Description                                                          |
-| ----------------- | -------------------------------------------------------------------- |
-| Duration          | Run's duration                                                       |
-| Progress          | Completed / overall spec files progress                              |
-| Started at        | Run start timestamp                                                  |
-| Origin            | GIt remote origin                                                    |
-| Branch            | Git branch                                                           |
-| Commit            | Git commit message                                                   |
-| Browser / Project | Cypress tests browser or Playwright Project                          |
-| Author            | Git commit author                                                    |
-| CI Build ID       | [cypress-ci-build-id.md](../guides/cypress-ci-build-id.md "mention") |
+| Field             | Description                                          |
+| ----------------- | ---------------------------------------------------- |
+| Duration          | Run's duration                                       |
+| Progress          | Completed / overall spec files progress              |
+| Started at        | Run start timestamp                                  |
+| Origin            | GIt remote origin                                    |
+| Branch            | Git branch                                           |
+| Commit            | Git commit message                                   |
+| Browser / Project | Cypress tests browser or Playwright Project          |
+| Author            | Git commit author                                    |
+| CI Build ID       | [ci-build-id.md](../guides/ci-build-id.md "mention") |
 
 ### Playwright / Cypress Git Information
 

@@ -109,7 +109,7 @@ Please refer to your CI tool documentation to explore what environment variables
 
 ### FAQ: Using commit SHA as CI Build ID
 
-Using commit SHA as a CI Build ID is a valid approach and can work for many setups. However, please be aware that rerunning a build with the same commit SHA can result in a duplicate CI Build ID and prevent orchestration and reporting (see [#faq-retrying-builds-and-ci-build-id](cypress-ci-build-id.md#faq-retrying-builds-and-ci-build-id "mention"))
+Using commit SHA as a CI Build ID is a valid approach and can work for many setups. However, please be aware that rerunning a build with the same commit SHA can result in a duplicate CI Build ID and prevent orchestration and reporting (see [#faq-retrying-builds-and-ci-build-id](ci-build-id.md#faq-retrying-builds-and-ci-build-id "mention"))
 
 ### FAQ: Retrying a build only for failed tests
 

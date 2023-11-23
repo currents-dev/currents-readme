@@ -21,8 +21,12 @@ npm i -D @currents/playwright
 
 #### Update `playwright.config.js|ts`
 
+* Creating a new organization and a project at https://app.currents.dev, you'll see on-screen instructions with your newly created **Project ID** and **Record Key.**&#x20;
 * Enabled traces, videos and screenshots in `playwright.config.js|ts` to enhance the dashboard test results.
-* Disable [parallelizing tests in a single file](https://playwright.dev/docs/test-parallel#parallelize-tests-in-a-single-file) because it is not currently supported
+
+{% hint style="info" %}
+Disable [`fullParallel`](https://playwright.dev/docs/api/class-testconfig#test-config-fully-parallel) mode and [parallelizing tests in a single file](https://playwright.dev/docs/test-parallel#parallelize-tests-in-a-single-file) - it is not currently supported by Currents
+{% endhint %}
 
 ```javascript
 use: {
@@ -30,59 +34,46 @@ use: {
     trace: "on",
     video: "on",
     screenshot: "on",
-  }
+}
 ```
 
 ### Using @currents/playwright
 
 Choose the preferred usage method for `@currents/playwright`&#x20;
 
-* `pwc` CLI command - it runs `playwright` with a predefined configuration
-* Alternatively, you can add `@currents/playwright` reporter to Playwright configuration file
+* `pwc` CLI command - runs `playwright` with a predefined configuration.
+* Alternatively, you can add `@currents/playwright` reporter to `playwright.config.ts`&#x20;
 
 #### `pwc` CLI command
 
-Run `pwc` to create your first Playwright run in Currents dashboard. Set the record key, and project ID obtained from Currents dashboard in the previous step. Learn more about [CI Build ID](../guides/cypress-ci-build-id.md).
+Run `pwc` to create your first Playwright run in Currents dashboard.&#x20;
 
 ```
 npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id hello-currents
 ```
 
-Starting from version `0.10.0` you can provide `--tag` CLI option to add tags that will apply to the whole execution, for example:
-
-{% code overflow="wrap" %}
-```sh
-npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id CI_BUILD_ID --tag tagA,tagB
-```
-{% endcode %}
-
-Explore more about [playwright-tags.md](../guides/playwright-tags.md "mention").
+* Set the **Record Key**, and **Project ID** obtained from Currents dashboard.
+* Set `--ci-build-id` to a unique value for local testing. Learn more about [ci-build-id.md](../guides/ci-build-id.md "mention") for CI runs.
 
 #### `@currents/playwright` reporter
 
 Alternatively, you can manually add the reporter to Playwright configuration and keep using `playwright test` CLI command.&#x20;
 
 ```typescript
-import { currentsReporter } from '@currents/playwright';
+// playwright.config.ts
+import { defineConfig, devices, PlaywrightTestConfig } from "@playwright/test";
+import { CurrentsConfig, currentsReporter } from "@currents/playwright";
 
-const currentsConfig = {
-  ciBuildId: process.env.CURRENTS_CI_BUILD_ID,
-  recordKey: process.env.CURRENTS_RECORD_KEY,
-  projectId: process.env.CURRENTS_PROJECT_ID,
-  tag: ["runTagA", "runTagB"],
+const currentsConfig: CurrentsConfig = {
+  ciBuildId: "ci-build-id", // 📖 https://currents.dev/readme/guides/ci-build-id
+  recordKey: "secret record key", // 📖 https://currents.dev/readme/guides/record-key
+  projectId: "project id", // get one at https://app.currents.dev
 };
-reporter: [
-  // explicitly provide reporter name and configuration
-  [
-    "@currents/playwright",
-    currentsConfig
-  ],
-  // ...or use the helper function that ensures type safety
-  currentsReporter(currentsConfig),
-  /* other reporters, if exist, e.g.:
-  ["html"]
-  */
-]
+
+export default defineConfig({
+  // ...
+  reporter: [currentsReporter(currentsConfig)], // 👈🏻 add Currents reporter
+})
 ```
 
 You can provide the required configuration as a parameter of `currentsReporter` function or as environment variables.&#x20;
@@ -109,9 +100,57 @@ cmd /V /C "set CURRENTS_PROJECT_ID=PROJECT_ID // the projectId from https://app.
 {% endtab %}
 {% endtabs %}
 
-With the reporter configured, you can run `npx playwright test` to start sending the results to Currents dashboard. Learn more about [cypress-ci-build-id.md](../guides/cypress-ci-build-id.md "mention").
+With the reporter configured, you can run `npx playwright test` to start sending the results to Currents dashboard. Learn more about [ci-build-id.md](../guides/ci-build-id.md "mention").
+
+#### Configuring @currents/playwright
+
+`@currents/playwright` accepts configuration from the following sources:
+
+* reading environment variables, e.g. `CURRENTS_TAG=tagA,tagB`
+* reading options of `pwc` CLI command, e.g. `npx pwc ---tag tagA --tag tagB`
+* reading `currentsReporter` JS configuration object
+
+The following configuration options are available:
+
+<table><thead><tr><th width="229">CLI option</th><th>JS Configuration</th><th>Description / Env variable</th></tr></thead><tbody><tr><td><code>--ci-build-id</code></td><td><code>ciBuildId?: string</code></td><td>the unique identifier for a run. <code>CURRENTS_CI_BUILD_ID</code></td></tr><tr><td><code>-k, --key</code></td><td><code>recordKey: string</code></td><td><p>your secret Record Key obtained from Currents.</p><p><code>CURRENTS_RECORD_KEY</code></p></td></tr><tr><td><code>-p, --project-id</code></td><td><code>projectId: string</code></td><td><p>the project ID for results reporting obtained from Currents</p><p><code>CURRENTS_PROJECT_ID</code></p></td></tr><tr><td><code>-t, --tag</code></td><td><code>tag: string[]</code></td><td><p>comma-separated tag(s) for recorded runs in Currents</p><p><code>CURRENTS_TAG</code></p></td></tr><tr><td><code>--pwc-remove-title-tags</code></td><td><code>removeTitleTags?: boolean</code></td><td>remove tags from test names in Currents, e.g. <code>Test name @smoke</code> becomes <code>Test name</code> in the dashboard (default: false)<br>See <a data-mention href="../guides/playwright-tags.md">playwright-tags.md</a></td></tr><tr><td><code>--pwc-debug</code></td><td>n/a</td><td>enable debug logs for the reporter (default: false)<br><code>DEBUG=currents*</code></td></tr><tr><td><code>-h, --help</code></td><td>n/a</td><td>show <code>pwc</code> help</td></tr><tr><td><code>-V, --version</code></td><td>n/a</td><td>show package version</td></tr></tbody></table>
+
+#### Overriding Configuration
+
+Certain configuration values can have multiple sources, e.g. via CLI fag and via environment variables. The configuration variables will resolve as follows:
+
+* the environment variable if exists, otherwise
+* the corresponding CLI flag if exists, otherwise
+* `currentsReporter` JS configuration object, otherwise
+* the default value, otherwise
+* throw if the configuration is mandatory
 
 ### Examples
+
+* Run all tests in the current directory:
+
+```
+pwc --key <record-key> --project-id <id> --ci-build-id <build-id>    
+```
+
+* Run only tests filtered by the tag "@smoke":
+
+```
+pwc --key <record-key> --project-id <id> --ci-build-id <build-id> --grep smoke
+```
+
+* Run playwright tests and add tags "tagA", "tagB" to the recorded run:
+
+```
+pwc --key <record-key> --project-id <id> --ci-build-id <build-id> --tag tagA --tag tagB
+```
+
+* Provide `playwright` arguments and flags:
+
+```
+pwc --key <record-key> --project-id <id> --ci-build-id <build-id> -- --workers 2 --timeout 10000 --shard 1/2
+```
+
+#### CI Examples
 
 Check out the example repositories that showcase running Playwright tests on popular CI providers and recording the results to Currents:
 
@@ -147,5 +186,5 @@ For more information see the Playwright [test info attachment](https://playwrigh
 ### Limitations
 
 * We recommend using the native [Playwright Shards](https://playwright.dev/docs/test-parallel#shard-tests-between-multiple-machines) while we are working on other types of orchestration-related features.
-* Reruns are not supported - rerunning with the same CI build ID would generate a warning and new results would not be uploaded. Please use a new CI build ID.
+* Rerunning with the same CI build ID would generate a warning and new results would not be uploaded. Please use a new CI build ID.
 * Full parallel mode ([parallelizing tests in a single file](https://playwright.dev/docs/test-parallel#parallelize-tests-in-a-single-file)) is not currently supported

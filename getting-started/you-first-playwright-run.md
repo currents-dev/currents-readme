@@ -7,14 +7,8 @@ description: Running Playwright tests with Currents Dashboard
 Integrating Currents with Playwright enables recording test results together with screenshots, videos, and traces to the cloud dashboard. That unlocks more effective troubleshooting, analytics and proactive monitoring, extending your team's workflows using REST API, WebHooks and built-in integration with Slack, GitHub etc.
 
 {% embed url="https://www.loom.com/share/050c43a3cc6a47d08e3735a50a92eb95?hideEmbedTopBar=true&hide_owner=true&hide_share=true&hide_title=true" %}
-Playwright runs
+Walkthrough creating your first Playwright run on Currents
 {% endembed %}
-
-
-
-{% hint style="info" %}
-The Playwright integration is in public beta mode. Some functionality is limited and not all aspects are fully documented.
-{% endhint %}
 
 ### **Overview**
 
@@ -32,7 +26,9 @@ After signing up for the dashboard service, you will be prompted to create a new
 
 ![Creating an Organization and a Project in Currents dashboard](../.gitbook/assets/currents-create-org.gif)
 
-After creating a new organization and a project, you'll see on-screen instructions with your newly created  `projectId` and record key. Select Playwright from the framework selection list and then choose the preferred installation method (see below)
+After creating a new organization and a project, you'll see on-screen instructions with your newly created **Project ID** and **Record Key.**&#x20;
+
+Select Playwright from the framework selection list and then choose the preferred installation method (see below).
 
 ### Install `@currents/playwright` package
 
@@ -41,6 +37,10 @@ npm i -D @currents/playwright
 ```
 
 ### Update `playwright.config.js|ts`
+
+{% hint style="info" %}
+Disable [`fullParallel`](https://playwright.dev/docs/api/class-testconfig#test-config-fully-parallel) mode and [parallelizing tests in a single file](https://playwright.dev/docs/test-parallel#parallelize-tests-in-a-single-file) - it is not currently supported by Currents
+{% endhint %}
 
 Enabled traces, videos and screenshots in `playwright.config.js|ts` to enhance the dashboard test results.
 
@@ -55,28 +55,70 @@ use: {
 
 ### Create your first Playwright run&#x20;
 
-`@currents/playwright` provides an executable script named `pwc` - it runs `playwright` with a predefined configuration. Alternatively, you can add `@currents/playwright` reporter to Playwright configuration file.&#x20;
+`@currents/playwright` provides an executable script named `pwc` - it runs `playwright` with a predefined configuration.&#x20;
+
+Alternatively, you can add `@currents/playwright` reporter to `playwright.config.ts`
 
 #### Using `pwc` CLI command
 
-Run `pwc` to create your first Playwright run in Currents dashboard. Set the record key, and project id obtained from Currents dashboard in the previous step. Learn more about [CI Build ID](../guides/cypress-ci-build-id.md).
+Run `pwc` to create your first Playwright run in Currents dashboard.&#x20;
 
 ```
 npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id hello-currents
 ```
 
+* Set the **Record Key**, and **Project ID** obtained from Currents dashboard in the previous step.&#x20;
+* Provide `--ci-build-id` to identify this run in the dashboard - the example above uses `hello-currents` as the build ID.
+
+{% hint style="info" %}
+Please note that in CI environments the  Build ID needs to be generated based on CI environment variables.&#x20;
+
+`@currents/playwright` automatically detects the Build ID for popular CI providers, but in some cases, you need to define it explicitly.&#x20;
+
+We encourage you to invest 3 minutes into learning more about [ci-build-id.md](../guides/ci-build-id.md "mention") to prevent confusion during the setup.&#x20;
+{% endhint %}
+
 #### Manually configuring `@currents/playwright` reporter
 
-Alternatively, you can manually add the reporter to Playwright configuration:
+Alternatively, you can explicitly add the reporter to Playwright configuration:
 
-```javascript
-reporter: [
-  // ... other reporters, if exist
-  ["@currents/playwright"],
-]
+```typescript
+import { defineConfig, devices, PlaywrightTestConfig } from "@playwright/test";
+import { CurrentsConfig, currentsReporter } from "@currents/playwright";
+
+const currentsConfig: CurrentsConfig = {
+  ciBuildId: "ci-build-id", // 📖 https://currents.dev/readme/guides/ci-build-id
+  recordKey: "secret record key", // 📖 https://currents.dev/readme/guides/record-key
+  projectId: "project id", // get one at https://app.currents.dev
+};
+
+const config: PlaywrightTestConfig = {
+  use: {
+    trace: "on",
+    video: "on",
+    screenshot: "on",
+  },
+  
+  reporter: [currentsReporter(currentsConfig)], // 👈🏻 add Currents reporter
+
+  projects: [
+    {
+      name: "chromium",
+      retries: 2,
+      use: {
+        ...devices["Desktop Chrome"],
+      },
+    },
+  ],
+
+};
+
+export default defineConfig(config);
+
+
 ```
 
-Preset environment variables&#x20;
+You can also set environment variables to provide the configuration options to Currents reporter:
 
 {% tabs %}
 {% tab title="Linux" %}
@@ -102,11 +144,25 @@ With the reporter configured, you can run `npx playwright test` to start sending
 
 ### Explore the Newly Created Run
 
-A link to the newly generated run will appear at the end of the execution:
+If Currents reporter is configured properly, the results of the execution will appear on Currents dashboard, additionally, a link to the recorded run will appear at the end of the execution:
 
 <figure><img src="../.gitbook/assets/currents-2023-04-16-19.36.20@2x.png" alt=""><figcaption><p>A link to recorded results appearing at the end of Playwright tests execution</p></figcaption></figure>
 
+Now you can start configuring your CI environment to record Playwright tests to Currents. Please consider exploring those guides to ensure smooth configuration:
+
+* [api-resources](../api/api-resources/ "mention")
+* [ci-build-id.md](../guides/ci-build-id.md "mention")
+* [pw-parallelization.md](../guides/pw-parallelization.md "mention")
+* [playwright-tags.md](../guides/playwright-tags.md "mention")
+* [test-status.md](../tests/test-status.md "mention")
+* [insights-and-analytics.md](../insights/insights-and-analytics.md "mention")
+* [run-details.md](../runs/run-details.md "mention")
+
 ### Update CI Provider Configuration
+
+{% hint style="info" %}
+Treat the **Record Key** as a Ci secret - don't expose it publicly&#x20;
+{% endhint %}
 
 In order to collect results from multiple CI runners, please make sure that  `--ci-build-id` is **similar across parallel machines, but is unique for each build.**
 
@@ -118,37 +174,12 @@ Check out the example for popular CI providers below, more examples for differen
 
 ### Examples
 
-Check out the example repository for integrating with GitHub Actions: [https://github.com/currents-dev/playwright-gh-actions-demo](https://github.com/currents-dev/playwright-gh-actions-demo). Here’s a quick reference to configuration files:
+Check out the example repositories that showcase running Playwright tests on popular CI providers and recording the results to Currents:
 
-* [test-basic-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-basic-pwc.yml) - using `pwc` executable script
-* [test-basic-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-basic-reporter.yml) - using `reporter` configuration
+* [playwright-github-actions.md](../ci-setup/github-actions/playwright-github-actions.md "mention")
+* [playwright-gitlab-ci-cd.md](../ci-setup/gitlab/playwright-gitlab-ci-cd.md "mention")
+* [jenkins-playwright.md](../ci-setup/jenkins-playwright.md "mention")
+* [playwright-circleci.md](../ci-setup/circleci/playwright-circleci.md "mention")
+* [playwright-aws-code-build.md](../ci-setup/aws-code-build/playwright-aws-code-build.md "mention")
 
-### Good To Know
-
-#### Screenshots
-
-By default, Playwright only captures screenshots at the end of a test, according to the provided [screenshot](https://playwright.dev/docs/screenshots) option. Manually created screenshots are hidden by default and won't be attached to any test.
-
-To send screenshots to Currents, they have to be attached to the test. For example, you can attach a screenshot to a test like this
-
-```jsx
-const { test, expect } = require("@playwright/test");
-
-test("basic test", async ({ page }, testInfo) => {
-  await page.goto("<https://playwright.dev>");
-  const screenshot = await page.screenshot();
-  await testInfo.attach("screenshot", {
-    body: screenshot,
-    contentType: "image/png",
-  });
-});
-```
-
-For more information see the Playwright [test info attachment](https://playwright.dev/docs/api/class-testinfo#test-info-attach) documentation.
-
-#### Limitations
-
-* We recommend using the native [Playwright Shards](https://playwright.dev/docs/test-parallel#shard-tests-between-multiple-machines) while we are working on other types of orchestration-related features.
-* Reruns are not supported - rerunning with the same CI build ID would generate a warning and new results would not be uploaded. Please use a new CI build ID.
-* Cross-machines auto-cancellation is not currently supported
-* Full parallel mode and [parallelizing tests in a single file](https://playwright.dev/docs/test-parallel#parallelize-tests-in-a-single-file) are not currently supported
+Explore [@currents/playwright](../integration-with-playwright/currents-playwright.md) npm package documentation for configuration options.

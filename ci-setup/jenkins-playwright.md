@@ -14,7 +14,7 @@ The steps are:
 * Install the necessary dependencies: `playwright` and `@currents/playwright`
 * Populate the environment variable `CURRENTS_RECORD_KEY` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/). Learn more about [record-key.md](../guides/record-key.md "mention")
 * Populate the environment variable `CURRENTS_PROJECT_ID` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/).
-* Run Playwright tests on 2 workers, using CI Build ID for "connecting" the workers to the same parallel run. See [cypress-ci-build-id.md](../guides/cypress-ci-build-id.md "mention").
+* Run Playwright tests on 2 workers, using CI Build ID for "connecting" the workers to the same parallel run. See [ci-build-id.md](../guides/ci-build-id.md "mention").
 
 {% code overflow="wrap" %}
 ```

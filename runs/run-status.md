@@ -4,7 +4,7 @@ description: Details about different states that a Currents dashboard run can ha
 
 # Run Status
 
-Runs represent builds in your CI system. Technically, each runs is associated with a unique [cypress-ci-build-id.md](../guides/cypress-ci-build-id.md "mention") and represents a collection of:
+Runs represent builds in your CI system. Technically, each runs is associated with a unique [ci-build-id.md](../guides/ci-build-id.md "mention") and represents a collection of:
 
 * Playwright / Cypress spec files
 * Playwright / Cypress tests results

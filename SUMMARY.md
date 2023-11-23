@@ -10,7 +10,7 @@
 
 * [Cypress Parallelization](guides/parallelization.md)
 * [Playwright Parallelization](guides/pw-parallelization.md)
-* [CI Build ID](guides/cypress-ci-build-id.md)
+* [CI Build ID](guides/ci-build-id.md)
 * [Load Balancing](guides/load-balancing.md)
 * [Fail Fast Strategy](guides/fail-fast-strategy.md)
 * [Record Key](guides/record-key.md)

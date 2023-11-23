@@ -77,7 +77,7 @@ To run cypress tests in parallel and use Currents as an orchestration service, r
 npx cypress-cloud run --parallel --record --key <currents_key> --ci-build-id build-001
 ```
 
-Read more about the importance of [CI Build ID](cypress-ci-build-id.md). You can generate `currents_key` by creating an organization and a project on [Currents Dashboard](https://app.currents.dev).
+Read more about the importance of [CI Build ID](ci-build-id.md). You can generate `currents_key` by creating an organization and a project on [Currents Dashboard](https://app.currents.dev).
 
 ### How to create parallelized cypress builds?
 
@@ -85,4 +85,4 @@ Currents uses `--ci-build-id` flag to uniquely identify one parallelized build f
 
 ![Using CI Build ID to create different build](<../.gitbook/assets/cypress-ci-build-id-different-jobs (1).png>)
 
-The value of this flag is calculated automatically for popular CI tools, but you can also provide it explicitly. See [cypress-ci-build-id.md](cypress-ci-build-id.md "mention") for details.
+The value of this flag is calculated automatically for popular CI tools, but you can also provide it explicitly. See [ci-build-id.md](ci-build-id.md "mention") for details.

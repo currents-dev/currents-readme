@@ -38,7 +38,7 @@ Use `currents` the same way you are using `cypress`- it accepts the same flags a
 npx currents run --record --parallel --ci-build-id $BUILD_ID --key $CURRENTS_KEY
 ```
 
-Learn more about obtaining a [record-key.md](../guides/record-key.md "mention") and generating a [cypress-ci-build-id.md](../guides/cypress-ci-build-id.md "mention")
+Learn more about obtaining a [record-key.md](../guides/record-key.md "mention") and generating a [ci-build-id.md](../guides/ci-build-id.md "mention")
 
 ### API - Programmatic Usage
 

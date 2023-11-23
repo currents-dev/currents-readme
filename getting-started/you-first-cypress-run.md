@@ -101,7 +101,7 @@ Learn more about
 
 * [Integration with Cypress](../integration-with-cypress/integrating-with-cypress.md)
 * [Record Key](../guides/record-key.md)
-* [CI Build ID](../guides/cypress-ci-build-id.md)
+* [CI Build ID](../guides/ci-build-id.md)
 {% endhint %}
 
 ### Update your CI provider configuration <a href="#update-your-ci-provider-configuration" id="update-your-ci-provider-configuration"></a>
