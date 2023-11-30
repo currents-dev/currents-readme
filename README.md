@@ -1,5 +1,5 @@
 ---
-description: A cloud service for Playwright and Cypress
+description: A cloud recording service for Playwright and Cypress tests
 ---
 
 # What is Currents?
