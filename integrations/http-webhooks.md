@@ -4,15 +4,13 @@ description: HTTP Webhooks for Playwright and Cypress tests dashboard
 
 # HTTP Webhooks
 
-### Description
-
 Enabling HTTP Webhook Integration will trigger an HTTP POST request to an endpoint of your choice.
 
-Currents will send a POST request for the following lifecycle event of Playwright tests run:
+Currents will send a POST request for the following lifecycle event of Cypress or Playwright tests run:
 
-* a new Playwright tests run starts
+* a new run starts
 * a run finishes
-* a runs times out
+* a run times out
 * a run is cancelled
 
 {% hint style="info" %}

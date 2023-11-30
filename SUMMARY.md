@@ -55,6 +55,8 @@
 * [AWS Code Build](ci-setup/aws-code-build.md)
   * [Cypress - AWS Code Build](ci-setup/aws-code-build/cypress-aws-code-build.md)
   * [Playwright - AWS Code Build](ci-setup/aws-code-build/playwright-aws-code-build.md)
+* [Bitbucket](ci-setup/bitbucket/README.md)
+  * [Cypress - Bitbucket Pipelines](ci-setup/bitbucket/cypress-bitbucket-pipelines.md)
 * [NX](ci-setup/nx.md)
 
 ## Runs
@@ -94,6 +96,7 @@
 * [Slack](integrations/slack.md)
 * [Microsoft Teams](integrations/microsoft-teams.md)
 * [HTTP Webhooks](integrations/http-webhooks.md)
+* [Bitbucket](integrations/bitbucket.md)
 
 ## API
 

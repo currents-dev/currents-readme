@@ -10,10 +10,10 @@ Currents integration with Microsoft Team allows posting test results of your Cyp
 
 ### How to enable Microsoft Teams integration for Cypress tests?
 
-In order to enable MS Teams integration and share cypress tests results to Teams channels, follow those steps:
+In order to enable MS Teams integration and share cypress test results to Teams channels, follow the steps:
 
-* Navigate to "Manager Project" section for the selected project
-* Click "Add Integration", select "Microsoft Teams"
+* Navigate to "Manage Project" section for the selected project
+* Click "Add Integration", and select "Microsoft Teams"
 * Enter the details of your Slack Integration and click "Save"
 
 ![Enabling Microsoft Teams Slack integration](../.gitbook/assets/cypress-msteam-setup.gif)
@@ -21,8 +21,8 @@ In order to enable MS Teams integration and share cypress tests results to Teams
 Provide the following details to finalize Slack integration, click "Save" to finish:
 
 * **Incoming Webhook URL -** Incoming Webhook URL, e.g. `https://hooks.slack.com/services/XXX/YYY/ZZZ`. [Read the guide](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook) to generate the URL.
-* **Failed Runs Only** - enabling the toggle would only send results for failed, timed out or canceled runs.
-* **Events (Optional)** - specify the event that trigger the integration and send results. Leaving this field blank activates all the events.
+* **Failed Runs Only** - enabling the toggle would only send results for failed, timed out or cancelled runs.
+* **Events (Optional)** - specify the event that triggers the integration and sends results. Leaving this field blank activates all the events.
 
 ### What events trigger notifications for MSTeams // Currents integration?
 
@@ -30,13 +30,13 @@ The following events trigger notifications for Microsoft Teams integration.
 
 #### **Run Start**
 
-Triggered when a new run starts. If a run contains multiple groups, the notification will be triggered for each group.
+It is triggered when a new run starts. If a run contains multiple groups, the notification will be triggered for each group.
 
 ![Example of MS Teams notification for Cypress Run Start event](../.gitbook/assets/cypress-msteams-run-start.png)
 
 #### **Run Finish**
 
-Triggered when a run finishes its execution or when a run times out. If a run contains multiple groups, the notification will be triggered for each group. For timed out runs, the message will contain the last know results for the run or run group.
+It is triggered when a run finishes its execution or when a run times out. If a run contains multiple groups, the notification will be triggered for each group. For timed out runs, the message will contain the last know results for the run or run group.
 
 ![Example of MS Teams notification for Cypress Run Finished](../.gitbook/assets/cypress-run-canceled-slack.png)
 
