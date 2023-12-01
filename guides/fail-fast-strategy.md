@@ -4,7 +4,7 @@ description: Fail-fast or cancelling runs on first failure
 
 # Fail Fast Strategy
 
-Automatically cancelling your tests suite right after the first failure is called a "fail-fast strategy". Currents dashboard allows tracking the outcome of your tests and automatically cancel runs whenever the first failed spec file is detected.&#x20;
+Automatically cancelling your test suite right after the first failure is called a "fail-fast strategy". Currents dashboard allows tracking the outcome of your tests and automatically cancels runs whenever the first failed spec file is detected.&#x20;
 
 After executing a spec file, the runner sends the results to the Currents dashboard. The dashboard receives the results, identifies a failed test, and marks the associated run as "cancelled". Any new requests associated with the run will fail with a warning, as a result, cypress runners will not be able to start executing a new spec file for the run.
 
@@ -26,7 +26,7 @@ At the same time, utilizing a "fail-fast" strategy has some caveats:
 
 ![Automatically cancelled runs will be marked as failed and cancelled](<../.gitbook/assets/Screenshot 2023-10-12 at 02.25.10.png>)
 
-If you are dealing with a stable and predictable suite of cypress tests that rarely fail - "fail-fast" can be a great way to optimize your cypress tests.&#x20;
+If you are dealing with a stable and predictable suite of tests that rarely fail - "fail-fast" can be a great way to optimize your cypress tests.&#x20;
 
 {% hint style="info" %}
 [Read more](../runs/cancel-run.md) about how cancelling runs affects runs status, analytics and integrations
@@ -38,7 +38,9 @@ To enable the "fail-fast" strategy navigate to the **Manage Project** screen and
 
 Customers using our [cypress-cloud.md](../integration-with-cypress/cypress-cloud.md "mention") integration can control the "fail-fast" behaviour using the command line CLI flag `--auto-cancel-after-failures <number | false>`.&#x20;
 
-&#x20;If set, it overrides the project's default fail-fast strategy setting. If not set, uses the default project settings:
+Customers using our [currents-playwright.md](../integration-with-playwright/currents-playwright.md "mention") integration can use `--pwc-auto-cancel-after-failures <number | false>` option.
+
+&#x20;If set, it overrides the project's default fail-fast strategy setting. If not set, use the default project settings:
 
 * `false` prevents fail-fast
 * `number` aborts the run across all the participating machines failed + skipped tests detected exceed the provided value

@@ -106,19 +106,55 @@ With the reporter configured, you can run `npx playwright test` to start sending
 
 `@currents/playwright` accepts configuration from the following sources:
 
-* reading environment variables, e.g. `CURRENTS_TAG=tagA,tagB`
-* reading options of `pwc` CLI command, e.g. `npx pwc ---tag tagA --tag tagB`
-* reading `currentsReporter` JS configuration object
+* environment variables, e.g. `CURRENTS_TAG=tagA,tagB`
+* options of `pwc` CLI command, e.g. `npx pwc ---tag tagA --tag tagB`
+* reading `currentsReporter` JS configuration object, e.g. `reporters: [currentsReporter(options)]`
 
 The following configuration options are available:
 
-<table><thead><tr><th width="229">CLI option</th><th>JS Configuration</th><th>Description / Env variable</th></tr></thead><tbody><tr><td><code>--ci-build-id</code></td><td><code>ciBuildId?: string</code></td><td>the unique identifier for a run. <code>CURRENTS_CI_BUILD_ID</code></td></tr><tr><td><code>-k, --key</code></td><td><code>recordKey: string</code></td><td><p>your secret Record Key obtained from Currents.</p><p><code>CURRENTS_RECORD_KEY</code></p></td></tr><tr><td><code>-p, --project-id</code></td><td><code>projectId: string</code></td><td><p>the project ID for results reporting obtained from Currents</p><p><code>CURRENTS_PROJECT_ID</code></p></td></tr><tr><td><code>-t, --tag</code></td><td><code>tag: string[]</code></td><td><p>comma-separated tag(s) for recorded runs in Currents</p><p><code>CURRENTS_TAG</code></p></td></tr><tr><td><code>--pwc-remove-title-tags</code></td><td><code>removeTitleTags?: boolean</code></td><td>remove tags from test names in Currents, e.g. <code>Test name @smoke</code> becomes <code>Test name</code> in the dashboard (default: false)<br>See <a data-mention href="../guides/playwright-tags.md">playwright-tags.md</a></td></tr><tr><td><code>--pwc-debug</code></td><td>n/a</td><td>enable debug logs for the reporter (default: false)<br><code>DEBUG=currents*</code></td></tr><tr><td><code>-h, --help</code></td><td>n/a</td><td>show <code>pwc</code> help</td></tr><tr><td><code>-V, --version</code></td><td>n/a</td><td>show package version</td></tr></tbody></table>
+* **`--ci-build-id`**&#x20;
+  * the unique identifier for a run.
+  * Environment variable: `CURRENTS_CI_BUILD_ID`
+  * JS configuration key: `ciBuildId?: string`
+* **`-k, --key`**&#x20;
+  * your secret Record Key obtained from Currents.
+  * Environment variable: `CURRENTS_RECORD_KEY`
+  * JS configuration key: `recordKey: string`
+* **`-p, --project-id`**&#x20;
+  * the project ID for results reporting obtained from Currents.
+  * Environment variable: `CURRENTS_PROJECT_ID`
+  * JS configuration key: `recordKey: string`
+* **`-t, --tag`**&#x20;
+  * comma-separated tag(s) for recorded runs in Currents.
+  * Environment variable: `CURRENTS_TAG`
+  * JS configuration key: `tag?: string[]`
+  * Released in version: `0.7.0`
+* **`--pwc-remove-title-tags`**&#x20;
+  * remove tags from test names in Currents, e.g. `Test name @smoke` becomes `Test name` in the dashboard (default: false). See [playwright-tags.md](../guides/playwright-tags.md "mention").
+  * Environment variable: n/a
+  * JS configuration key: `removeTitleTags?: boolean = false`
+  * Released in version: `0.10.0`
+* **`--pwc-disable-title-tags`**&#x20;
+  * disable parsing tags from test title, e.g. `Test name @smoke` would not have tag  `smoke` in the dashboard (default: false). See [playwright-tags.md](../guides/playwright-tags.md "mention").
+  * Environment variable: `CURRENTS_DISABLE_TITLE_TAGS`
+  * JS configuration key: `disableTitleTags?: boolean = false`
+  * Released in version: `0.11.0`
+* **`--pwc-cancel-after-failures <number | false>`**
+  * abort the cloud run after the specified number of failed tests detected. Overrides the default Currents Project settings. If set, must be a positive integer or `false` to override automatic cancellations and project's [fail-fast-strategy.md](../guides/fail-fast-strategy.md "mention"). Also, see [cancel-run.md](../runs/cancel-run.md "mention") and[fail-fast-strategy.md](../guides/fail-fast-strategy.md "mention")
+  * Environment variable: `CURRENTS_CANCEL_AFTER_FAILURES`
+  * JS configuration key: `cancelAfterFailures?: number | boolean = undefined`
+  * Released in version: `0.11.0`
+* **`--pwc-debug`**
+  * enable debug logs for the reporter (default: false)
+  * Environment variable: `DEBUG=currents*`
+* **`-V, --version`** show package version
+* **`-h, --help`** show `pwc` help
 
 #### Overriding Configuration
 
-Certain configuration values can have multiple sources, e.g. via CLI fag and via environment variables. The configuration variables will resolve as follows:
+Certain configuration values can have multiple sources, e.g. CLI fag and environment variables. Configuration values will resolve as follows:
 
-* the environment variable if exists, otherwise
+* first, the environment variable, if exists, otherwise
 * the corresponding CLI flag if exists, otherwise
 * `currentsReporter` JS configuration object, otherwise
 * the default value, otherwise

@@ -95,7 +95,11 @@ For example, let's say you have a test named `Test login page @slow` , eventuall
 
 To remove the tags from the recorded test titles, add `--pwc-remove-title-tags` CLI option or  `removeTitleTags` reporter configuration. Activating the removal will strip the tags from test titles (including test group names) when recording to Currents dashboard.&#x20;
 
-In the example above, `Test login page @slow` and `Test login page @slow @login` will be recorded as Test login page and tags `slow` + `login` will be attached to the test recording.
+In the example above, `Test login page @slow` and `Test login page @slow @login` will be recorded as `Test login page` and tags `slow` + `login` will be attached to the test recording.
+
+#### Disabling parsing test title tags
+
+You can disable parsing test title tags altogether by adding `--pwc-disable-title-tags` CLI option. See  [currents-playwright.md](../integration-with-playwright/currents-playwright.md "mention") for additional configuration options, available in versions `0.11.0+` .
 
 ### Run-level Tags
 
