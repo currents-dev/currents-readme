@@ -135,7 +135,7 @@ The following configuration options are available:
   * JS configuration key: `removeTitleTags?: boolean = false`
   * Released in version: `0.10.0`
 * **`--pwc-disable-title-tags`**&#x20;
-  * disable parsing tags from test title, e.g. `Test name @smoke` would not have tag  `smoke` in the dashboard (default: false). See [playwright-tags.md](../guides/playwright-tags.md "mention").
+  * disable parsing tags from test title, e.g. `Test name @smoke` would **not** have tag  `smoke` in the dashboard (default: false). See [playwright-tags.md](../guides/playwright-tags.md "mention").
   * Environment variable: `CURRENTS_DISABLE_TITLE_TAGS`
   * JS configuration key: `disableTitleTags?: boolean = false`
   * Released in version: `0.11.0`
