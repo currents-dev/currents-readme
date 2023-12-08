@@ -32,7 +32,7 @@ Provide the following details to finalize Slack integration, click "Save" to fin
 * Include only **`tagA`** or **`tagB`**: `(tagA|tagB)`
 * Exclude **`tagA`** and**`tagB`**`: !(tagA|tagB)`
 * Include only tags starting with **`production`**: `production*`
-* Include only tags starting with **`smoke-`** or **`prod-`**`: (dev-*|prod-*)`
+* Include only tags starting with **`smoke-`** or **`prod-`**`: (smoke-*|prod-*)`
 {% endhint %}
 
 ### What events trigger notifications for Slack // Currents integration?
