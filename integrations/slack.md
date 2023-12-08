@@ -27,10 +27,12 @@ Provide the following details to finalize Slack integration, click "Save" to fin
 * **Tags Filter (Optional)** - if specified, only send notifications for tagged runs, with at least one tag matching the filter
 
 {% hint style="info" %}
-**Please note:** We use [glob patterns](https://www.npmjs.com/package/micromatch) to evaluate the filters. Test your filtering rules using the [playground](https://currents-branch-filter.stackblitz.io/).
+**Please note:** We use [glob patterns](https://www.npmjs.com/package/micromatch) to evaluate the filters. Test your filtering rules using the [playground](https://currents-branch-filter.stackblitz.io/). See examples for some popular filter patterns:
 
-* Example filter to exclude **`tagA`** and**`tagB`**`: !(tagA|tagB)`
-* Example filter to include only tags starting with **`production`**: `production*`
+* Include only **`tagA`** or **`tagB`**: `(tagA|tagB)`
+* Exclude **`tagA`** and**`tagB`**`: !(tagA|tagB)`
+* Include only tags starting with **`production`**: `production*`
+* Include only tags starting with **`smoke-`** or **`prod-`**`: (dev-*|prod-*)`
 {% endhint %}
 
 ### What events trigger notifications for Slack // Currents integration?
