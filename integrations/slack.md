@@ -8,12 +8,12 @@ Currents integration with Slack allows posting test results of your Playwright o
 
 ![Cypress Tests Results in Slack Channel](<../.gitbook/assets/CleanShot 2022-02-22 at 23.51.35.png>)
 
-### How to enable Slack integration for Playwright tests?
+### Enabling Slack integration
 
-In order to enable Slack integration and share Playwright tests results to Slack channels, follow those steps:
+In order to enable Slack integration and share Playwright test results to Slack channels, follow the steps:
 
-* Navigate to "Manager Project" section for the selected project
-* Click "Add Integration", select "Slack"
+* Navigate to "Manage Project" section for the selected project
+* Click "Add Integration", and select "Slack"
 * Enter the details of your Slack Integration and click "Save"
 
 ![Enabling Cypress Slack integration](../.gitbook/assets/cypress-slack-integration.gif)
@@ -23,7 +23,10 @@ Provide the following details to finalize Slack integration, click "Save" to fin
 * **Slack Webhook URL -** Incoming Webhook URL, e.g. `https://hooks.slack.com/services/XXX/YYY/ZZZ`. Read more about [Slack Incoming Webhooks](https://api.slack.com/messaging/webhooks).
 * **Failed Runs Only** - enabling the toggle would only send results for failed runs.
 * **Events (Optional)** - specify events that will trigger the integration and send the results. Leaving this field blank activates all the events.
-* **Branch Name Filter (Optional)** - if specified, only send notifications for runs with branch names matching the pattern. Please note, you must provide the branch name within the [run-details.md](../runs/run-details.md "mention") to activate filtering.
+* **Branch Name Filter (Optional)** - if specified, only send notifications for runs with branch names matching the pattern. Please note, that you must provide the branch name within the [run-details.md](../runs/run-details.md "mention") to activate filtering.
+
+### Filtering Slack notifications based on Tags
+
 * **Tags Filter (Optional)** - if specified, only send notifications for tagged runs, with at least one tag matching the filter
 
 {% hint style="info" %}
@@ -53,32 +56,32 @@ Triggered when a run finishes its execution. If a run contains multiple groups, 
 
 #### Run Timeout
 
-Triggered when a time out detected for a run. The message will contain the last know results for the run or run group.
+Triggered when a time out detected for a run. The message will contain the last known results for the run or run group.
 
 ![Example of Slack notification for Cypress Run Finished with Timeout event ](../.gitbook/assets/cypress-slack-run-timeout.png)
 
 #### Run Canceled
 
-Triggered when a run gets cancelled. If a run contains multiple groups, the notification will be triggered for each group. The message will contain the last know results for the run or run group.
+Triggered when a run gets cancelled. If a run contains multiple groups, the notification will be triggered for each group. The message will contain the last known results for the run or run group.
 
 ![Example of Slack notification for Cypress Run Canceled event ](<../.gitbook/assets/cypress-run-canceled-slack (1).png>)
 
-### How to disable Slack integration?
+### Disabling Slack integration
 
 To disable Slack integration, simply delete the integration from the list of integrations.
 
 ### FAQ
 
-#### Can I have multiple Slack integration for the same project?
+#### Can I have multiple Slack integrations for the same project?
 
 Yes, you can have multiple Slack integrations for the same project.
 
-#### What do notifications status colours mean?
+#### What do notification status colours mean?
 
-<mark style="color:green;">Green</mark> - passed tests
+<mark style="color:green;">**Green**</mark> - passed tests
 
-<mark style="color:red;">Red</mark> - failed + skipped tests
+<mark style="color:red;">**Red**</mark> - failed + skipped tests
 
-Grey - ignored tests&#x20;
+**Grey** - ignored tests&#x20;
 
-<mark style="color:purple;">Purple</mark> - flaky tests
+<mark style="color:purple;">**Purple**</mark> - flaky tests
