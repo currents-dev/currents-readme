@@ -144,9 +144,14 @@ The following configuration options are available:
   * Environment variable: `CURRENTS_CANCEL_AFTER_FAILURES`
   * JS configuration key: `cancelAfterFailures?: number | boolean = undefined`
   * Released in version: `0.11.0`
-* **`--pwc-debug`**
-  * enable debug logs for the reporter (default: false)
-  * Environment variable: `DEBUG=currents*`
+* **`--pwc-debug [boolean | "remote" | "full"]`**
+  * enable collecting debug logs for the reporter (default: false).&#x20;
+    * `true` will print the debug logs to stdout
+    * `remote` will upload the debug logs to Currents servers.
+    * `full` will print the logs to stdout and also upload to Currents.
+  * Environment variable: `CURRENTS_DEBUG=true | "remote" | "full"`
+  * JS configuration key: `debug?: boolean | "remote" | "full" = false`
+  * Released in version: `0.11.3`
 * **`-V, --version`** show package version
 * **`-h, --help`** show `pwc` help
 
