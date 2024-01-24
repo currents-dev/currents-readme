@@ -54,7 +54,7 @@ test('Test full report @slow', async ({ page }) => {
 Tagging a test group (`test.describe`) will "apply" the tag to every included individual test, as well as to the created run. For example, given the following test definition:
 
 ```typescript
-test.describe("test group @groupTag", () => { // 👈🏻 not the test group tag
+test.describe("test group @groupTag", () => { // 👈🏻 note the test group tag
 
   test('Test login page @fast', async ({ page }) => {
     // ...
