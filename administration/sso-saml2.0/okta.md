@@ -31,11 +31,6 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 
 ### Configuration Steps
 
-\
-&#x20;  \| Name      | Value          |\
-&#x20;  \| --------- | -------------- |\
-&#x20;  \| [http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress](http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress)   | user.email     |
-
 * Install **Currents** application from Okta Integration Network (OIN) application catalogue: **Applications > Applications > Browse App Catalogue.** Type "**Currents**", select the application from the list, then click **Add Integration** and follow on-screen instructions
 
 <figure><img src="../../.gitbook/assets/currents-2023-05-19-23.56.26@2x.png" alt=""><figcaption><p>Installing Currents from Okta ION</p></figcaption></figure>
