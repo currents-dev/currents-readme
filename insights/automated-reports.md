@@ -52,6 +52,10 @@ You will then be able to configure the report for each project within the organi
 6. Select the preferred time and day for sending the report. The report will be sent weekly on the selected day / time.
 7. Click “Save” to apply the changes.
 
+{% embed url="https://www.loom.com/share/74635779095c4a98afc750fe67b7fcc1?hideEmbedTopBar=true.&hide_owner=true&hide_share=true&hide_title=true" %}
+Automted Reports Configuration
+{% endembed %}
+
 Use **Send Test Report** section to send a preview of a report for the selected period.
 
 <figure><img src="../.gitbook/assets/Screenshot 2023-10-18 at 22.32.04 (3).png" alt=""><figcaption><p>Automated Reports Configuration</p></figcaption></figure>

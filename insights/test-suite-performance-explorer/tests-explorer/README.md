@@ -6,6 +6,10 @@ description: Holistic performance view of your Tests
 
 The Tests Explorer feature provides valuable insights into the testing suite performance, allowing users to sort and examine tests to identify and track tests that may require further investigation based on the executions recorded during the provided date range. The feature helps users identify problematic tests with high flakiness, long duration, or high failure rates.&#x20;
 
+{% embed url="https://www.loom.com/share/478652179d1446b68d4b92c09e0f472e?hideEmbedTopBar=true.&hide_owner=true&hide_share=true&hide_title=true" %}
+Tests Explorer
+{% endembed %}
+
 The [**Controls Overview**](./#controls-overview)**,** [**Metrics Description**](./#metrics-description)**,** [**List Item Description**](./#list-item-description), and [**Use Cases**](./#use-cases) sections offer a comprehensive understanding of the feature, its components, and how to leverage it for advanced analysis and meaningful insights from the test executions.
 
 {% embed url="https://www.loom.com/share/3faec47146884488a414e763a222abae?hideEmbedTopBar=true.&hide_owner=true&hide_share=true&hide_title=true" %}

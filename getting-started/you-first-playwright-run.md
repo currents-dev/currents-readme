@@ -20,6 +20,10 @@ Here's an overview of what steps you'll need to take to start running Playwright
 * Run the tests using `pwc` CLI command or by configuring an extra reporter
 * Update your CI provider configuration
 
+{% embed url="https://www.loom.com/share/1227e61104c84365b6aaec144fc9a4c6?hideEmbedTopBar=true.&hide_owner=true&hide_share=true&hide_title=false" %}
+Setting Up Playwright in 2 minutes
+{% endembed %}
+
 ### Create an Organization and a Project
 
 After signing up for the dashboard service, you will be prompted to create a new organization and a project. You can change the name later.

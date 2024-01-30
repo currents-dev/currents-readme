@@ -16,6 +16,10 @@ A typical use case is to detect or monitor the performance of the spec files tha
 
 Currents will calculate the metrics based on the executions recorded during the provided date range and the defined filters.&#x20;
 
+{% embed url="https://www.loom.com/share/71f0513b2c32411f8bdf29a67f2685df?hideEmbedTopBar=true.&hide_owner=true&hide_share=true&hide_title=true" %}
+Spec Files Explorer
+{% endembed %}
+
 The following sections - [**Controls Overview**](./#controls-overview)**,** [**Metrics Description**](./#metrics-description)**,** [**List Item Description**](./#list-item-description), and [**Use Cases**](./#use-cases) - provide a comprehensive understanding of the feature, its components, and how they can leverage it to perform advanced analysis and gain valuable insights from their spec file executions.
 
 {% embed url="https://www.loom.com/share/4abfc015a38446c3b63b6242986ca967?hideEmbedTopBar=true.&hide_owner=true&hide_share=true&hide_title=true" %}

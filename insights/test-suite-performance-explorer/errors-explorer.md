@@ -6,6 +6,10 @@ description: Breakdown of your most frequent errors
 
 The Errors Explorer feature helps users identify the most frequently encountered errors that can be sorted based on various criteria, such as date, tags, author, and branch. Such grouping and sorting of errors allows users to prioritize and address the most critical issues by providing users with greater visibility into error patterns and trends.
 
+{% embed url="https://www.loom.com/share/6cffab3004ae4451b75ad63d6efa9038?hideEmbedTopBar=true.&hide_owner=true&hide_share=true&hide_title=true" %}
+Errors Explorer
+{% endembed %}
+
 The feature provides a detailed breakdown of each error and its number of occurrences. Users can click on a specific error to view additional information, such as:
 
 * **The Top Tests** ranked by the number of times the error occurred.

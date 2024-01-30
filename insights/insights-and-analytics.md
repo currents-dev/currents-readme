@@ -6,6 +6,10 @@ description: Tests and Runs insights and analytics guide
 
 Currents Dashboard Insights allows you to analyze the behaviour and dynamics of your Playwright or Cypress test suite over time. You can use the insights to track the performance of your runs/build and tests over time and to identify the most problematic tests - most flaky and most failing - that are worth fixing.
 
+{% embed url="https://www.loom.com/share/5e9729f553674032a5a7ce96c5786010?hideEmbedTopBar=true.&hide_owner=true&hide_share=true&hide_title=true" %}
+Currents Analytics&#x20;
+{% endembed %}
+
 See the notes below to discover how specific metrics are getting calculated.
 
 ### Runs Status
