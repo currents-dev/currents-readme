@@ -24,13 +24,13 @@ layout:
 {% hint style="info" %}
 **Update Jan 30, 2024**
 
-`@currents/playwright@0.12.0` and `cypress-cloud@1.10.0 better detect Pull Request information when running in GitHub Actions`
+`@currents/playwright@0.12.0` and `cypress-cloud@1.10.0` better detect Pull Request information when running in GitHub Actions
 {% endhint %}
 
 The recent (Jan 30, 2024) releases of `@currents/playwright@0.12.0` and `cypress-cloud@1.10.0` better handle git information when running in GitHub Actions triggered by `` `pull_request` `` trigger.
 
 * PR title becomes Run Title (instead of a generic message PR #XX)
-* Effective Branch becomes the PR HEAD branch name - allowing more meaningful usage in analytics and notification filters&#x20;
+* Effective Branch becomes the PR HEAD branch name - allowing more meaningful usage in analytics and notification filters
 * UI will display a direct link to GitHub Pull Request issue
 
 <figure><img src="../../.gitbook/assets/currents-2024-01-30-14.57.07@2x (1).png" alt=""><figcaption><p>Capturing GitHub PR data</p></figcaption></figure>
