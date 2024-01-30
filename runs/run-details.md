@@ -8,25 +8,22 @@ description: >-
 
 When creating a new run, playwright and cypress collect various information about the environment - this information is shown as Run Details in Currents Dashboard.
 
-![Cypress run details example](../.gitbook/assets/cypress-run-details.png)
+<figure><img src="../.gitbook/assets/currents-2024-01-30-14.32.32@2x.png" alt=""><figcaption><p>Run details example</p></figcaption></figure>
 
-| Field             | Description                                          |
-| ----------------- | ---------------------------------------------------- |
-| Duration          | Run's duration                                       |
-| Progress          | Completed / overall spec files progress              |
-| Started at        | Run start timestamp                                  |
-| Origin            | GIt remote origin                                    |
-| Branch            | Git branch                                           |
-| Commit            | Git commit message                                   |
-| Browser / Project | Cypress tests browser or Playwright Project          |
-| Author            | Git commit author                                    |
-| CI Build ID       | [ci-build-id.md](../guides/ci-build-id.md "mention") |
+| Field             | Description                                                                                                     |
+| ----------------- | --------------------------------------------------------------------------------------------------------------- |
+| Duration          | Run's duration                                                                                                  |
+| Progress          | Completed / overall spec files progress                                                                         |
+| Started at        | Run start timestamp                                                                                             |
+| Branch            | Git branch (or HEAD branch name for [GitHub PRs](../ci-setup/github-actions/commit-data-for-github-actions.md)) |
+| Commit            | Git commit message (or [PR Title GitHub PRs](../ci-setup/github-actions/commit-data-for-github-actions.md))     |
+| Browser / Project | Cypress tests browser or Playwright Project                                                                     |
+| Author            | Git commit author                                                                                               |
+| CI Build ID       | [ci-build-id.md](../guides/ci-build-id.md "mention")                                                            |
 
 ### Playwright / Cypress Git Information
 
-We use [https://github.com/cypress-io/commit-info](https://github.com/cypress-io/commit-info) npm package for fetching git information.
-
-In order to to obtain git data, `.git` folder should be available during the execution of your tests (on CI machines). The package uses Git commands to get each property, like `git show -s --pretty=%B`, see [src/git-api.js](https://github.com/cypress-io/commit-info/blob/master/src/git-api.js).&#x20;
+In order to obtain git data, `.git` directory should be available during the execution of your tests (on CI machines). The package uses Git commands to get each property, like `git show -s --pretty=%B`, see [src/git-api.js](https://github.com/cypress-io/commit-info/blob/master/src/git-api.js).&#x20;
 
 In addition, we can detect git information from certain CI-specific environment variables (e.g. [GitHub Actions Default Environment Variables](https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables)).&#x20;
 
@@ -49,6 +46,8 @@ COMMIT_INFO_REMOTE: remote origin
 {% endhint %}
 
 If you're not seeing git information for your runs, most chances it is just not available in the CI environment. Please enable the debug mode for [Playwright](../integration-with-playwright/troubleshooting.md) or [Cypress](../integration-with-cypress/troubleshooting.md#cypress-cloud) or add [git commands](https://github.com/cypress-io/commit-info/blob/3edc0e3005873997a15204be7daf45666fb9b932/src/git-api.js#L10) to your CI workflow for troubleshooting.
+
+Read more about detecting [Pull Requests in GitHub Actions](../ci-setup/github-actions/commit-data-for-github-actions.md).
 
 ### Run Tags
 
