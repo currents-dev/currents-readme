@@ -23,7 +23,7 @@ When creating a new run, playwright and cypress collect various information abou
 
 ### Playwright / Cypress Git Information
 
-In order to obtain git data, `.git` directory should be available during the execution of your tests (on CI machines). The package uses Git commands to get each property, like `git show -s --pretty=%B`, see [src/git-api.js](https://github.com/cypress-io/commit-info/blob/master/src/git-api.js).&#x20;
+In order to obtain git data, `.git` directory should be available during the execution of your tests (on CI machines). The package uses Git commands to get each property, like `git show -s --pretty=%B`, see [src/git-api.js](https://github.com/currents-dev/commit-info/blob/master/src/git-api.js).&#x20;
 
 In addition, we can detect git information from certain CI-specific environment variables (e.g. [GitHub Actions Default Environment Variables](https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables)).&#x20;
 
