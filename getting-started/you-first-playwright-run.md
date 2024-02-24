@@ -4,7 +4,7 @@ description: Running Playwright tests with Currents Dashboard
 
 # Your First Playwright Run
 
-Integrating Currents with Playwright enables recording test results together with screenshots, videos, and traces to the cloud dashboard. That unlocks more effective troubleshooting, analytics and proactive monitoring, extending your team's workflows using REST API, WebHooks and built-in integration with Slack, GitHub etc.
+Integrating Currents with Playwright enables recording test results together with screenshots, videos, and traces to the cloud reporting service. That unlocks more effective troubleshooting, analytics and proactive monitoring, extending your team's workflows using REST API, WebHooks and built-in integration with Slack, GitHub etc.&#x20;
 
 {% embed url="https://www.loom.com/share/050c43a3cc6a47d08e3735a50a92eb95?hideEmbedTopBar=true&hide_owner=true&hide_share=true&hide_title=true" %}
 Walkthrough creating your first Playwright run on Currents
@@ -26,7 +26,7 @@ Setting Up Playwright in 2 minutes
 
 ### Create an Organization and a Project
 
-After signing up for the dashboard service, you will be prompted to create a new organization and a project. You can change the name later.
+After signing up for the dashboard service, you will be prompted to create a new organization and a project. You can change their names later.
 
 ![Creating an Organization and a Project in Currents dashboard](../.gitbook/assets/currents-create-org.gif)
 
@@ -75,7 +75,7 @@ npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id hello-currents
 * Provide `--ci-build-id` to identify this run in the dashboard - the example above uses `hello-currents` as the build ID.
 
 {% hint style="info" %}
-Please note that in CI environments the  Build ID needs to be generated based on CI environment variables.&#x20;
+Please note that CI environments require generating the Build ID based on CI environment variables.&#x20;
 
 `@currents/playwright` automatically detects the Build ID for popular CI providers, but in some cases, you need to define it explicitly.&#x20;
 
@@ -148,7 +148,7 @@ With the reporter configured, you can run `npx playwright test` to start sending
 
 ### Explore the Newly Created Run
 
-If Currents reporter is configured properly, the results of the execution will appear on Currents dashboard, additionally, a link to the recorded run will appear at the end of the execution:
+If Currents reporter is set up correctly, the execution results will show on the Currents dashboard. Additionally, a link to the recorded run will also be available at the end of the execution:
 
 <figure><img src="../.gitbook/assets/currents-2023-04-16-19.36.20@2x.png" alt=""><figcaption><p>A link to recorded results appearing at the end of Playwright tests execution</p></figcaption></figure>
 
