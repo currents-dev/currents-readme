@@ -19,9 +19,9 @@
 
 ## Integration with Cypress
 
-* [Alternative Cypress Binaries](integration-with-cypress/alternative-cypress-binaries.md)
 * [Integrating with Cypress](integration-with-cypress/integrating-with-cypress.md)
 * [Compatibility](integration-with-cypress/compatibility.md)
+* [Alternative Cypress Binaries](integration-with-cypress/alternative-cypress-binaries.md)
 * [cypress-cloud](integration-with-cypress/cypress-cloud.md)
   * [Batched Orchestration](integration-with-cypress/cypress-cloud/batched-orchestration.md)
   * [Migration to Cypress@13](integration-with-cypress/cypress-cloud/migration-to-cypress-13.md)
