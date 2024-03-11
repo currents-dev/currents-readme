@@ -4,6 +4,14 @@ description: Running Cypress tests in parallel with Currents Dashboard
 
 # Your First Cypress Run
 
+{% hint style="warning" %}
+**We are suspending our support of Cypress test runner version 13+**
+
+We will continue to support [prior versions](../integration-with-cypress/alternative-cypress-binaries.md) of Cypress.
+
+[Read more](https://currents.dev/posts/v13-blocking)
+{% endhint %}
+
 Setting up Currents for running and recording cypress tests in parallel can be done seamlessly within a few minutes.
 
 Here's an overview of what steps you'll need to take to start running cypress tests in parallel using the Currents dashboard:

@@ -4,6 +4,14 @@ description: Batched orchestration for cypress-cloud
 
 # Batched Orchestration
 
+{% hint style="warning" %}
+**We are suspending our support of Cypress test runner version 13+**
+
+We will continue to support [prior versions](../alternative-cypress-binaries.md) of Cypress.
+
+[Read more](https://currents.dev/posts/v13-blocking)
+{% endhint %}
+
 ### Batched Orchestration
 
 This package uses its own orchestration and reporting protocol that is independent of cypress native implementation. This approach provides several benefits, including more control, flexibility and the ability to implement new features that are not supported by the native cypress orchestration.&#x20;

@@ -4,6 +4,14 @@ description: Detailed guide to Cypress Tests Parallelization
 
 # Cypress Parallelization
 
+{% hint style="warning" %}
+**We are suspending our support of Cypress test runner version 13+**
+
+We will continue to support [prior versions](../integration-with-cypress/alternative-cypress-binaries.md) of Cypress.
+
+[Read more](https://currents.dev/posts/v13-blocking)
+{% endhint %}
+
 ### Why parallelize cypress tests?
 
 As your Cypress Tests suite grows, it becomes crucial to optimizing the overall duration in order to get faster feedback. Once your cypress tests suite volume passed 10 spec files, you'd start looking for solutions to run the tests in parallel.

@@ -1,5 +1,9 @@
 # @currents/cli
 
+{% hint style="warning" %}
+In Feb 2023, Cypress.io team decided to [restrict access](#user-content-fn-1)[^1] to its internal orchestration and recording protocol, preventing the use of @currents/cli (affected versions are 12.6.0+).
+{% endhint %}
+
 {% hint style="info" %}
 **Please note**
 
@@ -148,3 +152,5 @@ Add the app to the App Management allowed list to stop the error.
 
 ![](<../.gitbook/assets/CleanShot 2022-11-03 at 00.04.10@2x.png>)
 {% endhint %}
+
+[^1]: ...by showing "Cypress does not support recording test results to this third party service."
