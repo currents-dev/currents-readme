@@ -1,14 +1,10 @@
 ---
-description: Overview if Customer Data that Currents collects during its execution
+description: Overview of Customer Data that Currents collects during its execution
 ---
 
 # Access to Customer Data
 
 {% hint style="info" %}
-
-
-
-
 If you have any concerns or questions, please refer to [https://currents.dev/security](https://currents.dev/security) or contact us through our support channels.
 {% endhint %}
 
