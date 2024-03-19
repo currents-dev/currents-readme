@@ -1,15 +1,13 @@
 ---
-description: Data necessary for test reporting
+description: Overview if Customer Data that Currents collects during its execution
 ---
 
 # Access to Customer Data
 
 {% hint style="info" %}
-Currents does not scan or read any information not part of test results or testing-framework-generated artifacts.&#x20;
 
-We only collect CI environment information necessary to perform its tasks.&#x20;
 
-We encourage our customers to use best practices and not to use production systems credentials or PII in tests.&#x20;
+
 
 If you have any concerns or questions, please refer to [https://currents.dev/security](https://currents.dev/security) or contact us through our support channels.
 {% endhint %}
@@ -38,7 +36,7 @@ We collect diverse data from our users' test suites, which are strictly limited 
 * Test results and timing
 * Test execution steps details
 * Test errors and exceptions
-* Test source code snippets accessible in testing frameworks results
+* Test source code snippets accessible in testing framework results
 
 ### Artifacts
 

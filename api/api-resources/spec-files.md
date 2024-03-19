@@ -25,66 +25,34 @@ The results will be sorted according to the `order` parameter. Using this query 
 This resource uses **Offset Pagination** as documented at [pagination.md](../pagination.md "mention")
 {% endhint %}
 
-{% swagger method="get" path="spec-files/:projectId" baseUrl="v1/" summary="List the spec files associated to your specific organization and project" %}
-{% swagger-description %}
+## List the spec files associated to your specific organization and project
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `v1/spec-files/:projectId`
 
-{% swagger-parameter in="query" name="date_start" type="ISOString" required="true" %}
-Date start - the test results included within the date range will be included.
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="query" required="true" name="date_end" type="ISOString" %}
-Date end - the test results included within the date range will be included.
-{% endswagger-parameter %}
+| Name                                        | Type   | Description     |
+| ------------------------------------------- | ------ | --------------- |
+| projectId<mark style="color:red;">\*</mark> | String | Your project ID |
 
-{% swagger-parameter in="query" name="limit" type="Number" required="false" %}
-Pagination limit 1-50. Default: `50`
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="page" type="Number" %}
-Page 0+. Default: `0`. See [pagination.md](../pagination.md "mention")
-{% endswagger-parameter %}
+| Name                                          | Type      | Description                                                                                                                                                                                                                                                                             |
+| --------------------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| limit                                         | Number    | Pagination limit 1-50. Default: `50`                                                                                                                                                                                                                                                    |
+| page                                          | Number    | Page 0+. Default: `0`. See [pagination.md](../pagination.md "mention")                                                                                                                                                                                                                  |
+| date\_start<mark style="color:red;">\*</mark> | ISOString | Date start - the test results included within the date range will be included.                                                                                                                                                                                                          |
+| date\_end<mark style="color:red;">\*</mark>   | ISOString | Date end - the test results included within the date range will be included.                                                                                                                                                                                                            |
+| tags\[]                                       | String\[] | List of tags for filtering the included test results. To provide multiple values, use `tags[]=valueA&tags[]=valueB`                                                                                                                                                                     |
+| authors\[]                                    | String\[] | List of tags for filtering the included test results. To provide multiple values, use `authors[]=valueA&authors[]=valueB`                                                                                                                                                               |
+| branches\[]                                   | String\[] | List of tags for filtering the included test results. To provide multiple values, use `branches[]=valueA&branches[]=valueB`                                                                                                                                                             |
+| includeFailedInDuration                       | Boolean   | Include failed spec files in duration calculation. Default: `false`.                                                                                                                                                                                                                    |
+| order                                         | Enum      | <p>Defines the attribute to order the spec files list. Default: <code>avgDuration</code>. <br></p><p>Valid values: <code>avgDuration, failedExecutions, failureRate, flakeRate, flakyExecutions, fullyReported, overallExecutions, suiteSize, timeoutExecutions, timeoutRate</code></p> |
+| specNameFilter                                | String    | A string that is included in the spec file name. Default: empty.                                                                                                                                                                                                                        |
+| dir                                           | Enum      | <p>The direction of the spec files list sorting. Default: <code>desc</code>.<br></p><p>Options: <code>asc, desc</code>.</p>                                                                                                                                                             |
 
-{% swagger-parameter in="query" name="tags[]" type="String[]" %}
-List of tags for filtering the included test results. To provide multiple values, use `tags[]=valueA&tags[]=valueB`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="authors[]" type="String[]" %}
-List of tags for filtering the included test results. To provide multiple values, use `authors[]=valueA&authors[]=valueB`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="branches[]" type="String[]" %}
-List of tags for filtering the included test results. To provide multiple values, use `branches[]=valueA&branches[]=valueB`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="includeFailedInDuration" type="Boolean" %}
-Include failed spec files in duration calculation. Default: `false`.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="order" type="Enum" %}
-Defines the attribute to order the spec files list. Default: `avgDuration`. \
-
-
-Valid values: `avgDuration, failedExecutions, failureRate, flakeRate, flakyExecutions, fullyReported, overallExecutions, suiteSize, timeoutExecutions, timeoutRate`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="dir" type="Enum" %}
-The direction of the spec files list sorting. Default: `desc`.\
-
-
-Options: `asc, desc`.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="specNameFilter" type="String" %}
-A string that is included in the spec file name. Default: empty.
-{% endswagger-parameter %}
-
-{% swagger-parameter type="String" in="path" name="projectId" required="true" %}
-Your project ID
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Spec files list" %}
+{% tabs %}
+{% tab title="200: OK Spec files list" %}
 ```javascript
 {
     "status": "OK",
@@ -112,24 +80,24 @@ Your project ID
     }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400: Bad Request" description="Parameters failure" %}
+{% tab title="400: Bad Request Parameters failure" %}
 ```
 {
     "status": "FAILED",
     "error": "\"date_start\" is mandatory"
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="404: Not Found" description="No project ID defined" %}
+{% tab title="404: Not Found No project ID defined" %}
 ```
 {
     "status": "FAILED",
     "error": "Not found"
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 

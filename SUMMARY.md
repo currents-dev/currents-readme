@@ -123,4 +123,4 @@
 ## DATA PRIVACY
 
 * [Access to Customer Data](data-privacy/access-to-customer-data.md)
-* [Data Retention Duration](data-privacy/data-retention-duration.md)
+* [Data Retention](data-privacy/data-retention.md)
