@@ -90,7 +90,7 @@ Please refer to our [collection of guides](https://github.com/currents-dev/cypre
 
 {% code overflow="wrap" %}
 ```sh
-npx cypress-cloud --parallel --record --key your_key --ci-build-id hello-cypress-cloud
+npx cypress-cloud --parallel --record --ci-build-id hello-cypress-cloud
 ```
 {% endcode %}
 

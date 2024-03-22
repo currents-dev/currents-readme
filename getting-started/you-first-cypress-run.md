@@ -92,13 +92,13 @@ export default defineConfig({
 
 Run `currents` command to create your first cypress run in Currents dashboard.
 
-```
-npx cypress-cloud run \
---parallel \
+<pre><code><strong>npx cypress-cloud run \
+</strong>--parallel \
 --record \
---key RECORD_KEY \
 --ci-build-id hello-currents
-```
+</code></pre>
+
+See all the available options `npx cypress-cloud --help`.&#x20;
 
 Running this command will create a new run in Currents dashboard.
 
