@@ -7,7 +7,7 @@ description: Troubleshooting Playwright integration with Currents
 If you are experiencing issues with using `@currents/playwright`, please collect more information about the failure and submit a support request via our support channels.&#x20;
 
 {% hint style="info" %}
-<mark style="color:yellow;">**👇 tl;dr follow the steps before to enable effective troubleshooting, thank you 🙏🏻**</mark>
+<mark style="color:yellow;">**👇 tl;dr follow the steps below for effective troubleshooting, thank you 🙏🏻**</mark>
 
 Collect environment information
 
