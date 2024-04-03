@@ -1,33 +1,46 @@
 ---
-description: Review of paralleling strategies for Cypress tests
+description: Review of load balancing strategies for Cypress and Playwright tests
 ---
 
 # Load Balancing
 
-{% hint style="info" %}
-Load balancing and orchestration are supported for Cypress framework only.
-
-Playwright users - please use the native [Playwright sharding](https://playwright.dev/docs/test-sharding)
-{% endhint %}
-
-Running your cypress tests suite in parallel on multiple machines can greatly reduce the overall duration. You can further optimize the speed of parallel cypress tests by optimally sorting based on their expected duration. In some cases, it's worth prioritizing tests based on a different heuristic - for example, running tests with the highest failure or [flakiness rate](../tests/flaky-tests.md).
+Running your tests suite in parallel on multiple machines can greatly reduce the overall duration. You can further optimize the speed of parallel tests by optimally balancing based on their expected duration. In some cases, it's worth prioritizing tests based on a different heuristic - for example, running tests with the highest failure or [flakiness rate](../tests/flaky-tests.md).
 
 Orchestration services like Currents Dashboard use historical data to optimize the execution order of cypress tests and utilize different strategies for ordering the execution.
 
 ### Optimal sorting by the expected duration
 
-The default Currents dashboard orchestration strategy orders cypress tests by their expected duration. Consider the example of 2 cypress runners, executing a suite consisting of 5 cypress spec files.
+The default Currents dashboard orchestration strategy orders tests by their expected duration. Consider the example of 2 cypress runners, executing a suite consisting of 5  spec files.
 
-* <mark style="color:red;">Run A</mark> doesn't utilize any sorting - longer spec files can be assigned to the same machine, therefore cypress runner #1 will be idle and the overall duration is longer compared to <mark style="color:blue;">Run B</mark>
-* <mark style="color:blue;">Run B</mark> utilizes optimal sorting - longer spec files run first, as a result the tests are getting distributed more equally between the runners and the overall run duration is less compared to <mark style="color:red;">Run A</mark>.
+Take, for example, a testing suite consisting of 4 spec files with varying durations:
 
-![Optimally sorting parallel cypress tests](../.gitbook/assets/cypress-orchestration.png)
+* `spec01`: 10 minutes
+* `spec02`: 10 minutes
+* `spec03`: 3 minutes
+* `spec04`: 2 minutes
 
-By ordering cypress spec files according to their expected duration and optimizing the distribution of the files between cypress runners (CI machines), we can significantly reduce the overall duration of runs and complete our cypress tests suite faster.
+With 2 machines, non-optimal balancing might distribute the files as follows, leading to an inefficient total execution time of 20 minutes due to one machine being heavily loaded while the other finishes quickly:
 
-Typically cypress tests are running as part of your CI pipeline, having this kind of optimization reduces the overall duration of cypress runs and saves valuable time, reduces CI machines utilization and allows developers to get feedback faster.
+* Shard 1: `spec01`, `spec02` (20 minutes total)
+* Shard 2: `spec03`, `spec04` (5 minutes total)
 
-For larger teams with a significant amount of cypress tests, the cumulative gains of reducing the duration of cypress tests can be substantial.
+By ordering spec files according to their expected duration and optimizing the distribution of the files between runners (CI machines), we can significantly reduce the overall duration of runs and complete our tests suite faster.
+
+<figure><img src="../.gitbook/assets/pw-shard-slow-bg (1).png" alt=""><figcaption><p>Non-optimal distribution of spec files leads to underutilized resources and longer duration</p></figcaption></figure>
+
+An optimal assignment strategy that considers the duration of spec files can significantly improve the efficiency of test execution. By balancing the workload across shards based on test durations, you minimize overall execution time and make better use of resources. For the example provided:
+
+* Shard 1: `spec01` (10 minutes) and `spec03` (3 minutes), totaling 13 minutes.
+* Shard 2: `spec02` (10 minutes) and `spec04` (2 minutes), totaling 12 minutes.
+
+\
+
+
+<figure><img src="../.gitbook/assets/pw-shard-fast-bg.png" alt=""><figcaption><p>Optimal distribution of spec files is 35% faster and uses the resources in an optimal way</p></figcaption></figure>
+
+Having this kind of optimization reduces the overall duration of runs and saves valuable time, reduces CI machines utilization and allows developers to get feedback faster.
+
+For larger teams with a significant amount of tests, the cumulative gains of reducing the duration of CI tests can be substantial.
 
 ### Sorting by the failure rate
 
@@ -39,8 +52,4 @@ Enabling this orchestration method and [fail-fast-strategy.md](fail-fast-strateg
 
 You can set the orchestration method by modifying individual project settings in Currents Dashboard:
 
-<figure><img src="../.gitbook/assets/currents-2023-02-19-23.47.03.gif" alt=""><figcaption></figcaption></figure>
-
-
-
-###
+<figure><img src="../.gitbook/assets/currents-2023-02-19-23.47.03.gif" alt=""><figcaption><p>Setting the orchestration strategy on Currents Dashboard</p></figcaption></figure>
