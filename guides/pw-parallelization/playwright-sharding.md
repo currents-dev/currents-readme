@@ -4,7 +4,7 @@ description: >-
   Currents
 ---
 
-# Playwright Parallelization
+# Playwright Sharding
 
 ### Parallelization in Playwright
 
@@ -16,7 +16,7 @@ As mentioned, Playwright runs test files in parallel by default, but you can sca
 
 
 
-![Running Playwright tests with sharding enabled](<../.gitbook/assets/Playwright parallelization.png>)
+![Running Playwright tests with sharding enabled](<../../.gitbook/assets/Playwright parallelization.png>)
 
 This behaviour is activated by using the `--shard` flag. For example:
 
@@ -38,7 +38,7 @@ Yes. You still need CI machines that will run the actual tests. Currents Dashboa
 
 ### How to run Playwright tests with sharding enabled locally?
 
-Running Playwright tests with sharding enabled on localhost requires running two or more executions of Playwright tests with the `--shard` flag and the same [CI Build ID](ci-build-id.md).&#x20;
+Running Playwright tests with sharding enabled on localhost requires running two or more executions of Playwright tests with the `--shard` flag and the same [CI Build ID](../ci-build-id.md).&#x20;
 
 Open two separate terminals and run an identical `pwc` command with `--shard=1/2` and `--shard=2/2` flag respectively and  `--ci-build-id` flag with identical values in both terminals. In the example below we use a dummy CI build ID `ciid`, you can replace it with any value as long as it's the same.
 
@@ -78,13 +78,13 @@ Here are a few example repositories for popular CI providers:
 * [GitHub Actions](https://github.com/currents-dev/playwright-gh-actions-demo)
 * [GitLab](https://gitlab.com/currents.dev/gitlab-playwright-currents)
 * [CircleCI](https://github.com/currents-dev/circleci-pw-example)
-* [Jenkins](../ci-setup/jenkins-playwright.md)
+* [Jenkins](../../ci-setup/jenkins-playwright.md)
 
 ### What is CI Build ID?
 
 The **CI Build ID** defines what build (or run) the results belong to - for example, providing the same CI Build ID on two different machines will show their results in the same run.
 
-The value of this flag is calculated automatically for popular CI tools, but you can also provide it explicitly. See [ci-build-id.md](ci-build-id.md "mention") guide for details.&#x20;
+The value of this flag is calculated automatically for popular CI tools, but you can also provide it explicitly. See [ci-build-id.md](../ci-build-id.md "mention") guide for details.&#x20;
 
 You can provide CI Build ID using the environment variable: `CURRENTS_BUILD_ID`, `pwc` CLI flag
 
@@ -106,4 +106,3 @@ reporter: [
   }),
 ]
 ```
-

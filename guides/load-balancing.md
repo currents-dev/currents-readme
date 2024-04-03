@@ -36,7 +36,7 @@ An optimal assignment strategy that considers the duration of spec files can sig
 \
 
 
-<figure><img src="../.gitbook/assets/pw-shard-fast-bg.png" alt=""><figcaption><p>Optimal distribution of spec files is 35% faster and uses the resources in an optimal way</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/pw-shard-fast-bg (1).png" alt=""><figcaption><p>Optimal distribution of spec files is 35% faster and uses the resources in an optimal way</p></figcaption></figure>
 
 Having this kind of optimization reduces the overall duration of runs and saves valuable time, reduces CI machines utilization and allows developers to get feedback faster.
 

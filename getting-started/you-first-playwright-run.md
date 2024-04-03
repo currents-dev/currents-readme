@@ -156,7 +156,7 @@ Now you can start configuring your CI environment to record Playwright tests to 
 
 * [api-resources](../api/api-resources/ "mention")
 * [ci-build-id.md](../guides/ci-build-id.md "mention")
-* [pw-parallelization.md](../guides/pw-parallelization.md "mention")
+* [pw-parallelization](../guides/pw-parallelization/ "mention")
 * [playwright-tags.md](../guides/playwright-tags.md "mention")
 * [test-status.md](../tests/test-status.md "mention")
 * [insights-and-analytics.md](../insights/insights-and-analytics.md "mention")
