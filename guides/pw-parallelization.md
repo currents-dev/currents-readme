@@ -1,5 +1,7 @@
 ---
-description: Overview of parallelization strategies for Playwright
+description: >-
+  Playwright tests parallelization using shards and reporting the results to
+  Currents
 ---
 
 # Playwright Parallelization
@@ -8,11 +10,11 @@ description: Overview of parallelization strategies for Playwright
 
 Running Playwright tests on CI eventually will require splitting the spec files between several CI machines for faster execution. Playwright has the built-in ability to split the tests into shards - each shard will run only a subset of tests.&#x20;
 
-Read more about native [playwright-sharding.md](playwright-sharding.md "mention").
+Read more about native [playwright-sharding.md](pw-parallelization/playwright-sharding.md "mention").
 
 
 
-<figure><img src="../../.gitbook/assets/pw-shard-fast-bg (2).png" alt=""><figcaption><p>Sharding vs Orchestration</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/pw-shard-fast-bg (2).png" alt=""><figcaption><p>Sharding vs Orchestration</p></figcaption></figure>
 
 ### Playwright Orchestration by Currents
 
@@ -23,4 +25,4 @@ As your testing suite grows, you can discover that the native sharding is not al
 * spec files' names affect the distribution of tests between shards
 * collecting the reports across multiple machines is cumbersome
 
-Read more about [#playwright-orchestration-by-currents](./#playwright-orchestration-by-currents "mention") to discover how Currents improves the native orchestration.
+Read more about [#playwright-orchestration-by-currents](pw-parallelization.md#playwright-orchestration-by-currents "mention") to discover how Currents improves the native orchestration.

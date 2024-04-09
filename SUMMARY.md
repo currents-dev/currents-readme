@@ -9,7 +9,7 @@
 ## Guides
 
 * [Cypress Parallelization](guides/parallelization.md)
-* [Playwright Parallelization](guides/pw-parallelization/README.md)
+* [Playwright Parallelization](guides/pw-parallelization.md)
   * [Playwright Sharding](guides/pw-parallelization/playwright-sharding.md)
   * [Playwright Orchestration](guides/pw-parallelization/playwright-orchestration.md)
 * [CI Build ID](guides/ci-build-id.md)
@@ -42,9 +42,11 @@
   * [Cypress - GitHub Actions](ci-setup/github-actions/cypress-github-actions.md)
   * [Playwright - GitHub Actions](ci-setup/github-actions/playwright-github-actions.md)
   * [Commit data for GitHub Actions](ci-setup/github-actions/commit-data-for-github-actions.md)
+  * [Custom Docker runners](ci-setup/github-actions/custom-docker-runners.md)
 * [GitLab](ci-setup/gitlab.md)
   * [Cypress - GitLab CI/CD](ci-setup/gitlab/cypress-gitlab-ci-cd.md)
   * [Playwright - GitLab CI/CD](ci-setup/gitlab/playwright-gitlab-ci-cd.md)
+  * [Custom Docker runners](ci-setup/gitlab/custom-docker-runners.md)
 * [Jenkins](ci-setup/jenkins.md)
   * [Cypress - Jenkins](ci-setup/jenkins/cypress-jenkins.md)
   * [Playwright - Jenkins](ci-setup/jenkins-playwright.md)
