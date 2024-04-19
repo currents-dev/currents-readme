@@ -25,4 +25,4 @@ As your testing suite grows, you can discover that the native sharding is not al
 * spec files' names affect the distribution of tests between shards
 * collecting the reports across multiple machines is cumbersome
 
-Read more about [#playwright-orchestration-by-currents](pw-parallelization.md#playwright-orchestration-by-currents "mention") to discover how Currents improves the native orchestration.
+Read more about [Playwright Orchestration](pw-parallelization/playwright-orchestration.md) to discover how Currents improves the native orchestration.
