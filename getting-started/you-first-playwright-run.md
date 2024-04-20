@@ -42,10 +42,6 @@ npm i -D @currents/playwright
 
 ### Update `playwright.config.js|ts`
 
-{% hint style="info" %}
-Disable [`fullParallel`](https://playwright.dev/docs/api/class-testconfig#test-config-fully-parallel) mode and [parallelizing tests in a single file](https://playwright.dev/docs/test-parallel#parallelize-tests-in-a-single-file) - it is not currently supported by Currents
-{% endhint %}
-
 Enabled traces, videos and screenshots in `playwright.config.js|ts` to enhance the dashboard test results.
 
 ```javascript
@@ -170,7 +166,7 @@ Treat the **Record Key** as a Ci secret - don't expose it publicly&#x20;
 
 In order to collect results from multiple CI runners, please make sure that  `--ci-build-id` is **similar across parallel machines, but is unique for each build.**
 
-Please reach out to our in-app support chat to get help with setting up the CI pipeline.
+Reach out to our in-app support chat to get help with setting up the CI pipeline.
 
 Currents support collecting results from parallel executions on multiple machines using the built-in [Playwright Sharding](https://playwright.dev/docs/test-parallel#shard-tests-between-multiple-machines). The results will be kept as a single dashboard run as long as they share the same CI build ID.
 
