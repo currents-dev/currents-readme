@@ -22,11 +22,7 @@ npm i -D @currents/playwright
 #### Update `playwright.config.js|ts`
 
 * Creating a new organization and a project at https://app.currents.dev, you'll see on-screen instructions with your newly created **Project ID** and **Record Key.**&#x20;
-* Enabled traces, videos and screenshots in `playwright.config.js|ts` to enhance the dashboard test results.
-
-{% hint style="info" %}
-Disable [`fullParallel`](https://playwright.dev/docs/api/class-testconfig#test-config-fully-parallel) mode and [parallelizing tests in a single file](https://playwright.dev/docs/test-parallel#parallelize-tests-in-a-single-file) - it is not currently supported by Currents
-{% endhint %}
+* Enabled traces, videos and screenshots in `playwright.config.js|ts`
 
 ```javascript
 use: {
@@ -202,6 +198,8 @@ Check out the example repositories that showcase running Playwright tests on pop
 * [playwright-aws-code-build.md](../ci-setup/aws-code-build/playwright-aws-code-build.md "mention")
 * [playwright-azure-devops.md](../ci-setup/azure-devops/playwright-azure-devops.md "mention")
 
+Explore how to speed up CI Playwright runs by running enabling [pw-parallelization.md](../guides/pw-parallelization.md "mention").
+
 ### Good To Know
 
 #### Screenshots
@@ -225,8 +223,8 @@ test("basic test", async ({ page }, testInfo) => {
 
 For more information see the Playwright [test info attachment](https://playwright.dev/docs/api/class-testinfo#test-info-attach) documentation.
 
+
+
 ### Limitations
 
-* We recommend using the native [Playwright Shards](https://playwright.dev/docs/test-parallel#shard-tests-between-multiple-machines) while we are working on other types of orchestration-related features.
 * Rerunning with the same CI build ID would generate a warning and new results would not be uploaded. Please use a new CI build ID.
-* Full parallel mode ([parallelizing tests in a single file](https://playwright.dev/docs/test-parallel#parallelize-tests-in-a-single-file)) is not currently supported
