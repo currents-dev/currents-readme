@@ -148,7 +148,7 @@ If Currents reporter is set up correctly, the execution results will show on the
 
 <figure><img src="../.gitbook/assets/currents-2023-04-16-19.36.20@2x.png" alt=""><figcaption><p>A link to recorded results appearing at the end of Playwright tests execution</p></figcaption></figure>
 
-Now you can start configuring your CI environment to record Playwright tests to Currents. Please consider exploring those guides to ensure smooth configuration:
+Please consider exploring those guides to ensure smooth configuration:
 
 * [api-resources](../api/api-resources/ "mention")
 * [ci-build-id.md](../guides/ci-build-id.md "mention")
@@ -157,6 +157,8 @@ Now you can start configuring your CI environment to record Playwright tests to 
 * [test-status.md](../tests/test-status.md "mention")
 * [insights-and-analytics.md](../insights/insights-and-analytics.md "mention")
 * [run-details.md](../runs/run-details.md "mention")
+
+Now you can start configuring your CI environment to record Playwright tests to Currents.
 
 ### Update CI Provider Configuration
 
