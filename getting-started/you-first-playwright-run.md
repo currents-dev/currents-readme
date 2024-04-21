@@ -163,16 +163,12 @@ Now you can start configuring your CI environment to record Playwright tests to 
 ### Update CI Provider Configuration
 
 {% hint style="info" %}
-Treat the **Record Key** as a Ci secret - don't expose it publicly&#x20;
+Treat the **Record Key** as a CI secret - don't expose it publicly&#x20;
 {% endhint %}
 
 In order to collect results from multiple CI runners, please make sure that  `--ci-build-id` is **similar across parallel machines, but is unique for each build.**
 
-Reach out to our in-app support chat to get help with setting up the CI pipeline.
-
-Currents support collecting results from parallel executions on multiple machines using the built-in [Playwright Sharding](https://playwright.dev/docs/test-parallel#shard-tests-between-multiple-machines). The results will be kept as a single dashboard run as long as they share the same CI build ID.
-
-Check out the example for popular CI providers below, more examples for different providers will be added in future.
+Currents support collecting results from parallel executions on multiple machines using the built-in [Playwright Sharding](https://playwright.dev/docs/test-parallel#shard-tests-between-multiple-machines) and also [playwright-orchestration.md](../guides/pw-parallelization/playwright-orchestration.md "mention"). The results will be kept as a single dashboard run as long as they share the same CI build ID.
 
 ### Examples
 
