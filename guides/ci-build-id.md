@@ -4,40 +4,35 @@ description: Using --ci-build-id flag for Playwright and Cypress tests paralleli
 
 # CI Build ID
 
-{% embed url="https://stream.mux.com/rMbteT2Hf028NhSBDQnf2w00Ad2TuQsphLY1ZRVDwoszo/high.mp4" fullWidth="true" %}
+{% embed url="https://stream.mux.com/rMbteT2Hf028NhSBDQnf2w00Ad2TuQsphLY1ZRVDwoszo/high.mp4" fullWidth="false" %}
 CI Build ID for Playwright and Cypress
 {% endembed %}
 
 ### What is CI Build ID?
 
-**CI Build ID** is a unique build identifier used by Currents to distinguish parallel playwright and cypress  test runs one from another. Multiple CI machines using the same CI Build ID will belong to the same test run.
+**CI Build ID** is a unique identifier used by Currents to distinguish between different runs. Multiple CI machines using the same CI Build ID will report the results to the same run.
 
-Currents use CI build ID for Playwright and Cypress tests in order to identify and distinguish results belonging to different builds, and also to enable orchestration for Cypress builds.
-
-### CI Build ID and parallelization
+### CI Build ID and Parallelization
 
 #### Using unique CI Build ID in different builds
 
-Imagine a CI pipeline running tests in parallel using 3 machines. Starting two builds with **different CI Build ID** will result in creating 2 distinct "Runs" in Currents dashboard.
+Imagine a CI pipeline running tests in parallel using multiple machines. Starting two builds with a **different CI Build ID** will create 2 distinct "Runs" in Currents dashboard.
 
 ![Creating two distinct runs by using different CI Build ID](../.gitbook/assets/cypress-ci-build-id-different-jobs.png)
 
-The parallelization will happen for each build independently from the other. That is usually the desired situation - each build should provide a unique CI Build ID.
+The parallelization and reporting will happen for each build independently from the other. That is usually the desired situation - each build should have a unique CI Build ID.
 
 #### Using the same CI Build ID in different builds
 
-In contrast, consider a situation when 2 **different** builds use the **same** CI Build ID. That's a very uncommon situation, but it's worth demonstrating for understanding the use of CI Build ID.
+In contrast, consider a situation when 2 **different** builds use the **same** CI Build ID. That's an uncommon situation, but it's worth demonstrating for understanding the use of CI Build ID.
 
 ![A single run is created when using a similar CI Build ID](../.gitbook/assets/cypress-ci-build-id-same-job.png)
 
-Even though we have created two different builds, they share the same CI Build ID. That will result in 6 machines executing the same parallelized set of tests. All the spec files will be distributed between those machines.
+We created two different builds with the same CI Build ID. That will result in 6 machines executing the same parallelized set of tests and reporting their results to the same run.
 
-One popular and confusing scenario is:
 
-* the first build completes all the tests
-* the second build uses the same CI Build ID and immediately finishes without running any test at all
 
-That's because both builds use the same CI Build ID - the second build "joins" an already finished run that has no more tests to execute.
+If [parallelization.md](parallelization.md "mention") or [playwright-orchestration.md](pw-parallelization/playwright-orchestration.md "mention") are enabled, all the spec files will be distributed between those machines.
 
 ### Generating a unique CI Build ID
 
@@ -74,6 +69,13 @@ Here's a list of popular providers and the environment variables that can be use
 Refer to your CI provider documentation for the list of available environment variables. Also, see the [official cypress documentation on CI Build ID.](https://docs.cypress.io/guides/guides/parallelization#CI-Build-ID-environment-variables-by-provider)
 
 ### FAQ: Why does each CI machine run all the tests?
+
+One popular and confusing scenario is:
+
+* the first build completes all the tests
+* the second build uses the same CI Build ID and immediately finishes without running any test at all
+
+That's because both builds use the same CI Build ID - the second build "joins" an already finished run that has no more tests to execute.
 
 In most chances, each CI machine generates a different CI Build ID. Each unique CI Build ID creates a new run and executes all the tests. Please make sure that you provide the same CI Build ID across different  CI machines that are part of the same build.
 
