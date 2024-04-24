@@ -82,11 +82,13 @@ jobs:
 ```
 {% endcode %}
 
-The example [workflow config file](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-basic-pwc.yml):
+We've included 3 different config files to exemplify the workflows:&#x20;
 
-* runs 3 containers with Playwright tests in parallel
+* The example workflow [test-basic-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-basic-reporter.yml) runs 3 containers with Playwright tests in parallel.
+* The example workflow [full-parallel-prod.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/full-parallel-prod.yml) runs 5 shards in full parallel mode.&#x20;
+* The example workflow [test-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-or8n.yml) runs orchestrated tests
 * Note: create an organization, get your record key on [Currents.dev](https://app.currents.dev) and set [GH secret](https://docs.github.com/en/actions/reference/encrypted-secrets) variable `CURRENTS_RECORD_KEY`
 
-Here's an example of how the demo workflow appears in Currents dashboard
+Here's an example of how the first demo workflow appears in Currents dashboard:
 
 ![Running Playwright tests in parallel - Currents dashboard](../../.gitbook/assets/playwright-run.gif)

@@ -150,7 +150,7 @@ CURRENTS_TAG=tagA,tagB npx playwright run ...
 
 #### Precedence of configuration options
 
-If there are multiple definitions of run-level tags, Curretns will pick the tags as follows:
+If there are multiple definitions of run-level tags, Currents will pick the tags as follows:
 
 * Use comma-separated tags of `CURRENTS_TAG` environment variable, if provided; otherwise
 * Use `--tag` CLI option values, if provided; otherwise
