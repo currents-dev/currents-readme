@@ -69,6 +69,7 @@
 * [Run Details](runs/run-details.md)
 * [Run Timeouts](runs/run-timeouts.md)
 * [Canceling Runs](runs/cancel-run.md)
+* [Deleting Runs](runs/deleting-runs.md)
 
 ## Spec Files
 

@@ -13,16 +13,18 @@ This is an object representing Playwright tests run. You can retrieve a run's de
 Asset URLs listed in the responses (videos, screenshots) are "signed" URLs. They are only valid for 2h since their retrieval.
 {% endhint %}
 
-{% swagger method="get" path="/runs/:runId" baseUrl="v1" summary="Get Run details" %}
-{% swagger-description %}
+## Get Run details
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `v1/runs/:runId`
 
-{% swagger-parameter in="path" name="runId" type="String" required="true" %}
-Run ID
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-response status="200: OK" description="" %}
+| Name                                    | Type   | Description |
+| --------------------------------------- | ------ | ----------- |
+| runId<mark style="color:red;">\*</mark> | String | Run ID      |
+
+{% tabs %}
+{% tab title="200: OK " %}
 ```javascript
 {
     "status": "OK",
@@ -136,19 +138,21 @@ Run ID
     }
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger method="put" path="/runs/:runId/cancel" baseUrl="v1" summary="Cancel a Run" %}
-{% swagger-description %}
+## Cancel a Run
 
-{% endswagger-description %}
+<mark style="color:orange;">`PUT`</mark> `v1/runs/:runId/cancel`
 
-{% swagger-parameter in="path" name="runId" type="String" required="true" %}
-Run ID
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-response status="200: OK" description="" %}
+| Name                                    | Type   | Description |
+| --------------------------------------- | ------ | ----------- |
+| runId<mark style="color:red;">\*</mark> | String | Run ID      |
+
+{% tabs %}
+{% tab title="200: OK " %}
 ```javascript
 {
     "status": "OK",
@@ -160,14 +164,38 @@ Run ID
     }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="422: Unprocessable Entity" description="The run has been already cancelled" %}
+{% tab title="422: Unprocessable Entity The run has been already cancelled" %}
 ```javascript
 {
     "status": "FAILED",
     "error": "Run already cancelled"
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
+
+## Deleting a Run
+
+<mark style="color:red;">`DELETE`</mark> `v1/runs/:runId`
+
+#### Path Parameters
+
+| Name                                    | Type   | Description |
+| --------------------------------------- | ------ | ----------- |
+| runId<mark style="color:red;">\*</mark> | String | Run ID      |
+
+{% tabs %}
+{% tab title="200: OK " %}
+```javascript
+{
+    "status": "OK",
+    "data": {
+        "runId": ":runId",
+        "actor": "API Request"
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
