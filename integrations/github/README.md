@@ -4,7 +4,7 @@ description: Integrating GitHub with Currents dashboard for running Playwright t
 
 # GitHub
 
-[Currents](http://currents.dev/) integration with GitHub allows using Playwright or cypress tests results with your GitHub workflows, as well as getting faster feedback and insights about your cypress tests directly within Pull Requests.
+[Currents](https://currents.dev) integration with GitHub allows using Playwright or cypress tests results with your GitHub workflows, as well as getting faster feedback and insights about your cypress tests directly within Pull Requests.
 
 
 
