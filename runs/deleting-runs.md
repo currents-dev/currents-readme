@@ -5,7 +5,7 @@ description: This feature allows you to permanently remove a run from our Dashbo
 # Deleting Runs
 
 {% hint style="warning" %}
-Deleting a run is **permnanent** - once deleted, a run cannot be restored.
+Deleting a run is **permanent** - once deleted, a run cannot be restored.
 {% endhint %}
 
 To delete a run, go to the [**Run Details**](run-details.md) page and click on the **`Advanced`** tab.

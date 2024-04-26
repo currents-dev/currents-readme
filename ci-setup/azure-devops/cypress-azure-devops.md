@@ -12,7 +12,7 @@ TLDR; Check out the example Azure DevOps pipeline [configuration file](https://g
 
 * Connect a new/existing pipeline to a repository containing your Cypress tests
 * Make sure that your `cypress.config.js` file has the correct `projectId`. You can fetch the `projectId` by navigating to [https://app.currents.dev](https://app.currents.dev) and then **Project Name > Manage Project**
-* Make sure that both `cypress` and [cypress-cloud](../../integration-with-cypress/cypress-cloud.md) are listed in your `package.json` as dependencies
+* Make sure that both `cypress` and [cypress-cloud](../../integration-with-cypress/cypress-cloud/) are listed in your `package.json` as dependencies
 * Create or modify an existing [Variable Group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops\&tabs=yaml), and add a new secret variable called `CURRENTS_SECRET`. You can grab the secret key at **Currents Dashboard > Org Name (Header Menu) > Record Keys**
 * Modify your `azure-pipelines.yml` file and use [this file](https://github.com/currents-dev/azure-devops-example/blob/main/azure-pipelines.yml) as a reference.&#x20;
 

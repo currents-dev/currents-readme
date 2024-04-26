@@ -64,7 +64,7 @@ Triggered when a time out detected for a run. The message will contain the last 
 
 Triggered when a run gets cancelled. If a run contains multiple groups, the notification will be triggered for each group. The message will contain the last known results for the run or run group.
 
-![Example of Slack notification for Cypress Run Canceled event ](<../.gitbook/assets/cypress-run-canceled-slack (1).png>)
+![Example of Slack notification for Cypress Run Canceled event ](../.gitbook/assets/cypress-run-canceled-slack.png)
 
 ### Disabling Slack integration
 

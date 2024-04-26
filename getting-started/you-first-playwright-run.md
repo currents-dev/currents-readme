@@ -152,7 +152,7 @@ Please consider exploring those guides to ensure smooth configuration:
 
 * [api-resources](../api/api-resources/ "mention")
 * [ci-build-id.md](../guides/ci-build-id.md "mention")
-* [pw-parallelization.md](../guides/pw-parallelization.md "mention")
+* [pw-parallelization](../guides/pw-parallelization/ "mention")
 * [playwright-tags.md](../guides/playwright-tags.md "mention")
 * [test-status.md](../tests/test-status.md "mention")
 * [insights-and-analytics.md](../insights/insights-and-analytics.md "mention")
@@ -176,7 +176,7 @@ Check out the example repositories that showcase running Playwright tests on pop
 
 * [playwright-github-actions.md](../ci-setup/github-actions/playwright-github-actions.md "mention")
 * [playwright-gitlab-ci-cd.md](../ci-setup/gitlab/playwright-gitlab-ci-cd.md "mention")
-* [jenkins-playwright.md](../ci-setup/jenkins-playwright.md "mention")
+* [jenkins-playwright.md](../ci-setup/jenkins/jenkins-playwright.md "mention")
 * [playwright-circleci.md](../ci-setup/circleci/playwright-circleci.md "mention")
 * [playwright-aws-code-build.md](../ci-setup/aws-code-build/playwright-aws-code-build.md "mention")
 

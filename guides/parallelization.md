@@ -12,7 +12,7 @@ Parallelization is the most popular technique for reducing the duration of your 
 
 Those services integrate with your CI provider and use intelligent techniques to parallelize the tests, reduce overall duration, as well as provide features like storing video and screenshot recording, test outputs, and providing analytics and integration with 3rd party tools.
 
-![Running cypress test in parallel reduces the overall time](<../.gitbook/assets/cypress-parallelization-benefits (1) (1).png>)
+![Running cypress test in parallel reduces the overall time](<../.gitbook/assets/cypress-parallelization-benefits (2).png>)
 
 ### How does cypress parallelization work?
 
@@ -22,7 +22,7 @@ Containers use Currents cloud service to get instructions about tests (technical
 
 The simplistic animation below demonstrates the parallelization of 6 spec files using 3 containers.
 
-* Each container runs an identical `cypress` or [`cypress-cloud`](../integration-with-cypress/cypress-cloud.md) command with `--parallel` flag
+* Each container runs an identical `cypress` or [`cypress-cloud`](../integration-with-cypress/cypress-cloud/) command with `--parallel` flag
 * Each container connects to Currents dashboard to get instructions about the next spec file to run
 * Currents dashboard assigns each container a spec file
 * Each container runs its spec file
@@ -39,7 +39,7 @@ Yes. You still need CI machines that will run the actual tests. Currents Dashboa
 
 Yes! You don't have to have different machines/containers for running cypress tests in parallel.&#x20;
 
-You can run multiple [`cypress-cloud`](../integration-with-cypress/cypress-cloud.md) / `cypress` instances on the same machine. Keep in mind that cypress tests are quite resource-demanding - running too many instances of a test runner can actually slow down the overall execution or even crash the machine.
+You can run multiple [`cypress-cloud`](../integration-with-cypress/cypress-cloud/) / `cypress` instances on the same machine. Keep in mind that cypress tests are quite resource-demanding - running too many instances of a test runner can actually slow down the overall execution or even crash the machine.
 
 ### How to run cypress tests in parallel locally?
 
@@ -63,11 +63,11 @@ Any CI provider or tool that allows creating multiple containers/jobs can be int
 
 Here are a few popular CI providers that can run cypress tests in parallel:
 
-* [GitHub Actions](../ci-setup/github-actions.md)
-* [Jenkins](../ci-setup/jenkins.md)
-* [GitLab](../ci-setup/gitlab.md)
-* [CircleCI](../ci-setup/circleci.md)
-* [AWS Code Build](../ci-setup/aws-code-build.md)
+* [GitHub Actions](../ci-setup/github-actions/)
+* [Jenkins](../ci-setup/jenkins/)
+* [GitLab](../ci-setup/gitlab/)
+* [CircleCI](../ci-setup/circleci/)
+* [AWS Code Build](../ci-setup/aws-code-build/)
 
 ### How to run cypress tests in parallel?
 

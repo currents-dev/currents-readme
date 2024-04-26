@@ -7,7 +7,7 @@ description: >-
 # Coverage
 
 {% hint style="info" %}
-Coverage reports collection is in beta mode. Only Cypress support is available at the moment. [`cypress-cloud`](../integration-with-cypress/cypress-cloud.md) version `1.9.5+` is required.
+Coverage reports collection is in beta mode. Only Cypress support is available at the moment. [`cypress-cloud`](../integration-with-cypress/cypress-cloud/) version `1.9.5+` is required.
 
 [Share your use cases and feedback](mailto:support@currents.dev)
 {% endhint %}

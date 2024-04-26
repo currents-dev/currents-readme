@@ -12,7 +12,7 @@ TL;DR Check out the GitHub repository:
 
 By using [GitHub Actions matrix execution strategy](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob\_idstrategymatrix), you can create multiple containers that will run  Cypress tests in parallel. Currents orchestrates the tests between multiple containers, applying intelligent optimizations to reduce the overall runtime of your workflow, and records screenshots and videos for later troubleshooting.
 
-![Tests Parallelization with Github Actions](<../../.gitbook/assets/Cypress-Parallelization-github-actions (1).jpg>)
+![Tests Parallelization with Github Actions](../../.gitbook/assets/Cypress-Parallelization-github-actions.jpg)
 
 Please take a look at the [example repository](https://github.com/currents-dev/gh-actions-example) that showcases running cypress tests in parallel using GitHub Actions.&#x20;
 

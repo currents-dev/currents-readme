@@ -193,12 +193,12 @@ Check out the example repositories that showcase running Playwright tests on pop
 
 * [playwright-github-actions.md](../ci-setup/github-actions/playwright-github-actions.md "mention")
 * [playwright-gitlab-ci-cd.md](../ci-setup/gitlab/playwright-gitlab-ci-cd.md "mention")
-* [jenkins-playwright.md](../ci-setup/jenkins-playwright.md "mention")
+* [jenkins-playwright.md](../ci-setup/jenkins/jenkins-playwright.md "mention")
 * [playwright-circleci.md](../ci-setup/circleci/playwright-circleci.md "mention")
 * [playwright-aws-code-build.md](../ci-setup/aws-code-build/playwright-aws-code-build.md "mention")
 * [playwright-azure-devops.md](../ci-setup/azure-devops/playwright-azure-devops.md "mention")
 
-Explore how to speed up CI Playwright runs by running enabling [pw-parallelization.md](../guides/pw-parallelization.md "mention").
+Explore how to speed up CI Playwright runs by running enabling [pw-parallelization](../guides/pw-parallelization/ "mention").
 
 ### Good To Know
 
