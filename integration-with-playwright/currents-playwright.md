@@ -1,6 +1,6 @@
 ---
 description: >-
-  Setup and usage instructions for Playwright integrartion with Currents
+  Setup and usage instructions for Playwright integration with Currents
   Dashboard
 ---
 
@@ -148,6 +148,15 @@ The following configuration options are available:
   * Environment variable: `CURRENTS_DEBUG=true | "remote" | "full"`
   * JS configuration key: `debug?: boolean | "remote" | "full" = false`
   * Released in version: `0.11.3`
+* **`--pwc-output-file <path>`**
+  *   file path for run summary output in JSON format. The summary data TypeScript type definition is available:&#x20;
+
+      ```typescript
+      import { ExecutionJSONSummary } from '@currents/playwright'
+      ```
+  * Environment variable: `CURRENTS_OUTPUT_FILE=/path/to/file.json`
+  * JS configuration key: `outputFile?: string`
+  * Released in version: `1.2.0`
 * **`-V, --version`** show package version
 * **`-h, --help`** show `pwc` help
 
