@@ -120,6 +120,8 @@
 
 * [Email Domain Based Access](administration/email-domain-based-access.md)
 * [SSO SAML2.0](administration/sso-saml2.0/README.md)
+  * [SAML2.0 Configuration](administration/sso-saml2.0/saml2.0-configuration.md)
+  * [IdP-initiated Sessions](administration/sso-saml2.0/idp-initiated-sessions.md)
   * [Okta](administration/sso-saml2.0/okta.md)
   * [Troubleshooting SSO](administration/sso-saml2.0/troubleshooting-sso.md)
 * [Billing & Usage](administration/billing-and-usage.md)
