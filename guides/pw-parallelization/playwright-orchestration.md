@@ -1,27 +1,65 @@
 ---
-description: >-
-  Balancing Playwright tests between CI machines for even load distribution and
-  optimizes test execution in Playwright.
+description: Balancing Playwright tests between CI machines for even load distribution.
 ---
 
 # Playwright Orchestration
 
-Orchestration for Playwright allows to significantly decrease the duration of parallel CI Playwright runs. We've seen up to  40% increase in CI runs speed, compared to the traditional [playwright-sharding.md](playwright-sharding.md "mention").
+Orchestration for Playwright can help to decrease the duration of Playwright tests in CI pipelines. We've seen up to 40% decrease in CI runs duration, compared to the traditional [playwright-sharding.md](playwright-sharding.md "mention").
 
 ### Playwright Orchestration vs Sharding
 
-The traditional Playwright sharding method, which splits spec files between available shards (machines) based on the filename, often leads to unbalanced workloads. Since spec files can vary significantly in execution time, this imbalance means that some shards may end up processing only long-running spec files, while others quickly finish with shorter tests, leading to idle resources.
+There are various approaches to running playwright tests in parallel on CI. Let's try to understand the differences.
 
-An optimal assignment considering the duration of spec files can significantly improve the efficiency of test execution. By balancing the workload across shards based on test durations, you minimize overall execution time and make better use of resources.
+#### Playwright Sharding
 
-Read more about [load-balancing.md](../load-balancing.md "mention").
+&#x20;Sharding is natively supported by Playwright, for example, if you have want to run the tests in parallel on two machines, you would run the following command on each:
+
+* `machine #1: playwright test --shard 1/2`
+* `machine #2: playwright test --shard 2/2`
+
+Playwright will use the internal heuristic to split the tests between the available shards, so that each machine runs a different set of tests. The traditional Playwright sharding method splits spec files between available shards (machines) based on filenames. It often leads to unbalanced workloads because spec files execution time can vary significantly.
+
+Take, for example, a testing suite consisting of 4 spec files with the following durations:
+
+* `spec01`: 10 minutes
+* `spec02`: 10 minutes
+* `spec03`: 3 minutes
+* `spec04`: 2 minutes
+
+With 2 machines, traditional sharding might distribute the files as follows, leading to an inefficient total execution time of 20 minutes due to one shard being heavily loaded while the other finishes quickly:
+
+* Shard 1: `spec01`, `spec02` (20 minutes total)
+* Shard 2: `spec03`, `spec04` (5 minutes total)
+
+<figure><img src="../../.gitbook/assets/pw-shard-slow.png" alt=""><figcaption><p>Native Playwright sharding assigns spec files to shards without considering their duration</p></figcaption></figure>
+
+This imbalance means that some shards may end up processing only long-running spec files, while others quickly finish with shorter tests, leading to idle resources.
+
+#### Playwright Orchestration
+
+An alternative approach to sharding is orchestration - i.e. using an external service to act as an "orchestrator" and instruct each machine what tests to run. The "orchestrator" can make decisions on how to split the tests between the available machines based on various criteria - for example,
+
+* balancing tests in the most optimal way - e.g. reducing duration, prioritizing certain tests
+* dynamically changing assigned tests based on the available machines
+* rerouting tests from crashed CI containers to healthy containers (see spot instances use case below)
+
+The most popular problem is reducing CI duration and utilizing the CI resources effectively, so let's focus on it.&#x20;
+
+An optimal assignment would consider the duration of spec files and can significantly improve the efficiency of test execution. By balancing the workload across CI machines based on their expected durations, you minimize overall execution time and make better use of resources.
+
+&#x20;For the earlier example:
+
+* Shard 1: `spec01` (10 minutes) and `spec03` (3 minutes), totaling 13 minutes.
+* Shard 2: `spec02` (10 minutes) and `spec04` (2 minutes), also totaling 12 minutes.
 
 <figure><img src="../../.gitbook/assets/pw-shard-fast-bg.png" alt=""><figcaption><p>An optimal balancing of spec files allows to speed up CI execution</p></figcaption></figure>
+
+The difference in execution time 13 vs 20 minutes, which is a 35% improvement. Read more about [load-balancing.md](../load-balancing.md "mention").
 
 ### How to enable Playwright Orchestration?
 
 {% hint style="info" %}
-Beware of the [#limitations](playwright-orchestration.md#limitations "mention")
+Beware of the [#limitations-and-nuances](playwright-orchestration.md#limitations-and-nuances "mention")
 {% endhint %}
 
 To enable Playwrigth Orchestration, you need to have an account with Currents:
@@ -75,9 +113,13 @@ For example - many cloud providers have an option to use [Spot Instances](https:
 
 We are currently testing this feature with a few of our customers, please [contact us](mailto:support@currents.dev) if you are interested in participating in the beta.
 
-### Limitations
+### Limitations and Nuances
 
-Beware of the following limitations and caveats:
+* Orchestration is only effective for suites with relatively large number of **spec files** (not tests)
+* Orchestration works on a **file level** - i.e. it balanced spec files (rather than tests) between machines
+* Orchestration runs one spec file at a time on each machine - it is recommended to enable fullyParallel mode to fully utilize the available CPUs
+
+Beware of the following limitations
 
 * [**Playwright Project dependencies**](https://playwright.dev/docs/test-projects#dependencies) are not currently supported - i.e. if you have projects that depend one on another, orchestration will not consider the dependencies. As workaround you can run the projects in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)&#x20;
 * [**Global Setup and Teardown**](https://playwright.dev/docs/test-global-setup-teardown). An orchestrated execution will run a playwright command for each individual file of your testing suite. Beware, that the global setup or teardown routines will run for each spec file, accordingly.&#x20;
