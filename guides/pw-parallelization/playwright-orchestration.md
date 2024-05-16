@@ -116,7 +116,7 @@ We are currently testing this feature with a few of our customers, please [conta
 ### Limitations and Nuances
 
 * Orchestration is only effective for suites with relatively large number of **spec files** (not tests)
-* Orchestration works on a **file level** - i.e. it balanced spec files (rather than tests) between machines
+* Orchestration works on a **file level** - i.e. it balances spec files (rather than tests) between the available machines
 * Orchestration runs one spec file at a time on each machine - it is recommended to enable fullyParallel mode to fully utilize the available CPUs
 
 Beware of the following limitations
