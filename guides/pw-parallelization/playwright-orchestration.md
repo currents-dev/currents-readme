@@ -105,13 +105,13 @@ $ npx pwc-p --key **redacted** --project-id **redacted** --ci-build-id `date +%s
 pwc-p --key <record-key> --project-id <id> --ci-build-id <build-id> -- --workers 2 --timeout 10000
 ```
 
-### Dynamically switching test between machines 🔬
+### Dynamically switching test between machines&#x20;
 
-An additional benefit of using Currents for balancing tests is the ability to automatically redrive tests from one machine to another.
+An additional benefit of an external service like Currents for balancing tests is the ability to automatically reassign tests tests from one machine to another, depencing on certain conditions.
 
 For example - many cloud providers have an option to use [Spot Instances](https://aws.amazon.com/ec2/spot/) for running workloads. Using Spot Instances can cost up to 90% lower, compared to the traditionally allocated resources.
 
-We are currently testing this feature with a few of our customers, please [contact us](mailto:support@currents.dev) if you are interested in participating in the beta.
+Read more [ci-tests-on-spot-instances.md](ci-tests-on-spot-instances.md "mention").
 
 ### Limitations and Nuances
 
