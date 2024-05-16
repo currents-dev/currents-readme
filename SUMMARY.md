@@ -12,6 +12,7 @@
 * [Playwright Parallelization](guides/pw-parallelization/README.md)
   * [Playwright Sharding](guides/pw-parallelization/playwright-sharding.md)
   * [Playwright Orchestration](guides/pw-parallelization/playwright-orchestration.md)
+  * [CI Tests on Spot Instances](guides/pw-parallelization/ci-tests-on-spot-instances.md)
 * [CI Build ID](guides/ci-build-id.md)
 * [Load Balancing](guides/load-balancing.md)
 * [Fail Fast Strategy](guides/fail-fast-strategy.md)
