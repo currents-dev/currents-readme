@@ -28,7 +28,13 @@ The Billing & Usage view displays the Usage section with a daily/monthly breakdo
 
 The usage includes a [<mark style="color:blue;">**Failed**</mark>](../tests/test-status.md) or [<mark style="color:orange;">**Passed**</mark> ](../tests/test-status.md)test recorded to Currents Dashboard. Retries of the same test are considered a single test result, therefore, a [<mark style="background-color:purple;">**Flaky Test**</mark>](../tests/test-status.md) counts as one record, regardless of the number of attempts.
 
-If you want to estimate your test volume, count all your `it` statements and multiply by your provider's average number of CI runs.
+{% hint style="info" %}
+Skipped tests `it.skip` do **not** count towards usage for billing purposes
+{% endhint %}
+
+**How to estimate your test usage**
+
+To estimate your test volume, count all your `it` statements and multiply by your provider's average number of CI runs.
 
 The usage is aggregated **hourly** to allow precise reporting and calculation of recorded tests.
 
