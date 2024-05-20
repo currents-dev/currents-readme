@@ -12,7 +12,7 @@ There are various approaches to running playwright tests in parallel on CI. Let'
 
 #### Playwright Sharding
 
-&#x20;Sharding is natively supported by Playwright, for example, if you have want to run the tests in parallel on two machines, you would run the following command on each:
+Sharding is natively supported by Playwright, for example, if you have want to run the tests in parallel on two machines, you would run the following command on each:
 
 * `machine #1: playwright test --shard 1/2`
 * `machine #2: playwright test --shard 2/2`
@@ -83,9 +83,15 @@ npm i @currents/playwright
 npx pwc-p --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id>
 ```
 
-If you are not already familiar, read more about [ci-build-id.md](../ci-build-id.md "mention") .
+{% hint style="info" %}
+There's no need to define  shards, make sure to remove `--shard` flag. Currents will assign the tests to all the available machines automatically.&#x20;
+{% endhint %}
 
-A successfully created orchestration will print an output similar to this&#x20;
+{% hint style="info" %}
+If you are not already familiar, read more about [ci-build-id.md](../ci-build-id.md "mention") .
+{% endhint %}
+
+A successfully created orchestration will print an output similar to this:
 
 ```bash
 $ npx pwc-p --key **redacted** --project-id **redacted** --ci-build-id `date +%s`  -c ./or8n/playwright.config.ts
@@ -105,7 +111,7 @@ $ npx pwc-p --key **redacted** --project-id **redacted** --ci-build-id `date +%s
 pwc-p --key <record-key> --project-id <id> --ci-build-id <build-id> -- --workers 2 --timeout 10000
 ```
 
-### Dynamically switching test between machines&#x20;
+### Dynamically switching tests between machines&#x20;
 
 An additional benefit of an external service like Currents for balancing tests is the ability to automatically reassign tests tests from one machine to another, depencing on certain conditions.
 
