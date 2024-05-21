@@ -89,5 +89,5 @@ It is your responsibility to capture the eviction notice, detect the PID and sen
 
 * `usr1` normally activates the node debugger, but this ability is disabled when we listen on usr1
 * `usr2` normally treated as a exit in node, so if you pass it WITHOUT turning on our listener, you will immediately kill the process
-* You must signal the `pwc-p` node process, and **not the npx or wrapper process**. The parent process will just behave as noted above and not pass the signal down to our process.
+* You must send the signal to `pwc-p` process - **not the npx or wrapper process**. The parent process will behave as noted above and not pass the signal down to our process.
 {% endhint %}
