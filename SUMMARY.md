@@ -130,5 +130,6 @@
 
 ## DATA PRIVACY
 
+* [Cloud Endpoints](data-privacy/cloud-endpoints.md)
 * [Access to Customer Data](data-privacy/access-to-customer-data.md)
 * [Data Retention](data-privacy/data-retention.md)
