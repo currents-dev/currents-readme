@@ -27,7 +27,6 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 * User Deletion - Currents won't be notified if user access is revoked in IdP. You can delete the users on the team page
 * Enabling SSO will mandate the auth method for all the team members
 * IdP-initiated SSO (through [Third-party Initiated Login](https://openid.net/specs/openid-connect-core-1\_0.html#ThirdPartyInitiatedLogin))
-* The following SAML attributes are supported:
 
 ### Configuration Steps
 
