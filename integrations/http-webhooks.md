@@ -77,6 +77,12 @@ curl --location --request POST 'https://yourserver.com/webhook/currents.dev' \
 
 ### Security
 
+Validate the authenticity of Currents webhooks by setting custom HTTP headers.
+
+#### Timestamp
+
+Currents includes an `x-timestamp` HTTP header with the system's epoch timestamp for each webhook request to help you prevent replay attacks. Make sure your server's clock is synchronized with a reliable time source to avoid validation issues.
+
 #### Custom Headers&#x20;
 
 You can set custom headers to pass a secret key with each webhook request.&#x20;
