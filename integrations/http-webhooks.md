@@ -74,3 +74,11 @@ curl --location --request POST 'https://yourserver.com/webhook/currents.dev' \
 	flaky: number;    // number of flaky tests for the run
 }
 ```
+
+### Security
+
+#### Custom Headers&#x20;
+
+You can set custom headers to pass a secret key with each webhook request.&#x20;
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>Add a secret key in the headers so that your system can validate that the request came from Currents.</p></figcaption></figure>
