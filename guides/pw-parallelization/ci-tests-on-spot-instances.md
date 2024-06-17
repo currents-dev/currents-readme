@@ -6,7 +6,7 @@ description: >-
 
 # CI Tests on Spot Instances
 
-
+An additional benefit of using Currents for balancing tests is the ability to automatically redrive tests from one machine to another.
 
 {% hint style="info" %}
 * Get familiar with [playwright-orchestration.md](playwright-orchestration.md "mention")
@@ -34,7 +34,7 @@ When a spot instance is just about to be terminated (let's say Machine A),  Curr
 
 <figure><img src="../../.gitbook/assets/spot-instances-schema.png" alt=""><figcaption><p>Reassigning tests in case of spot instance termination</p></figcaption></figure>
 
-### Setup and&#x20;
+### Setup and configuration
 
 {% hint style="info" %}
 Only tests orchestrated with `pwc-p` can be dynamically reassigned. Read more about [playwright-orchestration.md](playwright-orchestration.md "mention").

@@ -121,7 +121,18 @@ Enabling [Serial Mode](https://playwright.dev/docs/test-retries#serial-mode) for
 
 Determining test status for serial tests follows the same principles as for other tests, however, you should be aware of that behaviour and interpret the results accordingly.
 
+#### Console Output of the Playwrigth Reporter
 
+The Playwright Console Output has a precise and accurate presentation of the execution workflow.
+
+* Each attempt has its start and end timestamps, status details, detected errors, stdout and stderr output.
+* Clear separation between tests flakiness and outcome status - [determining](https://currents.dev/readme/tests/test-status#playwright-test-status) a test's "status" and flakiness requires considering the outcome of all the attempts, the expected status and the execution mode (e.g. ["serial" mode](https://playwright.dev/docs/test-parallel#serial-mode) can generate extra attempts).
+
+<figure><img src="../.gitbook/assets/Screenshot 2024-06-17 at 01.10.46.png" alt=""><figcaption><p>Example - Console output of the Playwright reporter</p></figcaption></figure>
+
+Moreover, inline links to individual test results is part of console output:
+
+<figure><img src="../.gitbook/assets/Screenshot 2024-06-17 at 01.10.57.png" alt=""><figcaption><p>Example - Console output of the Playwright reporter</p></figcaption></figure>
 
 #### Playwright Test Status - Summary Table
 

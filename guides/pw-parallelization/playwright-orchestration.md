@@ -56,6 +56,23 @@ An optimal assignment would consider the duration of spec files and can signific
 
 The difference in execution time 13 vs 20 minutes, which is a 35% improvement. Read more about [load-balancing.md](../load-balancing.md "mention").
 
+#### Optimal Tests Balancing with Playwright Orchestration <a href="#optimal-tests-balancing-with-playwright-orchestration" id="optimal-tests-balancing-with-playwright-orchestration"></a>
+
+Playwright Orchestration by Currents automates the process of achieving a balanced distribution of spec files based on their expected duration. Here are the key benefits:
+
+* ✅ No need to manually update CI configuration when changing the number of shards - Currents automatically assigns the spec files to all available CI machines.
+* ✅ No need to change spec files' names to achieve a better balance between the shards.
+* ✅ No need to manually track spec files duration and adjust the sharding configuration.
+* ✅ No complex configuration or setup - simply use the pwc-p command (included in `@currents/playwright`) to run your tests.
+
+This approach has enabled us to reduce the execution time of CI Playwright tests by **up to 40% for several of our customers**, with minimal changes to their existing CI configurations.
+
+<figure><img src="../../.gitbook/assets/pw-or8n.png" alt=""><figcaption><p>Currents Orchestration balances the spec files between the shards based on their duration</p></figcaption></figure>
+
+The Playwright's Orchestration has various strategies. The assignment of a spec file can account for other factors like expected duration and flakiness rate.&#x20;
+
+For example, Currents can prioritize the spec files more likely to fail. Combined with the [Fail Fast Strategy](https://currents.dev/readme/guides/fail-fast-strategy), Currents will halt the execution across all the shards if a certain number of failures is detected. Learn more about it on [Load Balancing.](https://docs.currents.dev/guides/load-balancing)
+
 ### How to enable Playwright Orchestration?
 
 {% hint style="info" %}
@@ -146,7 +163,7 @@ npx playwright merge-reports --reporter html ./blob-report
 
 * Orchestration is only effective for suites with relatively large number of **spec files** (not tests)
 * Orchestration works on a **file level** - i.e. it balances spec files (rather than tests) between the available machines
-* Orchestration runs one spec file at a time on each machine - it is recommended to enable fullyParallel mode to fully utilize the available CPUs
+* Orchestration runs one spec file at a time on each machine - it is recommended to enable [`fullyParallel`](fully-parallel-mode.md) mode to fully utilize the available CPUs
 
 Beware of the following limitations
 

@@ -1,5 +1,5 @@
 ---
-description: Review of load balancing strategies for Cypress and Playwright tests
+description: Review of Orchestration strategies for Cypress and Playwright tests
 ---
 
 # Load Balancing
@@ -33,16 +33,13 @@ An optimal assignment strategy that considers the duration of spec files can sig
 * Shard 1: `spec01` (10 minutes) and `spec03` (3 minutes), totaling 13 minutes.
 * Shard 2: `spec02` (10 minutes) and `spec04` (2 minutes), totaling 12 minutes.
 
-\
-
-
 <figure><img src="../.gitbook/assets/pw-shard-fast-bg (1).png" alt=""><figcaption><p>Optimal distribution of spec files is 35% faster and uses the resources in an optimal way</p></figcaption></figure>
 
 Having this kind of optimization reduces the overall duration of runs and saves valuable time, reduces CI machines utilization and allows developers to get feedback faster.
 
 For larger teams with a significant amount of tests, the cumulative gains of reducing the duration of CI tests can be substantial.
 
-### Sorting by the failure rate
+### Optimal sorting by the failure rate
 
 Sorting by Failure Rate is another popular parallelization strategy. The spec files with the highest expected failure rate will be prioritized for parallel execution - which allows for getting faster feedback from the CI builds.&#x20;
 
