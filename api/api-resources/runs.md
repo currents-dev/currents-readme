@@ -23,8 +23,12 @@ Asset URLs listed in the responses (videos, screenshots) are "signed" URLs. They
 | --------------------------------------- | ------ | ----------- |
 | runId<mark style="color:red;">\*</mark> | String | Run ID      |
 
+{% hint style="warning" %}
+Note: The output may vary between Cypress and Playwright runs.
+{% endhint %}
+
 {% tabs %}
-{% tab title="200: OK " %}
+{% tab title="200: OK (Cypress) " %}
 ```javascript
 {
     "status": "OK",
@@ -45,7 +49,7 @@ Asset URLs listed in the responses (videos, screenshots) are "signed" URLs. They
         "groups": [
             {
                 "groupId": "regression-c64c5c2b976aa5047507cb8badc889aac7539a3b-2621389820-1",
-                // Platform details for the 
+                // Platform details for the run
                 "platform": {
                     "osName": "linux",
                     "osVersion": "Debian - 10.11",
@@ -135,6 +139,126 @@ Asset URLs listed in the responses (videos, screenshots) are "signed" URLs. They
                 }
             }
         ]
+    }
+}
+```
+{% endtab %}
+
+{% tab title="200: OK (Playwright)" %}
+```javascript
+{
+    "status": "OK",
+    "data": {
+        "runId": "477f534243d9051c", // run id
+        "projectId": "DgTfZV", // associated project Id
+        "createdAt": "2024-05-27T12:30:15.171Z", // run creation time
+        "tags": ["project:chrome"], // run tags
+        // timeout details
+        "timeout": {
+            "isTimeout": false  // whether the run timed out
+        },
+        // Groups progress within the run
+        "groups": [
+            {
+                // Instances / specs progress
+                "instances": {
+                    "overall": 1,
+                    "claimed": 1,
+                    "complete": 1,
+                    "passes": 0,
+                    "failures": 1
+                },
+                // Tests progress
+                "tests": {
+                    "overall": 5,
+                    "tests": 5,
+                    "passes": 0,
+                    "failures": 5,
+                    "pending": 0,
+                    "skipped": 0,
+                    "flaky": 0,
+                    "retries": 0
+                },
+                "groupId": "chromium",
+                // Platform details for the group
+                "platform": {
+                    "osName": "linux",
+                    "osVersion": "Ubuntu - 22.04",
+                    "browserName": "chromium",
+                    "browserVersion": ""
+                },
+                // Group tags
+                "tags": ["project:chrome"]
+            }
+        ],
+        "meta": {
+            // CI Build ID associated with the run
+            "ciBuildId": "1716813012",
+            // Git commit info
+            "commit": {
+                "sha": "c64c5c2b976aa5047507cb8badc889aac7539a3b",
+                "branch": "feat/branch",
+                "authorName": "John Doe",
+                "authorEmail": "john@users.noreply.github.com",
+                "message": "Commit message",
+                "remoteOrigin": "https://github.com/nasa/monorepo",
+                "defaultBranch": null
+            },
+            // Platform details for the run
+            "platform": {
+                "browserName": "chromium",
+                "browserVersion": "",
+                "osName": "linux",
+                "osVersion": "Ubuntu - 22.04"
+            }
+        },
+        // Spec files associated with the run
+        "specs": [
+            {
+                // Spec file path
+                "spec": "test-a.spec.ts",
+                // Spec groupId
+                "groupId": "chromium",
+                // Associated instance ID
+                "instanceId": "IzzYS81rn8unznmX",
+                // Time when a playwright runner claimed the spec file
+                "claimedAt": "2024-05-27T12:30:14.331Z",
+                // Time when a playwright runner reported the results to the dashboard
+                "completedAt": "2024-05-27T12:30:28.275Z",
+                // Tags associated with the spec file
+                "tags": ["project:chrome"],
+                // The results of the instance associated with the spec file
+                "results": {
+                    "flaky": 0,
+                    "stats": {
+                        "overall": 5,
+                        "tests": 5,
+                        "passes": 0,
+                        "failures": 5,
+                        "pending": 0,
+                        "skipped": 0,
+                        "flaky": 0,
+                        "retries": 0,
+                        "wallClockStartedAt": "2024-05-27T12:30:14.331Z",
+                        "wallClockEndedAt": "2024-05-27T12:30:28.275Z",
+                        "wallClockDuration": 13944
+                    },
+                    // Note: videos are available only via instance API
+                    "videoUrl": null,
+                    // Note: screenshots are available only via instance API
+                    "screenshots": []
+                },
+                // Playwright runner that requested the spec file 
+                "machineId": "lcI9xbSwemNV",
+                // Playwright worker information
+                "worker": {
+                    "workerIndex": 0,
+                    "parallelIndex": 0
+                }
+            }
+        ],
+        "completionState": "COMPLETE", // "CANCELED" | "COMPLETE" | "IN_PROGRESS" | "TIMEOUT"
+        "status": "FAILED" // "FAILED" | "FAILING" | "PASSED" | "RUNNING"
     }
 }
 ```
