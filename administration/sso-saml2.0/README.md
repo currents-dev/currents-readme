@@ -15,7 +15,7 @@ Currents supports SSO integration via SAML 2.0. When enabled, authentication wil
 
 Follow the instructions:
 
-* Setup with[okta.md](okta.md "mention")&#x20;
+* Setup with [okta.md](okta.md "mention")&#x20;
 * Manual [saml2.0-configuration.md](saml2.0-configuration.md "mention")
 * Enabling [idp-initiated-sessions.md](idp-initiated-sessions.md "mention")
 
