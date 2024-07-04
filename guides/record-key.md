@@ -1,14 +1,14 @@
 ---
-description: Using record key to associate your cypress runs with organization
+description: Using record key to associate your runs with your organization
 ---
 
 # Record Key
 
 ### What is Record Key?
 
-Record key is a secret you use to associate cypress runs with your organization in Currents dashboard.
+Record key is a secret you use to associate runs with your organization in Currents dashboard.
 
-When running cypress tests in parallel using Currents dashboard, provide your Record Key as `--key` argument.
+When running tests in parallel using Currents dashboard, provide your Record Key as `--key` argument.
 
 ### Can I publish my Record Key?
 

@@ -7,7 +7,7 @@ description: >-
 # Coverage
 
 {% hint style="info" %}
-Coverage reports collection is in beta mode. Only Cypress support is available at the moment. [`cypress-cloud`](../integration-with-cypress/cypress-cloud/) version `1.9.5+` is required.
+Coverage reports collection is in beta mode. Only Cypress support is available at the moment. [`cypress-cloud`](../getting-started/cypress/integrating-with-cypress/cypress-cloud/) version `1.9.5+` is required.
 
 [Share your use cases and feedback](mailto:support@currents.dev)
 {% endhint %}
@@ -165,7 +165,7 @@ Our initial release only displays the **total cross-file coverage percentage:**
 * Total cross-file function coverage percentage
 * Total cross-file statement coverage percentage
 
-<table data-full-width="true"><thead><tr><th>Metric</th><th>Line</th><th>Branch</th><th>Function</th><th>Statement</th></tr></thead><tbody><tr><td>Total items discovered</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Covered items</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Skipped items</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Coverage percentage</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Metric</th><th>Line</th><th>Branch</th><th>Function</th><th>Statement</th></tr></thead><tbody><tr><td>Total items discovered</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Covered items</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Skipped items</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Coverage percentage</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
 
 {% hint style="info" %}
 Please [contact us](https://www.notion.so/12c2b3e075f24a599cb01dfa2f5e3d84?pvs=21) if you need to see additional coverage metrics
