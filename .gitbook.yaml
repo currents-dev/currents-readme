@@ -1,0 +1,5 @@
+root: ./
+
+redirects:
+  ci-setup: getting-started/ci-setup/github-actions/commit-data-for-github-actionscommit-data-for-github-actions.md
+  insights/runs-analytics: dashboard/insights-and-analytics.md
