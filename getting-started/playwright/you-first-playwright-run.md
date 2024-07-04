@@ -153,7 +153,7 @@ Please consider exploring those guides to ensure smooth configuration:
 * [api-resources](../../resources/api/api-resources/ "mention")
 * [ci-build-id.md](../../guides/ci-build-id.md "mention")
 * [pw-parallelization](../../guides/parallelization/pw-parallelization/ "mention")
-* [playwright-tags.md](../../dashboard/tests/playwright-tags.md "mention")
+* [playwright-tags.md](../../guides/playwright-tags.md "mention")
 * [test-status.md](../../dashboard/tests/test-status.md "mention")
 * [insights-and-analytics.md](../../dashboard/insights-and-analytics.md "mention")
 * [run-details.md](../../dashboard/runs/run-details.md "mention")

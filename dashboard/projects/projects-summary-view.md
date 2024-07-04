@@ -8,7 +8,7 @@ Currents enables you to create multiple projects to better organize your test pi
 
 Customize project settings within the default Projects Summary view by adjusting the lookback period and applying the following filters to suit your preferences.
 
-* **Tags:** Filter [Tags](../tests/playwright-tags.md) associated with the test runs in your projects.
+* **Tags:** Filter [Tags](../../guides/playwright-tags.md) associated with the test runs in your projects.
 * **Author**: Use this filter to see projects based on contributions from specific team members, which can be useful for performance reviews or tracking individual contributions.
 * **Branches**: Filter projects based on the branches within your version control system.
 

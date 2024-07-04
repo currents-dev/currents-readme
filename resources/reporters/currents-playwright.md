@@ -126,12 +126,12 @@ The following configuration options are available:
   * JS configuration key: `tag?: string[]`
   * Released in version: `0.7.0`
 * **`--pwc-remove-title-tags`**&#x20;
-  * remove tags from test names in Currents, e.g. `Test name @smoke` becomes `Test name` in the dashboard (default: false). See [playwright-tags.md](../../dashboard/tests/playwright-tags.md "mention").
+  * remove tags from test names in Currents, e.g. `Test name @smoke` becomes `Test name` in the dashboard (default: false). See [playwright-tags.md](../../guides/playwright-tags.md "mention").
   * Environment variable: n/a
   * JS configuration key: `removeTitleTags?: boolean = false`
   * Released in version: `0.10.0`
 * **`--pwc-disable-title-tags`**&#x20;
-  * disable parsing tags from test title, e.g. `Test name @smoke` would **not** have tag  `smoke` in the dashboard (default: false). See [playwright-tags.md](../../dashboard/tests/playwright-tags.md "mention").
+  * disable parsing tags from test title, e.g. `Test name @smoke` would **not** have tag  `smoke` in the dashboard (default: false). See [playwright-tags.md](../../guides/playwright-tags.md "mention").
   * Environment variable: `CURRENTS_DISABLE_TITLE_TAGS`
   * JS configuration key: `disableTitleTags?: boolean = false`
   * Released in version: `0.11.0`

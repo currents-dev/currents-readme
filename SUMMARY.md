@@ -58,6 +58,7 @@
     * [Fully Parallel Mode](guides/parallelization/pw-parallelization/fully-parallel-mode.md)
   * [Cypress Parallelization](guides/parallelization/parallelization.md)
 * [Coverage](guides/coverage.md)
+* [Playwright Tags](guides/playwright-tags.md)
 
 ## Dashboard
 
@@ -86,7 +87,6 @@
   * [Test Status](dashboard/tests/test-status.md)
   * [Flaky Tests](dashboard/tests/flaky-tests.md)
   * [Test History](dashboard/tests/test-history.md)
-  * [Playwright Tags](dashboard/tests/playwright-tags.md)
 * [Test Suite Performance Explorer](dashboard/test-suite-performance-explorer/README.md)
   * [Spec Files Explorer](dashboard/test-suite-performance-explorer/spec-files-explorer/README.md)
     * [Spec Files Performance](dashboard/test-suite-performance-explorer/spec-files-explorer/spec-files-performance.md)
