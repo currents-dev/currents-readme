@@ -1,7 +1,7 @@
 root: ./
 
 redirects:
-  ci-setup: getting-started/ci-setup
+  ci-setup: getting-started/ci-setup.md
   insights/runs-analytics: dashboard/insights-and-analytics.md
   ci-setup/github-actions/commit-data-for-github-actions: getting-started/ci-setup/github-actions/commit-data-for-github-actions.md
   guides/load-balancing: guides/parallelization/load-balancing.md
