@@ -1,5 +1,15 @@
 root: ./
 
 redirects:
-  ci-setup: getting-started/ci-setup/github-actions/commit-data-for-github-actionscommit-data-for-github-actions.md
+  ci-setup: getting-started/ci-setup
   insights/runs-analytics: dashboard/insights-and-analytics.md
+  ci-setup/github-actions/commit-data-for-github-actions: getting-started/ci-setup/github-actions/commit-data-for-github-actions.md
+  guides/load-balancing: guides/parallelization/load-balancing.md
+  integrations/bitbucket: resources/integrations/bitbucket.md
+  integration-with-playwright/currents-playwright: resources/reporters/currents-playwright.md
+  guides/fail-fast-strategy: guides/parallelization/fail-fast-strategy.md
+  tests/test-status: dashboard/tests/test-status.md
+  integration-with-playwright/playwright-component-testing: getting-started/playwright/integration-with-playwright/playwright-component-testing.md
+  administration/email-domain-based-access: dashboard/administration/email-domain-based-access.md
+  integration-with-playwright/troubleshooting: getting-started/playwright/troubleshooting-playwright.md
+  insights/insights-and-analytics: dashboard/insights-and-analytics.md
