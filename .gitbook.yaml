@@ -2,14 +2,35 @@ root: ./
 
 redirects:
   ci-setup: getting-started/ci-setup/github-actions.md
-  insights/runs-analytics: dashboard/insights-and-analytics.md
+  ci-setup/gitlab/playwright-gitlab-ci-cd: getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md
+  ci-setup/azure-devops/playwright-azure-devops: getting-started/ci-setup/azure-devops/playwright-azure-devops.md
+  ci-setup/aws-code-build/playwright-aws-code-build: getting-started/ci-setup/aws-code-build/playwright-aws-code-build.md
+  ci-setup/circleci/playwright-circleci: getting-started/ci-setup/circleci/playwright-circleci.md
+  ci-setup/github-actions/playwright-github-actions: getting-started/ci-setup/github-actions/playwright-github-actions.md
+  ci-setup/gitlab/cypress-gitlab-ci-cd: getting-started/ci-setup/gitlab/cypress-gitlab-ci-cd.md
+  ci-setup/bitbucket/cypress-bitbucket-pipelines: getting-started/ci-setup/bitbucket/cypress-bitbucket-pipelines.md
+  ci-setup/jenkins/jenkins-playwright: getting-started/ci-setup/jenkins/jenkins-playwright.md
+  ci-setup/aws-code-build/cypress-aws-code-build: getting-started/ci-setup/aws-code-build/cypress-aws-code-build.md
+  ci-setup/nx: getting-started/ci-setup/nx
   ci-setup/github-actions/commit-data-for-github-actions: getting-started/ci-setup/github-actions/commit-data-for-github-actions.md
-  guides/load-balancing: guides/parallelization/load-balancing.md
-  integrations/bitbucket: resources/integrations/bitbucket.md
-  integration-with-playwright/currents-playwright: resources/reporters/currents-playwright.md
-  guides/fail-fast-strategy: guides/parallelization/fail-fast-strategy.md
-  tests/test-status: dashboard/tests/test-status.md
-  integration-with-playwright/playwright-component-testing: getting-started/playwright/integration-with-playwright/playwright-component-testing.md
   administration/email-domain-based-access: dashboard/administration/email-domain-based-access.md
+  getting-started/you-first-cypress-run: getting-started/cypress/you-first-cypress-run.md
+  guides/pw-parallelization/playwright-orchestration: guides/parallelization/pw-parallelization/playwright-orchestration.md
+  guides/pw-parallelization/playwright-sharding: guides/parallelization/pw-parallelization/playwright-sharding.md
+  guides/load-balancing: guides/parallelization/load-balancing.md
+  guides/fail-fast-strategy: guides/parallelization/fail-fast-strategy.md
+  insights/runs-analytics: dashboard/insights-and-analytics.md
+  tests/test-status: dashboard/tests/test-status.md
+  runs/run-timeouts: dashboard/runs/run-timeouts.md
+  integration-with-playwright/currents-playwright: resources/reporters/currents-playwright.md
+  integration-with-playwright/playwright-component-testing: getting-started/playwright/integration-with-playwright/playwright-component-testing.md
   integration-with-playwright/troubleshooting: getting-started/playwright/troubleshooting-playwright.md
   insights/insights-and-analytics: dashboard/insights-and-analytics.md
+  integrations/github/github-app: resources/integrations/github/github-app.md
+  integrations/github/github-oauth: resources/integrations/github/github-oauth.md
+  integrations/github: resources/integrations/github/README.md
+  integrations/slack: resources/integrations/slack.md
+  integrations/gitlab: resources/integrations/gitlab.md
+  integrations/microsoft-teams: resources/integrations/microsoft-teams.md
+  integrations/http-webhooks: resources/integrations/http-webhooks.md
+  integrations/bitbucket: resources/integrations/bitbucket.md
