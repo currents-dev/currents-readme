@@ -46,3 +46,6 @@ redirects:
   integrations/microsoft-teams: resources/integrations/microsoft-teams.md
   integrations/http-webhooks: resources/integrations/http-webhooks.md
   integrations/bitbucket: resources/integrations/bitbucket.md
+  projects/project-settings: dashboard/projects/project-settings.md
+  projects/projects-summary-view: dashboard/projects/projects-summary-view.md
+  projects/archive-and-unarchive-projects: dashboard/projects/archive-and-unarchive-projects.md
