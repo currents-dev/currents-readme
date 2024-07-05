@@ -2,7 +2,7 @@ root: ./
 
 redirects:
   api/api-keys: resources/api/api-keys.md
-  ci-setup: getting-started/ci-setup/github-actions.md
+  ci-setup: getting-started/ci-setup/github-actions/README.md
   ci-setup/gitlab/playwright-gitlab-ci-cd: getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md
   ci-setup/azure-devops/playwright-azure-devops: getting-started/ci-setup/azure-devops/playwright-azure-devops.md
   ci-setup/aws-code-build/playwright-aws-code-build: getting-started/ci-setup/aws-code-build/playwright-aws-code-build.md
