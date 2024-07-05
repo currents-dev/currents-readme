@@ -1,6 +1,7 @@
 root: ./
 
 redirects:
+  api/api-keys: resources/api/api-keys.md
   ci-setup: getting-started/ci-setup/github-actions.md
   ci-setup/gitlab/playwright-gitlab-ci-cd: getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md
   ci-setup/azure-devops/playwright-azure-devops: getting-started/ci-setup/azure-devops/playwright-azure-devops.md
@@ -11,8 +12,11 @@ redirects:
   ci-setup/bitbucket/cypress-bitbucket-pipelines: getting-started/ci-setup/bitbucket/cypress-bitbucket-pipelines.md
   ci-setup/jenkins/jenkins-playwright: getting-started/ci-setup/jenkins/jenkins-playwright.md
   ci-setup/aws-code-build/cypress-aws-code-build: getting-started/ci-setup/aws-code-build/cypress-aws-code-build.md
-  ci-setup/nx: getting-started/ci-setup/nx
+  ci-setup/nx: getting-started/ci-setup/nx.md
   ci-setup/github-actions/commit-data-for-github-actions: getting-started/ci-setup/github-actions/commit-data-for-github-actions.md
+  ci-setup/circleci/cypress-circleci: getting-started/ci-setup/circleci/cypress-circleci.md
+  ci-setup/jenkins/cypress-jenkins: getting-started/ci-setup/jenkins/cypress-jenkins.md
+  ci-setup/azure-devops/cypress-azure-devops: getting-started/ci-setup/azure-devops/cypress-azure-devops.md
   administration/email-domain-based-access: dashboard/administration/email-domain-based-access.md
   getting-started/you-first-cypress-run: getting-started/cypress/you-first-cypress-run.md
   guides/pw-parallelization/playwright-orchestration: guides/parallelization/pw-parallelization/playwright-orchestration.md
@@ -21,7 +25,14 @@ redirects:
   guides/fail-fast-strategy: guides/parallelization/fail-fast-strategy.md
   insights/runs-analytics: dashboard/insights-and-analytics.md
   tests/test-status: dashboard/tests/test-status.md
+  tests/flaky-tests: dashboard/tests/flaky-tests.md
+  tests/spec-file-status: dashboard/tests/spec-file-status.md
+  tests/test-history: dashboard/tests/test-history.md
   runs/run-timeouts: dashboard/runs/run-timeouts.md
+  runs/run-details: dashboard/runs/run-details.md
+  runs/run-status: dashboard/runs/run-status.md
+  runs/cancel-run: dashboard/runs/cancel-run.md
+  runs/deleting-runs: dashboard/runs/deleting-runs.md
   integration-with-playwright/currents-playwright: resources/reporters/currents-playwright.md
   integration-with-playwright/playwright-component-testing: getting-started/playwright/integration-with-playwright/playwright-component-testing.md
   integration-with-playwright/troubleshooting: getting-started/playwright/troubleshooting-playwright.md
