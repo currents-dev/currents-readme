@@ -168,7 +168,7 @@ Our initial release only displays the **total cross-file coverage percentage:**
 <table data-full-width="false"><thead><tr><th>Metric</th><th>Line</th><th>Branch</th><th>Function</th><th>Statement</th></tr></thead><tbody><tr><td>Total items discovered</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Covered items</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Skipped items</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Coverage percentage</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
 
 {% hint style="info" %}
-Please [contact us](https://www.notion.so/12c2b3e075f24a599cb01dfa2f5e3d84?pvs=21) if you need to see additional coverage metrics
+Please contact us if you need to see additional coverage metrics
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/currents-2023-09-13-12.16.07.gif" alt=""><figcaption><p>Switching Aggregated Coverage Metrics</p></figcaption></figure>
