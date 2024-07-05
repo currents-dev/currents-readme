@@ -19,10 +19,11 @@ redirects:
   ci-setup/azure-devops/cypress-azure-devops: getting-started/ci-setup/azure-devops/cypress-azure-devops.md
   administration/email-domain-based-access: dashboard/administration/email-domain-based-access.md
   getting-started/you-first-cypress-run: getting-started/cypress/you-first-cypress-run.md
-  guides/pw-parallelization/playwright-orchestration: guides/parallelization/pw-parallelization/playwright-orchestration.md
-  guides/pw-parallelization/playwright-sharding: guides/parallelization/pw-parallelization/playwright-sharding.md
-  guides/load-balancing: guides/parallelization/load-balancing.md
-  guides/fail-fast-strategy: guides/parallelization/fail-fast-strategy.md
+  guides/parallelization: guides/parallelization-guide/cypress-parallelization.md
+  guides/pw-parallelization/playwright-orchestration: guides/parallelization-guide/pw-parallelization/playwright-orchestration.md
+  guides/pw-parallelization/playwright-sharding: guides/parallelization-guide/pw-parallelization/playwright-sharding.md
+  guides/load-balancing: guides/parallelization-guide/load-balancing.md
+  guides/fail-fast-strategy: guides/parallelization-guide/fail-fast-strategy.md
   insights/runs-analytics: dashboard/insights-and-analytics.md
   tests/test-status: dashboard/tests/test-status.md
   tests/flaky-tests: dashboard/tests/flaky-tests.md
