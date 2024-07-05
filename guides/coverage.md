@@ -139,7 +139,7 @@ npx cypress-cloud run --parallel --record --key <record_key> --ci-build-id <ci-b
 ### Code Coverage for Playwright
 
 {% hint style="info" %}
-🧪 Code coverage for Playwright is still in progress. Please [contact us](https://www.notion.so/12c2b3e075f24a599cb01dfa2f5e3d84?pvs=21) to share your use case and receive updates.
+🧪 Code coverage for Playwright is still in progress. Please contact us to share your use case and receive updates.
 {% endhint %}
 
 ### Browsing Coverage Metrics
