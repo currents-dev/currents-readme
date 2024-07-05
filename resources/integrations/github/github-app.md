@@ -68,7 +68,7 @@ Enabling the "Failed Runs Only" toggle would prevent posting a comment for succe
 You can customize what event can trigger posting a PR comment:
 
 * Run Finish - will post a comment when a run completes its execution without cancellation or a timeout
-* Run Cancelled - will post a comment upon the run's cancellation, due to [fail-fast-strategy.md](../../../guides/parallelization/fail-fast-strategy.md "mention")or cancellation via the Dashboard. See more at [cancel-run.md](../../../dashboard/runs/cancel-run.md "mention")
+* Run Cancelled - will post a comment upon the run's cancellation, due to [fail-fast-strategy.md](../../../guides/parallelization-guide/fail-fast-strategy.md "mention")or cancellation via the Dashboard. See more at [cancel-run.md](../../../dashboard/runs/cancel-run.md "mention")
 * Run Timeout - will post a comment after a run's timeout is detected. Read more about [run-timeouts.md](../../../dashboard/runs/run-timeouts.md "mention").
 
 #### Keep Old **Results**

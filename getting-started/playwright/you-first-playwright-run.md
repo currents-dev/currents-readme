@@ -152,7 +152,7 @@ Please consider exploring those guides to ensure smooth configuration:
 
 * [api-resources](../../resources/api/api-resources/ "mention")
 * [ci-build-id.md](../../guides/ci-build-id.md "mention")
-* [pw-parallelization](../../guides/parallelization/pw-parallelization/ "mention")
+* [pw-parallelization](../../guides/parallelization-guide/pw-parallelization/ "mention")
 * [playwright-tags.md](../../guides/playwright-tags.md "mention")
 * [test-status.md](../../dashboard/tests/test-status.md "mention")
 * [insights-and-analytics.md](../../dashboard/insights-and-analytics.md "mention")
@@ -168,7 +168,7 @@ Treat the **Record Key** as a CI secret - don't expose it publicly&#x20;
 
 In order to collect results from multiple CI runners, please make sure that  `--ci-build-id` is **similar across parallel machines, but is unique for each build.**
 
-Currents support collecting results from parallel executions on multiple machines using the built-in [Playwright Sharding](https://playwright.dev/docs/test-parallel#shard-tests-between-multiple-machines) and also [playwright-orchestration.md](../../guides/parallelization/pw-parallelization/playwright-orchestration.md "mention"). The results will be kept as a single dashboard run as long as they share the same CI build ID.
+Currents support collecting results from parallel executions on multiple machines using the built-in [Playwright Sharding](https://playwright.dev/docs/test-parallel#shard-tests-between-multiple-machines) and also [playwright-orchestration.md](../../guides/parallelization-guide/pw-parallelization/playwright-orchestration.md "mention"). The results will be kept as a single dashboard run as long as they share the same CI build ID.
 
 ### Examples
 

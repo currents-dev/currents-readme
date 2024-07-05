@@ -43,11 +43,11 @@ By using the API call you can extend the - for example:
 * cancel a run when a particular condition is met, e.g.:
   * activate [http-webhooks.md](../../resources/integrations/http-webhooks.md "mention") and parse the results
   * based on the results (e.g. encountering a particular error message), send the cancellation request
-* cancel a run when a certain number of failed tests are detected (it is natively supported via [fail-fast-strategy.md](../../guides/parallelization/fail-fast-strategy.md "mention"))
+* cancel a run when a certain number of failed tests are detected (it is natively supported via [fail-fast-strategy.md](../../guides/parallelization-guide/fail-fast-strategy.md "mention"))
 
 ### Runs cancelled by fail-fast strategy
 
-If you have [fail-fast-strategy.md](../../guides/parallelization/fail-fast-strategy.md "mention") activated for a project, runs cancelled because of fail-fast strategy will be marked with a special badge:
+If you have [fail-fast-strategy.md](../../guides/parallelization-guide/fail-fast-strategy.md "mention") activated for a project, runs cancelled because of fail-fast strategy will be marked with a special badge:
 
 <figure><img src="../../.gitbook/assets/currents-2023-07-04-14.04.56@2x.png" alt=""><figcaption><p>Example of a run cancelled by fail-fast strategy</p></figcaption></figure>
 

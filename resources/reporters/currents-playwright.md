@@ -136,7 +136,7 @@ The following configuration options are available:
   * JS configuration key: `disableTitleTags?: boolean = false`
   * Released in version: `0.11.0`
 * **`--pwc-cancel-after-failures <number | false>`**
-  * abort the cloud run after the specified number of failed tests detected. Overrides the default Currents Project settings. If set, must be a positive integer or `false` to override automatic cancellations and project's [fail-fast-strategy.md](../../guides/parallelization/fail-fast-strategy.md "mention"). Also, see [cancel-run.md](../../dashboard/runs/cancel-run.md "mention") and[fail-fast-strategy.md](../../guides/parallelization/fail-fast-strategy.md "mention")
+  * abort the cloud run after the specified number of failed tests detected. Overrides the default Currents Project settings. If set, must be a positive integer or `false` to override automatic cancellations and project's [fail-fast-strategy.md](../../guides/parallelization-guide/fail-fast-strategy.md "mention"). Also, see [cancel-run.md](../../dashboard/runs/cancel-run.md "mention") and[fail-fast-strategy.md](../../guides/parallelization-guide/fail-fast-strategy.md "mention")
   * Environment variable: `CURRENTS_CANCEL_AFTER_FAILURES`
   * JS configuration key: `cancelAfterFailures?: number | boolean = undefined`
   * Released in version: `0.11.0`
@@ -207,7 +207,7 @@ Check out the example repositories that showcase running Playwright tests on pop
 * [playwright-aws-code-build.md](../../getting-started/ci-setup/aws-code-build/playwright-aws-code-build.md "mention")
 * [playwright-azure-devops.md](../../getting-started/ci-setup/azure-devops/playwright-azure-devops.md "mention")
 
-Explore how to speed up CI Playwright runs by running enabling [pw-parallelization](../../guides/parallelization/pw-parallelization/ "mention").
+Explore how to speed up CI Playwright runs by running enabling [pw-parallelization](../../guides/parallelization-guide/pw-parallelization/ "mention").
 
 ### Good To Know
 

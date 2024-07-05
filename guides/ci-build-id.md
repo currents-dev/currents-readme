@@ -32,7 +32,7 @@ We created two different builds with the same CI Build ID. That will result in 6
 
 
 
-If [parallelization.md](parallelization/parallelization.md "mention") or [playwright-orchestration.md](parallelization/pw-parallelization/playwright-orchestration.md "mention") are enabled, all the spec files will be distributed between those machines.
+If [cypress-parallelization.md](parallelization-guide/cypress-parallelization.md "mention") or [playwright-orchestration.md](parallelization-guide/pw-parallelization/playwright-orchestration.md "mention") are enabled, all the spec files will be distributed between those machines.
 
 ### Generating a unique CI Build ID
 
