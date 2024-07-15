@@ -36,7 +36,7 @@ If you are dealing with a stable and predictable suite of tests that rarely fail
 
 To enable the "fail-fast" strategy navigate to the **Manage Project** screen and toggle **Enable Fail Fast Strategy** controller.
 
-Customers using our [cypress-cloud](../../getting-started/cypress/integrating-with-cypress/cypress-cloud/ "mention") integration can control the "fail-fast" behaviour using the command line CLI flag `--auto-cancel-after-failures <number | false>`.&#x20;
+Customers using our [cypress-cloud](../../resources/reporters/cypress-cloud/ "mention") integration can control the "fail-fast" behaviour using the command line CLI flag `--auto-cancel-after-failures <number | false>`.&#x20;
 
 Customers using our [currents-playwright.md](../../resources/reporters/currents-playwright.md "mention") integration can use `--pwc-auto-cancel-after-failures <number | false>` option.
 

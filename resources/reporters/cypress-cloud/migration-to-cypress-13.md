@@ -7,7 +7,7 @@ description: Use cypress-cloud with Cypress@13
 {% hint style="warning" %}
 **We are suspending our support of Cypress test runner version 13+**
 
-We will continue to support [prior versions](../alternative-cypress-binaries.md) of Cypress.
+We will continue to support [prior versions](../../../getting-started/cypress/integrating-with-cypress/alternative-cypress-binaries.md) of Cypress.
 
 [Read more](https://currents.dev/posts/v13-blocking)
 {% endhint %}

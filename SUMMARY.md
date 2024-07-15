@@ -13,9 +13,6 @@
   * [Integrating with Cypress](getting-started/cypress/integrating-with-cypress/README.md)
     * [Compatibility](getting-started/cypress/integrating-with-cypress/compatibility.md)
     * [Alternative Cypress Binaries](getting-started/cypress/integrating-with-cypress/alternative-cypress-binaries.md)
-    * [cypress-cloud](getting-started/cypress/integrating-with-cypress/cypress-cloud/README.md)
-      * [Batched Orchestration](getting-started/cypress/integrating-with-cypress/cypress-cloud/batched-orchestration.md)
-      * [Migration to Cypress@13](getting-started/cypress/integrating-with-cypress/cypress-cloud/migration-to-cypress-13.md)
   * [Troubleshooting Cypress](getting-started/cypress/troubleshooting-cypress.md)
 * [CI Setup](getting-started/ci-setup/README.md)
   * [GitHub Actions](getting-started/ci-setup/github-actions/README.md)
@@ -97,6 +94,9 @@
 ## Resources
 
 * [Reporters](resources/reporters/README.md)
+  * [cypress-cloud](resources/reporters/cypress-cloud/README.md)
+    * [Batched Orchestration](resources/reporters/cypress-cloud/batched-orchestration.md)
+    * [Migration to Cypress@13](resources/reporters/cypress-cloud/migration-to-cypress-13.md)
   * [@currents/cli](resources/reporters/currents-cli.md)
   * [@currents/playwright](resources/reporters/currents-playwright.md)
 * [Integrations](resources/integrations/README.md)

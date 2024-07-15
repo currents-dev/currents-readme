@@ -11,7 +11,7 @@ In Feb 2023, Cypress.io team decided to [restrict access](#user-content-fn-1)[^1
 {% hint style="info" %}
 **Please note**
 
-Migrate to [cypress-cloud](../../getting-started/cypress/integrating-with-cypress/cypress-cloud/) if you are seeing any of the errors below
+Migrate to [cypress-cloud](cypress-cloud/) if you are seeing any of the errors below
 
 * `Integrity check failed`&#x20;
 * `DecryptionError: JWE Recipients missing or incorrect type`

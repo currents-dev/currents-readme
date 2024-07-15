@@ -22,7 +22,7 @@ Containers use Currents cloud service to get instructions about tests (technical
 
 The simplistic animation below demonstrates the parallelization of 6 spec files using 3 containers.
 
-* Each container runs an identical `cypress` or [`cypress-cloud`](../../getting-started/cypress/integrating-with-cypress/cypress-cloud/) command with `--parallel` flag
+* Each container runs an identical `cypress` or [`cypress-cloud`](../../resources/reporters/cypress-cloud/) command with `--parallel` flag
 * Each container connects to Currents dashboard to get instructions about the next spec file to run
 * Currents dashboard assigns each container a spec file
 * Each container runs its spec file
@@ -39,7 +39,7 @@ Yes. You still need CI machines that will run the actual tests. Currents Dashboa
 
 Yes! You don't have to have different machines/containers for running cypress tests in parallel.&#x20;
 
-You can run multiple [`cypress-cloud`](../../getting-started/cypress/integrating-with-cypress/cypress-cloud/) / `cypress` instances on the same machine. Keep in mind that cypress tests are quite resource-demanding - running too many instances of a test runner can actually slow down the overall execution or even crash the machine.
+You can run multiple [`cypress-cloud`](../../resources/reporters/cypress-cloud/) / `cypress` instances on the same machine. Keep in mind that cypress tests are quite resource-demanding - running too many instances of a test runner can actually slow down the overall execution or even crash the machine.
 
 ### How to run cypress tests in parallel locally?
 
