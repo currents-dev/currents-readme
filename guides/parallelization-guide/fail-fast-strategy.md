@@ -38,7 +38,7 @@ To enable the "fail-fast" strategy navigate to the **Manage Project** screen and
 
 Customers using our [cypress-cloud](../../resources/reporters/cypress-cloud/ "mention") integration can control the "fail-fast" behaviour using the command line CLI flag `--auto-cancel-after-failures <number | false>`.&#x20;
 
-Customers using our [currents-playwright.md](../../resources/reporters/currents-playwright.md "mention") integration can use `--pwc-auto-cancel-after-failures <number | false>` option.
+Customers using our [currents-playwright.md](../../resources/reporters/currents-playwright.md "mention") integration can use `--pwc-cancel-after-failures <number | false>` option.
 
 &#x20;If set, it overrides the project's default fail-fast strategy setting. If not set, use the default project settings:
 
@@ -47,5 +47,6 @@ Customers using our [currents-playwright.md](../../resources/reporters/currents-
 
 For example
 
+* `npx pwc --key xxx --project-id xxx --ci-build-id id-001 --pwc-cancel-after-failures 1`
 * `npx cypress-cloud run --parallel --record --key xxx --ci-build-id id-001 --spec "./cypress/e2e/*.spec.js" --auto-cancel-after-failures`**`false`** will deactivate the fail-fast strategy, regardless of your project settings&#x20;
 * `npx cypress-cloud run --parallel --record --key xxx --ci-build-id id-001 --spec "./cypress/e2e/*.spec.js" --auto-cancel-after-failures`**`5`** will stop the run if more than 5 failed tests detected
