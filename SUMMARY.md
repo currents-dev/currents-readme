@@ -98,6 +98,8 @@
     * [Migration to Cypress@13](resources/reporters/cypress-cloud/migration-to-cypress-13.md)
   * [@currents/cli](resources/reporters/currents-cli.md)
   * [@currents/playwright](resources/reporters/currents-playwright.md)
+  * [@currents/jest](resources/reporters/currents-jest.md)
+  * [@currents/cmd](resources/reporters/currents-cmd.md)
 * [Integrations](resources/integrations/README.md)
   * [GitHub](resources/integrations/github/README.md)
     * [GitHub App](resources/integrations/github/github-app.md)
