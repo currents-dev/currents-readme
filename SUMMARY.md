@@ -86,7 +86,7 @@
 * [Test Suite Performance Explorer](dashboard/test-suite-performance-explorer/README.md)
   * [Spec Files Explorer](dashboard/test-suite-performance-explorer/spec-files-explorer/README.md)
     * [Spec Files Performance](dashboard/test-suite-performance-explorer/spec-files-explorer/spec-files-performance.md)
-  * [Tests Explorer](dashboard/test-suite-performance-explorer/tests-explorer/README.md)
+  * [Test Explorer](dashboard/test-suite-performance-explorer/tests-explorer/README.md)
     * [Tests Performance](dashboard/test-suite-performance-explorer/tests-explorer/tests-performance.md)
   * [Errors Explorer](dashboard/test-suite-performance-explorer/errors-explorer.md)
 

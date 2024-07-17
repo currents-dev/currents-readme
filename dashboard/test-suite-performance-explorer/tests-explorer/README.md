@@ -1,8 +1,8 @@
 ---
-description: Holistic performance view of your Tests
+description: Explore tests, history and performance
 ---
 
-# Tests Explorer
+# Test Explorer
 
 The Tests Explorer feature provides valuable insights into the testing suite performance, allowing users to sort and examine tests to identify and track tests that may require further investigation based on the executions recorded during the provided date range. The feature helps users identify problematic tests with high flakiness, long duration, or high failure rates.&#x20;
 
