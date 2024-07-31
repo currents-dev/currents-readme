@@ -170,4 +170,10 @@ Beware of the following limitations
 * [**Playwright Project dependencies**](https://playwright.dev/docs/test-projects#dependencies) are not currently supported - i.e. if you have projects that depend one on another, orchestration will not consider the dependencies. As a workaround, run the projects in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)&#x20;
 * [**Global Setup and Teardown**](https://playwright.dev/docs/test-global-setup-teardown). An orchestrated execution will run a playwright command for each individual file of your testing suite. Beware, that the global setup or teardown routines will run for each spec file, accordingly.&#x20;
 * **Rerunning a failed CI** execution requires generating a new [ci-build-id.md](../../ci-build-id.md "mention") also a rerun will include all the tests - not only the failed ones.&#x20;
+*   Playwright's `--last-failed` [flag](https://playwright.dev/docs/test-cli#reference) reruns the failed tests using the results from  `last-run.json` file (generated automatically by Playwright). When running in CI using `--last-failed` becomes tricky:
+
+    * sharded runs contain only a subset of test results, rather than the the results of the whole run
+    * orchestrated runs execute one spec file at a time, hence it will generate a new file for every spec file
+
+    If you want to rerun only the failed test you would need to collect the failed results from multiple machines (and files), alternatively you can use [api](../../../resources/api/ "mention") to get all the failures at once.
 * The `pwc-p` command overrides any reporters specified in your configuration. To use additional reporters they need to be [provided on the command line](playwright-orchestration.md#using-additional-reporters).&#x20;
