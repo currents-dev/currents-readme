@@ -4,45 +4,52 @@ description: Running Playwright tests with Currents Dashboard
 
 # Your First Playwright Run
 
-Integrating Currents with Playwright enables recording test results together with screenshots, videos, and traces to the cloud reporting service. That unlocks more effective troubleshooting, analytics and proactive monitoring, extending your team's workflows using REST API, WebHooks and built-in integration with Slack, GitHub etc.&#x20;
+Integrate Currents with Playwright to enable recording test results together with screenshots, videos, and traces, unlocking more effective troubleshooting, analytics and proactive monitoring. Automate your team's workflows using REST API, WebHooks and built-in integration with Slack, GitHub, and more.&#x20;
 
-{% embed url="https://www.loom.com/share/050c43a3cc6a47d08e3735a50a92eb95?hideEmbedTopBar=true&hide_owner=true&hide_share=true&hide_title=true" %}
-Walkthrough creating your first Playwright run on Currents
-{% endembed %}
-
-### **Overview**
-
-Here's an overview of what steps you'll need to take to start running Playwright tests using the Currents dashboard and a CI:
-
-* Create an organization and a project
-* Install `@currents/playwright` npm package
-* Enable traces, videos and screenshots in `playwright.config.js|ts` to enhance the dashboard test results
-* Run the tests using `pwc` CLI command or by configuring an extra reporter
-* Update your CI provider configuration
+## **Overview**
 
 {% embed url="https://www.loom.com/share/1227e61104c84365b6aaec144fc9a4c6?hideEmbedTopBar=true.&hide_owner=true&hide_share=true&hide_title=false" %}
 Setting Up Playwright in 2 minutes
 {% endembed %}
 
-### Create an Organization and a Project
+Here's an overview of what steps you'll need to take to start running Playwright tests using the Currents dashboard and a CI:
+
+1. Create an organization and a project
+2. Install `@currents/playwright` npm package
+3. Enable traces, videos and screenshots in `playwright.config.js|ts` to enhance the dashboard test results
+4. Run the tests using `pwc` CLI command or by configuring an extra reporter
+
+## Prerequisites
+
+<details>
+
+<summary>Create an Organization and a Project</summary>
 
 After signing up for the dashboard service, you will be prompted to create a new organization and a project. You can change their names later.
 
-![Creating an Organization and a Project in Currents dashboard](../../.gitbook/assets/currents-create-org.gif)
+<img src="../../.gitbook/assets/currents-create-org.gif" alt="Creating an Organization and a Project in Currents dashboard" data-size="original">
 
 After creating a new organization and a project, you'll see on-screen instructions with your newly created **Project ID** and **Record Key.**&#x20;
 
 Select Playwright from the framework selection list and then choose the preferred installation method (see below).
 
-### Install `@currents/playwright` package
+</details>
+
+<details>
+
+<summary>Install @currents/playwright package</summary>
 
 ```bash
 npm i -D @currents/playwright
 ```
 
-### Update `playwright.config.js|ts`
+</details>
 
-Enabled traces, videos and screenshots in `playwright.config.js|ts` to enhance the dashboard test results.
+<details>
+
+<summary>Enable traces, videos and screenshots (Recommended)</summary>
+
+Enable traces, videos and screenshots in `playwright.config.js|ts` to enhance the dashboard test results.
 
 ```javascript
 use: {
@@ -50,44 +57,42 @@ use: {
     trace: "on",
     video: "on",
     screenshot: "on",
-  }
+}
 ```
 
-### Create your first Playwright run&#x20;
+
+
+</details>
+
+## Create your first Playwright run&#x20;
+
+There are two ways to integrate Currents to your Playwright project. You can use our CLI, or integrate using reporter configuration.
+
+### Using the CLI
 
 `@currents/playwright` provides an executable script named `pwc` - it runs `playwright` with a predefined configuration.&#x20;
-
-Alternatively, you can add `@currents/playwright` reporter to `playwright.config.ts`
-
-#### Using `pwc` CLI command
 
 Run `pwc` to create your first Playwright run in Currents dashboard.&#x20;
 
 ```
-npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id hello-currents
+npx pwc --key RECORD_KEY --project-id PROJECT_ID
 ```
 
 * Set the **Record Key**, and **Project ID** obtained from Currents dashboard in the previous step.&#x20;
-* Provide `--ci-build-id` to identify this run in the dashboard - the example above uses `hello-currents` as the build ID.
 
-{% hint style="info" %}
-Please note that CI environments require generating the Build ID based on CI environment variables.&#x20;
+Explore [@currents/playwright](../../resources/reporters/currents-playwright.md) npm package documentation for configuration options.
 
-`@currents/playwright` automatically detects the Build ID for popular CI providers, but in some cases, you need to define it explicitly.&#x20;
+### Using reporter configuration
 
-We encourage you to invest 3 minutes into learning more about [ci-build-id.md](../../guides/ci-build-id.md "mention") to prevent confusion during the setup.&#x20;
-{% endhint %}
+Add `@currents/playwright` reporter to `playwright.config.js|ts`
 
-#### Manually configuring `@currents/playwright` reporter
-
-Alternatively, you can explicitly add the reporter to Playwright configuration:
+Explicitly add the reporter to Playwright configuration:
 
 ```typescript
 import { defineConfig, devices, PlaywrightTestConfig } from "@playwright/test";
 import { CurrentsConfig, currentsReporter } from "@currents/playwright";
 
 const currentsConfig: CurrentsConfig = {
-  ciBuildId: "ci-build-id", // 📖 https://currents.dev/readme/guides/ci-build-id
   recordKey: "secret record key", // 📖 https://currents.dev/readme/guides/record-key
   projectId: "project id", // get one at https://app.currents.dev
 };
@@ -114,8 +119,6 @@ const config: PlaywrightTestConfig = {
 };
 
 export default defineConfig(config);
-
-
 ```
 
 You can also set environment variables to provide the configuration options to Currents reporter:
@@ -142,42 +145,14 @@ cmd /V /C "set CURRENTS_PROJECT_ID=PROJECT_ID // the projectId from https://app.
 
 With the reporter configured, you can run `npx playwright test` to start sending the results to Currents dashboard.
 
-### Explore the Newly Created Run
+## Explore the Newly Created Run
 
 If Currents reporter is set up correctly, the execution results will show on the Currents dashboard. Additionally, a link to the recorded run will also be available at the end of the execution:
 
 <figure><img src="../../.gitbook/assets/currents-2023-04-16-19.36.20@2x.png" alt=""><figcaption><p>A link to recorded results appearing at the end of Playwright tests execution</p></figcaption></figure>
 
-Please consider exploring those guides to ensure smooth configuration:
+## Explore
 
-* [api-resources](../../resources/api/api-resources/ "mention")
-* [ci-build-id.md](../../guides/ci-build-id.md "mention")
-* [pw-parallelization](../../guides/parallelization-guide/pw-parallelization/ "mention")
-* [playwright-tags.md](../../guides/playwright-tags.md "mention")
-* [test-status.md](../../dashboard/tests/test-status.md "mention")
-* [insights-and-analytics.md](../../dashboard/insights-and-analytics.md "mention")
-* [run-details.md](../../dashboard/runs/run-details.md "mention")
+Learn more about our dashboard and its features.
 
-Now you can start configuring your CI environment to record Playwright tests to Currents.
-
-### Update CI Provider Configuration
-
-{% hint style="info" %}
-Treat the **Record Key** as a CI secret - don't expose it publicly&#x20;
-{% endhint %}
-
-In order to collect results from multiple CI runners, please make sure that  `--ci-build-id` is **similar across parallel machines, but is unique for each build.**
-
-Currents support collecting results from parallel executions on multiple machines using the built-in [Playwright Sharding](https://playwright.dev/docs/test-parallel#shard-tests-between-multiple-machines) and also [playwright-orchestration.md](../../guides/parallelization-guide/pw-parallelization/playwright-orchestration.md "mention"). The results will be kept as a single dashboard run as long as they share the same CI build ID.
-
-### Examples
-
-Check out the example repositories that showcase running Playwright tests on popular CI providers and recording the results to Currents:
-
-* [playwright-github-actions.md](../ci-setup/github-actions/playwright-github-actions.md "mention")
-* [playwright-gitlab-ci-cd.md](../ci-setup/gitlab/playwright-gitlab-ci-cd.md "mention")
-* [jenkins-playwright.md](../ci-setup/jenkins/jenkins-playwright.md "mention")
-* [playwright-circleci.md](../ci-setup/circleci/playwright-circleci.md "mention")
-* [playwright-aws-code-build.md](../ci-setup/aws-code-build/playwright-aws-code-build.md "mention")
-
-Explore [@currents/playwright](../../resources/reporters/currents-playwright.md) npm package documentation for configuration options.
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Setup CI</td><td></td><td></td><td><a href="../ci-setup/">ci-setup</a></td></tr><tr><td>Speed Up CI</td><td></td><td></td><td><a href="../../guides/parallelization-guide/pw-parallelization/">pw-parallelization</a></td></tr><tr><td>Playwright Tags</td><td></td><td></td><td><a href="../../guides/playwright-tags.md">playwright-tags.md</a></td></tr><tr><td>Test Status</td><td></td><td></td><td><a href="../../dashboard/tests/test-status.md">test-status.md</a></td></tr><tr><td>Insights and Analytics</td><td></td><td></td><td><a href="../../dashboard/insights-and-analytics.md">insights-and-analytics.md</a></td></tr><tr><td>Run Details</td><td></td><td></td><td><a href="../../dashboard/runs/run-details.md">run-details.md</a></td></tr></tbody></table>
