@@ -55,6 +55,7 @@
 * [Coverage](guides/coverage.md)
 * [Playwright Tags](guides/playwright-tags.md)
 * [Playwright Component Testing](guides/playwright-component-testing.md)
+* [Playwright Annotations](guides/playwright-annotations.md)
 
 ## Dashboard
 

@@ -4,7 +4,7 @@ description: Proactive detection of regressions in tests performance
 
 # Automated Reports
 
-✨ Currents **Automated Reports** help teams to proactively identify regressions in test performance and take an action:
+✨ Currents **Automated Reports** helps teams to proactively identify regressions in test performance and take an action:
 
 * Prevent problems that go unnoticed for weeks
 * Reduce the waste of CI resources caused by failed or flaky tests
