@@ -67,4 +67,6 @@ Currents will mention the test owners when their tests fail via Slack (if Slack 
 * Add Slack username, like `johnsmith` to notify individual users
 * Add `<!channel>` to notify the whole channel associated with the Slack integration (equivalent to typing `@channel` in Slack UI)
 
+You can specify multiple owners using comma-separated value, for example `user1, user2`
+
 <figure><img src="../.gitbook/assets/currents-2024-08-22-00.25.37@2x.png" alt=""><figcaption><p>Using Slack to activate Slack notifications</p></figcaption></figure>
