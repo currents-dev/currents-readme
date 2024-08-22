@@ -156,7 +156,7 @@ PWTEST_BLOB_DO_NOT_REMOVE=1 pwc-p --key <record-key> --project-id <id> --ci-buil
 You can generate other reports by passing the blob results to the merge-reports command.
 
 ```bash
-npx playwright merge-reports --reporter html ./blob-report
+npx playwright merge-reports --reporter=html ./blob-report
 ```
 
 ### Limitations and Nuances
