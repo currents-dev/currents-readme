@@ -4,6 +4,10 @@ description: Using Playwright Annotations to enhance reporting to Currents dashb
 
 # Playwright Annotations
 
+{% hint style="info" %}
+Requires `@currents/playwright` 1.5.0+
+{% endhint %}
+
 [Playwright Annotations](https://playwright.dev/docs/test-annotations) is a flexible way to add additional information about tests, like:
 
 * ownership information
