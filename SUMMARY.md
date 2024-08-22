@@ -83,7 +83,7 @@
   * [Test Status](dashboard/tests/test-status.md)
   * [Flaky Tests](dashboard/tests/flaky-tests.md)
   * [Test History](dashboard/tests/test-history.md)
-* [Test Suite Performance Explorer](dashboard/test-suite-performance-explorer/README.md)
+* [Test Suite Explorer](dashboard/test-suite-performance-explorer/README.md)
   * [Spec Files Explorer](dashboard/test-suite-performance-explorer/spec-files-explorer/README.md)
     * [Spec Files Performance](dashboard/test-suite-performance-explorer/spec-files-explorer/spec-files-performance.md)
   * [Test Explorer](dashboard/test-suite-performance-explorer/tests-explorer/README.md)
