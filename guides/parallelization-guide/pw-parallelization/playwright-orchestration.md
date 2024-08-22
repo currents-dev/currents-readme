@@ -159,6 +159,8 @@ You can generate other reports by passing the blob results to the merge-reports 
 npx playwright merge-reports --reporter=html ./blob-report
 ```
 
+Check an [example of Github Actions setup here.](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-or8n.yml)
+
 ### Limitations and Nuances
 
 * Orchestration is only effective for suites with relatively large number of **spec files** (not tests)
