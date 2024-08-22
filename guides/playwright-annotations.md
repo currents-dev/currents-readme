@@ -43,6 +43,15 @@ Currents displays the annotations for recorded tests:
 
 <figure><img src="../.gitbook/assets/currents-2024-08-21-23.22.12@2x.png" alt=""><figcaption><p>Playwright annotations in Currents</p></figcaption></figure>
 
+Currents will apply the following modifiations to annotations
+
+* types: `skip, fixme, fail` are reserved by Playwright
+* `32` max distinct annotations per test, extra annotations will be truncated (sortedby the order of appearance)
+* `type` field is limited to `256` characters, the values will be trimmed and truncated to the max length
+* `description` field is limited to `2048` characters, the values will be trimmed and truncated to the max length
+* If `type` field is empty after trimming, the annotation will be ignored
+* fields with the same `type` will be merged - their description will be merged into one field, separated by comma
+
 ### Test Owners
 
 While Currents displays all the annotations related to a test, some annotation have a special meaning, for example - test owner.
