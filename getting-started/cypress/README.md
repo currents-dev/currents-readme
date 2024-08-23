@@ -1,2 +1,6 @@
+---
+icon: tree
+---
+
 # Cypress
 

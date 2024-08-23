@@ -2,6 +2,7 @@
 description: >-
   Coverage reports for Cypress and Playwright - collecting and sending the
   reports to Currents
+icon: circle-three-quarters-stroke
 ---
 
 # Coverage

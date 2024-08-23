@@ -1,2 +1,6 @@
+---
+icon: rectangle-history
+---
+
 # Projects
 

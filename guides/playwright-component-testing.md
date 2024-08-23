@@ -1,5 +1,6 @@
 ---
 description: Using Currents with Playwright Component testing
+icon: diamonds-4
 ---
 
 # Playwright Component Testing
@@ -21,4 +22,4 @@ The project contains two simple component tests:
 
 The results will be sent to Currents for more effective troubleshooting, screenshots, playwright traces and collecting performance metrics:
 
-<figure><img src="../../../.gitbook/assets/280147761-a7b95888-416d-407e-bf00-833f893765a7.gif" alt=""><figcaption><p>Example of collecting Playwright Component test results </p></figcaption></figure>
+<figure><img src="../.gitbook/assets/280147761-a7b95888-416d-407e-bf00-833f893765a7.gif" alt=""><figcaption><p>Example of collecting Playwright Component test results </p></figcaption></figure>

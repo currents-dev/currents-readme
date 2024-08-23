@@ -2,9 +2,10 @@
 description: >-
   Optimize your Test Management with a holistic view of your spec files, tests
   and errors
+icon: eye
 ---
 
-# Test Suite Performance Explorer
+# Test Suite Explorer
 
 Test Suite Performance Explorer is a test management and analytics tool that enables users to examine, track and troubleshoot the performance of their test suite on a spec or individual test level.
 

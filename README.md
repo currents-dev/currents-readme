@@ -1,5 +1,6 @@
 ---
 description: A cloud reporting service for Playwright and Cypress tests
+icon: house-window
 ---
 
 # What is Currents?

@@ -1,5 +1,6 @@
 ---
 description: Using Playwright Annotations to enhance reporting to Currents dashboard
+icon: note-sticky
 ---
 
 # Playwright Annotations

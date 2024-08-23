@@ -1,5 +1,6 @@
 ---
 description: How to tag Playwright executions in Currents
+icon: tag
 ---
 
 # Playwright Tags
@@ -7,8 +8,8 @@ description: How to tag Playwright executions in Currents
 {% hint style="info" %}
 **Note**
 
-* Run-level tagging is available in [currents-playwright.md](../../resources/reporters/currents-playwright.md "mention") version **0.7.0+**
-* Project-level and test-level tagging is available in [currents-playwright.md](../../resources/reporters/currents-playwright.md "mention") version **0.10.0+**
+* Run-level tagging is available in [currents-playwright.md](../resources/reporters/currents-playwright.md "mention") version **0.7.0+**
+* Project-level and test-level tagging is available in [currents-playwright.md](../resources/reporters/currents-playwright.md "mention") version **0.10.0+**
 {% endhint %}
 
 {% hint style="info" %}
@@ -23,12 +24,12 @@ Using tags is a common technique for better classifying recorded test results an
 
 The tags are available for producing meaningful reports, exploring metrics, narrowing down Slack notifications, filtering the results, API responses and more.
 
-<figure><img src="../../.gitbook/assets/currents-2023-10-30-13.41.59@2x.png" alt=""><figcaption><p>Example of using Tags for narrowing down Flakiness chart in Currents Dashboard</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/currents-2023-10-30-13.41.59@2x.png" alt=""><figcaption><p>Example of using Tags for narrowing down Flakiness chart in Currents Dashboard</p></figcaption></figure>
 
 ### Playwright Tags
 
 {% hint style="info" %}
-[currents-playwright.md](../../resources/reporters/currents-playwright.md "mention") version **0.10.0+** is required for test title tags
+[currents-playwright.md](../resources/reporters/currents-playwright.md "mention") version **0.10.0+** is required for test title tags
 {% endhint %}
 
 #### Test title tags
@@ -47,7 +48,7 @@ test('Test full report @slow', async ({ page }) => {
 
 ...will create a run with tags: **`fast`** and **`slow`**
 
-<figure><img src="../../.gitbook/assets/currents-2023-10-29-23.13.10@2x.png" alt=""><figcaption><p>Example of Currents run created with tags @fast and @slow</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/currents-2023-10-29-23.13.10@2x.png" alt=""><figcaption><p>Example of Currents run created with tags @fast and @slow</p></figcaption></figure>
 
 #### Test group tags
 
@@ -75,7 +76,7 @@ Currents will assign the following tags to the created items:
 | <pre><code>Test full report @slow
 </code></pre> | `groupTag`, `slow`         |
 
-<figure><img src="../../.gitbook/assets/currents-2023-10-30-14.48.36@2x.png" alt=""><figcaption><p>Example of a run created with various tags when tagging a test group</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/currents-2023-10-30-14.48.36@2x.png" alt=""><figcaption><p>Example of a run created with various tags when tagging a test group</p></figcaption></figure>
 
 #### Tags with `--grep` applied
 
@@ -85,7 +86,7 @@ If certain tags are excluded from the execution, for example by using `--grep` C
 $ npx playwright test --grep @fast
 ```
 
-<figure><img src="../../.gitbook/assets/currents-2023-10-30-14.36.53@2x.png" alt=""><figcaption><p>Applying tags when certain tests are excluded using --grep CLI option</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/currents-2023-10-30-14.36.53@2x.png" alt=""><figcaption><p>Applying tags when certain tests are excluded using --grep CLI option</p></figcaption></figure>
 
 #### Removing tags from test titles
 
@@ -99,12 +100,12 @@ In the example above, `Test login page @slow` and `Test login page @slow @login`
 
 #### Disabling parsing test title tags
 
-You can disable parsing test title tags altogether by adding `--pwc-disable-title-tags` CLI option. See  [currents-playwright.md](../../resources/reporters/currents-playwright.md "mention") for additional configuration options, available in versions `0.11.0+` .
+You can disable parsing test title tags altogether by adding `--pwc-disable-title-tags` CLI option. See  [currents-playwright.md](../resources/reporters/currents-playwright.md "mention") for additional configuration options, available in versions `0.11.0+` .
 
 ### Run-level Tags
 
 {% hint style="info" %}
-[currents-playwright.md](../../resources/reporters/currents-playwright.md "mention") version **0.7.0+** is required to use run-level tags
+[currents-playwright.md](../resources/reporters/currents-playwright.md "mention") version **0.7.0+** is required to use run-level tags
 {% endhint %}
 
 In addition to encoding tags in test titles, you can explicitly tag the whole run (or a playwright project). There are multiple ways to explicitly tag a run.
@@ -142,7 +143,7 @@ reporter: [
 
 #### Tagging a run using `CURRENTS_TAG` environment variable
 
-You can tag playwright execution by setting the `CURRENTS_TAG` environment variable value to a comma-separated list of tags, for example, with [currents-playwright.md](../../resources/reporters/currents-playwright.md "mention") reporter configured:
+You can tag playwright execution by setting the `CURRENTS_TAG` environment variable value to a comma-separated list of tags, for example, with [currents-playwright.md](../resources/reporters/currents-playwright.md "mention") reporter configured:
 
 ```
 CURRENTS_TAG=tagA,tagB npx playwright run ...
@@ -160,7 +161,7 @@ If there are multiple definitions of run-level tags, Currents will pick the tags
 ### Project-level Tags
 
 {% hint style="info" %}
-[currents-playwright.md](../../resources/reporters/currents-playwright.md "mention") version **0.10.0+** is required for project-level tags
+[currents-playwright.md](../resources/reporters/currents-playwright.md "mention") version **0.10.0+** is required for project-level tags
 {% endhint %}
 
 You can tag Playwright projects by using **`metadata.pwc.tags`** field in the project's configuration. For example, given the following Playwright project configuration:
@@ -189,7 +190,7 @@ You can tag Playwright projects by using **`metadata.pwc.tags`** field in the pr
 
 Currents will create a run tagged with `desktop`, `chrome` + all the tags extracted from individual tests.
 
-<figure><img src="../../.gitbook/assets/currents-2023-10-30-15.12.47@2x.png" alt=""><figcaption><p>Example of using project-level tags</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/currents-2023-10-30-15.12.47@2x.png" alt=""><figcaption><p>Example of using project-level tags</p></figcaption></figure>
 
 ### How Tags are Applied
 
@@ -222,7 +223,7 @@ test('Test login B @tagB', async ({ page }) => {
 
 And adding a run-level tag `runTag01` using the command: `pwc ... --tag runTag01` will result in the following tags:
 
-<figure><img src="../../.gitbook/assets/tags-example-application.png" alt=""><figcaption><p>Application of tags example</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/tags-example-application.png" alt=""><figcaption><p>Application of tags example</p></figcaption></figure>
 
 | Item                                  | Applied Tags               |
 | ------------------------------------- | -------------------------- |

@@ -1,5 +1,6 @@
 ---
 description: Using --ci-build-id for Playwright and Cypress tests parallelization
+icon: file-waveform
 ---
 
 # CI Build ID

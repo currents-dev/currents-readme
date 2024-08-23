@@ -1,2 +1,6 @@
+---
+icon: lambda
+---
+
 # Tests
 

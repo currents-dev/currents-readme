@@ -1,5 +1,6 @@
 ---
 description: Using record key to associate your runs with your organization
+icon: key
 ---
 
 # Record Key

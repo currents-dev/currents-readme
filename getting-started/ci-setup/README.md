@@ -1,5 +1,6 @@
 ---
 description: Learn how to integrate Currents with your CI provider.
+icon: robot
 ---
 
 # CI Setup

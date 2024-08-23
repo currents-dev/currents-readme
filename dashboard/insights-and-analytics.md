@@ -1,5 +1,6 @@
 ---
 description: Tests and Runs insights and analytics guide
+icon: chart-mixed
 ---
 
 # Insights and Analytics
