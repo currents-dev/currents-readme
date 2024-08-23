@@ -15,7 +15,7 @@ Currents supports SSO integration via SAML 2.0. When enabled, authentication wil
 
 Follow the instructions:
 
-* Setup with [okta.md](okta.md "mention")&#x20;
+* Setup with [okta](okta/ "mention")&#x20;
 * Manual [saml2.0-configuration.md](saml2.0-configuration.md "mention")
 * Enabling [idp-initiated-sessions.md](idp-initiated-sessions.md "mention")
 
@@ -24,7 +24,7 @@ Follow the instructions:
 Please note that there are certain limitations to Currents SSO integration:
 
 * Custom Roles for team members are not supported - the roles need to be manually configured for each user via the dashboard. New accounts will be created with "member" role.
-* User Deletion - Currents won't be notified if user access is revoked in IdP. You can delete the users on the team page.
+* User Deletion - For IdPs that do not support SCIMv2 you can manually delete the users on the Currents team page. Automatic user deletion is only supported via SCIMv2.
 
 ### Troubleshooting
 

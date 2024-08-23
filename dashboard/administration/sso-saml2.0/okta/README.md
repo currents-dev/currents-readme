@@ -1,5 +1,5 @@
 ---
-description: Setting up SAML2.0 SSO with Okta as an IdP - Cypress SSO
+description: Setting up SAML2.0 SSO with Okta as an IdP - Currents SSO
 ---
 
 # Okta
@@ -18,13 +18,13 @@ Enabling SSO will affect all users of your organization who access Currents, use
 
 * SP-initiated SSO (Single Sign-On)
 * Just-In-Time provisioning
+* SCIM provisioning
 
 For more information on the listed features, visit the [Okta Glossary](https://help.okta.com/okta\_help.htm?type=oie\&id=ext\_glossary).
 
 ### Non Supported Features
 
 * Custom Roles for team members are not supported at the moment - the roles need to be manually configured for each user via the dashboard; new accounts will be created with "member" role
-* User Deletion - Currents won't be notified if user access is revoked in IdP. You can delete the users on the team page
 * Enabling SSO will mandate the auth method for all the team members
 * IdP-initiated SSO (through [Third-party Initiated Login](https://openid.net/specs/openid-connect-core-1\_0.html#ThirdPartyInitiatedLogin))
 
@@ -32,11 +32,11 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 
 * Install **Currents** application from Okta Integration Network (OIN) application catalogue: **Applications > Applications > Browse App Catalogue.** Type "**Currents**", select the application from the list, then click **Add Integration** and follow on-screen instructions
 
-<figure><img src="../../../.gitbook/assets/currents-2023-05-19-23.56.26@2x.png" alt=""><figcaption><p>Installing Currents from Okta ION</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/currents-2023-05-19-23.56.26@2x.png" alt=""><figcaption><p>Installing Currents from Okta ION</p></figcaption></figure>
 
 * After installing the app, select the **Sign On** tab for the newly installed **Currents app**
 
-<figure><img src="../../../.gitbook/assets/currents-2023-05-23-15.07.42@2x.png" alt=""><figcaption><p>Getting Metadata URL from Currents SAML ION application</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/currents-2023-05-23-15.07.42@2x.png" alt=""><figcaption><p>Getting Metadata URL from Currents SAML ION application</p></figcaption></figure>
 
 * Copy the Metadata URL from the Okta Admin Console, SAML 2.0 Sign on methods section.
 * Contact the **Currents** support team (support@currents.dev) and request that they enable SAML 2.0 for your account. Include the "Metadata URL" value from the previous step.
