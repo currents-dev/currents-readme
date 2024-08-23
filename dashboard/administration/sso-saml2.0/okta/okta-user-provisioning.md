@@ -4,10 +4,6 @@ description: Provision and de-provision users in Currents using Okta
 
 # Okta User provisioning
 
-{% hint style="warning" %}
-This integration with Okta is currently under development and is not available to customers yet. Contact to learn more.
-{% endhint %}
-
 ### Supported features
 
 * **Create users:**
