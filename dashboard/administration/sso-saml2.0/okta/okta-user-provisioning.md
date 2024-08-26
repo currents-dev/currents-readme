@@ -53,17 +53,37 @@ In order to setup provisioning you first need to:
 <figure><img src="../../../../.gitbook/assets/currents-saml-app.png" alt=""><figcaption><p>Navigating to the Currents Okta App</p></figcaption></figure>
 
 * Select the **Provisioning** tab and click **Configure API Integration**.
-* Check the **Enable API Integration** box. Then provide the **Endpoint** and **Token** information from Currents.
+
+<figure><img src="../../../../.gitbook/assets/okta-currents-provisoning.png" alt=""><figcaption><p>Configure API Integration</p></figcaption></figure>
+
+* Check the **Enable API Integration** box. Then provide the **Base URL** (Endpoint) and **API Token** information from Currents.
 * Click **Test API Credentials** and verify everything is working. Click **Save.**
+
+<figure><img src="../../../../.gitbook/assets/okta-currents-enable-api.png" alt=""><figcaption><p>Configure and Test the API Credentials</p></figcaption></figure>
+
 * Still on the **Provisioning** tab, click **To App** in the left Settings panel and then **Edit** in the top right**.**
+
+<figure><img src="../../../../.gitbook/assets/okta-currents-scim-to-app.png" alt=""><figcaption><p>Edit App Provisioning Settings</p></figcaption></figure>
+
 * Enable all the supported actions and Click save.
+
+<figure><img src="../../../../.gitbook/assets/okta-currents-save-settings.png" alt=""><figcaption><p>Enable and Save all actions</p></figcaption></figure>
+
 * Ensure that the **Application username format** is set to **Email**. This is found in the **Sign On** tab, under **Credentials Details**.&#x20;
 
 <figure><img src="../../../../.gitbook/assets/okta-scim-credential-details.png" alt=""><figcaption><p>Application username format set to Email</p></figcaption></figure>
 
 * Navigate to the **Import** tab and click the **Import Now** button to find your existing Currents accounts
+
+<figure><img src="../../../../.gitbook/assets/okta-currents-import-now.png" alt=""><figcaption><p>Import Users</p></figcaption></figure>
+
 * Review the matched assignments. Use the checkboxes on the right to select all those that look correct, and click the **Confirm Assignments** button to confirm those imported users.
+
+<figure><img src="../../../../.gitbook/assets/okta-currents-confirm-import.png" alt=""><figcaption><p>Confirm Assignments</p></figcaption></figure>
+
 * You can now update user assignments from the **Assignments** tab to manage who has access to Currents.
+
+<figure><img src="../../../../.gitbook/assets/okta-currents-assignments.png" alt=""><figcaption><p>Assignments Tab</p></figcaption></figure>
 
 ### Known Issues/Troubleshooting
 
