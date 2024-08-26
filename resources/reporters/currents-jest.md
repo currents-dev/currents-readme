@@ -42,7 +42,7 @@ We recommend adding`.currents-report*` to `.gitignore`
 
 * Configure the reporter
 * Run the tests  `npx jest`
-* Use `currents` from [currents-cmd.md](currents-cmd.md "mention")package to upload the results
+* Use `currents` from [currents-cmd.md](currents-cmd.md "mention") package to upload the results
 
 Example:
 
@@ -73,9 +73,12 @@ Script execution finished
 
 ### Configuration
 
-| Property    | Type     | Description            | Environment variable  | Default                                 |
-| ----------- | -------- | ---------------------- | --------------------- | --------------------------------------- |
-| `reportDir` | `string` | Test results directory | `CURRENTS_REPORT_DIR` | `.currents-report-[timestamp]-[uuidv4]` |
+| Property    | Type     | Description                                    | Environment variable    | Default                                 |
+| ----------- | -------- | ---------------------------------------------- | ----------------------- | --------------------------------------- |
+| `recordKey` | `string` | The organization's record key                  | CURRENTS\_RECORD\_KEY   |                                         |
+| `projectId` | `string` | The target project                             | CURRENTS\_PROJECT\_ID   |                                         |
+| `ciBuildId` | `string` | The [CI Build ID](../../guides/ci-build-id.md) | CURRENTS\_CI\_BUILD\_ID | Auto-generated                          |
+| `reportDir` | `string` | Test results directory                         | `CURRENTS_REPORT_DIR`   | `.currents-report-[timestamp]-[uuidv4]` |
 
 ### Troubleshooting
 
