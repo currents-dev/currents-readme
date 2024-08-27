@@ -19,7 +19,7 @@ You can also request to activate this feature by entering the members' administr
 
 <div data-full-width="false">
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Enabling Domain Access via Currents Team Management view</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Enabling Domain Access via Currents Team Management view</p></figcaption></figure>
 
 </div>
 

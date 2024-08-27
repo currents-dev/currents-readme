@@ -10,7 +10,7 @@ Deleting a run is **permanent** - once deleted, a run cannot be restored.
 
 To delete a run, go to the [**Run Details**](run-details.md) page and click on the **`Advanced`** tab.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Run summary view</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Run summary view</p></figcaption></figure>
 
 Then, click on the **Delete Run** button and confirm.
 
