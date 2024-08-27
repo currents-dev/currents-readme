@@ -16,9 +16,9 @@ Requires `@currents/playwright` 1.5.0+
 * links to external resources (Jira ticket, GitHub issue)
 * notes
 
-Together with [playwright-tags.md](playwright-tags.md "mention") it allows augmenting your testing suite more data for easier managing, better reporting and improved integration.&#x20;
+Together with [playwright-tags.md](playwright-tags.md "mention") it allows augmenting your testing suite with metadata for easier managing, better reporting and improved integrations.&#x20;
 
-You can add an annotation to a test by setting `annotations` object to `test` definition or invoking `testInfo.annotations.push` , for example
+You can add an annotation to a test by adding `annotations` object to `test` definition or invoking `testInfo.annotations.push`, for example
 
 ```typescript
 test("annotated test", {
@@ -79,7 +79,7 @@ The value will appear in various areas of the dashboard so that your team can qu
 Annotation of type `notify:slack` activates Slack mentions for failed tests - when Currents detects a failed test with `notify:slack` annotation, it will trigger Slack notification according to the following convention:
 
 * `type: "notify:slack", description: "user:userId"` - will notify user with the corresponding `userId, userId` can be either a [Slack UserId or Slack Username](https://stackoverflow.com/questions/40940327/what-is-the-simplest-way-to-find-a-slack-team-id-and-a-channel-id)
-* `type: "notify:slack", description: "team:teamId"` - will notify team with the corresponding `teamId,` where `teamId` is the [Slack Team](https://stackoverflow.com/questions/40940327/what-is-the-simplest-way-to-find-a-slack-team-id-and-a-channel-id)
+* `type: "notify:slack", description: "team:teamId"` - will notify team with the corresponding `teamId`, (see  how to retrieve [Slack Team](https://stackoverflow.com/questions/40940327/what-is-the-simplest-way-to-find-a-slack-team-id-and-a-channel-id) id)
 
 You can combine the values to activate multiple notifications, for example:
 
@@ -118,6 +118,6 @@ test(
 
 ```
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Owner showed in Currents dashboard test</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Test owner shown in Currents dashboard</p></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Slack notification to specific user and group in Slack</p></figcaption></figure>
