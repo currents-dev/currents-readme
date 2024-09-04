@@ -30,6 +30,11 @@ Select Jest from the framework selection list.
 npm install @currents/jest @currents/cmd --save-dev
 ```
 
+**Note:** `@currents/jest` requires
+
+* **Jest** `v29.5.0+`
+* **Node.js** `v18.20.4+`
+
 </details>
 
 <details>

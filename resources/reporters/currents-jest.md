@@ -8,6 +8,11 @@ Currents reporter for [Jest](https://jestjs.io/) generates test results that for
 
 The reporter stores the generated results in a temporary directory. Upload the generated results using a separate package [currents-cmd.md](currents-cmd.md "mention").
 
+### Requirements
+
+* **Jest** `v29.5.0+`
+* **Node.js** `v18.20.4+`
+
 ### Setup
 
 ```sh
