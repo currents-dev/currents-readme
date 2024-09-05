@@ -81,14 +81,14 @@ export default config;
 Add a line in your .gitignore to avoid pushing temporary generated reports to your repository.
 
 ```
-.currents-report*
+.currents
 ```
 
 </details>
 
 ## Create your first Jest run&#x20;
 
-Everytime you run Jest, Currents will generate a temporary report folder with the test results. For this data to be uploaded to your dashboard, you must run the `@currents/cmd` utility.
+Every time you run Jest, Currents will generate a temporary report folder with the test results. For this data to be uploaded to your dashboard, you must run the `@currents/cmd` utility.
 
 #### Step 1: Run the tests
 

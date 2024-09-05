@@ -37,10 +37,10 @@ or set the `--reporters` option when running the `jest`
 npx jest --reporters=@currents/jest
 ```
 
-The reporter saves the test results in a temporary folder named  `.currents-report-[timestamp]-[uuidv4()]`.&#x20;
+The reporter saves the test results in a temporary folder named  `.currents/[timestamp]-[uuidv4()]`.&#x20;
 
 {% hint style="info" %}
-We recommend adding`.currents-report*` to `.gitignore`
+We recommend adding`.currents` to `.gitignore`
 {% endhint %}
 
 ### Usage
@@ -55,9 +55,9 @@ Example:
 ```bash
 $ npx jest --reporters=@currents/jest --reporters=default
 [currents]: Run started
-[currents]: Report directory is set to - /Users/agoldis/immer/.currents-report-2024-07-16T20-33-12-555Z-478913e1-1916-499b-8d8d-c08043d50f3d
+[currents]: Report directory is set to - /Users/agoldis/immer/.currents/2024-07-16T20-33-12-555Z-478913e1-1916-499b-8d8d-c08043d50f3d
 # ....
-[currents]: [__tests__/base.js] - spec results written to file: /Users/agoldis/immer/.currents-report-2024-07-16T20-33-12-555Z-478913e1-1916-499b-8d8d-c08043d50f3d/instances/Aql-q2CM.json
+[currents]: [__tests__/base.js] - spec results written to file: /Users/agoldis/immer/.currents/2024-07-16T20-33-12-555Z-478913e1-1916-499b-8d8d-c08043d50f3d/instances/Aql-q2CM.json
 [currents]: Run completed
 
 # 📖 see @currents/cmd documentation
@@ -69,7 +69,7 @@ Currents config: {
   disableTitleTags: false,
   debug: false
 }
-Report directory: '.currents-report-2024-07-16T20-33-12-555Z-478913e1-1916-499b-8d8d-c08043d50f3d'
+Report directory: '.currents/2024-07-16T20-33-12-555Z-478913e1-1916-499b-8d8d-c08043d50f3d'
 [root] Run created: 'https://app.currents.dev/run/8466c149d9bbf745'
 Script execution finished
 ✨  Done in 17.96s.
@@ -78,12 +78,12 @@ Script execution finished
 
 ### Configuration
 
-| Property    | Type     | Description                                    | Environment variable    | Default                                 |
-| ----------- | -------- | ---------------------------------------------- | ----------------------- | --------------------------------------- |
-| `recordKey` | `string` | The organization's record key                  | CURRENTS\_RECORD\_KEY   |                                         |
-| `projectId` | `string` | The target project                             | CURRENTS\_PROJECT\_ID   |                                         |
-| `ciBuildId` | `string` | The [CI Build ID](../../guides/ci-build-id.md) | CURRENTS\_CI\_BUILD\_ID | Auto-generated                          |
-| `reportDir` | `string` | Test results directory                         | `CURRENTS_REPORT_DIR`   | `.currents-report-[timestamp]-[uuidv4]` |
+| Property    | Type     | Description                                    | Environment variable    | Default                            |
+| ----------- | -------- | ---------------------------------------------- | ----------------------- | ---------------------------------- |
+| `recordKey` | `string` | The organization's record key                  | CURRENTS\_RECORD\_KEY   |                                    |
+| `projectId` | `string` | The target project                             | CURRENTS\_PROJECT\_ID   |                                    |
+| `ciBuildId` | `string` | The [CI Build ID](../../guides/ci-build-id.md) | CURRENTS\_CI\_BUILD\_ID | Auto-generated                     |
+| `reportDir` | `string` | Test results directory                         | `CURRENTS_REPORT_DIR`   | `.currents/[timestamp]-[uuidv4()]` |
 
 ### Troubleshooting
 
