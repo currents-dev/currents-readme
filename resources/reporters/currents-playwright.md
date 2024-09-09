@@ -38,6 +38,7 @@ use: {
 Choose the preferred usage method for `@currents/playwright`&#x20;
 
 * `pwc` CLI command - runs `playwright` with a predefined configuration.
+* `pwc-p` CLI command - runs `playwright` with [orchestration](../../guides/parallelization-guide/pw-parallelization/playwright-orchestration.md).
 * Alternatively, you can add `@currents/playwright` reporter to `playwright.config.ts`&#x20;
 
 #### `pwc` CLI command
@@ -98,15 +99,19 @@ cmd /V /C "set CURRENTS_PROJECT_ID=PROJECT_ID // the projectId from https://app.
 
 With the reporter configured, you can run `npx playwright test` to start sending the results to Currents dashboard. Learn more about [ci-build-id.md](../../guides/ci-build-id.md "mention").
 
+### Configuration
+
 #### Configuring @currents/playwright
 
 `@currents/playwright` accepts configuration from the following sources:
 
 * environment variables, e.g. `CURRENTS_TAG=tagA,tagB`
-* options of `pwc` CLI command, e.g. `npx pwc ---tag tagA --tag tagB`
+* CLI command options, e.g. `npx pwc ---tag tagA --tag tagB`
 * reading `currentsReporter` JS configuration object, e.g. `reporters: [currentsReporter(options)]`
 
-The following configuration options are available:
+**Options**\
+\
+The following configuration options are available for both `pwc` and `pwc-p`:
 
 * **`--ci-build-id`**&#x20;
   * the unique identifier for a run.
@@ -160,6 +165,17 @@ The following configuration options are available:
 * **`-V, --version`** show package version
 * **`-h, --help`** show `pwc` help
 
+`pwc-p` specific flags:
+
+* **`--pwc-reset-signal <'SIGUSR1'|'SIGUSR2'>`**&#x20;
+  * specify a process signal to listen for to trigger a reset of the current in progress tests. Only avaiable on OSes with POSIX signal support.
+  * Supported in CLI only
+  * Released in version: `1.3.0`
+* **`--pwc-skip-reporter-injection`**
+  * Do no inject @currents/playwright reporter via CLI, use the reporter specified in the playwright config
+  * Supported in CLI only
+  * Released in version: `1.5.9`
+
 #### Overriding Configuration
 
 Certain configuration values can have multiple sources, e.g. CLI fag and environment variables. Configuration values will resolve as follows:
@@ -175,25 +191,31 @@ Certain configuration values can have multiple sources, e.g. CLI fag and environ
 * Run all tests in the current directory:
 
 ```
-pwc --key <record-key> --project-id <id> --ci-build-id <build-id>    
+pwc --key <record-key> --project-id <id>    
+```
+
+* Run orchestration for all tests in the current directory:
+
+```
+pwc-p --key <record-key> --project-id <id> --ci-build-id <build-id>
 ```
 
 * Run only tests filtered by the tag "@smoke":
 
 ```
-pwc --key <record-key> --project-id <id> --ci-build-id <build-id> --grep smoke
+pwc --key <record-key> --project-id <id> --grep smoke
 ```
 
 * Run playwright tests and add tags "tagA", "tagB" to the recorded run:
 
 ```
-pwc --key <record-key> --project-id <id> --ci-build-id <build-id> --tag tagA --tag tagB
+pwc --key <record-key> --project-id <id> --tag tagA --tag tagB
 ```
 
 * Provide `playwright` arguments and flags:
 
 ```
-pwc --key <record-key> --project-id <id> --ci-build-id <build-id> -- --workers 2 --timeout 10000 --shard 1/2
+pwc --key <record-key> --project-id <id> -- --workers 2 --timeout 10000 --shard 1/2
 ```
 
 #### CI Examples
