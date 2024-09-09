@@ -60,6 +60,7 @@
 * [Playwright Tags](guides/playwright-tags.md)
 * [Playwright Component Testing](guides/playwright-component-testing.md)
 * [Playwright Annotations](guides/playwright-annotations.md)
+* [Playwright Visual Testing](guides/playwright-visual-testing.md)
 
 ## Dashboard
 
