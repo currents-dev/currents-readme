@@ -1,8 +1,8 @@
 ---
-description: >-
-  Integrating Playwright Visual Comparison tools with Currents - including Argos
-  CI, Percy and Applitools.
 icon: images
+description: >-
+  Integrating Playwright Visual Comparison tools with Currents - including
+  Argos, Percy and Applitools.
 ---
 
 # Playwright Visual Testing
@@ -24,29 +24,29 @@ Currents automatically detects  tests with visual comparison enabled and shows a
 
 <figure><img src="../.gitbook/assets/currents-playwright-visual-comparison.gif" alt=""><figcaption><p>Current Visual Comparison Widget for Playwright Tests</p></figcaption></figure>
 
-### Playwright Visual Testing with Argos CI
+### Playwright Visual Testing with Argos
 
-While Native Playwright Visual Comparison is a good start as a basic tool, a more advanced and dedicated visual testing solution can greatly improve the effectiveness of your testing suite. Our friends at [Argos CI](https://argos-ci.com/) offer a comprehensive, open-source (and loved) visual testing platform that takes care of the difficult parts of visual testing:
+While Native Playwright Visual Comparison is a good start as a basic tool, a more advanced and dedicated visual testing solution can greatly improve the effectiveness of your testing suite. Our friends at [Argos](https://argos-ci.com/) offer a comprehensive, open-source (and loved) visual testing platform that takes care of the difficult parts of visual testing:
 
 * stabilization: prevent visual testing flakiness by preventing font and styling changes
 * test across various resolutions: ensuring every detail is captured without missing a thing
 * pull request comments and status checks
 
-Argos CI is 100% compatible with Playwright Sharding and Currents Reporting + Orchestration, allowing effective and painless CI setup, continuous reporting, debugging with supercharged visual testing.
+Argos is 100% compatible with Playwright Sharding and Currents Reporting + Orchestration, allowing effective and painless CI setup, continuous reporting, debugging with supercharged visual testing.
 
-#### ArgosCI + Currents Orchestration
+#### Argos + Currents Orchestration
 
-ArgosCI and Currents natively support Playwright Sharding for parallel CI executions - follow [the setup instructions](https://argos-ci.com/docs/quickstart/playwright) and configure both reporters to see the visual testing artifacts reported to Argos and the rest of test results reported to Currents.
+Argos and Currents natively support Playwright Sharding for parallel CI executions - follow [the setup instructions](https://argos-ci.com/docs/quickstart/playwright) and configure both reporters to see the visual testing artifacts reported to Argos and the rest of test results reported to Currents.
 
-Using ArgosCI with [playwright-orchestration.md](parallelization-guide/pw-parallelization/playwright-orchestration.md "mention") requires an additional step - notifying ArgosCI after run's completion. This is necessary because Currents Orchestration can have an arbitrary number of CI machines participating in an execution and the allocation of tests to CI machines is dynamic.
+Using Argos with [playwright-orchestration.md](parallelization-guide/pw-parallelization/playwright-orchestration.md "mention") requires an additional step - notifying Argos after run's completion. This is necessary because Currents Orchestration can have an arbitrary number of CI machines participating in an execution and the allocation of tests to CI machines is dynamic.
 
 {% hint style="info" %}
 Requires @currents/playwright 1.6.0+
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/currents-2024-09-09-09.44.13@2x.png" alt=""><figcaption><p>Currents Orchestration onFinish callback finalizes Parallel ArgosCI build</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/currents-2024-09-09-09.44.13@2x.png" alt=""><figcaption><p>Currents Orchestration onFinish callback finalizes Parallel Argos build</p></figcaption></figure>
 
-See the [example repository](https://github.com/currents-dev/playwright-gh-actions-demo/tree/example-argos-currents-orchestration/argos) which showcases using GitHub Actions with 3 parallel containers + Currents Orchestration + Argos CI.&#x20;
+See the [example repository](https://github.com/currents-dev/playwright-gh-actions-demo/tree/example-argos-currents-orchestration/argos) which showcases using GitHub Actions with 3 parallel containers + Currents Orchestration + Argos.&#x20;
 
 <details>
 
