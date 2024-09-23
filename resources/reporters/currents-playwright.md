@@ -52,6 +52,10 @@ npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id hello-currents
 * Set the **Record Key**, and **Project ID** obtained from Currents dashboard.
 * Set `--ci-build-id` to a unique value for local testing. Learn more about [ci-build-id.md](../../guides/ci-build-id.md "mention") for CI runs.
 
+{% hint style="info" %}
+Using `pwc` command overrides the reporters configured in `playwright.config.ts` - you can specify additional reporters using `--reporter` flag. Alternatively, you can explicitly add currents reported in the Playwright configuration as appears below.
+{% endhint %}
+
 #### `@currents/playwright` reporter
 
 Alternatively, you can manually add the reporter to Playwright configuration and keep using `playwright test` CLI command.&#x20;
