@@ -1,6 +1,6 @@
 ---
-description: A guide on rerunning failed only Playwright tests in CI
 icon: rotate-reverse
+description: A guide on rerunning failed only Playwright tests in CI
 ---
 
 # Rerunning Failed Only Tests
@@ -38,11 +38,11 @@ The suggested templates do not require maintaining complex CI configurations and
 
 <summary>GitHub Actions</summary>
 
-Rerun only failed tests using Playwright Shards + Currents `pwc` command.
+Rerun only failed tests on GitHub Actions using Playwright Shards + Currents `pwc` command.
 
 * [https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml)
 
-Rerun only failed tests using Playwright Shards + Currents reporter in `playwright.config.ts`.
+Rerun only failed tests on GitHub Actions using Playwright Shards + Currents reporter in `playwright.config.ts`.
 
 * [https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml)
 
@@ -52,7 +52,9 @@ Rerun only failed tests using Playwright Shards + Currents reporter in `playwrig
 
 <summary>GitLab CI</summary>
 
+Rerun only failed tests using Playwright Shards + Currents `pwc` command.
 
+* [https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwc.yml?ref\_type=heads](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwc.yml?ref\_type=heads)
 
 </details>
 
@@ -78,7 +80,7 @@ That's why when rerunning failed orchestrated CI runs, you'd select "Rerun All J
 
 <summary>GitHub Actions</summary>
 
-Rerun only failed tests using Currents Orchestration
+Rerun only failed tests on GitHub Actions using Currents Orchestration
 
 * [https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/reruns-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/reruns-or8n.yml)
 
@@ -88,7 +90,13 @@ Rerun only failed tests using Currents Orchestration
 
 <summary>GitLab CI</summary>
 
+Rerun only failed tests on GitLab CI using Currents Orchestration
 
+* [https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwcp.yml?ref\_type=heads](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwcp.yml?ref\_type=heads)
+
+Rerun only failed tests on GitLab CI using Playwright Shards + Currents reporter in `playwright.config.ts`.
+
+* [https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-reporter.yml?ref\_type=heads](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-reporter.yml?ref\_type=heads)
 
 </details>
 
