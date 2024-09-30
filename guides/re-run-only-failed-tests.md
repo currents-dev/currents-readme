@@ -1,11 +1,11 @@
 ---
 icon: rotate-reverse
-description: A guide on rerunning failed only Playwright tests in CI
+description: A guide on rerunning only failed Playwright tests in CI
 ---
 
-# Rerunning Failed Only Tests
+# Re-run Only Failed  Tests
 
-Rerunning failed only tests in CI is one of the most popular way to unblock CI pipelines - indeed often the tests pass on a rerun, unblocking pending Pull Requests and marking all the checkmarks green.
+Rerunning only failed tests in CI is one of the most popular way to unblock CI pipelines - indeed, often the tests pass on a rerun, unblocking pending Pull Requests and marking all the checkmarks green.
 
 Speaking strictly, the tests that randomly fail and then pass without any change to the tests, the application under test or the environment, are considered flaky (see [flaky-tests.md](../dashboard/tests/flaky-tests.md "mention")). Even if tests pass after a rerun, it is recommended to explore the failures and eliminate the flakiness.&#x20;
 
@@ -26,9 +26,9 @@ playwright test --last-failed
 
 While this feature works well for local environments, there are a few challenges related to rerunning the failed only tests in CI that are related to how Playwright implements parallel execution with shards.
 
-### Failed Only Playwright Tests - Playwright Shards in CI
+### Re-run Failed Playwright Tests - Playwright Shards in CI
 
-Rerunning failed only Playwright tests in CI requires maintaining cumbersome configuration and custom scripts - those are necessary to deal with potential issues related to Playwright sharding (see [#challenges-related-to-rerunning-failed-only-playwright-tests-in-ci](rerunning-failed-only-tests.md#challenges-related-to-rerunning-failed-only-playwright-tests-in-ci "mention")).
+Rerunning only failed Playwright tests in CI requires maintaining cumbersome configuration and custom scripts - those are necessary to deal with potential issues related to Playwright sharding (see [#challenges-related-to-rerunning-failed-only-playwright-tests-in-ci](re-run-only-failed-tests.md#challenges-related-to-rerunning-failed-only-playwright-tests-in-ci "mention")).
 
 We have created a set of tools that unlock rerunning only the failed Playwright tests in CI, including sharded parallel CI runs and run created by Currents Orchestration.&#x20;
 
@@ -58,7 +58,7 @@ Rerun only failed tests using Playwright Shards + Currents `pwc` command.
 
 </details>
 
-### Failed Only Playwright Tests - Currents Orchestration
+### Re-run Failed Playwright Tests - Currents Orchestration
 
 {% hint style="info" %}
 When rerunning failed orchestrated CI runs, you'd select "Rerun All Jobs" instead of "Rerun Failed Only"
@@ -100,7 +100,7 @@ Rerun only failed tests on GitLab CI using Playwright Shards + Currents reporter
 
 </details>
 
-### Challenges related to rerunning failed only Playwright tests in CI
+### Challenges related to re-run only failed Playwright tests in CI
 
 **Problem #1: Adding `--last-failed` finds no tests**
 
