@@ -61,6 +61,7 @@
 * [Playwright Component Testing](guides/playwright-component-testing.md)
 * [Playwright Annotations](guides/playwright-annotations.md)
 * [Playwright Visual Testing](guides/playwright-visual-testing.md)
+* [Rerunning Failed Only Tests](guides/rerunning-failed-only-tests.md)
 
 ## Dashboard
 
