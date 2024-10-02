@@ -17,107 +17,56 @@ Currents uses the native [Playwright Sharding](https://playwright.dev/docs/test-
 * videos
 * traces
 
-The [example repository](https://github.com/currents-dev/playwright-gh-actions-demo) `https://github.com/currents-dev/playwright-gh-actions-demo` showcases running Playwright tests in parallel using GitHub Actions.
-
-Here's an example configuration file:
-
-{% code overflow="wrap" %}
-```yaml
-name: demo.playwright.pwc
-on:
-  workflow_dispatch:
-  pull_request:
-    branches: [main]
-  push:
-    branches: [main]
-
-jobs:
-  basicTests:
-    strategy:
-      fail-fast: false
-      matrix:
-        # run 3 copies of the current job in parallel
-        shard: [1, 2, 3]
-
-    name: "Playwright tests"
-    timeout-minutes: 60
-    runs-on: ubuntu-22.04
-    container: mcr.microsoft.com/playwright:latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-
-      # https://github.com/actions/runner-images/issues/6775
-      - run: |
-          echo "$GITHUB_WORKSPACE"
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "18.x"
-
-      - name: Install dependencies
-        run: |
-          npm ci
-          npx playwright install msedge
-          npx playwright install chrome
-
-      # Grab 
-      # - CURRENTS_PROJECT_ID
-      # - CURRENTS_RECORD_KEY
-      # at https://app.currents.dev 
-      #
-      # Read more about CI Build ID:
-      # https://currents.dev/readme/guides/cypress-ci-build-id
-      - name: Run Basic Tests
-        continue-on-error: false
-        working-directory: ./basic
-        env:
-          CURRENTS_PROJECT_ID: 3BwCwz
-          CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
-        run: |
-          npx playwright install 
-          npx pwc --shard=${{ matrix.shard }}/${{ strategy.job-total }} --ci-build-id "${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}"
-```
-{% endcode %}
-
-We've included several different config files to exemplify the workflows:&#x20;
-
-* The example workflow [test-basic-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-basic-reporter.yml) runs 3 containers with Playwright tests in parallel.
-* The example workflow [full-parallel-prod.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/full-parallel-prod.yml) runs 5 shards in full parallel mode.&#x20;
-* The example workflow [test-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-or8n.yml) runs orchestrated tests
-* Note: create an organization, get your record key on [Currents.dev](https://app.currents.dev) and set [GH secret](https://docs.github.com/en/actions/reference/encrypted-secrets) variable `CURRENTS_RECORD_KEY`
-
-Here's an example of how the first demo workflow appears in Currents dashboard:
-
 ![Running Playwright tests in parallel - Currents dashboard](../../../.gitbook/assets/playwright-run.gif)
 
-### Setup Re-running of failed tests
+The [example repository](https://github.com/currents-dev/playwright-gh-actions-demo) `https://github.com/currents-dev/playwright-gh-actions-demo` showcases running Playwright tests in parallel using GitHub Actions. We've included several different config files to exemplify the workflows:&#x20;
+
+* [test-basic-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-basic-pwc.yml) - run Playwright tests in parallel using 3 shards of GitHub Actions Matrix and `pwc` command.
+* [test-basic-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-basic-reporter.yml) - run Playwright tests in parallel run using 3 shards of GitHub Actions Matrix and configuring Currents Reporter in `playwright.config.ts`.
+* [test-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-or8n.yml) - run Playwright tests in parallel Playwright using [playwright-orchestration.md](../../../guides/parallelization-guide/pw-parallelization/playwright-orchestration.md "mention") and GitHub Actions Matrix. Currents Orchestration speeds up CI runs by up to 40% (compared to native sharding) by optimally balancing tests between the available machines.
+* [argos-example.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/argos-example.yml) - run Playwright tests in parallel using Currents Orchestration, use Argos CI for visual testing.
+
+#### Reruns only the failed tests
+
+* [rerun-shards-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml) - rerun only the tests that failed in the previous run, using `pwc` helper command that is included in `@currents/playwright` package.
+* [rerun-shards-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml) - rerun only the tests that failed in the previous run, using reporter explicitly configured in `playwright.config.ts`
+* [reruns-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/reruns-or8n.yml) - rerun only the tests that failed in the previous orchestrated run
 
 {% hint style="info" %}
-See the [Re-run Only Failed Tests guide](../../../guides/re-run-only-failed-tests.md) for for information on this feature
+Create an organization, get your record key on [Currents.dev](https://app.currents.dev) and set [GH secret](https://docs.github.com/en/actions/reference/encrypted-secrets) variable `CURRENTS_RECORD_KEY`
 {% endhint %}
 
-When a workflow fails in GitHub, you have the option to re-run the failed jobs. Using the `currents` cli tool, you can choose to run only the previously failed test when re-running failed workflows. Playwright test has a `--last-failed` flag that you can pass to only run failed jobs, but it relies on you having stored information about the last run. The following commands are available for populating the last-run information for Playwright sharding and Currents orchestration.
+### Re-running Failed Tests
+
+{% hint style="info" %}
+See the [re-run-only-failed-tests.md](../../../guides/re-run-only-failed-tests.md "mention") guide for overview
+{% endhint %}
+
+When a workflow fails in GitHub Actions  you have the option to re-run the failed jobs.&#x20;
+
+Playwright test has a `--last-failed` flag that you can pass to only run failed jobs, but it relies on you having stored information about the last run. The following commands are available for populating the last-run information for Playwright sharding and Currents orchestration.
+
+Using the [currents-cmd](../../../resources/reporters/currents-cmd/ "mention") CLI tool, you can choose to run only the previously failed test when re-running failed workflows.&#x20;
 
 #### Playwright Sharding
 
 The `currents cache` command can be used to store the last run and simplify re-run workflows.
 
-1. Install the `@currents/cmd` package to your `package.json` to access the `cache` command
+1. Install the `@currents/cmd` NPM package
 2. Add a step to the end of your workflow that uploads run information to the cache
 3. Add a step that downloads the cache prior to running tests
 4. Use the cache helpers to automatically detect reruns  run just the last-failed tests&#x20;
 
 {% hint style="info" %}
-Example workflows are available in our GitHub repositories:
+Example workflows are available in our GitHub repositories.
 
 
 
 Rerun only failed tests on GitHub Actions using Playwright Shards + Currents `pwc` command.
 
 * [https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml)
+
+
 
 Rerun only failed tests on GitHub Actions using Playwright Shards + Currents reporter in `playwright.config.ts`.
 
