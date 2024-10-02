@@ -6,7 +6,7 @@ description: >-
 
 # currents cache
 
-The `currents cache` command allows you to store and retrieve files from CI machines. The files are securely stored in Currents-managed storage. This command is designed to be used in CI environments to facilitate activites like [re-run-only-failed-tests.md](../../../guides/re-run-only-failed-tests.md "mention").
+The `currents cache` command allows you to store and retrieve files from CI machines. The files are securely stored in Currents-managed storage. This command is designed to be used in CI environments to facilitate activities like [re-run-only-failed-tests.md](../../../guides/re-run-only-failed-tests.md "mention").
 
 `currents cache` stores  meta data about CI execution and test artifacts, each cache item has a unique `id.` You can provide the `id` manually or it can be automatically generated based on CI environment variables
 
@@ -33,7 +33,7 @@ npx currents cache get --key <record-key> --id <id> --output-dir test-results
 `get`
 
 * `--id` - used to identify which cache file to retrieve and extract. If not set, Currents will attempt to locate one based on your CI environment. (supports GitHub Actions, and GitLab CI)
-* `--key` - [Your Currents Record Key ](../../../guides/record-key.md)
+* `--key` - Currents [record-key.md](../../../guides/record-key.md "mention")
 * `--preset` - use a predefined preset for creating necessary configuration files for implementing CI workflows. See [#cache-presets](currents-cache.md#cache-presets "mention").
 * `--preset-output <path-to-file>`- path to a file for saving the preset configuration values (default: `.currents_env`)
 * `--output-dir <path-to-dir>` - directory for extracting the cache contents to, defaults to `./`
@@ -43,8 +43,8 @@ npx currents cache get --key <record-key> --id <id> --output-dir test-results
 
 `set`
 
-* `--id` - used to to identify the cache for retreival later. If not set, Currents will attempt to locate one based on your CI environment. (supports GitHub Actions, and GitLab CI)
-* `--key` - [Your Currents Record Key ](../../../guides/record-key.md)
+* `--id` - used to to identify the cache for retrieval later. If not set, Currents will attempt to locate one based on your CI environment. (supports GitHub Actions, and GitLab CI)
+* `--key` - Currents [record-key.md](../../../guides/record-key.md "mention")
 * `--preset`
   * Use a predefined set of paths and files for uploading to the cache. Currents team maintains  preset to implement certain CI workflows. for example  [re-run-only-failed-tests.md](../../../guides/re-run-only-failed-tests.md "mention")
 * `--path <path-1, path-2>` - comma-separated list of paths to cache
