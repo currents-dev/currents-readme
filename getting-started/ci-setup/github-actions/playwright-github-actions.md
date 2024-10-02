@@ -41,6 +41,13 @@ When a workflow fails in GitHub Actions you have the option to re-run the failed
 
 If you're using [playwright-sharding.md](../../../guides/parallelization-guide/pw-parallelization/playwright-sharding.md "mention") for running your tests in parallel, use [currents-cache.md](../../../resources/reporters/currents-cmd/currents-cache.md "mention") command to store the last run results and simplify re-run workflows.
 
+Example workflows for setting up re-runs for GitHub Actions can be found at:
+
+* [rerun-shards-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml) - rerun only the tests that failed in the previous run, using `pwc` helper command that is included in `@currents/playwright` package.
+* [rerun-shards-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml) - rerun only the tests that failed in the previous run, using reporter explicitly configured in `playwright.config.ts`
+
+Step-by-step guide:
+
 <details>
 
 <summary>Install the @currents/cmd package</summary>
@@ -154,16 +161,19 @@ jobs:
 
 </details>
 
-{% hint style="info" %}
-Example workflows for setting up re-runs for GitHub Actions can be found at:
-
-* [rerun-shards-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml) - rerun only the tests that failed in the previous run, using `pwc` helper command that is included in `@currents/playwright` package.
-* [rerun-shards-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml) - rerun only the tests that failed in the previous run, using reporter explicitly configured in `playwright.config.ts`
-{% endhint %}
-
 #### Currents Orchestration
 
-In case you're using [#currents-orchestration](playwright-github-actions.md#currents-orchestration "mention") for running your Playwright tests in parallel, use [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md "mention") command to fetch the results of the last run from [api](../../../resources/api/ "mention")
+In case you're using [#currents-orchestration](playwright-github-actions.md#currents-orchestration "mention") for running your Playwright tests in parallel, use [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md "mention") command to fetch the results of the last run from [api](../../../resources/api/ "mention").
+
+{% hint style="info" %}
+Currents Orchestration dynamically assigns tests to all the available CI runners, that's why you should select **Re-run all jobs** when using Currents Orchestration. Read more at [re-run-only-failed-tests.md](../../../guides/re-run-only-failed-tests.md "mention") guide.
+{% endhint %}
+
+Example workflows for setting up re-runs for GitHub Actions can be found at:
+
+* [reruns-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/reruns-or8n.yml) - rerun only the tests that failed in the previous orchestrated run
+
+Step-by-step guide:
 
 <details>
 
@@ -280,9 +290,3 @@ jobs:
 {% endcode %}
 
 </details>
-
-{% hint style="info" %}
-Example workflows for setting up re-runs for GitHub Actions can be found at:
-
-* [reruns-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/reruns-or8n.yml) - rerun only the tests that failed in the previous orchestrated run
-{% endhint %}
