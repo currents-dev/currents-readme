@@ -154,29 +154,16 @@ jobs:
 
 </details>
 
-Please refer to the following reference workflow configuration files :
+{% hint style="info" %}
+Example workflows for setting up re-runs for GitHub Actions can be found at:
 
 * [rerun-shards-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml) - rerun only the tests that failed in the previous run, using `pwc` helper command that is included in `@currents/playwright` package.
 * [rerun-shards-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml) - rerun only the tests that failed in the previous run, using reporter explicitly configured in `playwright.config.ts`
+{% endhint %}
 
 #### Currents Orchestration
 
 In case you're using [#currents-orchestration](playwright-github-actions.md#currents-orchestration "mention") for running your Playwright tests in parallel, use [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md "mention") command to fetch the results of the last run from [api](../../../resources/api/ "mention")
-
-1. Install the `@currents/cmd` package to your `package.json` to access the `api` command
-2. Detect if you are in a re-run situation
-   1. Add a step that fetches the last information prior to running tests
-3. Use the cache helpers to automatically detect reruns  run just the last-failed tests&#x20;
-
-
-
-* [reruns-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/reruns-or8n.yml) - rerun only the tests that failed in the previous orchestrated run
-
-{% hint style="info" %}
-Example workflows for setting up re-runs for GitHub Actions can be found at&#x20;
-
-* [https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/reruns-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/reruns-or8n.yml)
-{% endhint %}
 
 <details>
 
@@ -184,6 +171,20 @@ Example workflows for setting up re-runs for GitHub Actions can be found at&#x20
 
 ```bash
 npm i -D @currents/cmd
+```
+
+</details>
+
+<details>
+
+<summary>Set <code>CURRENTS_API_KEY</code> CI environment variable</summary>
+
+Obtain an API key (see [api-keys.md](../../../resources/api/api-keys.md "mention")) from Currents Dashboard (in addition to Record Key) and set [GitHub Actions Secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
+
+```yaml
+env:
+  CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
+  CURRENTS_API_KEY: ${{ secrets.CURRENTS_API_KEY }}
 ```
 
 </details>
@@ -208,7 +209,7 @@ Add a step that fetches the last-run information prior to running tests
     echo "EXTRA_PW_FLAGS=$EXTRA_PW_FLAGS" >> $GITHUB_ENV
 ```
 
-See the [configuration for details ](../../../resources/reporters/currents-cmd/#use-currents-api)on the flags.
+See [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md "mention") documentation for more options
 
 </details>
 
@@ -233,7 +234,7 @@ jobs:
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/playwright:latest
     env:
-      CURRENTS_PROJECT_ID: bnsqNa
+      CURRENTS_PROJECT_ID: # your project id
       CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
       CURRENTS_CI_BUILD_ID: ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
       CURRENTS_API_KEY: ${{ secrets.CURRENTS_API_KEY }}
@@ -254,7 +255,8 @@ jobs:
         run: |
           npm ci
           npx playwright install chrome
-          npm install -g @currents/cmd@beta
+          npm install -g @currents/cmd
+
       - name: Resolve Playwright options
         # --output basic/test-results/.last-run.json should point to the directory where the test results are stored
         run: |
@@ -278,3 +280,9 @@ jobs:
 {% endcode %}
 
 </details>
+
+{% hint style="info" %}
+Example workflows for setting up re-runs for GitHub Actions can be found at:
+
+* [reruns-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/reruns-or8n.yml) - rerun only the tests that failed in the previous orchestrated run
+{% endhint %}
