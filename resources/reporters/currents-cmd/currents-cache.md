@@ -32,17 +32,25 @@ npx currents cache get --key <record-key> --id <id> --output-dir test-results
 
 `get`
 
+* `--id` - used to identify which cache file to retrieve and extract. If not set, Currents will attempt to locate one based on your CI environment. (supports GitHub Actions, and GitLab CI)
+* `--key` - [Your Currents Record Key ](../../../guides/record-key.md)
 * `--preset` - use a predefined preset for creating necessary configuration files for implementing CI workflows. See [#cache-presets](currents-cache.md#cache-presets "mention").
 * `--preset-output <path-to-file>`- path to a file for saving the preset configuration values (default: `.currents_env`)
 * `--output-dir <path-to-dir>` - directory for extracting the cache contents to, defaults to `./`
+* `--matrix-index <number>`  - the node index when using parallel/matrix jobs in CI. Used to correctly identify the node cache, and properly populate shards when using the last-run preset.
+* `--matrix-total <number>` - the node total when using parallel/matrix jobs in CI. Used to populate shards when using the last-run preset.
 * `--help` - show help message
 
 `set`
 
+* `--id` - used to to identify the cache for retreival later. If not set, Currents will attempt to locate one based on your CI environment. (supports GitHub Actions, and GitLab CI)
+* `--key` - [Your Currents Record Key ](../../../guides/record-key.md)
 * `--preset`
   * Use a predefined set of paths and files for uploading to the cache. Currents team maintains  preset to implement certain CI workflows. for example  [re-run-only-failed-tests.md](../../../guides/re-run-only-failed-tests.md "mention")
 * `--path <path-1, path-2>` - comma-separated list of paths to cache
 * `--pw-output-dir <dir>` - Playwright [output directory](https://playwright.dev/docs/api/class-testconfig#test-config-output-dir) containing`.last-run.json` (default: `./test-results`)
+* `--matrix-index <number>`  - the node index when using parallel/matrix jobs in CI. Used to correctly identify the node cache, and properly populate shards when using the last-run preset.
+* `--matrix-total <number>` - the node total when using parallel/matrix jobs in CI. Used to populate shards when using the last-run preset.
 * `--help` - show help message
 
 ### Cache Presets
@@ -55,3 +63,5 @@ This preset defines a set of rules to implement [re-run-only-failed-tests.md](..
 
 * `currents cache set --preset last-run` will automatically add to cache files necessary to rerun only failed tests ([.last-run.json](../../../guides/re-run-only-failed-tests.md))
 * `currents cache get --preset last-run` will fetch the cache contents of the cache and also create the files necessary for rerunning only previously failed tests
+
+The preset output file will contain CI specific information that should be passed to your Playwright test command. To have the shard information presented correctly, you should ensure you are providing `--matrix-index`  and `--matrix-total` information.
