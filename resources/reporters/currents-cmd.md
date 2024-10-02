@@ -15,7 +15,17 @@ description: The package has CLI commands and tools for Currents platform
 npm install @currents/cmd --save-dev
 ```
 
-### Usage
+### Available subcommands
+
+* `upload` command - used to discover the full test suite and upload the test results into the Currents Dashboard
+* `api` command - retrieves information about Currents entities
+* `cache` command - provides a convenient way to store and receive test artifacts
+
+### Upload test results
+
+Upload test results generated with the [Jest reporter](../../getting-started/ci-setup/github-actions/jest-github-actions.md)
+
+#### Usage
 
 ```sh
 npx currents upload --project-id=xxx --key=yyy
@@ -36,7 +46,7 @@ It is <mark style="color:yellow;">**important**</mark> to set the `CI Build ID` 
 If not set explicitly, the `CI Build ID` will be set to a random value and it will affect your reporting.
 {% endhint %}
 
-### Example
+#### Example
 
 ```sh
 # Generate jest results 
@@ -62,7 +72,7 @@ Script execution finished
 ✨  Done in 17.96s.
 ```
 
-### Configuration
+#### Configuration
 
 All options apart from `--project-id` and `--key` are optional. Use `--help` flag to list the available options.
 
@@ -123,6 +133,68 @@ All options apart from `--project-id` and `--key` are optional. Use `--help` fla
   * Enable debug logs
   * Environment variable: `DEBUG=currents*`
   * Type: `boolean`
+
+### Use Currents API
+
+Retrieve information about Currents resources in [JSON](../api/api-resources/) format
+
+{% hint style="info" %}
+Please note that the command is experimental and was primarily built to obtain test run data in CI. Its functionality might be extended in the future.
+{% endhint %}
+
+#### Usage
+
+Obtain run data using the [ci-build-id.md](../../guides/ci-build-id.md "mention") by running the following command:
+
+```bash
+npx currents api get-run --ci-build-id <ci-build-id> --output path/to/save/run.json
+```
+
+Obtain the last completed run data, filtered by `--branch` and/or `--tag`, by running the following command:
+
+```bash
+npx currents api get-run --branch <branch> --tag <tag-1,tag-2,...tag-n>
+```
+
+{% hint style="info" %}
+The command requires the `--project-id` and [`--api-key`](../api/api-keys.md#managing-the-api-keys) from Currents to authenticate the request and provide the required data. Alternatively, you can set the `CURRENTS_PROJECT_ID` and `CURRENTS_API_KEY` environment variables.
+{% endhint %}
+
+### Cache test artifacts
+
+The `currents cache` command allows you to archive files from specified locations and save them under an ID in Currents storage. It also stores a meta file with configuration data. You can provide the ID manually or it can be generated based on CI environment variables (only GitHub and GitLab are supported).
+
+#### Usage
+
+To cache files, use the following command:
+
+```bash
+npx currents cache set --key <record-key> --id <id> --paths <path-1,path-2,...path-n>
+```
+
+To download files, use the following command:
+
+```bash
+npx currents cache get --key <record-key> --id <id> --output-dir test-results
+```
+
+For more examples and usage options, run `npx currents cache --help`
+
+#### Configuration
+
+The cache command comes with some additional CI integration features under the `--presets` flag that can make working with Playwright easier in CI environments.
+
+* `--preset last-run`
+  * `set`: this will automatically add [Playwright's .last-run.json](../../guides/re-run-only-failed-tests.md) file to the cache.
+  * `get`: this will output additional config for you to use in your CI for [Re-running the last failed tests with Playwright](../../guides/re-run-only-failed-tests.md).
+* `--preset-output <file path>`
+  * `get`: File to save the preset output (default: `.currents_env`)
+* `--pw-output-dir <dir>`
+  * `set`: Playwright output directory containing`.last-run.json` (default: `test-results`)
+* `--paths <paths>`&#x20;
+  * `set`: Comma-separated list of paths to cache
+* `--output-dir <dir>`
+  * `get`: Directory to extract the cache to
 
 ### Troubleshooting
 

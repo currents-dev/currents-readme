@@ -38,11 +38,11 @@ The suggested templates do not require maintaining complex CI configurations and
 
 <summary>GitHub Actions</summary>
 
-Rerun only failed tests on GitHub Actions using Playwright Shards + Currents `pwc` command.
+See our step-by-step guide to [Setting up Re-runs with GitHub Actions](../getting-started/ci-setup/github-actions/playwright-github-actions.md#playwright-sharding). And check out the example workflows:&#x20;
 
 * [https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml)
 
-Rerun only failed tests on GitHub Actions using Playwright Shards + Currents reporter in `playwright.config.ts`.
+<!---->
 
 * [https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml)
 
@@ -52,9 +52,10 @@ Rerun only failed tests on GitHub Actions using Playwright Shards + Currents rep
 
 <summary>GitLab CI</summary>
 
-Rerun only failed tests using Playwright Shards + Currents `pwc` command.
+See our step-by-step guide to [Setting up retries of failed job with GitLab CI](../getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md#playwright-sharding). And check out the example workflows:
 
 * [https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwc.yml?ref\_type=heads](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwc.yml?ref\_type=heads)
+* [https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-reporter.yml?ref\_type=heads](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-reporter.yml?ref\_type=heads)
 
 </details>
 
@@ -80,7 +81,7 @@ That's why when rerunning failed orchestrated CI runs, you'd select "Rerun All J
 
 <summary>GitHub Actions</summary>
 
-Rerun only failed tests on GitHub Actions using Currents Orchestration
+See our step-by-step guide to [Setting up Re-runs with GitHub Actions](../getting-started/ci-setup/github-actions/playwright-github-actions.md#currents-orchestration). And check out the example workflow:&#x20;
 
 * [https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/reruns-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/reruns-or8n.yml)
 
@@ -90,17 +91,17 @@ Rerun only failed tests on GitHub Actions using Currents Orchestration
 
 <summary>GitLab CI</summary>
 
-Rerun only failed tests on GitLab CI using Currents Orchestration
+See our step-by-step guide to [Setting up retries of failed job with GitLab CI](../getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md#currents-orchestration). And check out the example workflow:
 
 * [https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwcp.yml?ref\_type=heads](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwcp.yml?ref\_type=heads)
-
-Rerun only failed tests on GitLab CI using Playwright Shards + Currents reporter in `playwright.config.ts`.
-
-* [https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-reporter.yml?ref\_type=heads](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-reporter.yml?ref\_type=heads)
 
 </details>
 
 ### Challenges related to re-run only failed Playwright tests in CI
+
+{% hint style="info" %}
+For some CI environment, the [currents cache command](../resources/reporters/currents-cmd.md#cache-test-artifacts) has some preset integration helpers that can automatically determine when to use the `--last-failed` flag, and adjust the `--shard` flag.
+{% endhint %}
 
 **Problem #1: Adding `--last-failed` finds no tests**
 
