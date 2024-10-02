@@ -39,31 +39,7 @@ When a workflow fails in GitHub Actions you have the option to re-run the failed
 
 #### Playwright Sharding
 
-If you're using [playwright-sharding.md](../../../guides/parallelization-guide/pw-parallelization/playwright-sharding.md "mention") for running your tests in parallel, [currents-cache.md](../../../resources/reporters/currents-cmd/currents-cache.md "mention") command to store the last run results and simplify re-run workflows.
-
-1. Install the `@currents/cmd` NPM package
-2. Add a step to the end of your workflow that uploads run information to the cache
-3. Add a step that downloads the cache prior to running tests
-4. Use the cache helpers to automatically detect reruns  run just the last-failed tests&#x20;
-
-* [rerun-shards-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml) - rerun only the tests that failed in the previous run, using `pwc` helper command that is included in `@currents/playwright` package.
-* [rerun-shards-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml) - rerun only the tests that failed in the previous run, using reporter explicitly configured in `playwright.config.ts`
-
-{% hint style="info" %}
-Example workflows are available in our GitHub repositories.
-
-
-
-Rerun only failed tests on GitHub Actions using Playwright Shards + Currents `pwc` command.
-
-* [https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml)
-
-
-
-Rerun only failed tests on GitHub Actions using Playwright Shards + Currents reporter in `playwright.config.ts`.
-
-* [https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml)
-{% endhint %}
+If you're using [playwright-sharding.md](../../../guides/parallelization-guide/pw-parallelization/playwright-sharding.md "mention") for running your tests in parallel, use [currents-cache.md](../../../resources/reporters/currents-cmd/currents-cache.md "mention") command to store the last run results and simplify re-run workflows.
 
 <details>
 
@@ -113,7 +89,7 @@ Add a step to your workflow before you run your tests
     npx playwright test $(cat .preset_output)
 ```
 
-See the [configuration for details](../../../resources/reporters/currents-cmd/#cache-test-artifacts) on the flags.
+See the [currents-cache.md](../../../resources/reporters/currents-cmd/currents-cache.md "mention") documentation for details
 
 </details>
 
@@ -178,9 +154,14 @@ jobs:
 
 </details>
 
+Please refer to the following reference workflow configuration files :
+
+* [rerun-shards-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml) - rerun only the tests that failed in the previous run, using `pwc` helper command that is included in `@currents/playwright` package.
+* [rerun-shards-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml) - rerun only the tests that failed in the previous run, using reporter explicitly configured in `playwright.config.ts`
+
 #### Currents Orchestration
 
-The `currents api get-run` command can be used to retreive the last run from the Currents api.
+In case you're using [#currents-orchestration](playwright-github-actions.md#currents-orchestration "mention") for running your Playwright tests in parallel, use [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md "mention") command to fetch the results of the last run from [api](../../../resources/api/ "mention")
 
 1. Install the `@currents/cmd` package to your `package.json` to access the `api` command
 2. Detect if you are in a re-run situation
