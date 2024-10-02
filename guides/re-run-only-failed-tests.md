@@ -81,13 +81,7 @@ The suggested templates do not require maintaining complex CI configurations and
 
 <summary>GitHub Actions</summary>
 
-See our step-by-step guide to [Setting up Re-runs with GitHub Actions](../getting-started/ci-setup/github-actions/playwright-github-actions.md#playwright-sharding). And check out the example workflows:&#x20;
-
-* [https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml)
-
-<!---->
-
-* [https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml)
+See our step-by-step guide to [Setting up Re-runs with GitHub Actions](../getting-started/ci-setup/github-actions/playwright-github-actions.md#playwright-sharding)
 
 </details>
 
@@ -95,10 +89,7 @@ See our step-by-step guide to [Setting up Re-runs with GitHub Actions](../gettin
 
 <summary>GitLab CI</summary>
 
-See our step-by-step guide to [Setting up retries of failed job with GitLab CI](../getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md#playwright-sharding). And check out the example workflows:
-
-* [https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwc.yml?ref\_type=heads](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwc.yml?ref\_type=heads)
-* [https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-reporter.yml?ref\_type=heads](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-reporter.yml?ref\_type=heads)
+See our step-by-step guide to [Setting up retries of failed job with GitLab CI](../getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md#playwright-sharding)
 
 </details>
 
@@ -124,9 +115,7 @@ That's why when rerunning failed orchestrated CI runs, you'd select "Rerun All J
 
 <summary>GitHub Actions</summary>
 
-See our step-by-step guide to [Setting up Re-runs with GitHub Actions](../getting-started/ci-setup/github-actions/playwright-github-actions.md#currents-orchestration). And check out the example workflow:&#x20;
-
-* [https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/reruns-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/reruns-or8n.yml)
+See our step-by-step guide to [Setting up Re-runs with GitHub Actions](../getting-started/ci-setup/github-actions/playwright-github-actions.md#currents-orchestration)
 
 </details>
 
@@ -134,8 +123,6 @@ See our step-by-step guide to [Setting up Re-runs with GitHub Actions](../gettin
 
 <summary>GitLab CI</summary>
 
-See our step-by-step guide to [Setting up retries of failed job with GitLab CI](../getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md#currents-orchestration). And check out the example workflow:
-
-* [https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwcp.yml?ref\_type=heads](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwcp.yml?ref\_type=heads)
+See our step-by-step guide to [Setting up retries of failed job with GitLab CI](../getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md#currents-orchestration)
 
 </details>
