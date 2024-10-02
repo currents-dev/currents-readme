@@ -73,6 +73,12 @@ As a result, not all the failed tests are included in the new run.
 
 Solving those issues requires maintaining cumbersome configuration and custom scripts, that's why we have created a set of tools that unlock rerunning only the failed Playwright tests in CI, including sharded parallel CI runs and runs created by Currents Orchestration.&#x20;
 
+{% hint style="info" %}
+📖 Good to know
+
+Playwright allows setting [output directory](https://playwright.dev/docs/api/class-testproject#test-project-output-dir) on a project level. If you have multiple projects and they have different output directories, Playwright will generate `.last-run.json` in the directory of the first project (according to execution level).
+{% endhint %}
+
 ### Re-run Failed Playwright Tests - Playwright Shards in CI
 
 The suggested templates do not require maintaining complex CI configurations and scripts - they are compatible with popular CI providers and can be used even without Currents reporter.
