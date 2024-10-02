@@ -76,34 +76,24 @@ In addition, Currents will post an [External Status check](https://docs.gitlab.c
 
 <figure><img src="../../../.gitbook/assets/currents-gitlab-status-check.png" alt=""><figcaption><p>Example of GitLab CI External Status Check </p></figcaption></figure>
 
-### Setup Retry jobs for failed tests
+### Re-run only failed Playwright tests in GitLab CI/CD
 
-{% hint style="info" %}
-See the [Re-run Only Failed Tests guide](../../../guides/re-run-only-failed-tests.md) for for information on this feature
-{% endhint %}
+When a workflow fails in GitLab CI/CD you have the option to re-run the failed jobs. However, an additional setup is required for properly configuring Playwright for rerunning only the failed tests. See [Re-run Only Failed Tests](https://docs.currents.dev/guides/re-run-only-failed-tests) guide for details.
 
-When a workflow fails in GitLab, you have the option to retry the failed jobs. Using the `currents` cli tool, you can choose to run only the previously failed test when retrying failed jobs. Playwright test has a `--last-failed` flag that you can pass to only run failed tests, but it relies on you having stored information about the last run. The following commands are available for populating the last-run information for Playwright sharding and Currents orchestration.
+
+
+<figure><img src="../../../.gitbook/assets/currents-2024-10-02-14.07.49@2x.png" alt=""><figcaption><p>Rerunning only the failed jobs on GitLab CI/CD</p></figcaption></figure>
+
+
 
 #### Playwright Sharding
 
-The `currents cache` command can be used to store the last run and simplify re-run workflows.
+If you're using [Playwright Sharding](https://docs.currents.dev/guides/parallelization-guide/pw-parallelization/playwright-sharding) for running your tests in parallel, use [currents cache](https://docs.currents.dev/resources/reporters/currents-cmd/currents-cache) command to store the last run results and simplify re-run workflows.
 
-1. Install the `@currents/cmd` package to your `package.json` to access the `cache` command
-2. Add an `after_script` to the end of your job that uploads run information to the cache
-3. Update your job script to download the cache prior to running tests
-4. Use the cache helpers to automatically detect retries and run just the last-failed tests&#x20;
-
-{% hint style="info" %}
 Example workflows are available in our GitLab repositories:
 
-Retry only failed tests on GitLab CI using Playwright Shards + Currents `pwc` command.
-
-* [https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwc.yml?ref\_type=heads](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwc.yml?ref\_type=heads)
-
-Retry only failed tests on GitLab CI using Playwright Shards + Currents reporter in `playwright.config.ts`.
-
-* [https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-reporter.yml?ref\_type=heads](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-reporter.yml?ref\_type=heads)
-{% endhint %}
+* [reruns-pwc.yml](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwc.yml?ref\_type=heads) - re-run only failed tests on GitLab CI using 3 parallel runners and Playwright Shards + Currents `pwc` command
+* [reruns-reporter.yml](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-reporter.yml?ref\_type=heads) - re-run only failed tests on GitLab CI using 3 parallel runners and Playwright Shards + Currents reporter in `playwright.config.ts`
 
 <details>
 
@@ -190,18 +180,12 @@ test-rerun-reporter:
 
 #### Currents Orchestration
 
-The `currents api get-run` command can be used to retrieve the last run from the Currents api. Detecting retries in GitLab CI can be difficult, so we will also make use of the `currents cache` command to detect when we are retried.
+In case you're using [playwright-orchestration.md](../../../guides/parallelization-guide/pw-parallelization/playwright-orchestration.md "mention") for running your Playwright tests in parallel, use [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md "mention") command to fetch the results of the last run from the [api](../../../resources/api/ "mention").
 
-1. Install the `@currents/cmd` package to your `package.json` to access the `cache` command
-2. Add an `after_script` to the end of your job that uploads retry information to the cache
-3. Update your job script to download the cache AND last run data from the api prior to running tests
-4. Use the cache helpers to automatically detect retries and run just the last-failed tests&#x20;
+\
+An example workflow is available in our GitLab demo repository
 
-{% hint style="info" %}
-Example workflows are available in our GitLab repositories:
-
-[https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwcp.yml?ref\_type=heads](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwcp.yml?ref\_type=heads)
-{% endhint %}
+* [rerun-or8n.yml](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwcp.yml?ref\_type=heads) - rerun only failed tests on GitLab CI/CD with Currents Orchestration
 
 <details>
 
@@ -209,6 +193,21 @@ Example workflows are available in our GitLab repositories:
 
 ```bash
 npm i -D @currents/cmd
+```
+
+</details>
+
+<details>
+
+<summary>Set <code>CURRENTS_API_KEY</code> environment variable</summary>
+
+Obtain an API key (see [api-keys.md](../../../resources/api/api-keys.md "mention")) and [record-key.md](../../../guides/record-key.md "mention") from Currents Dashboard and set [GitLab CI/CD variable](https://docs.gitlab.com/ee/ci/variables/) accordingly
+
+```yaml
+variables:
+    CURRENTS_PROJECT_ID: bnsqNa
+    CURRENTS_RECORD_KEY: # set CI/CD variable
+    CURRENTS_API_KEY: # set  CI/CD variable
 ```
 
 </details>
@@ -225,7 +224,7 @@ after_script:
     - npx currents cache set --pw-output-dir basic/test-results --preset last-run
 ```
 
-See the [configuration for details](../../../resources/reporters/currents-cmd/#cache-test-artifacts) on the flags.
+See [currents-cache.md](../../../resources/reporters/currents-cmd/currents-cache.md "mention") documentation for all the available options
 
 </details>
 
@@ -235,6 +234,7 @@ See the [configuration for details](../../../resources/reporters/currents-cmd/#c
 
 Update your job script to download the cache prior to running tests, and then also grab the previous run.
 
+{% code overflow="wrap" %}
 ```yaml
 script:
     - npm ci
@@ -249,8 +249,9 @@ script:
     - npx pwc-p --ci-build-id=or8n-$CI_PIPELINE_ID-$RUN_ATTEMPT $EXTRA_PWCP_FLAGS
 
 ```
+{% endcode %}
 
-See the [configuration for details](../../../resources/reporters/currents-cmd/#cache-test-artifacts) on the flags.
+See [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md "mention") documentation to explore all the available options
 
 </details>
 

@@ -5,9 +5,7 @@ description: Running cypress tests in parallel with Currents for NX projects
 # NX
 
 {% hint style="info" %}
-Please note:
-
-The instructions below apply **@currents/nx 2.0.0+**
+The instructions below apply to **@currents/nx 2.0.0+**
 {% endhint %}
 
 ### Running cypress tests in NX project with Currents
