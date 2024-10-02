@@ -127,7 +127,7 @@ after_script:
     - npx currents cache set --pw-output-dir basic/test-results --preset last-run
 ```
 
-See the [configuration for details](../../../resources/reporters/currents-cmd.md#cache-test-artifacts) on the flags.
+See the [configuration for details](../../../resources/reporters/currents-cmd/#cache-test-artifacts) on the flags.
 
 </details>
 
@@ -151,7 +151,7 @@ script:
 
 ```
 
-See the [configuration for details](../../../resources/reporters/currents-cmd.md#cache-test-artifacts) on the flags.
+See the [configuration for details](../../../resources/reporters/currents-cmd/#cache-test-artifacts) on the flags.
 
 </details>
 
@@ -225,7 +225,7 @@ after_script:
     - npx currents cache set --pw-output-dir basic/test-results --preset last-run
 ```
 
-See the [configuration for details](../../../resources/reporters/currents-cmd.md#cache-test-artifacts) on the flags.
+See the [configuration for details](../../../resources/reporters/currents-cmd/#cache-test-artifacts) on the flags.
 
 </details>
 
@@ -250,7 +250,7 @@ script:
 
 ```
 
-See the [configuration for details](../../../resources/reporters/currents-cmd.md#cache-test-artifacts) on the flags.
+See the [configuration for details](../../../resources/reporters/currents-cmd/#cache-test-artifacts) on the flags.
 
 </details>
 

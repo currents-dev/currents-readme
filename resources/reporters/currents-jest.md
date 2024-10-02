@@ -6,7 +6,7 @@ description: Currents reporter for Jest
 
 Currents reporter for [Jest](https://jestjs.io/) generates test results that for uploading to Currents.&#x20;
 
-The reporter stores the generated results in a temporary directory. Upload the generated results using a separate package [currents-cmd.md](currents-cmd.md "mention").
+The reporter stores the generated results in a temporary directory. Upload the generated results using a separate package [currents-cmd](currents-cmd/ "mention").
 
 ### Requirements
 
@@ -47,7 +47,7 @@ We recommend adding`.currents` to `.gitignore`
 
 * Configure the reporter
 * Run the tests  `npx jest`
-* Use `currents` from [currents-cmd.md](currents-cmd.md "mention") package to upload the results
+* Use `currents` from [currents-cmd](currents-cmd/ "mention") package to upload the results
 
 Example:
 

@@ -100,7 +100,7 @@ See our step-by-step guide to [Setting up retries of failed job with GitLab CI](
 ### Challenges related to re-run only failed Playwright tests in CI
 
 {% hint style="info" %}
-For some CI environment, the [currents cache command](../resources/reporters/currents-cmd.md#cache-test-artifacts) has some preset integration helpers that can automatically determine when to use the `--last-failed` flag, and adjust the `--shard` flag.
+For some CI environment, the [currents cache command](../resources/reporters/currents-cmd/#cache-test-artifacts) has some preset integration helpers that can automatically determine when to use the `--last-failed` flag, and adjust the `--shard` flag.
 {% endhint %}
 
 **Problem #1: Adding `--last-failed` finds no tests**

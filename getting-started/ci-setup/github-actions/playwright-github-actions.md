@@ -151,7 +151,7 @@ Add a step to your workflow that always runs after you run your tests
       --matrix-total ${{ strategy.job-total }}
 ```
 
-See the [configuration for details](../../../resources/reporters/currents-cmd.md#cache-test-artifacts) on the flags.
+See the [configuration for details](../../../resources/reporters/currents-cmd/#cache-test-artifacts) on the flags.
 
 </details>
 
@@ -172,7 +172,7 @@ Add a step to your workflow before you run your tests
     npx playwright test $(cat .preset_output)
 ```
 
-See the [configuration for details](../../../resources/reporters/currents-cmd.md#cache-test-artifacts) on the flags.
+See the [configuration for details](../../../resources/reporters/currents-cmd/#cache-test-artifacts) on the flags.
 
 </details>
 
@@ -282,7 +282,7 @@ Add a step that fetches the last-run information prior to running tests
     echo "EXTRA_PW_FLAGS=$EXTRA_PW_FLAGS" >> $GITHUB_ENV
 ```
 
-See the [configuration for details ](../../../resources/reporters/currents-cmd.md#use-currents-api)on the flags.
+See the [configuration for details ](../../../resources/reporters/currents-cmd/#use-currents-api)on the flags.
 
 </details>
 
