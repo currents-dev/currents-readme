@@ -39,7 +39,7 @@ When a workflow fails in GitHub Actions you have the option to re-run the failed
 
 #### Playwright Sharding
 
-If you're using [playwright-sharding.md](../../../guides/parallelization-guide/pw-parallelization/playwright-sharding.md "mention") for running your tests in parallel, use [currents-cache.md](../../../resources/reporters/currents-cmd/currents-cache.md "mention") command to store the last run results and simplify re-run workflows.
+If you're using [playwright-sharding.md](../../../guides/parallelization-guide/pw-parallelization/playwright-sharding.md "mention") for running your tests in parallel, use the [Currents Playwright Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to store the last run results and simplify re-run workflows.
 
 Example workflows for setting up re-runs for GitHub Actions can be found at:
 
@@ -60,43 +60,21 @@ npm i -D @currents/cmd
 
 <details>
 
-<summary>Add an upload cache step</summary>
-
-Add a step to your workflow that always runs after you run your tests
-
-```yaml
-- name: Cache the last run results
-  if: ${{ always() }}
-  run: |
-    npx currents cache set \
-      --preset last-run \
-      --pw-output-dir test-results \
-      --matrix-index ${{ matrix.shard }} \
-      --matrix-total ${{ strategy.job-total }}
-```
-
-See the [configuration for details](../../../resources/reporters/currents-cmd/#cache-test-artifacts) on the flags.
-
-</details>
-
-<details>
-
-<summary>Add a download cache step</summary>
+<summary>Add the currents-dev/playwright-last-failed step</summary>
 
 Add a step to your workflow before you run your tests
 
-```yaml
-- name: Run Tests
-  run: |
-    npx currents cache get \
-      --preset last-run \
-      --preset-output .preset_output \
-      --matrix-index ${{ matrix.shard }} \
-      --matrix-total ${{ strategy.job-total }}
-    npx playwright test $(cat .preset_output)
-```
+<pre class="language-yaml"><code class="lang-yaml">- name: Playwright Last Failed action
+<strong>  id: last-failed-action
+</strong><strong>  uses: currents-dev/playwright-last-failed@v1
+</strong>  with:
+    # debug: true
+    pw-output-dir: basic/test-results
+    matrix-index: ${{ matrix.shard }}
+    matrix-total: ${{ strategy.job-total }}
+</code></pre>
 
-See the [currents-cache.md](../../../resources/reporters/currents-cmd/currents-cache.md "mention") documentation for details
+See the [action configuration for details](https://github.com/currents-dev/playwright-last-failed/blob/main/action.yml) on the inputs.
 
 </details>
 
@@ -110,7 +88,6 @@ name: failed-only-reporter
 
 on:
   push:
-  workflow_dispatch:
 
 jobs:
   test-reporter:
@@ -124,38 +101,34 @@ jobs:
     env:
       CURRENTS_PROJECT_ID: bnsqNa
       CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
-      CURRENTS_CI_BUILD_ID: ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
+      CURRENTS_CI_BUILD_ID: reporter-${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
-
+      - run: |
+          echo "$GITHUB_WORKSPACE"
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
-
+          node-version: "20.x"
       - name: Install dependencies
         run: |
           npm ci
           npx playwright install chrome
-    
-      - name: Run Tests
+      - name: Playwright Last Failed action
+        id: last-failed-action
+        uses: currents-dev/playwright-last-failed@v1
+        with:
+          pw-output-dir: basic/test-results
+          matrix-index: ${{ matrix.shard }}
+          matrix-total: ${{ strategy.job-total }}
+      - name: Playwright Tests
+        working-directory: ./basic
         run: |
-          npx currents cache get \
-            --preset last-run \
-            --preset-output .preset_output \
-            --matrix-index ${{ matrix.shard }} \
-            --matrix-total ${{ strategy.job-total }}
-          npx playwright test $(cat .preset_output)
-  
-      - name: Cache the last run results
-        if: ${{ always() }}
-        run: |
-          npx currents cache set \
-            --preset last-run \
-            --pw-output-dir test-results \
-            --matrix-index ${{ matrix.shard }} \
-            --matrix-total ${{ strategy.job-total }}
+          COMMAND="npx playwright test --config playwright.config.reporter.ts ${{ steps.last-failed-action.outputs.extra-pw-flags }}"
+          echo "Running command: $COMMAND"
+          $COMMAND
 ```
 {% endcode %}
 
@@ -163,7 +136,7 @@ jobs:
 
 #### Currents Orchestration
 
-In case you're using [#currents-orchestration](playwright-github-actions.md#currents-orchestration "mention") for running your Playwright tests in parallel, use [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md "mention") command to fetch the results of the last run from [api](../../../resources/api/ "mention").
+In case you're using [#currents-orchestration](playwright-github-actions.md#currents-orchestration "mention") for running your Playwright tests in parallel the  [Currents Playwright Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to fetch the results of the last run from [api](../../../resources/api/ "mention").
 
 {% hint style="info" %}
 Currents Orchestration dynamically assigns tests to all the available CI runners, that's why you should select **Re-run all jobs** when using Currents Orchestration. Read more at [re-run-only-failed-tests.md](../../../guides/re-run-only-failed-tests.md "mention") guide.
@@ -201,25 +174,22 @@ env:
 
 <details>
 
-<summary>Fetch last-run information</summary>
+<summary>Add the currents-dev/playwright-last-failed step</summary>
 
 Add a step that fetches the last-run information prior to running tests
 
 ```yaml
-- name: Resolve Playwright options
-  # --output basic/test-results/.last-run.json should point to the directory where the test results are stored
-  run: |
-    PREVIOUS_CI_BUILD_ID="${GITHUB_REPOSITORY}-${GITHUB_RUN_ID}-$((GITHUB_RUN_ATTEMPT - 1))"
-    EXTRA_PW_FLAGS=""
-    if [ ${{ github.run_attempt }} -gt 1 ]; then
-      if npx currents api get-run --pw-last-run --ci-build-id $PREVIOUS_CI_BUILD_ID --output basic/test-results/.last-run.json; then
-       EXTRA_PW_FLAGS="--last-failed"
-      fi
-    fi
-    echo "EXTRA_PW_FLAGS=$EXTRA_PW_FLAGS" >> $GITHUB_ENV
+- name: Playwright Last Failed action
+  id: last-failed-action
+  uses: currents-dev/playwright-last-failed@v1
+  with:
+    or8n: true
+    # debug: true
+    # previous-ci-build-id: default is ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt - 1 }}
+    pw-output-dir: basic/test-results
 ```
 
-See [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md "mention") documentation for more options
+See the [action configuration for details](https://github.com/currents-dev/playwright-last-failed/blob/main/action.yml) on the inputs.
 
 </details>
 
@@ -244,7 +214,7 @@ jobs:
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/playwright:latest
     env:
-      CURRENTS_PROJECT_ID: # your project id
+      CURRENTS_PROJECT_ID: bnsqNa
       CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
       CURRENTS_CI_BUILD_ID: ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
       CURRENTS_API_KEY: ${{ secrets.CURRENTS_API_KEY }}
@@ -252,40 +222,29 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
-
-      # https://github.com/actions/runner-images/issues/6775
       - run: |
           echo "$GITHUB_WORKSPACE"
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - uses: actions/setup-node@v4
         with:
           node-version: "20.x"
-
       - name: Install dependencies
         run: |
           npm ci
           npx playwright install chrome
-          npm install -g @currents/cmd
-
-      - name: Resolve Playwright options
-        # --output basic/test-results/.last-run.json should point to the directory where the test results are stored
-        run: |
-          PREVIOUS_CI_BUILD_ID="${GITHUB_REPOSITORY}-${GITHUB_RUN_ID}-$((GITHUB_RUN_ATTEMPT - 1))"
-          EXTRA_PW_FLAGS=""
-          if [ ${{ github.run_attempt }} -gt 1 ]; then
-            if npx currents api get-run --pw-last-run --ci-build-id 
-            $PREVIOUS_CI_BUILD_ID --output basic/test-results/.last-run.json; then
-              EXTRA_PW_FLAGS="--last-failed"
-            fi
-          fi
-          echo "EXTRA_PW_FLAGS=$EXTRA_PW_FLAGS" >> $GITHUB_ENV
-
+      - name: Playwright Last Failed action
+        id: last-failed-action
+        uses: currents-dev/playwright-last-failed@v1
+        with:
+          or8n: true
+          # previous-ci-build-id: default is ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt - 1 }}
+          pw-output-dir: basic/test-results
       - name: Playwright Tests
         working-directory: ./basic
         run: |
-          COMMAND="npx pwc-p ${{ env.EXTRA_PW_FLAGS }}"
+          COMMAND="npx pwc-p ${{ steps.last-failed-action.outputs.extra-pw-flags }}"
           echo "Running command: $COMMAND"
-          eval $COMMAND
+          $COMMAND
 ```
 {% endcode %}
 
