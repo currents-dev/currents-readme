@@ -86,9 +86,9 @@ Add a line in your .gitignore to avoid pushing temporary generated reports to yo
 
 </details>
 
-## Create your first Jest run&#x20;
+## Your First Jest Run&#x20;
 
-Every time you run Jest, Currents will generate a temporary report folder with the test results. For this data to be uploaded to your dashboard, you must run the `@currents/cmd` utility.
+Upon running Jest tests, Currents reporter for jest generates a temporary folder containing the test results. To upload the results to Currents, you must run [currents-upload.md](../../resources/reporters/currents-cmd/currents-upload.md "mention")
 
 #### Step 1: Run the tests
 
@@ -98,7 +98,7 @@ npx jest --reporters=@currents/jest
 
 #### Step 2: Upload the results
 
-Run our utility command to upload the last results to the dashboard.
+Run the following command to upload the last results to Currents dashboard (see [currents-upload.md](../../resources/reporters/currents-cmd/currents-upload.md "mention"))
 
 ```sh
 npx currents upload --key=XXX --project-id=YYY
@@ -107,14 +107,24 @@ npx currents upload --key=XXX --project-id=YYY
 Set the [**Record Key**](../../guides/record-key.md), and [**Project ID**](../../dashboard/projects/project-settings.md) obtained from Currents dashboard in the previous step.
 
 {% hint style="info" %}
-You can also setup the Record Key and Project ID in the [Reporter configuration](../../resources/reporters/currents-jest.md#configuration).
+You can defined the Record Key and Project ID in the [Reporter configuration](../../resources/reporters/currents-jest.md#configuration).
 {% endhint %}
 
-## Explore your first run
+## Explore Your First Run
 
-If everything was set up correctly, the execution results will show on the Currents dashboard. The latest report should be uploaded to Currents, and a link to the run will be displayed.
+The execution results will show on the Currents dashboard. The latest report should be uploaded to Currents, and a link to the run will be displayed.
 
 <figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption><p>A link to the recorded results</p></figcaption></figure>
+
+## Good To Know
+
+To provide reliable information about your tests, Currents run a "discovery" process - i.e. exploring the full test suite details. The discovery runs as part of `currents upload` command. Behind the scenes, the command runs `jest` in discovery mode.&#x20;
+
+{% hint style="info" %}
+It is important to ensure that
+
+`npx jest --reporters=@currents/jest` and `currents upload`  share the same environment variables
+{% endhint %}
 
 ## Explore
 

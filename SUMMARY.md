@@ -14,6 +14,7 @@
   * [Troubleshooting Cypress](getting-started/cypress/troubleshooting-cypress.md)
 * [Jest](getting-started/jest/README.md)
   * [Your First Jest Run](getting-started/jest/your-first-jest-run.md)
+  * [Detox + Jest](getting-started/jest/detox-+-jest.md)
   * [Troubleshooting Jest](getting-started/jest/troubleshooting.md)
 * [CI Setup](getting-started/ci-setup/README.md)
   * [GitHub Actions](getting-started/ci-setup/github-actions/README.md)
