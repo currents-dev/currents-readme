@@ -92,7 +92,7 @@ Here you will be able to find the following Jenkinsfile that accepts two paramet
 In order to use the `--last-failed` flag, in addition to the project ID and record key, a Currents API key is needed (You can find it in the API Keys section in your dashboard).
 
 {% hint style="info" %}
-This example uses the API Key  and [`@currents/cmd` ](../../../resources/reporters/currents-cmd/currents-api.md) to query the API for the run corresponding to the CI Build ID and generates the `.last-run.json` file with that information.
+This example uses the API Key to query the [Currents API](../../../resources/api/) for the run corresponding to the CI Build ID and generates the `.last-run.json` file with that information.
 {% endhint %}
 
 
