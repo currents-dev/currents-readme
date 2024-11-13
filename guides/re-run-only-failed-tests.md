@@ -99,6 +99,16 @@ See our step-by-step guide to [Setting up retries of failed job with GitLab CI](
 
 </details>
 
+<details>
+
+<summary>Jenkins Pipeline</summary>
+
+See our step-by-step guide to [Setting up retries of failed job with Jenkins Pipeline](../getting-started/ci-setup/jenkins/jenkins-playwright.md#using-last-failed-flag-with-shards-and-orchestration)
+
+</details>
+
+
+
 ### Re-run Failed Playwright Tests - Currents Orchestration
 
 {% hint style="info" %}
@@ -132,3 +142,12 @@ See our step-by-step guide to [Setting up Re-runs with GitHub Actions](../gettin
 See our step-by-step guide to [Setting up retries of failed job with GitLab CI](../getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md#currents-orchestration)
 
 </details>
+
+<details>
+
+<summary>Jenkins Pipeline</summary>
+
+See our step-by-step guide to [Setting up retries of failed job with Jenkins Pipeline](../getting-started/ci-setup/jenkins/jenkins-playwright.md#using-last-failed-flag)
+
+</details>
+
