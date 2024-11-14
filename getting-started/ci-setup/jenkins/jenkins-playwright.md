@@ -92,12 +92,20 @@ Here you will be able to find the following Jenkinsfile that accepts two paramet
 In order to use the `--last-failed` flag, in addition to the project ID and record key, a Currents API key is needed (You can find it in the API Keys section in your dashboard).
 
 {% hint style="info" %}
-This example uses the API Key to query the [Currents API](../../../resources/api/) for the run corresponding to the CI Build ID and generates the `.last-run.json` file with that information.
+This example uses the API Key and the [`@currents/cmd`](../../../resources/reporters/currents-cmd/currents-api.md) package to query for the run corresponding to the CI Build ID and generates the `.last-run.json` file with that information.
 {% endhint %}
 
-
-
 Also, within the Jenkinsfile you can set different values as env variables for the total amount of shards `TOTAL_SHARDS` or the number of parallel jobs for orchestration `PARALLEL_JOBS.`
+
+<details>
+
+<summary>Install the @currents/cmd package</summary>
+
+```bash
+npm install -D @currents/cmd
+```
+
+</details>
 
 <details>
 
@@ -133,7 +141,7 @@ pipeline {
                 sh 'npm ci'
                 sh 'npx playwright install'
                 sh 'rm -rf test-results'
-                sh 'rm -rf scripts/.last-run.json'
+                sh 'rm -rf .last-run.json'
             }
         }
 
@@ -161,8 +169,8 @@ def runTestsDecision(ciBuildId, isOrchestration) {
             script {
                 echo "Running tests with last failed: ${ciBuildId} ${env.TOTAL_SHARDS}"
                 script {
-                    sh 'node scripts/apiRequest.js'
-                    sh 'cat scripts/.last-run.json'
+                    sh "npx currents api get-run --api-key ${env.CURRENTS_API_KEY} --project-id ${env.CURRENTS_PROJECT_ID} --ci-build-id ${env.CI_BUILD_ID} --pw-last-run --output .last-run.json"
+                    sh 'cat .last-run.json'
                 }
                 if (isOrchestration && isOrchestration == true) {
                     runPlaywrightOrchestration(env.PARALLEL_JOBS.toInteger(), true)
@@ -192,7 +200,7 @@ def runPlaywrightSharded(shardTotal, lastFailed) {
         parallelStages["shard${shardIndex}"] = {
             if (lastFailed) {
                 sh "mkdir -p test-results/shard-${shardIndex}"
-                sh "cp scripts/.last-run.json test-results/shard-${shardIndex}/.last-run.json"
+                sh "cp .last-run.json test-results/shard-${shardIndex}/.last-run.json"
                 runPlaywrightTestsLastFailed(shardIndex, shardTotal)
             } else {
                 runPlaywrightTests(shardIndex, shardTotal)
@@ -229,7 +237,7 @@ def runPlaywrightOrchestration(parallelTotal, lastFailed) {
         parallelStages["parallel${parallelIndex}"] = {
             if (lastFailed) {
                 sh "mkdir -p test-results/parallel-${parallelIndex}"
-                sh "cp scripts/.last-run.json test-results/parallel-${parallelIndex}/.last-run.json"
+                sh "cp .last-run.json test-results/parallel-${parallelIndex}/.last-run.json"
                 runPlaywrightTestsLastFailedOrchestration(parallelIndex)
             } else {
                 runPlaywrightTestsOrchestration(parallelIndex)
@@ -242,7 +250,7 @@ def runPlaywrightOrchestration(parallelTotal, lastFailed) {
 def runPlaywrightTestsOrchestration(parallelIndex) {
     stage("Run Playwright Tests - Orchestration ${parallelIndex}") {
         script {
-            def command = "npx pwc-p"
+            def command = 'npx pwc-p'
             echo "Running command: ${command}"
             sh "${command}"
         }
@@ -258,63 +266,10 @@ def runPlaywrightTestsLastFailedOrchestration(parallelIndex) {
         }
     }
 }
+
 ```
 
 
 
 </details>
-
-<details>
-
-<summary><code>scripts/apiRequest.js</code></summary>
-
-```javascript
-const fs = require("fs");
-const https = require("https");
-
-// Encode the projectId and ciBuildId to ensure any special characters are URL-safe
-const projectId = encodeURIComponent(process.env.CURRENTS_PROJECT_ID);
-const ciBuildId = encodeURIComponent(process.env.CI_BUILD_ID);
-
-const options = {
-  hostname: "api.currents.dev",
-  path: `/v1/runs/previous?projectId=${projectId}&ciBuildId=${ciBuildId}&pwLastRun=true`,
-  method: "GET",
-  headers: {
-    Authorization: `Bearer ${process.env.CURRENTS_API_KEY}`,
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
-};
-
-const req = https.request(options, (res) => {
-  let data = "";
-
-  res.on("data", (chunk) => {
-    data += chunk;
-  });
-
-  res.on("end", () => {
-    try {
-      const parsedData = JSON.parse(data);
-      fs.writeFileSync(
-        "scripts/.last-run.json",
-        JSON.stringify(parsedData.data.pwLastRun)
-      );
-    } catch (e) {
-      console.log("Error: ", e);
-    }
-  });
-});
-
-req.on("error", (error) => {
-  console.error(error);
-});
-
-req.end();
-```
-
-</details>
-
-
 
