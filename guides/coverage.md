@@ -1,29 +1,23 @@
 ---
-description: >-
-  Coverage reports for Cypress and Playwright - collecting and sending the
-  reports to Currents
 icon: circle-three-quarters-stroke
+description: >-
+  Coverage reports for Playwright and Cypress - collecting and sending the
+  reports to Currents
 ---
 
 # Coverage
 
 {% hint style="info" %}
-Coverage reports collection is in beta mode. Only Cypress support is available at the moment. [`cypress-cloud`](../resources/reporters/cypress-cloud/) version `1.9.5+` is required.
-
-[Share your use cases and feedback](mailto:support@currents.dev)
+Coverage reports collection is in beta mode. [Share your use cases and feedback](mailto:support@currents.dev)
 {% endhint %}
 
 Code coverage provides information on whether and how frequently certain parts of code have been executed. It is commonly used to determine how thoroughly a test suite exercises a particular codebase.
 
 [Playwright](https://playwright.dev/docs/api/class-coverage) and [Cypress](https://docs.cypress.io/guides/tooling/code-coverage) both support collecting code coverage information from the underlying application. When running tests in a distributed and parallel CI environment, it's necessary to collect coverage data from multiple CI containers, merge the resulting reports, and store them in a central location.
 
-{% hint style="success" %}
-By integrating Playwright or Cypress with Currents, you can easily collect, merge, and track code coverage metrics, along with other test-related metrics. This includes aggregating data across multiple executions and filtering by tags or git branches.
-{% endhint %}
-
 ### Code Coverage Overview
 
-To collect code coverage information, you need to add extra functionality to the source code that allows tracking which parts of the code are being executed during a test run. This process is known as instrumenting the code. By instrumenting the code, you can automatically augment it with markers and counters that allow you to calculate what parts of the code (and how often) were accessed during a test run. The most popular tools used for code instrumentation are [Istanbul](https://istanbul.js.org/) (and recently [v8](https://v8.dev/blog/javascript-code-coverage) ).
+To collect code coverage information, you need to add extra functionality to the source code that allows tracking which parts of the code are being executed during a test run. This process is known as instrumenting the code. By instrumenting the code, you can automatically augment it with markers and counters that allow you to calculate what parts of the code (and how often) were accessed during a test run. The most popular tools used for code instrumentation are [Istanbul](https://istanbul.js.org/) and [v8](https://v8.dev/blog/javascript-code-coverage).
 
 Traditionally, code coverage metrics include line coverage, branch coverage, function coverage, and statement coverage.
 
@@ -38,13 +32,83 @@ Read more about [Code Coverage metrics meaning](https://en.wikipedia.org/wiki/Co
 
 Generating code coverage for parallelized CI runs requires:
 
-* generating coverage reports on each parallel container (or shard)
-* reporting the individual reports to Currents
-* merging the collected reports, processing and aggregating the results
+* **Generating** coverage reports on each parallel container (or shard)
+* **Reporting** the individual reports to Currents
+* **Merging** the collected reports, processing and aggregating the results
 
 {% embed url="https://www.figma.com/file/woBxatRHoL6mQgdYvAtBA9/Code-Coverage?node-id=0:1&t=yZ2eNkTPlgHY806S-1&type=whiteboard" %}
 Overview of enabling coverage reports for Cypress and Playwright
 {% endembed %}
+
+### Code Coverage for Playwright
+
+{% hint style="info" %}
+See a working [example GitHub repository](https://github.com/currents-dev/currents-playwright-coverage-example) with NextJS
+{% endhint %}
+
+To enable code coverage for Playwright, follow these steps:
+
+{% stepper %}
+{% step %}
+### Instrument your code with Instanbul and Babel
+
+Install `babel-plugin-istanbul`
+
+```sh
+npm i -D babel-plugin-istanbul
+```
+
+Update (or create) `babel.config.js`
+
+```js
+module.exports = {
+  presets: ["next/babel"],
+  plugins: ["istanbul"],
+};
+```
+{% endstep %}
+
+{% step %}
+### Extend the test method
+
+{% code title="myTest.ts" overflow="wrap" %}
+```ts
+   import {
+     CurrentsFixtures,
+     CurrentsWorkerFixtures,
+     fixtures,
+   } from "@currents/playwright";
+   import { test as base } from "@playwright/test";
+   
+   export const test = base.extend<CurrentsFixtures, CurrentsWorkerFixtures>({
+     ...fixtures.baseFixtures,
+     ...fixtures.coverageFixtures,
+   });
+```
+{% endcode %}
+{% endstep %}
+
+{% step %}
+### Update tests to use new test method
+
+Import and use the extended `test` for every test case that should produce coverage data.
+
+```ts
+import { expect } from "@playwright/test";
+import { test } from "./myTest.ts";
+```
+{% endstep %}
+
+{% step %}
+### Browse coverage metrics
+
+Create a run (see [you-first-playwright-run.md](../getting-started/playwright/you-first-playwright-run.md "mention")) to report coverage metrics to Currents.
+
+Learn more about the metrics at [#browsing-coverage-metrics](coverage.md#browsing-coverage-metrics "mention")
+{% endstep %}
+{% endstepper %}
+
+Note: Coverage for Playwright only works with Istanbul at the moment.
 
 ### Code Coverage for Cypress
 
@@ -136,12 +200,6 @@ Example:
 npx cypress-cloud run --parallel --record --key <record_key> --ci-build-id <ci-build-id>  --experimental-coverage-recording
 ```
 {% endcode %}
-
-### Code Coverage for Playwright
-
-{% hint style="info" %}
-🧪 Code coverage for Playwright is still in progress. Please contact us to share your use case and receive updates.
-{% endhint %}
 
 ### Browsing Coverage Metrics
 
