@@ -42,6 +42,10 @@ Overview of enabling coverage reports for Cypress and Playwright
 
 ### Code Coverage for Playwright
 
+{% hint style="warning" %}
+`@currents/playwright` v1.7.0+ is required to enable Coverage
+{% endhint %}
+
 {% hint style="info" %}
 See a working [example GitHub repository](https://github.com/currents-dev/currents-playwright-coverage-example) with NextJS
 {% endhint %}
