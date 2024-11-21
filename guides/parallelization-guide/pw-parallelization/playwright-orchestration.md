@@ -121,7 +121,7 @@ $ npx pwc-p --key **redacted** --project-id **redacted** --ci-build-id `date +%s
 # ...start executing the tests in an optimal order.
 ```
 
-`pwc-p` accepts additional playwright arguments and flags (see [currents-playwright.md](../../../resources/reporters/currents-playwright.md "mention"))  for example:
+`pwc-p` accepts additional playwright arguments and flags (see [currents-playwright](../../../resources/reporters/currents-playwright/ "mention"))  for example:
 
 ```bash
 # Add additional playwright arguments and flags:

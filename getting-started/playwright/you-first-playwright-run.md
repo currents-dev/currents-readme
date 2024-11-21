@@ -80,7 +80,7 @@ npx pwc --key RECORD_KEY --project-id PROJECT_ID
 
 * Set the **Record Key**, and **Project ID** obtained from Currents dashboard in the previous step.&#x20;
 
-Explore [@currents/playwright](../../resources/reporters/currents-playwright.md) npm package documentation for configuration options.
+Explore [@currents/playwright](../../resources/reporters/currents-playwright/) npm package documentation for configuration options.
 
 ### Using reporter configuration
 

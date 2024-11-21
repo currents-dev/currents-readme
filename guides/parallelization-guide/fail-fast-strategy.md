@@ -38,7 +38,7 @@ To enable the "fail-fast" strategy navigate to the **Manage Project** screen and
 
 Customers using our [cypress-cloud](../../resources/reporters/cypress-cloud/ "mention") integration can control the "fail-fast" behaviour using the command line CLI flag `--auto-cancel-after-failures <number | false>`.&#x20;
 
-Customers using our [currents-playwright.md](../../resources/reporters/currents-playwright.md "mention") integration can use `--pwc-cancel-after-failures <number | false>` option.
+Customers using our [currents-playwright](../../resources/reporters/currents-playwright/ "mention") integration can use `--pwc-cancel-after-failures <number | false>` option.
 
 &#x20;If set, it overrides the project's default fail-fast strategy setting. If not set, use the default project settings:
 

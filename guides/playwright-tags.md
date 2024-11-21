@@ -1,6 +1,6 @@
 ---
-description: How to tag Playwright executions in Currents
 icon: tag
+description: How to tag Playwright executions in Currents
 ---
 
 # Playwright Tags
@@ -8,8 +8,8 @@ icon: tag
 {% hint style="info" %}
 **Note**
 
-* Run-level tagging is available in [currents-playwright.md](../resources/reporters/currents-playwright.md "mention") version **0.7.0+**
-* Project-level and test-level tagging is available in [currents-playwright.md](../resources/reporters/currents-playwright.md "mention") version **0.10.0+**
+* Run-level tagging is available in [currents-playwright](../resources/reporters/currents-playwright/ "mention") version **0.7.0+**
+* Project-level and test-level tagging is available in [currents-playwright](../resources/reporters/currents-playwright/ "mention") version **0.10.0+**
 {% endhint %}
 
 {% hint style="info" %}
@@ -29,7 +29,7 @@ The tags are available for producing meaningful reports, exploring metrics, narr
 ### Playwright Tags
 
 {% hint style="info" %}
-[currents-playwright.md](../resources/reporters/currents-playwright.md "mention") version **0.10.0+** is required for test title tags
+[currents-playwright](../resources/reporters/currents-playwright/ "mention") version **0.10.0+** is required for test title tags
 {% endhint %}
 
 #### Test title tags
@@ -100,12 +100,12 @@ In the example above, `Test login page @slow` and `Test login page @slow @login`
 
 #### Disabling parsing test title tags
 
-You can disable parsing test title tags altogether by adding `--pwc-disable-title-tags` CLI option. See  [currents-playwright.md](../resources/reporters/currents-playwright.md "mention") for additional configuration options, available in versions `0.11.0+` .
+You can disable parsing test title tags altogether by adding `--pwc-disable-title-tags` CLI option. See  [currents-playwright](../resources/reporters/currents-playwright/ "mention") for additional configuration options, available in versions `0.11.0+` .
 
 ### Run-level Tags
 
 {% hint style="info" %}
-[currents-playwright.md](../resources/reporters/currents-playwright.md "mention") version **0.7.0+** is required to use run-level tags
+[currents-playwright](../resources/reporters/currents-playwright/ "mention") version **0.7.0+** is required to use run-level tags
 {% endhint %}
 
 In addition to encoding tags in test titles, you can explicitly tag the whole run (or a playwright project). There are multiple ways to explicitly tag a run.
@@ -143,7 +143,7 @@ reporter: [
 
 #### Tagging a run using `CURRENTS_TAG` environment variable
 
-You can tag playwright execution by setting the `CURRENTS_TAG` environment variable value to a comma-separated list of tags, for example, with [currents-playwright.md](../resources/reporters/currents-playwright.md "mention") reporter configured:
+You can tag playwright execution by setting the `CURRENTS_TAG` environment variable value to a comma-separated list of tags, for example, with [currents-playwright](../resources/reporters/currents-playwright/ "mention") reporter configured:
 
 ```
 CURRENTS_TAG=tagA,tagB npx playwright run ...
@@ -161,7 +161,7 @@ If there are multiple definitions of run-level tags, Currents will pick the tags
 ### Project-level Tags
 
 {% hint style="info" %}
-[currents-playwright.md](../resources/reporters/currents-playwright.md "mention") version **0.10.0+** is required for project-level tags
+[currents-playwright](../resources/reporters/currents-playwright/ "mention") version **0.10.0+** is required for project-level tags
 {% endhint %}
 
 You can tag Playwright projects by using **`metadata.pwc.tags`** field in the project's configuration. For example, given the following Playwright project configuration:

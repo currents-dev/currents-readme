@@ -18,7 +18,7 @@ The [example repository](https://github.com/currents-dev/playwright-azure-devops
 * Create an organization, get your **Record Key** and **Project Id** at [https://app.currents.dev](https://app.currents.dev/)
 * Create or modify an existing [Variable Group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops\&tabs=yaml), and add a new secret variable called `CURRENTS_RECORD_KEY` with your **Record Key**.
 * Include your **Project Id** in an env variable called `CURRENTS_PROJECT_ID` in your pipeline configuration.
-* Ensure the [@current/playwright](../../../resources/reporters/currents-playwright.md) package has been integrated into your tests.
+* Ensure the [@current/playwright](../../../resources/reporters/currents-playwright/) package has been integrated into your tests.
 * Modify your `azure-pipelines.yml` file to run the tests and use one of the [example pipeline files](https://github.com/currents-dev/playwright-azure-devops-example/blob/main/azure-pipelines.yml) as a reference.
 
 Here's an example pipeline file:

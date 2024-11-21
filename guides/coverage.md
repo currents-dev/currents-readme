@@ -90,6 +90,10 @@ module.exports = {
    });
 ```
 {% endcode %}
+
+{% hint style="info" %}
+See [currents-playwright-fixtures.md](../resources/reporters/currents-playwright/currents-playwright-fixtures.md "mention") for more information on extending test and using the fixtures.
+{% endhint %}
 {% endstep %}
 
 {% step %}

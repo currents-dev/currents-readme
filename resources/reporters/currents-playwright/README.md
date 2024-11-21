@@ -38,7 +38,7 @@ use: {
 Choose the preferred usage method for `@currents/playwright`&#x20;
 
 * `pwc` CLI command - runs `playwright` with a predefined configuration.
-* `pwc-p` CLI command - runs `playwright` with [orchestration](../../guides/parallelization-guide/pw-parallelization/playwright-orchestration.md).
+* `pwc-p` CLI command - runs `playwright` with [orchestration](../../../guides/parallelization-guide/pw-parallelization/playwright-orchestration.md).
 * Alternatively, you can add `@currents/playwright` reporter to `playwright.config.ts`&#x20;
 
 #### `pwc` CLI command
@@ -50,7 +50,7 @@ npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id hello-currents
 ```
 
 * Set the **Record Key**, and **Project ID** obtained from Currents dashboard.
-* Set `--ci-build-id` to a unique value for local testing. Learn more about [ci-build-id.md](../../guides/ci-build-id.md "mention") for CI runs.
+* Set `--ci-build-id` to a unique value for local testing. Learn more about [ci-build-id.md](../../../guides/ci-build-id.md "mention") for CI runs.
 
 {% hint style="info" %}
 Using `pwc` command overrides the reporters configured in `playwright.config.ts` - you can specify additional reporters using `--reporter` flag. Alternatively, you can explicitly add currents reported in the Playwright configuration as appears below.
@@ -101,7 +101,7 @@ cmd /V /C "set CURRENTS_PROJECT_ID=PROJECT_ID // the projectId from https://app.
 {% endtab %}
 {% endtabs %}
 
-With the reporter configured, you can run `npx playwright test` to start sending the results to Currents dashboard. Learn more about [ci-build-id.md](../../guides/ci-build-id.md "mention").
+With the reporter configured, you can run `npx playwright test` to start sending the results to Currents dashboard. Learn more about [ci-build-id.md](../../../guides/ci-build-id.md "mention").
 
 ### Configuration
 
@@ -135,17 +135,17 @@ The following configuration options are available for both `pwc` and `pwc-p`:
   * JS configuration key: `tag?: string[]`
   * Released in version: `0.7.0`
 * **`--pwc-remove-title-tags`**&#x20;
-  * remove tags from test names in Currents, e.g. `Test name @smoke` becomes `Test name` in the dashboard (default: false). See [playwright-tags.md](../../guides/playwright-tags.md "mention").
+  * remove tags from test names in Currents, e.g. `Test name @smoke` becomes `Test name` in the dashboard (default: false). See [playwright-tags.md](../../../guides/playwright-tags.md "mention").
   * Environment variable: n/a
   * JS configuration key: `removeTitleTags?: boolean = false`
   * Released in version: `0.10.0`
 * **`--pwc-disable-title-tags`**&#x20;
-  * disable parsing tags from test title, e.g. `Test name @smoke` would **not** have tag  `smoke` in the dashboard (default: false). See [playwright-tags.md](../../guides/playwright-tags.md "mention").
+  * disable parsing tags from test title, e.g. `Test name @smoke` would **not** have tag  `smoke` in the dashboard (default: false). See [playwright-tags.md](../../../guides/playwright-tags.md "mention").
   * Environment variable: `CURRENTS_DISABLE_TITLE_TAGS`
   * JS configuration key: `disableTitleTags?: boolean = false`
   * Released in version: `0.11.0`
 * **`--pwc-cancel-after-failures <number | false>`**
-  * abort the cloud run after the specified number of failed tests detected. Overrides the default Currents Project settings. If set, must be a positive integer or `false` to override automatic cancellations and project's [fail-fast-strategy.md](../../guides/parallelization-guide/fail-fast-strategy.md "mention"). Also, see [cancel-run.md](../../dashboard/runs/cancel-run.md "mention") and[fail-fast-strategy.md](../../guides/parallelization-guide/fail-fast-strategy.md "mention")
+  * abort the cloud run after the specified number of failed tests detected. Overrides the default Currents Project settings. If set, must be a positive integer or `false` to override automatic cancellations and project's [fail-fast-strategy.md](../../../guides/parallelization-guide/fail-fast-strategy.md "mention"). Also, see [cancel-run.md](../../../dashboard/runs/cancel-run.md "mention") and[fail-fast-strategy.md](../../../guides/parallelization-guide/fail-fast-strategy.md "mention")
   * Environment variable: `CURRENTS_CANCEL_AFTER_FAILURES`
   * JS configuration key: `cancelAfterFailures?: number | boolean = undefined`
   * Released in version: `0.11.0`
@@ -226,14 +226,14 @@ pwc --key <record-key> --project-id <id> -- --workers 2 --timeout 10000 --shard 
 
 Check out the example repositories that showcase running Playwright tests on popular CI providers and recording the results to Currents:
 
-* [playwright-github-actions.md](../../getting-started/ci-setup/github-actions/playwright-github-actions.md "mention")
-* [playwright-gitlab-ci-cd.md](../../getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md "mention")
-* [jenkins-playwright.md](../../getting-started/ci-setup/jenkins/jenkins-playwright.md "mention")
-* [playwright-circleci.md](../../getting-started/ci-setup/circleci/playwright-circleci.md "mention")
-* [playwright-aws-code-build.md](../../getting-started/ci-setup/aws-code-build/playwright-aws-code-build.md "mention")
-* [playwright-azure-devops.md](../../getting-started/ci-setup/azure-devops/playwright-azure-devops.md "mention")
+* [playwright-github-actions.md](../../../getting-started/ci-setup/github-actions/playwright-github-actions.md "mention")
+* [playwright-gitlab-ci-cd.md](../../../getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md "mention")
+* [jenkins-playwright.md](../../../getting-started/ci-setup/jenkins/jenkins-playwright.md "mention")
+* [playwright-circleci.md](../../../getting-started/ci-setup/circleci/playwright-circleci.md "mention")
+* [playwright-aws-code-build.md](../../../getting-started/ci-setup/aws-code-build/playwright-aws-code-build.md "mention")
+* [playwright-azure-devops.md](../../../getting-started/ci-setup/azure-devops/playwright-azure-devops.md "mention")
 
-Explore how to speed up CI Playwright runs by running enabling [pw-parallelization](../../guides/parallelization-guide/pw-parallelization/ "mention").
+Explore how to speed up CI Playwright runs by running enabling [pw-parallelization](../../../guides/parallelization-guide/pw-parallelization/ "mention").
 
 ### Good To Know
 
