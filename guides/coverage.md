@@ -1,19 +1,13 @@
 ---
 icon: circle-three-quarters-stroke
-description: >-
-  Coverage reports for Playwright and Cypress - collecting and sending the
-  reports to Currents
+description: Coverage reports for Playwright and Cypress
 ---
 
 # Coverage
 
-{% hint style="info" %}
-Coverage reports collection is in beta mode. [Share your use cases and feedback](mailto:support@currents.dev)
-{% endhint %}
+Code coverage is a popular technique for measuring what parts of the source code have been executed while running test. It is commonly used to determine how thoroughly a test suite exercises a particular codebase.
 
-Code coverage provides information on whether and how frequently certain parts of code have been executed. It is commonly used to determine how thoroughly a test suite exercises a particular codebase.
-
-[Playwright](https://playwright.dev/docs/api/class-coverage) and [Cypress](https://docs.cypress.io/guides/tooling/code-coverage) both support collecting code coverage information from the underlying application. When running tests in a distributed and parallel CI environment, it's necessary to collect coverage data from multiple CI containers, merge the resulting reports, and store them in a central location.
+[Playwright](https://playwright.dev/docs/api/class-coverage) and [Cypress](https://docs.cypress.io/guides/tooling/code-coverage) both support collecting code coverage information from the underlying application. When running tests in a distributed and parallel CI environment, we collect coverage data from multiple CI containers, merge the resulting reports, and store them in Currents.
 
 ### Code Coverage Overview
 
