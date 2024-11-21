@@ -72,13 +72,11 @@ There are two ways to integrate Currents to your Playwright project. You can use
 
 `@currents/playwright` provides an executable script named `pwc` - it runs `playwright` with a predefined configuration.&#x20;
 
-Run `pwc` to create your first Playwright run in Currents dashboard.&#x20;
+Run `pwc` to create your first Playwright run in Currents dashboard - use the **Record Key**, and **Project ID** obtained in the previous step.&#x20;
 
 ```
 npx pwc --key RECORD_KEY --project-id PROJECT_ID
 ```
-
-* Set the **Record Key**, and **Project ID** obtained from Currents dashboard in the previous step.&#x20;
 
 Explore [@currents/playwright](../../resources/reporters/currents-playwright/) npm package documentation for configuration options.
 
@@ -147,12 +145,13 @@ With the reporter configured, you can run `npx playwright test` to start sending
 
 ## Explore the Newly Created Run
 
-If Currents reporter is set up correctly, the execution results will show on the Currents dashboard. Additionally, a link to the recorded run will also be available at the end of the execution:
+The execution results will show on the Currents dashboard. Additionally, a link to the recorded run will also be available at the end of the execution:
 
-<figure><img src="../../.gitbook/assets/currents-2023-04-16-19.36.20@2x.png" alt=""><figcaption><p>A link to recorded results appearing at the end of Playwright tests execution</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/currents-2024-11-21-15.21.49@2x.png" alt=""><figcaption><p>Execution details of Playwright reporting for Currents</p></figcaption></figure>
 
 ## Explore
 
-Learn more about our dashboard and its features.
+Learn more about our platform features - setup the CI environment, integrations, coverage reports, classify and manage your tests with Playwright tags, add metadata using annotoations and much more.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Setup CI</td><td></td><td></td><td><a href="../ci-setup/">ci-setup</a></td></tr><tr><td>Speed Up CI</td><td></td><td></td><td><a href="../../guides/parallelization-guide/pw-parallelization/">pw-parallelization</a></td></tr><tr><td>Playwright Tags</td><td></td><td></td><td><a href="../../guides/playwright-tags.md">playwright-tags.md</a></td></tr><tr><td>Test Status</td><td></td><td></td><td><a href="../../dashboard/tests/test-status.md">test-status.md</a></td></tr><tr><td>Insights and Analytics</td><td></td><td></td><td><a href="../../dashboard/insights-and-analytics.md">insights-and-analytics.md</a></td></tr><tr><td>Run Details</td><td></td><td></td><td><a href="../../dashboard/runs/run-details.md">run-details.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Setup CI</td><td></td><td></td><td><a href="../ci-setup/">ci-setup</a></td></tr><tr><td>Speed Up CI</td><td></td><td></td><td><a href="../../guides/parallelization-guide/pw-parallelization/">pw-parallelization</a></td></tr><tr><td>Playwright Tags</td><td></td><td></td><td><a href="../../guides/playwright-tags.md">playwright-tags.md</a></td></tr><tr><td>Playwright Annotations</td><td></td><td></td><td><a href="../../guides/playwright-annotations.md">playwright-annotations.md</a></td></tr><tr><td>Coverage Reports</td><td></td><td></td><td><a href="../../guides/coverage.md">coverage.md</a></td></tr><tr><td>Integrations</td><td></td><td></td><td><a href="../../resources/integrations/">integrations</a></td></tr><tr><td>Test Status</td><td></td><td></td><td><a href="../../dashboard/tests/test-status.md">test-status.md</a></td></tr><tr><td>Insights and Analytics</td><td></td><td></td><td><a href="../../dashboard/insights-and-analytics.md">insights-and-analytics.md</a></td></tr><tr><td>Run Details</td><td></td><td></td><td><a href="../../dashboard/runs/run-details.md">run-details.md</a></td></tr></tbody></table>
+
