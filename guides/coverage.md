@@ -21,7 +21,7 @@ Traditionally, code coverage metrics include line coverage, branch coverage, fun
 * Statement coverage measures the percentage of a program's statements that have been called
 
 {% hint style="info" %}
-Read more about [Code Coverage metrics meaning](https://en.wikipedia.org/wiki/Code\_coverage)
+Read more about [Code Coverage metrics meaning](https://en.wikipedia.org/wiki/Code_coverage)
 {% endhint %}
 
 Generating code coverage for parallelized CI runs requires:
@@ -106,7 +106,9 @@ import { test } from "./myTest.ts";
 
 Create a run (see [you-first-playwright-run.md](../getting-started/playwright/you-first-playwright-run.md "mention")) to report coverage metrics to Currents.
 
-Learn more about the metrics at [#browsing-coverage-metrics](coverage.md#browsing-coverage-metrics "mention")
+The information should be available in the dashboard 15\~30 seconds after the run completion.&#x20;
+
+Read [#browsing-coverage-metrics](coverage.md#browsing-coverage-metrics "mention") to learn more about the metrics.
 {% endstep %}
 {% endstepper %}
 
@@ -219,20 +221,20 @@ A run is fully completed if we collect results for all spec files and tests. Can
 
 Coverage reports contain metrics for **each individual file** as well as **combined cross-file totals.**
 
-Our initial release only displays the **total cross-file coverage percentage:**
+Our dashboard only displays the **total cross-file coverage percentage:**
 
 * Total cross-file line coverage percentage
 * Total cross-file branch coverage percentage
 * Total cross-file function coverage percentage
 * Total cross-file statement coverage percentage
 
-<table data-full-width="false"><thead><tr><th>Metric</th><th>Line</th><th>Branch</th><th>Function</th><th>Statement</th></tr></thead><tbody><tr><td>Total items discovered</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Covered items</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Skipped items</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Coverage percentage</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
+All metrics displayed are an average of all runs reported in each day.
+
+<table data-full-width="false"><thead><tr><th>Metric</th><th>Line</th><th>Branch</th><th>Function</th><th>Statement</th></tr></thead><tbody><tr><td>Total items discovered</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Covered items</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Skipped items</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Coverage percentage</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
 
 {% hint style="info" %}
 Please contact us if you need to see additional coverage metrics
 {% endhint %}
-
-<figure><img src="../.gitbook/assets/currents-2023-09-13-12.16.07.gif" alt=""><figcaption><p>Switching Aggregated Coverage Metrics</p></figcaption></figure>
 
 #### Coverage Aggregation Details
 
