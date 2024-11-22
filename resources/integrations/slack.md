@@ -33,7 +33,7 @@ Provide the following details to finalize Slack integration, click "Save" to fin
 **Please note:** We use [glob patterns](https://www.npmjs.com/package/micromatch) to evaluate the filters. Test your filtering rules using the [playground](https://currents-branch-filter.stackblitz.io/). See examples for some popular filter patterns:
 
 * Include only **`tagA`** or **`tagB`**: `(tagA|tagB)`
-* Exclude **`tagA`** and**`tagB`**`: !(tagA|tagB)`
+* Exclude **`tagA`** an&#x64;**`tagB`**`: !(tagA|tagB)`
 * Include only tags starting with **`production`**: `production*`
 * Include only tags starting with **`smoke-`** or **`prod-`**`: (smoke-*|prod-*)`
 {% endhint %}

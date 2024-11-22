@@ -17,7 +17,7 @@ description: Provision and de-provision users in Currents using Okta
 * **Import users:**&#x20;
   * Link your existing Currents users to their Okta profile.
 
-For more information on the listed features, visit the [Okta Glossary](https://help.okta.com/okta\_help.htm?type=oie\&id=ext\_glossary).
+For more information on the listed features, visit the [Okta Glossary](https://help.okta.com/okta_help.htm?type=oie\&id=ext_glossary).
 
 
 
@@ -48,7 +48,7 @@ In order to setup provisioning you first need to:
 
 #### In Okta
 
-* Navigate to the existing Currents SAML app in Okta: **Applications > Applications.** Click on the **Currents** SAML app**.**
+* Navigate to the existing Currents SAML app in Okta: **Applications > Applications.** Click on the **Currents** SAML ap&#x70;**.**
 
 <figure><img src="../../../../.gitbook/assets/currents-saml-app.png" alt=""><figcaption><p>Navigating to the Currents Okta App</p></figcaption></figure>
 
@@ -61,7 +61,7 @@ In order to setup provisioning you first need to:
 
 <figure><img src="../../../../.gitbook/assets/okta-currents-enable-api.png" alt=""><figcaption><p>Configure and Test the API Credentials</p></figcaption></figure>
 
-* Still on the **Provisioning** tab, click **To App** in the left Settings panel and then **Edit** in the top right**.**
+* Still on the **Provisioning** tab, click **To App** in the left Settings panel and then **Edit** in the top righ&#x74;**.**
 
 <figure><img src="../../../../.gitbook/assets/okta-currents-scim-to-app.png" alt=""><figcaption><p>Edit App Provisioning Settings</p></figcaption></figure>
 
