@@ -41,7 +41,9 @@
   * [AWS Code Build](getting-started/ci-setup/aws-code-build/README.md)
     * [Cypress - AWS Code Build](getting-started/ci-setup/aws-code-build/cypress-aws-code-build.md)
     * [Playwright - AWS Code Build](getting-started/ci-setup/aws-code-build/playwright-aws-code-build.md)
-  * [NX](getting-started/ci-setup/nx.md)
+  * [NX](getting-started/ci-setup/nx/README.md)
+    * [Playwright - NX](getting-started/ci-setup/nx/playwright-nx.md)
+    * [Cypress - NX](getting-started/ci-setup/nx/cypress-nx.md)
 
 ## Guides
 
