@@ -1,8 +1,8 @@
 ---
+icon: circle-three-quarters-stroke
 description: >-
   Learn about enabling and managing Code Coverage reports for Playwright and
   Cypress
-icon: circle-three-quarters-stroke
 ---
 
 # Code Coverage
@@ -75,70 +75,6 @@ Read more about [Code Coverage metrics meaning](https://en.wikipedia.org/wiki/Co
 {% endhint %}
 
 ### Code Coverage in CI
-
-{% stepper %}
-{% step %}
-### Instrument your code with Instanbul and Babel
-
-Install `babel-plugin-istanbul`
-
-```sh
-npm i -D babel-plugin-istanbul
-```
-
-Update (or create) `babel.config.js`
-
-```js
-module.exports = {
-  presets: ["next/babel"],
-  plugins: ["istanbul"],
-};
-```
-{% endstep %}
-
-{% step %}
-### Extend the test method
-
-{% code title="myTest.ts" overflow="wrap" %}
-```ts
-   import {
-     CurrentsFixtures,
-     CurrentsWorkerFixtures,
-     fixtures,
-   } from "@currents/playwright";
-   import { test as base } from "@playwright/test";
-   
-   export const test = base.extend<CurrentsFixtures, CurrentsWorkerFixtures>({
-     ...fixtures.baseFixtures,
-     ...fixtures.coverageFixtures,
-   });
-```
-{% endcode %}
-
-{% hint style="info" %}
-See [currents-playwright-fixtures.md](../resources/reporters/currents-playwright/currents-playwright-fixtures.md "mention") for more information on extending test and using the fixtures.
-{% endhint %}
-{% endstep %}
-
-{% step %}
-### Update tests to use new test method
-
-Import and use the extended `test` for every test case that should produce coverage data.
-
-```ts
-import { expect } from "@playwright/test";
-import { test } from "./myTest.ts";
-```
-{% endstep %}
-
-{% step %}
-### Browse coverage metrics
-
-Create a run (see [you-first-playwright-run.md](../getting-started/playwright/you-first-playwright-run.md "mention")) to report coverage metrics to Currents.
-
-Learn more about the metrics at [#browsing-coverage-metrics](coverage.md#browsing-coverage-metrics "mention")
-{% endstep %}
-{% endstepper %}
 
 As your test suite grows and you start running tests in CI, often in parallel, you need to start maintaining the merging of coverage reports from multiple containers or shards, identifying changes in coverage metrics, taking action as a result of a change.
 
