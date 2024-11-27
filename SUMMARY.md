@@ -23,6 +23,7 @@
     * [Jest - GitHub Actions](getting-started/ci-setup/github-actions/jest-github-actions.md)
     * [Commit data for GitHub Actions](getting-started/ci-setup/github-actions/commit-data-for-github-actions.md)
     * [Custom Docker runners](getting-started/ci-setup/github-actions/custom-docker-runners.md)
+    * [Named Runners](getting-started/ci-setup/github-actions/named-runners.md)
   * [GitLab](getting-started/ci-setup/gitlab/README.md)
     * [Cypress - GitLab CI/CD](getting-started/ci-setup/gitlab/cypress-gitlab-ci-cd.md)
     * [Playwright - GitLab CI/CD](getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md)
