@@ -105,8 +105,6 @@ With the reporter configured, you can run `npx playwright test` to start sending
 
 ### Configuration
 
-#### Configuring @currents/playwright
-
 `@currents/playwright` accepts configuration from the following sources:
 
 * environment variables, e.g. `CURRENTS_TAG=tagA,tagB`
@@ -121,34 +119,55 @@ The following configuration options are available for both `pwc` and `pwc-p`:
   * the unique identifier for a run.
   * Environment variable: `CURRENTS_CI_BUILD_ID`
   * JS configuration key: `ciBuildId?: string`
+
+
+
 * **`-k, --key`**&#x20;
   * your secret Record Key obtained from Currents.
   * Environment variable: `CURRENTS_RECORD_KEY`
   * JS configuration key: `recordKey: string`
+
+
+
 * **`-p, --project-id`**&#x20;
   * the project ID for results reporting obtained from Currents.
   * Environment variable: `CURRENTS_PROJECT_ID`
   * JS configuration key: `recordKey: string`
+
+
+
 * **`-t, --tag`**&#x20;
   * comma-separated tag(s) for recorded runs in Currents.
   * Environment variable: `CURRENTS_TAG`
   * JS configuration key: `tag?: string[]`
   * Released in version: `0.7.0`
+
+
+
 * **`--pwc-remove-title-tags`**&#x20;
   * remove tags from test names in Currents, e.g. `Test name @smoke` becomes `Test name` in the dashboard (default: false). See [playwright-tags.md](../../../guides/playwright-tags.md "mention").
   * Environment variable: n/a
   * JS configuration key: `removeTitleTags?: boolean = false`
   * Released in version: `0.10.0`
+
+
+
 * **`--pwc-disable-title-tags`**&#x20;
   * disable parsing tags from test title, e.g. `Test name @smoke` would **not** have tag  `smoke` in the dashboard (default: false). See [playwright-tags.md](../../../guides/playwright-tags.md "mention").
   * Environment variable: `CURRENTS_DISABLE_TITLE_TAGS`
   * JS configuration key: `disableTitleTags?: boolean = false`
   * Released in version: `0.11.0`
+
+
+
 * **`--pwc-cancel-after-failures <number | false>`**
   * abort the cloud run after the specified number of failed tests detected. Overrides the default Currents Project settings. If set, must be a positive integer or `false` to override automatic cancellations and project's [fail-fast-strategy.md](../../../guides/parallelization-guide/fail-fast-strategy.md "mention"). Also, see [cancel-run.md](../../../dashboard/runs/cancel-run.md "mention") and[fail-fast-strategy.md](../../../guides/parallelization-guide/fail-fast-strategy.md "mention")
   * Environment variable: `CURRENTS_CANCEL_AFTER_FAILURES`
   * JS configuration key: `cancelAfterFailures?: number | boolean = undefined`
   * Released in version: `0.11.0`
+
+
+
 * **`--pwc-debug [boolean | "remote" | "full"]`**
   * enable collecting debug logs for the reporter (default: false).&#x20;
     * `true` will print the debug logs to stdout
@@ -157,19 +176,43 @@ The following configuration options are available for both `pwc` and `pwc-p`:
   * Environment variable: `CURRENTS_DEBUG=true | "remote" | "full"`
   * JS configuration key: `debug?: boolean | "remote" | "full" = false`
   * Released in version: `0.11.3`
-* **`--pwc-output-file <path>`**
-  *   file path for run summary output in JSON format. The summary data TypeScript type definition is available:&#x20;
 
-      ```typescript
-      import { ExecutionJSONSummary } from '@currents/playwright'
-      ```
-  * Environment variable: `CURRENTS_OUTPUT_FILE=/path/to/file.json`
-  * JS configuration key: `outputFile?: string`
-  * Released in version: `1.2.0`
+
+
+*   **`--pwc-output-file <path>`**
+
+    *   file path for run summary output in JSON format. The summary data TypeScript type definition is available:&#x20;
+
+        ```typescript
+        import { ExecutionJSONSummary } from '@currents/playwright'
+        ```
+    * Environment variable: `CURRENTS_OUTPUT_FILE=/path/to/file.json`
+    * JS configuration key: `outputFile?: string`
+    * Released in version: `1.2.0`
+
+
+*   **`--pwc-coverage <project-name>`**
+
+    * List of projects to collect coverage for, e.g. `--pwc-coverage chromium --pwc-coverage firefox`. If no projects are specified, coverage will be collected for all projects (if enabled)
+    * Environment variable: n/a
+    * JS configuration key: `coverage.projects: [string] | boolean`
+    * Released in version: `1.7.0`
+
+
+*   **`--pwc-coverage-dir <path>`**
+
+    * Coverage reports directory path, defailt: `.nyc_output`
+    * Environment variable: n/a
+    * JS configuration key: `coverage.dir: string | undefined`
+    * Released in version: `1.7.0`
+
+
 * **`-V, --version`** show package version
 * **`-h, --help`** show `pwc` help
 
-`pwc-p` specific flags:
+***
+
+**`pwc-p` specific flags**
 
 * **`--pwc-reset-signal <'SIGUSR1'|'SIGUSR2'>`**&#x20;
   * specify a process signal to listen for to trigger a reset of the current in progress tests. Only avaiable on OSes with POSIX signal support.
