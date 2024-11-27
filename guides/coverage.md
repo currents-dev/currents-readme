@@ -51,7 +51,7 @@ There's no need to instrument the code in V8 - one can get the metrics by sendin
 
 Web automation tools like Cypress, Selenium or Playwright run your application in a browser. The tests navigate to various routes, interact with the page components - every interaction activates certain parts of the code and populates the coverage information.
 
-Each individual test creates partial coverage report. At the end of each test, we need to collect the those fragments and merge them to create a complete snapshot of what parts of the source code are "covered" by your testing suite.
+Each individual test creates a partial coverage report. At the end of each test, we need to collect those fragments and merge them to create a complete snapshot of what parts of the source code are "covered" by your testing suite.
 
 <figure><img src="../.gitbook/assets/coverage-recording.png" alt=""><figcaption><p>Recording and merging coverage fragmented reports </p></figcaption></figure>
 

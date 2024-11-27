@@ -22,9 +22,49 @@ Reporting code coverage to Currents as part of running your Playwright tests con
 Requires`@currents/playwright` v1.7.0+
 {% endhint %}
 
-Install and configure Currents reporter following [you-first-playwright-run.md](../../getting-started/playwright/you-first-playwright-run.md "mention"). Make sure that [currents-playwright](../../resources/reporters/currents-playwright/ "mention") reporter is configured with the right [record-key.md](../record-key.md "mention")and **Project ID**.&#x20;
+Install and configure Currents reporter following [you-first-playwright-run.md](../../getting-started/playwright/you-first-playwright-run.md "mention"). Make sure that [currents-playwright](../../resources/reporters/currents-playwright/ "mention") reporter is configured with the right [record-key.md](../record-key.md "mention") and **Project ID**.&#x20;
 
-By default Currents reporter uploads all discovered coverage reports, you can include only certain Playwright projects by setting \`
+By default Currents reporter uploads all discovered coverage reports, you can include only certain Playwright projects by setting the coverage `projects` option, when using the reporter
+
+{% code title="playwright.config.ts" %}
+```typescript
+import {
+  CurrentsConfig,
+  CurrentsFixtures,
+  currentsReporter,
+  CurrentsWorkerFixtures,
+} from "@currents/playwright";
+import { defineConfig, PlaywrightTestConfig } from "@playwright/test";
+
+const currentsConfig: CurrentsConfig = {
+  recordKey: "xxx",
+  projectId: "yyy",
+  coverage: {
+    projects: ['projectA', 'projectB],
+  },
+};
+
+const config = defineConfig<CurrentsFixtures, CurrentsWorkerFixtures>({
+  use: {
+    ...
+    currentsConfigOptions: currentsConfig,
+  },
+
+  reporter: [currentsReporter(currentsConfig)],
+  ...
+});
+
+export default config;
+```
+{% endcode %}
+
+or setting the `--pwc-coverage projectA,projectB` when using the `pwc` CLI command
+
+```bash
+npx pwc --key <record-key> --project-id <project-id> --pwc-coverage projectA,projectB
+```
+
+To check other configuration options run `pwc` command with the `--help` flag.
 
 ### Instrumenting the code
 
@@ -90,7 +130,7 @@ module.exports = {
 ```
 {% endcode %}
 
-After completing this step, your app's code is instrumented. Running `npm run dev` and opening your in a browser will activate the underlying code coverage methods and you'll see coverage information in `window.__coverage__` object.
+After completing this step, your app's code is instrumented. Running `npm run dev` and opening your browser will activate the underlying code coverage methods and you'll see coverage information in `window.__coverage__` object.
 
 <figure><img src="../../.gitbook/assets/currents-2024-11-26-19.13.02@2x.png" alt=""><figcaption><p>Exploring window.__coverage__ object</p></figcaption></figure>
 
