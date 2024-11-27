@@ -1,8 +1,8 @@
 ---
-icon: circle-three-quarters-stroke
 description: >-
   Learn about enabling and managing Code Coverage reports for Playwright and
   Cypress
+icon: circle-three-quarters-stroke
 ---
 
 # Code Coverage
@@ -24,7 +24,7 @@ Code coverage measures what parts of the source code were executed and how often
 Functional UI coverage determines how well software's functional requirements are tested, such as navigation and user interactions. It measures what end-user workflows have been tested and if the software performs as expected.
 
 {% hint style="info" %}
-This guide focuses on Code Coverage, specifically - on how to use enable Code Coverage Reporting to Currents when using Playwright and Cypress testing frameworks,
+This guide focuses on Code Coverage, specifically - on how to report Code Coverage to Currents when using Playwright and Cypress testing frameworks.
 {% endhint %}
 
 ### Generating Code Coverage
@@ -35,7 +35,7 @@ The frontend source code goes through some kind of transformation before being l
 
 During the build phase we can instrument the compiled code - for example, set a counter measuring function invocations, measure entering an `if` statement, or even measure how many lines of the source code run.&#x20;
 
-<figure><img src="../../.gitbook/assets/coverage-instrumentation@2x (1).png" alt=""><figcaption><p>Instrumenting code for collecting code coverage</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/coverage-instrumentation@2x (1).png" alt=""><figcaption><p>Instrumenting code for collecting code coverage</p></figcaption></figure>
 
 Instrumentation is the traditional way to generate coverage metrics. It allows collecting coverage metrics on different browsers and JS engines.
 
@@ -47,9 +47,9 @@ An alternative approach is to use built-in capabilities of Javascript engines. F
 
 
 
-<figure><img src="../../.gitbook/assets/coverage-v8@2x (3).png" alt=""><figcaption><p>V8 collects code coverage without instrumentation</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/coverage-v8@2x (3).png" alt=""><figcaption><p>V8 collects code coverage without instrumentation</p></figcaption></figure>
 
-There's no need to instrument the code when using the built-in coverage, one can get the metrics by sending a series of [API calls](https://chromedevtools.github.io/devtools-protocol/tot/Profiler/#method-startPreciseCoverage). It is common to transform the output of V8 coverage report to more ubiquitous formats
+There's no need to instrument the code when using the built-in coverage, one can get the metrics by sending a series of [API calls](https://chromedevtools.github.io/devtools-protocol/tot/Profiler/#method-startPreciseCoverage). It is common to transform the output of V8 coverage report to other formats that are common in the industry.
 
 ### Recording Coverage Fragments
 
@@ -59,7 +59,7 @@ Each individual test creates partial coverage information. At the end of each te
 
 
 
-<figure><img src="../../.gitbook/assets/coverage-recording (4).png" alt=""><figcaption><p>Recording and merging coverage fragmented reports </p></figcaption></figure>
+<figure><img src="../.gitbook/assets/coverage-recording (4).png" alt=""><figcaption><p>Recording and merging coverage fragmented reports </p></figcaption></figure>
 
 ### Coverage Metrics
 
@@ -116,7 +116,7 @@ module.exports = {
 {% endcode %}
 
 {% hint style="info" %}
-See [currents-playwright-fixtures.md](../../resources/reporters/currents-playwright/currents-playwright-fixtures.md "mention") for more information on extending test and using the fixtures.
+See [currents-playwright-fixtures.md](../resources/reporters/currents-playwright/currents-playwright-fixtures.md "mention") for more information on extending test and using the fixtures.
 {% endhint %}
 {% endstep %}
 
@@ -134,75 +134,9 @@ import { test } from "./myTest.ts";
 {% step %}
 ### Browse coverage metrics
 
-Create a run (see [you-first-playwright-run.md](../../getting-started/playwright/you-first-playwright-run.md "mention")) to report coverage metrics to Currents.
+Create a run (see [you-first-playwright-run.md](../getting-started/playwright/you-first-playwright-run.md "mention")) to report coverage metrics to Currents.
 
-The information should be available in the dashboard 15\~30 seconds after the run completion.&#x20;
-
-Read [#browsing-coverage-metrics](./#browsing-coverage-metrics "mention") to learn more about the metrics.
-{% endstep %}
-{% endstepper %}
-
-{% stepper %}
-{% step %}
-### Instrument your code with Instanbul and Babel
-
-Install `babel-plugin-istanbul`
-
-```sh
-npm i -D babel-plugin-istanbul
-```
-
-Update (or create) `babel.config.js`
-
-```js
-module.exports = {
-  presets: ["next/babel"],
-  plugins: ["istanbul"],
-};
-```
-{% endstep %}
-
-{% step %}
-### Extend the test method
-
-{% code title="myTest.ts" overflow="wrap" %}
-```ts
-   import {
-     CurrentsFixtures,
-     CurrentsWorkerFixtures,
-     fixtures,
-   } from "@currents/playwright";
-   import { test as base } from "@playwright/test";
-   
-   export const test = base.extend<CurrentsFixtures, CurrentsWorkerFixtures>({
-     ...fixtures.baseFixtures,
-     ...fixtures.coverageFixtures,
-   });
-```
-{% endcode %}
-
-{% hint style="info" %}
-See [currents-playwright-fixtures.md](../../resources/reporters/currents-playwright/currents-playwright-fixtures.md "mention") for more information on extending test and using the fixtures.
-{% endhint %}
-{% endstep %}
-
-{% step %}
-### Update tests to use new test method
-
-Import and use the extended `test` for every test case that should produce coverage data.
-
-```ts
-import { expect } from "@playwright/test";
-import { test } from "./myTest.ts";
-```
-{% endstep %}
-
-{% step %}
-### Browse coverage metrics
-
-Create a run (see [you-first-playwright-run.md](../../getting-started/playwright/you-first-playwright-run.md "mention")) to report coverage metrics to Currents.
-
-Learn more about the metrics at [#browsing-coverage-metrics](./#browsing-coverage-metrics "mention")
+Learn more about the metrics at [#browsing-coverage-metrics](coverage.md#browsing-coverage-metrics "mention")
 {% endstep %}
 {% endstepper %}
 
@@ -215,7 +149,7 @@ Currents simplifies this process.
 * Uploading raw coverage reports for processing in the background
 * Tracking coverage metrics over time, with support for filtering by tags, git metadata, and more
 
-<figure><img src="../../.gitbook/assets/currents-2024-11-26-16.15.14@2x.png" alt=""><figcaption><p>Collecting and managing coverage reports in CI</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/currents-2024-11-26-16.15.14@2x.png" alt=""><figcaption><p>Collecting and managing coverage reports in CI</p></figcaption></figure>
 
 ### Coverage Metrics in Currents
 
@@ -226,20 +160,14 @@ Currents simplifies this process.
 
 Currents collects, aggregates and stores the coverage information for recorded runs together with the associated metadata like git commit info or tags. After enabling code coverage for your testing suite, you'll be able to browse the code coverage details for individual runs, as well as explore trends and cross-run, aggregated coverage metrics.
 
-<figure><img src="../../.gitbook/assets/coverage-report.jpg" alt=""><figcaption><p>Example of an Aggregated Coverage Report</p></figcaption></figure>
-
-<figure><img src="../../.gitbook/assets/currents-2023-09-13-11.28.56@2x.png" alt=""><figcaption><p>Example of an Aggregated Coverage Report</p></figcaption></figure>
-
-Our dashboard only displays the **total cross-file coverage percentage:**
+<figure><img src="../.gitbook/assets/currents-2023-09-13-11.28.56@2x.png" alt=""><figcaption><p>Example of an Aggregated Coverage Report</p></figcaption></figure>
 
 Our initial release only displays the **total cross-file coverage percentage:**
 
 All metrics displayed are an average of all runs reported in each day.
 
-<table data-full-width="false"><thead><tr><th>Metric</th><th>Line</th><th>Branch</th><th>Function</th><th>Statement</th></tr></thead><tbody><tr><td>Total items discovered</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Covered items</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Skipped items</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Coverage percentage</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
-
 <table data-full-width="false"><thead><tr><th>Metric</th><th>Line</th><th>Branch</th><th>Function</th><th>Statement</th></tr></thead><tbody><tr><td>Total items discovered</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Covered items</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Skipped items</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Coverage percentage</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
 
-<figure><img src="../../.gitbook/assets/currents-2024-11-26-17.13.56@2x.png" alt=""><figcaption><p>Run-specific code coverage details</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/currents-2024-11-26-17.13.56@2x.png" alt=""><figcaption><p>Run-specific code coverage details</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/currents-2024-11-26-16.19.43@2x.png" alt=""><figcaption><p>Cross-run aggregated coverage metrics</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/currents-2024-11-26-16.19.43@2x.png" alt=""><figcaption><p>Cross-run aggregated coverage metrics</p></figcaption></figure>

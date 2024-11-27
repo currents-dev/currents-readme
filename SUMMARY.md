@@ -59,7 +59,7 @@
     * [Step-Level Reporting](guides/parallelization-guide/pw-parallelization/step-level-reporting.md)
     * [Fully Parallel Mode](guides/parallelization-guide/pw-parallelization/fully-parallel-mode.md)
   * [Cypress Parallelization](guides/parallelization-guide/cypress-parallelization.md)
-* [Code Coverage](guides/coverage/README.md)
+* [Code Coverage](guides/coverage.md)
   * [Code Coverage for Playwright](guides/coverage/code-coverage-for-playwright.md)
   * [Code Coverage for Cypress](guides/coverage/code-coverage-for-cypress.md)
 * [Playwright Tags](guides/playwright-tags.md)
