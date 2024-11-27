@@ -96,14 +96,6 @@ Currents simplifies this process.
 
 Currents collects, aggregates and stores the coverage information for recorded runs together with the associated metadata like git commit info or tags. After enabling code coverage for your testing suite, you'll be able to browse the code coverage details for individual runs, as well as explore trends and cross-run, aggregated coverage metrics.
 
-<figure><img src="../.gitbook/assets/currents-2023-09-13-11.28.56@2x.png" alt=""><figcaption><p>Example of an Aggregated Coverage Report</p></figcaption></figure>
-
-Our initial release only displays the **total cross-file coverage percentage:**
-
-All metrics displayed are an average of all runs reported in each day.
-
-<table data-full-width="false"><thead><tr><th>Metric</th><th>Line</th><th>Branch</th><th>Function</th><th>Statement</th></tr></thead><tbody><tr><td>Total items discovered</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Covered items</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Skipped items</td><td>hidden</td><td>hidden</td><td>hidden</td><td>hidden</td></tr><tr><td>Coverage percentage</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
-
 <figure><img src="../.gitbook/assets/currents-2024-11-26-17.13.56@2x.png" alt=""><figcaption><p>Run-specific code coverage details</p></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/currents-2024-11-26-16.19.43@2x.png" alt=""><figcaption><p>Cross-run aggregated coverage metrics</p></figcaption></figure>
