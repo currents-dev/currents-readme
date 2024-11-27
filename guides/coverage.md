@@ -1,8 +1,6 @@
 ---
 icon: circle-three-quarters-stroke
-description: >-
-  Learn about enabling and managing Code Coverage reports for Playwright and
-  Cypress
+description: Collect Code Coverage reports for web applications using Playwright or Cypress
 ---
 
 # Code Coverage
