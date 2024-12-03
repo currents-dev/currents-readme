@@ -114,7 +114,7 @@ You can defined the Record Key and Project ID in the [Reporter configuration](..
 
 The execution results will show on the Currents dashboard. The latest report should be uploaded to Currents, and a link to the run will be displayed.
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption><p>A link to the recorded results</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption><p>A link to the recorded results</p></figcaption></figure>
 
 ## Good To Know
 

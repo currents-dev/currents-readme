@@ -69,6 +69,7 @@ Add a step to your workflow before you run your tests
 </strong><strong>  uses: currents-dev/playwright-last-failed@v1
 </strong>  with:
     # debug: true
+    # previous-ci-build-id: default is ${{ github.repository }}-${{ github.run_id }}-&#x3C;%= ${{ github.run_attempt }} - 1 %>
     pw-output-dir: basic/test-results
     matrix-index: ${{ matrix.shard }}
     matrix-total: ${{ strategy.job-total }}
@@ -134,6 +135,10 @@ jobs:
 
 </details>
 
+{% hint style="info" %}
+If you are using a CI Build Id that doesn't match our defaults, you need to also set `previous-ci-build-id` to match your previous run. You can decrement your run attempt by using a lodash style eval tag like this: `<%= ${{ github.run_attempt }} - 1 %>`
+{% endhint %}
+
 #### Currents Orchestration
 
 In case you're using [#currents-orchestration](playwright-github-actions.md#currents-orchestration "mention") for running your Playwright tests in parallel the  [Currents Playwright Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to fetch the results of the last run from [api](../../../resources/api/ "mention").
@@ -185,7 +190,7 @@ Add a step that fetches the last-run information prior to running tests
   with:
     or8n: true
     # debug: true
-    # previous-ci-build-id: default is ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt - 1 }}
+    # previous-ci-build-id: default is ${{ github.repository }}-${{ github.run_id }}-%<= ${{ github.run_attempt }} - 1 %>
     pw-output-dir: basic/test-results
 ```
 
@@ -237,7 +242,7 @@ jobs:
         uses: currents-dev/playwright-last-failed@v1
         with:
           or8n: true
-          # previous-ci-build-id: default is ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt - 1 }}
+          # previous-ci-build-id: default is ${{ github.repository }}-${{ github.run_id }}-<%= ${{ github.run_attempt }} - 1 %>
           pw-output-dir: basic/test-results
       - name: Playwright Tests
         working-directory: ./basic
@@ -249,3 +254,8 @@ jobs:
 {% endcode %}
 
 </details>
+
+{% hint style="info" %}
+If you are using a CI Build Id that doesn't match our defaults, you need to also set `previous-ci-build-id` to match your previous run. You can decrement your run attempt by using a lodash style eval tag like this: `<%= ${{ github.run_attempt }} - 1 %>`
+{% endhint %}
+

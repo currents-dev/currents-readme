@@ -118,6 +118,6 @@ test(
 
 ```
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Test owner shown in Currents dashboard</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>Test owner shown in Currents dashboard</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Slack notification to specific user and group in Slack</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>Slack notification to specific user and group in Slack</p></figcaption></figure>

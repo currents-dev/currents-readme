@@ -12,7 +12,7 @@ Requires `@currents/playwright` 1.7.0+
 
 Current integration with Playwright includes a couple of The `@currents/playwright`  package provides some fixtures for integrating with advanced Currents features like:
 
-* [#code-coverage-for-playwright](../../../guides/coverage.md#code-coverage-for-playwright "mention")
+* [#code-coverage-for-playwright](../../../guides/coverage/#code-coverage-for-playwright "mention")
 
 ### Adding the Currents fixtures
 
@@ -41,7 +41,7 @@ export const test = baseTest.extend<CurrentsFixtures, CurrentsWorkerFixtures>({
 {% step %}
 #### Add additional Currents feature fixtures
 
-The `baseFixtures` are required for loading the currents config for the other Currents fixtures. You will also want to include any Currents fixture you plan on using. Here is[ Playwright coverage](../../../guides/coverage.md#code-coverage-for-playwright) as an example:
+The `baseFixtures` are required for loading the currents config for the other Currents fixtures. You will also want to include any Currents fixture you plan on using. Here is[ Playwright coverage](../../../guides/coverage/#code-coverage-for-playwright) as an example:
 
 {% code title="currentsTest.ts" %}
 ```typescript
@@ -168,7 +168,7 @@ Other Currents fixtures depend on these. They are loaded once per worker.&#x20;
 
 * `context`
 
-See [#code-coverage-for-playwright](../../../guides/coverage.md#code-coverage-for-playwright "mention")for details
+See [#code-coverage-for-playwright](../../../guides/coverage/#code-coverage-for-playwright "mention")for details
 
 </details>
 
