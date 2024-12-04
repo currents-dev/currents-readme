@@ -31,7 +31,7 @@ With 2 machines, traditional sharding might distribute the files as follows, lea
 * Shard 1: `spec01`, `spec02` (20 minutes total)
 * Shard 2: `spec03`, `spec04` (5 minutes total)
 
-<figure><img src="../../../.gitbook/assets/Native Sharding.png" alt=""><figcaption><p>Native Playwright sharding assigns spec files to shards without considering their duration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Native Sharding (1).png" alt=""><figcaption><p>Native Playwright sharding assigns spec files to shards without considering their duration</p></figcaption></figure>
 
 This imbalance means that some shards may end up processing only long-running spec files, while others quickly finish with shorter tests, leading to idle resources.
 
@@ -52,7 +52,7 @@ An optimal assignment would consider the duration of spec files and can signific
 * Shard 1: `spec01` (10 minutes) and `spec03` (3 minutes), totaling 13 minutes.
 * Shard 2: `spec02` (10 minutes) and `spec04` (2 minutes), also totaling 12 minutes.
 
-<figure><img src="../../../.gitbook/assets/Orchestration (1).png" alt=""><figcaption><p>An optimal balancing of spec files speeds up CI execution</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Orchestration (2).png" alt=""><figcaption><p>An optimal balancing of spec files speeds up CI execution</p></figcaption></figure>
 
 The difference in execution time 13 vs 20 minutes, which is a 35% improvement. Read more about [load-balancing.md](../load-balancing.md "mention").
 
@@ -67,7 +67,7 @@ Playwright Orchestration by Currents automates the process of achieving a balanc
 
 This approach has enabled us to reduce the execution time of CI Playwright tests by **up to 40% for several of our customers**, with minimal changes to their existing CI configurations.
 
-<figure><img src="../../../.gitbook/assets/Orchestration Comparison.png" alt=""><figcaption><p>Currents Orchestration optimally balances the spec files based on their duration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Orchestration Comparison (1).png" alt=""><figcaption><p>Currents Orchestration optimally balances the spec files based on their duration</p></figcaption></figure>
 
 The Playwright's Orchestration has various strategies. The assignment of a spec file can account for other factors like expected duration and flakiness rate.&#x20;
 
