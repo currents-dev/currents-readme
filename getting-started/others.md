@@ -1,6 +1,6 @@
 ---
-description: Integrate Currents with any framework by using JUnit compatible XML reporters
 icon: grid
+description: Integrate Currents with any framework by using JUnit compatible XML reporters
 ---
 
 # Others
@@ -9,7 +9,7 @@ Currents has flagship integrations with various testing frameworks via the dedic
 
 Integration with other frameworks is possible by uploading a JUnit XML (or compatible) test results report to Currents using our CLI utilities from [currents-cmd](../resources/reporters/currents-cmd/ "mention") package.
 
-<figure><img src="../.gitbook/assets/junit-xml-reporter (1).png" alt=""><figcaption><p>Send results from any framework that supports JUnit XML format</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Junit XML reporter.png" alt=""><figcaption><p>Send results from any framework that supports JUnit XML format</p></figcaption></figure>
 
 > JUnit is an XML document used to represent the outcomes of automated tests. It is widely adopted for test reporting in CI/CD pipelines, allowing CI tools like Jenkins, GitHub Actions, ands other to parse and display test results.
 >
