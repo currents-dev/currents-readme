@@ -33,7 +33,7 @@ The frontend source code goes through a transpilation before being loaded into a
 
 During the build phase we instrument the compiled code - for example, increment a counter before function invocations or before entering an `if` statement. Running the instrumented code activates the counters and that's how we measure the coverage.
 
-<figure><img src="../../.gitbook/assets/coverage-instrumentation.png" alt=""><figcaption><p>Instrumenting code for collecting code coverage</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/coverage-instrumentation (1).png" alt=""><figcaption><p>Instrumenting code for collecting code coverage</p></figcaption></figure>
 
 Instrumentation is the traditional way to generate coverage metrics on different browsers and JS engines.
 
@@ -43,7 +43,7 @@ Instrumentation is the traditional way to generate coverage metrics on different
 
 An alternative approach is to use the built-in capabilities of Javascript engines. For example, NodeJS and chromium-based browsers use V8, which collects coverage metrics while executing JS code.
 
-<figure><img src="../../.gitbook/assets/coverage-v8.png" alt=""><figcaption><p>V8 collects code coverage without instrumentation</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/coverage-v8 (1).png" alt=""><figcaption><p>V8 collects code coverage from browser engine</p></figcaption></figure>
 
 There's no need to instrument the code in V8 - one can get the metrics by sending a series of [API calls](https://chromedevtools.github.io/devtools-protocol/tot/Profiler/#method-startPreciseCoverage). It is common to transform the output of V8 coverage report to other popular formats.
 
@@ -53,7 +53,7 @@ Web automation tools like Cypress, Selenium or Playwright run your application i
 
 Each individual test creates a partial coverage report. At the end of each test, we need to collect those fragments and merge them to create a complete snapshot of what parts of the source code are "covered" by your testing suite.
 
-<figure><img src="../../.gitbook/assets/coverage-recording.png" alt=""><figcaption><p>Recording and merging coverage fragmented reports </p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/coverage-recording (6).png" alt=""><figcaption><p>Recording and merging coverage fragmented reports </p></figcaption></figure>
 
 ### Coverage Metrics
 
@@ -79,7 +79,7 @@ Currents simplifies this process by:
 * Uploading raw coverage reports for processing in the background
 * Tracking coverage metrics over time, with support for filtering by tags, git metadata, and more
 
-<figure><img src="../../.gitbook/assets/coverage-ci.png" alt=""><figcaption><p>Collecting, merging and making sense of distributed coverage reports</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/coverage-ci (1).png" alt=""><figcaption><p>Collecting, merging and processing of distributed coverage reports</p></figcaption></figure>
 
 ### Coverage Metrics in Currents
 
