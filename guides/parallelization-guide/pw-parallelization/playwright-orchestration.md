@@ -31,7 +31,7 @@ With 2 machines, traditional sharding might distribute the files as follows, lea
 * Shard 1: `spec01`, `spec02` (20 minutes total)
 * Shard 2: `spec03`, `spec04` (5 minutes total)
 
-<figure><img src="../../../.gitbook/assets/pw-shard-slow.png" alt=""><figcaption><p>Native Playwright sharding assigns spec files to shards without considering their duration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Native Sharding.png" alt=""><figcaption><p>Native Playwright sharding assigns spec files to shards without considering their duration</p></figcaption></figure>
 
 This imbalance means that some shards may end up processing only long-running spec files, while others quickly finish with shorter tests, leading to idle resources.
 
@@ -52,7 +52,7 @@ An optimal assignment would consider the duration of spec files and can signific
 * Shard 1: `spec01` (10 minutes) and `spec03` (3 minutes), totaling 13 minutes.
 * Shard 2: `spec02` (10 minutes) and `spec04` (2 minutes), also totaling 12 minutes.
 
-<figure><img src="../../../.gitbook/assets/pw-shard-fast-bg.png" alt=""><figcaption><p>An optimal balancing of spec files allows to speed up CI execution</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Orchestration (1).png" alt=""><figcaption><p>An optimal balancing of spec files speeds up CI execution</p></figcaption></figure>
 
 The difference in execution time 13 vs 20 minutes, which is a 35% improvement. Read more about [load-balancing.md](../load-balancing.md "mention").
 
