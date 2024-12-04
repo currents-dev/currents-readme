@@ -67,7 +67,7 @@ Playwright Orchestration by Currents automates the process of achieving a balanc
 
 This approach has enabled us to reduce the execution time of CI Playwright tests by **up to 40% for several of our customers**, with minimal changes to their existing CI configurations.
 
-<figure><img src="../../../.gitbook/assets/pw-or8n.png" alt=""><figcaption><p>Currents Orchestration balances the spec files between the shards based on their duration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Orchestration Comparison.png" alt=""><figcaption><p>Currents Orchestration optimally balances the spec files based on their duration</p></figcaption></figure>
 
 The Playwright's Orchestration has various strategies. The assignment of a spec file can account for other factors like expected duration and flakiness rate.&#x20;
 
