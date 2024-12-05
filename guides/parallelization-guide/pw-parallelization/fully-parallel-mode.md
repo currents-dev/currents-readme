@@ -1,19 +1,21 @@
 ---
-description: Speed up your runs and optimize the use of your machine resources
+description: Details guide about Playwright Fully Parallel mode
 ---
 
-# Fully Parallel Mode
+# Playwright Fully Parallel Mode
 
-Playwright supports multiple levels of concurrency:
+Playwright has multiple levels of concurrency:
 
-* a test suite can be split between different machines using [sharding](https://playwright.dev/docs/test-sharding#sharding-tests-between-multiple-machines).
-* each machine can have [multiple workers](https://playwright.dev/docs/api/class-testconfig#test-config-workers) (according to CPU performance or explicit configuration).
+* split all the tests between different machines using [sharding](https://playwright.dev/docs/test-sharding#sharding-tests-between-multiple-machines);
+* each shard can have [multiple workers](https://playwright.dev/docs/api/class-testconfig#test-config-workers) (according to # of CPUs or explicit configuration).
 
 <figure><img src="../../../.gitbook/assets/pw-workers.png" alt=""><figcaption><p>Visual representation of Playwright shards, workers and parallel execution</p></figcaption></figure>
 
-The workers will run the tests in parallel, allowing for a speedup in execution and full utilization of a machine's resources.
+Playwright Workers run the tests in parallel, allowing for a speedup in execution and full utilization of machine's resources.
 
-However, by default, Playwright runs the tests of the **same spec file serially** — one after another. So, even if you have a powerful machine capable of supporting multiple workers, it can be underutilized. For example, if your machine has 4 workers and sharding assigns only one spec file, the tests will be executed one by one, and only one worker will be utilized at a time.
+By default, Playwright runs the tests of the **same spec file in the same worker** — one after another. Even if you have a powerful machine capable of supporting multiple workers, it can be under-utilized.&#x20;
+
+For example, if your machine has 4 workers and sharding assigns one spec file, only one worker will be utilized at a time and the tests will be executed one after another, not in parallel.
 
 <figure><img src="../../../.gitbook/assets/pw-workers-serial.png" alt=""><figcaption><p>Example of underutilizing workers in Playwright</p></figcaption></figure>
 

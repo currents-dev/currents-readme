@@ -60,7 +60,7 @@
     * [Playwright Orchestration](guides/parallelization-guide/pw-parallelization/playwright-orchestration.md)
     * [CI Tests on Spot Instances](guides/parallelization-guide/pw-parallelization/ci-tests-on-spot-instances.md)
     * [Step-Level Reporting](guides/parallelization-guide/pw-parallelization/step-level-reporting.md)
-    * [Fully Parallel Mode](guides/parallelization-guide/pw-parallelization/fully-parallel-mode.md)
+    * [Playwright Fully Parallel Mode](guides/parallelization-guide/pw-parallelization/fully-parallel-mode.md)
   * [Cypress Parallelization](guides/parallelization-guide/cypress-parallelization.md)
 * [Code Coverage](guides/coverage/README.md)
   * [Code Coverage for Playwright](guides/coverage/code-coverage-for-playwright.md)
