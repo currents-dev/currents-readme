@@ -70,6 +70,8 @@
 * [Playwright Annotations](guides/playwright-annotations.md)
 * [Playwright Visual Testing](guides/playwright-visual-testing.md)
 * [Re-run Only Failed  Tests](guides/re-run-only-failed-tests.md)
+* [Automation Rules](guides/automation-rules/README.md)
+  * [Applying Rules to Runs](guides/automation-rules/applying-rules-to-runs.md)
 
 ## Dashboard
 
