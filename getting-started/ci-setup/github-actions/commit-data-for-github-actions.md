@@ -24,7 +24,7 @@ layout:
 {% hint style="info" %}
 **Update Jan 30, 2024**
 
-`@currents/playwright@0.12.0` and `cypress-cloud@1.10.0` better detect Pull Request information when running in GitHub Actions
+`@currents/playwright@0.12.0` and `cypress-cloud@1.10.0` automatically detect Pull Request information when running in GitHub Actions.
 {% endhint %}
 
 The recent (Jan 30, 2024) releases of `@currents/playwright@0.12.0` and `cypress-cloud@1.10.0` better handle git information when running in GitHub Actions triggered by `` `pull_request` `` trigger.
@@ -45,7 +45,7 @@ Merge de7282540ac30ee4e32a0b1fede4f6391b4cc321 into fa58941d8a807b83ec5a3e5bfb83
 
 Also, the branch name becomes `refs/pull/12/merge` instead of the expected branch name. Why is that happening?
 
-That happens when your GitHub Actions workflow is triggered by [`pull_request`](https://docs.github.com/en/github-ae@latest/actions/using-workflows/events-that-trigger-workflows#pull\_request).
+That happens when your GitHub Actions workflow is triggered by [`pull_request`](https://docs.github.com/en/github-ae@latest/actions/using-workflows/events-that-trigger-workflows#pull_request).
 
 It changes the behaviour of `@actions/checkout` - it creates a **new merge commit,** which is created from merging the base to the head.
 
@@ -67,4 +67,4 @@ To change the default behaviour and checkout the triggering commit, use the foll
 
 The workflow will check out the last commit from the **head** branch of the pull request that triggered the workflow. Beware, that this approach might not detect issues that could arise when the pull request is eventually merged into the base branch. If the base branch has been updated since the pull request was created, there might be merge conflicts or integration issues that won't be detected with this configuration.
 
-Read more about [GitHub Actions and `pull_request`](https://frontside.com/blog/2020-05-26-github-actions-pull\_request/) (by frontside.com).
+Read more about [GitHub Actions and `pull_request`](https://frontside.com/blog/2020-05-26-github-actions-pull_request/) (by frontside.com).
