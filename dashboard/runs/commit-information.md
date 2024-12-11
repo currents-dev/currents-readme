@@ -4,13 +4,19 @@ description: Displaying Commit Information on Currents
 
 # Commit Information
 
+Currents client SDKs use a set of `git`  commands to obtain git commit information. This information is being used to display Run Details and enable certain platform features, for example
+
+* show analytics filtered by branch flakiness
+* searching items based on commit message
+* integration with SVC providers
+
 {% hint style="info" %}
-If no commit information is available - either from`.git` folder or from environment variables, no commit data will be shown in the dashboard.&#x20;
+If no commit information is available  either from`.git` folder or from environment variables, no commit data will be shown in the dashboard.&#x20;
 
 Commit information must be available for Bitbucket, GitHub and GitLab integrations (PR comments, commit status updates).
 {% endhint %}
 
-In order to obtain commit information Currents client SDKs use a set of `git`  commands. This information is being used to display Run details and enhance insights and analytic, for example, filtering flakiness rate by branch or searching Runs based on commit message.
+Currents uses the following information:
 
 | Item        | Source                   |
 | ----------- | ------------------------ |
