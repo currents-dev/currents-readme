@@ -12,6 +12,13 @@ Commit information must be available for Bitbucket, GitHub and GitLab integratio
 
 In order to obtain commit information Currents client SDKs use a set of `git`  commands. This information is being used to display Run details and enhance insights and analytic, for example, filtering flakiness rate by branch or searching Runs based on commit message.
 
+| Item        | Source                   |
+| ----------- | ------------------------ |
+| Run Title   | Commit message           |
+| Branch Link | Git origin + branch name |
+| Commit Link | Git origin + commit SHA  |
+| Author      | Commit author            |
+
 ### Git Commands
 
 Currents uses the following commands to get the commit data (see [src/git-api.js](https://github.com/currents-dev/commit-info/blob/master/src/git-api.js)):
@@ -25,15 +32,15 @@ Currents uses the following commands to get the commit data (see [src/git-api.js
 
 ### GitHub Actions and Pull Requests
 
-Currents automatically detects PR information, including PR title and the target branch when running in GitHub Actions as a result of [`pull_request`](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request) GHA event. Current use the following source for displaying Run details:
+Currents automatically detects PR information, including PR title and the target branch when running in GitHub Actions as a result of [`pull_request`](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request) GHA event. When a Pull Request is detected, Currents uses the following Pull Request data instead of the commit information.
 
-| Item        | Source                                           |
-| ----------- | ------------------------------------------------ |
-| Run title   | Pull Request title (change in Project Settings)  |
-| Commit Link | Pull Request discussion                          |
-| Commit SHA  | Source branch latest commit SHA                  |
+| Item        | Source                          |
+| ----------- | ------------------------------- |
+| Run Title   | Pull Request title              |
+| Commit Link | Pull Request discussion link    |
+| Commit SHA  | Source branch latest commit SHA |
 
-You can change the way Run Title is generated in [project-settings.md](../projects/project-settings.md "mention"). Read more at [commit-data-for-github-actions.md](../../getting-started/ci-setup/github-actions/commit-data-for-github-actions.md "mention").
+You can change this behavior in [project-settings.md](../projects/project-settings.md "mention").
 
 ### Overriding Commit Info
 
