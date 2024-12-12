@@ -84,6 +84,8 @@ const config = defineConfig<CurrentsFixtures, CurrentsWorkerFixtures>({
       currentsConfigOptions: {
         ... insert your currents config here
       },
+      // Optionally disable Currents fixtures. (defaults to enabled)
+      // currentsFixturesEnabled: false
     }),
    ... other config
 });
@@ -150,6 +152,22 @@ test('passes', async ({ database, page, currentsConfig }) => {
 });
 ```
 {% endcode %}
+
+### Conditionally Enable Fixtures
+
+After extending the  `test` method, many Currents fixtures are enabled by default. If you wish to only conditionally enable them (such as only in CI) you can use the `currentsFixturesEnabled`property in your `playwright.config.ts` file.
+
+{% code title="playwright.config.ts" %}
+```typescript
+// ...
+use: {
+  ...
+  currentsFixturesEnabled: !!process.env.CI,
+},
+```
+{% endcode %}
+
+
 
 ### Available Fixtures
 
