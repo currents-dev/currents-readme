@@ -1,8 +1,4 @@
----
-description: Learn how to enable the Currents Automation Rules to influence runs
----
-
-# Applying Rules to Runs
+# Setup
 
 {% hint style="info" %}
 * This feature is in beta

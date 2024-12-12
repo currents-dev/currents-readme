@@ -1,16 +1,16 @@
 ---
-icon: ruler-triangle
+icon: arrows-turn-to-dots
 description: Use Currents Rules to trigger actions
 ---
 
-# Automation Rules
+# Currents Actions
 
-The Currents Rules Engine allows you to specify actions to be taken when certain conditions are met. The initial implementation allows you to have certain actions automatically taken in your [Playwright tests](applying-rules-to-runs.md) (like skipping the test) when they match certain conditions (matching file name, test name, git branch, etc).
+The Currents Actions Engine allows you to specify actions to be taken when certain conditions are met. The initial implementation allows you to have certain actions automatically taken in your [Playwright tests](setup.md) (like skipping the test) when they match certain conditions (matching file name, test name, git branch, etc).
 
 ### Creating Rules in Currents
 
 {% hint style="info" %}
-The current version only has support for[ test run actions with Playwright](applying-rules-to-runs.md), and requires the [Currents Rules Fixtures ](../../resources/reporters/currents-playwright/currents-playwright-fixtures.md)to be used in your Playwright project.
+The current version only has support for[ test run actions with Playwright](setup.md), and requires the [Currents Rules Fixtures ](../../resources/reporters/currents-playwright/currents-playwright-fixtures.md)to be used in your Playwright project.
 {% endhint %}
 
 Rules are managed from the Rules UI in Currents. From this page you can Create, View and Edit your Rules.
