@@ -61,11 +61,5 @@ The rules to apply are creating using the Rules page in the Dashboard. See [#cre
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-12-10 at 3.22.45 PM (1).png" alt=""><figcaption><p>View, Create, and Edit Rules</p></figcaption></figure>
 
-### Tracing which Rules were Applied
 
-A trace of which rules were applied to a test during the run is available from the test details page.
-
- 
-
-<figure><img src="../../.gitbook/assets/Screenshot 2024-12-10 at 3.53.08 PM.png" alt=""><figcaption><p>Rules trace</p></figcaption></figure>
 

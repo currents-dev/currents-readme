@@ -73,7 +73,9 @@
 * [Currents Actions](guides/currents-actions/README.md)
   * [Use Cases](guides/currents-actions/use-cases.md)
   * [Setup](guides/currents-actions/setup.md)
-  * [Reference](guides/currents-actions/reference.md)
+  * [Reference](guides/currents-actions/reference/README.md)
+    * [Conditions](guides/currents-actions/reference/conditions.md)
+    * [Actions](guides/currents-actions/reference/actions.md)
 
 ## Dashboard
 
