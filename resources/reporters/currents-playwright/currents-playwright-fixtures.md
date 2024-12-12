@@ -42,7 +42,7 @@ export const test = baseTest.extend<CurrentsFixtures, CurrentsWorkerFixtures>({
 {% step %}
 #### Add additional Currents feature fixtures
 
-The `baseFixtures` are required for loading the currents config for the other Currents fixtures. You will also want to include any Currents fixture you plan on using. Here is[ Playwright coverage](../../../guides/coverage/#code-coverage-for-playwright) and the [Currents Rules Engine](../../../guides/automation-rules/applying-rules-to-runs.md) as an example:
+The `baseFixtures` are required for loading the currents config for the other Currents fixtures. You will also want to include any Currents fixture you plan on using. Here is[ Playwright coverage](../../../guides/coverage/#code-coverage-for-playwright) and the [Currents Rules Automation](../../../guides/automation-rules/applying-rules-to-runs.md) as an example:
 
 {% code title="currentsTest.ts" %}
 ```typescript
@@ -159,6 +159,7 @@ test('passes', async ({ database, page, currentsConfig }) => {
 
 * `curentsConfigOptions`&#x20;
 * `currentsConfig`
+* `gitInfo`
 
 Other Currents fixtures depend on these. They are loaded once per worker.&#x20;
 

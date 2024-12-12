@@ -6,14 +6,8 @@ description: Learn how to enable the Currents Automation Rules to influence runs
 
 {% hint style="info" %}
 * This feature is in beta
+* Check out the [example GitHub repository ](https://github.com/currents-dev/playwright-gh-actions-demo)
 {% endhint %}
-
-Currents allows you to define Rules from the dashboard, that can apply actions during Playwright test runs.&#x20;
-
-The following actions are supported when a rule matches:
-
-* Skip Test - Playwright will not run the test at all
-* Quarantine Test - Playwright will run the test, but will ignore any reported failures
 
 Setting up the rule engine to apply while running your Playwright tests consists of 3 steps:
 
@@ -54,7 +48,7 @@ It is a good practice to [extend](https://playwright.dev/docs/api/class-test#tes
 ```
 {% endcode %}
 
-### Update tests to use new test method
+### Update Tests to use New Test Method
 
 Import and use the extended `test` for every test case to enable the rules engine for that test.
 
@@ -68,3 +62,14 @@ Any rules that match your test will now automatically apply.
 ### Creating Rules in Currents Dashboard&#x20;
 
 The rules to apply are creating using the Rules page in the Dashboard. See [#creating-rules-in-currents](./#creating-rules-in-currents "mention") for details.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-12-10 at 3.22.45 PM (1).png" alt=""><figcaption><p>View, Create, and Edit Rules</p></figcaption></figure>
+
+### Tracing which Rules were Applied
+
+A trace of which rules were applied to a test during the run is available from the test details page.
+
+ 
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-12-10 at 3.53.08 PM.png" alt=""><figcaption><p>Rules trace</p></figcaption></figure>
+

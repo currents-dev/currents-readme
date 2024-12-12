@@ -87,15 +87,20 @@ Add `@currents/playwright` reporter to `playwright.config.js|ts`
 Explicitly add the reporter to Playwright configuration:
 
 ```typescript
-import { defineConfig, devices, PlaywrightTestConfig } from "@playwright/test";
-import { CurrentsConfig, currentsReporter } from "@currents/playwright";
+import { defineConfig, devices } from "@playwright/test";
+import { 
+  CurrentsConfig, 
+  CurrentsFixtures, 
+  CurrentsWorkerFixtures,
+  currentsReporter 
+} from "@currents/playwright";
 
 const currentsConfig: CurrentsConfig = {
   recordKey: "secret record key", // 📖 https://currents.dev/readme/guides/record-key
   projectId: "project id", // get one at https://app.currents.dev
 };
 
-const config: PlaywrightTestConfig = {
+const config = defineConfig<CurrentsFixtures, CurrentsWorkerFixtures>({
   use: {
     trace: "on",
     video: "on",
@@ -114,9 +119,9 @@ const config: PlaywrightTestConfig = {
     },
   ],
 
-};
+});
 
-export default defineConfig(config);
+export default config;
 ```
 
 You can also set environment variables to provide the configuration options to Currents reporter:

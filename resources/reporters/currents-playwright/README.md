@@ -63,7 +63,12 @@ Alternatively, you can manually add the reporter to Playwright configuration and
 ```typescript
 // playwright.config.ts
 import { defineConfig, devices, PlaywrightTestConfig } from "@playwright/test";
-import { CurrentsConfig, currentsReporter } from "@currents/playwright";
+import { 
+  CurrentsConfig,
+  CurrentsFixtures,
+  CurrentsWorkerFixtures,
+  currentsReporter
+} from "@currents/playwright";
 
 const currentsConfig: CurrentsConfig = {
   ciBuildId: "ci-build-id", // 📖 https://currents.dev/readme/guides/ci-build-id
@@ -71,7 +76,7 @@ const currentsConfig: CurrentsConfig = {
   projectId: "project id", // get one at https://app.currents.dev
 };
 
-export default defineConfig({
+export default defineConfig<CurrentsFixtures, CurrentsWorkerFixtures>({
   // ...
   reporter: [currentsReporter(currentsConfig)], // 👈🏻 add Currents reporter
 })
@@ -232,6 +237,14 @@ Certain configuration values can have multiple sources, e.g. CLI fag and environ
 * `currentsReporter` JS configuration object, otherwise
 * the default value, otherwise
 * throw if the configuration is mandatory
+
+### Fixtures
+
+The package also provides additional fixtures for enhacing the Playwright test run, like [Code Coverage](../../../guides/coverage/code-coverage-for-playwright.md), and [Rules Automation](../../../guides/automation-rules/applying-rules-to-runs.md).
+
+{% content-ref url="currents-playwright-fixtures.md" %}
+[currents-playwright-fixtures.md](currents-playwright-fixtures.md)
+{% endcontent-ref %}
 
 ### Examples
 
