@@ -39,7 +39,7 @@ Users with Admin role can **Disable** or **Edit** an action after its creation.&
 
 <figure><img src="../../.gitbook/assets/currents-2024-12-13-01.04.34@2x.png" alt=""><figcaption><p>Action Edit History</p></figcaption></figure>
 
-### Inline Action Creation Shortcut
+### Action Creation Shortcut
 
 When browsing test results you can create new actions using the inline Create Action shortcut. Clicking one of the predefined actions will open action creation form pre-populated with the current test details.
 
