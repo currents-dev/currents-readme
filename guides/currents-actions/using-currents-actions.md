@@ -30,7 +30,7 @@ Click **Create Action** to open action creation modal. Enter the action details:
 * **Name** - human readable name
 * **Description** - verbose explanation of the action intent
 * **Expiration date and time** - the action will be marked as Expired and will not apply after the specified date
-* **Condition** - set of conditions (filters) that a test must satisfy to activate an action. Refer to [conditions.md](reference/conditions.md "mention")reference documentation
+* **Condition** - set of conditions (filters) that a test must satisfy to activate an action. Refer to [conditions.md](reference/conditions.md "mention") reference documentation
 * **Actions** - set of actions that will apply if a test matches the conditions. Refer [actions.md](reference/actions.md "mention") reference documentation
 
 <figure><img src="../../.gitbook/assets/currents-2024-12-13-01.02.46@2x.png" alt=""><figcaption><p>Action Creation Form</p></figcaption></figure>

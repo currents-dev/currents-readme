@@ -4,13 +4,144 @@ description: Reference documentation of Conditions that are available for Curren
 
 # Conditions
 
-An Actions can have one or more conditions. You can use `AND` or  `OR` combinator for multiple conditions.
+An Actions can have one or more conditions. You can use `AND` or  `OR` combinator for multiple conditions. Use comma-separated strings to define list values.
 
 ### Fields
 
-<table data-full-width="false"><thead><tr><th>Field</th><th>Description</th><th>Min Version</th></tr></thead><tbody><tr><td>File</td><td>test filename path</td><td>1.9.0+</td></tr><tr><td>Test Title</td><td>test title</td><td>1.9.0+</td></tr><tr><td>Test Title Path</td><td>full title path including named <code>describe</code> statements</td><td>1.9.0+</td></tr><tr><td>Project</td><td>Playwright project name</td><td>1.9.0+</td></tr><tr><td>Test ID</td><td>Playwright testId (unique per-project)</td><td>1.9.0+</td></tr><tr><td>Tags</td><td>test tags</td><td>1.9.0+</td></tr><tr><td>Git Author Email</td><td>git commit author email</td><td>1.9.0+</td></tr><tr><td>Git Author Name</td><td>git commit author name</td><td>1.9.0+</td></tr><tr><td>Git Branch</td><td>git commit branch name</td><td>1.9.0+</td></tr><tr><td>Git Message</td><td>git commit message</td><td>1.9.0+</td></tr><tr><td>Git Remote Origin</td><td>git remote origin URL</td><td>1.9.0+</td></tr></tbody></table>
+#### <mark style="color:purple;">File</mark>
+
+Test filename path, for example `path/to/file.spec.ts`.
+
+| Value Types         | `string \| string[]` |
+| ------------------- | -------------------- |
+| Supported Operators | all                  |
+
+#### <mark style="color:purple;">Test Title</mark>
+
+Test title, for example in test definition `test("should open landing page")` it is `should open landing page`.
+
+| Value Types         | `string \| string[]` |
+| ------------------- | -------------------- |
+| Supported Operators | all                  |
+
+<mark style="color:purple;">**Test Title Path**</mark>
+
+Full title path including named `describe` statements.&#x20;
+
+<details>
+
+<summary>Example</summary>
+
+For example, consider this test definition:
+
+```
+
+test.describe("Block", () => {
+    test("Test A", () => { /* ... */ })
+    test("Test B", () => { /* ... */ })
+})
+
+```
+
+`Test Title Path` > `in` > `Block, Test A` matches `Test A`
+
+`Test Title Path` > `in` > `Block` matches both `Test A` and `Test B`
+
+</details>
+
+| Value Types         | `string \| string[]` |
+| ------------------- | -------------------- |
+| Supported Operators | all                  |
+
+#### <mark style="color:purple;">Test ID</mark>
+
+Playwright [test id](https://playwright.dev/docs/api/class-testinfo#test-info-test-id), matching the test case id in the [Reporter API](https://playwright.dev/docs/api/class-reporter).
+
+| Value Types         | `string \| string[]` |
+| ------------------- | -------------------- |
+| Supported Operators | all                  |
+
+#### <mark style="color:purple;">Tags</mark>
+
+Test tag list. For example, if a test has the following list of tags `['a', 'b']`, each value in the list will be evaluated separately.
+
+<details>
+
+<summary>Example</summary>
+
+&#x20;if a test has the following list of tags `['a', 'b']`, each value in the list will be evaluated separately.
+
+* `tags` > `in` > `a` ✅ because tag `a` is in `['a']`
+
+- `tags` > `in` > `b` ✅ because tag `b` is in `['b']`
+
+* `tags` > `in` > `a, b` ✅  because tag `a`  and also `b`are in `['a', 'b']`
+
+- `tags` > `in` > `a, c` ✅ because tag `a`  is in `['a', 'c']`
+
+* `tags` > `not in` > `a, c` ✅  because tag `b`  is not in `['a', 'c']`
+
+- `tags` > `is` > `a` ✅ because tag `a == a`
+
+* `tags` > `is` > `b`  ✅  because tag `b == b`
+
+- `tags` > `is not` > `b` ✅  because tag a`!= b`
+
+</details>
+
+| Value Types         | `string \| string[]` |
+| ------------------- | -------------------- |
+| Supported Operators | all                  |
+
+#### <mark style="color:purple;">Project</mark>
+
+Playwright project name as defined in your `playwright.config.ts`.&#x20;
+
+| Value Types         | `string \| string[]` |
+| ------------------- | -------------------- |
+| Supported Operators | all                  |
+
+#### <mark style="color:purple;">Git Author Email</mark>
+
+Git commit author email. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") to explore how Currents collects git commit information.
+
+| Value Types         | `string \| string[]` |
+| ------------------- | -------------------- |
+| Supported Operators | all                  |
+
+#### <mark style="color:purple;">Git Author Branch</mark>
+
+Git commit author name. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") to explore how Currents collects git commit information.
+
+| Value Types         | `string \| string[]` |
+| ------------------- | -------------------- |
+| Supported Operators | all                  |
+
+#### <mark style="color:purple;">Git Branch</mark>
+
+Git commit branch name. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") to explore how Currents collects git commit information.
+
+| Value Types         | `string \| string[]` |
+| ------------------- | -------------------- |
+| Supported Operators | all                  |
+
+#### <mark style="color:purple;">Git Message</mark>
+
+Git commit message. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") to explore how Currents collects git commit information.
+
+| Value Types         | `string \| string[]` |
+| ------------------- | -------------------- |
+| Supported Operators | all                  |
+
+#### <mark style="color:purple;">Git Remote Origin</mark>
+
+Git remote origin URL. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") to explore how Currents collects git commit information.
+
+| Value Types         | `string \| string[]` |
+| ------------------- | -------------------- |
+| Supported Operators | all                  |
 
 ### Operators
 
-<table data-full-width="false"><thead><tr><th>Operator</th><th>Description</th><th>Min Version</th></tr></thead><tbody><tr><td><code>is</code></td><td>exact match</td><td>1.9.0+</td></tr><tr><td><code>is not</code></td><td>the value is different</td><td>1.9.0+</td></tr><tr><td><code>in</code></td><td>one of the comma-separated values is an exact match</td><td>1.9.0+</td></tr><tr><td><code>not in</code></td><td>none of the comma-separated values match</td><td>1.9.0+</td></tr><tr><td><code>is any</code></td><td>fields doesn't exists, <code>undefined</code>or <code>null</code></td><td>1.9.0+</td></tr><tr><td><code>is empty</code></td><td>field has no value</td><td>1.9.0+</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Operator</th><th>Description</th></tr></thead><tbody><tr><td><code>is</code></td><td>exact match</td></tr><tr><td><code>is not</code></td><td>the value is different</td></tr><tr><td><code>in</code></td><td>one of the comma-separated values is an exact match</td></tr><tr><td><code>not in</code></td><td>none of the comma-separated values match</td></tr><tr><td><code>is any</code></td><td>fields doesn't exists, <code>undefined</code>or <code>null</code></td></tr><tr><td><code>is empty</code></td><td>field has no value</td></tr></tbody></table>
 
