@@ -3,8 +3,8 @@ icon: arrows-turn-to-dots
 description: >-
   Automate workflows with Currents Actions by triggering actions based on
   flexible rules and conditions
-cover: ../../.gitbook/assets/actions-banner.png
-coverY: 173.76
+cover: ../../.gitbook/assets/actions-banner (2).png
+coverY: 108
 layout:
   cover:
     visible: true
