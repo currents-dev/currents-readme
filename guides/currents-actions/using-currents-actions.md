@@ -47,7 +47,7 @@ When browsing test results you can create new actions using the inline Create Ac
 
 ### Action Traceability
 
-If a test was affected by an action, it will display Actions Engine trace. Clicking on the trace items takes users to the associated action definition.
+If a test was affected by an action, it will display Actions Engine trace. Clicking on a trace item takes users to the associated Action definition.
 
 <figure><img src="../../.gitbook/assets/currents-2024-12-13-01.13.25@2x.png" alt=""><figcaption></figcaption></figure>
 
