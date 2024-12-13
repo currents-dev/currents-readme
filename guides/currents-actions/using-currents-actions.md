@@ -2,11 +2,11 @@
 description: Create and Manage Currents Actions, trace action applications and outcomes
 ---
 
-# Using Actions
+# Using Currents Actions
 
 {% hint style="info" %}
-* Users with **Admin** role can create and change action.&#x20;
-* Users with **Member** role can browse the actions without modifying them.
+* Users with **Admin** role can create and change actions.&#x20;
+* Users with **Member** role can browse actions in read-only mode.
 {% endhint %}
 
 Access the Actions Management view via **Menu > Manage Project > Actions** to browse, create and modify actions.
