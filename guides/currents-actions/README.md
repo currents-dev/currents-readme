@@ -41,7 +41,7 @@ Today, teams often rely on in-house solutions and conventions to implement such 
 Currents Actions, combined with detailed reporting, integrations with third-party tools, test result histories, and observability metrics, unlocks these scenarios using a flexible set of rules and actions - all powered by the Currents platform as the source of truth, accessible to the entire team.
 
 {% hint style="info" %}
-The Dec 2024 release of Currents Actions supports [Playwright](setup.md) and implements basic set of actions and conditions. We are collecting feedback and working on support more testing-related workflows. Please contact our team to get more detials or share ideas.
+The Dec 2024 release of Currents Actions supports [Playwright](setup-currents-actions.md) and implements basic set of actions and conditions. We are collecting feedback and working on support more testing-related workflows. Please contact our team to get more detials or share ideas.
 {% endhint %}
 
 ### Creating Actions
