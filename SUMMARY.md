@@ -65,17 +65,17 @@
 * [Code Coverage](guides/coverage/README.md)
   * [Code Coverage for Playwright](guides/coverage/code-coverage-for-playwright.md)
   * [Code Coverage for Cypress](guides/coverage/code-coverage-for-cypress.md)
-* [Playwright Tags](guides/playwright-tags.md)
-* [Playwright Component Testing](guides/playwright-component-testing.md)
-* [Playwright Annotations](guides/playwright-annotations.md)
-* [Playwright Visual Testing](guides/playwright-visual-testing.md)
-* [Re-run Only Failed  Tests](guides/re-run-only-failed-tests.md)
-* [Currents Actions](guides/currents-actions/README.md)
+* [🆕 Currents Actions](guides/currents-actions/README.md)
   * [Use Cases](guides/currents-actions/use-cases.md)
   * [Setup](guides/currents-actions/setup.md)
   * [Reference](guides/currents-actions/reference/README.md)
     * [Conditions](guides/currents-actions/reference/conditions.md)
     * [Actions](guides/currents-actions/reference/actions.md)
+* [Playwright Tags](guides/playwright-tags.md)
+* [Playwright Component Testing](guides/playwright-component-testing.md)
+* [Playwright Annotations](guides/playwright-annotations.md)
+* [Playwright Visual Testing](guides/playwright-visual-testing.md)
+* [Re-run Only Failed  Tests](guides/re-run-only-failed-tests.md)
 
 ## Dashboard
 
