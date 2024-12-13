@@ -1,8 +1,8 @@
 ---
 icon: arrows-turn-to-dots
 description: >-
-  Automate testing workflows using by triggering actions based on rules and
-  conditions
+  Automate workflows with Currents Actions by triggering actions based on
+  flexible rules and conditions
 cover: ../../.gitbook/assets/actions-banner.png
 coverY: 173.76
 layout:
@@ -21,7 +21,7 @@ layout:
     visible: true
 ---
 
-# Currents Actions
+# 🆕 Currents Actions
 
 The **Currents Actions Engine** allows implementing custom workflows for testing-related activities. For example, conditionally and temporarily skip or quarantine a test, dynamically add a tag,  send an alert or open a ticket if test becomes flaky.
 
