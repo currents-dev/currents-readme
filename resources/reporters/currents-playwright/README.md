@@ -242,8 +242,8 @@ Certain configuration values can have multiple sources, e.g. CLI fag and environ
 
 The package also provides additional fixtures for enhacing the Playwright test run, like [Code Coverage](../../../guides/coverage/code-coverage-for-playwright.md), and [Rules Automation](../../../guides/currents-actions/setup.md).
 
-{% content-ref url="currents-fixtures-for-playwright.md" %}
-[currents-fixtures-for-playwright.md](currents-fixtures-for-playwright.md)
+{% content-ref url="currents-playwright-fixtures.md" %}
+[currents-playwright-fixtures.md](currents-playwright-fixtures.md)
 {% endcontent-ref %}
 
 ### Examples

@@ -124,7 +124,7 @@
     * [Migration to Cypress@13](resources/reporters/cypress-cloud/migration-to-cypress-13.md)
   * [@currents/cli](resources/reporters/currents-cli.md)
   * [@currents/playwright](resources/reporters/currents-playwright/README.md)
-    * [Currents Fixtures for Playwright](resources/reporters/currents-playwright/currents-fixtures-for-playwright.md)
+    * [Currents Fixtures for Playwright](resources/reporters/currents-playwright/currents-playwright-fixtures.md)
   * [@currents/jest](resources/reporters/currents-jest.md)
   * [@currents/cmd](resources/reporters/currents-cmd/README.md)
     * [currents api](resources/reporters/currents-cmd/currents-api.md)

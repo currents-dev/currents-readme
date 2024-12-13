@@ -30,7 +30,7 @@ Install and configure Currents reporter following [you-first-playwright-run.md](
 `@currents/playwright` provides a [Playwright fixture](https://playwright.dev/docs/test-fixtures) that must be installed to enable Currents fixtures.
 
 {% hint style="info" %}
-It is a good practice to [extend](https://playwright.dev/docs/api/class-test#test-extend) the default Playwright `test` method, for example to enable [Page Object Model](https://playwright.dev/docs/pom), [sharing a state](https://playwright.dev/docs/test-fixtures#worker-scoped-fixtures) between multiple tests etc. See [currents-fixtures-for-playwright.md](../../resources/reporters/currents-playwright/currents-fixtures-for-playwright.md "mention") for more information.
+It is a good practice to [extend](https://playwright.dev/docs/api/class-test#test-extend) the default Playwright `test` method, for example to enable [Page Object Model](https://playwright.dev/docs/pom), [sharing a state](https://playwright.dev/docs/test-fixtures#worker-scoped-fixtures) between multiple tests etc. See [currents-playwright-fixtures.md](../../resources/reporters/currents-playwright/currents-playwright-fixtures.md "mention") for more information.
 {% endhint %}
 
 {% code title="base.ts" %}

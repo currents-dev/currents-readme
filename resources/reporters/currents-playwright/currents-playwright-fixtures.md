@@ -102,7 +102,7 @@ export default config;
 {% step %}
 #### Use the new implementation in your tests
 
-Import the new `test` implementation and use it in your tests where you want to use the features provided by the fixtures (or [#combine-currents-fixtures-with-existing-custom-fixtures](currents-fixtures-for-playwright.md#combine-currents-fixtures-with-existing-custom-fixtures "mention")).
+Import the new `test` implementation and use it in your tests where you want to use the features provided by the fixtures (or [#combine-currents-fixtures-with-existing-custom-fixtures](currents-playwright-fixtures.md#combine-currents-fixtures-with-existing-custom-fixtures "mention")).
 
 ```typescript
 import { test } from './currentsTest';
