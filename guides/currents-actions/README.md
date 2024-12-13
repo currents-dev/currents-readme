@@ -4,7 +4,7 @@ description: >-
   Automate workflows with Currents Actions by triggering actions based on
   flexible rules and conditions
 cover: ../../.gitbook/assets/actions-banner (2).png
-coverY: 108
+coverY: 314.5813333333333
 layout:
   cover:
     visible: true
