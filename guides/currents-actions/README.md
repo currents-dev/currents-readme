@@ -43,13 +43,3 @@ Currents Actions, combined with detailed reporting, integrations with third-part
 {% hint style="info" %}
 The Dec 2024 release of Currents Actions supports [Playwright](setup-currents-actions.md) and implements basic set of actions and conditions. We are collecting feedback and working on support more testing-related workflows. Please contact our team to get more detials or share ideas.
 {% endhint %}
-
-### Creating Actions
-
-You can also quickly create rules when viewing test details for existing runs.
-
-### Actions Trace
-
-A trace of which actions were applied to a test during its is available from the test details page.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2024-12-10 at 3.53.08 PM.png" alt=""><figcaption><p>Rules trace</p></figcaption></figure>
