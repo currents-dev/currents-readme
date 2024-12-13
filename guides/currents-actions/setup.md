@@ -1,8 +1,7 @@
 # Setup
 
 {% hint style="info" %}
-* This feature is in beta
-* Check out the [example GitHub repository ](https://github.com/currents-dev/currents-playwright-rules-example)
+Check out the [example GitHub repository ](https://github.com/currents-dev/currents-playwright-rules-example)
 {% endhint %}
 
 Setting up the rule engine to apply while running your Playwright tests consists of 3 steps:
