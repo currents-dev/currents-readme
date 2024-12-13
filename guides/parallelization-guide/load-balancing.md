@@ -26,14 +26,14 @@ With 2 machines, non-optimal balancing might distribute the files as follows, le
 
 By ordering spec files according to their expected duration and optimizing the distribution of the files between runners (CI machines), we can significantly reduce the overall duration of runs and complete our tests suite faster.
 
-<figure><img src="../../.gitbook/assets/pw-shard-slow-bg (1).png" alt=""><figcaption><p>Non-optimal distribution of spec files leads to underutilized resources and longer duration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Naive Balancing.png" alt=""><figcaption><p>Non-optimal distribution of spec files leads to under-utilized resources and longer duration</p></figcaption></figure>
 
 An optimal assignment strategy that considers the duration of spec files can significantly improve the efficiency of test execution. By balancing the workload across shards based on test durations, you minimize overall execution time and make better use of resources. For the example provided:
 
 * Shard 1: `spec01` (10 minutes) and `spec03` (3 minutes), totaling 13 minutes.
 * Shard 2: `spec02` (10 minutes) and `spec04` (2 minutes), totaling 12 minutes.
 
-<figure><img src="../../.gitbook/assets/pw-shard-fast-bg (1).png" alt=""><figcaption><p>Optimal distribution of spec files is 35% faster and uses the resources in an optimal way</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Optimal balancing.png" alt=""><figcaption><p>Optimal distribution of spec files is 35% faster and uses the resources in an optimal way</p></figcaption></figure>
 
 Having this kind of optimization reduces the overall duration of runs and saves valuable time, reduces CI machines utilization and allows developers to get feedback faster.
 
