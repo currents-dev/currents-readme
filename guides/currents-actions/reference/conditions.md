@@ -28,27 +28,6 @@ Test title, for example in test definition `test("should open landing page")` it
 
 Full title path including named `describe` statements.&#x20;
 
-<details>
-
-<summary>Example</summary>
-
-For example, consider this test definition:
-
-```
-
-test.describe("Block", () => {
-    test("Test A", () => { /* ... */ })
-    test("Test B", () => { /* ... */ })
-})
-
-```
-
-`Test Title Path` > `in` > `Block, Test A` matches `Test A`
-
-`Test Title Path` > `in` > `Block` matches both `Test A` and `Test B`
-
-</details>
-
 | Value Types         | `string \| string[]` |
 | ------------------- | -------------------- |
 | Supported Operators | all                  |
@@ -64,30 +43,6 @@ Playwright [test id](https://playwright.dev/docs/api/class-testinfo#test-info-te
 #### <mark style="color:purple;">Tags</mark>
 
 Test tag list. For example, if a test has the following list of tags `['a', 'b']`, each value in the list will be evaluated separately.
-
-<details>
-
-<summary>Example</summary>
-
-&#x20;if a test has the following list of tags `['a', 'b']`, each value in the list will be evaluated separately.
-
-* `tags` > `in` > `a` ✅ because tag `a` is in `['a']`
-
-- `tags` > `in` > `b` ✅ because tag `b` is in `['b']`
-
-* `tags` > `in` > `a, b` ✅  because tag `a`  and also `b`are in `['a', 'b']`
-
-- `tags` > `in` > `a, c` ✅ because tag `a`  is in `['a', 'c']`
-
-* `tags` > `not in` > `a, c` ✅  because tag `b`  is not in `['a', 'c']`
-
-- `tags` > `is` > `a` ✅ because tag `a == a`
-
-* `tags` > `is` > `b`  ✅  because tag `b == b`
-
-- `tags` > `is not` > `b` ✅  because tag a`!= b`
-
-</details>
 
 | Value Types         | `string \| string[]` |
 | ------------------- | -------------------- |
