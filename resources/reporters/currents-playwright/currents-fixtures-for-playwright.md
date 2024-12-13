@@ -1,21 +1,23 @@
 ---
-description: Enhance Playwright functionality with Currents playwright fixtures
+description: Enhance Playwright functionality with Currents fixtures for Playwright
 ---
 
-# Currents Playwright fixtures
+# Currents Fixtures for Playwright
 
-{% hint style="info" %}
-Requires `@currents/playwright` 1.7.0+
-{% endhint %}
+### Requirements
 
-[Playwright custom fixtures](https://playwright.dev/docs/test-fixtures)  is an important concept in Playwright ecosystem - fixtures allow augmenting and modifying the behaviour of Playwright tests at runtime.&#x20;
+* Requires `@currents/playwright` 1.7.0+
 
-Current integration with Playwright includes a couple of The `@currents/playwright`  package provides some fixtures for integrating with advanced Currents features like:
+### Overview
 
-* [#code-coverage-for-playwright](../../../guides/coverage/#code-coverage-for-playwright "mention")
-* [setup.md](../../../guides/currents-actions/setup.md "mention")
+[Playwright custom fixtures](https://playwright.dev/docs/test-fixtures) is an important concept in Playwright ecosystem that allow augmenting and modifying the behaviour of Playwright tests.
 
-### Adding the Currents fixtures
+Current integration with Playwright includes a several fixtures for enabling advanced Currents features like:
+
+* [code-coverage-for-playwright.md](../../../guides/coverage/code-coverage-for-playwright.md "mention")
+* [currents-actions](../../../guides/currents-actions/ "mention")
+
+### Setting up Currents Fixtures
 
 {% stepper %}
 {% step %}
@@ -56,7 +58,7 @@ import {
 export const test = baseTest.extend<CurrentsFixtures, CurrentsWorkerFixtures>({
   ...fixtures.baseFixtures,
   ...fixtures.coverageFixtures,
-  ...fixtures.rulesFixtures,
+  ...fixtures.actionFixtures,
 });
 ```
 {% endcode %}
@@ -65,7 +67,7 @@ export const test = baseTest.extend<CurrentsFixtures, CurrentsWorkerFixtures>({
 {% endstep %}
 
 {% step %}
-#### Optional: set Currents fixture configuration
+#### Optional: set fixture configuration
 
 We pick up the configuration automatically from the `currents.config.js|ts` file - if you created the file you can skip this step. If you explicitly provide config to the Currents reporter in your `playwright.config.ts` you will also need to pass that same config to the fixture like this:
 
@@ -100,7 +102,7 @@ export default config;
 {% step %}
 #### Use the new implementation in your tests
 
-Import the new `test` implementation and use it in your tests where you want to use the features provided by the fixtures (or [#combine-currents-fixtures-with-existing-custom-fixtures](currents-playwright-fixtures.md#combine-currents-fixtures-with-existing-custom-fixtures "mention")).
+Import the new `test` implementation and use it in your tests where you want to use the features provided by the fixtures (or [#combine-currents-fixtures-with-existing-custom-fixtures](currents-fixtures-for-playwright.md#combine-currents-fixtures-with-existing-custom-fixtures "mention")).
 
 ```typescript
 import { test } from './currentsTest';
@@ -131,7 +133,7 @@ test('basic test', async ({ page, currentsConfig }) => {
 
 ### Combine Currents fixtures with existing custom fixtures
 
-If you already have your own custom fixtures, you will wan to use [Playwright's mergeTests helper](https://playwright.dev/docs/test-fixtures#combine-custom-fixtures-from-multiple-modules) to combind fixtures from multiple modules. The merged result should be exported and used in your tests.
+If you already have your own custom fixtures, you will wan to use [Playwright's mergeTests helper](https://playwright.dev/docs/test-fixtures#combine-custom-fixtures-from-multiple-modules) to combined fixtures from multiple modules. The merged result should be exported and used in your tests.
 
 {% code title="fixtures.ts" %}
 ```typescript
@@ -155,7 +157,7 @@ test('passes', async ({ database, page, currentsConfig }) => {
 
 ### Conditionally Enable Fixtures
 
-After extending the  `test` method, many Currents fixtures are enabled by default. If you wish to only conditionally enable them (such as only in CI) you can use the `currentsFixturesEnabled`property in your `playwright.config.ts` file.
+After extending the  `test` method, many Currents fixtures are enabled by default. If you wish to only conditionally enable them (such as only in CI) you can use the `currentsFixturesEnabled` property in your `playwright.config.ts` file.
 
 {% code title="playwright.config.ts" %}
 ```typescript
@@ -195,13 +197,11 @@ See [#code-coverage-for-playwright](../../../guides/coverage/#code-coverage-for-
 
 <details>
 
-<summary>rulesFixtures</summary>
+<summary>actionsFixtures</summary>
 
-* `currentsRules`
+Available for in `@currents/playwright` v1.9.0+
 
-Available for use in `@currents/playwright` v1.9.0+
-
-See [setup.md](../../../guides/currents-actions/setup.md "mention") for details
+See [currents-actions](../../../guides/currents-actions/ "mention") for details
 
 </details>
 

@@ -46,11 +46,7 @@ The Dec 2024 release of Currents Actions supports [Playwright](setup.md) and imp
 
 ### Creating Actions
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-12-10 at 3.22.45 PM.png" alt=""><figcaption><p>Rules is located under Manage Project in the sidebar</p></figcaption></figure>
-
 You can also quickly create rules when viewing test details for existing runs.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2024-12-10 at 3.29.08 PM.png" alt=""><figcaption><p>Apply rules from the Run Test Details</p></figcaption></figure>
 
 ### Actions Trace
 
