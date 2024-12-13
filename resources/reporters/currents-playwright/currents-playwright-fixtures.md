@@ -44,7 +44,7 @@ export const test = baseTest.extend<CurrentsFixtures, CurrentsWorkerFixtures>({
 {% step %}
 #### Add additional Currents feature fixtures
 
-The `baseFixtures` are required for loading the currents config for the other Currents fixtures. You will also want to include any Currents fixture you plan on using. Here is[ Playwright coverage](../../../guides/coverage/#code-coverage-for-playwright) and the [Currents Rules Automation](../../../guides/currents-actions/setup-currents-actions.md) as an example:
+The `baseFixtures` are required for loading the currents config for the other Currents fixtures. You will also want to include any Currents fixture you plan on using. Here is[ Playwright coverage](../../../guides/coverage/#code-coverage-for-playwright) and [Currents Actions](../../../guides/currents-actions/setup-currents-actions.md) as an example:
 
 {% code title="currentsTest.ts" %}
 ```typescript
@@ -133,7 +133,7 @@ test('basic test', async ({ page, currentsConfig }) => {
 
 ### Combine Currents fixtures with existing custom fixtures
 
-If you already have your own custom fixtures, you will wan to use [Playwright's mergeTests helper](https://playwright.dev/docs/test-fixtures#combine-custom-fixtures-from-multiple-modules) to combined fixtures from multiple modules. The merged result should be exported and used in your tests.
+If you already have your own custom fixtures, you will want to use [Playwright's mergeTests helper](https://playwright.dev/docs/test-fixtures#combine-custom-fixtures-from-multiple-modules) to combined fixtures from multiple modules. The merged result should be exported and used in your tests.
 
 {% code title="fixtures.ts" %}
 ```typescript
@@ -201,7 +201,7 @@ See [#code-coverage-for-playwright](../../../guides/coverage/#code-coverage-for-
 
 Available for in `@currents/playwright` v1.9.0+
 
-See [currents-actions](../../../guides/currents-actions/ "mention") for details
+See [currents-actions](../../../guides/currents-actions/ "mention")  for details
 
 </details>
 
