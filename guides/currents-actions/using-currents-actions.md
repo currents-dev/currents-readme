@@ -5,7 +5,7 @@ description: Create and Manage Currents Actions, trace action applications and o
 # Using Currents Actions
 
 {% hint style="info" %}
-* Users with **Admin** role can create and change actions.&#x20;
+* Users with **Admin** role can create and modify actions.&#x20;
 * Users with **Member** role can browse actions in read-only mode.
 {% endhint %}
 
@@ -19,7 +19,7 @@ An action can be in one of the following states:
 * Expired - the action has expired and isn't applicable anymore;
 * Disabled - the action was disabled by a user.
 
-By default only **Active** tests are visible, change the visible actions filter to see additional items.
+By default only **Active** actions are visible, change the visibility filter to see additional items.
 
 <figure><img src="../../.gitbook/assets/currents-2024-12-13-00.54.40@2x.png" alt=""><figcaption><p>Actions Management View</p></figcaption></figure>
 
