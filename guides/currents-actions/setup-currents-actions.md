@@ -2,12 +2,12 @@
 description: Setting up Current Actions for your Playwright Project
 ---
 
-# Setup
+# Setup Currents Actions
 
 ### Requirements
 
 * Only available for Playwright
-* Requires `@currents/playwright` v1.9.0+ (currently available via `beta` npm channel)
+* Requires `@currents/playwright` v1.9.0+&#x20;
 
 ### Overview
 
