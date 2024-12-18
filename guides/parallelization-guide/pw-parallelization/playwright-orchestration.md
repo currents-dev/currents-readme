@@ -161,6 +161,21 @@ npx playwright merge-reports --reporter=html ./blob-report
 
 Check an [example of Github Actions setup here.](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-or8n.yml)
 
+### Orchestration and Worker Usage
+
+Orchestration runs only one spec file at a time, regardless of the number of configured workers.
+
+Explanation:
+
+* By default, orchestration limits execution to a single spec file at a time.
+* If multiple projects are configured, orchestration can still utilize additional workers by running the same spec file across multiple browsers simultaneously.
+* To fully leverage all configured workers, enable [`fullyParallel`](fully-parallel-mode.md) mode. This allows tests _within_ a spec file to execute concurrently on multiple workers.
+
+Solution:
+
+* Verify if `fullyParallel` mode is enabled in your configuration to ensure optimal worker utilization. See: [fully-parallel-mode.md](fully-parallel-mode.md "mention")
+* For multi-project setups, confirm that additional browsers are being utilized for parallel execution.
+
 ### Limitations and Nuances
 
 * Orchestration is only effective for suites with relatively large number of **spec files** (not tests)
