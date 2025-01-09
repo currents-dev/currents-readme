@@ -130,7 +130,7 @@
     * [currents upload](resources/reporters/currents-cmd/currents-upload.md)
     * [currents cache](resources/reporters/currents-cmd/currents-cache.md)
     * [currents convert](resources/reporters/currents-cmd/currents-convert.md)
-* [Data Format Reference](resources/data-format-reference.md)
+  * [Data Format Reference](resources/reporters/data-format-reference.md)
 * [Integrations](resources/integrations/README.md)
   * [GitHub](resources/integrations/github/README.md)
     * [GitHub App](resources/integrations/github/github-app.md)

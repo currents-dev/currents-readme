@@ -6,12 +6,12 @@ description: Currents Reporting API - Data Format Reference
 
 Currents can accept results from arbitrary testing frameworks. This document provides detailed instructions for creating test results data compatible with Currents.&#x20;
 
-* To upload the results use [currents-upload.md](reporters/currents-cmd/currents-upload.md "mention") command.&#x20;
-* Refer to [currents-convert.md](reporters/currents-cmd/currents-convert.md "mention") to see how we convert the  results from various popular testing framework to "Currents Format" that conforms to the specification presented below.
+* To upload the results use [currents-upload.md](currents-cmd/currents-upload.md "mention") command.&#x20;
+* Refer to [currents-convert.md](currents-cmd/currents-convert.md "mention") to see how we convert the  results from various popular testing framework to "Currents Format" that conforms to the specification presented below.
 
 ## Results Directory
 
-To upload the results to Currents create a "Results Directory" with all the necessary files. The directory will be used as  the `--output-dir` parameter for [currents-upload.md](reporters/currents-cmd/currents-upload.md "mention") command, for example:
+To upload the results to Currents create a "Results Directory" with all the necessary files. The directory will be used as  the `--output-dir` parameter for [currents-upload.md](currents-cmd/currents-upload.md "mention") command, for example:
 
 `npx currents convert  --output-dir path-to-results-directory`
 
