@@ -21,14 +21,14 @@ Support frameworks
 | Format    | Framework      | Supported                |
 | --------- | -------------- | ------------------------ |
 | JUnit XML | Postman        | ✅                        |
-| JUnit XML | Vitest         | 👷🏾‍♀️ work in progress |
+| JUnit XML | Vitest         | ✅                        |
 | JUnit XML | NodeJS Testing | 👷🏾‍♀️ work in progress |
 | JUnit XML | Cypress        | 👷🏾‍♀️ work in progress |
 | JUnit XML | WebdriverIO    | 👷🏾‍♀️ work in progress |
 
 If you're interested in enabling support for more frameworks, please get in touch with our support team.
 
-## Usage
+### Usage
 
 ```bash
 npx currents convert \
@@ -38,6 +38,8 @@ npx currents convert \
   --framework=<string> \
   --framework-version=<string>
 ```
+
+Example:
 
 ```bash
 npx currents convert \
@@ -53,7 +55,7 @@ npx currents convert \
 [currents] Conversion completed, report saved to: .currents/report-01
 ```
 
-## Configuration
+### Configuration
 
 `currents convert` options apart from `--framework-version` are required. Use `--help` flag to list the available options.
 
@@ -78,7 +80,7 @@ npx currents convert \
 *   `--framework`
 
     * The testing framework used to generate the test reports
-    * **Type:** `postmane`
+    * **Type:** `postman, vitest`
 
 
 *   `--framework-version`
@@ -91,3 +93,7 @@ npx currents convert \
   * Enable debug logs
   * Environment variable: `DEBUG=currents*`
   * **Type:** `boolean`
+
+## Output
+
+The output files from convert command are important to understand how to report to the Generic API. See the [Broken link](broken-reference "mention") reference.
