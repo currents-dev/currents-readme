@@ -23,14 +23,57 @@ results-dir/
 │   ├── <instance-id-1>.json
 │   ├── <instance-id-2>.json
 │   └── <instance-id-n>.json
-│── currents.results.xml
-└── config.json
+│── config.json
+└── fullTestSuite.json
 ```
 
 The output consists of two main components:&#x20;
 
+* `fullTestSuite.json` is the [#full-test-suite](data-format-reference.md#full-test-suite "mention") JSON document that contains the tests expected to be reported. It does not contains test results.
 * `config.json`  is a [#configuration-file](data-format-reference.md#configuration-file "mention") that contains the metadata like test framework name, version and more
 * `instances` folder contains [#instance-files](data-format-reference.md#instance-files "mention") - JSON document that represents  a spec file or a logical collection and the associated test results.
+
+## Full Test Suite
+
+The Full Test Suite is a JSON-formatted file that contains the list of all the tests expected to be reported to the Currents platform for the current build / run.
+
+{% hint style="info" %}
+Currents requires that all test results from the Full Test Suite be submitted before the project's specified timeout. If results are not received by the deadline, the run is marked as timed out. See [run-timeouts.md](../../dashboard/runs/run-timeouts.md "mention").
+{% endhint %}
+
+<details>
+
+<summary>FullTestSuite File Example</summary>
+
+```javascript
+{
+	"name": "My test suite",
+	"tags": ["e2e", "dashboard"],
+	"tests": [
+		{
+			"title": ["dashboard", "login"],
+			"spec": "__tests__/dashboard/login.spec.tsx",
+			"tags": ["completed"],
+			"testId": "a50d141accce5aaa"
+		}
+	],
+}
+```
+
+</details>
+
+`Full Test Suite File`
+
+<table><thead><tr><th width="152">Property</th><th width="203">Type</th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>Array&#x3C;string></code></td><td>Yes</td><td>The name of the test suite, it is not used in the dashboard but can be useful to identify it based on its name.</td></tr><tr><td><code>tags</code></td><td><code>Array&#x3C;string></code></td><td>Yes</td><td>Run-level tags for this run / build. See <a data-mention href="../../guides/playwright-tags.md">playwright-tags.md</a>.</td></tr><tr><td><code>tests</code></td><td><code>Array&#x3C;SuiteTest></code></td><td>Yes</td><td><p>List of included tests, including test title, spec file, test tags and testId.</p><p></p><p><code>testId</code> of full test suite file and instance files must to match.</p></td></tr></tbody></table>
+
+`SuiteTest`
+
+| Property | Type            | Required | Description                                                                                                                                                                                |
+| -------- | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `title`  | `Array<string>` | Yes      | Test description + title.                                                                                                                                                                  |
+| `spec`   | `string`        | Yes      | The spec file where this test is defined.                                                                                                                                                  |
+| `tags`   | `Array<string>` | No       | A list of tags or  associated with the test for categorization or filtering.                                                                                                               |
+| `testId` | `string`        | Yes      | A unique identifier for the test case. It is created with a hash of the spec file property and the title. [See how to generate this property](data-format-reference.md#generating-testid). |
 
 ### Configuration File
 
@@ -251,3 +294,4 @@ export function generateTestId(testTitle: string, specFileName: string): string 
   return fullHash.substring(0, 16);
 }
 ```
+
