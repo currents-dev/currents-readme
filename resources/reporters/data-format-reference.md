@@ -37,17 +37,30 @@ The output consists of two main components:&#x20;
 
 The Full Test Suite is a JSON-formatted file that contains the list of all the tests expected to be reported to the Currents platform for the current build / run.
 
+Each element in the array of `fullTestSuite.json` file represents a group of tests, organized by the `name` property which defines the group name.&#x20;
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Note that the property "name" is showed as the "group name" in the dashboard.</p></figcaption></figure>
+
 {% hint style="info" %}
 Currents requires that all test results from the Full Test Suite be submitted before the project's specified timeout. If results are not received by the deadline, the run is marked as timed out. See [run-timeouts.md](../../dashboard/runs/run-timeouts.md "mention").
 {% endhint %}
 
+`Full Test Suite file`
+
+The root of the `fullTestSuite.json` file is a list of elements of the type `Group`.
+
+{% hint style="info" %}
+The `SuiteTest`'s  can be part of any `Group` and may even be included in multiple `Group`s.
+{% endhint %}
+
 <details>
 
-<summary>FullTestSuite File Example</summary>
+<summary>Full Test Suite file root object: <code>Array&#x3C;Group></code></summary>
 
-```javascript
-{
-	"name": "My test suite",
+```json
+[
+   {
+	"name": "Dashboard Tests",
 	"tags": ["e2e", "dashboard"],
 	"tests": [
 		{
@@ -56,21 +69,37 @@ Currents requires that all test results from the Full Test Suite be submitted be
 			"tags": ["completed"],
 			"testId": "a50d141accce5aaa"
 		}
+		...
 	],
-}
+   },
+   {
+	"name": "Landing Tests",
+	"tags": ["e2e", "landing"],
+	"tests": [
+		{
+			"title": ["landing"],
+			"spec": "__tests__/landing/landing.spec.tsx",
+			"tags": ["incomplete"],
+			"testId": "7yyhd141aicke532sa"
+		}
+		...
+	],
+   }
+   ...
+]
 ```
 
 </details>
 
-`Full Test Suite File`
+`Group`
 
-<table><thead><tr><th width="152">Property</th><th width="203">Type</th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>Array&#x3C;string></code></td><td>Yes</td><td>The name of the test suite, it is not used in the dashboard but can be useful to identify it based on its name.</td></tr><tr><td><code>tags</code></td><td><code>Array&#x3C;string></code></td><td>Yes</td><td>Run-level tags for this run / build. See <a data-mention href="../../guides/playwright-tags.md">playwright-tags.md</a>.</td></tr><tr><td><code>tests</code></td><td><code>Array&#x3C;SuiteTest></code></td><td>Yes</td><td><p>List of included tests, including test title, spec file, test tags and testId.</p><p></p><p><code>testId</code> of full test suite file and instance files must to match.</p></td></tr></tbody></table>
+<table><thead><tr><th width="152">Property</th><th width="203">Type</th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>string</code></td><td>Yes</td><td>Represents the group ID that will be visualized in the dashboard. All the tests will be organized by the group ID.</td></tr><tr><td><code>tags</code></td><td><code>Array&#x3C;string></code></td><td>Yes</td><td>Run-level tags for this run / build. See <a data-mention href="../../guides/playwright-tags.md">playwright-tags.md</a>.</td></tr><tr><td><code>tests</code></td><td><code>Array&#x3C;SuiteTest></code></td><td>Yes</td><td><p>List of included tests, including test title, spec file, test tags and testId.</p><p></p><p><code>testId</code> of full test suite file and instance files must to match.</p></td></tr></tbody></table>
 
 `SuiteTest`
 
 | Property | Type            | Required | Description                                                                                                                                                                                |
 | -------- | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `title`  | `Array<string>` | Yes      | Test description + title.                                                                                                                                                                  |
+| `title`  | `Array<string>` | Yes      | Test description plus title.                                                                                                                                                               |
 | `spec`   | `string`        | Yes      | The spec file where this test is defined.                                                                                                                                                  |
 | `tags`   | `Array<string>` | No       | A list of tags or  associated with the test for categorization or filtering.                                                                                                               |
 | `testId` | `string`        | Yes      | A unique identifier for the test case. It is created with a hash of the spec file property and the title. [See how to generate this property](data-format-reference.md#generating-testid). |
