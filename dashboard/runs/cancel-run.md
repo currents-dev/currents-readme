@@ -20,11 +20,13 @@ Cancelling a run can be useful for:
 
 In-progress runs can be cancelled by clicking the "Cancel Run" button in the Runs Feed view.
 
-![Cancelling cypress tests run from Runs Feed view](../../.gitbook/assets/cancelling-run.gif)
+<figure><img src="../../.gitbook/assets/Screen Recording 2025-01-16 at 13.05.34.gif" alt=""><figcaption><p>Cancelling cypress tests run from Runs Feed view</p></figcaption></figure>
 
 You can also cancel a run when from the Run Details view.
 
-![Cancelling cypress tests run from Run Details view](../../.gitbook/assets/cancel-run-02.gif)
+<figure><img src="../../.gitbook/assets/Screen Recording 2025-01-16 at 13.08.44.gif" alt=""><figcaption><p>Cancelling cypress tests run from Run Details view</p></figcaption></figure>
+
+
 
 <figure><img src="../../.gitbook/assets/currents-2023-07-04-14.07.14@2x.png" alt=""><figcaption><p>Example of a run cancelled by a dashboard user</p></figcaption></figure>
 
