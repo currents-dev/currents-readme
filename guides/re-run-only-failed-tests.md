@@ -87,7 +87,7 @@ The suggested templates do not require maintaining complex CI configurations and
 
 <summary>GitHub Actions</summary>
 
-See our step-by-step guide to [Setting up Re-runs with GitHub Actions](../getting-started/ci-setup/github-actions/playwright-github-actions.md#playwright-sharding)
+See our step-by-step guide [#re-run-only-failed-tests-in-github-actions](../getting-started/ci-setup/github-actions/playwright-github-actions.md#re-run-only-failed-tests-in-github-actions "mention")
 
 </details>
 
@@ -106,8 +106,6 @@ See our step-by-step guide to [Setting up retries of failed job with GitLab CI](
 See our step-by-step guide to [Setting up retries of failed job with Jenkins Pipeline](../getting-started/ci-setup/jenkins/jenkins-playwright.md#using-last-failed-flag-with-shards-and-orchestration)
 
 </details>
-
-
 
 ### Re-run Failed Playwright Tests - Currents Orchestration
 
@@ -131,7 +129,7 @@ That's why when rerunning failed orchestrated CI runs, you'd select "Rerun All J
 
 <summary>GitHub Actions</summary>
 
-See our step-by-step guide to [Setting up Re-runs with GitHub Actions](../getting-started/ci-setup/github-actions/playwright-github-actions.md#currents-orchestration)
+See our step-by-step guide  [#re-run-only-failed-tests-in-github-actions](../getting-started/ci-setup/github-actions/playwright-github-actions.md#re-run-only-failed-tests-in-github-actions "mention")
 
 </details>
 

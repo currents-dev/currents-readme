@@ -6,7 +6,6 @@ description: Running Playwright tests in Parallel in GitHub Actions using Matrix
 
 {% hint style="info" %}
 * Check out the example repository [https://github.com/currents-dev/playwright-gh-actions-demo](https://github.com/currents-dev/playwright-gh-actions-demo)
-* Set [GH secret](https://docs.github.com/en/actions/reference/encrypted-secrets) variable`CURRENTS_RECORD_KEY`
 {% endhint %}
 
 Currents collects Playwright test results from GitHub Action CI Runners, together with the generated artifacts (trace files, screenshots, videos) for more efficient troubleshooting and providing insights into the test suite performance:
