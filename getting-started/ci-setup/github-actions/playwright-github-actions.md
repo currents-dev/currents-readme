@@ -5,7 +5,7 @@ description: Running Playwright tests in Parallel in GitHub Actions using Matrix
 # Playwright - GitHub Actions
 
 {% hint style="info" %}
-* Check out the example repository [https://github.com/currents-dev/playwright-gh-actions-demo](https://github.com/currents-dev/playwright-gh-actions-demo)
+Check out the example repository [https://github.com/currents-dev/playwright-gh-actions-demo](https://github.com/currents-dev/playwright-gh-actions-demo)
 {% endhint %}
 
 Currents collects Playwright test results from GitHub Action CI Runners, together with the generated artifacts (trace files, screenshots, videos) for more efficient troubleshooting and providing insights into the test suite performance:
@@ -276,7 +276,7 @@ For example:
 ```
 
 # an example for custom value like:
-# "currents-${{ github.run_id }}-${{ github.run_attempt }}
+# currents-${{ github.run_id }}-${{ github.run_attempt }}
 with:
     # if you're using a custom CI build id, set "previous-ci-build-id" accordingly 
     previous-ci-build-id: currents-${{ github.run_id }}-<%= ${{ github.run_attempt }} - 1 %>
