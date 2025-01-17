@@ -34,16 +34,13 @@ The [example repository](https://github.com/currents-dev/playwright-gh-actions-d
 
 ### Re-run only failed tests in GitHub Actions
 
-When a workflow fails in GitHub Actions you have the option to re-run the failed jobs.  However, an additional setup is required for properly configuring Playwright for rerunning only the failed tests. See [re-run-only-failed-tests.md](../../../guides/re-run-only-failed-tests.md "mention") guide for details.
+When a workflow fails in GitHub Actions you have the option to re-run the failed jobs.  However, an additional setup is required for properly configure Playwright for rerunning only the failed tests.&#x20;
+
+See [re-run-only-failed-tests.md](../../../guides/re-run-only-failed-tests.md "mention") guide for details.
 
 #### Playwright Sharding
 
-If you're using [playwright-sharding.md](../../../guides/parallelization-guide/pw-parallelization/playwright-sharding.md "mention") for running your tests in parallel, use the [Currents Playwright Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to store the last run results and simplify re-run workflows.
-
-Example workflows for setting up re-runs for GitHub Actions can be found at:
-
-* [rerun-shards-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml) - rerun only the tests that failed in the previous run, using `pwc` helper command that is included in `@currents/playwright` package.
-* [rerun-shards-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml) - rerun only the tests that failed in the previous run, using reporter explicitly configured in `playwright.config.ts`
+If you're using [playwright-sharding.md](../../../guides/parallelization-guide/pw-parallelization/playwright-sharding.md "mention") for running your tests in parallel, add [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to simplify the re-runs.
 
 Step-by-step guide:
 
@@ -67,14 +64,14 @@ Add a step to your workflow before you run your tests
 <strong>  id: last-failed-action
 </strong><strong>  uses: currents-dev/playwright-last-failed@v1
 </strong>  with:
-    # debug: true
+    # if you're using a custom CI build id, set "previous-ci-build-id" accordingly 
     # previous-ci-build-id: default is ${{ github.repository }}-${{ github.run_id }}-&#x3C;%= ${{ github.run_attempt }} - 1 %>
     pw-output-dir: basic/test-results
     matrix-index: ${{ matrix.shard }}
     matrix-total: ${{ strategy.job-total }}
 </code></pre>
 
-See the [action configuration for details](https://github.com/currents-dev/playwright-last-failed/blob/main/action.yml) on the inputs.
+See the [action configuration for details](https://github.com/currents-dev/playwright-last-failed/blob/main/action.yml).
 
 </details>
 
@@ -84,7 +81,7 @@ See the [action configuration for details](https://github.com/currents-dev/playw
 
 {% code lineNumbers="true" %}
 ```yaml
-name: failed-only-reporter
+name: failed-only-reruns
 
 on:
   push:
@@ -101,7 +98,7 @@ jobs:
     env:
       CURRENTS_PROJECT_ID: bnsqNa
       CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
-      CURRENTS_CI_BUILD_ID: reporter-${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
+      CURRENTS_CI_BUILD_ID: ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -135,20 +132,21 @@ jobs:
 </details>
 
 {% hint style="info" %}
-If you are using a CI Build Id that doesn't match our defaults, you need to also set `previous-ci-build-id` to match your previous run. You can decrement your run attempt by using a lodash style eval tag like this: `<%= ${{ github.run_attempt }} - 1 %>`
+Note the use of [#custom-ci-build-id-for-reruns](playwright-github-actions.md#custom-ci-build-id-for-reruns "mention").
 {% endhint %}
+
+Full examples:
+
+* [rerun-shards-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml) - rerun only the tests that failed in the previous run, using `pwc` helper command that is included in `@currents/playwright` package.
+* [rerun-shards-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml) - rerun only the tests that failed in the previous run, using reporter explicitly configured in `playwright.config.ts`
 
 #### Currents Orchestration
 
-In case you're using [#currents-orchestration](playwright-github-actions.md#currents-orchestration "mention") for running your Playwright tests in parallel the  [Currents Playwright Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to fetch the results of the last run from [api](../../../resources/api/ "mention").
+If you're using [#currents-orchestration](playwright-github-actions.md#currents-orchestration "mention") for running your Playwright tests you can also fetch the results of  from [api](../../../resources/api/ "mention").
 
 {% hint style="info" %}
 Currents Orchestration dynamically assigns tests to all the available CI runners, that's why you should select **Re-run all jobs** when using Currents Orchestration. Read more at [re-run-only-failed-tests.md](../../../guides/re-run-only-failed-tests.md "mention") guide.
 {% endhint %}
-
-Example workflows for setting up re-runs for GitHub Actions can be found at:
-
-* [reruns-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/reruns-or8n.yml) - rerun only the tests that failed in the previous orchestrated run
 
 Step-by-step guide:
 
@@ -254,7 +252,36 @@ jobs:
 
 </details>
 
+Example workflow:
+
+* [reruns-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/reruns-or8n.yml) - rerun only the tests that failed in the previous orchestrated run.
+
 {% hint style="info" %}
-If you are using a CI Build Id that doesn't match our defaults, you need to also set `previous-ci-build-id` to match your previous run. You can decrement your run attempt by using a lodash style eval tag like this: `<%= ${{ github.run_attempt }} - 1 %>`
+Note the use of [#custom-ci-build-id-for-reruns](playwright-github-actions.md#custom-ci-build-id-for-reruns "mention").
 {% endhint %}
 
+### Custom CI Build ID for reruns
+
+The last-failed-action gets the previous run information using the default CI build ID pattern:
+
+`${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}`
+
+If you are using a different [ci-build-id.md](../../../guides/ci-build-id.md "mention"), specify the `previous-ci-build-id` configuration property.&#x20;
+
+<figure><img src="../../../.gitbook/assets/custom-ci-build-id.png" alt=""><figcaption><p>Using custom CI build ID for reruns</p></figcaption></figure>
+
+For example:
+
+{% code overflow="wrap" %}
+```
+
+# an example for custom value like:
+# "currents-${{ github.run_id }}-${{ github.run_attempt }}
+with:
+    # if you're using a custom CI build id, set "previous-ci-build-id" accordingly 
+    previous-ci-build-id: currents-${{ github.run_id }}-<%= ${{ github.run_attempt }} - 1 %>
+    pw-output-dir: basic/test-results
+    matrix-index: ${{ matrix.shard }}
+    matrix-total: ${{ strategy.job-total }}
+```
+{% endcode %}
