@@ -59,7 +59,7 @@ pipeline {
         stage('tester A') {
           steps {
             echo "Running build ${env.BUILD_ID}"
-            sh "npx pwc --key ${env.CURRENTS_RECORD_KEY} --project-id ${env.CURRENTS_RECORD_KEY} --ci-build-id ${env.BRANCH_NAME}-${env.BUILD_ID}"
+            sh "npx pwc --key ${env.CURRENTS_RECORD_KEY} --project-id ${env.CURRENTS_RECORD_KEY} --ci-build-id ${env.BRANCH_NAME}-${env.BUILD_ID} --shard 1/2 --output test-results/shard-1"
           }
         }
 
@@ -67,7 +67,7 @@ pipeline {
         stage('tester B') {
           steps {
             echo "Running build ${env.BUILD_ID}"
-            sh "npx pwc --key ${env.CURRENTS_RECORD_KEY} --project-id ${env.CURRENTS_RECORD_KEY} --ci-build-id ${env.BRANCH_NAME}-${env.BUILD_ID}"
+            sh "npx pwc --key ${env.CURRENTS_RECORD_KEY} --project-id ${env.CURRENTS_RECORD_KEY} --ci-build-id ${env.BRANCH_NAME}-${env.BUILD_ID} --shard 2/2 --output test-results/shard-2"
           }
         }
       }
