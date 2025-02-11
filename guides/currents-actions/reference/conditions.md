@@ -12,88 +12,99 @@ An Actions can have one or more conditions. You can use `AND` or  `OR` combinato
 
 Test filename path, for example `path/to/file.spec.ts`.
 
-| Value Types         | `string \| string[]` |
+| Field Type          | `string`             |
 | ------------------- | -------------------- |
+| Value Types         | `string \| string[]` |
 | Supported Operators | all                  |
 
 #### <mark style="color:purple;">Test Title</mark>
 
 Test title, for example in test definition `test("should open landing page")` it is `should open landing page`.
 
-| Value Types         | `string \| string[]` |
+| Field Type          | `string`             |
 | ------------------- | -------------------- |
+| Value Types         | `string \| string[]` |
 | Supported Operators | all                  |
 
 <mark style="color:purple;">**Test Title Path**</mark>
 
-Full title path including named `describe` statements.&#x20;
+Full title path as an array including named `describe` statements.  `['Todo App', 'should be able to add new items']`
 
-| Value Types         | `string \| string[]` |
+| Field Type          | `string[]`           |
 | ------------------- | -------------------- |
+| Value Types         | `string \| string[]` |
 | Supported Operators | all                  |
 
 #### <mark style="color:purple;">Test ID</mark>
 
 Playwright [test id](https://playwright.dev/docs/api/class-testinfo#test-info-test-id), matching the test case id in the [Reporter API](https://playwright.dev/docs/api/class-reporter).
 
-| Value Types         | `string \| string[]` |
+| Field Type          | `string`             |
 | ------------------- | -------------------- |
+| Value Types         | `string \| string[]` |
 | Supported Operators | all                  |
 
 #### <mark style="color:purple;">Tags</mark>
 
 Test tag list. For example, if a test has the following list of tags `['a', 'b']`, each value in the list will be evaluated separately.
 
-| Value Types         | `string \| string[]` |
+| Field Type          | `string[]`           |
 | ------------------- | -------------------- |
+| Value Types         | `string \| string[]` |
 | Supported Operators | all                  |
 
 #### <mark style="color:purple;">Project</mark>
 
 Playwright project name as defined in your `playwright.config.ts`.&#x20;
 
-| Value Types         | `string \| string[]` |
+| Field Type          | `string`             |
 | ------------------- | -------------------- |
+| Value Types         | `string \| string[]` |
 | Supported Operators | all                  |
 
 #### <mark style="color:purple;">Git Author Email</mark>
 
 Git commit author email. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") to explore how Currents collects git commit information.
 
-| Value Types         | `string \| string[]` |
+| Field Type          | `string`             |
 | ------------------- | -------------------- |
+| Value Types         | `string \| string[]` |
 | Supported Operators | all                  |
 
 #### <mark style="color:purple;">Git Author Branch</mark>
 
 Git commit author name. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") to explore how Currents collects git commit information.
 
-| Value Types         | `string \| string[]` |
+| Field Type          | `string`             |
 | ------------------- | -------------------- |
+| Value Types         | `string \| string[]` |
 | Supported Operators | all                  |
 
 #### <mark style="color:purple;">Git Branch</mark>
 
 Git commit branch name. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") to explore how Currents collects git commit information.
 
-| Value Types         | `string \| string[]` |
+| Field Type          | `string`             |
 | ------------------- | -------------------- |
+| Value Types         | `string \| string[]` |
 | Supported Operators | all                  |
 
 #### <mark style="color:purple;">Git Message</mark>
 
 Git commit message. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") to explore how Currents collects git commit information.
 
-| Value Types         | `string \| string[]` |
+| Field Type          | `string`             |
 | ------------------- | -------------------- |
+| Value Types         | `string \| string[]` |
 | Supported Operators | all                  |
 
 #### <mark style="color:purple;">Git Remote Origin</mark>
 
 Git remote origin URL. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") to explore how Currents collects git commit information.
 
-| Value Types         | `string \| string[]` |
+| Field Type          | `string`             |
 | ------------------- | -------------------- |
+| Value Types         | `string \| string[]` |
 | Supported Operators | all                  |
 
 ### Operators
