@@ -91,11 +91,15 @@ The `SuiteTest`'s  can be part of any `Group` and may even be included in multip
 
 </details>
 
-`Group`
+{% hint style="info" %}
+Starting on version 1.6.8 of [`@currents/cmd`](https://www.npmjs.com/package/@currents/cmd) package, multiple files are allowed as input, each one representing a [`Group`](data-format-reference.md#group). See [currents-convert.md](currents-cmd/currents-convert.md "mention") input file flag.
+{% endhint %}
 
-<table><thead><tr><th width="152">Property</th><th width="203">Type</th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>string</code></td><td>Yes</td><td>Represents the group ID that will be visualized in the dashboard. All the tests will be organized by the group ID.</td></tr><tr><td><code>tags</code></td><td><code>Array&#x3C;string></code></td><td>Yes</td><td>Run-level tags for this run / build. See <a data-mention href="../../guides/playwright-tags.md">playwright-tags.md</a>.</td></tr><tr><td><code>tests</code></td><td><code>Array&#x3C;SuiteTest></code></td><td>Yes</td><td><p>List of included tests, including test title, spec file, test tags and testId.</p><p></p><p><code>testId</code> of full test suite file and instance files must to match.</p></td></tr></tbody></table>
+#### `Group`
 
-`SuiteTest`
+<table><thead><tr><th width="152">Property</th><th width="203">Type</th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>string</code></td><td>Yes</td><td>Represents the group ID that will be visualized in the dashboard. All the tests will be organized by the group ID.</td></tr><tr><td><code>tags</code></td><td><code>Array&#x3C;string></code></td><td>Yes</td><td>Run-level tags for this run / build. See <a data-mention href="../../guides/playwright-tags.md">playwright-tags.md</a>.</td></tr><tr><td><code>tests</code></td><td><code>Array&#x3C;</code> <a href="data-format-reference.md#suitetest"><code>SuiteTest</code></a><code>></code></td><td>Yes</td><td><p>List of included tests, including test title, spec file, test tags and testId.</p><p></p><p><code>testId</code> of full test suite file and instance files must to match.</p></td></tr></tbody></table>
+
+#### `SuiteTest`
 
 | Property | Type            | Required | Description                                                                                                                                                                                |
 | -------- | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
