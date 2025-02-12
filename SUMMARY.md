@@ -103,6 +103,7 @@
   * [Run Timeouts](dashboard/runs/run-timeouts.md)
   * [Canceling Runs](dashboard/runs/cancel-run.md)
   * [Deleting Runs](dashboard/runs/deleting-runs.md)
+  * [Run Progress](dashboard/runs/run-progress.md)
 * [Tests](dashboard/tests/README.md)
   * [Spec File Status](dashboard/tests/spec-file-status.md)
   * [Test Status](dashboard/tests/test-status.md)
