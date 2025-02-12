@@ -67,7 +67,8 @@ npx currents convert \
 
 *   `--input-file`
 
-    * The pattern to search for test reports
+    * Comma-separated glob patterns to match the test results files (e.g., "report1.xml,report2.xml)
+    * The multi-file match is only available starting on version 1.6.8 of `@currents/cmd` package.
     * **Type:** `string`
 
 
