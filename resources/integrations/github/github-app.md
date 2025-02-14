@@ -1,11 +1,11 @@
 ---
-description: Cypress and Playwright GitHub App integration for Currents dashboard
+description: Playwright and Cypress GitHub App integration for Currents dashboard
 ---
 
 # GitHub App
 
 {% hint style="info" %}
-Commit information must be available GitHub  integrations (PR comments, commit status updates). See [commit-information.md](../../../dashboard/runs/commit-information.md "mention").
+Commit information must be available for GitHub integrations (PR comments, commit status updates). See [commit-information.md](../../../dashboard/runs/commit-information.md "mention").
 {% endhint %}
 
 Currents integration with GitHub allows posting results of your Playwright and Cypress tests as:

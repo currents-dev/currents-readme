@@ -65,7 +65,7 @@
 * [Code Coverage](guides/coverage/README.md)
   * [Code Coverage for Playwright](guides/coverage/code-coverage-for-playwright.md)
   * [Code Coverage for Cypress](guides/coverage/code-coverage-for-cypress.md)
-* [🆕 Currents Actions](guides/currents-actions/README.md)
+* [Currents Actions](guides/currents-actions/README.md)
   * [Setup Currents Actions](guides/currents-actions/setup-currents-actions.md)
   * [Using Currents Actions](guides/currents-actions/using-currents-actions.md)
   * [Reference](guides/currents-actions/reference/README.md)
