@@ -1,5 +1,5 @@
 ---
-description: Playwright and Cypress GitHub App integration for Currents dashboard
+description: Cypress and Playwright GitHub App integration for Currents dashboard
 ---
 
 # GitHub App
