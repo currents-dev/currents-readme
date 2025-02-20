@@ -156,3 +156,7 @@
   * [Access to Customer Data](resources/data-privacy/access-to-customer-data.md)
   * [Data Retention](resources/data-privacy/data-retention.md)
   * [Cloud Endpoints](resources/data-privacy/cloud-endpoints.md)
+
+***
+
+* [Reporting Strategies](reporting-strategies.md)

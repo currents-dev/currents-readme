@@ -63,6 +63,13 @@ Re-running Playwright or cypress tests for the same PR will delete the previous 
 
 ![GitHub integration - PR comment example](../../../.gitbook/assets/github-cypress-pr-comment.gif)
 
+#### Grouping commit status event into a single comment
+
+*   **Single Notification for all groups (Optional)** – Enabling will update GitHub commit status once per run event, regardless of the number of groups\
+
+
+    <figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
 #### Failed Runs Only
 
 Enabling the "Failed Runs Only" toggle would prevent posting a comment for successful runs - i.e. runs that have 0 failed or skipped tests.

@@ -25,18 +25,15 @@ Provide the following details to finalize Slack integration, click "Save" to fin
 * **Events (Optional)** - specify events that will trigger the integration and send the results. Leaving this field blank activates all the events.
 * **Branch Name Filter (Optional)** - if specified, only send notifications for runs with branch names matching the pattern. Please note, that you must provide the branch name within the [run-details.md](../../dashboard/runs/run-details.md "mention") to activate filtering.
 
+### Grouping Slack messages
+
+* **Single Notification for All Groups (Optional)** – Enabling the toggle will send a single notification per run event, regardless of the number of groups.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2025-02-20 at 09.41.01.png" alt=""><figcaption><p>Single Slack notification</p></figcaption></figure>
+
 ### Filtering Slack notifications based on Tags
 
 * **Tags Filter (Optional)** - if specified, only send notifications for tagged runs, with at least one tag matching the filter
-
-{% hint style="info" %}
-**Please note:** We use [glob patterns](https://www.npmjs.com/package/micromatch) to evaluate the filters. Test your filtering rules using the [playground](https://currents-branch-filter.stackblitz.io/). See examples for some popular filter patterns:
-
-* Include only **`tagA`** or **`tagB`**: `(tagA|tagB)`
-* Exclude **`tagA`** an&#x64;**`tagB`**`: !(tagA|tagB)`
-* Include only tags starting with **`production`**: `production*`
-* Include only tags starting with **`smoke-`** or **`prod-`**`: (smoke-*|prod-*)`
-{% endhint %}
 
 ### What events trigger notifications for Slack // Currents integration?
 

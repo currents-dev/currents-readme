@@ -27,7 +27,7 @@ matrix:
 
 This creates jobs that looks like this in Github Actions:
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt="" width="310"><figcaption><p>Named Runners</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt="" width="310"><figcaption><p>Named Runners</p></figcaption></figure>
 
 The final step is to visualize this in the Currents dashboard, which can be done by passing the runner name into the CURRENTS\_MACHINE\_ID environment variable:
 
@@ -40,7 +40,7 @@ The final step is to visualize this in the Currents dashboard, which can be done
 
 The `machineId` will now be visible in the Currents dashboard for each spec file, making it possible to identify which machine or job executed a specific spec file.
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt="" width="326"><figcaption><p>Spec file details view</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt="" width="326"><figcaption><p>Spec file details view</p></figcaption></figure>
 
 Here is a complete example of a Github Action yaml file with this setup:
 
