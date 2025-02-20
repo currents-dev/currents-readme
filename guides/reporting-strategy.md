@@ -1,9 +1,9 @@
 ---
-description: How to structure and organize the test result reporting in Currents.
 icon: chess-knight
+description: How to structure and organize the test result reporting in Currents.
 ---
 
-# Reporting Strategies
+# Reporting Strategy
 
 This guide aims to help readers understand how to structure and organize the test result reporting in Currents. It covers key concepts such as project, runs and groups hierarchy, test result handling, and integration strategies.
 
@@ -17,7 +17,7 @@ By following this guide, users can optimize their test reporting workflow and ga
 
 The top-level entity representing reporting destination. Each organization can have multiple projects, there’s no limit on the number of projects.&#x20;
 
-You specify the project when running tests in your CI pipeline using environment variables `CURRENTS_PROJECT_ID` or via reporter configuration. Please refer reporter documentation for available options. Each project can contain multiple runs.
+You specify the project when running tests in your CI pipeline using environment variables `CURRENTS_PROJECT_ID` or via reporter configuration. Please refer to reporter documentation for available options.&#x20;
 
 {% hint style="info" %}
 Each project maintains separate settings and data, with no crossover
@@ -31,7 +31,7 @@ Each project maintains separate settings and data, with no crossover
 
 #### **Integrations**
 
-Each project has its own integrations, including providers and settings. However, multiple projects can be connected to the same integration destination.
+Each project has its own integrations with 3rd parties (see [integrations](../resources/integrations/ "mention")). However, multiple projects can be connected to the same destination.
 
 For example, enabling a GitHub integration allows selecting the same GitHub organization and repository for different projects. However, this may result in duplicate PR comments originating from separate projects connected to the same repository.
 
@@ -39,9 +39,9 @@ For example, enabling a GitHub integration allows selecting the same GitHub orga
 
 ### **Run**
 
-A recording of test results from a CI build, uniquely identified by a CI Build ID, git commit information and CI provider execution details. Each run can contain multiple groups with test results.
+A recording of test results from a CI run, uniquely identified by a [ci-build-id.md](ci-build-id.md "mention"), git commit information and CI provider execution details.&#x20;
 
-By default each run represents a build (or execution of a CI pipeline), however, you can send results from different stages of a pipeline or even different pipelines to the same run using by specifying the same CI Build ID value. See [ci-build-id.md](ci-build-id.md "mention").
+By default each run represents a build (or execution of a CI pipeline), however, you can send results from different stages of a pipeline or even different pipelines to the same run using the same CI Build ID value. See [ci-build-id.md](ci-build-id.md "mention").
 
 ***
 
@@ -84,24 +84,25 @@ You have a single product (and a repository) and a testing suite that runs as pa
 
 It is recommended to have a single project and create a unique run on every invocation of the CI pipeline.
 
-* A dedicated project for each product
-* single run for each CI invocation
-* single group or multiple groups within each run
+* Create a single project
+* Create a unique run for each CI invocation
+* Create single or multiple groups within each run
 
 ### Multiple standalone products / repositories
 
 <figure><img src="../.gitbook/assets/standalone-multiple-products (1).png" alt=""><figcaption><p>Reporting scenario: multiple standalone repositories report to different Currents Projects</p></figcaption></figure>
 
-For bigger organizations, each product has its own testing suite that runs as part of a CI pipeline.
+For bigger organizations, each product has its own repository and testing suite that runs as part of a CI pipeline.
 
-* A dedicated project for each product
-* Single run for each CI invocation
-* Single group or multiple groups within each run depending
+* Create a dedicated project for each product / repository
+* Create a single run for each CI invocation
+* Create a single or multiple groups for each run
 
 ### Mixed reporting, multiple environments
 
 A more complicated scenario is when you have a testing suite that runs in different "environments" and you need to decide how to organize the test results. For example:
 
+* running different Playwright projects in separate CI steps
 * running the same set of tests in multiple environments, e.g. based on locale (`en-us`, `en-ca` ) or a domain (`com`, `.co.uk`)
 * running a subset of tests based on tags or glob pattern, e.g. `playwright test --grep @desktop`
 * running a subset of tests from different CI steps (or different pipelines) while separating the results
@@ -112,7 +113,7 @@ To implement the variety of possible scenarios you need to use the combination o
 
 For example, consider testing an e-commerce web app with a slightly different set of Playwright tests for different domains (`.com`, `.co.uk` etc.).&#x20;
 
-You've defined the following Playwright groups to organize the execution:
+You've defined the following [Playwright projects](#user-content-fn-1)[^1]
 
 {% code title="playwright.config.ts" %}
 ```typescript
@@ -200,7 +201,9 @@ Use different `projectId` for each command (assuming projects already exist)
 
 ## Using Tags
 
-Regardless of the reporting strategy we recommend to annotate your tests and executions with tags. Adding tags allows a more focused and convenient access to the data.
+Regardless of the reporting strategy we recommend to annotate your tests and executions with tags. Adding tags allows granular access to the data.
 
 * Read more about using [playwright-tags.md](playwright-tags.md "mention") to dynamically add tags to runs, groups and tests
 * Consider using `removeTitleTag`in [currents-playwright](../resources/reporters/currents-playwright/ "mention") to remove tags from test title and keep test history consistent
+
+[^1]: don't confuse with Currents Projects

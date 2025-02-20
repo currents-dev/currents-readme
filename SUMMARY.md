@@ -52,7 +52,7 @@
 
 * [Record Key](guides/record-key.md)
 * [CI Build ID](guides/ci-build-id.md)
-* [Reporting Strategies](guides/reporting-strategies.md)
+* [Reporting Strategy](guides/reporting-strategy.md)
 * [Parallelization](guides/parallelization-guide/README.md)
   * [Load Balancing](guides/parallelization-guide/load-balancing.md)
   * [Fail Fast Strategy](guides/parallelization-guide/fail-fast-strategy.md)
