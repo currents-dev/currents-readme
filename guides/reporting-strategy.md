@@ -1,6 +1,6 @@
 ---
 icon: chess-knight
-description: How to structure and organize the test result reporting in Currents.
+description: How to structure and organize the reporting of CI test results to Currents
 ---
 
 # Reporting Strategy
