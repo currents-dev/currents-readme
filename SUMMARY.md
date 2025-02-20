@@ -50,8 +50,9 @@
 
 ## Guides
 
-* [CI Build ID](guides/ci-build-id.md)
 * [Record Key](guides/record-key.md)
+* [CI Build ID](guides/ci-build-id.md)
+* [Reporting Strategies](guides/reporting-strategies.md)
 * [Parallelization](guides/parallelization-guide/README.md)
   * [Load Balancing](guides/parallelization-guide/load-balancing.md)
   * [Fail Fast Strategy](guides/parallelization-guide/fail-fast-strategy.md)
@@ -156,7 +157,3 @@
   * [Access to Customer Data](resources/data-privacy/access-to-customer-data.md)
   * [Data Retention](resources/data-privacy/data-retention.md)
   * [Cloud Endpoints](resources/data-privacy/cloud-endpoints.md)
-
-***
-
-* [Reporting Strategies](reporting-strategies.md)

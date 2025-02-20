@@ -6,7 +6,7 @@ description: Send Playwright and Cypress tests results to Slack
 
 Currents integration with Slack allows posting test results of your Playwright or Cypress tests directly into Slack channels.
 
-![Cypress Tests Results in Slack Channel](<../../.gitbook/assets/CleanShot 2022-02-22 at 23.51.35.png>)
+![Tests Results in Slack Channel](<../../.gitbook/assets/CleanShot 2022-02-22 at 23.51.35.png>)
 
 ### Enabling Slack integration
 
@@ -16,7 +16,7 @@ In order to enable Slack integration and share Playwright test results to Slack 
 * Click "Add Integration", and select "Slack"
 * Enter the details of your Slack Integration and click "Save"
 
-![Enabling Cypress Slack integration](../../.gitbook/assets/cypress-slack-integration.gif)
+![Enabling Slack integration](../../.gitbook/assets/cypress-slack-integration.gif)
 
 Provide the following details to finalize Slack integration, click "Save" to finish:
 
@@ -33,7 +33,14 @@ Provide the following details to finalize Slack integration, click "Save" to fin
 
 ### Filtering Slack notifications based on Tags
 
-* **Tags Filter (Optional)** - if specified, only send notifications for tagged runs, with at least one tag matching the filter
+{% hint style="info" %}
+**Please note:** We use [glob patterns](https://www.npmjs.com/package/micromatch) to evaluate the filters. Test your filtering rules using the [playground](https://currents-branch-filter.stackblitz.io/). See examples for some popular filter patterns:
+
+* Include only **`tagA`** or **`tagB`**: `(tagA|tagB)`
+* Exclude **`tagA`** an&#x64;**`tagB`**`: !(tagA|tagB)`
+* Include only tags starting with **`production`**: `production*`
+* Include only tags starting with **`smoke-`** or **`prod-`**`: (smoke-*|prod-*)`
+{% endhint %}
 
 ### What events trigger notifications for Slack // Currents integration?
 
@@ -43,25 +50,25 @@ The following events trigger notifications for Slack integration.
 
 Triggered when a new run starts. If a run contains multiple groups, the notification will be triggered for each group.
 
-![Example of Slack notification for Cypress Run Start event](../../.gitbook/assets/slack-cypress-new-run.png)
+![Example of Slack notification for Run Start event](../../.gitbook/assets/slack-cypress-new-run.png)
 
 #### **Run Finish**
 
 Triggered when a run finishes its execution. If a run contains multiple groups, the notification will be triggered for each group.&#x20;
 
-![Example of Slack notification for Cypress Run Finished](../../.gitbook/assets/cypress-slack-run-finisj.png)
+![Example of Slack notification for Run Finished](../../.gitbook/assets/cypress-slack-run-finisj.png)
 
 #### Run Timeout
 
 Triggered when a time out detected for a run. The message will contain the last known results for the run or run group.
 
-![Example of Slack notification for Cypress Run Finished with Timeout event ](../../.gitbook/assets/cypress-slack-run-timeout.png)
+![Example of Slack notification for Run Finished with Timeout event ](../../.gitbook/assets/cypress-slack-run-timeout.png)
 
 #### Run Canceled
 
 Triggered when a run gets cancelled. If a run contains multiple groups, the notification will be triggered for each group. The message will contain the last known results for the run or run group.
 
-![Example of Slack notification for Cypress Run Canceled event ](../../.gitbook/assets/cypress-run-canceled-slack.png)
+![Example of Slack notification for Run Canceled event ](../../.gitbook/assets/cypress-run-canceled-slack.png)
 
 ### Disabling Slack integration
 
