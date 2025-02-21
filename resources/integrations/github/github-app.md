@@ -4,71 +4,68 @@ description: Cypress and Playwright GitHub App integration for Currents dashboar
 
 # GitHub App
 
-{% hint style="info" %}
-Commit information must be available for GitHub integrations (PR comments, commit status updates). See [commit-information.md](../../../dashboard/runs/commit-information.md "mention").
-{% endhint %}
-
 Currents integration with GitHub allows posting results of your Playwright and Cypress tests as:
 
 * [Commit status checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks) and / or
 * Pull Request comment
 
-![GitHub App integration with Currents - PR Comment example](<../../../.gitbook/assets/pr-comment-example 2_rounded.png>)
-
 ### Activating GitHub Integration
 
 To set up an integration:
 
-* Open your project settings (Manage Project)
+* Open your project settings s**elect a Project > Settings > Integrations**
 * Click “Connect” in the “Connect your GitHub repositories” section.
 
-Your browser will be redirected to GitHub; you will need to approve installing “currents.bot” GitHub App for your organization.
+<figure><img src="../../../.gitbook/assets/currents-2025-02-21-12.03.14@2x.png" alt=""><figcaption><p>Creating a new Currents integrations with GitHub</p></figcaption></figure>
 
-![Setting up GitHub integration with Currents Dashboard](../../../.gitbook/assets/github-cypress-setup-example.gif)
+Your browser will be redirected to GitHub. Approve the new installation for [currents-bot](https://github.com/apps/currents-bot) or request an approval from your GitHub organization admin.
 
-During the installation, the following permissions are requested:
+{% hint style="success" %}
+Currents **doesn't** have access to the source code 🙈
+
+We only user the following permissions:
 
 * read and write to issues (for posting PR comments)
 * read and write to Pull Requests (for posting PR comments)
 * read and write to commit statuses (for posting commit status updates)
-
-After approving the permissions, your browser will navigate back to the Project Settings screen. To complete the setup, you will need to associate a repository with the project and then save the changes.
-
-![Changing repository for GitHub integration](../../../.gitbook/assets/github-cypress-change-settings.gif)
-
-To change the GitHub repository associated with a project, select the new repository from the dropdown list and click “Save”
-
-### GitHub Integration Settings
-
-Use the following settings to change the behaviour of your GitHub Integration.
-
-#### Commit Status Label
-
-Set the commit status label to distinguish the GitHub status checks one from another. For example, when multiple Current Dashboard projects are connected to the same repository, setting the Commit Status label will conveniently display the status check for each project separately.
-
-{% hint style="info" %}
-**Please note -** using the same status for the same repo across different projects can create a conflict - runs from both projects will overwrite the associated status check item.
 {% endhint %}
 
-![An example of multiple status check items](<../../../.gitbook/assets/CleanShot 2022-07-18 at 15.16.04@2x.png>)
+After approving the installation you'll be able to see the list of repositories. To finish the setup select a repository and click “Save” to reveal the integration settings (see below).
 
-#### PR Comment
+<figure><img src="../../../.gitbook/assets/currents-2025-02-21-12.39.12@2x.png" alt=""><figcaption><p>Selecting repository for GitHub integration with Currents</p></figcaption></figure>
+
+#### Connecting multiple GitHub organizations
+
+You can have multiple GitHub organizations connected to Currents. Click **+ Add Installation** to restart the approval process for a new organization.&#x20;
+
+After the new approval is complete, you will be able to switch the GitHub organizations and select a new repository.
+
+<figure><img src="../../../.gitbook/assets/currents-2025-02-21-12.40.20@2x.png" alt=""><figcaption><p>Switching GitHub Organizations</p></figcaption></figure>
+
+### Deactivating GitHub Integration
+
+To detach a repository from a project, navigate to **Project Settings > Integration > GitHub** and click “Disconnect Repository”.
+
+To completely remove GitHub integration open **Project Settings > Integration > GitHub > Configure** and then uninstall “currents-bot” Github App. Uninstalling the app will automatically detach all the projects from their respective repositories.
+
+## GitHub Integration Settings
+
+### PR Comments
 
 Enabling PR comments will post a summary of your run to the associated GitHub PR. The comment will be posted:
 
 * after run’s completion - with the details of test results
 * after run’s timeout - with the last known test results
 
-Re-running Playwright or cypress tests for the same PR will delete the previous comment and post a new one with the most recent result unless **Keep Old Results** option is enabled
-
 ![GitHub integration - PR comment example](../../../.gitbook/assets/github-cypress-pr-comment.gif)
+
+Re-running tests for the same PR will delete the previous comment and post a new one with the most recent result unless **Keep Old Results** option is enabled
 
 #### Grouping commit status event into a single comment
 
-*   **Single Notification for all groups (Optional)** – Enabling will update GitHub commit status once per run event, regardless of the number of groups\
+Single Notification for all groups (Optional) – enabling will update GitHub commit status once per run event, regardless of the number of groups.
 
-
-    <figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Single notification for all groups</p></figcaption></figure>
 
 #### Failed Runs Only
 
@@ -86,7 +83,7 @@ You can customize what event can trigger posting a PR comment:
 
 When enabled, old results posted as a PR comment will be preserved, i.e. the integration will keep the comments with the results of the previous runs.
 
-#### Commit Status Checks
+### Commit Status Checks
 
 Enabling Commit Status checks will trigger updates for the associated commit - the status depends on the outcomes of your run:
 
@@ -96,23 +93,17 @@ Enabling Commit Status checks will trigger updates for the associated commit - t
 
 ![GitHub Integration - commit status check example](../../../.gitbook/assets/github-commit-status.gif)
 
-### Deactivating GitHub Integration
+#### Commit Status Label
 
-To detach a repository from a project, navigate to Project Settings and click “Disconnect Repository”.
+Set the commit status label to distinguish the GitHub status checks one from another. For example, when multiple Current Dashboard projects are connected to the same repository, setting the Commit Status label will conveniently display the status check for each project separately.
 
-![GitHub integration - remove repository](../../../.gitbook/assets/cypress-github-remove-integration.gif)
-
-To completely remove GitHub integration, navigate to Project Settings, click “Configure” and then uninstall “currents-bot” Github App. Uninstalling the app will automatically detach all the projects from their respective repositories.
-
-![Disconnecting GitHub Integration](../../../.gitbook/assets/github-cypress-disconnecting.gif)
+{% hint style="warning" %}
+Using the same status label for the same repo across different projects can create a conflict - runs from both projects will overwrite the associated status check item.
+{% endhint %}
 
 ### Troubleshooting GitHub Integration
 
-{% hint style="info" %}
-**Please note:** your CI environment must expose git commit information in order for cypress agent to send commit details (sha, repository URL etc.) and enable the integration.
-{% endhint %}
-
-We use [https://github.com/cypress-io/commit-info](https://github.com/cypress-io/commit-info) package to discover git-related information.
+Commit information must be available for GitHub integrations (PR comments, commit status updates). See [commit-information.md](../../../dashboard/runs/commit-information.md "mention").
 
 * To expose your git information, please make sure that `.git` directory is present in your CI environment
 * You can explicitly provide git information via environment variables
@@ -127,7 +118,7 @@ timestamp: COMMIT_INFO_TIMESTAMP
 remote: COMMIT_INFO_REMOTE
 ```
 
-#### I have enabled GitHub integration, but nothing is getting reported to GitHub
+#### I have enabled GitHub integration, but nothing appears in GitHub
 
 Behind the scenes, Currents is using git commit data to identify the PR (issue) to comment on.&#x20;
 
