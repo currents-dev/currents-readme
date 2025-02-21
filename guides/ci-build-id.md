@@ -1,6 +1,6 @@
 ---
-description: Using --ci-build-id for Playwright and Cypress tests parallelization
 icon: file-waveform
+description: Using --ci-build-id for Playwright and Cypress tests parallelization
 ---
 
 # CI Build ID
@@ -11,12 +11,12 @@ CI Build ID for Playwright and Cypress
 
 ## What is CI Build ID?
 
-**CI Build ID** is a unique identifier used by Currents to collect test results. Think of it as a "folder" on a virtual hard drive. For example, when multiple CI machines run tests in parallel, their combined results will appear together if they use the same CI Build ID.
+**CI Build ID** is a unique identifier used by Currents to collect test results. Think of it as a hard drive "folder". We call it a Run (see [runs](../dashboard/runs/ "mention")). For example, when multiple CI machines run tests in parallel, their combined results will appear together in the same run if they use the same CI Build ID.
 
-* results with `--ci-build-id build001` will go to `build001` "folder" (we call it a run)
+* results with `--ci-build-id build001` will go to `build001` "folder"
 * results with `--ci-build-id build002` will go to `build002` "folder"
 
-![Creating two distinct runs by using different CI Build ID](../.gitbook/assets/cypress-ci-build-id-different-jobs.png)
+<figure><img src="../.gitbook/assets/ci-build-id.png" alt=""><figcaption><p>Creating two distinct runs by using different CI Build ID</p></figcaption></figure>
 
 ## Creating a CI Build ID
 
@@ -85,15 +85,13 @@ Refer to your CI provider documentation for the list of available environment va
 
 Imagine a CI pipeline running tests in parallel using multiple machines. Starting two builds with a **different CI Build ID** will create 2 distinct "Runs" in Currents dashboard.
 
-![Creating two distinct runs by using different CI Build ID](../.gitbook/assets/cypress-ci-build-id-different-jobs.png)
-
 The parallelization and reporting will happen for each build independently from the other. That is usually the desired situation - each build should have a unique CI Build ID.
 
 #### Using the same CI Build ID in different builds
 
 In contrast, consider a situation when 2 **different** builds use the **same** CI Build ID. That's an uncommon situation, but it's worth demonstrating for understanding the use of CI Build ID.
 
-![A single run is created when using a similar CI Build ID](../.gitbook/assets/cypress-ci-build-id-same-job.png)
+<figure><img src="../.gitbook/assets/ci-build-id-same.png" alt=""><figcaption><p>A single run is created when using a similar CI Build ID</p></figcaption></figure>
 
 We created two different builds with the same CI Build ID. That will result in 6 machines reporting their results to the same run.
 
@@ -186,7 +184,7 @@ So, you end up running all the tests using a just subset of available containers
 
 We have been experimenting with alternative load-balancing strategies that would allow seamless reruns. Please reach out to our customer support if you want to get updates regarding the progress.
 
-**Please note:** GitLab does not provide a "rerun identifier" within its CI environment. See the WIP [discussion](https://gitlab.com/gitlab-org/gitlab/-/issues/195618#note\_1139938057).
+**Please note:** GitLab does not provide a "rerun identifier" within its CI environment. See the WIP [discussion](https://gitlab.com/gitlab-org/gitlab/-/issues/195618#note_1139938057).
 
 </details>
 
