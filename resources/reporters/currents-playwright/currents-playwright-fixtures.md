@@ -141,7 +141,7 @@ import { mergeTests } from '@playwright/test';
 import { test as dbTest } from 'databaseTest';
 import { test as currentsTest } from 'currentsTest';
 
-export const test = mergeTests(dbTest, currentsTest);
+export const test = mergeTests(currentsTest, dbTest);
 ```
 {% endcode %}
 
@@ -154,6 +154,12 @@ test('passes', async ({ database, page, currentsConfig }) => {
 });
 ```
 {% endcode %}
+
+{% hint style="info" %}
+When combining the Currents fixtures with existing fixtures, it's often desirable to place the Currents fixtures first. This enables Currents to take actions even if a failure happened in your later fixtures.&#x20;
+{% endhint %}
+
+
 
 ### Conditionally Enable Fixtures
 
