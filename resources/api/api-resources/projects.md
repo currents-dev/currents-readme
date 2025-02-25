@@ -6,24 +6,20 @@ description: API Reference - Projects resource
 
 This is an object representing your Currents project. You can retrieve the list of projects for your organization, get specific project details, and retrieve the list of runs for a project.
 
-{% swagger method="get" path="projects" baseUrl="v1/" summary="List the projects associated with your organization" %}
-{% swagger-description %}
+## List the projects associated with your organization
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `v1/projects`
 
-{% swagger-parameter in="query" name="limit" type="1-50" %}
-Pagination limit 1-50. Default 10.
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="starting_before" type="String" %}
-Pagination cursor. See [pagination.md](../pagination.md "mention")
-{% endswagger-parameter %}
+| Name             | Type   | Description                                                        |
+| ---------------- | ------ | ------------------------------------------------------------------ |
+| limit            | 1-50   | Pagination limit 1-50. Default 10.                                 |
+| starting\_before | String | Pagination cursor. See [pagination.md](../pagination.md "mention") |
+| ending\_after    | String | Pagination cursor. See [pagination.md](../pagination.md "mention") |
 
-{% swagger-parameter in="query" name="ending_after" type="String" %}
-Pagination cursor. See [pagination.md](../pagination.md "mention")
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Project Items" %}
+{% tabs %}
+{% tab title="200: OK Project Items" %}
 ```javascript
 {
     "status": "OK",
@@ -38,19 +34,21 @@ Pagination cursor. See [pagination.md](../pagination.md "mention")
     }]
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger method="get" path="/projects/:projectId" baseUrl="v1" summary="Get project item" %}
-{% swagger-description %}
+## Get project item
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `v1/projects/:projectId`
 
-{% swagger-parameter in="path" name="projectId" required="true" type="String" %}
-Project ID
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-response status="200: OK" description="" %}
+| Name                                        | Type   | Description |
+| ------------------------------------------- | ------ | ----------- |
+| projectId<mark style="color:red;">\*</mark> | String | Project ID  |
+
+{% tabs %}
+{% tab title="200: OK " %}
 ```javascript
 {
     "status": "OK",
@@ -63,31 +61,29 @@ Project ID
     }
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger method="get" path="/projects/:projectId/runs" baseUrl="v1" summary="List the runs associated with the project" %}
-{% swagger-description %}
+## List the runs associated with the project
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `v1/projects/:projectId/runs`
 
-{% swagger-parameter in="path" name="projectId" type="String" required="true" %}
-Project ID
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="query" name="limit" type="1-50" %}
-Pagination limit 1-50. Default 10.
-{% endswagger-parameter %}
+| Name                                        | Type   | Description |
+| ------------------------------------------- | ------ | ----------- |
+| projectId<mark style="color:red;">\*</mark> | String | Project ID  |
 
-{% swagger-parameter in="query" name="starting_before" type="String" %}
-Pagination cursor. See [pagination.md](../pagination.md "mention")
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="ending_after" type="String" %}
-Pagination cursor. See [pagination.md](../pagination.md "mention")
-{% endswagger-parameter %}
+| Name             | Type   | Description                                                        |
+| ---------------- | ------ | ------------------------------------------------------------------ |
+| limit            | 1-50   | Pagination limit 1-50. Default 10.                                 |
+| starting\_before | String | Pagination cursor. See [pagination.md](../pagination.md "mention") |
+| ending\_after    | String | Pagination cursor. See [pagination.md](../pagination.md "mention") |
 
-{% swagger-response status="200: OK" description="" %}
+{% tabs %}
+{% tab title="200: OK " %}
 ```javascript
 {
     "status": "OK",
@@ -161,43 +157,35 @@ Pagination cursor. See [pagination.md](../pagination.md "mention")
     ]
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger method="get" path="/projects/:projectId/insights" baseUrl="v1" summary="Get project insights - aggregated metrics for runs, spec files and tests" %}
-{% swagger-description %}
+## Get project insights - aggregated metrics for runs, spec files and tests
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `v1/projects/:projectId/insights`
 
-{% swagger-parameter in="query" name="date_start" required="true" %}
-ISO Date format indicating the start date for the query
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="path" name="projectId" required="true" %}
-Project ID
-{% endswagger-parameter %}
+| Name                                        | Type   | Description |
+| ------------------------------------------- | ------ | ----------- |
+| projectId<mark style="color:red;">\*</mark> | String | Project ID  |
 
-{% swagger-parameter in="query" name="date_end" required="true" %}
-ISO Date format indicating the end date for the query
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="resolution" type="1w | 1d" %}
-Aggregation resolution. Valid values are "1w" or "1d"
-{% endswagger-parameter %}
+| Name                                          | Type     | Description                                                                                         |
+| --------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------- |
+| date\_start<mark style="color:red;">\*</mark> | String   | ISO Date format indicating the start date for the query                                             |
+| date\_end<mark style="color:red;">\*</mark>   | String   | ISO Date format indicating the end date for the query                                               |
+| resolution                                    | 1w \| 1d | Aggregation resolution. Valid values are "1w" or "1d"                                               |
+| tags\[]                                       | String   | List of tags for filtering the query. To provide multiple values, use `tags[]=valueA&tags[]=valueB` |
+| branches\[]                                   | String   | List of branches for filtering the query. `branches[]=valueA&branches[]=valueB`                     |
 
-{% swagger-parameter in="query" name="tags[]" type="String" %}
-List of tags for filtering the query. To provide multiple values, use `tags[]=valueA&tags[]=valueB`
-{% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="branches[]" type="String" %}
-List of branches for filtering the query. `branches[]=valueA&branches[]=valueB`
-{% endswagger-parameter %}
 
-{% swagger-response status="200: OK" description="Successful Response" %}
-{% code overflow="wrap" %}
-```typescript
-type ResponsePayload = {
-  status: "OK";
+{% tabs %}
+{% tab title="200: OK Successful Response" %}
+<pre class="language-typescript" data-overflow="wrap"><code class="lang-typescript"><strong>type ResponsePayload = {
+</strong>  status: "OK";
   data: ProjectInsights;
 };
 
@@ -242,7 +230,7 @@ type TestMetric = {
   skipped: number; // # of skipped tests for the period
   flaky: number; // # of flaky tests for the period
 };
-```
-{% endcode %}
-{% endswagger-response %}
-{% endswagger %}
+</code></pre>
+{% endtab %}
+{% endtabs %}
+
