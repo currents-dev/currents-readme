@@ -61,12 +61,6 @@ Enabling PR comments will post a summary of your run to the associated GitHub PR
 
 Re-running tests for the same PR will delete the previous comment and post a new one with the most recent result unless **Keep Old Results** option is enabled
 
-#### Grouping commit status event into a single comment
-
-Single Notification for all groups (Optional) – enabling will update GitHub commit status once per run event, regardless of the number of groups.
-
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Single notification for all groups</p></figcaption></figure>
-
 #### Failed Runs Only
 
 Enabling the "Failed Runs Only" toggle would prevent posting a comment for successful runs - i.e. runs that have 0 failed or skipped tests.
@@ -100,6 +94,20 @@ Set the commit status label to distinguish the GitHub status checks one from ano
 {% hint style="warning" %}
 Using the same status label for the same repo across different projects can create a conflict - runs from both projects will overwrite the associated status check item.
 {% endhint %}
+
+#### Run one check per framework
+
+If you are reporting tests from multiple frameworks in the same job, you can enable this option to make sure the commit status check has a prefix with the framework label. This will guarantee that each testing framework gets their own status check.&#x20;
+
+{% hint style="warning" %}
+Make sure to update any repository rules that makes it mandatory for the commit status check to pass, as enabling this option will change the commit status title.&#x20;
+{% endhint %}
+
+#### Grouping commit status event into a single comment
+
+Single Notification for all groups (Optional) – enabling will update GitHub commit status once per run event, regardless of the number of groups.
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Single notification for all groups</p></figcaption></figure>
 
 ### Troubleshooting GitHub Integration
 
