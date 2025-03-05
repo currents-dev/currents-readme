@@ -26,7 +26,7 @@ Test title, for example in test definition `test("should open landing page")` it
 | Value Types         | `string \| string[]`                                                                                                                                                      |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 
-<mark style="color:purple;">**Test Title Path**</mark>
+#### <mark style="color:purple;">**Test Title Path**</mark>
 
 Full title path as an array including named `describe` statements.  `['Todo App', 'should be able to add new items']`
 
