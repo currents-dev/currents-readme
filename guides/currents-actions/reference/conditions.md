@@ -129,7 +129,7 @@ Added in `@currents/playwright@1.10.0`
 
 Used to match a list field (eg Test Title Path) against one or more values.
 
-<table data-full-width="false"><thead><tr><th>Operator</th><th>Description</th></tr></thead><tbody><tr><td><code>includes</code></td><td>all of the comma-separated values can be found in the field</td></tr><tr><td><code>includes some</code></td><td>at least one of the comma-separated values can be found in the field</td></tr><tr><td>missing</td><td>all of the comma-separated values are missing from the field</td></tr><tr><td>missing any</td><td>any of the comma-separated values are missing from the field</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Operator</th><th>Description</th></tr></thead><tbody><tr><td><code>includes</code></td><td>all of the comma-separated values can be found in the field</td></tr><tr><td><code>includes some</code></td><td>at least one of the comma-separated values can be found in the field</td></tr><tr><td><code>missing</code></td><td>all of the comma-separated values are missing from the field</td></tr><tr><td><code>missing any</code></td><td>any of the comma-separated values are missing from the field</td></tr></tbody></table>
 
 ### Examples
 
