@@ -126,9 +126,9 @@ The `config.json` file contains the metadata used by Currents to properly displa
 
 **Property**: `framework`
 
-**Description**: Name of the framework used to execute the tests. The currently accepted values are `postman` and `vitest`. Support for other frameworks will be added in the future.
+**Description**: Name of the framework used to execute the tests. The currently accepted values are `postman`, `vitest` and `wdio` (WebDriverIO)  Support for other frameworks will be added in the future.
 
-**Type**: `postman | vitest`
+**Type**: `postman | vitest | wdio`
 
 ***
 

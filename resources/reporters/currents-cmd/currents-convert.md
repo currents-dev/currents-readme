@@ -22,9 +22,9 @@ Support frameworks
 | --------- | -------------- | ------------------------ |
 | JUnit XML | Postman        | ✅                        |
 | JUnit XML | Vitest         | ✅                        |
+| JUnit XML | WebdriverIO    | ✅                        |
 | JUnit XML | NodeJS Testing | 👷🏾‍♀️ work in progress |
 | JUnit XML | Cypress        | 👷🏾‍♀️ work in progress |
-| JUnit XML | WebdriverIO    | 👷🏾‍♀️ work in progress |
 
 If you're interested in enabling support for more frameworks, please get in touch with our support team.
 
@@ -81,7 +81,7 @@ npx currents convert \
 *   `--framework`
 
     * The testing framework used to generate the test reports
-    * **Type:** `postman, vitest`
+    * **Type:** `postman, vitest, wdio`
 
 
 *   `--framework-version`
