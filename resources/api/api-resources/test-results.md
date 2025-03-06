@@ -56,11 +56,11 @@ Pagination cursor, see [pagination.md](../pagination.md "mention").
 
 > Git authors filter. To provide multiple values, use `git_author[]=valueA&git_author[]=valueB`
 
-**`group[]:`**` ``string`
+#### **`group[]:`**` ``string`
 
 > Group filter. To provide multiple values, use `group[]=valueA&group[]=valueB`
 
-**`status[]:`**` ``Enum<failed | passed | pending | skipped>`
+#### **`status[]:`**` ``Enum<failed | passed | pending | skipped>`
 
 > Test status filter. To provide multiple values, use **`status`**`[]=failed&status[]=passed`
 
