@@ -14,7 +14,7 @@ This is an object representing your Currents project. You can retrieve the list 
 
 | Name             | Type   | Description                                                        |
 | ---------------- | ------ | ------------------------------------------------------------------ |
-| limit            | 1-50   | Pagination limit 1-50. Default 10.                                 |
+| limit            | 1-100  | Pagination limit 1-100. Default 10.                                |
 | starting\_before | String | Pagination cursor. See [pagination.md](../pagination.md "mention") |
 | ending\_after    | String | Pagination cursor. See [pagination.md](../pagination.md "mention") |
 

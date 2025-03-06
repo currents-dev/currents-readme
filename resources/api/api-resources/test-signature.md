@@ -20,7 +20,6 @@ This combination ensures uniqueness to identify a specific test for metrics purp
     "specFilePath": "the spec file path",
     "testTitle": ["title part 1", "title part 2"]
 }
-
 ```
 
 The properties sent in the request are needed to get the correct test signature.

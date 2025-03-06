@@ -154,6 +154,7 @@
     * [Projects](resources/api/api-resources/projects.md)
     * [Spec Files](resources/api/api-resources/spec-files.md)
     * [Test Signature](resources/api/api-resources/test-signature.md)
+    * [Test Results](resources/api/api-resources/test-results.md)
 * [Data Privacy](resources/data-privacy/README.md)
   * [Access to Customer Data](resources/data-privacy/access-to-customer-data.md)
   * [Data Retention](resources/data-privacy/data-retention.md)
