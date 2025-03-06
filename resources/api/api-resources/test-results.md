@@ -10,13 +10,55 @@ The response contains relevant information about the outcome of a test execution
 
 <mark style="color:blue;">`GET`</mark> `v1/test-results/:testSignature`
 
-#### Path Parameters
+### Path Parameters
 
 <table><thead><tr><th width="190">Name</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>testSignature</code></td><td><code>String</code></td><td>Yes</td><td>The unique signature of the test <a data-mention href="test-signature.md">test-signature.md</a></td></tr></tbody></table>
 
-#### Query Parameters
+### Query Parameters
 
-<table><thead><tr><th width="208">Name</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>limit</code></td><td><code>Number</code></td><td>No</td><td>Pagination limit 1-100. Default: <code>10</code></td></tr><tr><td><code>date_start</code></td><td><code>String (ISO Datetime)</code></td><td>Yes</td><td>Date start - the test results included within the date range will be included.</td></tr><tr><td><code>date_end</code></td><td><code>String (ISO Datetime)</code></td><td>Yes</td><td>Date end - the test results included within the date range will be included.</td></tr><tr><td><code>starting_after</code></td><td><code>String</code></td><td>No</td><td>Pagination cursor. See <a data-mention href="../pagination.md">pagination.md</a></td></tr><tr><td><code>ending_before</code></td><td><code>String</code></td><td>No</td><td>Pagination cursor. See <a data-mention href="../pagination.md">pagination.md</a></td></tr><tr><td><code>branch[]</code></td><td><code>Array&#x3C;String></code></td><td>No</td><td>List of branches for filtering the included test results. To provide multiple values, use <code>branch[]=valueA&#x26;branch[]=valueB</code></td></tr><tr><td><code>tag[]</code></td><td><code>Array&#x3C;String></code></td><td>No</td><td>List of tags for filtering the included test results. To provide multiple values, use <code>tag[]=valueA&#x26;tag[]=valueB</code></td></tr><tr><td><code>git_author[]</code></td><td><code>Array&#x3C;String></code></td><td>No</td><td>List of git authors for filtering the included test results. To provide multiple values, use <code>git_author[]=valueA&#x26;git_author[]=valueB</code></td></tr><tr><td><code>group[]</code></td><td><code>Array&#x3C;String></code></td><td>No</td><td>List of groups for filtering the included test results. To provide multiple values, use <code>group[]=valueA&#x26;group[]=valueB</code></td></tr><tr><td><code>status[]</code></td><td><code>Array&#x3C;failed | passed | pending | skipped></code></td><td>No</td><td>List of status for filtering the included test results. To provide multiple values, use <code>status[]=valueA&#x26;status[]=valueB</code><br></td></tr></tbody></table>
+#### **`date_start:`**`string (ISO Datetime)` <mark style="color:red;">required</mark>
+
+> Date start - the test results included within the date range will be included.
+
+#### **`date_end:`**`string (ISO Datetime)` <mark style="color:red;">required</mark>
+
+> Date end - the test results included within the date range will be included.
+
+#### Pagination Parameters
+
+Pagination cursor, see [pagination.md](../pagination.md "mention").
+
+#### **`starting_after:`**`string`&#x20;
+
+> Pagination cursor.&#x20;
+
+#### **`ending_before:`**`string`&#x20;
+
+> Pagination cursor.&#x20;
+
+#### **`limit:`**`number`&#x20;
+
+> Pagination limit `1-100.` Default: `10`
+
+#### **`branch[]:`**` ``string`
+
+> Git branches filter. To provide multiple values, use `branch[]=valueA&branch[]=valueB`
+
+#### **`tag[]:`**` ``string`
+
+> Tags filter. To provide multiple values, use `branch[]=valueA&branch[]=valueB`
+
+#### **`git_author[]:`**` ``string`
+
+> Git authors filter. To provide multiple values, use `git_author[]=valueA&git_author[]=valueB`
+
+**`group[]:`**` ``string`
+
+> Group filter. To provide multiple values, use `group[]=valueA&group[]=valueB`
+
+**`status[]:`**` ``Enum<failed | passed | pending | skipped>`
+
+> Test status filter. To provide multiple values, use **`status`**`[]=failed&status[]=passed`
 
 {% tabs %}
 {% tab title="200: OK Successful Response" %}
