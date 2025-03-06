@@ -4,15 +4,19 @@ description: API Reference - Test Results
 
 # Test Results
 
-This API resource allows to query test results based on its signature [test-signature.md](test-signature.md "mention")
+This API resource allows to query test results based on its signature.
 
-The response contains relevant information about the outcome of a test execution.
+{% hint style="info" %}
+Learn how to retrieve before using this resource [test-signature.md](test-signature.md "mention")
+{% endhint %}
 
-<mark style="color:blue;">`GET`</mark> `v1/test-results/:testSignature`
+## <mark style="color:blue;">`GET`</mark> `v1/test-results/:signature`
 
 ### Path Parameters
 
-<table><thead><tr><th width="190">Name</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>testSignature</code></td><td><code>String</code></td><td>Yes</td><td>The unique signature of the test <a data-mention href="test-signature.md">test-signature.md</a></td></tr></tbody></table>
+#### **`signature:`**`string` <mark style="color:red;">required</mark>
+
+The unique signature of the test, see [test-signature.md](test-signature.md "mention").
 
 ### Query Parameters
 
@@ -59,6 +63,8 @@ Pagination cursor, see [pagination.md](../pagination.md "mention").
 **`status[]:`**` ``Enum<failed | passed | pending | skipped>`
 
 > Test status filter. To provide multiple values, use **`status`**`[]=failed&status[]=passed`
+
+### **Response**
 
 {% tabs %}
 {% tab title="200: OK Successful Response" %}
