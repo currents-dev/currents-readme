@@ -50,12 +50,11 @@ Currents displays the annotations for recorded tests:
 
 Currents will apply the following rules when parsing annotations:
 
-* types: `skip, fixme, fail` are reserved by Playwright
-* `32` max distinct annotations per test, extra annotations will be truncated (sortedby the order of appearance)
+* types: `skip, fixme, fail, slow` are reserved by Playwright
+* `32` max distinct annotations per test, extra annotations will be removed (sorted by the order of appearance)
 * `type` field is limited to `256` characters, the values will be trimmed and truncated to the max length
 * `description` field is limited to `2048` characters, the values will be trimmed and truncated to the max length
-* If `type` field is empty after trimming, the annotation will be ignored
-* fields with the same `type` will be merged - their description will be merged into one field, separated by comma
+* If `type` is empty after trimming, the annotation will be ignored
 
 ### Test Owner Annotation
 
