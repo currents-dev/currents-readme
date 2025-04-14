@@ -56,7 +56,7 @@ It allows users to search specific tests by entering a keyword or a partial test
 
 ## Metric Description
 
-The Test Explorer metrics offer into the test performance and allow you to focus on the most problematic tests with increased flakiness or failure charactaricstics.
+The Test Explorer metrics measure the test performance and identify the tests that affect the health and speed of your suite.
 
 {% hint style="info" %}
 **Volume vs Value**
