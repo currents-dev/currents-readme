@@ -21,7 +21,7 @@ Represents distribution of the outcomes of your builds/runs over time.&#x20;
 
 * Overall runs - overall runs created during the selected period, regardless of their completion or the end state
 * Failed runs - runs that have 1 or more failed tests. Failed runs count includes cancelled and timed-out tests.
-* Passed runs - runs that have 0 failed tests. Passed runs count includes cancelled and timed-out tests.
+* Passed runs - runs that have 0 failed tests.
 * Pass Rate - passed runs / overall runs
 
 ### Runs Duration
