@@ -4,13 +4,15 @@ description: Explore tests, history and performance
 
 # Test Explorer
 
-The Tests Explorer feature provides valuable insights into the testing suite performance, allowing users to sort and examine tests to identify and track tests that may require further investigation based on the executions recorded during the provided date range. The feature helps users identify problematic tests with high flakiness, long duration, or high failure rates.&#x20;
+The Tests Explorer view provides valuable insights into the testing suite performance, allowing users to sort and examine tests to identify and track tests that may require further investigation based on the executions recorded during the provided date range.&#x20;
+
+The view helps users identify problematic tests with high flakiness, long duration, or high failure rates.&#x20;
 
 {% embed url="https://www.loom.com/share/478652179d1446b68d4b92c09e0f472e?hideEmbedTopBar=true.&hide_owner=true&hide_share=true&hide_title=true" %}
 Tests Explorer
 {% endembed %}
 
-The [**Controls Overview**](./#controls-overview)**,** [**Metrics Description**](./#metrics-description)**,** [**List Item Description**](./#list-item-description), and [**Use Cases**](./#use-cases) sections offer a comprehensive understanding of the feature, its components, and how to leverage it for advanced analysis and meaningful insights from the test executions.
+See the [**Controls Overview**](./#controls-overview)**,** [**Metrics Description**](./#metrics-description)**,** [**List Item Description**](./#list-item-description), and [**Use Cases**](./#use-cases) sections below.
 
 {% embed url="https://www.loom.com/share/3faec47146884488a414e763a222abae?hideEmbedTopBar=true.&hide_owner=true&hide_share=true&hide_title=true" %}
 Tests Explorer
@@ -52,37 +54,74 @@ Users can enter a keyword or part of a Spec File name in the filter input field,
 
 It allows users to search specific tests by entering a keyword or a partial test title in the filter input field. As a result, the feature dynamically updates the list, displaying only the tests that match the provided criteria. It eliminates the need for manual scrolling through a lengthy list.
 
-## Metrics description
+## Metric Description
 
-The Test Explorer metrics offer valuable insights into the test execution process, helping users identify aspects for optimization and improvement. The metrics are detailed below.
-
-### Duration&#x20;
-
-It calculates the average time taken for fully completed tests, excluding any tests that were canceled during execution. Users can identify the longest-running tests, which may need optimization for faster test execution.
-
-### Duration x Samples
-
-It considers not only the duration of a test but also the number of times the test run, providing a more comprehensive view of the test's performance over multiple executions. By combining duration with the number of samples (test runs), users can gain insights into the consistency of test execution times.
+The Test Explorer metrics offer into the test performance and allow you to focus on the most problematic tests with increased flakiness or failure charactaricstics.
 
 {% hint style="info" %}
-For the **Duration** and **Duration x Samples** metrics, the tool provides an option to exclude or include failed executions in the list of tests, which can be toggled with a flag at the top right of the list panel.
+**Volume vs Value**
+
+Metrics like **Duration Volume**, **Flakiness Volume** and **Failure Volume** measure the impact of the associated test on overall suite performance.
+
+The scores are calculated by multiplying the corresponding metric by the number of samples. The actual number has no real meaning - it's just a numerical expression&#x20;
+
+\
+For example, consider two tests:
+
+* Test A runs rarely, reported 10 samples, with a 15% flakiness rate.
+* Test B runs often, reported 40 samples, with a  5% flakiness rate.
+
+\
+Test A Flakiness Volume is 10\*0.15 = 1.5
+
+Test B Flakiness Volume is 50\*0.05 = 2
+
+
+
+Test B has a higher Flakiness Volume because it affects the overall test suite flakiness more, although its rate is lower.
+
+In short, a test that’s a little flaky but runs a lot can be a bigger problem than a test that’s very flaky but rarely runs. The actual number doesn’t matter on its own — it’s just useful to compare tests and see which ones are dragging down reliability the most.
+{% endhint %}
+
+### Avg. Duration&#x20;
+
+The average execution time for fully completed tests, excluding any tests that were canceled during execution. Users can identify the longest-running tests, which may need optimization for faster test execution.
+
+### Duration Volume
+
+Duration Volume measures how much total time a test is contributing to the overall runtime of the test suite. It’s not just about how long a test takes per run, but also how often it runs.
+
+`Duration Volume` is `Duration`` `<mark style="color:blue;">`x`</mark>` ``# of Samples`  - i.e. duration multiplied by the number of samples. The raw number isn’t important on its own — it helps prioritize which tests are the biggest time sinks across all runs.
+
+{% hint style="info" %}
+For the **Duration** and **Duration Score** metrics, the provides an option to exclude or include failed executions in the list of tests, which can be toggled from the view settings
 {% endhint %}
 
 ### Failure Rate
 
 It measures the percentage of times a test fails when it is executed and provides insights into the reliability and stability of the test. A higher failure rate may indicate potential issues or bugs within the test or the system under test.
 
-### Failure Rate x Samples
+### Failure Volume
 
-Similar to the Duration x Samples metric, the Failure Rate x Samples metric considers the number of samples together with its failure rate. Tests consistently exhibiting a high failure rate across multiple runs may require further investigation and attention.
+Failure Volume measures how much a test contributes to the total number of failures in your test suite — combining how often it runs with how likely it is to fail. It’s calculated as:
+
+`Failure Volume = failure rate × number of runs (samples)`
+
+This metric helps you spot which tests are the biggest contributors to failure noise, even if their failure rate isn’t super high.
 
 ### Flakiness Rate
 
 It measures the percentage of times a test produces an inconsistent pass/fail results. Analyzing the Flakiness Rate metric allows users to focus on improving the reliability and stability of flaky tests, reducing false positives or negatives, and enhancing the overall trustworthiness of the test suite.
 
-### **Flakiness Rate x Samples**
+### **Flakiness Volume**
 
-Similar to the other "x Samples" metrics, it considers the number of times a test runs along with its flakiness rate. This metric provides a comprehensive view of the test's flakiness behavior over multiple executions.
+Flakiness Volume is a metric that quantifies how much a test’s flakiness impacts the overall stability of your test suite. It combines how often a test runs with how flaky it is, giving a sense of how much the test is likely to cause inconsistencies or unreliable results.
+
+It’s calculated by:
+
+`Flakiness Volume = flakiness rate × number of runs (samples)`
+
+The idea is that a test that runs frequently with a low flakiness rate could cause more issues overall than a test that rarely runs but is highly flaky.
 
 ### Executions
 
