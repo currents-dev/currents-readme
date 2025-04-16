@@ -77,6 +77,7 @@
 * [Playwright Annotations](guides/playwright-annotations.md)
 * [Playwright Visual Testing](guides/playwright-visual-testing.md)
 * [Re-run Only Failed  Tests](guides/re-run-only-failed-tests.md)
+* [MCP Server](guides/mcp-server.md)
 
 ## Dashboard
 
