@@ -72,7 +72,7 @@ Add the following to your `claude_desktop_config.json`:
 
 > @folder Tests are failing in CI. Get all the details from the run \<runId> and its specs and fix them.
 
-The runId can be copied from the run's "advanced tab" in the dashboard. Soon, the MCP server will be able to fetch the last runs for an organization, so that you won't need to provide a run id.
+The runId can be copied from the run's "advanced tab" in the dashboard. Soon, the MCP server will be able to fetch the last runs for an organization, removing the need for users to provide a specific run id.
 
 ## Use Cases & Capabilities
 
