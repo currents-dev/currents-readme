@@ -11,7 +11,7 @@ Test Suite Performance Explorer is a test management and analytics tool that ena
 
 <figure><img src="../../.gitbook/assets/currents-2023-07-02-01.10.06@2x.png" alt=""><figcaption><p>Test Suite Performance Explorer</p></figcaption></figure>
 
-Together with [automated-reports.md](../automated-reports.md "mention"), the Test Suite Performance Explores allow teams to proactively detect changes in tests flakiness, failure rate or duration and to effectively discover the root cause of regressions in performance.
+Together with [automated-reports.md](../../automated-reports.md "mention"), the Test Suite Performance Explores allow teams to proactively detect changes in tests flakiness, failure rate or duration and to effectively discover the root cause of regressions in performance.
 
 In addition, an aggregated view of cross-run top errors, filtered by specified criteria, facilitates the identification of potential bottlenecks in test execution and streamlines the troubleshooting process.
 

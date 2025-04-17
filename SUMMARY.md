@@ -81,18 +81,6 @@
 
 ## Dashboard
 
-* [Automated Reports](dashboard/automated-reports.md)
-* [Insights and Analytics](dashboard/insights-and-analytics.md)
-* [Administration](dashboard/administration/README.md)
-  * [Email Domain Based Access](dashboard/administration/email-domain-based-access.md)
-  * [SSO SAML2.0](dashboard/administration/sso-saml2.0/README.md)
-    * [SAML2.0 Configuration](dashboard/administration/sso-saml2.0/saml2.0-configuration.md)
-    * [SCIM User Provisioning](dashboard/administration/sso-saml2.0/scim-user-provisioning.md)
-    * [IdP-initiated Sessions](dashboard/administration/sso-saml2.0/idp-initiated-sessions.md)
-    * [Okta](dashboard/administration/sso-saml2.0/okta/README.md)
-      * [Okta User provisioning](dashboard/administration/sso-saml2.0/okta/okta-user-provisioning.md)
-    * [Troubleshooting SSO](dashboard/administration/sso-saml2.0/troubleshooting-sso.md)
-  * [Billing & Usage](dashboard/administration/billing-and-usage.md)
 * [Projects](dashboard/projects/README.md)
   * [Projects Summary view](dashboard/projects/projects-summary-view.md)
   * [Project Settings](dashboard/projects/project-settings.md)
@@ -117,6 +105,21 @@
   * [Test Explorer](dashboard/test-suite-performance-explorer/tests-explorer/README.md)
     * [Tests Performance](dashboard/test-suite-performance-explorer/tests-explorer/tests-performance.md)
   * [Errors Explorer](dashboard/test-suite-performance-explorer/errors-explorer.md)
+
+***
+
+* [Automated Reports](automated-reports.md)
+* [Insights and Analytics](insights-and-analytics.md)
+* [Administration](administration/README.md)
+  * [Email Domain Based Access](administration/email-domain-based-access.md)
+  * [SSO SAML2.0](administration/sso-saml2.0/README.md)
+    * [SAML2.0 Configuration](administration/sso-saml2.0/saml2.0-configuration.md)
+    * [SCIM User Provisioning](administration/sso-saml2.0/scim-user-provisioning.md)
+    * [IdP-initiated Sessions](administration/sso-saml2.0/idp-initiated-sessions.md)
+    * [Okta](administration/sso-saml2.0/okta/README.md)
+      * [Okta User provisioning](administration/sso-saml2.0/okta/okta-user-provisioning.md)
+    * [Troubleshooting SSO](administration/sso-saml2.0/troubleshooting-sso.md)
+  * [Billing & Usage](administration/billing-and-usage.md)
 
 ## Resources
 
