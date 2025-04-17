@@ -1,6 +1,6 @@
 ---
-icon: file-chart-column
 description: Proactive detection of regressions in tests performance
+icon: file-chart-column
 ---
 
 # Automated Reports

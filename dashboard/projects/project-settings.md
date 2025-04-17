@@ -11,7 +11,7 @@ Below are the settings available and their descriptions:
 * **Project ID**: This ID is immutable and cannot be edited, but you can copy the Project ID to include it in your Continuous Integration (CI) settings.
 * **Project Name**: It can be edited at any time to reflect the nature or stage of your project.
 * **Time Out Minutes**: The duration (in min[utes) after which](#user-content-fn-1)[^1] a run will timeout if it hasn't been completed. Adjust this setting based on your tests' complexity and expected duration to avoid premature terminations or unnecessary waiting times. Read more on [Run Timeouts](../runs/run-timeouts.md).
-* **Default Branch Name**: The name of the branch that will be used as a reference when presenting [insights-and-analytics.md](../../insights-and-analytics.md "mention"). E.g:
+* **Default Branch Name**: The name of the branch that will be used as a reference when presenting [insights-and-analytics.md](../insights-and-analytics.md "mention"). E.g:
   * The change in coverage is measured compared to the default branch.
   * Skipped tests report is measured based on the results from the default branch.
   * Increase in runs duration is counted from the default branch only.

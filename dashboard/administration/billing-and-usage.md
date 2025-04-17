@@ -6,7 +6,7 @@ description: Managing Billing and Subscription for your Organization
 
 The Billing and Usage view is accessible by accessing the org management menu - click on **Organization > Billing & Usage.** Within the Billing & Usage view, you can explore the organization's usage and plan limits, and manage the subscription and billing email recipients.
 
-<img src="../.gitbook/assets/currents-2023-03-02-16.26.02@2x.png" alt="" data-size="original">
+<img src="../../.gitbook/assets/currents-2023-03-02-16.26.02@2x.png" alt="" data-size="original">
 
 ### Billing Emails
 
@@ -20,13 +20,13 @@ Please note, that billing notifications are different from operational notificat
 
 In order to add additional recipients, navigate to **Organization > Billing & Usage.** Then add a new email in the **Billing Emails** section:
 
-<figure><img src="../.gitbook/assets/currents-2023-03-02-16.22.02@2x.png" alt=""><figcaption><p>Adding additional recipients for Billing Emails</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/currents-2023-03-02-16.22.02@2x.png" alt=""><figcaption><p>Adding additional recipients for Billing Emails</p></figcaption></figure>
 
 ### Usage Information
 
 The Billing & Usage view displays the Usage section with a daily/monthly breakdown of the recorded tests.&#x20;
 
-The usage includes a [<mark style="color:blue;">**Failed**</mark>](../dashboard/tests/test-status.md) or [<mark style="color:orange;">**Passed**</mark> ](../dashboard/tests/test-status.md)test recorded to Currents Dashboard. Retries of the same test are considered a single test result, therefore, a [<mark style="background-color:purple;">**Flaky Test**</mark>](../dashboard/tests/test-status.md) counts as one record, regardless of the number of attempts.
+The usage includes a [<mark style="color:blue;">**Failed**</mark>](../tests/test-status.md) or [<mark style="color:orange;">**Passed**</mark> ](../tests/test-status.md)test recorded to Currents Dashboard. Retries of the same test are considered a single test result, therefore, a [<mark style="background-color:purple;">**Flaky Test**</mark>](../tests/test-status.md) counts as one record, regardless of the number of attempts.
 
 {% hint style="info" %}
 Skipped tests `it.skip` do **not** count towards usage for billing purposes
@@ -42,13 +42,13 @@ The usage is aggregated **hourly** to allow precise reporting and calculation of
 
 You can filter usage by period and view all past billing cycles. Moreover, you can filter by **tests** or **runs**. Most customer contracts are metered by **runs**.&#x20;
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-09-01 at 15.34.32.png" alt=""><figcaption><p>Example - Usage history chart and filters</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-09-01 at 15.34.32.png" alt=""><figcaption><p>Example - Usage history chart and filters</p></figcaption></figure>
 
 #### Usage per project
 
 If you click **Show Usage Details**, you can see a breakdown of all recorded tests and runs per project created within your organization account.&#x20;
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-09-01 at 14.21.03.png" alt=""><figcaption><p>Usage per Project</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-09-01 at 14.21.03.png" alt=""><figcaption><p>Usage per Project</p></figcaption></figure>
 
 ### Extra Usage Plans
 
@@ -56,7 +56,7 @@ If you are still determining how many tests you need per month or if your usage 
 
 When you reach the test limits, Currents will send you an email notification informing you of the activation of the extra usage plan. You also can see the extra recordings progress on the **Usage Information**:
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-09-01 at 15.28.22.png" alt=""><figcaption><p>Example - Extra usage activated</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-09-01 at 15.28.22.png" alt=""><figcaption><p>Example - Extra usage activated</p></figcaption></figure>
 
 At the end of the monthly cycle, the billing will include the additional usage recorded. In the case of annual plans, Currents will send a separate bill with the extra tests.&#x20;
 
@@ -70,7 +70,7 @@ When legacy plan subscribers reach the usage limits, our system automatically in
 
 You can activate an extra-usage or upgrade the plan in **Billing & Usage** section:
 
-<figure><img src="../.gitbook/assets/currents-2023-09-20-00.33.34@2x.png" alt=""><figcaption><p>Enabling Extra Usage for Legacy Plans</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/currents-2023-09-20-00.33.34@2x.png" alt=""><figcaption><p>Enabling Extra Usage for Legacy Plans</p></figcaption></figure>
 
 If upgrading is not an option, you can contact us via _support@currents.dev_ or our in-app support chat to activate an extra usage plan to accommodate your increased usage needs.
 

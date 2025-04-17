@@ -62,7 +62,7 @@ Check the tools documentation below for more details, or reach out to our suppor
 * [troubleshooting.md](../getting-started/jest/troubleshooting.md "mention")
 * [troubleshooting-cypress.md](../getting-started/cypress/troubleshooting-cypress.md "mention")
 * [troubleshooting-playwright.md](../getting-started/playwright/troubleshooting-playwright.md "mention")
-* [troubleshooting-sso.md](../administration/sso-saml2.0/troubleshooting-sso.md "mention")
+* [troubleshooting-sso.md](../dashboard/administration/sso-saml2.0/troubleshooting-sso.md "mention")
 
 ### Resources
 

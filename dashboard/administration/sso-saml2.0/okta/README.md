@@ -20,13 +20,13 @@ Enabling SSO will affect all users of your organization who access Currents, use
 * Just-In-Time provisioning
 * SCIM provisioning
 
-For more information on the listed features, visit the [Okta Glossary](https://help.okta.com/okta\_help.htm?type=oie\&id=ext\_glossary).
+For more information on the listed features, visit the [Okta Glossary](https://help.okta.com/okta_help.htm?type=oie\&id=ext_glossary).
 
 ### Non Supported Features
 
 * Custom Roles for team members are not supported at the moment - the roles need to be manually configured for each user via the dashboard; new accounts will be created with "member" role
 * Enabling SSO will mandate the auth method for all the team members
-* IdP-initiated SSO (through [Third-party Initiated Login](https://openid.net/specs/openid-connect-core-1\_0.html#ThirdPartyInitiatedLogin))
+* IdP-initiated SSO (through [Third-party Initiated Login](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin))
 
 ### Configuration Steps
 

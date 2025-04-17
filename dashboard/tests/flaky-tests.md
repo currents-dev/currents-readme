@@ -33,7 +33,7 @@ Your team is arguably the **most important factor**. As a first step, admit that
 
 #### Identify flaky tests
 
-Use our [#top-flaky-tests](../../insights-and-analytics.md#top-flaky-tests "mention") Insights to see the tests with the highest flakiness rate.&#x20;
+Use our [#top-flaky-tests](../insights-and-analytics.md#top-flaky-tests "mention") Insights to see the tests with the highest flakiness rate.&#x20;
 
 ![Flaky Tests Insights](../../.gitbook/assets/cypress-flaky-tests.png)
 
