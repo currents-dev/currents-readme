@@ -101,7 +101,7 @@ In short, a test that’s a little flaky but runs a lot can be a bigger problem 
 
 ## Filters
 
-Only test recordings matching the filters will be included for metric calculations.
+Only test recordings matching the filters are included for metric calculation.
 
 * **Date Range** - include items recorded within the specified period
 * **Tag** - include items with the matching [playwright-tags.md](../../../guides/playwright-tags.md "mention")
