@@ -13,7 +13,7 @@ Define the following SAML2.0 configuration on your Identity Provider:
 
 <table><thead><tr><th width="155.5">IdP Attribute</th><th align="right">SAML Response Attribute</th></tr></thead><tbody><tr><td>Email</td><td align="right">http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress</td></tr><tr><td>Full Name</td><td align="right">http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name</td></tr></tbody></table>
 
-* Ensure the generated XML metadata have `HTTP-POST` and `HTTP-Redirect` binding, for example:
+* The generated metadata XML  must have `HTTP-POST` and `HTTP-Redirect` bindings, for example:
 
 ```xml
 <md:SingleSignOnService
