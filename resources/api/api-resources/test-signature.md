@@ -32,7 +32,7 @@ The spec file path is a string but it may be just the name of the spec file like
 
 <figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Spec File Path with file name with extension</p></figcaption></figure>
 
-Can also be a name without file extensions (Usually in JUnit payloads [others-junit-xml.md](../../../getting-started/ci-setup/github-actions/others-junit-xml.md "mention"))
+Can also be a name without file extensions (Usually in JUnit payloads [Broken link](broken-reference "mention"))
 
 <figure><img src="../../../.gitbook/assets/image (21).png" alt=""><figcaption><p>Spec File Path with common name</p></figcaption></figure>
 
