@@ -42,7 +42,7 @@ We are mantaining a Managed SCIM provisioning settings for popular providers:
 
 ### Manual SCIM Configuration
 
-Use the settings bewlo to to manually configure your SCIM client.  Please reach out to support for assistance, and see the following SCIMv2 details for Currents.
+Use the settings below to manually configure your SCIMv2 client.
 
 | Name                         | Value                                                                                  |
 | ---------------------------- | -------------------------------------------------------------------------------------- |
@@ -53,3 +53,4 @@ Use the settings bewlo to to manually configure your SCIM client.  Please reach 
 | Mandatory mapped fields      | `name.givenName`, `name.familyName`, `emails`, `active`                                |
 | Optional non-writable fields | `name.formatted`, `displayName`                                                        |
 
+In case of an error, please collect the error detials and contactour support for assistance.
