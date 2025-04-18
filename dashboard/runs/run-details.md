@@ -12,7 +12,7 @@ When creating a new run, playwright and cypress collect various information abou
 
 | Field             | Description                                             |
 | ----------------- | ------------------------------------------------------- |
-| Duration          | Run's duration                                          |
+| Duration          | Run duration                                            |
 | Progress          | Completed / overall spec files progress                 |
 | Started at        | Run start timestamp                                     |
 | Branch            | Git branch name (or HEAD for Pull Requests)             |
