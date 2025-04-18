@@ -4,9 +4,9 @@ description: Provision and de-provision users in Currents using SCIM v2
 
 # SCIM User Provisioning
 
-Currents supports [SCIM v2 ](https://datatracker.ietf.org/doc/html/rfc7644)to provision and de-provision users.
+Currents supports [SCIM v2 ](https://datatracker.ietf.org/doc/html/rfc7644)to automatically provision and de-provision users.
 
-In order to setup provisioning you first need to have setup [saml2.0-configuration.md](saml2.0-configuration.md "mention") .  Once ready, contact support via in-app chat or email to request SCIM be enabled for your organization.
+First, enable  [saml2.0-configuration.md](saml2.0-configuration.md "mention"). Once ready, contact support via in-app chat or email to request SCIM be enabled for your organization.
 
 Once enabled by Currents support, Admins will be able to find the **SCIMv2 Endpoint** and **Authorization Bearer Token** on the **Manage Team** section at https://app.currents.dev.
 
