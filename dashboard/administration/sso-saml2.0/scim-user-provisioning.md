@@ -12,11 +12,6 @@ Once enabled by Currents support, Admins will be able to find the **SCIMv2 Endpo
 
 <figure><img src="../../../.gitbook/assets/scim-provisioning.png" alt=""><figcaption><p>SCIM details can be fetched in the Currents app by Org Admins</p></figcaption></figure>
 
-### Supported  provisioners:
-
-* [Okta Provisioning](okta/okta-user-provisioning.md)
-* [Other provisioners](scim-user-provisioning.md#other-provisioners)
-
 ### Supported features
 
 Currents supports User resource provisioning using SCIM. **Group resources are not implemented**.
@@ -39,9 +34,15 @@ The following provisioning endpoints are supported:
 * DELETE User
   * Deactivates the user
 
-### Other provisioners
+### Managed Provisioning
 
-We do not provide an integration for all provisioners, but you may be able to manually configure your SCIM client.  Please reach out to support for assistance, and see the following SCIMv2 details for Currents.
+We are mantaining a Managed SCIM provisioning settings for popular providers:
+
+* [Okta Provisioning](okta/okta-user-provisioning.md)
+
+### Manual SCIM Configuration
+
+Use the settings bewlo to to manually configure your SCIM client.  Please reach out to support for assistance, and see the following SCIMv2 details for Currents.
 
 | Name                         | Value                                                                                  |
 | ---------------------------- | -------------------------------------------------------------------------------------- |
