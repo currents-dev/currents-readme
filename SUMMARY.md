@@ -115,6 +115,7 @@
     * [SAML2.0 Configuration](dashboard/administration/sso-saml2.0/saml2.0-configuration.md)
     * [SCIM User Provisioning](dashboard/administration/sso-saml2.0/scim-user-provisioning.md)
     * [IdP-initiated Sessions](dashboard/administration/sso-saml2.0/idp-initiated-sessions.md)
+    * [JumpCloud](administration/sso-saml2.0/jumpcloud.md)
     * [Okta](dashboard/administration/sso-saml2.0/okta/README.md)
       * [Okta User provisioning](dashboard/administration/sso-saml2.0/okta/okta-user-provisioning.md)
     * [Troubleshooting SSO](dashboard/administration/sso-saml2.0/troubleshooting-sso.md)
