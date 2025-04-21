@@ -36,7 +36,7 @@ The following provisioning endpoints are supported:
 
 ### Managed Provisioning
 
-We are mantaining a Managed SCIM provisioning settings for popular providers:
+We are maintaining a Managed SCIM provisioning settings for popular providers:
 
 * [Okta Provisioning](okta/okta-user-provisioning.md)
 
@@ -44,13 +44,13 @@ We are mantaining a Managed SCIM provisioning settings for popular providers:
 
 Use the settings below to manually configure your SCIMv2 client.
 
-| Name                         | Value                                                                                  |
-| ---------------------------- | -------------------------------------------------------------------------------------- |
-| SCIMv2 Base Url              | (Different for each org, and available in the Manage Team section of the Currents app) |
-| Auth Method                  | Authorization Header                                                                   |
-| Auth Type                    | Bearer Token                                                                           |
-| `userName` mapping           | email                                                                                  |
-| Mandatory mapped fields      | `name.givenName`, `name.familyName`, `emails`, `active`                                |
-| Optional non-writable fields | `name.formatted`, `displayName`                                                        |
+| Name                         | Value                                                                            |
+| ---------------------------- | -------------------------------------------------------------------------------- |
+| SCIMv2 Base Url              | Different for each org. It is available in the **Manage Team** dashboard section |
+| Auth Method                  | Authorization Header                                                             |
+| Auth Type                    | Bearer Token                                                                     |
+| `userName` mapping           | email                                                                            |
+| Mandatory mapped fields      | `name.givenName`, `name.familyName`, `emails`, `active`                          |
+| Optional non-writable fields | `name.formatted`, `displayName`                                                  |
 
 In case of an error, please collect the error detials and contactour support for assistance.
