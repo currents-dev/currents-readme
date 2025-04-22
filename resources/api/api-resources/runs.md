@@ -205,13 +205,6 @@ Note: The output may vary between Cypress and Playwright runs.
                 "remoteOrigin": "https://github.com/nasa/monorepo",
                 "defaultBranch": null
             },
-            // Platform details for the run
-            "platform": {
-                "browserName": "chromium",
-                "browserVersion": "",
-                "osName": "linux",
-                "osVersion": "Ubuntu - 22.04"
-            },
             // Framework details
             "framework": {
                 "type": "pw" | "cypress" | "jest" | "postman" | "vitest",
