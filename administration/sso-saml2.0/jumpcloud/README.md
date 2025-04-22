@@ -12,7 +12,7 @@ Enabling SSO will affect all users of your organization, users would not be able
 
 * SP-initiated SSO (Single Sign-On)
 * Just-In-Time provisioning
-* [scim-user-provisioning.md](../../dashboard/administration/sso-saml2.0/scim-user-provisioning.md "mention")
+* [jumpcloud-user-provisioning.md](jumpcloud-user-provisioning.md "mention")
 
 ### Setup Steps
 
@@ -22,7 +22,7 @@ Create a new SSO Application: **User Authentication  > SSO Applications > + Add 
 
 Type **Currents** and then click **Create a Custom Integration > Next**
 
-<figure><img src="../../.gitbook/assets/currents-2025-04-21-11.37.28@2x.png" alt=""><figcaption><p>Creating Custom SSO Integration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2025-04-21-11.37.28@2x.png" alt=""><figcaption><p>Creating Custom SSO Integration</p></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -32,19 +32,19 @@ Choose Integration Options
 * ✅ **Export user to this app**
 * Click **Next**, set **Integration Name,** then click **Create Application**
 
-<figure><img src="../../.gitbook/assets/currents-2025-04-21-11.39.57@2x.png" alt=""><figcaption><p>Creating Custom JumpCloud SSO Integration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2025-04-21-11.39.57@2x.png" alt=""><figcaption><p>Creating Custom JumpCloud SSO Integration</p></figcaption></figure>
 {% endstep %}
 
 {% step %}
 Configure SSO Settings
 
-* Fill in the fields according the values defined in [saml2.0-configuration.md](../../dashboard/administration/sso-saml2.0/saml2.0-configuration.md "mention")
+* Fill in the fields according the values defined in [saml2.0-configuration.md](../../../dashboard/administration/sso-saml2.0/saml2.0-configuration.md "mention")
   * SP Entity ID
   * ACS URL
   * SAMLSubject NameID
   * SAMLSubject NameID Format
   * Signature Algorithm: RSA-SHA256
-  * Login URL: you will be able to define the login URL after Currents support team activated the integration. See [idp-initiated-sessions.md](../../dashboard/administration/sso-saml2.0/idp-initiated-sessions.md "mention").
+  * Login URL: you will be able to define the login URL after Currents support team activated the integration. See [idp-initiated-sessions.md](../../../dashboard/administration/sso-saml2.0/idp-initiated-sessions.md "mention").
   * Attributes: `email` and `fullname`
 *   Click **Export Metadata,** ensure **t**he generated metadata XML has `HTTP-POST` and `HTTP-Redirect` bindings, for example:
 
@@ -63,8 +63,8 @@ Configure SSO Settings
 {% step %}
 ### Done
 
-* Share the Metadata XML file together with other details appearing in [saml2.0-configuration.md](../../dashboard/administration/sso-saml2.0/saml2.0-configuration.md "mention") with Currents support team to active the SSO.
+* Share the Metadata XML file together with other details appearing in [saml2.0-configuration.md](../../../dashboard/administration/sso-saml2.0/saml2.0-configuration.md "mention") with Currents support team to active the SSO.
 * Assign users or groups to the newly created SSO application
-* Set Login URL after Currents support team activated the integration. See [idp-initiated-sessions.md](../../dashboard/administration/sso-saml2.0/idp-initiated-sessions.md "mention").
+* Set Login URL after Currents support team activated the integration. See [idp-initiated-sessions.md](../../../dashboard/administration/sso-saml2.0/idp-initiated-sessions.md "mention").
 {% endstep %}
 {% endstepper %}

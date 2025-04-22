@@ -30,7 +30,7 @@ The properties sent in the request are needed to get the correct test signature.
 
 The spec file path is a string but it may be just the name of the spec file like this example:
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Spec File Path with file name with extension</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (2).png" alt=""><figcaption><p>Spec File Path with file name with extension</p></figcaption></figure>
 
 Can also be a name without file extensions (Usually in JUnit payloads [Broken link](broken-reference "mention"))
 

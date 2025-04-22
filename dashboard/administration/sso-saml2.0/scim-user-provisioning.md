@@ -39,6 +39,7 @@ The following provisioning endpoints are supported:
 We are maintaining a Managed SCIM provisioning settings for popular providers:
 
 * [Okta Provisioning](okta/okta-user-provisioning.md)
+* [JumpCloud Provisioning](../../../administration/sso-saml2.0/jumpcloud/jumpcloud-user-provisioning.md)
 
 ### Manual SCIM Configuration
 
