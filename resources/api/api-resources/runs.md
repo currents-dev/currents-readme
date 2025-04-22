@@ -153,11 +153,12 @@ Note: The output may vary between Cypress and Playwright runs.
         "projectId": "DgTfZV", // associated project Id
         "createdAt": "2024-05-27T12:30:15.171Z", // run creation time
         "tags": ["project:chrome"], // run tags
+        "durationMs": 234435, // run duration in ms
         // timeout details
         "timeout": {
             "isTimeout": false  // whether the run timed out
         },
-        // Groups progress within the run
+        // Group progress within the run
         "groups": [
             {
                 // Instances / specs progress
@@ -210,6 +211,12 @@ Note: The output may vary between Cypress and Playwright runs.
                 "browserVersion": "",
                 "osName": "linux",
                 "osVersion": "Ubuntu - 22.04"
+            },
+            // Framework details
+            "framework": {
+                "type": "pw" | "cypress" | "jest" | "postman" | "vitest",
+                "version": "1.52.0", // test runner version
+                "clientVersion": "1.12.0" // currents client version
             }
         },
         // Spec files associated with the run

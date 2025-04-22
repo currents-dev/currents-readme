@@ -97,7 +97,7 @@ This is an object representing your Currents project. You can retrieve the list 
             "completionState": "COMPLETE", // "CANCELED" | "COMPLETE" | "IN_PROGRESS" | "TIMEOUT"
             "status": "FAILED", // "FAILED" | "FAILING" | "PASSED" | "RUNNING"
             "tags": ["tagA", "tagB"], // tags
-            "cypressVersion": "9.5.4", // cypress version
+            "durationMs": 2443644, // run duration in ms
             // timeout data
             "timeout": {
                 "isTimeout": true, // whether the run timed out
@@ -151,6 +151,12 @@ This is an object representing your Currents project. You can retrieve the list 
                     "message": "Commit message",
                     "remoteOrigin": "https://github.com/nasa/monorepo",
                     "defaultBranch": null
+                },
+                // Framework details
+                "framework": {
+                    "type": "pw" | "cypress" | "jest" | "postman" | "vitest",
+                    "version": "1.52.0", // test runner version
+                    "clientVersion": "1.12.0" // currents client version
                 }
             }
         }
