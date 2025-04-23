@@ -78,6 +78,10 @@
 * [Re-run Only Failed  Tests](guides/re-run-only-failed-tests.md)
 * [MCP Server](guides/mcp-server.md)
 
+***
+
+* [Billing and Pricing](billing-and-pricing.md)
+
 ## Dashboard
 
 * [Projects](dashboard/projects/README.md)
