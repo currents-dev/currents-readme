@@ -78,10 +78,6 @@
 * [Re-run Only Failed  Tests](guides/re-run-only-failed-tests.md)
 * [MCP Server](guides/mcp-server.md)
 
-***
-
-* [Billing and Pricing](billing-and-pricing.md)
-
 ## Dashboard
 
 * [Projects](dashboard/projects/README.md)
@@ -125,6 +121,7 @@
       * [Okta User provisioning](dashboard/administration/sso-saml2.0/okta/okta-user-provisioning.md)
     * [Troubleshooting SSO](dashboard/administration/sso-saml2.0/troubleshooting-sso.md)
   * [Billing & Usage](dashboard/administration/billing-and-usage.md)
+* [Billing and Pricing](billing-and-pricing.md)
 
 ## Resources
 

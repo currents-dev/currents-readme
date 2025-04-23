@@ -1,11 +1,11 @@
 ---
-description: How Currents Billing Works
+description: How Currents Billing and Pricing Works
 icon: comments-dollar
 ---
 
 # Billing and Pricing
 
-Currents has a flexible subscription-based billing model. It is designed to allow different types of customers with various needs to find a convenient plan that matches their needs.&#x20;
+Currents has a flexible subscription-based billing model. It is designed to allow different types of customers to find a convenient plan that matches their needs.&#x20;
 
 {% hint style="info" %}
 All the plans incorporate volume discounts - as your usage increases, the cost per unit decreases.
@@ -30,6 +30,14 @@ Every account associated with your organization is considered a team member for 
 
 If you need more seats please contact us at [hello@currents.dev](mailto:hello@currents.dev).
 
+### Usage Estimation
+
+For a ballpark estimate, count the number of `it` and `test` statements in your source code and multiply by average number of CI runs.
+
+`Test Recording Volume` = `it or test statements` x `CI runs per month`&#x20;
+
+To have a more accurate estimation, create a free trial account and start sending the test results, after a couple of days use the [billing-and-usage.md](dashboard/administration/billing-and-usage.md "mention") section to review your usage. Contact our team to extend your trial [hello@currents.dev](mailto:hello@currents.dev).
+
 ### Subscription Types
 
 #### Monthly Subscriptions
@@ -37,7 +45,7 @@ If you need more seats please contact us at [hello@currents.dev](mailto:hello@cu
 You pay a monthly fee for the selected plan. For example consider a 10K plan that costs $49:
 
 * we charge a $49 prepayment for the first 10K test recordings;
-* we charge the Extra Usage fee for every additional 1K tests (or portion of it) at the end of usage cycle.
+* we charge an Extra Usage fee for every additional 1K tests (or portion of it) at the end of usage cycle.
 
 The usage cycle resets each month when you renew the subscription.
 
@@ -67,7 +75,7 @@ When your organization start incurring Extra Usage fee Currents sends a period e
 Depending on the Usage and Billing Cycle (see below) and payment method, we will charge the fee on Monthly, Quarterly or Annual Basis.
 
 {% hint style="info" %}
-We recomment switching to a higher-tier plan to avoid incurring extra usage fees.&#x20;
+We recommend switching to a higher-tier plan to avoid incurring extra usage fees.&#x20;
 {% endhint %}
 
 ### Enterprise Plans
@@ -76,38 +84,32 @@ Enterprise Plans allows customizing the terms and cadence of billing and usage c
 
 #### Usage Cycle vs Billing Cycle
 
-* **Usage Cycle** - defines when usage counter resets. For example
-  * Monthly Usage Cycle resets every month, usually on subscription start day
-  * Annual Usage Cycle reset every year, usually together with contract renewal.
-* **Billing Cycle -** defines how often we invoice or charge customer - monthly, annualy or every couple of years. Usually Billing Cycle is bound to contract renewal date.
+* **Usage Cycle** - defines when usage counter resets. For example:
+  * Monthly Usage Cycle resets every month, usually on subscription start day.
+  * Annual Usage Cycle resets every year, usually on a contract renewal.
+* **Billing Cycle -** defines how often we invoice or charge customers: monthly, annually or every couple of years. Usually Billing Cycle is bound to contracts renewal date.
 
 You can mix different types of Usage Cycle and Billing Cycle based on your needs. For example:
 
-<table><thead><tr><th width="131.97265625">Usage Cycle</th><th width="140.62890625">Billing Cycle</th><th>Description</th></tr></thead><tbody><tr><td>Monthly</td><td>Monthly</td><td>Standard month-to-month subscriptions</td></tr><tr><td>Monthly</td><td>Annual</td><td>You pay in advance for the whole year, usage resets every month</td></tr><tr><td>Annual</td><td>Annual</td><td>You pay in advance for the whole year and get a relatively big package of test records, the usage cycle resets at the end of the year. This option matched companies with varying usage patterns.</td></tr><tr><td>Annual</td><td>Monthly</td><td>Not supported</td></tr></tbody></table>
+<table><thead><tr><th width="131.97265625">Usage Cycle</th><th width="140.62890625">Billing Cycle</th><th>Description</th></tr></thead><tbody><tr><td>Monthly</td><td>Monthly</td><td>Standard month-to-month subscriptions. Not available for Enterprise Plans.</td></tr><tr><td>Monthly</td><td>Annual</td><td>You pay a discounted price in advance for the whole year, usage resets every month.</td></tr><tr><td>Annual</td><td>Annual</td><td>You pay in advance for the whole year and get a relatively big package of test records, the usage cycle resets at the end of the year. This option matches companies with varying usage patterns.</td></tr><tr><td>Annual</td><td>Monthly</td><td>Not supported.</td></tr></tbody></table>
 
 {% hint style="info" %}
 We can occasionally send an out-of-cycle invoices for Extra Usage or mid-term upgrades
 {% endhint %}
 
-#### Tiered Contracts
+#### Tiered Contract
 
-We offer tiered contracts for better estimating the potential costs and reducing the paperwork overhead. We will activate a different tier as soon as you reach a previous tier threshold, each tier has an embedded discount, you will know in advance the max potential amount you pay.&#x20;
+We offer tiered contracts for better estimating the potential costs and reducing the paperwork overhead.&#x20;
 
-For example, consider a 3-tier contract - the initial payment is $10,000 for 1MM test records. The next-tier charges kick in only if you exceed the previous tier threshold.&#x20;
+With a tiered contract, we will activate a different tier as soon as you reach the previous tier's threshold. Each next tier has an embedded discount, you will know in advance the max potential amount you pay.&#x20;
+
+For example, consider a 3-tier contract - the initial payment is $10,000 for 1MM test records. The next-tier charges kick in only if and after you exceed the previous tier threshold.&#x20;
 
 | Tier   | Threshold         | Charge                                    |
 | ------ | ----------------- | ----------------------------------------- |
 | Tier 1 | 1MM test records  | $10,000 on subscription creation          |
 | Tier 2 | 1.5MM test record | $4,000 after exceeded 1MM test records    |
 | Tier 3 | 2MM test records  | $3,000 after exceeding 1.5MM test records |
-
-### Usage Estimation
-
-For a ballpark estimate, count the number of `it` and `test` statements in your source code and multiply by average number of CI runs.
-
-`Test Recording Volume` = `it or test statements` x `CI runs per month`&#x20;
-
-To have a more accurate estimation, create a free trial account and start sending the test results, after a couple of days use the [billing-and-usage.md](dashboard/administration/billing-and-usage.md "mention") section to review your usage. Contact our team to extend your trial [hello@currents.dev](mailto:hello@currents.dev).
 
 ### FAQ
 
