@@ -56,6 +56,8 @@ An optimal assignment would consider the duration of spec files and can signific
 
 The difference in execution time 13 vs 20 minutes, which is a 35% improvement. Read more about [load-balancing.md](../load-balancing.md "mention").
 
+<figure><img src="../../../.gitbook/assets/currents-2025-04-24-00.13.49@2x.png" alt=""><figcaption><p>An example of optimal distribution of 610 spec files on 40 machines</p></figcaption></figure>
+
 #### Optimal Tests Balancing with Playwright Orchestration <a href="#optimal-tests-balancing-with-playwright-orchestration" id="optimal-tests-balancing-with-playwright-orchestration"></a>
 
 Playwright Orchestration by Currents automates the process of achieving a balanced distribution of spec files based on their expected duration. Here are the key benefits:
