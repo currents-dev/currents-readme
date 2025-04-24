@@ -12,9 +12,7 @@ Running Playwright tests on CI eventually will require splitting the spec files 
 
 Read more about native [playwright-sharding.md](playwright-sharding.md "mention").
 
-
-
-<figure><img src="../../../.gitbook/assets/pw-shard-fast-bg (2).png" alt=""><figcaption><p>Sharding vs Orchestration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Orchestration (4).png" alt=""><figcaption><p>Orchestration improves the native sharding</p></figcaption></figure>
 
 ### Playwright Orchestration by Currents
 
