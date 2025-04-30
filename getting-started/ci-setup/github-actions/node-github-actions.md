@@ -1,5 +1,5 @@
 ---
-description: Running Node.js  on GitHub Actions
+description: Running Node.js Tests on GitHub Actions
 ---
 
 # Node.js - GitHub Actions
