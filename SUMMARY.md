@@ -133,6 +133,7 @@
   * [@currents/playwright](resources/reporters/currents-playwright/README.md)
     * [Currents Fixtures for Playwright](resources/reporters/currents-playwright/currents-playwright-fixtures.md)
   * [@currents/jest](resources/reporters/currents-jest.md)
+  * [@currents/node-test-reporter](resources/reporters/currents-node-test-reporter.md)
   * [@currents/cmd](resources/reporters/currents-cmd/README.md)
     * [currents api](resources/reporters/currents-cmd/currents-api.md)
     * [currents upload](resources/reporters/currents-cmd/currents-upload.md)
