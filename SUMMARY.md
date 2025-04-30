@@ -22,6 +22,7 @@
     * [Cypress - GitHub Actions](getting-started/ci-setup/github-actions/cypress-github-actions.md)
     * [Playwright - GitHub Actions](getting-started/ci-setup/github-actions/playwright-github-actions.md)
     * [Jest - GitHub Actions](getting-started/ci-setup/github-actions/jest-github-actions.md)
+    * [Node.js - GitHub Actions](getting-started/ci-setup/github-actions/jest-github-actions-1.md)
     * [Commit data for GitHub Actions](getting-started/ci-setup/github-actions/commit-data-for-github-actions.md)
     * [Custom Docker runners](getting-started/ci-setup/github-actions/custom-docker-runners.md)
     * [Named Runners](getting-started/ci-setup/github-actions/named-runners.md)
