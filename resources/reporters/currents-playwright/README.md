@@ -184,7 +184,7 @@ The following configuration options are available for both `pwc` and `pwc-p`:
 
 
 
-*   **`--pwc-output-file <path>`**
+*   `--pwc-output-file <path>`
 
     *   file path for run summary output in JSON format. The summary data TypeScript type definition is available:&#x20;
 
@@ -204,14 +204,12 @@ The following configuration options are available for both `pwc` and `pwc-p`:
     * Released in version: `1.7.0`
 
 
-*   **`--pwc-coverage-dir <path>`**
-
-    * Coverage reports directory path, defailt: `.nyc_output`
-    * Environment variable: n/a
-    * JS configuration key: `coverage.dir: string | undefined`
-    * Released in version: `1.7.0`
-
-
+* `--pwc-coverage-dir <path>`
+  * Coverage reports directory path, defailt: `.nyc_output`
+  * Environment variable: n/a
+  * JS configuration key: `coverage.dir: string | undefined`
+  * Released in version: `1.7.0`\
+    &#x20;
 * **`-V, --version`** show package version
 * **`-h, --help`** show `pwc` help
 
@@ -219,11 +217,11 @@ The following configuration options are available for both `pwc` and `pwc-p`:
 
 **`pwc-p` specific flags**
 
-* **`--pwc-reset-signal <'SIGUSR1'|'SIGUSR2'>`**&#x20;
+* `--pwc-reset-signal <'SIGUSR1'|'SIGUSR2'>`&#x20;
   * specify a process signal to listen for to trigger a reset of the current in progress tests. Only avaiable on OSes with POSIX signal support.
   * Supported in CLI only
   * Released in version: `1.3.0`
-* **`--pwc-skip-reporter-injection`**
+* `--pwc-skip-reporter-injection`
   * Do no inject @currents/playwright reporter via CLI, use the reporter specified in the playwright config
   * Supported in CLI only
   * Released in version: `1.5.9`

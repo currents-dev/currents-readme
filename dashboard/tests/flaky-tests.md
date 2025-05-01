@@ -45,3 +45,41 @@ Examine the outcomes of your runs to see what tests are flaky and eliminate the 
 * Optimize test structure - write smaller tests
 * Keep tests isolated - use fresh, clean data before each test
 * Give up and use retries 😛
+
+### Fail on Flaky Tests
+
+{% hint style="info" %}
+`failOnFlakyTests` property is available in Playwright **v1.52+**, and in `@currents/playwright` starting from **v1.12.3**.
+{% endhint %}
+
+Starting with Playwright **v1.52**, the runner can be configured to exit with an error if any test has been marked as flaky [see the official docs](https://playwright.dev/docs/api/class-testconfig#test-config-fail-on-flaky-tests). This is particularly useful on CI systems where the presence of flaky tests should block the pipeline.
+
+#### Configuration
+
+In your `playwright.config.ts`, enable the option by setting `failOnFlakyTests` to `true` (for example, based on the `CI` environment variable):
+
+```ts
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  // Exit with an error if any test is marked flaky.
+  failOnFlakyTests: Boolean(process.env.CI),
+});
+```
+
+#### Command-Line Option
+
+Alternatively, the same behavior can be enabled via the CLI flag:
+
+```bash
+# Using Playwright test command
+npx playwright test --fail-on-flaky-tests
+
+# Using the Playwright wrapper
+npx pwc --fail-on-flaky-tests
+
+# Using the orchestration
+npx pwc-p --fail-on-flaky-tests
+```
+
+When this flag is present, the test run will exit with a non-zero status if any tests are detected as flaky, ensuring flaky tests block your CI pipeline.
