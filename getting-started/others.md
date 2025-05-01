@@ -1,11 +1,11 @@
 ---
-icon: grid
 description: Integrate Currents with any framework by using JUnit compatible XML reporters
+icon: grid
 ---
 
 # Others
 
-Currents has flagship integrations with various testing frameworks via the dedicated reporters (like [playwright](playwright/ "mention"), [jest](jest/ "mention") and [cypress](cypress/ "mention")).&#x20;
+Currents has flagship integrations with various testing frameworks via the dedicated reporters (like [playwright](playwright/ "mention"), [jest](jest/ "mention"),   [**Node.js**](../resources/reporters/currents-node-test-reporter.md) ,and [cypress](cypress/ "mention")).&#x20;
 
 Integration with other frameworks is possible by uploading a JUnit XML (or compatible) test results report to Currents using our CLI utilities from [currents-cmd](../resources/reporters/currents-cmd/ "mention") package.
 
@@ -95,5 +95,5 @@ Check out the [example repository](https://github.com/currents-dev/currents-juni
 
 * [Postman](https://github.com/currents-dev/currents-junit-xml-example/tree/main/packages/postman)
 * [Vitest](https://github.com/currents-dev/currents-junit-xml-example/tree/main/packages/vitest)
-* [NodeJS Test Runner](https://github.com/currents-dev/currents-junit-xml-example/tree/main/packages/nodejs-test-runner)
+* [NodeJS Test Runner](https://github.com/currents-dev/currents-nodejs-github-actions-example)
 * [WebdriverIO](https://github.com/currents-dev/currents-junit-xml-example/tree/main/packages/wdio)
