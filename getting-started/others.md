@@ -95,5 +95,5 @@ Check out the [example repository](https://github.com/currents-dev/currents-juni
 
 * [Postman](https://github.com/currents-dev/currents-junit-xml-example/tree/main/packages/postman)
 * [Vitest](https://github.com/currents-dev/currents-junit-xml-example/tree/main/packages/vitest)
-* [NodeJS Test Runner](https://github.com/currents-dev/currents-nodejs-github-actions-example)
+* [NodeJS Test Runner](https://github.com/currents-dev/currents-junit-xml-example/tree/main/packages/nodejs-test-runner)
 * [WebdriverIO](https://github.com/currents-dev/currents-junit-xml-example/tree/main/packages/wdio)
