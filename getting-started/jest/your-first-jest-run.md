@@ -125,9 +125,3 @@ It is important to ensure that
 
 `npx jest --reporters=@currents/jest` and `currents upload`  share the same environment variables
 {% endhint %}
-
-## Explore
-
-Learn more about our dashboard and its features.
-
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Setup CI</td><td></td><td></td><td><a href="../ci-setup/">ci-setup</a></td></tr><tr><td>Speed Up CI</td><td></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td>Test Status</td><td></td><td></td><td><a href="../../dashboard/tests/test-status.md">test-status.md</a></td></tr><tr><td>Insights and Analytics</td><td></td><td></td><td><a href="../../dashboard/insights-and-analytics.md">insights-and-analytics.md</a></td></tr><tr><td>Run Details</td><td></td><td></td><td><a href="../../dashboard/runs/run-details.md">run-details.md</a></td></tr></tbody></table>
