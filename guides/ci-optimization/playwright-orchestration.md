@@ -6,25 +6,16 @@ description: Playwright Orchestration setup instructions
 
 Orchestration helps decrease the duration of Playwright tests in CI pipelines. Read our detailed guide on [playwright-parallelization.md](playwright-parallelization.md "mention") that compares the native sharding with orchestration.
 
-### Requirements
-
-To enable  Orchestration, you need to have an account with Currents:
-
-* Create an account at [https://app.currents.dev](https://app.currents.dev)
-* Get **Project ID** and [record-key.md](../record-key.md "mention")
-
 
 
 ### How does it work
 
-`@currents/playwright` contains a CLI executable `pwc-p` —  it is a lightweight wrapper that implements  Orchestration and runs Playwright behind the scenes.
+`@currents/playwright` contains a command-line executable `pwc-p` —  a lightweight wrapper that implements  Orchestration and runs Playwright behind the scenes.
 
 * it scans the testing suite
 * it establishes an orchestration session with Currents servers
 * **it** runs Playwright, executing spec files in the optimal order
 * the results are recorded to Currents for troubleshooting and analysis
-
-Read more about the benefits of orchestration in [Broken link](broken-reference "mention") guide.
 
 
 
