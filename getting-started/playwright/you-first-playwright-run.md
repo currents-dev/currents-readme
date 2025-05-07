@@ -117,7 +117,7 @@ export default defineConfig<CurrentsFixtures, CurrentsWorkerFixtures>({
 ```
 
 * Run `npx playwright test` to start sending the results to Currents dashboard.
-* The reporter reads the configuration from `currents.config.ts` file. See additional configuration options [#configuration](you-first-playwright-run.md#configuration "mention").
+* The reporter reads the configuration from `currents.config.ts` file. See [currents-playwright](../../resources/reporters/currents-playwright/ "mention") for more configuration options.
 
 
 
