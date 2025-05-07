@@ -42,7 +42,7 @@ The overall CI job duration is determined by the slowest (busiest) shard. There 
 {% hint style="info" %}
 #### Load Balancing
 
-Optimally splitting the tests between shards can significantly affect the CI execution time. Sharding splits test files based on the lexical order of test file paths — it often leads to unbalanced workloads.&#x20;
+Optimally splitting tests between shards can significantly affect the CI execution time. Sharding splits test files based on the lexical order of test file paths — it often leads to unbalanced workloads.&#x20;
 
 Take, for example, a testing suite consisting of 4 test files with the following durations:
 
@@ -67,7 +67,7 @@ With 2 machines,  sharding splits the files inefficiently (20 minutes vs 13 minu
 
 ## Playwright Orchestration
 
-{% hint style="info" %}
+{% hint style="success" %}
 **Orchestration for Playwright** is included with your Currents subscription.&#x20;
 
 * ✅ Integrate with any CI provider and run tests on your own infrastructure
