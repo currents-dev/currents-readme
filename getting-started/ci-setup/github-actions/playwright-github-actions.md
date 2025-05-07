@@ -15,13 +15,11 @@ Currents collects Playwright test results from GitHub Action CI Runners, togethe
 * videos
 * traces
 
-![Running Playwright tests in parallel - Currents dashboard](../../../.gitbook/assets/playwright-run.gif)
+### Playwright in GitHub Actions
 
-### Parallel Playwright tests in GitHub Actions
+[GitHub Actions Matrix](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow) and [Playwright Sharding](https://playwright.dev/docs/test-sharding)  speed up you CI pipeline by running tests in parallel  -  playwright support splitting the tests between multiple CI machines using `--shard` CLI flag.&#x20;
 
-[GitHub Actions Matrix](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow) and [Playwright Sharding](https://playwright.dev/docs/test-sharding)  speed up you CI pipeline by running tests in parallel  -  playwright support splitting the tests between multiple CI machines using `--shard` CLI flag. [playwright-orchestration.md](../../../guides/parallelization-guide/pw-parallelization/playwright-orchestration.md "mention") improves the parallel execution even more by optimally balancing your tests across the available CI machines.
-
-Read our [pw-parallelization](../../../guides/parallelization-guide/pw-parallelization/ "mention") guide to discover more about parallelizing your Playwright test in GitHub Actions.
+Read our [ci-optimization](../../../guides/ci-optimization/ "mention") guide to discover how to speed up your Playwright test in GitHub Actions.
 
 ### Example
 
@@ -29,18 +27,18 @@ The [example repository](https://github.com/currents-dev/playwright-gh-actions-d
 
 * [test-basic-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-basic-pwc.yml) - run Playwright tests in parallel using 3 shards of GitHub Actions Matrix and `pwc` command.
 * [test-basic-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-basic-reporter.yml) - run Playwright tests in parallel run using 3 shards of GitHub Actions Matrix and configuring Currents Reporter in `playwright.config.ts`.
-* [test-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-or8n.yml) - run Playwright tests in parallel Playwright using [playwright-orchestration.md](../../../guides/parallelization-guide/pw-parallelization/playwright-orchestration.md "mention") and GitHub Actions Matrix. Currents Orchestration speeds up CI runs by up to 40% (compared to native sharding) by optimally balancing tests between the available machines.
+* [test-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-or8n.yml) - run Playwright tests in parallel Playwright using [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention") and GitHub Actions Matrix. Currents Orchestration speeds up CI runs by up to 40% (compared to native sharding) by optimally balancing tests between the available machines.
 * [argos-example.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/argos-example.yml) - run Playwright tests in parallel using Currents Orchestration, use Argos CI for visual testing.
 
 ### Re-run only failed tests in GitHub Actions
 
 When a workflow fails in GitHub Actions you have the option to re-run the failed jobs.  However, an additional setup is required for properly configure Playwright for rerunning only the failed tests.&#x20;
 
-See [re-run-only-failed-tests.md](../../../guides/re-run-only-failed-tests.md "mention") guide for details.
+See [re-run-only-failed-tests.md](../../../guides/ci-optimization/re-run-only-failed-tests.md "mention") guide for details.
 
 #### Playwright Sharding
 
-If you're using [playwright-sharding.md](../../../guides/parallelization-guide/pw-parallelization/playwright-sharding.md "mention") for running your tests in parallel, add [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to simplify the re-runs.
+If you're using [playwright-sharding.md](../../../guides/parallelization-guide/playwright-sharding.md "mention") for running your tests in parallel, add [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to simplify the re-runs.
 
 Step-by-step guide:
 
@@ -145,7 +143,7 @@ Full examples:
 If you're using [#currents-orchestration](playwright-github-actions.md#currents-orchestration "mention") for running your Playwright tests you can also fetch the results of  from [api](../../../resources/api/ "mention").
 
 {% hint style="info" %}
-Currents Orchestration dynamically assigns tests to all the available CI runners, that's why you should select **Re-run all jobs** when using Currents Orchestration. Read more at [re-run-only-failed-tests.md](../../../guides/re-run-only-failed-tests.md "mention") guide.
+Currents Orchestration dynamically assigns tests to all the available CI runners, that's why you should select **Re-run all jobs** when using Currents Orchestration. Read more at [re-run-only-failed-tests.md](../../../guides/ci-optimization/re-run-only-failed-tests.md "mention") guide.
 {% endhint %}
 
 Step-by-step guide:
@@ -260,7 +258,7 @@ Example workflow:
 Note the use of [#custom-ci-build-id-for-reruns](playwright-github-actions.md#custom-ci-build-id-for-reruns "mention").
 {% endhint %}
 
-### Custom CI Build ID for reruns
+### Custom CI Build ID for Reruns
 
 The last-failed-action gets the previous run information using the default CI build ID pattern:
 

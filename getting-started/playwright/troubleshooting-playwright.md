@@ -40,9 +40,13 @@ npx envinfo --system --binaries --browsers --npmPackages --duplicates --npmGloba
 
 ### 2. Activate Debug Mode
 
-#### Debug mode for version `0.11.3` and after
+`@currents/playwright` simplifies collecting the debug information by automatically uploading the logs to Currents.&#x20;
 
-`@currents/playwright` version `0.11.3+` simplifies collecting the debug logs by uploading them remotely to Currents.&#x20;
+{% hint style="warning" %}
+Capture and share the **full** debug log - that will help the support person identify the root cause faster
+{% endhint %}
+
+
 
 To enable uploading the debug logs:
 
@@ -50,10 +54,14 @@ To enable uploading the debug logs:
 * set `CURRENTS_DEBUG` environment variable, OR
 * provide `debug` option to reporter configuration.
 
+
+
 The following values will enable uploading the debug logs to our servers:
 
 * `remote` will upload the debug logs to Currents servers.
 * `full` will print the logs to stdout and also upload them to Currents.
+
+
 
 For example:
 
@@ -117,46 +125,3 @@ When enabled, the debug logs will be uploaded to Currents servers and a confirma
 
 <figure><img src="../../.gitbook/assets/currents-2023-12-11-15.56.04@2x.png" alt=""><figcaption><p>Remote debug logs notification example</p></figcaption></figure>
 
-Share the information about the collected remote debug logs with our support team for more effective troubleshooting.
-
-#### Debug mode for versions `0.11.2` and below&#x20;
-
-{% hint style="info" %}
-Please capture and share the **full** debug log - that will help the support person identify the root cause faster
-{% endhint %}
-
-{% tabs %}
-{% tab title="pwc" %}
-```
-# on Linux
-npx pwc --pwc-debug ... 
-
-# on Windows
-cmd /V /C npx pwc --pwc-debug ...
-```
-{% endtab %}
-
-{% tab title="playwright test" %}
-```
-# on Linux
-CURRENTS_PROJECT_ID=PROJECT_ID \ // the projectId from https://app.currents.dev
-CURRENTS_RECORD_KEY=RECORD_KEY \ // the record key from https://app.currents.dev
-CURRENTS_CI_BUILD_ID=hello-currents \ // a unique CI build ID
-DEBUG=currents* \
-npx playwright test
-
-# on Windows
-## - set the environment variables first
-cmd /V /C ^
-set DEBUG=currents* ^
-set CURRENTS_PROJECT_ID=project_id&& ^
-set CURRENTS_RECORD_KEY=record_key&& ^
-set CURRENTS_CI_BUILD_ID=unique_build_id
-
-## - the run the command
-npx playwright test ...
-
-## - examine environment variables using "set" command
-```
-{% endtab %}
-{% endtabs %}

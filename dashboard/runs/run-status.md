@@ -21,5 +21,5 @@ During its lifecycle, a run can have various states:
 In addition, an interrupted run can be in one of the following completion states:
 
 * **👤 Cancelled** - a run was cancelled. See [cancel-run.md](cancel-run.md "mention") for details.
-* **⚡️ Cancelled** - a run was cancelled due to the [Fail Fast](../../guides/parallelization-guide/fail-fast-strategy.md) strategy. See&#x20;
+* **⚡️ Cancelled** - a run was cancelled due to the [Fail Fast](../../guides/ci-optimization/fail-fast-strategy.md) strategy. See&#x20;
 * **Timeout** - a run exceeded the timeout threshold for the project. See [run-timeouts.md](run-timeouts.md "mention")for details.

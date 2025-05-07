@@ -66,13 +66,13 @@ Currents will collect the following information:
 
 #### GitLab Merge Request Notes <a href="#user-content-gitlab-merge-request-notes" id="user-content-gitlab-merge-request-notes"></a>
 
-Take a look at the example merge request: [https://gitlab.com/currents.dev/gitlab-playwright-currents/-/merge\_requests/3](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/merge\_requests/3)
+Take a look at the example merge request: [https://gitlab.com/currents.dev/gitlab-playwright-currents/-/merge\_requests/3](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/merge_requests/3)
 
 When [GitLab integration](https://currents.dev/readme/integrations/gitlab) is enabled, Currents will post a Merge Commit note with run results:
 
 <figure><img src="../../../.gitbook/assets/currents-gitlab-merge-note.png" alt=""><figcaption><p>Currents Merge Request Notes</p></figcaption></figure>
 
-In addition, Currents will post an [External Status check](https://docs.gitlab.com/ee/user/project/merge\_requests/status\_checks.html) for every Playwright project configured. For example:
+In addition, Currents will post an [External Status check](https://docs.gitlab.com/ee/user/project/merge_requests/status_checks.html) for every Playwright project configured. For example:
 
 <figure><img src="../../../.gitbook/assets/currents-gitlab-status-check.png" alt=""><figcaption><p>Example of GitLab CI External Status Check </p></figcaption></figure>
 
@@ -92,8 +92,8 @@ If you're using [Playwright Sharding](https://docs.currents.dev/guides/paralleli
 
 Example workflows are available in our GitLab repositories:
 
-* [reruns-pwc.yml](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwc.yml?ref\_type=heads) - re-run only failed tests on GitLab CI using 3 parallel runners and Playwright Shards + Currents `pwc` command
-* [reruns-reporter.yml](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-reporter.yml?ref\_type=heads) - re-run only failed tests on GitLab CI using 3 parallel runners and Playwright Shards + Currents reporter in `playwright.config.ts`
+* [reruns-pwc.yml](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwc.yml?ref_type=heads) - re-run only failed tests on GitLab CI using 3 parallel runners and Playwright Shards + Currents `pwc` command
+* [reruns-reporter.yml](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-reporter.yml?ref_type=heads) - re-run only failed tests on GitLab CI using 3 parallel runners and Playwright Shards + Currents reporter in `playwright.config.ts`
 
 <details>
 
@@ -180,12 +180,12 @@ test-rerun-reporter:
 
 #### Currents Orchestration
 
-In case you're using [playwright-orchestration.md](../../../guides/parallelization-guide/pw-parallelization/playwright-orchestration.md "mention") for running your Playwright tests in parallel, use [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md "mention") command to fetch the results of the last run from the [api](../../../resources/api/ "mention").
+In case you're using [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention") for running your Playwright tests in parallel, use [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md "mention") command to fetch the results of the last run from the [api](../../../resources/api/ "mention").
 
 \
 An example workflow is available in our GitLab demo repository
 
-* [rerun-or8n.yml](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwcp.yml?ref\_type=heads) - rerun only failed tests on GitLab CI/CD with Currents Orchestration
+* [rerun-or8n.yml](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwcp.yml?ref_type=heads) - rerun only failed tests on GitLab CI/CD with Currents Orchestration
 
 <details>
 

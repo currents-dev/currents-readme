@@ -15,7 +15,7 @@ Below are the settings available and their descriptions:
   * The change in coverage is measured compared to the default branch.
   * Skipped tests report is measured based on the results from the default branch.
   * Increase in runs duration is counted from the default branch only.
-* **Enable** [**Fail Fast Strategy**](../../guides/parallelization-guide/fail-fast-strategy.md): configure the project to stop a test run when the first test failure is detected. It provides faster feedback during testing cycles, saving time and resources by halting runs that are likely to fail.
+* **Enable** [**Fail Fast Strategy**](../../guides/ci-optimization/fail-fast-strategy.md): configure the project to stop a test run when the first test failure is detected. It provides faster feedback during testing cycles, saving time and resources by halting runs that are likely to fail.
 * **Run Title Source**
   * Auto Mode: use GitHub Pull Request title if available, otherwise use commit message
   * Commit Message: always use commit message

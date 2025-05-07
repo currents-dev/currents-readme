@@ -1,6 +1,6 @@
 ---
-icon: server
+icon: chess-knight
 ---
 
-# Parallelization
+# Reporting
 

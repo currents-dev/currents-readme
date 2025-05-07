@@ -1,8 +1,8 @@
 ---
-icon: images
 description: >-
   Integrating Playwright Visual Comparison tools with Currents - including
   Argos, Percy and Applitools.
+icon: images
 ---
 
 # Playwright Visual Testing
@@ -38,7 +38,7 @@ Argos is 100% compatible with Playwright Sharding and Currents Reporting + Orche
 
 Argos and Currents natively support Playwright Sharding for parallel CI executions - follow [the setup instructions](https://argos-ci.com/docs/quickstart/playwright) and configure both reporters to see the visual testing artifacts reported to Argos and the rest of test results reported to Currents.
 
-Using Argos with [playwright-orchestration.md](parallelization-guide/pw-parallelization/playwright-orchestration.md "mention") requires an additional step - notifying Argos after run's completion. This is necessary because Currents Orchestration can have an arbitrary number of CI machines participating in an execution and the allocation of tests to CI machines is dynamic.
+Using Argos with [playwright-orchestration.md](ci-optimization/playwright-orchestration.md "mention") requires an additional step - notifying Argos after run's completion. This is necessary because Currents Orchestration can have an arbitrary number of CI machines participating in an execution and the allocation of tests to CI machines is dynamic.
 
 {% hint style="info" %}
 Requires @currents/playwright 1.6.0+
@@ -150,9 +150,7 @@ function assertEnvVariable(name: string) {
 
 * set `orchestration.skipReporterInjection` to `true`&#x20;
 
-<!---->
-
-* note the use of `onFinish` lifecycle hook - the corresponding function will run and receive `OrchestrationStatus` object that can be used to determine run's completion
+- note the use of `onFinish` lifecycle hook - the corresponding function will run and receive `OrchestrationStatus` object that can be used to determine run's completion
 
 </details>
 
