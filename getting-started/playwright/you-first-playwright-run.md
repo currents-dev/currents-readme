@@ -108,9 +108,9 @@ You can manually add Currents reporter to `playwright.config.ts` and keep using 
 ```typescript
 // playwright.config.ts
 import { defineConfig, devices, PlaywrightTestConfig } from "@playwright/test";
-import { currentsReporter} from "@currents/playwright";
+import { currentsReporter } from "@currents/playwright";
 
-export default defineConfig<CurrentsFixtures, CurrentsWorkerFixtures>({
+export default defineConfig({
   // ...
   reporter: [currentsReporter()], // 👈🏻 add Currents reporter
 })
