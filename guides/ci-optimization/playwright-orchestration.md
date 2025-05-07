@@ -4,7 +4,7 @@ description: Playwright Orchestration setup instructions
 
 # Orchestration Setup
 
-Orchestration helps decrease the duration of Playwright tests in CI pipelines. Read our detailed guide on [Broken link](broken-reference "mention") that compares the native sharding with orchestration.
+Orchestration helps decrease the duration of Playwright tests in CI pipelines. Read our detailed guide on [playwright-parallelization.md](playwright-parallelization.md "mention") that compares the native sharding with orchestration.
 
 ### Requirements
 
