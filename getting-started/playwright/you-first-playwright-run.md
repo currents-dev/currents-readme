@@ -86,6 +86,13 @@ use: {
 
 ## Create Your First Playwright Run
 
+Choose one of the following methods:
+
+* Run `pwc` command
+* Manually add Currents reporter
+
+
+
 ### Run `pwc` command
 
 `pwc` is a lightweight command-line executable included in `@currents/playwright` npm package — it runs `playwright` with a predefined configuration.&#x20;
@@ -101,7 +108,7 @@ npx pwc
 
 
 
-### Alternative: Manually Add Currents Reporter
+### Manually Add Currents Reporter
 
 You can manually add Currents reporter to `playwright.config.ts` and keep using `playwright test` command.&#x20;
 
