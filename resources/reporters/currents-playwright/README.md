@@ -191,4 +191,4 @@ Check out the example repositories that showcase running Playwright tests on pop
 * [playwright-aws-code-build.md](../../../getting-started/ci-setup/aws-code-build/playwright-aws-code-build.md "mention")
 * [playwright-azure-devops.md](../../../getting-started/ci-setup/azure-devops/playwright-azure-devops.md "mention")
 
-Explore how to speed up CI Playwright runs by running enabling [Broken link](broken-reference "mention").
+Explore how to speed up CI Playwright runs by enabling [playwright-parallelization.md](../../../guides/ci-optimization/playwright-parallelization.md "mention").
