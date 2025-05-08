@@ -46,7 +46,7 @@ npm i -D @currents/playwright
 
 <details>
 
-<summary>Create Currents configuration file</summary>
+<summary>Create <code>currents.config.ts</code></summary>
 
 Create `currents.config.ts` ( or `.mjs` / `.js` )
 
