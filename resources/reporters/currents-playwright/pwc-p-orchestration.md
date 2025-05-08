@@ -4,7 +4,7 @@ description: Currents orchestration pwc-p command-line executable documentation
 
 # pwc-p (orchestration)
 
-`pwc-p` is a  command-line executable that implements Currents Orchestration for Playwright. See [Broken link](broken-reference "mention") and [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention").
+`pwc-p` is a  command-line executable that implements Currents Orchestration for Playwright. See [playwright-parallelization.md](../../../guides/ci-optimization/playwright-parallelization.md "mention") and [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention").
 
 `pwc-p` allows providing [configuration.md](configuration.md "mention") options via CLI flags. Additionally, is passes down CLI flags to the underlying `playwright` command.&#x20;
 
