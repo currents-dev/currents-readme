@@ -1,6 +1,6 @@
 ---
-icon: tag
 description: How to tag Playwright executions in Currents
+icon: tag
 ---
 
 # Playwright Tags
@@ -194,7 +194,7 @@ Currents will create a run tagged with `desktop`, `chrome` + all the tags extrac
 
 ### How Tags are Applied
 
-Currents stores the recorded results as Runs, Groups, Spec Files and Tests. The items are available in the dashboard and also in [Broken link](broken-reference "mention") responses.&#x20;
+Currents stores the recorded results as Runs, Groups, Spec Files and Tests. The items are available in the dashboard and also in [api](../resources/api/ "mention") responses.&#x20;
 
 * Run - is a high-level abstraction that represents a CI execution of a test suite
 * Group - is a subset of recorded tests - representing a playwright project
