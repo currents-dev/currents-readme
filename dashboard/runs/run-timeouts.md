@@ -56,23 +56,11 @@ Try using more powerful CI machines that can run your tests faster; tweak `cypre
 
 Examine your CI jobs log file and eliminate any crashes or instability that cause the containers to become non-responsive.
 
-### How to identify spec files and machines that cause time-outs?
-
-#### Use  Playwright Machines view to identify the timed out files
+#### Use Machines View to identify the timed out files
 
 Open the Run Details view for a "timed out" run. Make sure that **Run Summary** tab is selected.
 
-Explore the list of cypress agents and identify agents that are still in a "Running" state (marked in <mark style="color:orange;">orange</mark>).
-
-The spec file name that was will be marked as "Idle", hover the mouse cursor to see the details.
-
-![](broken-reference)
-
-#### Use Cypress Agents view to identify the timed out files
-
-Open the Run Details view for a "timed out" run. Make sure that **Run Summary** tab is selected.
-
-Explore the list of cypress agents and identify agents that are still in a "Running" state (marked in <mark style="color:orange;">orange</mark>).
+Explore the list of machines and identify agents that are still in a "Running" state (marked in <mark style="color:orange;">orange</mark>).
 
 The spec file name that was will be marked as "Idle", hover the mouse cursor to see the details.
 
@@ -89,7 +77,7 @@ Filter the list of spec files, and make sure that only "Running" and "Idle" spec
 * Spec files in "Running" state are likely to cause a time out
 * If no spec file was sent for execution but no results were received within 60 minutes, the spec file will be marked as "Idle"
 
-### Runs timeouts FAQ
+### FAQ
 
 #### Why are my runs still in progress after I stopped tests in a CI?
 
