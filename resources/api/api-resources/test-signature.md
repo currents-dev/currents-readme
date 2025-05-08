@@ -32,13 +32,13 @@ The spec file path is a string but it may be just the name of the spec file like
 
 <figure><img src="../../../.gitbook/assets/image (1) (2).png" alt=""><figcaption><p>Spec File Path with file name with extension</p></figcaption></figure>
 
-Can also be a name without file extensions (Usually in JUnit payloads [Broken link](broken-reference "mention"))
+Can also be a name without file extension (usually in JUnit payloads)
 
 <figure><img src="../../../.gitbook/assets/image (21).png" alt=""><figcaption><p>Spec File Path with common name</p></figcaption></figure>
 
 Or might also be a full relative path to a file
 
-<figure><img src="../../../.gitbook/assets/image (22).png" alt=""><figcaption><p>Spec File Path with complete file path</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (22).png" alt=""><figcaption><p>Spec file path</p></figcaption></figure>
 
 It is important that the spec file path is set exactly to how it is reported to Currents otherwise it will not return a test signature that matches a test reported to Currents.
 
