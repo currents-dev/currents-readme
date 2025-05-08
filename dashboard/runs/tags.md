@@ -1,11 +1,11 @@
 ---
-description: Using Tags for Currents Runs
+description: Using Tags in Currents Dashboard
 ---
 
 # Tags
 
 {% hint style="info" %}
-Read our [playwright-tags.md](../../guides/playwright-tags.md "mention") guide
+Read the  [playwright-tags.md](../../guides/playwright-tags.md "mention") guide
 {% endhint %}
 
 Tagging is a convenient way to augment your executions with extra data that can be helpful for managing your tests. You can tag the runs (executions) by adding `--tag tagA,tagB` flag.
@@ -34,6 +34,6 @@ The run, spec and test execution recordings will inherit the tags. You can use t
 * filter insights and analytics to only include records with a particular tag
 * filter errors, tests and spec performance explorers to only include records with a particular tag
 
-The tags are also available in the results returned from the [Broken link](broken-reference "mention") and as part of [http-webhooks.md](../../resources/integrations/http-webhooks.md "mention")
+The tags are also available as part of [http-webhooks.md](../../resources/integrations/http-webhooks.md "mention") payload.
 
 <figure><img src="../../.gitbook/assets/currents-2023-03-03-14.21.10@2x.png" alt=""><figcaption><p>Example of filtering Run Status Metrics by Tags</p></figcaption></figure>
