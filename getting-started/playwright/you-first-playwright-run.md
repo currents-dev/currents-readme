@@ -101,9 +101,9 @@ Choose one of the following methods:
 npx pwc
 ```
 
-* `pwc` reads the configuration from `currents.config.ts` file. See additional configuration options [#configuration](you-first-playwright-run.md#configuration "mention").
-* `pwc` injects Currents reporter into Playwright configuration
-* You can also provide CLI configuration parameters, e.g.&#x20;
+* `pwc` reads the configuration from `currents.config.ts` file. See additional configuration options [configuration.md](../../resources/reporters/currents-playwright/configuration.md "mention").
+* `pwc` injects Currents reporter into Playwright configuration.
+* You can also provide CLI configuration parameters, e.g.
   * `npx pwc --key RECORD_KEY --project-id PROJECT_ID`
 
 
