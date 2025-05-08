@@ -1,6 +1,6 @@
 ---
-icon: note-sticky
 description: Using Playwright Annotations to enhance reporting to Currents dashboard
+icon: note-sticky
 ---
 
 # Playwright Annotations
@@ -18,7 +18,12 @@ Requires `@currents/playwright` 1.5.0+
 
 Together with [playwright-tags.md](playwright-tags.md "mention") it allows augmenting your testing suite with metadata for easier managing, better reporting and improved integrations.&#x20;
 
-You can add an annotation to a test by adding `annotations` object to `test` definition or invoking `testInfo.annotations.push`, for example
+You can add an annotation to a test by:
+
+* adding `annotations` object to `test` definition or
+* calling `testInfo.annotations.push`
+
+For example:
 
 ```typescript
 test("annotated test", {
@@ -44,19 +49,28 @@ test("annotated test", {
 });
 ```
 
-Currents displays the annotations for recorded tests:
+Currents shows the annotations for the test:
 
 <figure><img src="../.gitbook/assets/currents-2024-08-21-23.22.12@2x.png" alt=""><figcaption><p>Playwright annotations in Currents</p></figcaption></figure>
 
-Currents will apply the following rules when parsing annotations:
+## Limitations
+
+Currents applies the following rules when parsing annotations:
 
 * types: `skip, fixme, fail, slow` are reserved by Playwright
 * `32` max distinct annotations per test, extra annotations will be removed (sorted by the order of appearance)
-* `type` field is limited to `256` characters, the values will be trimmed and truncated to the max length
-* `description` field is limited to `2048` characters, the values will be trimmed and truncated to the max length
-* If `type` is empty after trimming, the annotation will be ignored
+* `type` field is limited to `256` characters, the values are trimmed and truncated to the max length
+* `description` field is limited to `2048` characters, the values are trimmed and truncated to the max length
+* If `type` is empty after trimming, the annotation is ignored
 
-### Test Owner Annotation
+## Source and Deduplication
+
+Annotations can originate from test case definition or at runtime from test execution attempt.
+
+* Currents deduplicates annotations with exactly the same type, description and source.
+* Currents removes attempt-level annotation if there's an equivalent test-case annotation
+
+## Annotation: Test Owner&#x20;
 
 While Currents displays all the annotations related to a test, some annotation have a special meaning, for example - test owner.
 
@@ -73,7 +87,7 @@ The value will appear in various areas of the dashboard so that your team can qu
 
 <figure><img src="../.gitbook/assets/currents-2024-08-21-23.43.00@2x (1).png" alt=""><figcaption><p>Showing test owner using annotations in Currents </p></figcaption></figure>
 
-### Slack Notifications Annotation
+## Annotation: Slack Notifications
 
 Annotation of type `notify:slack` activates Slack mentions for failed tests - when Currents detects a failed test with `notify:slack` annotation, it will trigger Slack notification according to the following convention:
 
