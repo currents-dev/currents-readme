@@ -1,8 +1,9 @@
 ---
 description: Running Playwright tests with Currents Dashboard
+icon: masks-theater
 ---
 
-# Your First Playwright Run
+# Playwright: Quick Start
 
 Integrate Currents with Playwright to enable recording test results together with screenshots, videos, and traces, unlocking more effective troubleshooting, analytics and proactive monitoring. Automate your team's workflows using REST API, WebHooks and built-in integration with Slack, GitHub, and more.&#x20;
 
