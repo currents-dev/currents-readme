@@ -4,7 +4,7 @@
 
 * [What is Currents?](README.md)
 * [Playwright](getting-started/playwright/README.md)
-  * [Your First Playwright Run](getting-started/playwright/you-first-playwright-run.md)
+  * [Playwright: Quick Start](getting-started/playwright/you-first-playwright-run.md)
   * [Troubleshooting Playwright](getting-started/playwright/troubleshooting-playwright.md)
 * [Cypress](getting-started/cypress/README.md)
   * [Your First Cypress Run](getting-started/cypress/you-first-cypress-run.md)
