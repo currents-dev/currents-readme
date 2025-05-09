@@ -10,9 +10,9 @@ icon: house-window
 
 Currents is a cloud platform, dashboard and test orchestrator aimed to help SDET and Software Teams to manage the complexity of running automated tests in CI.&#x20;
 
-<table data-view="cards"><thead><tr><th></th><th data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td>Get started with connecting Playwright to Currents</td><td><a href="getting-started/playwright/you-first-playwright-run.md">you-first-playwright-run.md</a></td><td><a href=".gitbook/assets/playwright-logo-neo.png">playwright-logo-neo.png</a></td></tr><tr><td>Enable Currents on popular CI providers</td><td><a href="getting-started/ci-setup/">ci-setup</a></td><td><a href=".gitbook/assets/ci-providers (1).png">ci-providers (1).png</a></td></tr><tr><td>Speed up Playwright CI pipelines</td><td><a href="guides/ci-optimization/">ci-optimization</a></td><td><a href=".gitbook/assets/speedup (2).png">speedup (2).png</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-type="content-ref"></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td>Get started with connecting Playwright to Currents</td><td><a href="getting-started/playwright/you-first-playwright-run.md">you-first-playwright-run.md</a></td><td><a href="getting-started/playwright/you-first-playwright-run.md">you-first-playwright-run.md</a></td><td><a href=".gitbook/assets/huge-playwright.png">huge-playwright.png</a></td></tr><tr><td>Enable Currents on popular CI providers</td><td><a href="getting-started/ci-setup/">ci-setup</a></td><td><a href="getting-started/ci-setup/">ci-setup</a></td><td><a href=".gitbook/assets/ci-providers (1).png">ci-providers (1).png</a></td></tr><tr><td>Speed up Playwright CI pipelines</td><td><a href="guides/ci-optimization/">ci-optimization</a></td><td><a href="guides/ci-optimization/">ci-optimization</a></td><td><a href=".gitbook/assets/speedup (2).png">speedup (2).png</a></td></tr></tbody></table>
 
-
+***
 
 Currents is focused on Playwright ecosystem, but is also compatible with other testing frameworks - Cypress, WebdriverIO, Jest, Vitest, Node.JS Test Runner and more.
 
