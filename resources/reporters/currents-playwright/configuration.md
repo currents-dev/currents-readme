@@ -242,6 +242,7 @@ import type { OrchestrationStatus } from "@currents/playwright";
 * Type: `"auto" | number`
 * Default: `auto`
 * Environment variable: `CURRENTS_BATCH_SIZE`
+* Released in: `1.13.0`
 
 Sets the batch size for orchestration. Batch size defines how many parallel workers should be used for the orchestration.&#x20;
 
