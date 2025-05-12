@@ -1,79 +1,81 @@
 ---
-description: Tests and Runs insights and analytics guide
+description: Test and Run Insights and Analytics Guide
 icon: chart-mixed
 ---
 
 # Insights and Analytics
 
-Currents Dashboard Insights allows you to analyze the behaviour and dynamics of your Playwright or Cypress test suite over time. You can use the insights to track the performance of your runs/build and tests over time and to identify the most problematic tests - most flaky and most failing - that are worth fixing.
+Currents Dashboard Insights allows you to analyze the behaviour and dynamics of your Playwright or Cypress test suite over time. You can use the insights to track the performance of your runs/builds and tests over time and to identify the most problematic tests—the flaky and failing ones —that are worth fixing.
 
-{% embed url="https://www.loom.com/share/5e9729f553674032a5a7ce96c5786010?hideEmbedTopBar=true.&hide_owner=true&hide_share=true&hide_title=true" %}
-Currents Analytics&#x20;
+{% embed url="https://www.loom.com/share/3c3d0e35f21f48af8a04954a056a3d63?hideEmbedTopBar=true" %}
+Currents Dashboard Insights
 {% endembed %}
 
-See the notes below to discover how specific metrics are getting calculated.
+All charts support filtering by **tag**, **author**, and **branch**. In addition:
 
-### Runs Status
+* **Suite Size**, **Test Results**, and **Test Flakiness** charts also support the **group** filter.
+* **Test Results** and **Test Flakiness** charts also support the [**annotations**](../guides/playwright-annotations.md) filter.&#x20;
 
-Represents distribution of the outcomes of your builds/runs over time.&#x20;
+See the breakdown below of how each metric is calculated.
 
-![Example chart - Runs Status Insights](<../.gitbook/assets/CleanShot 2022-06-24 at 23.36.18@2x.png>)
+### Run Status
 
-* Overall runs - overall runs created during the selected period, regardless of their completion or the end state
-* Failed runs - runs that have 1 or more failed tests. Failed runs count includes cancelled and timed-out tests.
-* Passed runs - runs that have 0 failed tests.
-* Pass Rate - passed runs / overall runs
+Represents the distribution of the outcomes of your builds/runs over time.&#x20;
 
-### Runs Duration
+* **Overall runs**: overall runs created during the selected period, regardless of their completion or the end state.
+* **Failed runs**: runs that have one or more failed tests. Failed runs count includes cancelled and timed-out tests.
+* **Passed runs**: runs that have zero failed tests.
+* **Pass Rate**: passed runs / overall runs.
 
-Runs Duration chart represents the daily/weekly average duration of **fully reported** runs. A fully reported run is a run that wasn't cancelled and didn't time out.
+<figure><img src="../.gitbook/assets/Screenshot 2025-05-09 at 12.02.39.png" alt=""><figcaption><p>Example chart - Run Status </p></figcaption></figure>
 
-**Please note** that cancelled or timed-out runs are excluded from the report.
+### Run Duration
 
-![Example chart - Runs Duration Insights](<../.gitbook/assets/CleanShot 2022-06-24 at 23.52.48@2x.png>)
-
-### Runs Completion
-
-Runs Completion chart represents the distribution of runs by their completion over time.
-
-![Example chart - Runs Completion](<../.gitbook/assets/CleanShot 2022-06-24 at 23.56.09@2x.png>)
-
-* Overall runs - overall runs created during the selected period, regardless of their completion or the end state
-* Fully reported runs -  runs that weren't cancelled and didn't time out
-* Cancelled runs - see [cancel-run.md](runs/cancel-run.md "mention")
-* Timed out runs - see [run-timeouts.md](runs/run-timeouts.md "mention")
-
-### Spec / Tests Size Chart
-
-Specs / Tests size chart represents the **maximum** daily/weekly amount of specs/tests for fully completed runs. A fully reported run is a run that wasn't cancelled and didn't time out.
+Represents the daily/weekly average duration of **fully reported** runs. A fully reported run is a run that wasn't cancelled and didn't time out.
 
 **Please note** that cancelled or timed-out runs are excluded from the report.
 
+<figure><img src="../.gitbook/assets/Screenshot 2025-05-09 at 12.02.56.png" alt=""><figcaption><p>Example chart - Run Duration </p></figcaption></figure>
 
+### Run Completion
 
-![Example chart - Run Specs / Tests Size](<../.gitbook/assets/CleanShot 2022-06-25 at 00.01.00@2x.png>)
+Represents the distribution of runs by their completion over time.
 
-* Spec files - the **maximum** number of spec files detected in a run for the selected period
-* Tests - the **maximum** number of tests detected in a run for the selected period
+* **Overall runs**: overall runs created during the selected period, regardless of their completion or the end state.
+* **Fully reported runs**:  runs that weren't cancelled and didn't time out.
+* **Cancelled runs**: see [cancel-run.md](runs/cancel-run.md "mention")
+* **Timed out runs:** see [run-timeouts.md](runs/run-timeouts.md "mention")
 
-### Test Results Chart
+<figure><img src="../.gitbook/assets/Screenshot 2025-05-09 at 12.17.11.png" alt=""><figcaption><p>Example chart - Run Completion</p></figcaption></figure>
 
-Test Results Chart shows the distribution of tests outcome over time.
+### Test Suite Size
 
-![Example chart - Test Results](<../.gitbook/assets/CleanShot 2022-06-25 at 00.02.58@2x.png>)
+Represents the **maximum** daily/weekly amount of specs/tests for fully completed runs. A fully reported run is a run that wasn't cancelled and didn't time out.
 
-* Total tests - overall tests recorded for the selected period, regardless of their outcome
-* Passed tests - tests that successfully completed all attempts without any exceptions or errors during its execution
-* Failed tests - tests that either failed or were skipped because of an error in `beforeEach/beforeAll`
-* Ignored test - tests that weren't run e.g. `it.skip()`
-* Success Rate - `passed  / (total - pending)`
+* **Spec files**: the **maximum** number of spec files detected in a run for the selected period
+* **Tests**: the **maximum** number of tests detected in a run for the selected period
 
-### Tests Flakiness Chart
+**Please note** that cancelled or timed-out runs are excluded from the report.
 
-Test Results Chart shows the distribution of flaky tests over time.
+<figure><img src="../.gitbook/assets/Screenshot 2025-05-09 at 12.17.37.png" alt=""><figcaption><p>Example chart - Test Suite Size</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-10-18 at 17.04.26.png" alt=""><figcaption><p>Example chart - Tests Flakiness</p></figcaption></figure>
+### Test Results
 
-* Flaky tests - overall flaky tests detected for the period. See [flaky-tests.md](tests/flaky-tests.md "mention")
-* Flakiness rate - `flaky tests count / passed tests count`
+Shows the distribution of test outcomes over time.
 
+* **Total tests:** overall tests recorded for the selected period, regardless of their outcome.
+* **Passed tests:** tests that were successfully completed on all attempts without any exceptions or errors during their execution.
+* **Failed tests**: tests that either failed or were skipped because of an error in `beforeEach/beforeAll`
+* **Ignored test:** tests that weren't run, e.g. `it.skip()`
+* **Success Rate:** `passed  / (total - pending)`
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-05-09 at 12.40.52.png" alt=""><figcaption><p>Example chart - Test Results</p></figcaption></figure>
+
+### Test Flakiness
+
+Shows the distribution of flaky tests over time.
+
+* **Flaky tests**: overall flaky tests detected for the period. See [flaky-tests.md](tests/flaky-tests.md "mention")
+* **Flakiness rate**: `flaky tests count / passed tests count`
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-05-09 at 12.18.25.png" alt=""><figcaption><p>Example chart - Test Flakiness</p></figcaption></figure>

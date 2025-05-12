@@ -91,7 +91,7 @@
   * [Commit Information](dashboard/runs/commit-information.md)
   * [Tags](dashboard/runs/tags.md)
   * [Run Timeouts](dashboard/runs/run-timeouts.md)
-  * [Canceling Runs](dashboard/runs/cancel-run.md)
+  * [Cancelling Runs](dashboard/runs/cancel-run.md)
   * [Deleting Runs](dashboard/runs/deleting-runs.md)
   * [Run Progress](dashboard/runs/run-progress.md)
 * [Tests](dashboard/tests/README.md)
