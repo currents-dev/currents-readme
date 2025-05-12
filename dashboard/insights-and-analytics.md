@@ -5,18 +5,26 @@ icon: chart-mixed
 
 # Insights and Analytics
 
-Currents Dashboard Insights allows you to analyze the behaviour and dynamics of your Playwright or Cypress test suite over time. You can use the insights to track the performance of your runs/builds and tests over time and to identify the most problematic tests—the flaky and failing ones —that are worth fixing.
+Use Insights to explore the aggregated metrics related to your test suite performance:
+
+* changes and trends in duration and success rate of your builds and tests over time,
+* test suite flakiness and stability,
+* customize the reports by applying various filters for a more focused and meaningful insights.
 
 {% embed url="https://www.loom.com/share/3c3d0e35f21f48af8a04954a056a3d63?hideEmbedTopBar=true" %}
 Currents Dashboard Insights
 {% endembed %}
 
-All charts support filtering by **tag**, **author**, and **branch**. In addition:
+## Customization
+
+All charts support filtering by **tag**, **git author**, and **git branch**. The aggregated metrics are based in the samples collected during the selected **Date Range**.
+
+In addition:
 
 * **Suite Size**, **Test Results**, and **Test Flakiness** charts also support the **group** filter.
 * **Test Results** and **Test Flakiness** charts also support the [**annotations**](../guides/playwright-annotations.md) filter.&#x20;
 
-See the breakdown below of how each metric is calculated.
+## Insight Charts
 
 ### Run Status
 

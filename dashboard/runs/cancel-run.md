@@ -2,7 +2,7 @@
 description: Cancelling Cypress and Playwright CI tests runs
 ---
 
-# Canceling Runs
+# Cancelling Runs
 
 Runs that are currently in progress can be cancelled using the dashboard controls or via an API call.
 
@@ -16,21 +16,21 @@ Cancelling a run can be useful for:
 **Please note:** Cancelling a run cannot be undone
 {% endhint %}
 
-### Cancelling Playwright or Cypress CI runs from the Currents dashboard
+## Cancelling Runs via Dashboard
 
 In-progress runs can be cancelled by clicking the "Cancel Run" button in the Runs Feed view.
 
-<figure><img src="../../.gitbook/assets/Screen Recording 2025-01-16 at 13.05.34.gif" alt=""><figcaption><p>Cancelling cypress tests run from Runs Feed view</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Recording 2025-01-16 at 13.05.34.gif" alt=""><figcaption><p>Cancelling from Runs Feed view</p></figcaption></figure>
 
 You can also cancel a run when from the Run Details view.
 
-<figure><img src="../../.gitbook/assets/Screen Recording 2025-01-16 at 13.08.44.gif" alt=""><figcaption><p>Cancelling cypress tests run from Run Details view</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Recording 2025-01-16 at 13.08.44.gif" alt=""><figcaption><p>Cancelling Run Details view</p></figcaption></figure>
 
 
 
 <figure><img src="../../.gitbook/assets/currents-2023-07-04-14.07.14@2x.png" alt=""><figcaption><p>Example of a run cancelled by a dashboard user</p></figcaption></figure>
 
-### Cancelling Playwright or Cypress CI runs via an API call
+## Cancelling Runs via API
 
 You can programmatically cancel a run via the `PUT runs/:runId/cancel` HTTP API call. For example, here is an example of `curl` command that cancels a particular run
 
@@ -47,13 +47,13 @@ By using the API call you can extend the - for example:
   * based on the results (e.g. encountering a particular error message), send the cancellation request
 * cancel a run when a certain number of failed tests are detected (it is natively supported via [fail-fast-strategy.md](../../guides/ci-optimization/fail-fast-strategy.md "mention"))
 
-### Runs cancelled by fail-fast strategy
+### Cancellation by Fail-Fast
 
 If you have [fail-fast-strategy.md](../../guides/ci-optimization/fail-fast-strategy.md "mention") activated for a project, runs cancelled because of fail-fast strategy will be marked with a special badge:
 
 <figure><img src="../../.gitbook/assets/currents-2023-07-04-14.04.56@2x.png" alt=""><figcaption><p>Example of a run cancelled by fail-fast strategy</p></figcaption></figure>
 
-### GitHub Actions workflow cancellation
+## GitHub Actions Workflow Cancellation
 
 You can automatically cancel Currents runs (cypress and playwright) when cancelling GitHub Actions workflow using [cancel-run-gh-action](https://github.com/currents-dev/cancel-run-gh-action).
 
@@ -84,6 +84,8 @@ After the step is enabled, cancelling a GitHub Actions workflow will trigger can
 The associated Currents run will be cancelled with the corresponding notes:
 
 <figure><img src="../../.gitbook/assets/currents-2023-07-04-14.18.17@2x.png" alt=""><figcaption></figcaption></figure>
+
+## FAQ
 
 ### What happens when a run is cancelled?
 
@@ -130,7 +132,7 @@ Cancelling a run affects in-progress and pending tests, as well as integrations 
 
 ![Cancelling cypress tests run - MS Teams example](<../../.gitbook/assets/CleanShot 2022-02-17 at 01.12.24.png>)
 
-#### HTTP Webhook Integration
+#### HTTP Webhooks&#x20;
 
-* A new HTTP POST request will be emitted with the last known run results. and event type `RUN_CANCELED`  See [http-webhooks.md](../../resources/integrations/http-webhooks.md "mention") for details.
+A new HTTP `POST` request will be emitted with the last known run results and event type `RUN_CANCELED`  See [http-webhooks.md](../../resources/integrations/http-webhooks.md "mention") for details.
 
