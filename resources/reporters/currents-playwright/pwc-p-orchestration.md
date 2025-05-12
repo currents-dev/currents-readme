@@ -137,6 +137,12 @@ Unique identifier of the orchestration session this run belongs to. See [#orches
 
 ***
 
+### **`--pwc-batch-size <auto|number>`**
+
+Defined how many Playwright workers are available for orchestration.  See [#orchestration.batchsize](configuration.md#orchestration.batchsize "mention") .
+
+***
+
 ### **`--pwc-reset-signal SIGUSR1 | SIGUSR2`**
 
 Specify a process signal to listen for to trigger a reset of the current in progress tests. Only available on OS with POSIX signal support. See [#orchestration.resetsignal](configuration.md#orchestration.resetsignal "mention").
