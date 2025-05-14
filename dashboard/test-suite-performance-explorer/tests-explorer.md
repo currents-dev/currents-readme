@@ -1,6 +1,6 @@
 ---
 description: >-
-  Test-Level Health and Performance Dashboard - Flakiness, Failure Rate,
+  Test Cases Health and Performance Dashboard - Flakiness, Failure Rate,
   Duration.
 ---
 

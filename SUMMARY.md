@@ -102,8 +102,8 @@
 * [Test Suite Explorer](dashboard/test-suite-performance-explorer/README.md)
   * [Test Explorer](dashboard/test-suite-performance-explorer/tests-explorer.md)
   * [Spec Files Explorer](dashboard/test-suite-performance-explorer/spec-files-explorer.md)
-  * [Spec & Test Performance](dashboard/test-suite-performance-explorer/spec-files-performance.md)
   * [Errors Explorer](dashboard/test-suite-performance-explorer/errors-explorer.md)
+  * [Reference](dashboard/test-suite-performance-explorer/spec-files-performance.md)
 
 ***
 

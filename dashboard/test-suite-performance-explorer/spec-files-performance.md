@@ -1,16 +1,14 @@
 ---
-description: Advanced Analysis for Individual Tests and Spec Files
+description: How to read and use Test Explorer and Spec Files Explorer performance charts
 ---
 
-# Spec & Test Performance
+# Reference
 
-Currents Explorer offers powerful tools to analyze individual tests and spec files—including performance charts, history, histogram brush, and execution timeline.
-
-## Spec Performance
+## Spec Files Performance
 
 Selecting a particular spec file in Spec Files Explorer opens a detailed view of the spec file performance. Users can analyze the metrics and compare them to the previous period.&#x20;
 
-These [**metrics**](https://docs.currents.dev/dashboard/test-suite-performance-explorer/spec-files-explorer#metrics-description) include
+These [**metrics**](https://docs.currents.dev/dashboard/test-suite-performance-explorer/spec-files-explorer#metrics-description) include:
 
 * [**Average Duration**](https://docs.currents.dev/dashboard/test-suite-performance-explorer/spec-files-explorer#duration)
 * [**Overall Executions**](https://docs.currents.dev/dashboard/test-suite-performance-explorer/spec-files-explorer#executions)
@@ -21,7 +19,7 @@ These [**metrics**](https://docs.currents.dev/dashboard/test-suite-performance-e
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-05-12 at 16.51.28.png" alt=""><figcaption><p>Spec File Performance Overview</p></figcaption></figure>
 
-## Test Performance
+## Test&#x20;
 
 After choosing a particular test, users can analyze its behaviour over time to identify issues that may require optimization or investigation.&#x20;
 
@@ -44,7 +42,7 @@ Compares how long tests take to complete when they pass versus when they fail. I
 
 Compares how long tests take when they're flaky versus when they run reliably. It helps reveal whether flakiness is associated with longer or shorter execution times.
 
-## Reading Performance Charts
+## Performance Charts
 
 Upon selecting the dates period, the charts show two lines:
 
@@ -59,7 +57,7 @@ For example, selecting a 14-day period reveals this type of chart:
 * The purple amounts are the average value for the selected period - i.e. the average duration based on the last 14-day recordings was 2m 16s.
 * The gray line shows the metric value for the previous date range (28 days ago to 14 days ago).
 * The gray amounts are the average value for the preceding period - i.e. the average duration based on the recordings from 28 days ago rill 14 days ago was 2m 47s.
-* The trend change value of <mark style="color:green;background-color:green;">**-18.53%**</mark> indicates that the metric value improved during the recent period compared to the preceding period.
+* The trend change value of <mark style="color:green;">**-18.53%**</mark> indicates that the metric value improved during the recent period compared to the preceding period.
 
 Hovering over a particular day would reveal the metric values and the difference between the selected day and the matching day in the preceding period:
 
@@ -85,7 +83,7 @@ The History shows the recordings matching the selected filters on a timeline - e
 
 Users can use a brush tool to engage with these histograms, enabling them to zoom in and concentrate on executions in a particular period of interest.
 
-### Collapse Branch
+### Collapse Branches
 
 Users can also arrange executions based on branches using the "Collapse branch" flag. This functionality enables a more structured and organized view of the data, grouping the executions according to their respective branches.
 
