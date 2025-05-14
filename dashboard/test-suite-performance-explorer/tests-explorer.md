@@ -6,13 +6,16 @@ description: >-
 
 # Test Explorer
 
-The Test Explorer view shows performance and health metrics&#x20;
+The Test Explorer displays performance and health metrics for each test, based on data reported to Currents. The metrics are:
 
-* Failure rate
-* Flakiness rate
+* Failure Rate
+* Failure Volume
+* Flakiness Rate
+* Flakiness Volume
 * Duration
+* Duration Volume
 
-Use it to effectively identify problematic tests, explore the trends and changes in test behavior.
+Use it to identify underperforming tests, explore the trends and changes in test behavior.
 
 <figure><img src="../../.gitbook/assets/currents-2025-04-17-23.42.57@2x.png" alt=""><figcaption><p>Test Explorer View - 30-day data with no filters, sorted by duration (longests tests first)</p></figcaption></figure>
 
@@ -37,7 +40,7 @@ Metrics like **Duration Volume**, **Flakiness Volume** and **Failure Volume** me
 {% endhint %}
 
 {% hint style="info" %}
-Use **Explorer Settings** to exclude or include specific executions from being included in calculating the metrics.
+Use **Explorer Settings** to exclude or include samples from the aggregations.
 {% endhint %}
 
 The Test Explorer metrics help you to evaluate the health and performance of your testing suite.
