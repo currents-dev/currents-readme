@@ -137,6 +137,6 @@ Clicking on an individual test will reveal a comprehensive drill-down of the spe
 
 ## Next Steps
 
-* Explore individual test performance analysis in the [Spec & Test Performance](spec-files-performance.md) section.
+* Explore individual test performance analysis in the [Spec & Test Performance](reference.md) section.
 * Schedule [automated-reports.md](../automated-reports.md "mention") with the top items from the Test Explorer view to automatically arrive to your inbox for proactive monitoring of test suite health.
 

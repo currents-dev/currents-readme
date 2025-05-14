@@ -29,8 +29,8 @@ These [**metrics**](https://docs.currents.dev/dashboard/test-suite-performance-e
 * [**Duration**](tests-explorer.md#duration)
 * [**Failure Rate**](tests-explorer.md#failure-rate)
 * [**Flakiness Rate**](tests-explorer.md#flakiness-rate)
-* [**Failed Duration vs. Passed Duration**](spec-files-performance.md#failed-duration-vs.-passed-duration)
-* [**Flaky Duration vs. Non Flaky Duration**](spec-files-performance.md#flaky-duration-vs.-non-flaky-duration)
+* [**Failed Duration vs. Passed Duration**](reference.md#failed-duration-vs.-passed-duration)
+* [**Flaky Duration vs. Non Flaky Duration**](reference.md#flaky-duration-vs.-non-flaky-duration)
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-05-13 at 17.23.24.png" alt=""><figcaption><p>Test Performance Overview</p></figcaption></figure>
 

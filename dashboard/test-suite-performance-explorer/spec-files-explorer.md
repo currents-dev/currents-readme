@@ -18,7 +18,7 @@ The Spec Files Explorer allows users to track and analyze spec files performance
 
 Currents calculates the metrics based on the executions recorded during the provided date range and filters. A typical use case is to monitor the performance of the spec files that cause the degraded performance of the overall test suite - e.g. spec files with the highest flakiness rate, longest duration etc.&#x20;
 
-Explore individual spec details by clicking on its name and opening the [Spec & Test Performance](spec-files-performance.md).&#x20;
+Explore individual spec details by clicking on its name and opening the [Spec & Test Performance](reference.md).&#x20;
 
 ## Spec Files Explorer Metrics
 
@@ -79,6 +79,6 @@ Only test recordings matching the filters will be included for metric calculatio
 
 ## Next Steps
 
-Click on an individual spec file and reveal a detailed drill-down of the selected spec file performance, including a detailed history of execution, top errors, etc.  See [spec-files-performance.md](spec-files-performance.md "mention").
+Click on an individual spec file and reveal a detailed drill-down of the selected spec file performance, including a detailed history of execution, top errors, etc.  See [reference.md](reference.md "mention").
 
 [^1]: A spec file is considered fully completed if if a test runner reported the results for **all of its tests**
