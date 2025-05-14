@@ -100,10 +100,9 @@
   * [Flaky Tests](dashboard/tests/flaky-tests.md)
   * [Test History](dashboard/tests/test-history.md)
 * [Test Suite Explorer](dashboard/test-suite-performance-explorer/README.md)
-  * [Test Explorer](dashboard/test-suite-performance-explorer/tests-explorer/README.md)
-    * [Tests Performance](dashboard/test-suite-performance-explorer/tests-explorer/tests-performance.md)
-  * [Spec Files Explorer](dashboard/test-suite-performance-explorer/spec-files-explorer/README.md)
-    * [Spec Files Performance](dashboard/test-suite-performance-explorer/spec-files-explorer/spec-files-performance.md)
+  * [Test Explorer](dashboard/test-suite-performance-explorer/tests-explorer.md)
+  * [Spec Files Explorer](dashboard/test-suite-performance-explorer/spec-files-explorer.md)
+  * [Spec & Test Performance](dashboard/test-suite-performance-explorer/spec-files-performance.md)
   * [Errors Explorer](dashboard/test-suite-performance-explorer/errors-explorer.md)
 
 ***

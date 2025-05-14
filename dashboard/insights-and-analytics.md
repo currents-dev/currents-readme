@@ -8,8 +8,7 @@ icon: chart-mixed
 Use Insights to explore the aggregated metrics related to your test suite performance:
 
 * changes and trends in duration and success rate of your builds and tests over time,
-* test suite flakiness and stability,
-* customize the reports by applying various filters for a more focused and meaningful insights.
+* test suite flakiness and stability.
 
 {% embed url="https://www.loom.com/share/3c3d0e35f21f48af8a04954a056a3d63?hideEmbedTopBar=true" %}
 Currents Dashboard Insights
@@ -17,12 +16,14 @@ Currents Dashboard Insights
 
 ## Customization
 
-All charts support filtering by **tag**, **git author**, and **git branch**. The aggregated metrics are based in the samples collected during the selected **Date Range**.
+Customize the reports by applying various filters for a more focused and meaningful insights.
 
-In addition:
+All charts support filtering by **tag**, **git author**, and **git branch**. In addition:
 
 * **Suite Size**, **Test Results**, and **Test Flakiness** charts also support the **group** filter.
 * **Test Results** and **Test Flakiness** charts also support the [**annotations**](../guides/playwright-annotations.md) filter.&#x20;
+
+The aggregated metrics are based in the samples collected during the selected **Date Range**.
 
 ## Insight Charts
 

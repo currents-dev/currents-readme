@@ -1,12 +1,12 @@
 ---
 description: >-
-  Spec-level health and performance dashboard - flakiness, failure rate,
-  duration, suite size
+  Spec-level Health and Performance Dashboard - Flakiness, Failure Rate,
+  Duration, Suite Size
 ---
 
 # Spec Files Explorer
 
-The Spec Files Explorer allows users to track and analyze spec files performance using various metrics like:
+The Spec Files Explorer allows users to track and analyze spec files performance using various metrics such as:
 
 * Duration
 * Failure Rate
@@ -14,33 +14,33 @@ The Spec Files Explorer allows users to track and analyze spec files performance
 * Timeout Rate
 * Suite Size
 
-<figure><img src="../../../.gitbook/assets/currents-2025-04-18-12.27.27@2x.png" alt=""><figcaption><p>Spec Files Explorer health and performance dashboard - flakiness, failure rate, duration, suite size.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/currents-2025-04-18-12.27.27@2x.png" alt=""><figcaption><p>Spec Files Explorer health and performance dashboard - flakiness, failure rate, duration, suite size.</p></figcaption></figure>
 
 Currents calculates the metrics based on the executions recorded during the provided date range and filters. A typical use case is to monitor the performance of the spec files that cause the degraded performance of the overall test suite - e.g. spec files with the highest flakiness rate, longest duration etc.&#x20;
 
-Explore individual spec details by clicking on its name and opening [spec-files-performance.md](spec-files-performance.md "mention") view; and also schedule [Automated Reports](https://docs.currents.dev/automated-reports) containing the highlights of the Spec Files health and performance metrics delivered to your inbox.
+Explore individual spec details by clicking on its name and opening the [Spec & Test Performance](spec-files-performance.md).&#x20;
 
-{% embed url="https://www.loom.com/share/71f0513b2c32411f8bdf29a67f2685df?hideEmbedTopBar=true.&hide_owner=true&hide_share=true&hide_title=true" %}
-Spec Files Explorer
-{% endembed %}
+## Spec Files Explorer Metrics
 
-## Spec Explorer Metrics <a href="#test-explorer-metrics" id="test-explorer-metrics"></a>
-
-### **Duration**
+### **Average Duration**
 
 The average duration of [fully completed spec files](#user-content-fn-1)[^1], excluding timed-out or cancelled spec files.  You can exclude or include failed executions for calculating the average duration in Settings (see below).
 
+### Overall Executions
+
+How many executions were included during in the selected period and match the filters.
+
 ### **Failure Rate**
 
-The failure rate is the percentage of spec file executions that failed. A spec file is failed if it had 1 or more failed tests. See [spec-file-status.md](../../tests/spec-file-status.md "mention").
+The failure rate is the percentage of spec file executions that failed. A spec file is failed if it had 1 or more failed tests. See [spec-file-status.md](../tests/spec-file-status.md "mention").
 
 ### **Timeout Rate**
 
-The percentage of spec file executions that timed out.  A spec file is marked as timed out if we didn't report its test results  before exceeding its run's timeout. See [run-timeouts.md](../../runs/run-timeouts.md "mention").
+The percentage of spec file executions that timed out.  A spec file is marked as timed out if we didn't report its test results  before exceeding its run's timeout. See [run-timeouts.md](../runs/run-timeouts.md "mention").
 
 ### **Flakiness Rate**
 
-The percentage of spec file executions that had 1 or more flaky tests. See [flaky-tests.md](../../tests/flaky-tests.md "mention").
+The percentage of spec file executions that had 1 or more flaky tests. See [flaky-tests.md](../tests/flaky-tests.md "mention").
 
 ### **Suite Size**
 
@@ -50,11 +50,7 @@ The number of tests in a spec file (including skipped tests).
 Only fully completed executions of a spec file are considered for counting the suite size
 {% endhint %}
 
-### Executions
-
-How many executions were included during in the selected period and match the filters.
-
-## Filters
+## Customization
 
 Only test recordings matching the filters will be included for metric calculation.
 
@@ -72,7 +68,7 @@ Only test recordings matching the filters will be included for metric calculatio
 * Click in the **Settings** <img src="https://docs.currents.dev/~gitbook/image?url=https%3A%2F%2F3745692499-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FqmFDEiUa9mr11LUlxDnt%252Fuploads%252FcBllxWGsr1x8HwvWrxbT%252Fcurrents-2025-04-17-23.49.20%25402x.png%3Falt%3Dmedia%26token%3D75a21aec-9740-4765-a0da-a6fd7730b57b&#x26;width=43&#x26;dpr=4&#x26;quality=100&#x26;sign=7bea5ca8&#x26;sv=2" alt="" data-size="line"> icon to customize the view:
   * **Include Failed Executions** - include or exclude the failed execution in calculating the avg. duration
 
-<figure><img src="../../../.gitbook/assets/currents-2025-04-18-12.25.21@2x.png" alt="" width="563"><figcaption><p>Spec Explorer Settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/currents-2025-04-18-12.25.21@2x.png" alt="" width="563"><figcaption><p>Spec Explorer Settings</p></figcaption></figure>
 
 ## Use Cases
 
@@ -81,6 +77,8 @@ Only test recordings matching the filters will be included for metric calculatio
 * The most long-running Spec Files and how they changed their duration over time.
 * The Spec Files that experienced the most timeouts in the past weeks.
 
-Clicking on an individual spec file will reveal a detailed drill-down of the selected spec file performance, including a detailed history of execution, top errors, etc.  See [spec-files-performance.md](spec-files-performance.md "mention").
+## Next Steps
+
+Click on an individual spec file and reveal a detailed drill-down of the selected spec file performance, including a detailed history of execution, top errors, etc.  See [spec-files-performance.md](spec-files-performance.md "mention").
 
 [^1]: A spec file is considered fully completed if if a test runner reported the results for **all of its tests**

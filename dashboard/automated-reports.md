@@ -1,21 +1,25 @@
 ---
-description: Proactive detection of regressions in tests performance
+description: Proactively Detecting Test Performance Regressions
 icon: file-chart-column
 ---
 
 # Automated Reports
 
-✨ Currents **Automated Reports** helps teams to proactively identify regressions in test performance and take an action:
+Currents **Automated Reports** helps teams to proactively identify regressions in test performance and take action:
 
-* Prevent problems that go unnoticed for weeks
-* Reduce the waste of CI resources caused by failed or flaky tests
-* Avoid your team's frustration from rerunning unreliable and flaky tests again and again
+* Prevent problems that go unnoticed for weeks.
+* Reduce the waste of CI resources caused by failed or flaky tests.
+* Avoid your team's frustration from rerunning unreliable and flaky tests again and again.
 
-An unwanted change in a test performance can go unnoticed for a long time, especially for larger teams where multiple contributors change the tests often.&#x20;
+### Test Performance Blind Spots
 
-When a duration, flakiness, or failure rate change, it can often pass days or weeks before the regression in performance can be noticed. Meanwhile, teams waste time waiting for CI test results to appear, dealing with flaky, non-reliable, or often failing results.
+An unwanted change in test performance can go unnoticed for a long time, especially for larger teams where multiple contributors change the tests often.&#x20;
 
-When you integrate your Cypress or Playwright tests suite with Currents, we will start tracking the following metrics:
+When a duration, flakiness, or failure rate change happens, it can often pass days or weeks before the regression in performance can be noticed. Meanwhile, teams waste time waiting for CI test results to appear, dealing with flaky, non-reliable, or often failing results.
+
+### Currents Tracking and Metrics
+
+When you integrate your test suite with Currents, we will start tracking the following metrics:
 
 * The **failure rate** for each spec and test
 * Spec files and individual test **duration**
@@ -27,15 +31,11 @@ With automated reports sent directly to your inbox, you can quickly identify the
 * Items with the **highest flakiness rate**
 * Items with the **highest failure rate**
 
-<figure><img src="../.gitbook/assets/automated-reports-001.png" alt=""><figcaption></figcaption></figure>
+In addition, the report includes spec files and tests that showed a decline in performance compared to the previous period (customizable):
 
-In addition, the report includes spec files and tests that showed a decline in performance compared to the previous period (usually a week):
-
-* Specs / tests with the most significant increase in duration
-* Specs / tests with the most significant increase in failure rate
-* Specs / tests with the most significant increase in flakiness rate
-
-<figure><img src="../.gitbook/assets/automated-reports-002.png" alt=""><figcaption></figcaption></figure>
+* Specs/tests with the most significant increase in duration
+* Specs/tests with the most significant increase in failure rate
+* Specs/tests with the most significant increase in flakiness rate
 
 ### Enabling Automated Reports
 
@@ -43,10 +43,11 @@ The reports configuration is available in the **Reports** section of the current
 
 1. Click “Enable/Disable” to activate the report for the project.
 2. Add the emails of the report recipients.
-3. Optionally: add a comma-separated list of tags - only records matching the filter will be included in the report.
-4. Optionally: add a comma-separated list of author emails - only records matching the filter will be included in the report.
-5. Optionally: Add a comma-separated list of branches - only records matching the filter will be included in the report.
-6. Select the preferred time and day for sending the report. The report will be sent weekly on the selected day / time.
+3. **Optionally**: add a comma-separated list of tags - only records matching the filter will be included in the report.
+4. **Optionally**: add a comma-separated list of author emails - only records matching the filter will be included in the report.
+5. **Optionally**: Add a comma-separated list of branches - only records matching the filter will be included in the report.
+6. Select the preferred timezone, day and time for sending the report.&#x20;
+7. Customize the date range: 7-day, 14-day or 28-day.
 
 <figure><img src="../.gitbook/assets/currents-2025-03-10-14.56.14@2x.png" alt=""><figcaption><p>Currents Automated Report Settings</p></figcaption></figure>
 
@@ -54,24 +55,24 @@ Use **Preview** to examine and change the report settings.
 
 ### Report Structure
 
-The report structure includes essential data about the report, summaries of overall items recorded during the period, a section focused on individual cypress spec files, and another section focused on individual cypress tests. The report also shows items with the most significant changes in metrics during the reported period compared to the previous period.
+The report structure includes essential data about the report, summaries of overall items recorded during the period, a section focused on individual spec files, and another section focused on individual tests. The report also shows items with the most significant changes in metrics during the reported period compared to the previous period.
 
 #### Header
 
-Essential data - the dates, organization, project details, and filters applied.
+Essential data - the dates, organization, project details, and filters applied (if any).
 
 #### Summary
 
-Review of overall items recorded during the period: runs and tests.
+Review of overall items recorded during the current and previous period: runs and tests.
 
-**Runs Performance**
+**Run Performance**
 
 Both metrics contain a changing trend, indicating how the metrics changed compared to the previous period.
 
-* The Average Run Duration of **+8m 52s** means that the duration of the average runs increased.
-* Success Rate of **+3%** means that the success rate increased compared to the previous period.
+* The Average Run Duration of **-7.2s** means that the duration of the average runs decreased.
+* The Success Rate of -**13%** means the success rate also decreased.
 
-<figure><img src="../.gitbook/assets/header@2x.png" alt=""><figcaption><p>Report example: Header and Summary</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-05-12 at 14.29.00.png" alt=""><figcaption><p>Report example: Header and Summary</p></figcaption></figure>
 
 #### Spec Files Performance
 
@@ -83,45 +84,45 @@ Each line item has the following format:
 | ----------------------------------------------------------------------------- | --------------------------------------------------- |
 | \<Spec file name> - a link to the detailed performance view for the spec file | The metric value calculated for the reported period |
 
-*   **Top 3 Failing Spec Files**
+*   **Top 5 Failing Spec Files**
 
     It presents the files with the highest failure rate. The failure rate is determined by the formula `Failed Executions / Overall Executions.` The `Failed Execution` status is described on the [Spec File Status documentation](https://currents.dev/readme/spec-files/spec-file-status).
 
-    Having spec files with a high failure rate can have a negative impact on the overall development process, increase the risk of regression, and negatively affect confidence in the codebase.
-*   **Top 3 Slowest Spec Files**
+    Spec files with a high failure rate can negatively impact the overall development process, increase the risk of regression, and negatively affect confidence in the codebase.
+*   **Top 5 Slowest Spec Files**
 
     It presents the files with the longest duration. Break down those tests to reduce the overall duration of your runs with parallelization.
-*   **Top 3 Flaky Spec Files**
+*   **Top 5 Flaky Spec Files**
 
     It presents the files with the highest flakiness rate. The flakiness rate is determined by the formula `Flaky Executions / Overall Executions.` A `Flaky Execution` has at least 1 test detected as flaky, according to the [Flaky Tests Documentation](https://currents.dev/readme/tests/flaky-tests).
 
-<figure><img src="../.gitbook/assets/spec-files-performance.png" alt=""><figcaption><p>Spec Files performance report example</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-05-12 at 15.05.31.png" alt=""><figcaption><p>Spec Files Performance Report Example</p></figcaption></figure>
 
-#### Tests Performance
+#### Test Performance
 
-Tests Performance section focuses on **individual cypress tests** and shows the worst performers based on the executions reported within the period.
+Test Performance section focuses on **individual tests** and shows the worst performers based on the executions reported within the period.
 
 Each line item has the following format:
 
 <table><thead><tr><th width="373.5">Test Title</th><th>Metric</th></tr></thead><tbody><tr><td>&#x3C;Test Title> - a link to the detailed performance view for the test</td><td>The metric value calculated for the reported period</td></tr></tbody></table>
 
-*   **Top 3 Failing Tests**
+*   **Top 5 Failing Tests**
 
     It presents he tests with the highest failure rate. The failure rate is determined by the formula `Failed Executions + Skipped / Overall Executions.` The `Failed` and `Skipped` statuses are determined according to the [Test Status Documentation](https://currents.dev/readme/tests/test-status).
-*   **Top 3 Slowest Tests**
+*   **Top 5 Slowest Tests**
 
     It presents the tests with the longest average duration. Break down those tests to reduce the overall duration of your runs with parallelization.
-*   **Top 3 Flaky Tests**
+*   **Top 5 Flaky Tests**
 
-    It presents the tests with the highest flakiness rate. The flakiness rate is determined by the formula `Flaky Executions / Overall Executions.` A `Flaky` execution ihas at least 1 test detected as flaky, according to the [Flaky Tests Documentation](https://currents.dev/readme/tests/flaky-tests).
+    It presents the tests with the highest flakiness rate. The flakiness rate is determined by the formula `Flaky Executions / Overall Executions.` A `Flaky` execution has at least 1 test detected as flaky, according to the [Flaky Tests Documentation](https://currents.dev/readme/tests/flaky-tests).
 
-<figure><img src="../.gitbook/assets/tests-files-performance.png" alt=""><figcaption><p>Tests Performance report example</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-05-12 at 16.16.45.png" alt=""><figcaption><p>Tests Performance Report Example</p></figcaption></figure>
 
 #### Trends Section
 
 The “Trends” section shows the items with the most significant changes in metrics during the reported period compared with the previous period. Currents will detect the items with the highest negative change and list them in the report. For example, when a test’s duration, flakiness rate, or failure drastically increases during the reported week, it will appear in the “Trends” section.
 
-<figure><img src="../.gitbook/assets/currents-2023-03-26-01.06.35@2x.png" alt=""><figcaption><p>Trends report example</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-05-12 at 16.17.11.png" alt=""><figcaption><p>Test Suite Trends</p></figcaption></figure>
 
 Each line item has the following format:
 
