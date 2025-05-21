@@ -131,7 +131,7 @@ Up to 30 team members for non-enterprise plans. No limit for enterprise plans. I
 
 #### What kind of support is included in each tier? <a href="#what-kind-of-support-is-included-in-each-tier-3f" id="what-kind-of-support-is-included-in-each-tier-3f"></a>
 
-* Non-enterpise plans: email + in-app chat during business hours
+* Non-enterprise plans: email + in-app chat during business hours
 * Enterprise plans: 24/7 support, direct access to Slack and the product-engineering team
 
 #### Is there a free plan?
@@ -151,7 +151,7 @@ No, we don't. We periodically delete the data according to  [data-retention.md](
 Yes, all of our plans have an embedded volume discount - the more you use the lower is the price per unit. For example:
 
 * 10K plan PPU is $4.9 / 1K
-* 150K plan PPU is 3.32 / 1K
+* 150K plan PPU is $3.32 / 1K
 
 Our custom plan have similar structure but are adjusted per-customer.
 
