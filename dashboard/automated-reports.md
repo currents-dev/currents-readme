@@ -86,7 +86,7 @@ Each line item has the following format:
 
 *   **Top 5 Failing Spec Files**
 
-    It presents the files with the highest failure rate. The failure rate is determined by the formula `Failed Executions / Overall Executions.` The `Failed Execution` status is described on the [Spec File Status documentation](https://currents.dev/readme/spec-files/spec-file-status).
+    It presents the files with the highest failure rate. The failure rate is determined by the formula `Failed Executions / Overall Executions.` The `Failed Execution` status is described on the [spec-file-status.md](tests/spec-file-status.md "mention") documentation.
 
     Spec files with a high failure rate can negatively impact the overall development process, increase the risk of regression, and negatively affect confidence in the codebase.
 *   **Top 5 Slowest Spec Files**
@@ -94,7 +94,7 @@ Each line item has the following format:
     It presents the files with the longest duration. Break down those tests to reduce the overall duration of your runs with parallelization.
 *   **Top 5 Flaky Spec Files**
 
-    It presents the files with the highest flakiness rate. The flakiness rate is determined by the formula `Flaky Executions / Overall Executions.` A `Flaky Execution` has at least 1 test detected as flaky, according to the [Flaky Tests Documentation](https://currents.dev/readme/tests/flaky-tests).
+    It presents the files with the highest flakiness rate. The flakiness rate is determined by the formula `Flaky Executions / Overall Executions.` A `Flaky Execution` has at least 1 test detected as flaky, according to the [flaky-tests.md](tests/flaky-tests.md "mention") documentation.
 
 <figure><img src="../.gitbook/assets/Screenshot 2025-05-12 at 15.05.31.png" alt=""><figcaption><p>Spec Files Performance Report Example</p></figcaption></figure>
 
@@ -108,13 +108,13 @@ Each line item has the following format:
 
 *   **Top 5 Failing Tests**
 
-    It presents he tests with the highest failure rate. The failure rate is determined by the formula `Failed Executions + Skipped / Overall Executions.` The `Failed` and `Skipped` statuses are determined according to the [Test Status Documentation](https://currents.dev/readme/tests/test-status).
+    It presents he tests with the highest failure rate. The failure rate is determined by the formula `Failed Executions + Skipped / Overall Executions.` The `Failed` and `Skipped` statuses are determined according to the [test-status.md](tests/test-status.md "mention")documentation.
 *   **Top 5 Slowest Tests**
 
     It presents the tests with the longest average duration. Break down those tests to reduce the overall duration of your runs with parallelization.
 *   **Top 5 Flaky Tests**
 
-    It presents the tests with the highest flakiness rate. The flakiness rate is determined by the formula `Flaky Executions / Overall Executions.` A `Flaky` execution has at least 1 test detected as flaky, according to the [Flaky Tests Documentation](https://currents.dev/readme/tests/flaky-tests).
+    It presents the tests with the highest flakiness rate. The flakiness rate is determined by the formula `Flaky Executions / Overall Executions.` A `Flaky` execution has at least 1 test detected as flaky, according to the [flaky-tests.md](tests/flaky-tests.md "mention") documentation.
 
 <figure><img src="../.gitbook/assets/Screenshot 2025-05-12 at 16.16.45.png" alt=""><figcaption><p>Tests Performance Report Example</p></figcaption></figure>
 

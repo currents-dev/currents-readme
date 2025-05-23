@@ -4,44 +4,6 @@ description: How to read and use Test Explorer and Spec Files Explorer performan
 
 # Reference
 
-## Spec Files Performance
-
-Selecting a particular spec file in Spec Files Explorer opens a detailed view of the spec file performance. Users can analyze the metrics and compare them to the previous period.&#x20;
-
-These [**metrics**](https://docs.currents.dev/dashboard/test-suite-performance-explorer/spec-files-explorer#metrics-description) include:
-
-* [**Average Duration**](https://docs.currents.dev/dashboard/test-suite-performance-explorer/spec-files-explorer#duration)
-* [**Overall Executions**](https://docs.currents.dev/dashboard/test-suite-performance-explorer/spec-files-explorer#executions)
-* [**Suite Size**](https://docs.currents.dev/dashboard/test-suite-performance-explorer/spec-files-explorer#suite-size)
-* [**Failure Rate**](https://docs.currents.dev/dashboard/test-suite-performance-explorer/spec-files-explorer#failure-rate)
-* [**Flakiness Rate**](https://docs.currents.dev/dashboard/test-suite-performance-explorer/spec-files-explorer#flakiness-rate)
-* [**Timeout Rate**](https://docs.currents.dev/dashboard/test-suite-performance-explorer/spec-files-explorer#timeout-rate)
-
-<figure><img src="../../.gitbook/assets/Screenshot 2025-05-12 at 16.51.28.png" alt=""><figcaption><p>Spec File Performance Overview</p></figcaption></figure>
-
-## Test&#x20;
-
-After choosing a particular test, users can analyze its behaviour over time to identify issues that may require optimization or investigation.&#x20;
-
-These [**metrics**](https://docs.currents.dev/dashboard/test-suite-performance-explorer/tests-explorer#metrics-description) include
-
-* [**Executions**](tests-explorer.md#executions)
-* [**Duration**](tests-explorer.md#duration)
-* [**Failure Rate**](tests-explorer.md#failure-rate)
-* [**Flakiness Rate**](tests-explorer.md#flakiness-rate)
-* [**Failed Duration vs. Passed Duration**](reference.md#failed-duration-vs.-passed-duration)
-* [**Flaky Duration vs. Non Flaky Duration**](reference.md#flaky-duration-vs.-non-flaky-duration)
-
-<figure><img src="../../.gitbook/assets/Screenshot 2025-05-13 at 17.23.24.png" alt=""><figcaption><p>Test Performance Overview</p></figcaption></figure>
-
-#### Failed Duration vs. Passed Duration
-
-Compares how long tests take to complete when they pass versus when they fail. It shows whether failed tests typically run faster or slower than successful ones.
-
-#### **Flaky Duration vs. Non Flaky Duration**
-
-Compares how long tests take when they're flaky versus when they run reliably. It helps reveal whether flakiness is associated with longer or shorter execution times.
-
 ## Performance Charts
 
 Upon selecting the dates period, the charts show two lines:
@@ -63,7 +25,7 @@ Hovering over a particular day would reveal the metric values and the difference
 
 <figure><img src="../../.gitbook/assets/currents-2023-07-02-00.31.38.gif" alt=""><figcaption><p>Comparing performance for specific date</p></figcaption></figure>
 
-Another example is the spec file analyzed in the video below. During the analysis, the peak of the [**average duration**](spec-files-explorer.md#duration) for this spec file occurred on the same day as the highest [**failure rate** ](spec-files-explorer.md#failure-rate)within the selected period.&#x20;
+Another example is the spec file analyzed in the video below. During the analysis, the peak of the **average duration** for this spec file occurred on the same day as the highest **failure rate** within the selected period.&#x20;
 
 {% embed url="https://www.loom.com/share/df81020abcce4de499cf9b70c4afcd01?hideEmbedTopBar=true.&hide_owner=true&hide_share=true&hide_title=true" %}
 Zoom into one Spec File

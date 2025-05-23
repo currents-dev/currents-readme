@@ -6,7 +6,7 @@ description: >-
 
 # Test Explorer
 
-The Test Explorer displays performance and health metrics for each test, based on data reported to Currents. The metrics are:
+The Test Explorer displays performance and health metrics for individual tests. The metrics are:
 
 * Failure Rate
 * Failure Volume
@@ -24,12 +24,6 @@ Currents calculates the metrics by aggregating the test results. You can fine-tu
 * What are the 30-day flakiest tests from the `main` branch?
 * What are the 14-fay most failing tests tagged `onboarding` ?
 * What are the longest tests for  `mobile`  viewport?
-
-Explore each test details by clicking on a **Test Title.**
-
-{% hint style="success" %}
-Enable [automated-reports.md](../automated-reports.md "mention") to automatically deliver the top items from the Test Explorer View to your inbox.&#x20;
-{% endhint %}
 
 ## Test Explorer Metrics
 
@@ -104,7 +98,7 @@ In short, a test that’s a little flaky but runs a lot can be a bigger problem 
 
 ## Customization
 
-Only test recordings matching the filters are included for metric calculation.
+Only test recordings that match the active filters are included in the metric calculations.
 
 * **Date Range** - include items recorded within the specified period.
 * **Tag** - include items with the matching [playwright-tags.md](../../guides/playwright-tags.md "mention").
@@ -133,10 +127,19 @@ Here are a few examples of what information you can get from the Test Explorer:
 * The failure rate change for specific branches for the past months.
 * The lowest tests and how they changed their duration over time.
 
-Clicking on an individual test will reveal a comprehensive drill-down of the specific test's performance, including a detailed history of execution, top errors, etc.&#x20;
+## **Individual Test Analysis**&#x20;
+
+Clicking on a test title reveals a dedicated view of the specific test's performance, including a detailed **History of Executions**, **Performance Metrics** and **Top Errors** analysis.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2025-05-21 at 16.21.09.png" alt=""><figcaption><p>History - Test Explorer</p></figcaption></figure>
+
+Use Metrics tab to analyze the test health trends.
+
+<figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption><p>Test Performance Overview</p></figcaption></figure>
+
+See the [reference.md](reference.md "mention") section for more details on the **Performance Charts and History** of the tests.
 
 ## Next Steps
 
-* Explore individual test performance analysis in the [Spec & Test Performance](reference.md) section.
 * Schedule [automated-reports.md](../automated-reports.md "mention") with the top items from the Test Explorer view to automatically arrive to your inbox for proactive monitoring of test suite health.
-
+* View [reference.md](reference.md "mention") for detailed information on test **History and** **Performance Charts.**

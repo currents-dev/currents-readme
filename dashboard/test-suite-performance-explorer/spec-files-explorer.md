@@ -16,9 +16,7 @@ The Spec Files Explorer allows users to track and analyze spec files performance
 
 <figure><img src="../../.gitbook/assets/currents-2025-04-18-12.27.27@2x.png" alt=""><figcaption><p>Spec Files Explorer health and performance dashboard - flakiness, failure rate, duration, suite size.</p></figcaption></figure>
 
-Currents calculates the metrics based on the executions recorded during the provided date range and filters. A typical use case is to monitor the performance of the spec files that cause the degraded performance of the overall test suite - e.g. spec files with the highest flakiness rate, longest duration etc.&#x20;
-
-Explore individual spec details by clicking on its name and opening the [Spec & Test Performance](reference.md).&#x20;
+Currents calculates the metrics based on the executions recorded during the provided date range and filters. A typical use case is to monitor the performance of the spec files that cause the degraded performance of the overall test suite - e.g. spec files with the highest flakiness rate, longest duration, etc.&#x20;
 
 ## Spec Files Explorer Metrics
 
@@ -55,9 +53,9 @@ Only fully completed executions of a spec file are considered for counting the s
 Only test recordings matching the filters will be included for metric calculation.
 
 * **Date Range** - include items recorded within the specified period
-* **Tag** - include items with the matching [Playwright Tags](https://docs.currents.dev/guides/playwright-tags)
-* **Author** - include items with the matching Git Author (see [Commit Information](https://docs.currents.dev/dashboard/runs/commit-information))
-* **Branch** - include items with the matching Git Branch (see [Commit Information](https://docs.currents.dev/dashboard/runs/commit-information))
+* **Tag** - include items with the matching[playwright-tags.md](../../guides/playwright-tags.md "mention")
+* **Author** - include items with the matching Git Author (see[commit-information.md](../runs/commit-information.md "mention"))
+* **Branch** - include items with the matching Git Branch (see[commit-information.md](../runs/commit-information.md "mention"))
 * **Group** - include items recorded for particular group (e.g. `Firefox` or `Chromium`)
 * **Search by spec name** - narrow down the results by spec name
 
@@ -77,8 +75,18 @@ Only test recordings matching the filters will be included for metric calculatio
 * The most long-running Spec Files and how they changed their duration over time.
 * The Spec Files that experienced the most timeouts in the past weeks.
 
+## **Individual Spec File Analysis**&#x20;
+
+Clicking on an individual spec file will reveal a dedicated view of its performance, including detailed execution **History** and performance **Metrics.**
+
+<figure><img src="../../.gitbook/assets/Screenshot 2025-05-21 at 17.18.20.png" alt=""><figcaption><p>History - Spec Files Explorer</p></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/Screenshot 2025-05-21 at 17.20.37.png" alt=""><figcaption><p>Spec File Performance</p></figcaption></figure>
+
+See the [reference.md](reference.md "mention") section for more details on the **Performance Charts** and **History** charts.
+
 ## Next Steps
 
-Click on an individual spec file and reveal a detailed drill-down of the selected spec file performance, including a detailed history of execution, top errors, etc.  See [reference.md](reference.md "mention").
+View [reference.md](reference.md "mention") for detailed information on test **History and** **Performance Charts.**
 
 [^1]: A spec file is considered fully completed if if a test runner reported the results for **all of its tests**

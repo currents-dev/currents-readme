@@ -5,7 +5,7 @@ icon: eye
 
 # Test Suite Explorer
 
-Test Suite Explorer allows to explore the performance and health of your testing suite by aggregating various metrics related to your tests and test files.
+Test Suite Explorer helps you monitor and measure the performance and reliability of your test suite. It surfaces key health metrics across individual tests and test files, including aggregated error rates and flakiness trends.
 
 {% hint style="success" %}
 Use [automated-reports.md](../automated-reports.md "mention") to enable a periodic report that is based in Test Suite Explorer data to proactively detect changes in test flakiness, failure rate, or duration.&#x20;

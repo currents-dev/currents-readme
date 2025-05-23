@@ -21,7 +21,7 @@ Customize the reports by applying various filters for a more focused and meaning
 All charts support filtering by **tag**, **git author**, and **git branch**. In addition:
 
 * **Suite Size**, **Test Results**, and **Test Flakiness** charts also support the **group** filter.
-* **Test Results** and **Test Flakiness** charts also support the [**annotations**](../guides/playwright-annotations.md) filter.&#x20;
+* **Test Results** and **Test Flakiness** charts also support the [playwright-annotations.md](../guides/playwright-annotations.md "mention")filter.&#x20;
 
 The aggregated metrics are based in the samples collected during the selected **Date Range**.
 
