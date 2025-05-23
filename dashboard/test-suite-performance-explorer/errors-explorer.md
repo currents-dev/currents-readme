@@ -23,7 +23,7 @@ The Errors Explorer displays a timeline chart showing the daily distribution of 
 
 ## Error Explorer Metrics
 
-## Occurrences
+### Occurrences
 
 Shows how often an error has caused a failure or a flaky beavior during the selected period, based on the active filters. This metric counts all occurrences — including repeated ones from the same test.
 
