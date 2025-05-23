@@ -25,7 +25,7 @@ The Errors Explorer displays a timeline chart showing the daily distribution of 
 
 ### Occurrences
 
-Shows how often an error has caused a failure or a flaky beavior during the selected period, based on the active filters. This metric counts all occurrences — including repeated ones from the same test.
+Shows how often an error has caused a failure or a flaky behavior during the selected period, based on the active filters. This metric counts all occurrences — including repeated ones from the same test.
 
 For example, if the error message `TimeoutError: Navigation timeout of 30000 ms exceeded` occurred 5 times in `test A` and 10 more times across other tests, the total count will be 15.
 
