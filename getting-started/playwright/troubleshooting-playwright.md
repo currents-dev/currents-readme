@@ -4,22 +4,30 @@ description: Troubleshooting Playwright integration with Currents
 
 # Troubleshooting Playwright
 
-If you are experiencing issues with using `@currents/playwright`, please collect more information about the failure and submit a support request via our support channels.&#x20;
+If you are experiencing issues with using `@currents/playwright`,  enable debug mode to collect more information about the failure and submit a support request via our support channels.&#x20;
 
 {% hint style="info" %}
-<mark style="color:yellow;">**👇 tl;dr follow the steps below for effective troubleshooting, thank you 🙏🏻**</mark>
+<mark style="color:yellow;">**TL;DR share the following information**</mark>
 
 Collect environment information
 
-* Affected Run URL
-* The exact command used to run Playwright
-* Screenshots if applicable
+
+
+* Package Versions
+* Currents Run ID or Dashboard URL associated with the issue
+* Screenshots or video recordings if applicable
+* Full error message, including the stack trace, if available
+* Full and relevant CI execution logs with sensitive information redacted
+* CI pipeline configuration
+  * The exact commands used during the execution
+  * Relevant configuration of the CI setup stages
 
 \
 Collect and share the debug logs
 
-* `npx pwc --pwc-debug=remote ...`&#x20;
-* or set  `debug: "remote"` in Currents reporter configuration
+* `npx pwc --pwc-debug=full ...` OR
+* `npx pwc-p --pwc-debug=remote ...` OR
+* `DEBUG=currents* playwright test ...`
 {% endhint %}
 
 ### 1. Collecting Environment Information
@@ -40,26 +48,24 @@ npx envinfo --system --binaries --browsers --npmPackages --duplicates --npmGloba
 
 ### 2. Activate Debug Mode
 
-`@currents/playwright` simplifies collecting the debug information by automatically uploading the logs to Currents.&#x20;
-
 {% hint style="warning" %}
 Capture and share the **full** debug log - that will help the support person identify the root cause faster
 {% endhint %}
 
-
+`@currents/playwright` simplifies collecting the debug information by automatically uploading the logs to Currents.&#x20;
 
 To enable uploading the debug logs:
 
-* provide `--pwc-debug` flag to `pwc` CLI command, OR
-* set `CURRENTS_DEBUG` environment variable, OR
-* provide `debug` option to reporter configuration.
+* For `pwc` command-line executable run `pwc --pwc-debug=full` OR
+* For `pwc-p` run `pwc-p --pwc-debug=full` OR
+* Set environment variable `DEBUG=currents* playwright test...`
 
 
 
-The following values will enable uploading the debug logs to our servers:
+`--pwc-debug`  enables uploading the debug logs to our servers (see [#pwc-debug-boolean-or-remote-or-full](../../resources/reporters/currents-playwright/pwc-p-orchestration.md#pwc-debug-boolean-or-remote-or-full "mention"):
 
-* `remote` will upload the debug logs to Currents servers.
-* `full` will print the logs to stdout and also upload them to Currents.
+* `remote` uploads the debug logs to Currents servers;
+* `full` prints the logs to stdout and also upload them to Currents.
 
 
 
@@ -68,11 +74,13 @@ For example:
 {% tabs %}
 {% tab title="pwc" %}
 ```
-# on Linux
-npx pwc --pwc-debug=remote ... 
+npx pwc --pwc-debug=full ... 
+```
+{% endtab %}
 
-# on Windows
-cmd /V /C npx pwc --pwc-debug=remote ...
+{% tab title="pwc-p" %}
+```
+npx pwc-p --pwc-debug=full ... 
 ```
 {% endtab %}
 
@@ -82,41 +90,19 @@ cmd /V /C npx pwc --pwc-debug=remote ...
 CURRENTS_PROJECT_ID=PROJECT_ID \ // the projectId from https://app.currents.dev
 CURRENTS_RECORD_KEY=RECORD_KEY \ // the record key from https://app.currents.dev
 CURRENTS_CI_BUILD_ID=hello-currents \ // a unique CI build ID
-CURRENTS_DEBUG=remote \
+CURRENTS_DEBUG=full \
 npx playwright test
 
 # on Windows
 ## - set the environment variables first
 cmd /V /C ^
-set CURRENTS_DEBUG=remote ^
+set CURRENTS_DEBUG=full ^
 set CURRENTS_PROJECT_ID=project_id&& ^
 set CURRENTS_RECORD_KEY=record_key&& ^
 set CURRENTS_CI_BUILD_ID=unique_build_id
 
 ## - the run the command
 npx playwright test ...
-```
-{% endtab %}
-
-{% tab title="Reporter configuration" %}
-```typescript
-import { currentsReporter } from "@currents/playwright";
-import { PlaywrightTestConfig } from "@playwright/test";
-
-// Reference: https://playwright.dev/docs/test-configuration
-const config: PlaywrightTestConfig = {
-  // ...
-  reporter: [
-    currentsReporter({
-      ciBuildId: Date.now().toString(),
-      projectId: "bnsqNa",
-      recordKey: "***",
-      tag: ["playwright", "test"],
-      debug: "remote"
-    }),
-  ],
-};
-export default config;
 ```
 {% endtab %}
 {% endtabs %}
