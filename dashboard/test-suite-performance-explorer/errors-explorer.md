@@ -59,10 +59,12 @@ Use filters to fine-tune which test recordings are included in the Error Explore
 
 ## Individual Error Details
 
-Clicking an error item reveals more details about that specific error:
+Clicking an error item reveals more details about that specific error.
 
-* **Affected Tests** – A list of tests impacted by the error, sorted by how often it occurred. These are tests that failed or flaked due to this error. Click a test title to view its details in the [tests-explorer.md](tests-explorer.md "mention").
-* **Recent Executions** – A chronological list of the most recent test runs affected by this error. Clicking on a test title reveal its details in the [tests-explorer.md](tests-explorer.md "mention"), clicking on the commit message opens the specific execution details.
+<figure><img src="../../.gitbook/assets/currents-2025-05-23-13.55.33402x.png" alt=""><figcaption><p>Expanding Error Details in Error Explorer</p></figcaption></figure>
+
+* **Affected Tests** – A list of tests impacted by the error, sorted by occurrence. These are tests that failed or flaked due to the error. Click a test title to view its details in the [tests-explorer.md](tests-explorer.md "mention").
+* **Recent Executions** – A chronologically sorted list of the most recent test runs affected by this error. Clicking on a test title reveal its details in the [tests-explorer.md](tests-explorer.md "mention"), clicking on the commit message opens the specific execution details.
 * **Affected Branches** – A list of branches where this error occurred, sorted by occurrence count.
 
 
