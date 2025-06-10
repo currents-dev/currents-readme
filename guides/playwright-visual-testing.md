@@ -34,9 +34,60 @@ While Native Playwright Visual Comparison is a good start as a basic tool, a mor
 
 Argos is 100% compatible with Playwright Sharding and Currents Reporting + Orchestration, allowing effective and painless CI setup, continuous reporting, debugging with supercharged visual testing.
 
-#### Argos + Currents Orchestration
+#### Argos + Currents Reporter
 
 Argos and Currents natively support Playwright Sharding for parallel CI executions - follow [the setup instructions](https://argos-ci.com/docs/quickstart/playwright) and configure both reporters to see the visual testing artifacts reported to Argos and the rest of test results reported to Currents.
+
+<details>
+
+<summary>Playwright configuration</summary>
+
+```typescript
+// playwright.config.ts
+import { currentsReporter } from "@currents/playwright";
+import { devices, PlaywrightTestConfig } from "@playwright/test";
+
+const config: PlaywrightTestConfig = {
+// ...
+  reporter: [
+    currentsReporter(), // explicitly activate Currents Reporter
+    [
+      // See https://argos-ci.com/docs/quickstart/playwright
+      "@argos-ci/playwright/reporter",
+      {
+        uploadToArgos: true, 
+      },
+    ],
+  ],
+// ...
+}
+```
+
+</details>
+
+<details>
+
+<summary>GitHub Actions Workflow</summary>
+
+```yaml
+strategy:
+  fail-fast: false
+  matrix:
+  shard: [1, 2, 3] # run 3 parallel containers
+# ...
+- name: Currents Sharding + Argos
+  working-directory: ./argos
+  env:
+    ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }} 
+    CURRENTS_PROJECT_ID: bnsqNa
+    CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
+  run: | # start playwright
+    npx playwright test --shard=${{ matrix.shard }}/${{ strategy.job-total }}
+```
+
+</details>
+
+#### Argos + Currents Orchestration
 
 Using Argos with [playwright-orchestration.md](ci-optimization/playwright-orchestration.md "mention") requires an additional step - notifying Argos after run's completion. This is necessary because Currents Orchestration can have an arbitrary number of CI machines participating in an execution and the allocation of tests to CI machines is dynamic.
 
