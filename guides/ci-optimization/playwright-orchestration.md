@@ -178,7 +178,7 @@ Check an [example of Github Actions setup here.](https://github.com/currents-dev
 
 ### Orchestration and Multiple Workers
 
-`@currents/playwright#13.0.0+` supports automatic detection of multiple workers and the orchestration adjusts to make the best use of the available workers.&#x20;
+`@currents/playwright#13.0.0+` supports automatic detection of global workers and the orchestration adjusts to make the best use of the available workers.&#x20;
 
 When multiple workers are enabled, the orchestrator creates a  "batch" of multiple test files to ensure the most optimal utilization of all the available workers. The batch runs as single playwright command.
 
@@ -186,7 +186,117 @@ As of May 2025, the Playwright Test Runner [does not respect the execution order
 
 Also see [fully-parallel-mode.md](fully-parallel-mode.md "mention").
 
+#### Batch size configuration
 
+The batch size can be configured via [env variable or cli option](https://docs.currents.dev/resources/reporters/currents-playwright/pwc-p-orchestration#pwc-batch-size-less-than-auto-or-number-greater-than).
+
+&#x20;Starting at `@currents/playwright` version `1.14.0`  and `@playwright/test` version starting at `1.52.0` the option can be set per project.
+
+This means that the batch size can be handled globally, that also supports automatic detection of global workers, but also the project level workers and batch size is taken into account for defining the batch size.
+
+Batch size for each project is determined by evaluating options in the following order of priority:
+
+{% stepper %}
+{% step %}
+### Global batch size
+
+A global batch size defined via [environment variable or CLI option](https://docs.currents.dev/resources/reporters/currents-playwright/pwc-p-orchestration#pwc-batch-size-less-than-auto-or-number-greater-than) will override any batch size or worker settings defined at the project level.
+
+<sub>Starting with version</sub> <sub></sub><sub>`1.13.0`</sub><sub>, the reporter can automatically detect and use the global worker count as the batch size, if global workers are defined.</sub>
+{% endstep %}
+
+{% step %}
+### Project batch size
+
+`currentsBatchSize` defined at [project level](playwright-orchestration.md#project-level-batch-size)
+
+<sub>This configuration is available in</sub><sub>`@currents/playwright`</sub> <sub></sub><sub>version starting at</sub>  <sub></sub><sub>`1.14.0`</sub>  <sub></sub><sub>and</sub> <sub></sub><sub>`@playwright/test`</sub> <sub></sub><sub>version starting at</sub> <sub></sub><sub>`1.52.0`</sub>
+{% endstep %}
+
+{% step %}
+### Project workers
+
+`workers` defined at [project level](playwright-orchestration.md#project-level-workers)
+
+<sub>This configuration is available in</sub><sub>`@currents/playwright`</sub> <sub></sub><sub>version starting at</sub>  <sub></sub><sub>`1.14.0`</sub>  <sub></sub><sub>and</sub> <sub></sub><sub>`@playwright/test`</sub> <sub></sub><sub>version starting at</sub> <sub></sub><sub>`1.52.0`</sub>
+{% endstep %}
+
+{% step %}
+### Global workers
+
+[Globally defined `workers`](https://playwright.dev/docs/api/class-testconfig#test-config-workers)&#x20;
+{% endstep %}
+
+{% step %}
+### Default
+
+If none of the above is defined, batch size is `1`
+{% endstep %}
+{% endstepper %}
+
+#### Project level workers
+
+This feature allows you to set the number of workers at project level, enabling each project to specify its own batch size based on the workers.
+
+This is how the workers can be defined:
+
+```typescript
+...
+projects: [
+    {
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
+      workers: 2
+    },
+    {
+      name: "firefox",
+      use: { ...devices["Desktop Firefox"] },
+      workers: 3
+    },
+  ],
+...
+```
+
+Currents will use the batch size **`auto`** option by default. This means the reporter will read each project workers setting and use it as batch size.
+
+If no workers are defined for a project, Currents will use the global workers value as batch size.
+
+#### Project level batch size
+
+The Playwright project configuration can be extended with `currentsBatchSize` which explicitly sets the batch size per project. Import `CurrentsFixtures` for typescript suport.\
+
+
+```typescript
+import type { CurrentsFixtures } from "@currents/playwright";
+import { defineConfig, devices } from "@playwright/test";
+
+export default defineConfig<CurrentsFixtures>({
+  ...
+  projects: [
+    {
+      name: "chromium",
+      use: { 
+        ...devices["Desktop Chrome"], 
+        currentsBatchSize: 3 
+      },
+      workers: 2,
+    },
+    {
+      name: "firefox",
+      use: { 
+        ...devices["Desktop Firefox"], 
+        currentsBatchSize: "auto"
+      },
+    },
+  ],
+  ...
+});
+
+```
+
+In this example, the `chromium` project has 2 workers defined. However, since the `currentsBatchSize` property is set, Currents will use the specified `currentsBatchSize` instead of the workers value.
+
+For the `firefox` project, the `currentsBatchSize` is set to `auto`, so Currents will use the project’s workers value. Since it is not defined, Currents will fall back to the global workers value.
 
 ### Re-running Only Failed Tests
 
@@ -199,8 +309,6 @@ Re-running only failed tests for orchestrated runs requires collecting the resul
 * Orchestration works on a **file level** - i.e. it balances test files (rather than tests)
 * [**Playwright Project dependencies**](https://playwright.dev/docs/test-projects#dependencies) is not supported - i.e. if you have projects that depend one on another, orchestration will not consider the dependencies. As a workaround, run the dependencies in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)&#x20;
 * [**Global Setup and Teardown**](https://playwright.dev/docs/test-global-setup-teardown). An orchestrated execution will run `playwright` command multiple times. Beware, that the global setup or teardown routines will run for each invocation of `playwright`.
-
-
 
 ### Next Steps
 

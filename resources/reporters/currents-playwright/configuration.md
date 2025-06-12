@@ -249,6 +249,10 @@ Sets the batch size for orchestration. Batch size defines how many parallel work
 * `auto` infers the batch size from Playwright workers.&#x20;
 * `number` explicitly sets the batch size, must be greater than `0`
 
+{% hint style="info" %}
+Defining this variable will override any project level batch size/workers definition. [Project level settings](../../../guides/ci-optimization/playwright-orchestration.md#project-level-workers) are available on `@currents/playwright` starting at version `1.14.0`.
+{% endhint %}
+
 ***
 
 ### coverage

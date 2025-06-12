@@ -139,7 +139,7 @@ Unique identifier of the orchestration session this run belongs to. See [#orches
 
 ### **`--pwc-batch-size <auto|number>`**
 
-Defined how many Playwright workers are available for orchestration.  See [#orchestration.batchsize](configuration.md#orchestration.batchsize "mention") .
+Defines how many Playwright workers are available for orchestration.  See [#orchestration.batchsize](configuration.md#orchestration.batchsize "mention") .
 
 ***
 
