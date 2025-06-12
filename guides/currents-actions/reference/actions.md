@@ -14,7 +14,7 @@ The following actions are supported by Currents Actions Engine
 
 ### Limitations
 
-* Errors that occur in [Playwright's `afterAll`](https://playwright.dev/docs/api/class-test#test-after-all)  hook are not suppressed even if the corresponding test has the `skip` or `quarantine` action. Resulting in tests still being reported as failed.
-  * Currents Action fixtures run before the `afterAll` hook, and aren't handling these errors.
+* Errors that occur in [Playwright's `beforeAll`](https://playwright.dev/docs/api/class-test#test-before-all)  hook are not suppressed even if the corresponding test has the `skip` or `quarantine` action. Resulting in tests still being reported as failed.
+  * Currents Action fixtures run after the `beforeAll` hook, and skipped by Playwright if the hook fails.
   * We are looking at solutions to resolve this in a future release.
 
