@@ -10,7 +10,17 @@ description: >-
 
 The following actions are supported by Currents Actions Engine
 
-<table><thead><tr><th width="188">Action</th><th width="434">Description</th><th>Min Version</th></tr></thead><tbody><tr><td>skip</td><td>do not run the test at all, same as <code>test.skip()</code></td><td>v1.9.0</td></tr><tr><td>quarantine</td><td>run the test, but ignore the failures; the results will be sent over to Currents, test status will be <code>skipped</code></td><td>v1.9.0</td></tr></tbody></table>
+#### Pre-Test Actions
+
+These are Actions that run in the client immediately before the test is executed.
+
+<table><thead><tr><th width="188">Action</th><th width="434">Description</th><th>Min Version</th></tr></thead><tbody><tr><td>skip</td><td>do not run the test at all, same as <code>test.skip()</code></td><td>v1.9.0</td></tr></tbody></table>
+
+#### Post-Test Actions
+
+These are actions that are run in the client after the test has finished being exectured, but before the test result is reported to Currents.&#x20;
+
+<table><thead><tr><th width="188">Action</th><th width="434">Description</th><th>Min Version</th></tr></thead><tbody><tr><td>quarantine</td><td>run the test, but ignore the failures; the results will be sent over to Currents, test status will be <code>skipped</code></td><td>v1.9.0</td></tr></tbody></table>
 
 ### Limitations
 

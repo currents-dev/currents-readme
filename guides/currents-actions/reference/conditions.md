@@ -16,6 +16,7 @@ Test filename path, for example `path/to/file.spec.ts`.
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
+| Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
 #### <mark style="color:purple;">Test Title</mark>
 
@@ -25,6 +26,7 @@ Test title, for example in test definition `test("should open landing page")` it
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
+| Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
 #### <mark style="color:purple;">**Test Title Path**</mark>
 
@@ -44,6 +46,7 @@ Use comma-separated string:`auth.spec.ts, Auth Controller Should login with corr
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Value Type          | `string \| string[]`                                                                                                                                                        |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a><br><a data-mention href="conditions.md#many-to-many-operators">#many-to-many-operators</a></p> |
+| Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>               |
 
 #### <mark style="color:purple;">Test ID</mark>
 
@@ -53,6 +56,7 @@ Playwright [test id](https://playwright.dev/docs/api/class-testinfo#test-info-te
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
+| Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
 #### <mark style="color:purple;">Tags</mark>
 
@@ -62,6 +66,7 @@ Test tag list. For example, if a test has the following list of tags `['a', 'b']
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Value Type          | `string \| string[]`                                                                                                                                                        |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a><br><a data-mention href="conditions.md#many-to-many-operators">#many-to-many-operators</a></p> |
+| Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>               |
 
 #### <mark style="color:purple;">Project</mark>
 
@@ -71,6 +76,23 @@ Playwright project name as defined in your `playwright.config.ts`.&#x20;
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
+| Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
+
+#### <mark style="color:purple;">Error Message</mark>
+
+{% hint style="info" %}
+Added in `@currents/playwright@1.14.0`
+{% endhint %}
+
+Used to match a list field (eg Test Title Path) against one or more values.
+
+Error message thrown during the test.&#x20;
+
+| Field Type          | `string`                                                                                                                                                                                                                                                            |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
+| Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
+| Supported Actions   | [#post-test-actions](actions.md#post-test-actions "mention")                                                                                                                                                                                                        |
 
 #### <mark style="color:purple;">Git Author Email</mark>
 
@@ -80,6 +102,7 @@ Git commit author email. See [commit-information.md](../../../dashboard/runs/com
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
+| Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
 #### <mark style="color:purple;">Git Author Branch</mark>
 
@@ -89,6 +112,7 @@ Git commit author name. See [commit-information.md](../../../dashboard/runs/comm
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
+| Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
 #### <mark style="color:purple;">Git Branch</mark>
 
@@ -98,6 +122,7 @@ Git commit branch name. See [commit-information.md](../../../dashboard/runs/comm
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
+| Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
 #### <mark style="color:purple;">Git Message</mark>
 
@@ -107,6 +132,7 @@ Git commit message. See [commit-information.md](../../../dashboard/runs/commit-i
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
+| Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
 #### <mark style="color:purple;">Git Remote Origin</mark>
 
@@ -116,6 +142,7 @@ Git remote origin URL. See [commit-information.md](../../../dashboard/runs/commi
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
+| Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
 ### Operators
 
