@@ -59,6 +59,12 @@ const config: PlaywrightTestConfig = {
       },
     ],
   ],
+  use: {
+    actionTimeout: 0,
+    trace: "on",
+    video: "only-on-failure",
+    screenshot: "only-on-failure",
+  },
 // ...
 }
 ```
@@ -120,6 +126,12 @@ const config: PlaywrightTestConfig = {
       },
     ],
   ],
+  use: {
+    actionTimeout: 0,
+    trace: "on",
+    video: "only-on-failure",
+    screenshot: "only-on-failure",
+  },
 // ...
 }
 ```
