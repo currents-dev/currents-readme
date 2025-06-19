@@ -34,11 +34,17 @@ The [example repository](https://github.com/currents-dev/playwright-gh-actions-d
 
 When a workflow fails in GitHub Actions you have the option to re-run the failed jobs.  However, an additional setup is required for properly configure Playwright for rerunning only the failed tests.&#x20;
 
-See [re-run-only-failed-tests.md](../../../guides/ci-optimization/re-run-only-failed-tests.md "mention") guide for details.
+See [re-run-only-failed-tests.md](../../../guides/ci-optimization/re-run-only-failed-tests.md "mention") guide for more details on re-runs.
+
+For GitHub Actions, we provide the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to simplify the re-runs.
+
+{% hint style="info" %}
+We recommend you install [@currents/cmd](../../../resources/reporters/currents-cmd/) as a dev dependency in your `package.json`, and using `npm ci` or your package manager's **frozen lockfile** install method in your GitHub Actions.  If you do not the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) will instead install and use a global package, which will not respect your package's version lock files, and instead always pull in the latest of `@currents/cmd`and it's dependencies.
+{% endhint %}
 
 #### Playwright Sharding
 
-If you're using [playwright-sharding.md](../../../guides/parallelization-guide/playwright-sharding.md "mention") for running your tests in parallel, add [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to simplify the re-runs.
+If you're using [playwright-sharding.md](../../../guides/parallelization-guide/playwright-sharding.md "mention") for running your tests in parallel, you can use the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to include the data from the last run.
 
 Step-by-step guide:
 
