@@ -36,7 +36,12 @@ Writing and running tests locally or in CI is typically just one step in a more 
 * Running the test in "evaluation" mode to measure its performance and stability;
 * Alerting the team when test performance (e.g., flakiness, duration, or failure rate) degrades.
 
-It is often necessary to tweak test behavior temporarily in an ad-hoc manner. For instance, skipping a flaky test to unblock a CI pipeline, opening a ticket to investigate the flakiness, and later creating another ticket to "unskip" the test, dynamically add a tag, send an alert if a test becomes flaky.
+It is often necessary to tweak test behavior temporarily in an ad-hoc manner. For instance:
+
+* skipping a flaky test to unblock a CI pipeline,
+* opening a ticket to investigate a flakiness, and later creating another ticket to "unskip" the test,&#x20;
+* dynamically add a tag,
+* send an alert if a test becomes flaky.
 
 Another example is the intelligent selection of tests to run. For instance, only high-impact tests are run on each commit, while nightly jobs or commits to the main branch run the full test suite. The list of high-impact tests is dynamically defined based on test performance or other criteria (e.g., age, tags). This list might include new, flaky, and frequently failing tests, while omitting stable tests that rarely fail. This approach accelerates software delivery and conserves CI resources without compromising quality.
 

@@ -12,19 +12,17 @@ The following actions are supported by Currents Actions Engine
 
 #### Pre-Test Actions
 
-These are Actions that run in the client immediately before the test is executed.
+Actions that run in the client immediately **before** test execution.
 
-<table><thead><tr><th width="188">Action</th><th width="434">Description</th><th>Min Version</th></tr></thead><tbody><tr><td>skip</td><td>do not run the test at all, same as <code>test.skip()</code></td><td>v1.9.0</td></tr></tbody></table>
+<table><thead><tr><th width="188">Action</th><th width="434">Description</th><th>Min Version</th></tr></thead><tbody><tr><td>skip</td><td>Do not run the test at all, same as <code>test.skip().</code></td><td>v1.9.0</td></tr></tbody></table>
 
 #### Post-Test Actions
 
-These are actions that are run in the client after the test has finished being exectured, but before the test result is reported to Currents.&#x20;
+Actions that run in the client **after** test execution, but before reporting the results to Currents.
 
-<table><thead><tr><th width="188">Action</th><th width="434">Description</th><th>Min Version</th></tr></thead><tbody><tr><td>quarantine</td><td>run the test, but ignore the failures; the results will be sent over to Currents, test status will be <code>skipped</code></td><td>v1.9.0</td></tr></tbody></table>
+<table><thead><tr><th width="188">Action</th><th width="434">Description</th><th>Min Version</th></tr></thead><tbody><tr><td>quarantine</td><td>Run the test, but ignore the failures; the results will be sent over to Currents, test status will be <code>skipped</code>.</td><td>v1.9.0</td></tr><tr><td>add tag</td><td>Add tags to the test result. Only affects affects the current test execution attempt.</td><td>v1.14.4</td></tr></tbody></table>
 
 ### Limitations
 
-* Errors that occur in [Playwright's `beforeAll`](https://playwright.dev/docs/api/class-test#test-before-all)  hook are not suppressed even if the corresponding test has the `skip` or `quarantine` action. Resulting in tests still being reported as failed.
-  * Currents Action fixtures run after the `beforeAll` hook, and skipped by Playwright if the hook fails.
-  * We are looking at solutions to resolve this in a future release.
+Errors that occur in [Playwright's `beforeAll`](https://playwright.dev/docs/api/class-test#test-before-all)  hook are not supported even if the corresponding test has the `skip` or `quarantine` action, resulting in tests still being reported as failed. Actions fixture runs after the `beforeAll` hook, and skipped by Playwright if the hook fails. We are looking at solutions to resolve this in a future release.
 
