@@ -53,6 +53,14 @@ The reports configuration is available in the **Reports** section of the current
 
 Use **Preview** to examine and change the report settings.
 
+### Forward automated reports email to Slack
+
+Slack currently allows receiving emails in a Slack channel or private message.
+
+Slack generates an email where the automated reports will be sent and that must be registered in the dashboard. Slack then receives the email and forwards the email to the previously setup channel.
+
+Check the [Slack documentation](https://slack.com/help/articles/206819278-Send-emails-to-Slack) for more information and detailed steps.
+
 ### Report Structure
 
 The report structure includes essential data about the report, summaries of overall items recorded during the period, a section focused on individual spec files, and another section focused on individual tests. The report also shows items with the most significant changes in metrics during the reported period compared to the previous period.
