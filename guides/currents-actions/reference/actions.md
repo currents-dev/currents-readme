@@ -20,7 +20,7 @@ Actions that run in the client immediately **before** test execution.
 
 Actions that run in the client **after** test execution, but before reporting the results to Currents.
 
-<table><thead><tr><th width="188">Action</th><th width="434">Description</th><th>Min Version</th></tr></thead><tbody><tr><td>quarantine</td><td>Run the test, but ignore the failures; the results will be sent over to Currents, test status will be <code>skipped</code>.</td><td>v1.9.0</td></tr><tr><td>add tag</td><td>Add tags to the test result. Only affects affects the current test execution attempt.</td><td>v1.14.4</td></tr></tbody></table>
+<table><thead><tr><th width="188">Action</th><th width="434">Description</th><th>Min Version</th></tr></thead><tbody><tr><td>quarantine</td><td>Run the test, but ignore the failures; the results will be sent over to Currents, test status will be <code>skipped</code>.</td><td>v1.9.0</td></tr><tr><td>add tag</td><td>Add tags to the test result. Only affects affects the current test execution attempt.</td><td>v1.15.0</td></tr></tbody></table>
 
 ### Limitations
 
