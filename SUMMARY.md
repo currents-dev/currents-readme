@@ -3,6 +3,7 @@
 ## Getting Started
 
 * [What is Currents?](README.md)
+  * [Currents vs Others](getting-started/readme/currents-vs-others.md)
 * [Playwright](getting-started/playwright/README.md)
   * [Playwright: Quick Start](getting-started/playwright/you-first-playwright-run.md)
   * [Troubleshooting Playwright](getting-started/playwright/troubleshooting-playwright.md)

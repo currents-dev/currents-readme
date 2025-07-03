@@ -1,5 +1,6 @@
 ---
 description: Troubleshooting Playwright integration with Currents
+icon: square-question
 ---
 
 # Troubleshooting Playwright
