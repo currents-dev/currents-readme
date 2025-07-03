@@ -1,5 +1,5 @@
 ---
-description: How to chosse the best Playwright Reporter for you
+description: How to chose the best Playwright Reporter
 icon: waves-sine
 ---
 
@@ -7,7 +7,9 @@ icon: waves-sine
 
 Not all Playwright integrations are created equal.
 
-If you're evaluating tools to run, monitor, or debug your Playwright test suite, it's important to understand what each platform actually supports under the hood. Some tools proxy your tests through remote browsers, others rely on tracing or external wrappers, but very few provide a native Playwright reporter that speaks Playwright’s language directly and fully support its features.
+If you're evaluating tools to run, monitor, or debug your Playwright test suite, it's important to understand what each platform supports under the hood.&#x20;
+
+Some tools proxy your tests through remote browsers, others rely on tracing or external wrappers, but very few provide a native Playwright reporter that speaks Playwright’s language directly and fully support its features.
 
 ### Playwright Integration
 
