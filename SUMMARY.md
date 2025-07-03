@@ -3,10 +3,10 @@
 ## Getting Started
 
 * [What is Currents?](README.md)
-  * [Currents vs Others](getting-started/readme/currents-vs-others.md)
 * [Playwright](getting-started/playwright/README.md)
   * [Playwright: Quick Start](getting-started/playwright/you-first-playwright-run.md)
   * [Troubleshooting Playwright](getting-started/playwright/troubleshooting-playwright.md)
+  * [Currents vs Others](getting-started/playwright/currents-vs-others.md)
 * [Cypress](getting-started/cypress/README.md)
   * [Your First Cypress Run](getting-started/cypress/you-first-cypress-run.md)
   * [Integrating with Cypress](getting-started/cypress/integrating-with-cypress/README.md)

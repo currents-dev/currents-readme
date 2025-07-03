@@ -1,17 +1,6 @@
 ---
 description: A guide on optimizing Playwright tests in CI for better efficiency
 icon: microchip
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: false
-  pagination:
-    visible: true
 ---
 
 # CI Optimization

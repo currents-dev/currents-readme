@@ -1,20 +1,6 @@
 ---
 description: How to get correct git commit information when using GitHub Actions
 coverY: 0
-layout:
-  cover:
-    visible: false
-    size: full
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Commit data for GitHub Actions
