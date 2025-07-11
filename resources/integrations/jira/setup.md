@@ -1,5 +1,5 @@
 ---
-description: Setup instructions Currents for Jira
+description: Setup instructions for Currents integration with Jira
 ---
 
 # Setup
