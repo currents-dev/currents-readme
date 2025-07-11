@@ -1,12 +1,10 @@
 ---
-description: Learn how to use Jira integration in Currents
+description: Learn how to use Currents Jira Integration
 ---
 
 # Usage
 
 Once Currents integration with Jira is installed, you can create new issues or add comments to existing Jira issues directly from currents dashboard.&#x20;
-
-
 
 ## Open Jira Modal
 
