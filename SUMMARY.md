@@ -153,7 +153,7 @@
   * [Microsoft Teams](resources/integrations/microsoft-teams.md)
   * [HTTP Webhooks](resources/integrations/http-webhooks.md)
   * [Bitbucket](resources/integrations/bitbucket.md)
-  * [Jira](resources/integrations/jira/README.md)
+  * [Jira](resources/integrations/jira.md)
     * [Setup](resources/integrations/jira/setup.md)
     * [Usage](resources/integrations/jira/usage.md)
 * [API](resources/api/README.md)
