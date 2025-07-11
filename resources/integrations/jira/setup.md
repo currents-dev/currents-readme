@@ -6,8 +6,10 @@ description: Setup instructions for Currents integration with Jira
 
 ## Requirements
 
-* The installation must be performed by a user with Admin permission in Currents
-* The installation must be performed by Jira App admin one that can install and configure applications
+The installation must be performed by an account:
+
+* with Currents Admin permissions
+* with [Jira Admin](https://www.atlassian.com/software/jira/guides/permissions/overview#what-are-users-and-groups) permissions (install and configure marketplace applications permission)
 
 ## Enable Jira Integration
 
