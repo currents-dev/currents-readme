@@ -17,7 +17,7 @@ The installation must be performed by an account:
 * Click **Jira App > Add Integration**
 * Click **+ Add Jira Installation** (you can have up to 3 installations)
 * Change the Installation label — we commend setting it to your Jira namespace label e.g. `currents-dev.atlassian.com`
-* After creating an installation get the **Installation Link Token** - you will need it later to [#link-installation](setup.md#link-installation "mention")
+* After creating an installation get the **Installation Link Token** - you will need it later to [#link-jira-app](setup.md#link-jira-app "mention")
 
 ## Install Currents for Jira App
 
@@ -28,12 +28,12 @@ Open [Currents for Jira](https://marketplace.atlassian.com/apps/1238333) on [Atl
 
 ## Link Jira App
 
-Once installed, you need to Link the newly installed application to your Currents organization
+Link the newly installed application with your Currents organization
 
-* Open **Setting (upper right corner) > Apps**&#x20;
+* Open **Setting** (upper right corner) **> Apps**&#x20;
 * Open **Manage Apps** (usually `https://<namespace>.atlassian.net/plugins/servlet/upm`)
-* Open **User-installed** section expand **Currents for Jira** and click **Configure**
-* Enter the **Installation Link Token** and click **Link Installation**
+* Open **User-installed** section; then expand **Currents for Jira**, click **Configure**
+* Enter the **Installation Link Token,** click **Link Installation**
 
 <figure><img src="../../../.gitbook/assets/currents-2025-07-11-15.16.00@2x.png" alt="" width="373"><figcaption><p>Link Jira App to your Currents Organization</p></figcaption></figure>
 
