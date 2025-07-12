@@ -5,7 +5,7 @@ icon: comments-dollar
 
 # Billing and Pricing
 
-Currents has a flexible subscription-based billing model. It is designed to allow different types of customers to find a convenient plan that matches their needs.&#x20;
+Currents has a flexible subscription-based billing model. It is designed to allow different types of customers to find a convenient plan that matches their needs.
 
 {% hint style="info" %}
 All the plans incorporate volume discounts - as your usage increases, the cost per unit decreases.
@@ -19,10 +19,10 @@ The plans are based on the number of **test recordings** and the number of **tea
 
 Test recording is a result of running a [single test](#user-content-fn-1)[^1]. It includes:
 
-* **Execution details** - test outcome, timing data, error details and metadata for all the included attempts;
-* **Attachments** - screenshots, videos, trace files, performance reports and any other attachment.
+- **Execution details** - test outcome, timing data, error details and metadata for all the included attempts;
+- **Attachments** - screenshots, videos, trace files, performance reports and any other attachment.
 
-Skipped[^2] recordings do not count for billing purpose. Number of attempts or the attachments volume for not affect billing.
+Skipped[^2] recordings do not count for billing purpose. Number of attempts or the attachments volume do not affect billing.
 
 #### Team Members
 
@@ -44,8 +44,8 @@ To have a more accurate estimation, create a free trial account and start sendin
 
 You pay a monthly fee for the selected plan. For example consider a 10K plan that costs $49:
 
-* we charge a $49 prepayment for the first 10K test recordings;
-* we charge an Extra Usage fee for every additional 1K tests (or portion of it) at the end of usage cycle.
+- we charge a $49 prepayment for the first 10K test recordings;
+- we charge an Extra Usage fee for every additional 1K tests (or portion of it) at the end of usage cycle.
 
 The usage cycle resets each month when you renew the subscription.
 
@@ -55,8 +55,8 @@ The usage cycle resets each month when you renew the subscription.
 
 You pay an annual fee (with a discount) for the selected plan. For example consider a 10K plan that costs $539/year:
 
-* we charge a $539 prepayment for the 10K test recordings available each month;
-* if you record more than 10K test recordings in any month, we will charge the Extra Usage fee for every additional 1K tests (or portion of it)  at the end of usage cycle.
+- we charge a $539 prepayment for the 10K test recordings available each month;
+- if you record more than 10K test recordings in any month, we will charge the Extra Usage fee for every additional 1K tests (or portion of it) at the end of usage cycle.
 
 <table><thead><tr><th width="158.0859375">Month</th><th>Charge</th><th>End-of-month usage</th></tr></thead><tbody><tr><td>May 12, 2024</td><td>$539 prepayment for the year</td><td>9K</td></tr><tr><td>June 12</td><td>-</td><td>12K</td></tr><tr><td>July 12</td><td>$12 extra usage fee for the previous month</td><td>...and so on</td></tr><tr><td>...</td><td></td><td></td></tr><tr><td>May 12, 2025</td><td>extra usage fees, if any</td><td>end of contract</td></tr></tbody></table>
 
@@ -68,7 +68,7 @@ Each plan has a predetermined limit of seats (Team Members). You can purchase ad
 
 ### Extra Usage
 
-We will charge the Extra Usage fee for every additional 1K tests (or portion of it)  at the end of usage cycle. The price for the extra usage unit depends on the plan and varies.&#x20;
+We will charge the Extra Usage fee for every additional 1K tests (or portion of it) at the end of usage cycle. The price for the extra usage unit depends on the plan and varies.&#x20;
 
 When your organization start incurring Extra Usage fee Currents sends a period email notification to organization owners with an alert. Additionally, you can set up usage warning in [billing-and-usage.md](dashboard/administration/billing-and-usage.md "mention") section of the dashboard.
 
@@ -84,10 +84,10 @@ Enterprise Plans allows customizing the terms and cadence of billing and usage c
 
 ### Usage Cycle vs Billing Cycle
 
-* **Usage Cycle** - defines when usage counter resets. For example:
-  * Monthly Usage Cycle resets every month, usually on subscription start day.
-  * Annual Usage Cycle resets every year, usually on a contract renewal.
-* **Billing Cycle -** defines how often we invoice or charge customers: monthly, annually or every couple of years. Usually Billing Cycle is bound to contracts renewal date.
+- **Usage Cycle** - defines when usage counter resets. For example:
+  - Monthly Usage Cycle resets every month, usually on subscription start day.
+  - Annual Usage Cycle resets every year, usually on a contract renewal.
+- **Billing Cycle -** defines how often we invoice or charge customers: monthly, annually or every couple of years. Usually Billing Cycle is bound to contracts renewal date.
 
 You can mix different types of Usage Cycle and Billing Cycle based on your needs. For example:
 
@@ -131,8 +131,8 @@ Up to 30 team members for non-enterprise plans. No limit for enterprise plans. I
 
 ### What kind of support is included in each tier? <a href="#what-kind-of-support-is-included-in-each-tier-3f" id="what-kind-of-support-is-included-in-each-tier-3f"></a>
 
-* Non-enterprise plans: email + in-app chat during business hours
-* Enterprise plans: 24/7 support, direct access to Slack and the product-engineering team
+- Non-enterprise plans: email + in-app chat during business hours
+- Enterprise plans: 24/7 support, direct access to Slack and the product-engineering team
 
 ### Is there a free plan?
 
@@ -144,14 +144,14 @@ Use [billing-and-usage.md](dashboard/administration/billing-and-usage.md "mentio
 
 ### Do you charge for data storage?
 
-No, we don't. We periodically delete the data according to  [data-retention.md](resources/data-privacy/data-retention.md "mention") policy.
+No, we don't. We periodically delete the data according to [data-retention.md](resources/data-privacy/data-retention.md "mention") policy.
 
 ### Do you discount bigger plans?
 
 Yes, all of our plans have an embedded volume discount - the more you use the lower is the price per unit. For example:
 
-* 10K plan PPU is $4.9 / 1K
-* 150K plan PPU is $3.32 / 1K
+- 10K plan PPU is $4.9 / 1K
+- 150K plan PPU is $3.32 / 1K
 
 Our custom plan have similar structure but are adjusted per-customer.
 
@@ -163,8 +163,5 @@ Yes! We offer discounts for customers who choose to commit to annual or multi-ye
 
 Credit Card payments via Stripe. SWIFT and US ACH transfers. We are a registered vendor on popular procurement platforms like Airbase, Coupa, ZipHQ, Bill.com.
 
-
-
 [^1]: test =`it()` or `test()` statement
-
 [^2]: `it.skip()` or `test.skip()`&#x20;
