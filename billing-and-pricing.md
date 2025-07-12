@@ -11,7 +11,7 @@ Currents has a flexible subscription-based billing model. It is designed to allo
 All the plans incorporate volume discounts - as your usage increases, the cost per unit decreases.
 {% endhint %}
 
-### Pricing Components
+## Pricing Components
 
 The plans are based on the number of **test recordings** and the number of **team members.**
 
@@ -30,7 +30,7 @@ Every account associated with your organization is considered a team member for 
 
 If you need more seats please contact us at [hello@currents.dev](mailto:hello@currents.dev).
 
-### Usage Estimation
+## Usage Estimation
 
 For a ballpark estimate, count the number of `it` and `test` statements in your source code and multiply by average number of CI runs.
 
@@ -38,9 +38,9 @@ For a ballpark estimate, count the number of `it` and `test` statements in your 
 
 To have a more accurate estimation, create a free trial account and start sending the test results, after a couple of days use the [billing-and-usage.md](dashboard/administration/billing-and-usage.md "mention") section to review your usage. Contact our team to extend your trial [hello@currents.dev](mailto:hello@currents.dev).
 
-### Subscription Types
+## Subscription Types
 
-#### Monthly Subscriptions
+### Monthly Subscriptions
 
 You pay a monthly fee for the selected plan. For example consider a 10K plan that costs $49:
 
@@ -51,7 +51,7 @@ The usage cycle resets each month when you renew the subscription.
 
 <table><thead><tr><th width="141.51953125">Month</th><th>Charge</th><th>End-of-month usage</th></tr></thead><tbody><tr><td>May 12</td><td>$49 prepayment for June</td><td>9K</td></tr><tr><td>June 12</td><td>$49 prepayment for June</td><td>12K</td></tr><tr><td>July 12</td><td>$49 prepayment for July<br>+$12 extra usage fee for the previous month</td><td>...and so on</td></tr></tbody></table>
 
-**Annual Subscriptions**
+### **Annual Subscriptions**
 
 You pay an annual fee (with a discount) for the selected plan. For example consider a 10K plan that costs $539/year:
 
@@ -78,11 +78,11 @@ Depending on the Usage and Billing Cycle (see below) and payment method, we will
 We recommend switching to a higher-tier plan to avoid incurring extra usage fees.&#x20;
 {% endhint %}
 
-### Enterprise Plans
+## Enterprise Plans
 
 Enterprise Plans allows customizing the terms and cadence of billing and usage cycle, in addition to premium support, unlimited seats and other contract customizations.
 
-#### Usage Cycle vs Billing Cycle
+### Usage Cycle vs Billing Cycle
 
 * **Usage Cycle** - defines when usage counter resets. For example:
   * Monthly Usage Cycle resets every month, usually on subscription start day.
@@ -97,7 +97,7 @@ You can mix different types of Usage Cycle and Billing Cycle based on your needs
 We can occasionally send an out-of-cycle invoices for Extra Usage or mid-term upgrades
 {% endhint %}
 
-#### Tiered Contract
+### Tiered Contract
 
 We offer tiered contracts for better estimating the potential costs and reducing the paperwork overhead.&#x20;
 
@@ -111,9 +111,9 @@ For example, consider a 3-tier contract - the initial payment is $10,000 for 1MM
 | Tier 2 | 1.5MM test record | $4,000 after exceeded 1MM test records    |
 | Tier 3 | 2MM test records  | $3,000 after exceeding 1.5MM test records |
 
-### FAQ
+## FAQ
 
-#### What is a Test Result / Test Recording?
+### What is a Test Result / Test Recording?
 
 Test results is a`it()` or `test()` statement that was executed by a test runner and was sent to Currents, including all the attempts and artifacts.&#x20;
 
@@ -129,24 +129,24 @@ We will charge a small amount of Extra Usage fees for every 1K extra recording o
 
 Up to 30 team members for non-enterprise plans. No limit for enterprise plans. If you need more seats please contact us at [hello@currents.dev](mailto:hello@currents.dev).
 
-#### What kind of support is included in each tier? <a href="#what-kind-of-support-is-included-in-each-tier-3f" id="what-kind-of-support-is-included-in-each-tier-3f"></a>
+### What kind of support is included in each tier? <a href="#what-kind-of-support-is-included-in-each-tier-3f" id="what-kind-of-support-is-included-in-each-tier-3f"></a>
 
 * Non-enterprise plans: email + in-app chat during business hours
 * Enterprise plans: 24/7 support, direct access to Slack and the product-engineering team
 
-#### Is there a free plan?
+### Is there a free plan?
 
 Currents doesn't have a free plan.
 
-#### How can I track my usage?
+### How can I track my usage?
 
 Use [billing-and-usage.md](dashboard/administration/billing-and-usage.md "mention") section to setup usage warnings. Additionally, Currents will send an automated emails when you start incurring Extra Usage fees. Our Customer Success team will reach out to your organization admins if you consistently exceed your plan limits or incur significant charges with a recommendation to update your plan.
 
-#### Do you charge for data storage?
+### Do you charge for data storage?
 
 No, we don't. We periodically delete the data according to  [data-retention.md](resources/data-privacy/data-retention.md "mention") policy.
 
-#### Do you discount bigger plans?
+### Do you discount bigger plans?
 
 Yes, all of our plans have an embedded volume discount - the more you use the lower is the price per unit. For example:
 
@@ -155,11 +155,11 @@ Yes, all of our plans have an embedded volume discount - the more you use the lo
 
 Our custom plan have similar structure but are adjusted per-customer.
 
-#### Are there discounts for annual or multi-year commitments? <a href="#are-there-discounts-for-annual-or-multi-year-commitments-3f" id="are-there-discounts-for-annual-or-multi-year-commitments-3f"></a>
+### Are there discounts for annual or multi-year commitments? <a href="#are-there-discounts-for-annual-or-multi-year-commitments-3f" id="are-there-discounts-for-annual-or-multi-year-commitments-3f"></a>
 
 Yes! We offer discounts for customers who choose to commit to annual or multi-year plans. This not only provides savings but also ensures budget predictability. Contact us at [hello@currents.dev](mailto:hello@currents.dev) for customized offers.
 
-#### What payment methods do you accept? <a href="#are-there-discounts-for-annual-or-multi-year-commitments-3f" id="are-there-discounts-for-annual-or-multi-year-commitments-3f"></a>
+### What payment methods do you accept? <a href="#are-there-discounts-for-annual-or-multi-year-commitments-3f" id="are-there-discounts-for-annual-or-multi-year-commitments-3f"></a>
 
 Credit Card payments via Stripe. SWIFT and US ACH transfers. We are a registered vendor on popular procurement platforms like Airbase, Coupa, ZipHQ, Bill.com.
 
