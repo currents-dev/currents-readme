@@ -8,11 +8,7 @@ coverY: 0
 
 # Jira
 
-The integration is powered by [Currents for Jira Application](https://marketplace.atlassian.com/apps/1238333) that runs on Jira Cloud.
-
-## Jira
-
-Currents integration for Jira allows your team to create and link test failure details directly from the Currents dashboard. Team members can create new or add comments to existing Jira issues with full context:
+Currents integration with Jira allows your team to create and link test failure details directly from the Currents dashboard. Team members can create new or add comments to existing Jira issues with full context:
 
 * error messages,
 * stack traces,
@@ -32,3 +28,10 @@ without leaving Currents, eliminating context switching.
 3. Link your accounts with installation token
 
 See the [Setup Guide](jira/setup.md) for complete instructions.
+
+### Usage
+
+* Create Issues from test failures with full failure details
+* Link test failures to existing issues
+
+See the [Usage Guide](jira/usage.md) for details.
