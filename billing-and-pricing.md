@@ -140,7 +140,7 @@ Currents doesn't have a free plan.
 
 ### How can I track my usage?
 
-Use [billing-and-usage.md](dashboard/administration/billing-and-usage.md "mention") section to setup usage warnings. Additionally, Currents will send an automated emails when you start incurring Extra Usage fees. Our Customer Success team will reach out to your organization admins if you consistently exceed your plan limits or incur significant charges with a recommendation to update your plan.
+Use [billing-and-usage.md](dashboard/administration/billing-and-usage.md "mention") section to setup usage warnings. Additionally, Currents will send an automated emails when you start incurring Extra Usage fees. Our Customer Success team will reach out to your organization admins if you consistently exceed your plan limits or incur significant charges with a recommendation to upgrade your plan.
 
 ### Do you charge for data storage?
 
