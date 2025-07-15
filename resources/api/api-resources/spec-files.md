@@ -4,30 +4,33 @@ description: API Reference - Spec Files resource
 
 # Spec Files
 
-This resource represents the spec files and their performance metrics, computed based on the recorded results.
+This resource represents the Spec Files and their performance metrics
 
-Querying this resource will fetch all the executions recorded between `date_start`, `date_end` with all the filters applied, group the results by spec file name and calculate metrics:
-
-* `overallExecutions` - overall executions included in the aggregation.
-* `avgDuration` - an average value of the durations for non-failed executions, measured in seconds; set `includeFailedInDuration` to `true` to include failed executions in the calculation
-* `failedExecutions` - count of executions with at least 1 failed test.
-* `flakyExecutions` - count of executions with at least 1 flaky test.
-* `timeoutExecutions` - count of executions that were marked as timed out.
-* `fullyReported` - count of executions that were fully reported - i.e. all the known tests fully completed and reported the results
-* `suiteSize` - maximum number of tests across all the included executions
-* `failureRate` - the ratio of `failedExecutions` / `overallExecutions`
-* `timeoutRate` - the ratio of `timeoutExecutions` / `overallExecutions`
-* `flakeRate` - the ratio of `flakyExecutions` / `overallExecutions`
-
-The results will be sorted according to the `order` parameter. Using this query would allow to programmatically access the data that is available in [test-suite-performance-explorer](../../../dashboard/test-suite-performance-explorer/ "mention").
+The results are sorted according to the `order` parameter. Using this query would allow to programmatically access the data that is available in [test-suite-performance-explorer](../../../dashboard/test-suite-performance-explorer/ "mention").
 
 {% hint style="info" %}
 This resource uses **Offset Pagination** as documented at [pagination.md](../pagination.md "mention")
 {% endhint %}
 
-## List the spec files associated to your specific organization and project
+## List Spec Files
 
 <mark style="color:blue;">`GET`</mark> `v1/spec-files/:projectId`
+
+Querying this resource returns a list of spec files for a project, including the metrics calculated based on the data matching the provided filters.
+
+The following metrics are available:
+
+* `overallExecutions` - overall executions included in the aggregation.
+* `avgDuration` - average duration of non-failed executions, in seconds;&#x20;
+  * set `includeFailedInDuration` to `true` to include failed executions in the calculation
+* `failedExecutions` - number of executions with at least 1 failed test.
+* `flakyExecutions` - number of executions with at least 1 flaky test.
+* `timeoutExecutions` - number of executions that were marked as timed out.
+* `fullyReported` - count of executions with all the known tests fully completed and reported
+* `suiteSize` - maximum number of tests across all the included executions
+* `failureRate` - the ratio `failedExecutions` / `overallExecutions`
+* `timeoutRate` - the ratio  `timeoutExecutions` / `overallExecutions`
+* `flakeRate` - the ratio `flakyExecutions` / `overallExecutions`
 
 #### Path Parameters
 
@@ -35,19 +38,21 @@ This resource uses **Offset Pagination** as documented at [pagination.md](../pag
 
 #### Query Parameters
 
-| Name                                          | Type      | Description                                                                                                                                                                                                                                                                             |
-| --------------------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| limit                                         | Number    | Pagination limit 1-50. Default: `50`                                                                                                                                                                                                                                                    |
-| page                                          | Number    | Page 0+. Default: `0`. See [pagination.md](../pagination.md "mention")                                                                                                                                                                                                                  |
-| date\_start<mark style="color:red;">\*</mark> | ISOString | Date start - the test results included within the date range will be included.                                                                                                                                                                                                          |
-| date\_end<mark style="color:red;">\*</mark>   | ISOString | Date end - the test results included within the date range will be included.                                                                                                                                                                                                            |
-| tags\[]                                       | String\[] | List of tags for filtering the included test results. To provide multiple values, use `tags[]=valueA&tags[]=valueB`                                                                                                                                                                     |
-| authors\[]                                    | String\[] | List of authors for filtering the included test results. To provide multiple values, use `authors[]=valueA&authors[]=valueB`                                                                                                                                                            |
-| branches\[]                                   | String\[] | List of branches for filtering the included test results. To provide multiple values, use `branches[]=valueA&branches[]=valueB`                                                                                                                                                         |
-| includeFailedInDuration                       | Boolean   | Include failed spec files in duration calculation. Default: `false`.                                                                                                                                                                                                                    |
-| order                                         | Enum      | <p>Defines the attribute to order the spec files list. Default: <code>avgDuration</code>. <br></p><p>Valid values: <code>avgDuration, failedExecutions, failureRate, flakeRate, flakyExecutions, fullyReported, overallExecutions, suiteSize, timeoutExecutions, timeoutRate</code></p> |
-| specNameFilter                                | String    | A string that is included in the spec file name. Default: empty.                                                                                                                                                                                                                        |
-| dir                                           | Enum      | <p>The direction of the spec files list sorting. Default: <code>desc</code>.<br></p><p>Options: <code>asc, desc</code>.</p>                                                                                                                                                             |
+| Name                                          | Type      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| limit                                         | Number    | Pagination limit 1-50. Default: `50`                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| page                                          | Number    | Page 0+. Default: `0`. See [pagination.md](../pagination.md "mention")                                                                                                                                                                                                                                                                                                                                                                                           |
+| date\_start<mark style="color:red;">\*</mark> | ISOString | Date start - the test results included within the date range will be included.                                                                                                                                                                                                                                                                                                                                                                                   |
+| date\_end<mark style="color:red;">\*</mark>   | ISOString | Date end - the test results included within the date range will be included.                                                                                                                                                                                                                                                                                                                                                                                     |
+| tags\[]                                       | String\[] | List of tags for filtering the included test results. To provide multiple values, use `tags[]=valueA&tags[]=valueB`                                                                                                                                                                                                                                                                                                                                              |
+| authors\[]                                    | String\[] | List of authors for filtering the included test results. To provide multiple values, use `authors[]=valueA&authors[]=valueB`                                                                                                                                                                                                                                                                                                                                     |
+| branches\[]                                   | String\[] | List of branches for filtering the included test results. To provide multiple values, use `branches[]=valueA&branches[]=valueB`                                                                                                                                                                                                                                                                                                                                  |
+| includeFailedInDuration                       | Boolean   | Include failed spec files in duration calculation. Default: `false`.                                                                                                                                                                                                                                                                                                                                                                                             |
+| order                                         | Enum      | <p>Defines the attribute to order the spec files list. Default: <code>avgDuration</code>. <br></p><p>Valid values: </p><p><code>avgDuration</code></p><p><code>failedExecutions</code></p><p><code>failureRate</code></p><p><code>flakeRate</code></p><p><code>flakyExecutions</code></p><p><code>fullyReported</code></p><p><code>overallExecutions</code></p><p><code>suiteSize</code></p><p><code>timeoutExecutions</code></p><p><code>timeoutRate</code></p> |
+| specNameFilter                                | String    | A string that is included in the spec file name. Default: empty.                                                                                                                                                                                                                                                                                                                                                                                                 |
+| dir                                           | Enum      | <p>Sorting direction. Default: <code>desc</code>.<br></p><p>Options: <code>asc, desc</code></p>                                                                                                                                                                                                                                                                                                                                                                  |
+
+
 
 {% tabs %}
 {% tab title="200: OK Spec files list" %}

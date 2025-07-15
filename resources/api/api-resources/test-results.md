@@ -4,65 +4,68 @@ description: API Reference - Test Results
 
 # Test Results
 
-This API resource allows to query test results based on its signature.
+This resource allows to query test results based on its signature.
 
 {% hint style="info" %}
 Learn how to retrieve before using this resource [test-signature.md](test-signature.md "mention")
 {% endhint %}
 
-## <mark style="color:blue;">`GET`</mark> `v1/test-results/:signature`
+## Get Test Results
+
+<mark style="color:blue;">`GET`</mark> `v1/test-results/:signature`
 
 ### Path Parameters
 
-#### **`signature:`**`string` <mark style="color:red;">required</mark>
+*   **`signature:`**`string` <mark style="color:red;">required</mark>
 
-The unique signature of the test, see [test-signature.md](test-signature.md "mention").
+    The unique signature of the test, see [test-signature.md](test-signature.md "mention").
+
+
 
 ### Query Parameters
 
-#### **`date_start:`**`string (ISO Datetime)` <mark style="color:red;">required</mark>
+*   **`date_start:`**`string (ISO Datetime)` <mark style="color:red;">required</mark>
 
-> Date start - the test results included within the date range will be included.
+    Date start - the test results included within the date range will be included.
+*   **`date_end:`**`string (ISO Datetime)` <mark style="color:red;">required</mark>
 
-#### **`date_end:`**`string (ISO Datetime)` <mark style="color:red;">required</mark>
+    Date end - the test results included within the date range will be included.
 
-> Date end - the test results included within the date range will be included.
 
-#### Pagination Parameters
 
-Pagination cursor, see [pagination.md](../pagination.md "mention").
+### Pagination Parameters
 
-#### **`starting_after:`**`string`&#x20;
+See [pagination.md](../pagination.md "mention")
 
-> Pagination cursor.&#x20;
+*   **`starting_after:`**`string`&#x20;
 
-#### **`ending_before:`**`string`&#x20;
+    Pagination cursor&#x20;
+*   **`ending_before:`**`string`
 
-> Pagination cursor.&#x20;
+    Pagination cursor&#x20;
+*   **`limit:`**`number`&#x20;
 
-#### **`limit:`**`number`&#x20;
+    Pagination limit `1-100.` Default: `10`
 
-> Pagination limit `1-100.` Default: `10`
 
-#### **`branch[]:`**` ``string`
 
-> Git branches filter. To provide multiple values, use `branch[]=valueA&branch[]=valueB`
+### **Filter Parameters**
 
-#### **`tag[]:`**` ``string`
+*   **`branch[]:`**` ``string`
 
-> Tags filter. To provide multiple values, use `branch[]=valueA&branch[]=valueB`
+    Git branches filter. To provide multiple values, use `branch[]=valueA&branch[]=valueB`
+*   **`tag[]:`**` ``string`
 
-#### **`git_author[]:`**` ``string`
+    Tags filter. To provide multiple values, use `branch[]=valueA&branch[]=valueB`
+*   **`git_author[]:`**` ``string`
 
-> Git authors filter. To provide multiple values, use `git_author[]=valueA&git_author[]=valueB`
+    Git authors filter. To provide multiple values, use `git_author[]=valueA&git_author[]=valueB`
+*   **`group[]:`**` ``string`
 
-#### **`group[]:`**` ``string`
+    Group filter. To provide multiple values, use `group[]=valueA&group[]=valueB`
+*   **`status[]:`**` ``Enum<failed | passed | pending | skipped>`
 
-> Group filter. To provide multiple values, use `group[]=valueA&group[]=valueB`
-
-#### **`status[]:`**` ``Enum<failed | passed | pending | skipped>`
-
-> Test status filter. To provide multiple values, use **`status`**`[]=failed&status[]=passed`
+    Test status filter. To provide multiple values, use **`status`**`[]=failed&status[]=passed`
 
 ### **Response**
 

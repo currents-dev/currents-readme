@@ -4,15 +4,13 @@ description: API Reference - Instance resource
 
 # Instances
 
-An instance is an object representing the results of a Playwright spec file.&#x20;
-
-You can obtain the list of instance objects by querying [runs.md](runs.md "mention") API resource.
+An instance is an object representing the results of a Playwright spec file.  You can obtain a list of instances associated with a run from  [runs.md](runs.md "mention") API resource.
 
 {% hint style="info" %}
-Asset URLs listed in the responses (videos, screenshots) are "signed" URLs. They are only valid for 2h since their retrieval.
+Asset URLs listed in the responses (videos, screenshots) are signed URLs that are valid for 2h.
 {% endhint %}
 
-## Get Instance item
+## Get Instance
 
 <mark style="color:blue;">`GET`</mark> `v1/instances/:instanceId`
 
@@ -23,7 +21,7 @@ Asset URLs listed in the responses (videos, screenshots) are "signed" URLs. They
 | instanceId<mark style="color:red;">\*</mark> | String | Instance ID |
 
 {% hint style="warning" %}
-Note: The output may vary between Cypress and Playwright instances.
+The output is different for Cypress and Playwright results
 {% endhint %}
 
 {% tabs %}

@@ -4,9 +4,13 @@ description: API Reference - Projects resource
 
 # Projects
 
-This is an object representing your Currents project. You can retrieve the list of projects for your organization, get specific project details, and retrieve the list of runs for a project.
+This namespace allows to retrieve information about Currents Projects:
 
-## List the projects associated with your organization
+* get the list of projects for your organization
+* get specific project details,
+* the list of runs for a project.
+
+## List Projects
 
 <mark style="color:blue;">`GET`</mark> `v1/projects`
 
@@ -37,7 +41,7 @@ This is an object representing your Currents project. You can retrieve the list 
 {% endtab %}
 {% endtabs %}
 
-## Get project item
+## Get Project
 
 <mark style="color:blue;">`GET`</mark> `v1/projects/:projectId`
 
@@ -64,7 +68,7 @@ This is an object representing your Currents project. You can retrieve the list 
 {% endtab %}
 {% endtabs %}
 
-## List the runs associated with the project
+## List Project Runs
 
 <mark style="color:blue;">`GET`</mark> `v1/projects/:projectId/runs`
 
@@ -166,9 +170,11 @@ This is an object representing your Currents project. You can retrieve the list 
 {% endtab %}
 {% endtabs %}
 
-## Get project insights - aggregated metrics for runs, spec files and tests
+## Get Project Insights
 
 <mark style="color:blue;">`GET`</mark> `v1/projects/:projectId/insights`
+
+Returns aggregated metrics for the project. See [insights-and-analytics.md](../../../dashboard/insights-and-analytics.md "mention").
 
 #### Path Parameters
 

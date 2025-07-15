@@ -4,16 +4,16 @@ description: API Reference - Runs resource
 
 # Runs
 
-This is an object representing Playwright tests run. You can retrieve a run's details and cancel a run.&#x20;
+**Run** is an object representing a CI execution.
 
 * See [projects.md](projects.md "mention") API resource to list runs associated with a project.
 * See [instances.md](instances.md "mention")API resource for fetching Instance object by an `instanceId`
 
 {% hint style="info" %}
-Asset URLs listed in the responses (videos, screenshots) are "signed" URLs. They are only valid for 2h since their retrieval.
+Asset URLs listed in the responses (videos, screenshots) are signed URLs that are valid for 2h.
 {% endhint %}
 
-## Get Run details
+## Get Run
 
 <mark style="color:blue;">`GET`</mark> `v1/runs/:runId`
 
@@ -145,7 +145,9 @@ Note: The output may vary between Cypress and Playwright runs.
 {% endtab %}
 
 {% tab title="200: OK (Playwright)" %}
+{% code fullWidth="false" %}
 ```javascript
+
 {
     "status": "OK",
     "data": {
@@ -262,6 +264,7 @@ Note: The output may vary between Cypress and Playwright runs.
     }
 }
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -300,7 +303,7 @@ Note: The output may vary between Cypress and Playwright runs.
 {% endtab %}
 {% endtabs %}
 
-## Deleting a Run
+## Delete a Run
 
 <mark style="color:red;">`DELETE`</mark> `v1/runs/:runId`
 
