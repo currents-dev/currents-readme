@@ -58,7 +58,7 @@ type ResponsePayload = {
 
 ### Spec File Path
 
-Spec file path is the filesystem path as reported by your test runner. Some test runners (.e.g Postman) use the associated collection name. Examples:
+Spec file path is the filesystem path as reported by your test runner. Some test runners (e.g. Postman) use the associated collection name. Examples:
 
 * `navigation.spec.ts`
 * `e2e/navigation/menu.spec.ts`
