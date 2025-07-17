@@ -68,13 +68,9 @@ test.describe("test group @groupTag", () => { // 👈🏻 note the test group ta
 
 Currents will assign the following tags to the created items:
 
-| Item                                            | Tags                       |
-| ----------------------------------------------- | -------------------------- |
-| Run                                             | `groupTag`, `fast`, `slow` |
-| <pre><code>Test login page @fast
-</code></pre>  | `groupTag`, `fast`         |
-| <pre><code>Test full report @slow
-</code></pre> | `groupTag`, `slow`         |
+<table><thead><tr><th>Item</th><th>Tags</th></tr></thead><tbody><tr><td>Run</td><td><code>groupTag</code>, <code>fast</code>, <code>slow</code></td></tr><tr><td><pre><code>Test login page @fast
+</code></pre></td><td><code>groupTag</code>, <code>fast</code></td></tr><tr><td><pre><code>Test full report @slow
+</code></pre></td><td><code>groupTag</code>, <code>slow</code></td></tr></tbody></table>
 
 <figure><img src="../.gitbook/assets/currents-2023-10-30-14.48.36@2x.png" alt=""><figcaption><p>Example of a run created with various tags when tagging a test group</p></figcaption></figure>
 
@@ -225,10 +221,6 @@ And adding a run-level tag `runTag01` using the command: `pwc ... --tag runTag01
 
 <figure><img src="../.gitbook/assets/tags-example-application.png" alt=""><figcaption><p>Application of tags example</p></figcaption></figure>
 
-| Item                                  | Applied Tags               |
-| ------------------------------------- | -------------------------- |
-| Run                                   | `runTag01`, `tagA`, `tagB` |
-| <pre><code>Test login A
-</code></pre> | `runTag01, tagA`           |
-| <pre><code>Test login B
-</code></pre> | `runTag01, tagB`           |
+<table><thead><tr><th>Item</th><th>Applied Tags</th></tr></thead><tbody><tr><td>Run</td><td><code>runTag01</code>, <code>tagA</code>, <code>tagB</code></td></tr><tr><td><pre><code>Test login A
+</code></pre></td><td><code>runTag01, tagA</code></td></tr><tr><td><pre><code>Test login B
+</code></pre></td><td><code>runTag01, tagB</code></td></tr></tbody></table>
