@@ -1,58 +1,63 @@
 ---
-description: Guide to Cypress and Playwright Flaky Tests
+description: Guide to Playwright Flaky Tests
 ---
 
 # Flaky Tests
 
-### What is a flaky test?
+## What is a flaky test?
 
-A flaky test is a test that did not succeed on the first attempt. The build will fail only occasionally: One time it will pass, another time fail, and the next time pass again, without any changes to the build having been made. Flaky tests are marked with a special badge on the run, spec and individual test levels.
+A flaky test is a test that did not succeed on the first attempt. It fails only occasionally: one time it passes, another time fails, and the next time pass again, without any changes.&#x20;
+
+
+
+Flaky tests are marked with a dedicated badge.
 
 ![Run Summary with 1 flaky test detected](<../../.gitbook/assets/cypress-flaky-tests (1).png>)
 
-### How to activate flaky test detection?
+## How to activate flaky test detection?
 
-Flaky tests are automatically activated for all types of tests with retries enabled. When a test has retries enabled and doesn't pass on the first attempt, it will be marked as flaky.&#x20;
+Flaky tests are automatically activated for [when](https://playwright.dev/docs/test-retries) retries are enabled. When a test has retries enabled and it doesn't pass on the first attempt, it is marked as flaky.&#x20;
 
-### Why are flaky tests bad?
+## Why are flaky tests bad?
 
-A flaky test like this **can block the continuous deployment pipeline**, making feature delivery slower than it needs to be. Moreover, a flaky test is problematic because it is not deterministic anymore — making it useless. After all, you wouldn’t trust one any more than you would trust a liar.
+A flaky test **can block a CI/CD pipeline**, making feature delivery slower than it needs to be. Flaky tests are not deterministic — making them useless and expensive to repair.
 
-Flaky tests are **expensive to repair**, often requiring hours or even days to debug.&#x20;
-
-In summary, flaky cypress tests are considered harmful because:
+In summary, flaky tests are considered harmful because:
 
 * You cannot trust them - neither system / component under test nor the test itself is reliable
-* Even if flaky tests pass, your end users can experience intermittent issues
-* Flaky tests increase the duration of your test suite
+* Even if flaky tests passes, your end users can experience intermittent issues
+* Flaky tests increase the duration of your testing suite
 * Flaky tests are expensive to repair and maintain
 
-### How to get rid of flaky tests?
+## How to get rid of flaky tests?
 
-Your team is arguably the **most important factor**. As a first step, admit that you have a problem with flaky tests. Getting the whole team’s commitment is crucial! Then, as a team, you need to decide how to deal with flaky tests.
+### Measure and Identify Flakiness
 
-#### Identify flaky tests
+Use [tests-explorer.md](../test-suite-performance-explorer/tests-explorer.md "mention") to see the tests with the highest flakiness rate.&#x20;
 
-Use our [#top-flaky-tests](../insights-and-analytics.md#top-flaky-tests "mention") Insights to see the tests with the highest flakiness rate.&#x20;
+<figure><img src="../../.gitbook/assets/currents-2025-07-17-23.25.10@2x.png" alt=""><figcaption></figcaption></figure>
 
-![Flaky Tests Insights](../../.gitbook/assets/cypress-flaky-tests.png)
+## Eliminate Flaky Tests
 
-#### Eliminate Flaky Tests
+Brows past test executions  and examine what error messages cause flakiness using [#individual-test-analysis](../test-suite-performance-explorer/tests-explorer.md#individual-test-analysis "mention").
 
-Examine the outcomes of your runs to see what tests are flaky and eliminate the source of flakiness.
+<figure><img src="../../.gitbook/assets/currents-2025-07-17-23.29.50@2x.png" alt=""><figcaption><p>Test history tab show flaky execution for a particular test</p></figcaption></figure>
 
-* Don't use fixed wait times
-* Optimize test structure - write smaller tests
-* Keep tests isolated - use fresh, clean data before each test
-* Give up and use retries 😛
+<figure><img src="../../.gitbook/assets/currents-2025-07-17-23.26.50@2x.png" alt=""><figcaption><p>The error above is a 100% cause of flakiness for the test</p></figcaption></figure>
 
-### Fail on Flaky Tests
+Most common reason for flakiness&#x20;
+
+* Using fixed wait times
+* Long complex and fragile&#x20;
+* Sharing data and state between tests
+
+## Fail on Flaky Tests
 
 {% hint style="info" %}
 `failOnFlakyTests` property is available in Playwright **v1.52+**, and in `@currents/playwright` starting from **v1.12.3**.
 {% endhint %}
 
-Starting with Playwright **v1.52**, the runner can be configured to exit with an error if any test has been marked as flaky [see the official docs](https://playwright.dev/docs/api/class-testconfig#test-config-fail-on-flaky-tests). This is particularly useful on CI systems where the presence of flaky tests should block the pipeline.
+Starting with Playwright v1.52, the runner can be configured to exit with an error if any test has been marked as flaky [see the official docs](https://playwright.dev/docs/api/class-testconfig#test-config-fail-on-flaky-tests). This is particularly useful on CI systems where the presence of flaky tests should block the pipeline.
 
 #### Configuration
 
