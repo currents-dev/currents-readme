@@ -133,7 +133,8 @@ script:
     # Grab the last run from cache. CacheId is automatically calculated for GitLab, and a .currents_env file is created with extra env variables
     # $EXTRA_PW_FLAGS will contain the correct --shard flag, as well as --last-failed if this was a retried job
     # $RUN_ATTEMPT will be populated with a value 1+ based on how many times this job has been retried
-    - npx currents cache get --preset last-run && cat .currents_env >> $GITLAB_ENV && source .currents_env
+    - npx currents cache get --preset last-run --continue
+    - cat .currents_env >> $GITLAB_ENV && source .currents_env
     - npx playwright install
     # Run playwright, provide a build id with the run-attempt included and also pass $EXTRA_PW_FLAGS 
     - export CURRENTS_CI_BUILD_ID="reporter-$CI_PIPELINE_ID-$RUN_ATTEMPT"
@@ -163,7 +164,8 @@ test-rerun-reporter:
     # Grab the last run from cache. CacheId is automatically calculated for GitLab, and a .currents_env file is created with extra env variables
     # $EXTRA_PW_FLAGS will contain the correct --shard flag, as well as --last-failed if this was a retried job
     # $RUN_ATTEMPT will be populated with a value 1+ based on how many times this job has been retried
-    - npx currents cache get --preset last-run && cat .currents_env >> $GITLAB_ENV && source .currents_env
+    - npx currents cache get --preset last-run --continue
+    - cat .currents_env >> $GITLAB_ENV && source .currents_env
     - npx playwright install
     - cd ./basic
     # Run playwright, provide a build id with the run-attempt included and also pass $EXTRA_PW_FLAGS 
@@ -241,7 +243,8 @@ script:
     # Grab the last run from cache. CacheId is automatically calculated for GitLab, and a .currents_env file is created with extra env variables
     # $EXTRA_PWCP_FLAGS will contain the the --last-failed if this was a retried job
     # $RUN_ATTEMPT will be populated with a value 1+ based on how many times this job has been retried
-    - npx currents cache get --preset last-run && cat .currents_env >> $GITLAB_ENV && source .currents_env
+    - npx currents cache get --preset last-run --continue
+    - cat .currents_env >> $GITLAB_ENV && source .currents_env
     # Grab the complete last run from the API so orchestration can find all the failures
     - npx currents api get-run --branch=$CI_COMMIT_REF_NAME --pw-last-run --output=basic/test-results/.last-run.json || true
     - npx playwright install
@@ -274,7 +277,8 @@ test-rerun-pwcp:
     # Grab the last run from cache. CacheId is automatically calculated for GitLab, and a .currents_env file is created with extra env variables
     # $EXTRA_PWCP_FLAGS will contain the the --last-failed if this was a retried job
     # $RUN_ATTEMPT will be populated with a value 1+ based on how many times this job has been retried
-    - npx currents cache get --preset last-run && cat .currents_env >> $GITLAB_ENV && source .currents_env
+    - npx currents cache get --preset last-run --continue
+    - cat .currents_env >> $GITLAB_ENV && source .currents_env
     # Grab the complete last run from the API so orchestration can find all the failures
     - npx currents api get-run --branch=$CI_COMMIT_REF_NAME --pw-last-run --output=basic/test-results/.last-run.json || true
     - npx playwright install
