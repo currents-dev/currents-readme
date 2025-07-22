@@ -39,6 +39,33 @@ This namespace allows to retrieve information about Currents Projects:
 }
 ```
 {% endtab %}
+
+{% tab title="400: Bad Request Invalid parameters" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Invalid limit parameter. Must be between 1 and 100"
+}
+```
+{% endtab %}
+
+{% tab title="401: Unauthorized Invalid API key" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Invalid API key provided"
+}
+```
+{% endtab %}
+
+{% tab title="403: Forbidden Insufficient permissions" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Insufficient permissions to access projects"
+}
+```
+{% endtab %}
 {% endtabs %}
 
 ## Get Project
@@ -63,6 +90,33 @@ This namespace allows to retrieve information about Currents Projects:
         "inactivityTimeoutSeconds": 7200, // timeout value
         "failFast": true // enable fail-fast strategy
     }
+}
+```
+{% endtab %}
+
+{% tab title="401: Unauthorized Invalid API key" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Invalid API key provided"
+}
+```
+{% endtab %}
+
+{% tab title="403: Forbidden Insufficient permissions" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Insufficient permissions to access this project"
+}
+```
+{% endtab %}
+
+{% tab title="404: Not Found Project not found" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Project not found"
 }
 ```
 {% endtab %}
@@ -168,6 +222,42 @@ This namespace allows to retrieve information about Currents Projects:
 }
 ```
 {% endtab %}
+
+{% tab title="400: Bad Request Invalid parameters" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Invalid limit parameter. Must be between 1 and 50"
+}
+```
+{% endtab %}
+
+{% tab title="401: Unauthorized Invalid API key" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Invalid API key provided"
+}
+```
+{% endtab %}
+
+{% tab title="403: Forbidden Insufficient permissions" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Insufficient permissions to access project runs"
+}
+```
+{% endtab %}
+
+{% tab title="404: Not Found Project not found" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Project not found"
+}
+```
+{% endtab %}
 {% endtabs %}
 
 ## Get Project Insights
@@ -243,6 +333,42 @@ type TestMetric = {
   flaky: number; // # of flaky tests for the period
 };
 </code></pre>
+{% endtab %}
+
+{% tab title="400: Bad Request Invalid parameters" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "date_start and date_end are required parameters"
+}
+```
+{% endtab %}
+
+{% tab title="401: Unauthorized Invalid API key" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Invalid API key provided"
+}
+```
+{% endtab %}
+
+{% tab title="403: Forbidden Insufficient permissions" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Insufficient permissions to access project insights"
+}
+```
+{% endtab %}
+
+{% tab title="404: Not Found Project not found" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Project not found"
+}
+```
 {% endtab %}
 {% endtabs %}
 

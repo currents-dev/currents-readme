@@ -129,15 +129,40 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 ```
 {% endtab %}
 
-{% tab title="400: FAILED Bad Request " %}
-```typescript
-type ResponsePayload = {
-  status: "FAILED";
-  error: string;
-};
+{% tab title="400: Bad Request Invalid parameters" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "date_start and date_end are required parameters"
+}
 ```
+{% endtab %}
 
+{% tab title="401: Unauthorized Invalid API key" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Invalid API key provided"
+}
+```
+{% endtab %}
 
+{% tab title="403: Forbidden Insufficient permissions" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Insufficient permissions to access test results"
+}
+```
+{% endtab %}
+
+{% tab title="404: Not Found Test signature not found" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Test signature not found"
+}
+```
 {% endtab %}
 {% endtabs %}
 

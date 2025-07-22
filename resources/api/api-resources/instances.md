@@ -310,4 +310,31 @@ The output is different for Cypress and Playwright results
 
 ```
 {% endtab %}
+
+{% tab title="401: Unauthorized Invalid API key" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Invalid API key provided"
+}
+```
+{% endtab %}
+
+{% tab title="403: Forbidden Insufficient permissions" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Insufficient permissions to access this instance"
+}
+```
+{% endtab %}
+
+{% tab title="404: Not Found Instance not found" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Instance not found"
+}
+```
+{% endtab %}
 {% endtabs %}

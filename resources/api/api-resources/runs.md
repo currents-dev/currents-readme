@@ -266,6 +266,33 @@ Note: The output may vary between Cypress and Playwright runs.
 ```
 {% endcode %}
 {% endtab %}
+
+{% tab title="401: Unauthorized Invalid API key" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Invalid API key provided"
+}
+```
+{% endtab %}
+
+{% tab title="403: Forbidden Insufficient permissions" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Insufficient permissions to access this run"
+}
+```
+{% endtab %}
+
+{% tab title="404: Not Found Run not found" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Run not found"
+}
+```
+{% endtab %}
 {% endtabs %}
 
 ## Cancel a Run
@@ -293,7 +320,34 @@ Note: The output may vary between Cypress and Playwright runs.
 ```
 {% endtab %}
 
-{% tab title="422: Unprocessable Entity The run has been already cancelled" %}
+{% tab title="401: Unauthorized Invalid API key" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Invalid API key provided"
+}
+```
+{% endtab %}
+
+{% tab title="403: Forbidden Insufficient permissions" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Insufficient permissions to cancel this run"
+}
+```
+{% endtab %}
+
+{% tab title="404: Not Found Run not found" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Run not found"
+}
+```
+{% endtab %}
+
+{% tab title="422: Unprocessable Entity Run already cancelled" %}
 ```javascript
 {
     "status": "FAILED",
@@ -322,6 +376,33 @@ Note: The output may vary between Cypress and Playwright runs.
         "runId": ":runId",
         "actor": "API Request"
     }
+}
+```
+{% endtab %}
+
+{% tab title="401: Unauthorized Invalid API key" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Invalid API key provided"
+}
+```
+{% endtab %}
+
+{% tab title="403: Forbidden Insufficient permissions" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Insufficient permissions to delete this run"
+}
+```
+{% endtab %}
+
+{% tab title="404: Not Found Run not found" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Run not found"
 }
 ```
 {% endtab %}
