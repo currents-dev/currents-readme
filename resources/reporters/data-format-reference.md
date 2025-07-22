@@ -4,18 +4,18 @@ description: Currents Reporting API - Data Format Reference
 
 # Data Format Reference
 
-Currents can accept results from arbitrary testing frameworks. This document provides detailed instructions for creating test results data compatible with Currents.&#x20;
+Currents can accept results from arbitrary testing frameworks. This document provides detailed instructions for creating test results data that is compatible with Currents.
 
-* To upload the results use [currents-upload.md](currents-cmd/currents-upload.md "mention") command.&#x20;
-* Refer to [currents-convert.md](currents-cmd/currents-convert.md "mention") to see how we convert the  results from various popular testing framework to "Currents Format" that conforms to the specification presented below.
+* To upload the results, use the [currents-upload.md](currents-cmd/currents-upload.md "mention") command.
+* Refer to [currents-convert.md](currents-cmd/currents-convert.md "mention") to see how we convert results from various popular testing frameworks to "Currents Format" that conforms to the specification presented below.
 
 ## Results Directory
 
-To upload the results to Currents create a "Results Directory" with all the necessary files. The directory will be used as  the `--output-dir` parameter for [currents-upload.md](currents-cmd/currents-upload.md "mention") command, for example:
+To upload the results to Currents, create a "Results Directory" with all the necessary files. The directory will be used as the `--output-dir` parameter for the [currents-upload.md](currents-cmd/currents-upload.md "mention") command, for example:
 
 `npx currents convert  --output-dir path-to-results-directory`
 
-Within the Results Directory the following structure of files and directories is expected.
+Within the Results Directory, the following structure of files and directories is expected.
 
 ```
 results-dir/
@@ -27,17 +27,17 @@ results-dir/
 └── fullTestSuite.json
 ```
 
-The output consists of two main components:&#x20;
+The output consists of three main components:
 
-* `fullTestSuite.json` is the [#full-test-suite](data-format-reference.md#full-test-suite "mention") JSON document that contains the tests expected to be reported. It does not contains test results.
-* `config.json`  is a [#configuration-file](data-format-reference.md#configuration-file "mention") that contains the metadata like test framework name, version and more
-* `instances` folder contains [#instance-files](data-format-reference.md#instance-files "mention") - JSON document that represents  a spec file or a logical collection and the associated test results.
+* `fullTestSuite.json` is the [#full-test-suite](data-format-reference.md#full-test-suite "mention") JSON document that contains the tests expected to be reported. It does not contain test results.
+* `config.json` is a [#configuration-file](data-format-reference.md#configuration-file "mention") that contains metadata such as test framework name, version, and more.
+* `instances` folder contains [#instance-files](data-format-reference.md#instance-files "mention") - JSON documents that represent a spec file or logical collection and the associated test results.
 
 ## Full Test Suite
 
-The Full Test Suite is a JSON-formatted file that contains the list of all the tests expected to be reported to the Currents platform for the current build / run.
+The Full Test Suite is a JSON-formatted file that contains a list of all tests expected to be reported to the Currents platform for the current build/run.
 
-Each element in the array of `fullTestSuite.json` file represents a group of tests, organized by the `name` property which defines the group name.&#x20;
+Each element in the `fullTestSuite.json` file array represents a group of tests, organized by the `name` property which defines the group name.
 
 <figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption><p>Note that the property "name" is showed as the "group name" in the dashboard.</p></figcaption></figure>
 
@@ -50,7 +50,7 @@ Currents requires that all test results from the Full Test Suite be submitted be
 The root of the `fullTestSuite.json` file is a list of elements of the type `Group`.
 
 {% hint style="info" %}
-The `SuiteTest`'s  can be part of any `Group` and may even be included in multiple `Group`s.
+The `SuiteTest` objects can be part of any `Group` and may even be included in multiple `Group`s.
 {% endhint %}
 
 <details>
@@ -128,16 +128,16 @@ The `config.json` file contains the metadata used by Currents to properly displa
 
 | Property          | Type   | Required | Description                                                                                                                |
 | ----------------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------- |
-| framework         | string | Yes      | Name of the framework used to execute the tests. The currently accepted values are postman, vitest and wdio (WebDriverIO) |
+| framework         | string | Yes      | Name of the framework used to execute the tests. The currently accepted values are `postman`, `vitest` and `wdio` (WebDriverIO) |
 | frameworkVersion  | string | Yes      | Testing framework version used to execute the tests                                                                       |
 | frameworkConfig   | object | No       | Contains information about the configuration of the framework. Currently the property format with value junit is allowed  |
 
 ### Instance Files
 
-Instance File is a JSON document that represents spec file and included tests execution results.
+An Instance File is a JSON document that represents a spec file and its included test execution results.
 
 {% hint style="info" %}
-Some testing frameworks are not bound to filesystem (e.g. Postman), so Instance File can be a logical collection of tests.&#x20;
+Some testing frameworks are not bound to filesystem (e.g., Postman), so an Instance File can be a logical collection of tests.
 {% endhint %}
 
 <details>
@@ -317,12 +317,12 @@ Object that describes an individual attempt of a test.
 
 | Property  | Type     | Required | Description                                                      |
 | --------- | -------- | -------- | ---------------------------------------------------------------- |
-| _s        | string   | Yes      | Status of the test attempt                                       |
-| attempt   | number   | Yes      | Index of the attempt. Defines the order of attempt execution    |
+| _s        | string   | Yes      | Intermediate test attempt status (`passed`, `failed` | `pending` | `skipped`)                             |
+| attempt   | number   | Yes      | Index of the . Defines the order of attempt execution    |
 | startTime | string   | Yes      | Timestamp when the attempt started in ISO 8601 format           |
 | steps     | [Step](#step)[]   | Yes      | Array of steps executed during the attempt                      |
 | duration  | number   | Yes      | Duration of the attempt in milliseconds                         |
-| status    | string   | Yes      | Final status of the attempt                                     |
+| status    | string   | Yes      | Final test attempt status `passed`, `failed`, `timedOut`, `skipped`, `interrupted`                                     |
 | stdout    | string[] | Yes      | Standard output logs for the attempt                            |
 | stderr    | string[] | Yes      | Standard error logs for the attempt                             |
 | errors    | [Error](#error)[]  | Yes      | Array of error objects encountered during the attempt           |
@@ -347,7 +347,7 @@ Object that describes an individual attempt of a test.
 
 ### Generating testId&#x20;
 
-The testId is a hash composed by the title of the test and the spec file name. Use this function to generate it.
+The testId is a hash composed of the test title and the spec file name. Use this function to generate it.
 
 ```typescript
 export function generateTestId(testTitle: string, specFileName: string): string {
