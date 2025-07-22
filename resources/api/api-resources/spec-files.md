@@ -32,7 +32,9 @@ The following metrics are available:
 
 #### Path Parameters
 
-<table><thead><tr><th width="184">Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>projectId<mark style="color:red;">*</mark></td><td>String</td><td>Your project ID</td></tr></tbody></table>
+| Name                                        | Type   | Description     |
+| ------------------------------------------- | ------ | --------------- |
+| projectId<mark style="color:red;">\*</mark> | String | Your project ID |
 
 #### Query Parameters
 

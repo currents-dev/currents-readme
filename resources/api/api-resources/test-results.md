@@ -14,58 +14,28 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 
 <mark style="color:blue;">`GET`</mark> `v1/test-results/:signature`
 
-### Path Parameters
+#### Path Parameters
 
-*   **`signature:`**`string` <mark style="color:red;">required</mark>
-
-    The unique signature of the test, see [test-signature.md](test-signature.md "mention").
-
-
-
-### Query Parameters
-
-*   **`date_start:`**`string (ISO Datetime)` <mark style="color:red;">required</mark>
-
-    Date start - the test results included within the date range will be included.
-*   **`date_end:`**`string (ISO Datetime)` <mark style="color:red;">required</mark>
-
-    Date end - the test results included within the date range will be included.
+| Name                                      | Type   | Description                                                                    |
+| ----------------------------------------- | ------ | ------------------------------------------------------------------------------ |
+| signature<mark style="color:red;">\*</mark> | string | The unique signature of the test, see [test-signature.md](test-signature.md "mention") |
 
 
 
-### Pagination Parameters
+#### Query Parameters
 
-See [pagination.md](../pagination.md "mention")
-
-*   **`starting_after:`**`string`&#x20;
-
-    Pagination cursor&#x20;
-*   **`ending_before:`**`string`
-
-    Pagination cursor&#x20;
-*   **`limit:`**`number`&#x20;
-
-    Pagination limit `1-100.` Default: `10`
-
-
-
-### **Filter Parameters**
-
-*   **`branch[]:`**` ``string`
-
-    Git branches filter. To provide multiple values, use `branch[]=valueA&branch[]=valueB`
-*   **`tag[]:`**` ``string`
-
-    Tags filter. To provide multiple values, use `branch[]=valueA&branch[]=valueB`
-*   **`git_author[]:`**` ``string`
-
-    Git authors filter. To provide multiple values, use `git_author[]=valueA&git_author[]=valueB`
-*   **`group[]:`**` ``string`
-
-    Group filter. To provide multiple values, use `group[]=valueA&group[]=valueB`
-*   **`status[]:`**` ``Enum<failed | passed | pending | skipped>`
-
-    Test status filter. To provide multiple values, use **`status`**`[]=failed&status[]=passed`
+| Name                                         | Type                              | Description                                                                                     |
+| -------------------------------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------- |
+| date_start<mark style="color:red;">\*</mark>  | string (ISO Datetime)             | Date start - the test results included within the date range will be included                  |
+| date_end<mark style="color:red;">\*</mark>    | string (ISO Datetime)             | Date end - the test results included within the date range will be included                    |
+| starting_after                               | string                            | Pagination cursor. See [pagination.md](../pagination.md "mention")                            |
+| ending_before                                | string                            | Pagination cursor. See [pagination.md](../pagination.md "mention")                            |
+| limit                                        | number                            | Pagination limit 1-100. Default: 10                                                            |
+| branch[]                                     | string                            | Git branches filter. To provide multiple values, use `branch[]=valueA&branch[]=valueB`        |
+| tag[]                                        | string                            | Tags filter. To provide multiple values, use `tag[]=valueA&tag[]=valueB`                      |
+| git_author[]                                 | string                            | Git authors filter. To provide multiple values, use `git_author[]=valueA&git_author[]=valueB` |
+| group[]                                      | string                            | Group filter. To provide multiple values, use `group[]=valueA&group[]=valueB`                 |
+| status[]                                     | enum                              | Test status filter. Valid values: `failed`, `passed`, `pending`, `skipped`. Multiple values: `status[]=failed&status[]=passed` |
 
 ### **Response**
 
