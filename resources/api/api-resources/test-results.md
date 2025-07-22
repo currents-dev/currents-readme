@@ -178,18 +178,18 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 | `spec`           | `string`                                         | Name of the spec file which the test belongs to. [spec-files.md](spec-files.md "mention")                                  |
 | `machineId`      | `string`                                         | ID of the machine which executed the test.                                                                                 |
 | `signature`      | `string`                                         | Signature of the test [test-signature.md](test-signature.md "mention")                                                     |
-| `title`          | `Array<String>`                                  | Title of the test. [See test title](https://docs.currents.dev/resources/api/api-resources/test-signature#test-title).      |
+| `title`          | `string[]`                                       | Title of the test. [See test title](https://docs.currents.dev/resources/api/api-resources/test-signature#test-title).      |
 | `testId`         | `string`                                         | ID of the test as reporter by its framework.                                                                               |
-| `expectedStatus` | `String<failed \| passed \| pending \| skipped>` | Spected status of the test. Only available for Playwright.                                                                 |
-| `status`         | `String<failed \| passed \| pending \| skipped>` | Final status of the test after the execution                                                                               |
+| `expectedStatus` | `"failed" \| "passed" \| "pending" \| "skipped"` | Expected status of the test. Only available for Playwright.                                                                |
+| `status`         | `"failed" \| "passed" \| "pending" \| "skipped"` | Final status of the test after the execution                                                                               |
 | `framework`      | `Framework`                                      | Information about the framework and reporter used for the test execution [#framework](test-results.md#framework "mention") |
 | `displayError`   | `string`                                         | Latest error from the test execution                                                                                       |
 | `commit`         | `Commit`                                         | Git commit information [#commit](test-results.md#commit "mention")                                                         |
-| `createdAt`      | `String (ISO Datetime)`                          | Date of the test execution                                                                                                 |
+| `createdAt`      | `string (ISO 8601)`                              | Date of the test execution                                                                                                 |
 | `duration`       | `number`                                         | Total duration of the test execution in milliseconds                                                                       |
 | `flaky`          | `boolean`                                        | Property that shows if the test is marked as flaky [flaky-tests.md](../../../dashboard/tests/flaky-tests.md "mention")     |
-| `attempts`       | `Array<Attempt>`                                 | List of test execution attempts [#attempt](test-results.md#attempt "mention")                                              |
-| `annotations`    | `Array<Annotation>`                              | List of test annotations [#annotation](test-results.md#annotation "mention")                                               |
+| `attempts`       | `Attempt[]`                                      | List of test execution attempts [#attempt](test-results.md#attempt "mention")                                              |
+| `annotations`    | `Annotation[]`                                   | List of test annotations [#annotation](test-results.md#annotation "mention")                                               |
 
 #### Commit
 
@@ -223,8 +223,8 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 | Name        | Type                                           | Description                                                                              |
 | ----------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | `attemptId` | `string`                                       | ID of the attempt                                                                        |
-| `state`     | `Enum<failed \| passed \| pending \| skipped>` | Status of the attempt                                                                    |
-| `startedAt` | `String (ISO Datetime)`                        | Start date of the attempt                                                                |
+| `state`     | `"failed" \| "passed" \| "pending" \| "skipped"` | Status of the attempt                                                                    |
+| `startedAt` | `string (ISO 8601)`                            | Start date of the attempt                                                                |
 | `duration`  | `number`                                       | Total duration of the attempt in milliseconds                                            |
 | `error`     | `Error`                                        | Error object of the attempt in case of failure [#error](test-results.md#error "mention") |
 
