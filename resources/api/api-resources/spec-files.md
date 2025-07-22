@@ -1,5 +1,5 @@
 ---
-description: API Reference - Spec Files Explorer
+description: API Reference - Spec Files resource
 ---
 
 # Spec Files Explorer - API
