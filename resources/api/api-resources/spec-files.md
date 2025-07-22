@@ -94,11 +94,29 @@ The following metrics are available:
 ```
 {% endtab %}
 
-{% tab title="404: Not Found No project ID defined" %}
-```
+{% tab title="401: Unauthorized Invalid API key" %}
+```javascript
 {
     "status": "FAILED",
-    "error": "Not found"
+    "error": "Invalid API key provided"
+}
+```
+{% endtab %}
+
+{% tab title="403: Forbidden Insufficient permissions" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Insufficient permissions to access spec files"
+}
+```
+{% endtab %}
+
+{% tab title="404: Not Found Project not found" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Project not found"
 }
 ```
 {% endtab %}

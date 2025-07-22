@@ -46,12 +46,39 @@ type ResponsePayload = {
 {% endcode %}
 {% endtab %}
 
-{% tab title="400: FAILED Bad Request " %}
-```typescript
-type ResponsePayload = {
-  status: "FAILED";
-  error: string;
-};
+{% tab title="400: Bad Request Invalid parameters" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Missing required parameter: projectId"
+}
+```
+{% endtab %}
+
+{% tab title="401: Unauthorized Invalid API key" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Invalid API key provided"
+}
+```
+{% endtab %}
+
+{% tab title="403: Forbidden Insufficient permissions" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Insufficient permissions to generate test signatures"
+}
+```
+{% endtab %}
+
+{% tab title="422: Unprocessable Entity Invalid data" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Invalid testTitle format. Must be a non-empty array"
+}
 ```
 {% endtab %}
 {% endtabs %}
