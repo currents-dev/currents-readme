@@ -4,9 +4,11 @@ description: API Reference - Gets a test signature
 
 # Test Signature
 
-Test Signature is a unique hash identifier for a test in Currents. It is based in the combination of the organization ID, the project ID, the spec file path and the test title.
+Test Signature is a unique test identifier in Currents. Multiple recording of the same test case share the same signature.
 
-## Create Test Signature
+It is based in the combination of the organization ID, the project ID, the spec file path and the test title.
+
+## Generate Test Signature
 
 <mark style="color:blue;">`POST`</mark> `v1/signature/test`
 
