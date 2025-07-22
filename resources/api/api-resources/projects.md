@@ -278,7 +278,7 @@ Returns aggregated metrics for the project. See [insights-and-analytics.md](../.
 | --------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------- |
 | date\_start<mark style="color:red;">\*</mark> | string (ISO 8601) | Date start for the query                                                                           |
 | date\_end<mark style="color:red;">\*</mark>   | string (ISO 8601) | Date end for the query                                                                             |
-| resolution                                    | `"1w" \| "1d"` | Aggregation resolution. Valid values are `"1w"` or `"1d"`                                          |
+| resolution                                    | enum                            | Aggregation resolution. Values: `"1w"`, `"1d"`                                                     |
 | tags\[]                                       | string   | List of tags for filtering the query. Multiple values: `tags[]=valueA&tags[]=valueB`               |
 | branches\[]                                   | string   | List of branches for filtering the query. Multiple values: `branches[]=valueA&branches[]=valueB`   |
 
