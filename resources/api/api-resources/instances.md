@@ -21,7 +21,7 @@ Asset URLs listed in the responses (videos, screenshots) are signed URLs that ar
 | instanceId<mark style="color:red;">\*</mark> | string | Instance ID |
 
 {% hint style="warning" %}
-The output is different for Cypress and Playwright results
+The output is different for different test runners
 {% endhint %}
 
 {% tabs %}
@@ -40,9 +40,9 @@ The output is different for Cypress and Playwright results
         "instanceId": "bf89e79f-af2a-43cb-afba-2575e567f103",
         // spec file path
         "spec": "cypress/integration/orchestration_100.spec.js",
-        // cypress runner version used to create the instance
+        // test runner version used to create the instance
         "cypressVersion": "10.3.0",
-        // cypress runner id used to create the instance
+        // test runner id used to create the instance
         "machineId": "25574b7e-c7d0-4ea4-804a-c56304c03fe0",
         // Git Commit info
         "commit": {

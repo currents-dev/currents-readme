@@ -24,7 +24,7 @@ Asset URLs listed in the responses (videos, screenshots) are signed URLs that ar
 | runId<mark style="color:red;">\*</mark> | string | Run ID      |
 
 {% hint style="warning" %}
-Note: The output may vary between Cypress and Playwright runs.
+Note: The output may vary between different test runners.
 {% endhint %}
 
 {% tabs %}
@@ -39,7 +39,7 @@ Note: The output may vary between Cypress and Playwright runs.
         "status": "FAILED", // "FAILED" | "FAILING" | "PASSED" | "RUNNING"
         "createdAt": "2022-07-06T08:23:40.939Z", // run creation time
         "tags": ["tagA", "tagB"], // run tags
-        "cypressVersion": "9.5.4", // cypress runner version
+        "cypressVersion": "9.5.4", // test runner version
         // timeout details
         "timeout": { 
             "isTimeout": true, // whether the run timed out
@@ -99,11 +99,11 @@ Note: The output may vary between Cypress and Playwright runs.
                 "spec": "integration/api/external-api-call-tests.ts",
                 // Associated instance ID
                 "instanceId": "b5f95e95-726f-4a3b-9edc-6cc0b0eb85fd",
-                // Time when a cypress runner requested the spec file
+                // Time when the test runner requested the spec file
                 "claimedAt": "2022-07-06T08:37:58.317Z",
-                // Time when a cypress runner reported the results to the dashboard
+                // Time when the test runner reported the results to the dashboard
                 "completedAt": "2022-07-06T08:38:05.113Z",
-                // Cypress runner that requested the spec file 
+                // Test runner that requested the spec file 
                 "machineId": "327043fb-f9df-4611-9a5e-8a33bbba7247",
                 // The results of the instance associated with the spec file
                 "results": {
