@@ -4,7 +4,7 @@ description: API Reference - Spec Files resource
 
 # Spec Files Explorer - API
 
-This resource allow to programmatically fetch Spec Files performance data that is available in [test-suite-performance-explorer](../../../dashboard/test-suite-performance-explorer/ "mention") > [spec-files-explorer.md](../../../dashboard/test-suite-performance-explorer/spec-files-explorer.md "mention")
+This resource allows you to programmatically fetch Spec Files performance data that is available in [test-suite-performance-explorer](../../../dashboard/test-suite-performance-explorer/ "mention") > [spec-files-explorer.md](../../../dashboard/test-suite-performance-explorer/spec-files-explorer.md "mention")
 
 {% hint style="info" %}
 This resource uses **Offset Pagination** as documented at [pagination.md](../pagination.md "mention")
@@ -19,13 +19,13 @@ Querying this resource returns a list of spec files for a project, including the
 The following metrics are available:
 
 * `overallExecutions` - overall executions included in the aggregation.
-* `avgDuration` - average duration of non-failed executions, in seconds;&#x20;
-  * set `includeFailedInDuration` to `true` to include failed executions in the calculation
+* `avgDuration` - average duration of non-failed executions in seconds
+  * Set `includeFailedInDuration` to `true` to include failed executions in the calculation
 * `failedExecutions` - number of executions with at least 1 failed test.
 * `flakyExecutions` - number of executions with at least 1 flaky test.
 * `timeoutExecutions` - number of executions that were marked as timed out.
-* `fullyReported` - count of executions with all the known tests fully completed and reported
-* `suiteSize` - maximum number of tests across all the included executions
+* `fullyReported` - count of executions with all known tests fully completed and reported
+* `suiteSize` - maximum number of tests across all included executions
 * `failureRate` - the ratio `failedExecutions` / `overallExecutions`
 * `timeoutRate` - the ratio  `timeoutExecutions` / `overallExecutions`
 * `flakeRate` - the ratio `flakyExecutions` / `overallExecutions`
@@ -78,7 +78,7 @@ The following metrics are available:
                 }
             }
         ],
-        "total": 44, // the total number of spec files detected
+        "total": 44, // total number of spec files detected
         "nextPage": number | false // offset pagination hint
     }
 }

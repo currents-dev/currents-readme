@@ -4,7 +4,7 @@ description: API Reference - Instance resource
 
 # Instances
 
-An instance is an object representing the results of a Playwright spec file.  You can obtain a list of instances associated with a run from  [runs.md](runs.md "mention") API resource.
+An instance is an object representing the results of a spec file execution. You can obtain a list of instances associated with a run from the [runs.md](runs.md "mention") API resource.
 
 {% hint style="info" %}
 Asset URLs listed in the responses (videos, screenshots) are signed URLs that are valid for 2h.
@@ -174,13 +174,13 @@ The output is different for different test runners
         "groupId": "chromium",
         // instance id
         "instanceId": "2tniK8lM9j1rSoVh",
-        // Playwright runner id used to create the instance
+        // Test runner ID used to create the instance
         "machineId": "CnZYMAcVDvd5",
         // spec file path
         "spec": "test-a.spec.ts",
         // Instance creation time
         "createdAt": "2024-06-17T09:49:31.368Z",
-        // Playwright worker information
+        // Test runner worker information
         "worker": {
             "workerIndex": 1,
             "parallelIndex": 1
