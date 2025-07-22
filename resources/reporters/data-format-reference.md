@@ -4,18 +4,18 @@ description: Currents Reporting API - Data Format Reference
 
 # Data Format Reference
 
-Currents can accept results from arbitrary testing frameworks. This document provides detailed instructions for creating test results data compatible with Currents.&#x20;
+Currents can accept results from arbitrary testing frameworks. This document provides detailed instructions for creating test results data that is compatible with Currents.
 
-* To upload the results use [currents-upload.md](currents-cmd/currents-upload.md "mention") command.&#x20;
-* Refer to [currents-convert.md](currents-cmd/currents-convert.md "mention") to see how we convert the  results from various popular testing framework to "Currents Format" that conforms to the specification presented below.
+* To upload the results, use the [currents-upload.md](currents-cmd/currents-upload.md "mention") command.
+* Refer to [currents-convert.md](currents-cmd/currents-convert.md "mention") to see how we convert results from various popular testing frameworks to "Currents Format" that conforms to the specification presented below.
 
 ## Results Directory
 
-To upload the results to Currents create a "Results Directory" with all the necessary files. The directory will be used as  the `--output-dir` parameter for [currents-upload.md](currents-cmd/currents-upload.md "mention") command, for example:
+To upload the results to Currents, create a "Results Directory" with all the necessary files. The directory will be used as the `--output-dir` parameter for the [currents-upload.md](currents-cmd/currents-upload.md "mention") command, for example:
 
 `npx currents convert  --output-dir path-to-results-directory`
 
-Within the Results Directory the following structure of files and directories is expected.
+Within the Results Directory, the following structure of files and directories is expected.
 
 ```
 results-dir/
@@ -27,17 +27,17 @@ results-dir/
 └── fullTestSuite.json
 ```
 
-The output consists of two main components:&#x20;
+The output consists of three main components:
 
-* `fullTestSuite.json` is the [#full-test-suite](data-format-reference.md#full-test-suite "mention") JSON document that contains the tests expected to be reported. It does not contains test results.
-* `config.json`  is a [#configuration-file](data-format-reference.md#configuration-file "mention") that contains the metadata like test framework name, version and more
-* `instances` folder contains [#instance-files](data-format-reference.md#instance-files "mention") - JSON document that represents  a spec file or a logical collection and the associated test results.
+* `fullTestSuite.json` is the [#full-test-suite](data-format-reference.md#full-test-suite "mention") JSON document that contains the tests expected to be reported. It does not contain test results.
+* `config.json` is a [#configuration-file](data-format-reference.md#configuration-file "mention") that contains metadata such as test framework name, version, and more.
+* `instances` folder contains [#instance-files](data-format-reference.md#instance-files "mention") - JSON documents that represent a spec file or logical collection and the associated test results.
 
 ## Full Test Suite
 
-The Full Test Suite is a JSON-formatted file that contains the list of all the tests expected to be reported to the Currents platform for the current build / run.
+The Full Test Suite is a JSON-formatted file that contains a list of all tests expected to be reported to the Currents platform for the current build/run.
 
-Each element in the array of `fullTestSuite.json` file represents a group of tests, organized by the `name` property which defines the group name.&#x20;
+Each element in the `fullTestSuite.json` file array represents a group of tests, organized by the `name` property which defines the group name.
 
 <figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption><p>Note that the property "name" is showed as the "group name" in the dashboard.</p></figcaption></figure>
 
@@ -50,7 +50,7 @@ Currents requires that all test results from the Full Test Suite be submitted be
 The root of the `fullTestSuite.json` file is a list of elements of the type `Group`.
 
 {% hint style="info" %}
-The `SuiteTest`'s  can be part of any `Group` and may even be included in multiple `Group`s.
+The `SuiteTest` objects can be part of any `Group` and may even be included in multiple `Group`s.
 {% endhint %}
 
 <details>
@@ -97,7 +97,7 @@ Starting on version 1.6.8 of [`@currents/cmd`](https://www.npmjs.com/package/@cu
 
 #### `Group`
 
-<table><thead><tr><th width="152">Property</th><th width="203">Type</th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>string</code></td><td>Yes</td><td>Represents the group ID that will be visualized in the dashboard. All the tests will be organized by the group ID.</td></tr><tr><td><code>tags</code></td><td><code>Array&#x3C;string></code></td><td>Yes</td><td>Run-level tags for this run / build. See <a data-mention href="../../guides/playwright-tags.md">playwright-tags.md</a>.</td></tr><tr><td><code>tests</code></td><td><code>Array&#x3C;</code> <a href="data-format-reference.md#suitetest"><code>SuiteTest</code></a><code>></code></td><td>Yes</td><td><p>List of included tests, including test title, spec file, test tags and testId.</p><p></p><p><code>testId</code> of full test suite file and instance files must to match.</p></td></tr></tbody></table>
+<table><thead><tr><th width="152">Property</th><th width="203">Type</th><th width="103">Required</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>string</code></td><td>Yes</td><td>Represents the group ID that will be visualized in the dashboard. All tests will be organized by the group ID.</td></tr><tr><td><code>tags</code></td><td><code>Array&#x3C;string></code></td><td>Yes</td><td>Run-level tags for this run/build. See <a data-mention href="../../guides/playwright-tags.md">playwright-tags.md</a>.</td></tr><tr><td><code>tests</code></td><td><code>Array&#x3C;</code> <a href="data-format-reference.md#suitetest"><code>SuiteTest</code></a><code>></code></td><td>Yes</td><td><p>List of included tests, including test title, spec file, test tags, and testId.</p><p></p><p><code>testId</code> of full test suite file and instance files must match.</p></td></tr></tbody></table>
 
 #### `SuiteTest`
 
@@ -105,7 +105,7 @@ Starting on version 1.6.8 of [`@currents/cmd`](https://www.npmjs.com/package/@cu
 | -------- | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `title`  | `Array<string>` | Yes      | Test description plus title.                                                                                                                                                               |
 | `spec`   | `string`        | Yes      | The spec file where this test is defined.                                                                                                                                                  |
-| `tags`   | `Array<string>` | No       | A list of tags or  associated with the test for categorization or filtering.                                                                                                               |
+| `tags`   | `Array<string>` | No       | A list of tags associated with the test for categorization or filtering.                                                                                                               |
 | `testId` | `string`        | Yes      | A unique identifier for the test case. It is created with a hash of the spec file property and the title. [See how to generate this property](data-format-reference.md#generating-testid). |
 
 ### Configuration File
@@ -126,7 +126,7 @@ The `config.json` file contains the metadata used by Currents to properly displa
 
 **Property**: `framework`
 
-**Description**: Name of the framework used to execute the tests. The currently accepted values are `postman`, `vitest` and `wdio` (WebDriverIO)  Support for other frameworks will be added in the future.
+**Description**: Name of the framework used to execute the tests. The currently accepted values are `postman`, `vitest`, and `wdio` (WebDriverIO). Support for other frameworks will be added in the future.
 
 **Type**: `postman | vitest | wdio`
 
@@ -134,7 +134,7 @@ The `config.json` file contains the metadata used by Currents to properly displa
 
 **Property**: `frameworkVersion`
 
-**Description**: Testing framework version used to execute the tests.
+**Description**: Version of the testing framework used to execute the tests.
 
 **Type**: String
 
@@ -156,10 +156,10 @@ The `config.json` file contains the metadata used by Currents to properly displa
 
 ### Instance Files
 
-Instance File is a JSON document that represents spec file and included tests execution results.
+An Instance File is a JSON document that represents a spec file and its included test execution results.
 
 {% hint style="info" %}
-Some testing frameworks are not bound to filesystem (e.g. Postman), so Instance File can be a logical collection of tests.&#x20;
+Some testing frameworks are not bound to the filesystem (e.g., Postman), so an Instance File can be a logical collection of tests.
 {% endhint %}
 
 <details>
@@ -279,7 +279,7 @@ The properties that can be found in an instance file are the following:
 
 **Root Object**
 
-<table data-header-hidden><thead><tr><th width="155"></th><th width="169"></th><th width="100"></th><th></th></tr></thead><tbody><tr><td><strong>Property</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Description</strong></td></tr><tr><td><code>groupId</code></td><td><code>string</code></td><td>Yes</td><td>Identifier for the test group It provides a reference of what are the tests executed about.</td></tr><tr><td><code>spec</code></td><td><code>string</code></td><td>Yes</td><td><p>The name of the spec file  or logical collection that contains the executed tests. </p><p></p><p>The <code>spec</code> property must be unique across all instance files.</p><p></p><p>Example: <code>__tests__/utils.spec.ts</code></p></td></tr><tr><td><code>startTime</code></td><td><p><code>string</code> </p><p>(ISO Datetime)</p></td><td>Yes</td><td>The timestamp indicating when the execution of the spec file started in ISO 8601 format.</td></tr><tr><td><code>results</code></td><td><code>Array&#x3C;</code><a href="data-format-reference.md#testresult"><code>TestResult</code></a><code>></code></td><td>Yes</td><td>Contains an array of test results.</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="155"></th><th width="169"></th><th width="100"></th><th></th></tr></thead><tbody><tr><td><strong>Property</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Description</strong></td></tr><tr><td><code>groupId</code></td><td><code>string</code></td><td>Yes</td><td>Identifier for the test group. It provides a reference for what the executed tests are about.</td></tr><tr><td><code>spec</code></td><td><code>string</code></td><td>Yes</td><td><p>The name of the spec file or logical collection that contains the executed tests.</p><p></p><p>The <code>spec</code> property must be unique across all instance files.</p><p></p><p>Example: <code>__tests__/utils.spec.ts</code></p></td></tr><tr><td><code>startTime</code></td><td><p><code>string</code> </p><p>(ISO Datetime)</p></td><td>Yes</td><td>The timestamp indicating when the execution of the spec file started in ISO 8601 format.</td></tr><tr><td><code>results</code></td><td><code>Array&#x3C;</code><a href="data-format-reference.md#testresult"><code>TestResult</code></a><code>></code></td><td>Yes</td><td>Contains an array of test results.</td></tr></tbody></table>
 
 #### `TestResult`&#x20;
 
@@ -287,13 +287,13 @@ The properties that can be found in an instance file are the following:
 
 #### `StatsObject`
 
-<table data-header-hidden><thead><tr><th width="141"></th><th width="138"></th><th width="100"></th><th></th></tr></thead><tbody><tr><td><strong>Property</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Description</strong></td></tr><tr><td><code>suites</code></td><td><code>number</code></td><td>Yes</td><td>Number of logical grouping or collection of tests results.</td></tr><tr><td><code>tests</code></td><td><code>number</code></td><td>Yes</td><td>The total number of tests executed in the current instance. </td></tr><tr><td><code>passes</code></td><td><code>number</code></td><td>Yes</td><td>The number of tests that passed in the current instance.</td></tr><tr><td><code>pending</code></td><td><code>number</code></td><td>Yes</td><td>The number of tests that are pending to be executed and can be reported later.</td></tr><tr><td><code>skipped</code></td><td><code>number</code></td><td>Yes</td><td>The number of tests that were not executed on purpose in the current instance.</td></tr><tr><td><code>failures</code></td><td><code>number</code></td><td>Yes</td><td>The number of tests that failed in the current instance.</td></tr><tr><td><code>flaky</code></td><td><code>number</code></td><td>Yes</td><td>The number of tests marked as flaky by the testing framework in the current instance.</td></tr><tr><td><code>wallClockStartedAt</code></td><td><code>string</code> (ISO Datetime)</td><td>Yes</td><td>Time when the first test started its first attempt in ISO 8601 format.</td></tr><tr><td><code>wallClockEndedAt</code></td><td><code>string</code> (ISO Datetime)</td><td>Yes</td><td>Time when the last test finished its last attempt in ISO 8601 format.</td></tr><tr><td><code>wallClockDuration</code></td><td><code>number</code></td><td>Yes</td><td>Total duration of the spec file tests execution in milliseconds.</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="141"></th><th width="138"></th><th width="100"></th><th></th></tr></thead><tbody><tr><td><strong>Property</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Description</strong></td></tr><tr><td><code>suites</code></td><td><code>number</code></td><td>Yes</td><td>Number of logical groupings or collections of test results.</td></tr><tr><td><code>tests</code></td><td><code>number</code></td><td>Yes</td><td>The total number of tests executed in the current instance.</td></tr><tr><td><code>passes</code></td><td><code>number</code></td><td>Yes</td><td>The number of tests that passed in the current instance.</td></tr><tr><td><code>pending</code></td><td><code>number</code></td><td>Yes</td><td>The number of tests that are pending execution and can be reported later.</td></tr><tr><td><code>skipped</code></td><td><code>number</code></td><td>Yes</td><td>The number of tests that were not executed on purpose in the current instance.</td></tr><tr><td><code>failures</code></td><td><code>number</code></td><td>Yes</td><td>The number of tests that failed in the current instance.</td></tr><tr><td><code>flaky</code></td><td><code>number</code></td><td>Yes</td><td>The number of tests marked as flaky by the testing framework in the current instance.</td></tr><tr><td><code>wallClockStartedAt</code></td><td><code>string</code> (ISO Datetime)</td><td>Yes</td><td>Time when the first test started its first attempt in ISO 8601 format.</td></tr><tr><td><code>wallClockEndedAt</code></td><td><code>string</code> (ISO Datetime)</td><td>Yes</td><td>Time when the last test finished its last attempt in ISO 8601 format.</td></tr><tr><td><code>wallClockDuration</code></td><td><code>number</code></td><td>Yes</td><td>Total duration of the spec file tests execution in milliseconds.</td></tr></tbody></table>
 
 #### `Test`
 
 Each object in the `tests` array represents the execution result of a test, possibly with multiple attempts.
 
-<table data-header-hidden><thead><tr><th width="136"></th><th></th><th width="100"></th><th></th></tr></thead><tbody><tr><td><strong>Property</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Description</strong></td></tr><tr><td><code>_t</code></td><td><code>number</code> </td><td>Yes</td><td>The timestamp indicating when the execution of the spec file started, in milliseconds.</td></tr><tr><td><code>testId</code></td><td><code>string</code></td><td>Yes</td><td>Unique identifier for the test. <a href="data-format-reference.md#generate-a-testid">See how to generate this property</a>.</td></tr><tr><td><code>title</code></td><td><code>Array&#x3C;string></code></td><td>Yes</td><td>Array containing the specification and title of the test. Example: <code>["75119228-2d2d-4e59-b426-60a002b8cdce / Get Run", "Response status code is 200"]</code>.</td></tr><tr><td><code>state</code></td><td><code>failed | passed | skipped</code></td><td>Yes</td><td>Final state of the test.</td></tr><tr><td><code>isFlaky</code></td><td><code>boolean</code></td><td>Yes</td><td>Indicates whether the test is flaky.</td></tr><tr><td><code>expectedStatus</code></td><td><code>failed | passed | skipped</code></td><td>Yes</td><td>The expected status of the test. </td></tr><tr><td><code>timeout</code></td><td><code>number</code></td><td>Yes</td><td>Time in milliseconds that the test execution lasted without having a clear state result.</td></tr><tr><td><code>location</code></td><td><a href="data-format-reference.md#location"><code>Location</code></a></td><td>Yes</td><td>Object containing file location details for the test.</td></tr><tr><td><code>retries</code></td><td><code>number</code></td><td>Yes</td><td>Number of retries attempted for the test.</td></tr><tr><td><code>attempts</code></td><td><code>Array&#x3C;</code><a href="data-format-reference.md#attempt"><code>Attempt</code></a><code>></code></td><td>Yes</td><td>Array of objects representing each attempt made for the test. </td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="136"></th><th></th><th width="100"></th><th></th></tr></thead><tbody><tr><td><strong>Property</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Description</strong></td></tr><tr><td><code>_t</code></td><td><code>number</code> </td><td>Yes</td><td>The timestamp indicating when the execution of the spec file started, in milliseconds.</td></tr><tr><td><code>testId</code></td><td><code>string</code></td><td>Yes</td><td>Unique identifier for the test. <a href="data-format-reference.md#generate-a-testid">See how to generate this property</a>.</td></tr><tr><td><code>title</code></td><td><code>Array&#x3C;string></code></td><td>Yes</td><td>Array containing the specification and title of the test. Example: <code>["75119228-2d2d-4e59-b426-60a002b8cdce / Get Run", "Response status code is 200"]</code>.</td></tr><tr><td><code>state</code></td><td><code>failed | passed | skipped</code></td><td>Yes</td><td>Final state of the test.</td></tr><tr><td><code>isFlaky</code></td><td><code>boolean</code></td><td>Yes</td><td>Indicates whether the test is flaky.</td></tr><tr><td><code>expectedStatus</code></td><td><code>failed | passed | skipped</code></td><td>Yes</td><td>The expected status of the test. </td></tr><tr><td><code>timeout</code></td><td><code>number</code></td><td>Yes</td><td>Time in milliseconds that the test execution lasted without a clear state result.</td></tr><tr><td><code>location</code></td><td><a href="data-format-reference.md#location"><code>Location</code></a></td><td>Yes</td><td>Object containing file location details for the test.</td></tr><tr><td><code>retries</code></td><td><code>number</code></td><td>Yes</td><td>Number of retries attempted for the test.</td></tr><tr><td><code>attempts</code></td><td><code>Array&#x3C;</code><a href="data-format-reference.md#attempt"><code>Attempt</code></a><code>></code></td><td>Yes</td><td>Array of objects representing each attempt made for the test. </td></tr></tbody></table>
 
 #### `Location`
 
@@ -301,9 +301,9 @@ Each object in the `tests` array represents the execution result of a test, poss
 
 #### `Attempt`
 
-Object describes an individual attempt of a test.
+Object that describes an individual attempt of a test.
 
-<table data-header-hidden><thead><tr><th width="185"></th><th width="190"></th><th width="100"></th><th></th></tr></thead><tbody><tr><td><strong>Property</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Description</strong></td></tr><tr><td><code>_s</code></td><td><code>passed | failed | pending</code></td><td>Yes</td><td>Status of the test attempt.</td></tr><tr><td><code>attempt</code></td><td><code>number</code></td><td>Yes</td><td>Index of the attempt. Defines the order of the attempts execution.</td></tr><tr><td><code>startTime</code></td><td><code>string</code> (ISO Datetime)</td><td>Yes</td><td>Timestamp when the attempt started in ISO 8601 format.</td></tr><tr><td><code>steps</code></td><td><code>Array&#x3C;</code><a href="data-format-reference.md#step"><code>Step</code></a><code>></code></td><td>Yes</td><td>Array of steps executed during the attempt.</td></tr><tr><td><code>duration</code></td><td><code>number</code></td><td>Yes</td><td>Duration of the attempt in milliseconds.</td></tr><tr><td><code>status</code></td><td><code>passed | failed | pending</code></td><td>Yes</td><td>Final status of the attempt.</td></tr><tr><td><code>stdout</code></td><td><code>Array&#x3C;string></code></td><td>Yes</td><td>Standard output logs for the attempt.</td></tr><tr><td><code>stderr</code></td><td><code>Array&#x3C;string></code></td><td>Yes</td><td>Standard error logs for the attempt.</td></tr><tr><td><code>errors</code></td><td><code>Array&#x3C;</code><a href="data-format-reference.md#error"><code>Error</code></a><code>></code></td><td>Yes</td><td>Array of error objects encountered during the attempt.</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="185"></th><th width="190"></th><th width="100"></th><th></th></tr></thead><tbody><tr><td><strong>Property</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Description</strong></td></tr><tr><td><code>_s</code></td><td><code>passed | failed | pending</code></td><td>Yes</td><td>Status of the test attempt.</td></tr><tr><td><code>attempt</code></td><td><code>number</code></td><td>Yes</td><td>Index of the attempt. Defines the order of attempt execution.</td></tr><tr><td><code>startTime</code></td><td><code>string</code> (ISO Datetime)</td><td>Yes</td><td>Timestamp when the attempt started in ISO 8601 format.</td></tr><tr><td><code>steps</code></td><td><code>Array&#x3C;</code><a href="data-format-reference.md#step"><code>Step</code></a><code>></code></td><td>Yes</td><td>Array of steps executed during the attempt.</td></tr><tr><td><code>duration</code></td><td><code>number</code></td><td>Yes</td><td>Duration of the attempt in milliseconds.</td></tr><tr><td><code>status</code></td><td><code>passed | failed | pending</code></td><td>Yes</td><td>Final status of the attempt.</td></tr><tr><td><code>stdout</code></td><td><code>Array&#x3C;string></code></td><td>Yes</td><td>Standard output logs for the attempt.</td></tr><tr><td><code>stderr</code></td><td><code>Array&#x3C;string></code></td><td>Yes</td><td>Standard error logs for the attempt.</td></tr><tr><td><code>errors</code></td><td><code>Array&#x3C;</code><a href="data-format-reference.md#error"><code>Error</code></a><code>></code></td><td>Yes</td><td>Array of error objects encountered during the attempt.</td></tr></tbody></table>
 
 #### `Step`
 
@@ -315,7 +315,7 @@ Object describes an individual attempt of a test.
 
 ### Generating testId&#x20;
 
-The testId is a hash composed by the title of the test and the spec file name. Use this function to generate it.
+The testId is a hash composed of the test title and the spec file name. Use this function to generate it.
 
 ```typescript
 export function generateTestId(testTitle: string, specFileName: string): string {
