@@ -10,7 +10,7 @@ description: API Reference - Runs resource
 * See [instances.md](instances.md "mention") API resource for fetching Instance objects by `instanceId`
 
 {% hint style="info" %}
-Asset URLs listed in the responses (videos, screenshots) are signed URLs that are valid for 2h.
+Asset URLs in the response (videos, screenshots) are pre-signed URLs with a 2-hour expiration time. You must download or access these URLs within 2 hours of receiving the API response.
 {% endhint %}
 
 ## Get Run

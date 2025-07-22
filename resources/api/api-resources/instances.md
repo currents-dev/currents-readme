@@ -7,7 +7,7 @@ description: API Reference - Instance resource
 An instance is an object representing the results of a spec file execution. You can obtain a list of instances associated with a run from the [runs.md](runs.md "mention") API resource.
 
 {% hint style="info" %}
-Asset URLs listed in the responses (videos, screenshots) are signed URLs that are valid for 2h.
+Asset URLs in the response (videos, screenshots) are pre-signed URLs with a 2-hour expiration time. You must download or access these URLs within 2 hours of receiving the API response.
 {% endhint %}
 
 ## Get Instance
