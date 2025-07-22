@@ -7,7 +7,7 @@ description: API Reference - Test Results
 This resource allows to query test results based on its signature.
 
 {% hint style="info" %}
-Learn how to retrieve before using this resource [test-signature.md](test-signature.md "mention")
+Learn how to generate[test-signature.md](test-signature.md "mention")before using this resource
 {% endhint %}
 
 ## Get Test Results
