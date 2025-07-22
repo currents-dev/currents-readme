@@ -1,5 +1,5 @@
 ---
-description: API Reference - Gets a test signature
+description: API Reference - Test Signature resource
 ---
 
 # Test Signature
