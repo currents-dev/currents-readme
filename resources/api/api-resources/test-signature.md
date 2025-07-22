@@ -28,7 +28,7 @@ It is based in the combination of the organization ID, the project ID, the spec 
 | ---------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------- |
 | projectId<mark style="color:red;">\*</mark>     | string         | Currents Project ID. See [projects](../../../dashboard/projects/ "mention")                                 |
 | specFilePath<mark style="color:red;">\*</mark>  | string         | Test's spec file relative path. See [spec-files.md](spec-files.md "mention") and [#spec-file-path](test-signature.md#spec-file-path "mention") |
-| testTitle<mark style="color:red;">\*</mark>     | Array\<string> | Hierarchical test title, e.g. `['describe', 'title']`                                                       |
+| testTitle<mark style="color:red;">\*</mark>     | string[] | Hierarchical test title, e.g. `['describe', 'title']`                                                       |
 
 ### Response
 
