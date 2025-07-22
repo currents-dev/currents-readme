@@ -1,12 +1,10 @@
 ---
-description: API Reference - Spec Files resource
+description: API Reference - Spec Files Explorer
 ---
 
-# Spec Files
+# Spec Files Explorer - API
 
-This resource represents the Spec Files and their performance metrics
-
-The results are sorted according to the `order` parameter. Using this query would allow to programmatically access the data that is available in [test-suite-performance-explorer](../../../dashboard/test-suite-performance-explorer/ "mention").
+This resource allow to programmatically fetch Spec Files performance data that is available in [test-suite-performance-explorer](../../../dashboard/test-suite-performance-explorer/ "mention") > [spec-files-explorer.md](../../../dashboard/test-suite-performance-explorer/spec-files-explorer.md "mention")
 
 {% hint style="info" %}
 This resource uses **Offset Pagination** as documented at [pagination.md](../pagination.md "mention")
