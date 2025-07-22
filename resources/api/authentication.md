@@ -1,16 +1,14 @@
 ---
-description: Test API Reference - authenticating requests
+description: API Reference - Authentication
 ---
 
 # Authentication
 
 The Currents API uses [API keys](api-keys.md) to authenticate requests. You can view and manage your API keys in [the Currents Dashboard](https://app.currents.dev).
 
-\
 Your API keys carry many privileges, so be sure to keep them secure! Do not share your secret API keys in publicly accessible areas such as GitHub, client-side code, and so forth.
 
-\
-Authentication to the API is performed by specifying the `Authorization` HTTP header with a bearer auth token, for example:
+Authentication to the API is performed by specifying the `Authorization` HTTP header with a bearer authentication token, for example:
 
 ```bash
 curl https://api.currents.dev/v1/projects \
