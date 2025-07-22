@@ -7,7 +7,7 @@ description: API Reference - Runs resource
 **Run** is an object representing a CI execution.
 
 * See [projects.md](projects.md "mention") API resource to list runs associated with a project.
-* See [instances.md](instances.md "mention")API resource for fetching Instance object by an `instanceId`
+* See [instances.md](instances.md "mention") API resource for fetching Instance objects by `instanceId`
 
 {% hint style="info" %}
 Asset URLs listed in the responses (videos, screenshots) are signed URLs that are valid for 2h.
@@ -99,13 +99,13 @@ Note: The output may vary between different test runners.
                 "spec": "integration/api/external-api-call-tests.ts",
                 // Associated instance ID
                 "instanceId": "b5f95e95-726f-4a3b-9edc-6cc0b0eb85fd",
-                // Time when the test runner requested the spec file
+                // Time when the test runner claimed the spec file
                 "claimedAt": "2022-07-06T08:37:58.317Z",
-                // Time when the test runner reported the results to the dashboard
+                // Time when the test runner reported results to the dashboard
                 "completedAt": "2022-07-06T08:38:05.113Z",
-                // Test runner that requested the spec file 
+                // Test runner that claimed the spec file 
                 "machineId": "327043fb-f9df-4611-9a5e-8a33bbba7247",
-                // The results of the instance associated with the spec file
+                // Results of the instance associated with the spec file
                 "results": {
                     // Signed video URL 
                     "videoUrl": "https://fs-staging.currents.dev/629849461deb0ae7090f97d1/bf89e79f-af2a-43cb-afba-2575e567f103.mp4?Expires=1657219165&Key-Pair-Id=K1ZNDCCIZ3P4FU&Signature=QYVMeagJ~N~~3YHdSzpRZeCevUolGmUkG5Wr45D3V5ucLdqNnIulSRPoqLMFppKYU9e1AqOXz-7AmCZ-796~17t4RHVfURSdl3Fb4D~ksZ6IcVO6xrnkV8dfJEwZmBcQS8423BqXJ2Xs1VL~XLy~2UOwo4HYEHL5BxgEVtT0HgfUOW5xqopV9MHblDn7Ll0VbCnCJlc5oRjUNXwYjlxkTwe9hKMzaM~5nt82C2O3loMJuc2j0ma2UEPsMSC6zxhI4fhkhD2P-vQ0-Vd2iRLYe6FZnoQ73UIeOkucjGSPnaGTBFi~PoxTZ9ZDMkiCEYfCusYi7HtVM3-~Istbg~JJMw__",
@@ -121,7 +121,7 @@ Note: The output may vary between different test runners.
                         "wallClockEndedAt": "2022-07-06T07:25:50.992Z",
                         "wallClockDuration": 136
                     },
-                    // Screeenshots associated with the instance
+                    // Screenshots associated with the instance
                     "screenshots": [
                         {
                             "screenshotId": "wz9n2",
@@ -223,13 +223,13 @@ Note: The output may vary between different test runners.
                 "groupId": "chromium",
                 // Associated instance ID
                 "instanceId": "IzzYS81rn8unznmX",
-                // Time when a playwright runner claimed the spec file
+                // Time when the test runner claimed the spec file
                 "claimedAt": "2024-05-27T12:30:14.331Z",
-                // Time when a playwright runner reported the results to the dashboard
+                // Time when the test runner reported results to the dashboard
                 "completedAt": "2024-05-27T12:30:28.275Z",
                 // Tags associated with the spec file
                 "tags": ["project:chrome"],
-                // The results of the instance associated with the spec file
+                // Results of the instance associated with the spec file
                 "results": {
                     "flaky": 0,
                     "stats": {
@@ -250,7 +250,7 @@ Note: The output may vary between different test runners.
                     // Note: screenshots are available only via instance API
                     "screenshots": []
                 },
-                // Playwright runner that requested the spec file 
+                // Test runner that claimed the spec file 
                 "machineId": "lcI9xbSwemNV",
                 // Playwright worker information
                 "worker": {

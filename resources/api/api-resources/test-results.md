@@ -4,7 +4,7 @@ description: API Reference - Test Results
 
 # Test Results
 
-This resource allows to query test results based on its signature.
+This resource allows you to query test results based on their signature.
 
 {% hint style="info" %}
 Learn how to generate [test-signature.md](test-signature.md "mention") before using this resource
@@ -177,8 +177,8 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 | instanceId       | string                                           | Instance ID that this test belongs to. See [instances.md](instances.md "mention") |
 | spec             | string                                           | Spec file name that contains this test. See [spec-files.md](spec-files.md "mention") |
 | machineId        | string                                           | Machine ID that executed this test |
-| signature        | string                                           | Signature of the test [test-signature.md](test-signature.md "mention")                                                     |
-| title            | string[]                                         | Title of the test. [See test title](https://docs.currents.dev/resources/api/api-resources/test-signature#test-title).      |
+| signature        | string                                           | Test signature. See [test-signature.md](test-signature.md "mention")                                                     |
+| title            | string[]                                         | Test title. See [test title](https://docs.currents.dev/resources/api/api-resources/test-signature#test-title)      |
 | testId           | string                                           | Test ID as reported by the testing framework |
 | expectedStatus   | enum                                         | Expected status of the test. Values: `"failed"`, `"passed"`, `"pending"`, `"skipped"`. Only available for Playwright. |
 | status           | enum                                         | Final status of the test after the execution. Values: `"failed"`, `"passed"`, `"pending"`, `"skipped"`             |
@@ -205,9 +205,9 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 
 | Name            | Type     | Description                                        |
 | --------------- | -------- | -------------------------------------------------- |
-| clientVersion | string   | Version of the reporter used in the test execution |
+| clientVersion   | string   | Version of the reporter used for test execution |
 | type          | enum     | Type of the test execution framework. Values: `"pw"`, `"cypress"`, `"jest"`, `"postman"`, `"vitest"` |
-| version       | string   | Version of the testing framework                   |
+| version         | string   | Version of the testing framework                   |
 
 #### Annotation
 
@@ -222,25 +222,25 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 
 | Name        | Type                                           | Description                                                                              |
 | ----------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| attemptId     | string                                         | Unique identifier for this test attempt |
+| attemptId       | string                                         | Unique identifier for this test attempt |
 | state         | enum                                         | Status of the attempt. Values: `"failed"`, `"passed"`, `"pending"`, `"skipped"`    |
-| startedAt     | string (ISO 8601)                              | Timestamp when the attempt started |
-| duration      | number                                         | Total duration of the attempt in milliseconds                                            |
+| startedAt       | string (ISO 8601)                              | Timestamp when the attempt started |
+| duration        | number                                         | Total duration of the attempt in milliseconds                                            |
 | error         | Error                                          | Error object of the attempt in case of failure [#error](test-results.md#error "mention") |
 
 #### Error
 
 | Name       | Type       | Description                                                                                     |
 | ---------- | ---------- | ----------------------------------------------------------------------------------------------- |
-| message      | string     | Description of the error                                                                        |
-| stack        | string     | More detailed description of the error                                                          |
-| location     | Location   | Specific code location where the error happened [#location](test-results.md#location "mention") |
+| message         | string     | Error description                                                                        |
+| stack           | string     | Detailed error description with stack trace                                                          |
+| location        | Location   | Code location where the error occurred. See [#location](test-results.md#location "mention") |
 
 #### Location
 
 | Name     | Type     | Description                         |
 | -------- | -------- | ----------------------------------- |
-| line         | number   | Line number where the error occurred |
-| column       | number   | Column number where the error occurred |
-| file         | string   | File path where an error occurred   |
+| line            | number   | Line number where the error occurred |
+| column          | number   | Column number where the error occurred |
+| file            | string   | File path where the error occurred   |
 

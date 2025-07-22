@@ -4,7 +4,7 @@ description: API Reference - access Currents data programmatically
 
 # Introduction
 
-The Currents API allows programmatic access to the data created during the execution of your Playwright test.
+The Currents API allows programmatic access to the data created during the execution of your tests.
 
 The base URL for accessing the API is
 

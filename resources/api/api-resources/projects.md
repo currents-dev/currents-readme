@@ -4,11 +4,11 @@ description: API Reference - Projects resource
 
 # Projects
 
-This namespace allows to retrieve information about Currents Projects:
+This namespace allows you to retrieve information about Currents Projects:
 
-* get the list of projects for your organization
-* get specific project details,
-* the list of runs for a project.
+* Get the list of projects for your organization
+* Get specific project details
+* Get the list of runs for a project
 
 ## List Projects
 
@@ -148,9 +148,9 @@ This namespace allows to retrieve information about Currents Projects:
     "has_more": true,
     "data": [
         {
-            "runId": "0a91f41ed60abfab9ea509e866ba9d6d", // run id
+            "runId": "0a91f41ed60abfab9ea509e866ba9d6d", // run ID
             "cursor": "62c5468c239c55bd1a1a97ce", // pagination cursor
-            "projectId": "bAYZ4a", // run's project ID
+            "projectId": "bAYZ4a", // project ID for this run
             "createdAt": "2022-07-06T08:23:40.939Z", // creation time
             "completionState": "COMPLETE", // "CANCELED" | "COMPLETE" | "IN_PROGRESS" | "TIMEOUT"
             "status": "FAILED", // "FAILED" | "FAILING" | "PASSED" | "RUNNING"
@@ -200,7 +200,7 @@ This namespace allows to retrieve information about Currents Projects:
             "meta": {
                 // CI Build ID associated with the run
                 "ciBuildId": "regression-c64c5c2b976aa5047507cb8badc889aac7539a3b-2621389820-1",
-                // Git commit data for the run
+                // Git commit information for the run
                 "commit": {
                     "sha": "c64c5c2b976aa5047507cb8badc889aac7539a3b",
                     "branch": "feat/branch",
@@ -315,22 +315,22 @@ type ProjectInsights = {
 };
 
 type RunMetric = {
-  total: number; // overall # of runs for the period
-  cancelled: number; // # of runs for the period
-  timeouts: number; // # of timed-out runs for the period
-  completed: number; // # of completed runs for the period
-  failed: number; // # of failed  runs for the period
-  passed: number; // # of passed runs for the period
-  avgDurationSeconds: number; // avg duration of completed runs for the period
+  total: number; // total number of runs for the period
+  cancelled: number; // number of cancelled runs for the period
+  timeouts: number; // number of timed-out runs for the period
+  completed: number; // number of completed runs for the period
+  failed: number; // number of failed runs for the period
+  passed: number; // number of passed runs for the period
+  avgDurationSeconds: number; // average duration of completed runs for the period
 };
 
 type TestMetric = {
-  total: number; // overall # of tests for the period
-  failed: number; // # of failed tests for the period
-  passed: number; // # of passed tests for the period
-  pending: number; // # of pending tests for the period
-  skipped: number; // # of skipped tests for the period
-  flaky: number; // # of flaky tests for the period
+  total: number; // total number of tests for the period
+  failed: number; // number of failed tests for the period
+  passed: number; // number of passed tests for the period
+  pending: number; // number of pending tests for the period
+  skipped: number; // number of skipped tests for the period
+  flaky: number; // number of flaky tests for the period
 };
 </code></pre>
 {% endtab %}
