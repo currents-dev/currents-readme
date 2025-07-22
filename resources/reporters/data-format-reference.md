@@ -101,7 +101,7 @@ Starting on version 1.6.8 of [`@currents/cmd`](https://www.npmjs.com/package/@cu
 | -------- | ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | name     | string     | Yes      | Represents the group ID that will be visualized in the dashboard. All the tests will be organized by the group ID.                             |
 | tags     | string[]   | Yes      | Run-level tags for this run/build. See [playwright-tags.md](../../guides/playwright-tags.md "mention")                                        |
-| tests    | SuiteTest[]| Yes      | List of included tests, including test title, spec file, test tags and testId. The testId of full test suite file and instance files must match. |
+| tests    | [SuiteTest](#suitetest)[] | Yes      | List of included tests, including test title, spec file, test tags and testId. The testId of full test suite file and instance files must match. |
 
 #### `SuiteTest`
 
@@ -262,14 +262,14 @@ The properties that can be found in an instance file are the following:
 | groupId   | string       | Yes      | Identifier for the test group. It provides a reference for what the executed tests are about                                                                            |
 | spec      | string       | Yes      | The name of the spec file or logical collection that contains the executed tests. The spec property must be unique across all instance files. Example: __tests__/utils.spec.ts |
 | startTime | string       | Yes      | The timestamp indicating when the execution of the spec file started in ISO 8601 format                                                                                 |
-| results   | TestResult[] | Yes      | Contains an array of test results                                                                                                                                        |
+| results   | [TestResult](#testresult)[] | Yes      | Contains an array of test results                                                                                                                                        |
 
 #### TestResult
 
 | Property | Type        | Required | Description                                               |
 | -------- | ----------- | -------- | --------------------------------------------------------- |
-| stats    | StatsObject | Yes      | Summary statistics for the test run                      |
-| tests    | Test[]      | Yes      | Array of objects, each representing an individual test result |
+| stats    | [StatsObject](#statsobject) | Yes      | Summary statistics for the test run                      |
+| tests    | [Test](#test)[]      | Yes      | Array of objects, each representing an individual test result |
 
 #### StatsObject
 
@@ -299,9 +299,9 @@ Each object in the tests array represents the execution result of a test, possib
 | isFlaky        | boolean   | Yes      | Indicates whether the test is flaky                                                                                                             |
 | expectedStatus | string    | Yes      | The expected status of the test                                                                                                                  |
 | timeout        | number    | Yes      | Time in milliseconds that the test execution lasted without a clear state result                                                                |
-| location       | Location  | Yes      | Object containing file location details for the test                                                                                            |
+| location       | [Location](#location)  | Yes      | Object containing file location details for the test                                                                                            |
 | retries        | number    | Yes      | Number of retries attempted for the test                                                                                                        |
-| attempts       | Attempt[] | Yes      | Array of objects representing each attempt made for the test                                                                                     |
+| attempts       | [Attempt](#attempt)[] | Yes      | Array of objects representing each attempt made for the test                                                                                     |
 
 #### Location
 
@@ -320,12 +320,12 @@ Object that describes an individual attempt of a test.
 | _s        | string   | Yes      | Status of the test attempt                                       |
 | attempt   | number   | Yes      | Index of the attempt. Defines the order of attempt execution    |
 | startTime | string   | Yes      | Timestamp when the attempt started in ISO 8601 format           |
-| steps     | Step[]   | Yes      | Array of steps executed during the attempt                      |
+| steps     | [Step](#step)[]   | Yes      | Array of steps executed during the attempt                      |
 | duration  | number   | Yes      | Duration of the attempt in milliseconds                         |
 | status    | string   | Yes      | Final status of the attempt                                     |
 | stdout    | string[] | Yes      | Standard output logs for the attempt                            |
 | stderr    | string[] | Yes      | Standard error logs for the attempt                             |
-| errors    | Error[]  | Yes      | Array of error objects encountered during the attempt           |
+| errors    | [Error](#error)[]  | Yes      | Array of error objects encountered during the attempt           |
 
 #### Step
 
@@ -334,7 +334,7 @@ Object that describes an individual attempt of a test.
 | title     | string | Yes      | The title or description of the step. Example: "Validate API response schema"             |
 | category  | string | No       | The category of the step, indicating its classification. Example: "API Test"              |
 | duration  | number | Yes      | The duration of the step in milliseconds. Example: 200                                     |
-| error     | Error  | No       | An optional error object describing any issue encountered during the step execution        |
+| error     | [Error](#error)  | No       | An optional error object describing any issue encountered during the step execution        |
 | startTime | string | Yes      | Step start date time, in ISO 8601 format                                                   |
 
 #### Error
