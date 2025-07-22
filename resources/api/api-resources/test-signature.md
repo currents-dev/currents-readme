@@ -22,15 +22,13 @@ It is based in the combination of the organization ID, the project ID, the spec 
 }
 ```
 
-*   **`projectId:`**`string` <mark style="color:red;">required</mark>
+#### Request Body Parameters
 
-    Currents Project ID. See [projects](../../../dashboard/projects/ "mention").
-*   **`specFilePath:`**`string` <mark style="color:red;">required</mark>
-
-    Test's spec file  relative path. See [spec-files.md](spec-files.md "mention") and [#spec-file-path](test-signature.md#spec-file-path "mention").
-*   **`testTitle:`**`Array<string>` <mark style="color:red;">required</mark>
-
-    Hierarchical test title, e.g. `['describe', 'title']`
+| Name                                           | Type           | Description                                                                                                   |
+| ---------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------- |
+| projectId<mark style="color:red;">\*</mark>     | string         | Currents Project ID. See [projects](../../../dashboard/projects/ "mention")                                 |
+| specFilePath<mark style="color:red;">\*</mark>  | string         | Test's spec file relative path. See [spec-files.md](spec-files.md "mention") and [#spec-file-path](test-signature.md#spec-file-path "mention") |
+| testTitle<mark style="color:red;">\*</mark>     | Array\<string> | Hierarchical test title, e.g. `['describe', 'title']`                                                       |
 
 ### Response
 
