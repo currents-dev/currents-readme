@@ -18,7 +18,7 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 
 | Name                                      | Type   | Description                                                                    |
 | ----------------------------------------- | ------ | ------------------------------------------------------------------------------ |
-| signature<mark style="color:red;">\*</mark> | string | The unique signature of the test, see [test-signature.md](test-signature.md "mention") |
+| signature<mark style="color:red;">\*</mark> | string | Unique test signature. See [test-signature.md](test-signature.md "mention") |
 
 
 
@@ -26,15 +26,15 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 
 | Name                                         | Type                              | Description                                                                                     |
 | -------------------------------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------- |
-| date_start<mark style="color:red;">\*</mark>  | string (ISO 8601)             | Date start - the test results included within the date range will be included                  |
-| date_end<mark style="color:red;">\*</mark>    | string (ISO 8601)             | Date end - the test results included within the date range will be included                    |
-| starting_after                               | string                            | Pagination cursor. See [pagination.md](../pagination.md "mention")                            |
-| ending_before                                | string                            | Pagination cursor. See [pagination.md](../pagination.md "mention")                            |
-| limit                                        | number                            | Pagination limit 1-100. Default: 10                                                            |
-| branch[]                                     | string                            | Git branches filter. Multiple values: `branch[]=valueA&branch[]=valueB`                       |
-| tag[]                                        | string                            | Tags filter. Multiple values: `tag[]=valueA&tag[]=valueB`                                     |
-| git_author[]                                 | string                            | Git authors filter. Multiple values: `git_author[]=valueA&git_author[]=valueB`                |
-| group[]                                      | string                            | Group filter. Multiple values: `group[]=valueA&group[]=valueB`                                |
+| date_start<mark style="color:red;">\*</mark>  | string (ISO 8601)             | Start date for filtering test results within the specified date range |
+| date_end<mark style="color:red;">\*</mark>    | string (ISO 8601)             | End date for filtering test results within the specified date range |
+| starting_after                               | string                            | Pagination cursor for fetching results after this cursor. See [pagination.md](../pagination.md "mention") |
+| ending_before                                | string                            | Pagination cursor for fetching results before this cursor. See [pagination.md](../pagination.md "mention") |
+| limit                                        | number                            | Maximum number of results to return (1-100). Default: 10 |
+| branch[]                                     | string                            | Filter by Git branch names. Multiple values: `branch[]=valueA&branch[]=valueB` |
+| tag[]                                        | string                            | Filter by tag names. Multiple values: `tag[]=valueA&tag[]=valueB` |
+| git_author[]                                 | string                            | Filter by Git author names. Multiple values: `git_author[]=valueA&git_author[]=valueB` |
+| group[]                                      | string                            | Filter by group names. Multiple values: `group[]=valueA&group[]=valueB` |
 | status[]                                     | enum                                        | Test status filter. Values: `"failed"`, `"passed"`, `"pending"`, `"skipped"`. Multiple values: `status[]=failed&status[]=passed` |
 
 ### **Response**
@@ -170,24 +170,24 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 
 | Name             | Type                                             | Description                                                                                                                |
 | ---------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| cursor           | string                                           | Used for pagination. See [pagination.md](../pagination.md "mention")                                                       |
-| projectId        | string                                           | ID of the project of the test. [projects](../../../dashboard/projects/ "mention")                                          |
-| groupId          | string                                           | ID of the group which the current test belongs to.                                                                         |
-| runId            | string                                           | ID of the run which the current test belongs to. [runs](../../../dashboard/runs/ "mention")                                |
-| instanceId       | string                                           | ID of the instance which the current test belongs to. [instances.md](instances.md "mention")                               |
-| spec             | string                                           | Name of the spec file which the test belongs to. [spec-files.md](spec-files.md "mention")                                  |
-| machineId        | string                                           | ID of the machine which executed the test.                                                                                 |
+| cursor           | string                                           | Pagination cursor for this result. See [pagination.md](../pagination.md "mention") |
+| projectId        | string                                           | Project ID for this test. See [projects](../../../dashboard/projects/ "mention") |
+| groupId          | string                                           | Group ID that this test belongs to |
+| runId            | string                                           | Run ID that this test belongs to. See [runs](../../../dashboard/runs/ "mention") |
+| instanceId       | string                                           | Instance ID that this test belongs to. See [instances.md](instances.md "mention") |
+| spec             | string                                           | Spec file name that contains this test. See [spec-files.md](spec-files.md "mention") |
+| machineId        | string                                           | Machine ID that executed this test |
 | signature        | string                                           | Signature of the test [test-signature.md](test-signature.md "mention")                                                     |
 | title            | string[]                                         | Title of the test. [See test title](https://docs.currents.dev/resources/api/api-resources/test-signature#test-title).      |
-| testId           | string                                           | ID of the test as reporter by its framework.                                                                               |
+| testId           | string                                           | Test ID as reported by the testing framework |
 | expectedStatus   | enum                                         | Expected status of the test. Values: `"failed"`, `"passed"`, `"pending"`, `"skipped"`. Only available for Playwright. |
 | status           | enum                                         | Final status of the test after the execution. Values: `"failed"`, `"passed"`, `"pending"`, `"skipped"`             |
 | framework        | Framework                                        | Information about the framework and reporter used for the test execution [#framework](test-results.md#framework "mention") |
-| displayError     | string                                           | Latest error from the test execution                                                                                       |
+| displayError     | string                                           | Most recent error message from test execution |
 | commit           | Commit                                           | Git commit information [#commit](test-results.md#commit "mention")                                                         |
-| createdAt        | string (ISO 8601)                                | Date of the test execution                                                                                                 |
+| createdAt        | string (ISO 8601)                                | Timestamp when the test was executed |
 | duration         | number                                           | Total duration of the test execution in milliseconds                                                                       |
-| flaky            | boolean                                          | Property that shows if the test is marked as flaky [flaky-tests.md](../../../dashboard/tests/flaky-tests.md "mention")     |
+| flaky            | boolean                                          | Indicates whether the test is marked as flaky. See [flaky-tests.md](../../../dashboard/tests/flaky-tests.md "mention") |
 | attempts         | Attempt[]                                        | List of test execution attempts [#attempt](test-results.md#attempt "mention")                                              |
 | annotations      | Annotation[]                                     | List of test annotations [#annotation](test-results.md#annotation "mention")                                               |
 
@@ -195,11 +195,11 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 
 | Name          | Type     | Description                                    |
 | ------------- | -------- | ---------------------------------------------- |
-| branch        | string   | Git Commit Branch of the recorded result       |
-| authorEmail   | string   | Git Commit Author Email of the recorded result |
-| authorName    | string   | Git Commit Author Name of the recorded result  |
-| sha           | string   | Git Commit SHA of the recorded result          |
-| message       | string   | Git Commit Message of the recorded result      |
+| branch        | string   | Git branch name for this test result |
+| authorEmail   | string   | Git commit author email address |
+| authorName    | string   | Git commit author name |
+| sha           | string   | Git commit SHA hash |
+| message       | string   | Git commit message |
 
 #### Framework
 
@@ -222,9 +222,9 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 
 | Name        | Type                                           | Description                                                                              |
 | ----------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| attemptId     | string                                         | ID of the attempt                                                                        |
+| attemptId     | string                                         | Unique identifier for this test attempt |
 | state         | enum                                         | Status of the attempt. Values: `"failed"`, `"passed"`, `"pending"`, `"skipped"`    |
-| startedAt     | string (ISO 8601)                              | Start date of the attempt                                                                |
+| startedAt     | string (ISO 8601)                              | Timestamp when the attempt started |
 | duration      | number                                         | Total duration of the attempt in milliseconds                                            |
 | error         | Error                                          | Error object of the attempt in case of failure [#error](test-results.md#error "mention") |
 
@@ -240,7 +240,7 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 
 | Name     | Type     | Description                         |
 | -------- | -------- | ----------------------------------- |
-| line         | number   | Code line where an error occurred   |
-| column       | number   | Code column where an error occurred |
+| line         | number   | Line number where the error occurred |
+| column       | number   | Column number where the error occurred |
 | file         | string   | File path where an error occurred   |
 
