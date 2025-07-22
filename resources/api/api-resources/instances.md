@@ -18,7 +18,7 @@ Asset URLs listed in the responses (videos, screenshots) are signed URLs that ar
 
 | Name                                         | Type   | Description |
 | -------------------------------------------- | ------ | ----------- |
-| instanceId<mark style="color:red;">\*</mark> | String | Instance ID |
+| instanceId<mark style="color:red;">\*</mark> | string | Instance ID |
 
 {% hint style="warning" %}
 The output is different for Cypress and Playwright results

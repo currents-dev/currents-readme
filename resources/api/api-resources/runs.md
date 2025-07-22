@@ -21,7 +21,7 @@ Asset URLs listed in the responses (videos, screenshots) are signed URLs that ar
 
 | Name                                    | Type   | Description |
 | --------------------------------------- | ------ | ----------- |
-| runId<mark style="color:red;">\*</mark> | String | Run ID      |
+| runId<mark style="color:red;">\*</mark> | string | Run ID      |
 
 {% hint style="warning" %}
 Note: The output may vary between Cypress and Playwright runs.
@@ -303,7 +303,7 @@ Note: The output may vary between Cypress and Playwright runs.
 
 | Name                                    | Type   | Description |
 | --------------------------------------- | ------ | ----------- |
-| runId<mark style="color:red;">\*</mark> | String | Run ID      |
+| runId<mark style="color:red;">\*</mark> | string | Run ID      |
 
 {% tabs %}
 {% tab title="200: OK " %}
@@ -365,7 +365,7 @@ Note: The output may vary between Cypress and Playwright runs.
 
 | Name                                    | Type   | Description |
 | --------------------------------------- | ------ | ----------- |
-| runId<mark style="color:red;">\*</mark> | String | Run ID      |
+| runId<mark style="color:red;">\*</mark> | string | Run ID      |
 
 {% tabs %}
 {% tab title="200: OK " %}

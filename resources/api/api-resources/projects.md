@@ -19,8 +19,8 @@ This namespace allows to retrieve information about Currents Projects:
 | Name             | Type   | Description                                                        |
 | ---------------- | ------ | ------------------------------------------------------------------ |
 | limit            | 1-100  | Pagination limit 1-50. Default 10.                                 |
-| starting\_before | String | Pagination cursor. See [pagination.md](../pagination.md "mention") |
-| ending\_after    | String | Pagination cursor. See [pagination.md](../pagination.md "mention") |
+| starting\_before | string | Pagination cursor. See [pagination.md](../pagination.md "mention") |
+| ending\_after    | string | Pagination cursor. See [pagination.md](../pagination.md "mention") |
 
 {% tabs %}
 {% tab title="200: OK Project Items" %}
@@ -76,7 +76,7 @@ This namespace allows to retrieve information about Currents Projects:
 
 | Name                                        | Type   | Description |
 | ------------------------------------------- | ------ | ----------- |
-| projectId<mark style="color:red;">\*</mark> | String | Project ID  |
+| projectId<mark style="color:red;">\*</mark> | string | Project ID  |
 
 {% tabs %}
 {% tab title="200: OK " %}
@@ -130,15 +130,15 @@ This namespace allows to retrieve information about Currents Projects:
 
 | Name                                        | Type   | Description |
 | ------------------------------------------- | ------ | ----------- |
-| projectId<mark style="color:red;">\*</mark> | String | Project ID  |
+| projectId<mark style="color:red;">\*</mark> | string | Project ID  |
 
 #### Query Parameters
 
 | Name             | Type   | Description                                                        |
 | ---------------- | ------ | ------------------------------------------------------------------ |
 | limit            | 1-50   | Pagination limit 1-50. Default 10.                                 |
-| starting\_before | String | Pagination cursor. See [pagination.md](../pagination.md "mention") |
-| ending\_after    | String | Pagination cursor. See [pagination.md](../pagination.md "mention") |
+| starting\_before | string | Pagination cursor. See [pagination.md](../pagination.md "mention") |
+| ending\_after    | string | Pagination cursor. See [pagination.md](../pagination.md "mention") |
 
 {% tabs %}
 {% tab title="200: OK " %}
@@ -270,17 +270,17 @@ Returns aggregated metrics for the project. See [insights-and-analytics.md](../.
 
 | Name                                        | Type   | Description |
 | ------------------------------------------- | ------ | ----------- |
-| projectId<mark style="color:red;">\*</mark> | String | Project ID  |
+| projectId<mark style="color:red;">\*</mark> | string | Project ID  |
 
 #### Query Parameters
 
 | Name                                          | Type     | Description                                                                                         |
 | --------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------- |
-| date\_start<mark style="color:red;">\*</mark> | String   | ISO Date format indicating the start date for the query                                             |
-| date\_end<mark style="color:red;">\*</mark>   | String   | ISO Date format indicating the end date for the query                                               |
-| resolution                                    | 1w \| 1d | Aggregation resolution. Valid values are "1w" or "1d"                                               |
-| tags\[]                                       | String   | List of tags for filtering the query. To provide multiple values, use `tags[]=valueA&tags[]=valueB` |
-| branches\[]                                   | String   | List of branches for filtering the query. `branches[]=valueA&branches[]=valueB`                     |
+| date\_start<mark style="color:red;">\*</mark> | string (ISO 8601) | Date start for the query                                                                           |
+| date\_end<mark style="color:red;">\*</mark>   | string (ISO 8601) | Date end for the query                                                                             |
+| resolution                                    | `"1w" \| "1d"` | Aggregation resolution. Valid values are `"1w"` or `"1d"`                                          |
+| tags\[]                                       | string   | List of tags for filtering the query. Multiple values: `tags[]=valueA&tags[]=valueB`               |
+| branches\[]                                   | string   | List of branches for filtering the query. Multiple values: `branches[]=valueA&branches[]=valueB`   |
 
 
 
