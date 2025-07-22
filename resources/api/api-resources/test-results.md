@@ -35,7 +35,7 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 | tag[]                                        | string                            | Tags filter. Multiple values: `tag[]=valueA&tag[]=valueB`                                     |
 | git_author[]                                 | string                            | Git authors filter. Multiple values: `git_author[]=valueA&git_author[]=valueB`                |
 | group[]                                      | string                            | Group filter. Multiple values: `group[]=valueA&group[]=valueB`                                |
-| status[]                                     | `"failed" \| "passed" \| "pending" \| "skipped"` | Test status filter. Multiple values: `status[]=failed&status[]=passed`                       |
+| status[]                                     | enum                                        | Test status filter. Values: `"failed"`, `"passed"`, `"pending"`, `"skipped"`. Multiple values: `status[]=failed&status[]=passed` |
 
 ### **Response**
 
@@ -180,8 +180,8 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 | signature        | string                                           | Signature of the test [test-signature.md](test-signature.md "mention")                                                     |
 | title            | string[]                                         | Title of the test. [See test title](https://docs.currents.dev/resources/api/api-resources/test-signature#test-title).      |
 | testId           | string                                           | ID of the test as reporter by its framework.                                                                               |
-| expectedStatus   | `"failed" \| "passed" \| "pending" \| "skipped"` | Expected status of the test. Only available for Playwright.                                                                |
-| status           | `"failed" \| "passed" \| "pending" \| "skipped"` | Final status of the test after the execution                                                                               |
+| expectedStatus   | enum                                         | Expected status of the test. Values: `"failed"`, `"passed"`, `"pending"`, `"skipped"`. Only available for Playwright. |
+| status           | enum                                         | Final status of the test after the execution. Values: `"failed"`, `"passed"`, `"pending"`, `"skipped"`             |
 | framework        | Framework                                        | Information about the framework and reporter used for the test execution [#framework](test-results.md#framework "mention") |
 | displayError     | string                                           | Latest error from the test execution                                                                                       |
 | commit           | Commit                                           | Git commit information [#commit](test-results.md#commit "mention")                                                         |
@@ -206,7 +206,7 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 | Name            | Type     | Description                                        |
 | --------------- | -------- | -------------------------------------------------- |
 | clientVersion | string   | Version of the reporter used in the test execution |
-| type          | Enum     | Type of the test execution framework               |
+| type          | enum     | Type of the test execution framework. Values: `"pw"`, `"cypress"`, `"jest"`, `"postman"`, `"vitest"` |
 | version       | string   | Version of the testing framework                   |
 
 #### Annotation
@@ -223,7 +223,7 @@ Learn how to generate [test-signature.md](test-signature.md "mention") before us
 | Name        | Type                                           | Description                                                                              |
 | ----------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | attemptId     | string                                         | ID of the attempt                                                                        |
-| state         | `"failed" \| "passed" \| "pending" \| "skipped"` | Status of the attempt                                                                    |
+| state         | enum                                         | Status of the attempt. Values: `"failed"`, `"passed"`, `"pending"`, `"skipped"`    |
 | startedAt     | string (ISO 8601)                              | Start date of the attempt                                                                |
 | duration      | number                                         | Total duration of the attempt in milliseconds                                            |
 | error         | Error                                          | Error object of the attempt in case of failure [#error](test-results.md#error "mention") |
