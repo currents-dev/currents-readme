@@ -4,10 +4,19 @@ description: Learn how to enable Code Coverage reporting for Playwright
 
 # Code Coverage for Playwright
 
-{% hint style="info" %}
-* Follow the [feature request](https://currents.featurebase.app/p/v8-coverage-reports-for-playwright) to get notified when we enable V8 coverage reports
-* Check out the [example GitHub repository](https://github.com/currents-dev/currents-playwright-coverage-example)&#x20;
-{% endhint %}
+## Intro
+
+This guide teaches how to report Playwright Code Coverage to Currents. If you are looking for information about how Code Coverage works, or what is Currents, head to the pages below.
+
+{% content-ref url="./" %}
+[.](./)
+{% endcontent-ref %}
+
+{% content-ref url="../../" %}
+[..](../../)
+{% endcontent-ref %}
+
+## Report code coverage to Currents
 
 Reporting code coverage to Currents as part of running your Playwright tests consist of 3 steps:
 
@@ -17,6 +26,11 @@ Reporting code coverage to Currents as part of running your Playwright tests con
 4. Updating the tests code
 
 ### Setting up the Currents reporter
+
+{% hint style="info" %}
+* Follow the [feature request](https://currents.featurebase.app/p/v8-coverage-reports-for-playwright) to get notified when we enable V8 coverage reports
+* Check out the [example GitHub repository](https://github.com/currents-dev/currents-playwright-coverage-example)&#x20;
+{% endhint %}
 
 {% hint style="info" %}
 Requires`@currents/playwright` v1.7.0+
