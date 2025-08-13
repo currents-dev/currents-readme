@@ -16,11 +16,11 @@ This namespace allows you to retrieve information about Currents Projects:
 
 #### Query Parameters
 
-| Name             | Type   | Description                                                        |
-| ---------------- | ------ | ------------------------------------------------------------------ |
-| limit            | number | Maximum number of results to return (1-100). Default: 10 |
+| Name             | Type   | Description                                                                                                |
+| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------- |
+| limit            | number | Maximum number of results to return (1-100). Default: 10                                                   |
 | starting\_before | string | Pagination cursor for fetching results before this cursor. See [pagination.md](../pagination.md "mention") |
-| ending\_after    | string | Pagination cursor for fetching results after this cursor. See [pagination.md](../pagination.md "mention") |
+| ending\_after    | string | Pagination cursor for fetching results after this cursor. See [pagination.md](../pagination.md "mention")  |
 
 {% tabs %}
 {% tab title="200: OK Project Items" %}
@@ -134,11 +134,11 @@ This namespace allows you to retrieve information about Currents Projects:
 
 #### Query Parameters
 
-| Name             | Type   | Description                                                        |
-| ---------------- | ------ | ------------------------------------------------------------------ |
-| limit            | number | Maximum number of results to return (1-50). Default: 10 |
+| Name             | Type   | Description                                                                                                |
+| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------- |
+| limit            | number | Maximum number of results to return (1-50). Default: 10                                                    |
 | starting\_before | string | Pagination cursor for fetching results before this cursor. See [pagination.md](../pagination.md "mention") |
-| ending\_after    | string | Pagination cursor for fetching results after this cursor. See [pagination.md](../pagination.md "mention") |
+| ending\_after    | string | Pagination cursor for fetching results after this cursor. See [pagination.md](../pagination.md "mention")  |
 
 {% tabs %}
 {% tab title="200: OK " %}
@@ -274,15 +274,15 @@ Returns aggregated metrics for the project. See [insights-and-analytics.md](../.
 
 #### Query Parameters
 
-| Name                                          | Type     | Description                                                                                         |
-| --------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------- |
-| date\_start<mark style="color:red;">\*</mark> | string (ISO 8601) | Start date for filtering the query results |
-| date\_end<mark style="color:red;">\*</mark>   | string (ISO 8601) | End date for filtering the query results |
-| resolution                                    | enum                            | Aggregation resolution. Values: `"1w"`, `"1d"`                                                     |
-| tags\[]                                       | string   | Filter by tag names. Multiple values: `tags[]=valueA&tags[]=valueB` |
-| branches\[]                                   | string   | Filter by branch names. Multiple values: `branches[]=valueA&branches[]=valueB` |
-
-
+| Name                                          | Type              | Description                                                                    |
+| --------------------------------------------- | ----------------- | ------------------------------------------------------------------------------ |
+| date\_start<mark style="color:red;">\*</mark> | string (ISO 8601) | Start date for filtering the query results                                     |
+| date\_end<mark style="color:red;">\*</mark>   | string (ISO 8601) | End date for filtering the query results                                       |
+| resolution                                    | enum              | Aggregation resolution. Values: `"1w"`, `"1d"`                                 |
+| tags\[]                                       | string            | Filter by tag names. Multiple values: `tags[]=valueA&tags[]=valueB`            |
+| branches\[]                                   | string            | Filter by branch names. Multiple values: `branches[]=valueA&branches[]=valueB` |
+| authors\[]                                    | string            | Filter by author names. Multiple values: `authors[]=authorA&authors[]=authorB` |
+| groups\[]                                     | string            | Filter by group names. Multiple values: `groups[]=groupA&groups[]=groupB`      |
 
 {% tabs %}
 {% tab title="200: OK Successful Response" %}
@@ -296,10 +296,11 @@ type ProjectInsights = {
   orgId: string;
   dateStart: string; // ISO date string
   dateEnd: string; // ISO date string
-  resolution: string[]; 
+  resolution: "1w" | "1d"; 
   tags: string[];
   authors: string[];
   branches: string[];
+  groups: string[];
   results: {
     overall: {
       runs: RunMetric;
@@ -371,4 +372,3 @@ type TestMetric = {
 ```
 {% endtab %}
 {% endtabs %}
-
