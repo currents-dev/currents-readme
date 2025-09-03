@@ -59,3 +59,14 @@ Example of commenting on an existing issue:
 * The integration creates one-way links from Currents to Jira
 * Jira issue status updates are not reflected back in Currents
 * Comments include a link back to the specific test in Currents
+
+### Limitations
+
+#### Required Jira issue custom properties
+
+**Problem**: Jira issues allows _required_ custom properties when an issue is created depending on the _issue type_. This is currently **not supported** in our integration, as we can't send custom payload to the create issue endpoint.
+
+**Solution**: Two options are available to overcome this issue. First,&#x20;
+
+* Don't enforce custom properties as required.
+* Use a different issue type that has no required custom properties.

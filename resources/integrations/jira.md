@@ -35,3 +35,7 @@ See the [Setup Guide](jira/setup.md) for complete instructions.
 * Link test failures to existing issues
 
 See the [Usage Guide](jira/usage.md) for details.
+
+#### Limitations
+
+See [#limitations](jira/usage.md#limitations "mention")
