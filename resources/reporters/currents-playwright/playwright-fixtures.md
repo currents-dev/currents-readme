@@ -14,7 +14,7 @@ description: Enhance Playwright functionality with Currents fixtures for Playwri
 
 Current integration with Playwright includes a several fixtures for enabling advanced Currents features like:
 
-* [code-coverage-for-playwright.md](../../../guides/coverage/code-coverage-for-playwright.md "mention")
+* [code-coverage-for-playwright.md](../../../guides/ci-optimization/coverage/code-coverage-for-playwright.md "mention")
 * [currents-actions](../../../guides/currents-actions/ "mention")
 
 ### Setting up Currents Fixtures
@@ -44,7 +44,7 @@ export const test = baseTest.extend<CurrentsFixtures, CurrentsWorkerFixtures>({
 {% step %}
 #### Add additional Currents feature fixtures
 
-The `baseFixtures` are required for loading the currents config for the other Currents fixtures. You will also want to include any Currents fixture you plan on using. Here is[ Playwright coverage](../../../guides/coverage/#code-coverage-for-playwright) and [Currents Actions](../../../guides/currents-actions/setup-currents-actions.md) as an example:
+The `baseFixtures` are required for loading the currents config for the other Currents fixtures. You will also want to include any Currents fixture you plan on using. Here is[ Playwright coverage](../../../guides/ci-optimization/coverage/#code-coverage-for-playwright) and [Currents Actions](../../../guides/currents-actions/setup-currents-actions.md) as an example:
 
 {% code title="currentsTest.ts" %}
 ```typescript
@@ -197,7 +197,7 @@ Other Currents fixtures depend on these. They are loaded once per worker.&#x20;
 
 * `context`
 
-See [#code-coverage-for-playwright](../../../guides/coverage/#code-coverage-for-playwright "mention")for details
+See [#code-coverage-for-playwright](../../../guides/ci-optimization/coverage/#code-coverage-for-playwright "mention")for details
 
 </details>
 

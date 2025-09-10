@@ -1,8 +1,8 @@
 ---
-description: API Reference - Spec Files resource
+description: API Reference for Spec Files resource
 ---
 
-# Spec Files Explorer - API
+# Spec Files
 
 This resource allows you to programmatically fetch Spec Files performance data that is available in [test-suite-performance-explorer](../../../dashboard/test-suite-performance-explorer/ "mention") > [spec-files-explorer.md](../../../dashboard/test-suite-performance-explorer/spec-files-explorer.md "mention")
 
@@ -27,32 +27,18 @@ The following metrics are available:
 * `fullyReported` - count of executions with all known tests fully completed and reported
 * `suiteSize` - maximum number of tests across all included executions
 * `failureRate` - the ratio `failedExecutions` / `overallExecutions`
-* `timeoutRate` - the ratio  `timeoutExecutions` / `overallExecutions`
+* `timeoutRate` - the ratio `timeoutExecutions` / `overallExecutions`
 * `flakeRate` - the ratio `flakyExecutions` / `overallExecutions`
 
 #### Path Parameters
 
-| Name                                        | Type   | Description     |
-| ------------------------------------------- | ------ | --------------- |
-| projectId<mark style="color:red;">\*</mark> | string | The project ID |
+<table><thead><tr><th width="130.150146484375">Name</th><th width="129.7578125">Type</th><th>Description</th></tr></thead><tbody><tr><td>projectId<mark style="color:red;">*</mark></td><td>string</td><td>The project ID</td></tr></tbody></table>
 
 #### Query Parameters
 
-| Name                                          | Type      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| --------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| limit                                         | number    | Pagination limit 1-50. Default: `50`                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| page                                          | number    | Page 0+. Default: `0`. See [pagination.md](../pagination.md "mention")                                                                                                                                                                                                                                                                                                                                                                                           |
-| date\_start<mark style="color:red;">\*</mark> | string (ISO 8601) | Start date for filtering test results within the specified date range |
-| date\_end<mark style="color:red;">\*</mark>   | string (ISO 8601) | End date for filtering test results within the specified date range |
-| tags\[]                                       | string\[] | Filter by tag names. Multiple values: `tags[]=valueA&tags[]=valueB` |
-| authors\[]                                    | string\[] | Filter by author names. Multiple values: `authors[]=valueA&authors[]=valueB` |
-| branches\[]                                   | string\[] | Filter by branch names. Multiple values: `branches[]=valueA&branches[]=valueB` |
-| includeFailedInDuration                       | boolean   | Include failed spec files in average duration calculation. Default: `false` |
-| order                                         | enum                            | Defines the attribute to order the spec files list. Values: `"avgDuration"`, `"failedExecutions"`, `"failureRate"`, `"flakeRate"`, `"flakyExecutions"`, `"fullyReported"`, `"overallExecutions"`, `"suiteSize"`, `"timeoutExecutions"`, `"timeoutRate"`. Default: `avgDuration` |
-| specNameFilter                                | string    | Filter by spec file names containing this string. Default: empty |
-| dir                                           | enum                            | Sorting direction. Values: `"asc"`, `"desc"`. Default: `desc` |
+<table><thead><tr><th width="130.40625">Name</th><th width="129.896728515625">Type</th><th>Description</th></tr></thead><tbody><tr><td>limit</td><td>number</td><td>Pagination limit 1-50. Default: <code>50</code></td></tr><tr><td>page</td><td>number</td><td>Page 0+. Default: <code>0</code>. See <a data-mention href="../pagination.md">pagination.md</a></td></tr><tr><td>date_start<mark style="color:red;">*</mark></td><td>string (ISO 8601)</td><td>Start date for filtering test results within the specified date range</td></tr><tr><td>date_end<mark style="color:red;">*</mark></td><td>string (ISO 8601)</td><td>End date for filtering test results within the specified date range</td></tr><tr><td>tags[]</td><td>string[]</td><td>Filter by tag names. Multiple values: <code>tags[]=valueA&#x26;tags[]=valueB</code></td></tr><tr><td>authors[]</td><td>string[]</td><td>Filter by author names. Multiple values: <code>authors[]=valueA&#x26;authors[]=valueB</code></td></tr><tr><td>branches[]</td><td>string[]</td><td>Filter by branch names. Multiple values: <code>branches[]=valueA&#x26;branches[]=valueB</code></td></tr><tr><td>includeFailedInDuration</td><td>boolean</td><td>Include failed spec files in average duration calculation. Default: <code>false</code></td></tr><tr><td>order</td><td>enum</td><td>Defines the attribute to order the spec files list. Values: <code>"avgDuration"</code>, <code>"failedExecutions"</code>, <code>"failureRate"</code>, <code>"flakeRate"</code>, <code>"flakyExecutions"</code>, <code>"fullyReported"</code>, <code>"overallExecutions"</code>, <code>"suiteSize"</code>, <code>"timeoutExecutions"</code>, <code>"timeoutRate"</code>. Default: <code>avgDuration</code></td></tr><tr><td>specNameFilter</td><td>string</td><td>Filter by spec file names containing this string. Default: empty</td></tr><tr><td>dir</td><td>enum</td><td>Sorting direction. Values: <code>"asc"</code>, <code>"desc"</code>. Default: <code>desc</code></td></tr></tbody></table>
 
-
+### Response
 
 {% tabs %}
 {% tab title="200: OK Spec files list" %}
@@ -121,4 +107,3 @@ The following metrics are available:
 ```
 {% endtab %}
 {% endtabs %}
-

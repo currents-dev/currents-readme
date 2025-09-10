@@ -139,7 +139,7 @@ Numerous configuration options are available. See [#configuration](./#configurat
 
 The package also provides additional fixtures for Playwright that support various features:
 
-* [code-coverage-for-playwright.md](../../../guides/coverage/code-coverage-for-playwright.md "mention")
+* [code-coverage-for-playwright.md](../../../guides/ci-optimization/coverage/code-coverage-for-playwright.md "mention")
 * [currents-actions](../../../guides/currents-actions/ "mention")
 
 {% content-ref url="playwright-fixtures.md" %}
