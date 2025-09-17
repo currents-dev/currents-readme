@@ -12,8 +12,8 @@ This guide teaches how to report Playwright Code Coverage to Currents. If you ar
 [.](./)
 {% endcontent-ref %}
 
-{% content-ref url="../../../" %}
-[..](../../../)
+{% content-ref url="../../" %}
+[..](../../)
 {% endcontent-ref %}
 
 ## Report code coverage to Currents
@@ -36,7 +36,7 @@ Reporting code coverage to Currents as part of running your Playwright tests con
 Requires`@currents/playwright` v1.7.0+
 {% endhint %}
 
-Install and configure Currents reporter following [you-first-playwright-run.md](../../../getting-started/playwright/you-first-playwright-run.md "mention"). Make sure that [currents-playwright](../../../resources/reporters/currents-playwright/ "mention") reporter is configured with the right [record-key.md](../../record-key.md "mention") and **Project ID**.&#x20;
+Install and configure Currents reporter following [you-first-playwright-run.md](../../getting-started/playwright/you-first-playwright-run.md "mention"). Make sure that [currents-playwright](../../resources/reporters/currents-playwright/ "mention") reporter is configured with the right [record-key.md](../record-key.md "mention") and **Project ID**.&#x20;
 
 By default Currents reporter uploads all discovered coverage reports, you can include only certain Playwright projects by setting the coverage `projects` option, when using the reporter
 
@@ -93,7 +93,7 @@ Once enabled, you'd be able to see `window.__coverage__` object in your browser'
 `@currents/playwright` provides a set of [Playwright fixtures](https://playwright.dev/docs/test-fixtures) that simplify extraction and collection of coverage reports.&#x20;
 
 {% hint style="info" %}
-It is a good practice to [extend](https://playwright.dev/docs/api/class-test#test-extend) the default Playwright `test` method, for example to enable [Page Object Model](https://playwright.dev/docs/pom), [sharing a state](https://playwright.dev/docs/test-fixtures#worker-scoped-fixtures) between multiple tests etc.  See [playwright-fixtures.md](../../../resources/reporters/currents-playwright/playwright-fixtures.md "mention") for more information.
+It is a good practice to [extend](https://playwright.dev/docs/api/class-test#test-extend) the default Playwright `test` method, for example to enable [Page Object Model](https://playwright.dev/docs/pom), [sharing a state](https://playwright.dev/docs/test-fixtures#worker-scoped-fixtures) between multiple tests etc.  See [playwright-fixtures.md](../../resources/reporters/currents-playwright/playwright-fixtures.md "mention") for more information.
 {% endhint %}
 
 {% code title="base.ts" overflow="wrap" %}
@@ -146,8 +146,8 @@ module.exports = {
 
 After completing this step, your app's code is instrumented. Running `npm run dev` and opening your browser will activate the underlying code coverage methods and you'll see coverage information in `window.__coverage__` object.
 
-<figure><img src="../../../.gitbook/assets/currents-2024-11-26-19.13.02@2x.png" alt=""><figcaption><p>Exploring window.__coverage__ object</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/currents-2024-11-26-19.13.02@2x.png" alt=""><figcaption><p>Exploring window.__coverage__ object</p></figcaption></figure>
 
 Note that Playwright tests use the extended `test.extend` command with Currents coverage fixtures. Running Playwright tests `npm run test` will activate a pre-configured Currents reporter and will send the code coverage information together with the rest of the results:
 
-<figure><img src="../../../.gitbook/assets/currents-2024-11-26-19.17.48@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/currents-2024-11-26-19.17.48@2x.png" alt=""><figcaption></figcaption></figure>

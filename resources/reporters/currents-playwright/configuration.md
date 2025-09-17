@@ -257,7 +257,7 @@ Defining this variable will override any project level batch size/workers defini
 
 ### coverage
 
-Set of configuration items related to [code-coverage-for-playwright.md](../../../guides/ci-optimization/coverage/code-coverage-for-playwright.md "mention").\
+Set of configuration items related to [code-coverage-for-playwright.md](../../../guides/coverage/code-coverage-for-playwright.md "mention").\
 \
 
 
@@ -282,4 +282,4 @@ Enable or disable coverage collection for Playwright projects
 * Default: `.nyc_output`
 * Environment variable: N/A
 
-Directory path for reading coverage reports. See [code-coverage-for-playwright.md](../../../guides/ci-optimization/coverage/code-coverage-for-playwright.md "mention").
+Directory path for reading coverage reports. See [code-coverage-for-playwright.md](../../../guides/coverage/code-coverage-for-playwright.md "mention").
