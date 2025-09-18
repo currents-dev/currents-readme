@@ -11,7 +11,7 @@ icon: message-bot
 
 MCP stands for [**Model Context Protocol**](https://modelcontextprotocol.io/introduction). It's an open pattern, introduced by Anthropic, that provides a consistent way for systems to expose tools and resources that can be used by AI models.
 
-In our case, [Currents MCP server](https://github.com/currents-dev/currents-mcp) acts as a context layer for any tool that can leverage information about a run, such as spec list, failed tests, errors, and more.
+[Currents MCP server](https://github.com/currents-dev/currents-mcp) is a context layer for AI tools that leverage information about Playwright test results, such as failed tests, errors, and more.
 
 ## Get started
 
@@ -70,31 +70,29 @@ Add the following to your `claude_desktop_config.json`:
 
 **Example Prompt**
 
-> @folder Tests are failing in CI. Get all the details from the run \<runId> and its specs and fix them.
+> @folder Tests are failing in CI. Get all the details from the run `<runId>`  fix the failures
 
-The runId can be copied from the run's "advanced tab" in the dashboard. Soon, the MCP server will be able to fetch the latest runs for an organization, removing the need for users to provide a specific run id.
+Get the  `runId` from the run's "Advanced" tab in the dashboard. Soon, the MCP server will be able to fetch the latest runs for an organization, removing the need for users to provide a specific run id.
 
 ## Use Cases & Capabilities
 
-Currents MCP server currently exposes a variety of tools.
+Currents MCP server exposes a variety of tools.
 
-***
-
-| Tool                                  | Description                                                                                                                |
-| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `currents-get-projects`               | Retrieves a list of all [projects](../dashboard/projects/) available.                                                      |
-| `currents-get-run-details`            | Retrieves details of a specific [test run](../resources/api/api-resources/runs.md).                                        |
-| `currents-get-spec-instances`         | Retrieves debugging data a specific execution of a test [spec file](../dashboard/tests/spec-file-status.md).               |
-| `currents-get-spec-files-performance` | Retrieves spec file [historical performance](../resources/api/api-resources/spec-files.md) metrics for a specific project. |
-| `currents-get-tests-performance`      | Retrieves test [historical performance](../resources/api/api-resources/tests.md) metrics for a specific project.           |
-| `currents-get-tests-signatures`       | Retrieves a test signature by its spec file name and test name. Allows the agent to find test results of a specific test.  |
-| `currents-get-test-results`           | Retrieves debugging data from [test results](../resources/api/api-resources/test-results.md) of a test by its signature.   |
+| Tool                                  | Description                                                                                                                                                                                  |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `currents-get-projects`               | Retrieves a list of all [projects](../dashboard/projects/) available.                                                                                                                        |
+| `currents-get-run-details`            | Retrieves details of a specific [test run](../resources/api/api-resources/runs.md).                                                                                                          |
+| `currents-get-spec-instances`         | Retrieves execution results of a [spec file](../dashboard/tests/spec-file-status.md).                                                                                                        |
+| `currents-get-spec-files-performance` | Retrieves **spec file** [historical performance](../resources/api/api-resources/spec-files.md) metrics for a specific project.                                                               |
+| `currents-get-tests-performance`      | Retrieves **test** [historical performance](../resources/api/api-resources/tests.md) metrics for a specific project.                                                                         |
+| `currents-get-tests-signatures`       | Returns [test-signature.md](../resources/api/api-resources/test-signature.md "mention") (filtered by spec file name and test name). Allows an agent to find test results of a specific test. |
+| `currents-get-test-results`           | Retrieves [test results](../resources/api/api-resources/test-results.md) of a test, filtered by[test-signature.md](../resources/api/api-resources/test-signature.md "mention").              |
 
 ***
 
 These tools can be used to provide context to the AI agent about all the details of a run, tests executions, and specs, including historical data like error rate, debugging logs, duration, flakiness, and more.&#x20;
 
-Here are some examples of what you can ask your AI agent:
+Here are some examples of AI promts
 
 * "Please fix this test"&#x20;
 * "What were the top flaky tests in the last 30 days?
