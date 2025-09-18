@@ -11,7 +11,7 @@ icon: message-bot
 
 MCP stands for [**Model Context Protocol**](https://modelcontextprotocol.io/introduction). It's an open pattern, introduced by Anthropic, that provides a consistent way for systems to expose tools and resources that can be used by AI models.
 
-In our case, [Currents MCP server](https://github.com/currents-dev/currents-mcp) acts as a context layer for any tool that can leverage information about a run, such as the spec list, failed tests, errors, and more.
+In our case, [Currents MCP server](https://github.com/currents-dev/currents-mcp) acts as a context layer for any tool that can leverage information about a run, such as spec list, failed tests, errors, and more.
 
 ## Get started
 
@@ -72,28 +72,31 @@ Add the following to your `claude_desktop_config.json`:
 
 > @folder Tests are failing in CI. Get all the details from the run \<runId> and its specs and fix them.
 
-The runId can be copied from the run's "advanced tab" in the dashboard. Soon, the MCP server will be able to fetch the last runs for an organization, removing the need for users to provide a specific run id.
+The runId can be copied from the run's "advanced tab" in the dashboard. Soon, the MCP server will be able to fetch the latest runs for an organization, removing the need for users to provide a specific run id.
 
 ## Use Cases & Capabilities
 
-Currents MCP server currently exposes three tools.
+Currents MCP server currently exposes a variety of tools.
 
 ***
 
-`get-api-config`&#x20;
-
-* Get the API key and URL used to make requests to Currents API
-
-`get-run`
-
-* Get the run information by its ID
-
-`get-spec-file-attempts-and-errors`
-
-* Get the instance information about attempts and errors by its ID
+| Tool                                  | Description                                                                                                                |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `currents-get-projects`               | Retrieves a list of all [projects](../dashboard/projects/) available.                                                      |
+| `currents-get-run-details`            | Retrieves details of a specific [test run](../resources/api/api-resources/runs.md).                                        |
+| `currents-get-spec-instances`         | Retrieves debugging data a specific execution of a test [spec file](../dashboard/tests/spec-file-status.md).               |
+| `currents-get-spec-files-performance` | Retrieves spec file [historical performance](../resources/api/api-resources/spec-files.md) metrics for a specific project. |
+| `currents-get-tests-performance`      | Retrieves test [historical performance](../resources/api/api-resources/tests.md) metrics for a specific project.           |
+| `currents-get-tests-signatures`       | Retrieves a test signature by its spec file name and test name. Allows the agent to find test results of a specific test.  |
+| `currents-get-test-results`           | Retrieves debugging data from [test results](../resources/api/api-resources/test-results.md) of a test by its signature.   |
 
 ***
 
-These tools can be used to provide context to the AI agent about all the details of a run, their specs, errors, duration, and more.&#x20;
+These tools can be used to provide context to the AI agent about all the details of a run, tests executions, and specs, including historical data like error rate, debugging logs, duration, flakiness, and more.&#x20;
 
-This allows AI agents to provide more precise solutions for fixing failing tests, specially those that are flaky and mostly failing in CI.
+Here are some examples of what you can ask your AI agent:
+
+* "Please fix this test"&#x20;
+* "What were the top flaky tests in the last 30 days?
+* "What were the slowest specs in the last 7 days?"
+* "Please fix all my flaky tests"&#x20;
