@@ -92,7 +92,7 @@ Currents MCP server exposes a variety of tools.
 
 These tools can be used to provide context to the AI agent about all the details of a run, tests executions, and specs, including historical data like error rate, debugging logs, duration, flakiness, and more.&#x20;
 
-Here are some examples of AI promts
+Here are some examples of AI prompts:
 
 * "Please fix this test"&#x20;
 * "What were the top flaky tests in the last 30 days?
