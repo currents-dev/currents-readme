@@ -86,7 +86,7 @@ Currents MCP server exposes a variety of tools.
 | `currents-get-spec-files-performance` | Retrieves **spec file** [historical performance](../resources/api/api-resources/spec-files.md) metrics for a specific project.                                                               |
 | `currents-get-tests-performance`      | Retrieves **test** [historical performance](../resources/api/api-resources/tests.md) metrics for a specific project.                                                                         |
 | `currents-get-tests-signatures`       | Returns [test-signature.md](../resources/api/api-resources/test-signature.md "mention") (filtered by spec file name and test name). Allows an agent to find test results of a specific test. |
-| `currents-get-test-results`           | Retrieves [test results](../resources/api/api-resources/test-results.md) of a test, filtered by[test-signature.md](../resources/api/api-resources/test-signature.md "mention").              |
+| `currents-get-test-results`           | Retrieves [test results](../resources/api/api-resources/test-results.md) of a test, filtered by [test-signature.md](../resources/api/api-resources/test-signature.md "mention").             |
 
 ***
 
