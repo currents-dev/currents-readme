@@ -6,12 +6,149 @@ description: API Reference - Runs resource
 
 **Run** is an object representing a CI execution.
 
-* See [projects.md](projects.md "mention") API resource to list runs associated with a project.
 * See [instances.md](instances.md "mention") API resource for fetching Instance objects by `instanceId`
 
 {% hint style="info" %}
 Asset URLs in the response (videos, screenshots) are pre-signed URLs with a 2-hour expiration time. You must download or access these URLs within 2 hours of receiving the API response.
 {% endhint %}
+
+## List Runs
+
+<mark style="color:blue;">`GET`</mark> `v1/projects/:projectId/runs`
+
+#### Path Parameters
+
+| Name                                        | Type   | Description |
+| ------------------------------------------- | ------ | ----------- |
+| projectId<mark style="color:red;">\*</mark> | string | Project ID  |
+
+#### Query Parameters
+
+| Name             | Type   | Description                                                                                                |
+| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------- |
+| limit            | number | Maximum number of results to return (1-50). Default: 10                                                    |
+| starting\_before | string | Pagination cursor for fetching results before this cursor. See [pagination.md](../pagination.md "mention") |
+| ending\_after    | string | Pagination cursor for fetching results after this cursor. See [pagination.md](../pagination.md "mention")  |
+
+{% tabs %}
+{% tab title="200: OK " %}
+```javascript
+{
+    "status": "OK",
+    "has_more": true,
+    "data": [
+        {
+            "runId": "0a91f41ed60abfab9ea509e866ba9d6d", // run ID
+            "cursor": "62c5468c239c55bd1a1a97ce", // pagination cursor
+            "projectId": "bAYZ4a", // project ID for this run
+            "createdAt": "2022-07-06T08:23:40.939Z", // creation time
+            "completionState": "COMPLETE", // "CANCELED" | "COMPLETE" | "IN_PROGRESS" | "TIMEOUT"
+            "status": "FAILED", // "FAILED" | "FAILING" | "PASSED" | "RUNNING"
+            "tags": ["tagA", "tagB"], // tags
+            "durationMs": 2443644, // run duration in ms
+            // timeout data
+            "timeout": {
+                "isTimeout": true, // whether the run timed out
+                "timeoutValueMs": 3600000 // value used for timeout
+            },
+            // cancellation data
+            "cancellation": {
+                "actor": "api-request",
+                "canceledAt": "2022-06-28T07:24:58.948Z",
+                "reason": "apiRequest"
+            },
+            // Groups progress within the run
+            "groups": [
+                {
+                    "groupId": "regression-c64c5c2b976aa5047507cb8badc889aac7539a3b-2621389820-1", 
+                    "platform": {
+                        "osName": "linux",
+                        "osVersion": "Debian - 10.11",
+                        "browserName": "Chrome",
+                        "browserVersion": "97.0.4692.71"
+                    },
+                    // Instances / specs progress
+                    "instances": {
+                        "overall": 73,
+                        "claimed": 73,
+                        "complete": 73,
+                        "passes": 62,
+                        "failures": 11
+                    },
+                    // Tests progress
+                    "tests": {
+                        "overall": 264,
+                        "passes": 230,
+                        "failures": 16,
+                        "pending": 12,
+                        "skipped": 6,
+                        "retries": 3,
+                        "flaky": 3
+                    }
+                }
+            ],
+            "meta": {
+                // CI Build ID associated with the run
+                "ciBuildId": "regression-c64c5c2b976aa5047507cb8badc889aac7539a3b-2621389820-1",
+                // Git commit information for the run
+                "commit": {
+                    "sha": "c64c5c2b976aa5047507cb8badc889aac7539a3b",
+                    "branch": "feat/branch",
+                    "authorName": "John Doe",
+                    "authorEmail": "john@users.noreply.github.com",
+                    "message": "Commit message",
+                    "remoteOrigin": "https://github.com/nasa/monorepo",
+                    "defaultBranch": null
+                },
+                // Framework details
+                "framework": {
+                    "type": "pw" | "cypress" | "jest" | "postman" | "vitest",
+                    "version": "1.52.0", // test runner version
+                    "clientVersion": "1.12.0" // currents client version
+                }
+            }
+        }
+    ]
+}
+```
+{% endtab %}
+
+{% tab title="400: Bad Request Invalid parameters" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Invalid limit parameter. Must be between 1 and 50"
+}
+```
+{% endtab %}
+
+{% tab title="401: Unauthorized Invalid API key" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Invalid API key provided"
+}
+```
+{% endtab %}
+
+{% tab title="403: Forbidden Insufficient permissions" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Insufficient permissions to access project runs"
+}
+```
+{% endtab %}
+
+{% tab title="404: Not Found Project not found" %}
+```javascript
+{
+    "status": "FAILED",
+    "error": "Project not found"
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Get Run
 
