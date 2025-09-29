@@ -81,6 +81,7 @@ Currents MCP server exposes a variety of tools.
 | Tool                                  | Description                                                                                                                                                                                  |
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `currents-get-projects`               | Retrieves a list of all [projects](../dashboard/projects/) available.                                                                                                                        |
+| `currents-get-runs`                   | Retrieves a list of the latest [runs ](../resources/api/api-resources/runs.md)for a specific project.                                                                                        |
 | `currents-get-run-details`            | Retrieves details of a specific [test run](../resources/api/api-resources/runs.md).                                                                                                          |
 | `currents-get-spec-instances`         | Retrieves execution results of a [spec file](../dashboard/tests/spec-file-status.md).                                                                                                        |
 | `currents-get-spec-files-performance` | Retrieves **spec file** [historical performance](../resources/api/api-resources/spec-files.md) metrics for a specific project.                                                               |
@@ -95,6 +96,7 @@ These tools can be used to provide context to the AI agent about all the details
 Here are some examples of AI prompts:
 
 * "Please fix this test"&#x20;
+* "Summarize my last test run"
 * "What were the top flaky tests in the last 30 days?
 * "What were the slowest specs in the last 7 days?"
 * "Please fix all my flaky tests"&#x20;
