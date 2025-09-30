@@ -97,6 +97,12 @@ Disable parsing tags from test title, e.g. `Test name @smoke` would **not** have
 
 ***
 
+### **`--pwc-disable-test-tags`**&#x20;
+
+Prevent reporting tags defined in the test title or by test annotations (default: false).  See [#disabletesttags](configuration.md#disabletesttags "mention").
+
+***
+
 ### **`--pwc-cancel-after-failures <number | false>`**
 
 Abort the cloud run after the specified number of failed tests detected. Overrides the default Currents Project settings. See [#cancelafterfailures](configuration.md#cancelafterfailures "mention").

@@ -141,6 +141,16 @@ Prevent parsing tags like @smoke from test titles.
 
 ***
 
+### disableTestTags
+
+* Type: `boolean`
+* Default: `false`
+* Environment variable: `CURRENTS_DISABLE_TEST_TAGS`
+
+Prevent reporting tags parsed from test title and the conventional [Playwright Tags](https://playwright.dev/docs/test-annotations#tag-tests) that appear in test definitions.
+
+***
+
 ### cancelAfterFailures
 
 * Type: `number | false`
