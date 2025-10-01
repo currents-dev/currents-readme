@@ -4,9 +4,9 @@ description: Managing Billing and Subscription for your Organization
 
 # Billing & Usage
 
-The Billing and Usage view is accessible by accessing the org management menu - click on **Organization > Billing & Usage.** Within the Billing & Usage view, you can explore the organization's usage and plan limits, and manage the subscription and billing email recipients.
+The **Billing & Usage** view is accessible by navigating to the organization management menu and clicking on your **Organization Name > Billing & Usage** on the **left-hand menu.** Within the Billing & Usage view, you can explore the organization's usage and plan limits, and manage the subscription and billing email recipients.
 
-<img src="../../.gitbook/assets/currents-2023-03-02-16.26.02@2x.png" alt="" data-size="original">
+<figure><img src="../../.gitbook/assets/Screenshot 2025-10-01 at 15.11.25.png" alt=""><figcaption><p>Billing &#x26; Usage - Organization Menu</p></figcaption></figure>
 
 ### Billing Emails
 
@@ -20,7 +20,7 @@ Please note, that billing notifications are different from operational notificat
 
 In order to add additional recipients, navigate to **Organization > Billing & Usage.** Then add a new email in the **Billing Emails** section:
 
-<figure><img src="../../.gitbook/assets/currents-2023-03-02-16.22.02@2x.png" alt=""><figcaption><p>Adding additional recipients for Billing Emails</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-10-01 at 15.18.41.png" alt=""><figcaption><p>Adding additional recipients for Billing Emails</p></figcaption></figure>
 
 ### Usage Information
 
@@ -42,13 +42,21 @@ The usage is aggregated **hourly** to allow precise reporting and calculation of
 
 You can filter usage by period and view all past billing cycles. Moreover, you can filter by **tests** or **runs**. Most customer contracts are metered by **runs**.&#x20;
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-09-01 at 15.34.32.png" alt=""><figcaption><p>Example - Usage history chart and filters</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-10-01 at 15.29.48.png" alt=""><figcaption><p>Example - Usage history chart and filters</p></figcaption></figure>
 
 #### Usage per project
 
 If you click **Show Usage Details**, you can see a breakdown of all recorded tests and runs per project created within your organization account.&#x20;
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-09-01 at 14.21.03.png" alt=""><figcaption><p>Usage per Project</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-10-01 at 15.35.16.png" alt=""><figcaption><p>Usage per Project</p></figcaption></figure>
+
+#### Usage cycle types
+
+* **Team Plans:** The usage cycle is **monthly**.
+* **Enterprise Plans:** An **annual usage cycle** is available, with monthly cycle is also supported.\
+  The annual cycle is recommended for teams with **seasonal usage patterns** or **peaks in usage** during certain times of the year.
+
+More details on [billing-and-pricing.md](../../billing-and-pricing.md "mention")&#x20;
 
 ### Extra Usage Plans
 
@@ -56,7 +64,7 @@ If you are still determining how many tests you need per month or if your usage 
 
 When you reach the test limits, Currents will send you an email notification informing you of the activation of the extra usage plan. You also can see the extra recordings progress on the **Usage Information**:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-09-01 at 15.28.22.png" alt=""><figcaption><p>Example - Extra usage activated</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-10-01 at 15.52.04.png" alt=""><figcaption><p>Example - Extra usage activated</p></figcaption></figure>
 
 At the end of the monthly cycle, the billing will include the additional usage recorded. In the case of annual plans, Currents will send a separate bill with the extra tests.&#x20;
 

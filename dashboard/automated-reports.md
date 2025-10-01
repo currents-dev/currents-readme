@@ -49,7 +49,7 @@ The reports configuration is available in the **Reports** section of the current
 6. Select the preferred timezone, day and time for sending the report.&#x20;
 7. Customize the date range: 7-day, 14-day or 28-day.
 
-<figure><img src="../.gitbook/assets/currents-2025-03-10-14.56.14@2x.png" alt=""><figcaption><p>Currents Automated Report Settings</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-10-01 at 16.02.26.png" alt=""><figcaption><p>Currents Automated Report Settings</p></figcaption></figure>
 
 Use **Preview** to examine and change the report settings.
 
@@ -104,7 +104,7 @@ Each line item has the following format:
 
     It presents the files with the highest flakiness rate. The flakiness rate is determined by the formula `Flaky Executions / Overall Executions.` A `Flaky Execution` has at least 1 test detected as flaky, according to the [flaky-tests.md](tests/flaky-tests.md "mention") documentation.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-05-12 at 15.05.31.png" alt=""><figcaption><p>Spec Files Performance Report Example</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.avif" alt=""><figcaption><p>Spec Files Performance Report Example</p></figcaption></figure>
 
 #### Test Performance
 
