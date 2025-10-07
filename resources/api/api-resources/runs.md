@@ -382,9 +382,14 @@ Note: The output may vary between different test runners.
                         "wallClockEndedAt": "2024-05-27T12:30:28.275Z",
                         "wallClockDuration": 13944
                     },
-                    // Note: videos are available only via instance API
+                    // Contains a signed video URL (Cypress runs only).
+                    // Videos are accessible via the Instance API:
+                    // https://docs.currents.dev/resources/api/api-resources/instances#get-instance
                     "videoUrl": null,
-                    // Note: screenshots are available only via instance API
+                    
+                    // Contains screenshots for Cypress and Playwright reporters < v1.0.0 only.
+                    // Screenshots are accessible via the Instance API:
+                    // https://docs.currents.dev/resources/api/api-resources/instances#get-instance
                     "screenshots": []
                 },
                 // Test runner that claimed the spec file 
