@@ -22,6 +22,7 @@ All charts support filtering by **tag**, **git author**, and **git branch**. In 
 
 * **Suite Size**, **Test Results**, and **Test Flakiness** charts also support the **group** filter.
 * **Test Results** and **Test Flakiness** charts also support the [playwright-annotations.md](../guides/playwright-annotations.md "mention")filter.&#x20;
+* **Test Results** also supports displaying custom metrics from [#annotation-custom-metrics](../guides/playwright-annotations.md#annotation-custom-metrics "mention")
 
 The aggregated metrics are based in the samples collected during the selected **Date Range**.
 
@@ -69,6 +70,10 @@ Represents the **maximum** daily/weekly amount of specs/tests for fully complete
 <figure><img src="../.gitbook/assets/Screenshot 2025-05-09 at 12.17.37.png" alt=""><figcaption><p>Example chart - Test Suite Size</p></figcaption></figure>
 
 ### Test Results
+
+{% hint style="success" %}
+You can send and record custom metrics associated with your tests using [#annotation-custom-metrics](../guides/playwright-annotations.md#annotation-custom-metrics "mention"). Custom Metrics will show up in Test Results chart.
+{% endhint %}
 
 Shows the distribution of test outcomes over time.
 

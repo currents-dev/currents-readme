@@ -134,3 +134,76 @@ test(
 <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>Test owner shown in Currents dashboard</p></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>Slack notification to specific user and group in Slack</p></figcaption></figure>
+
+## Annotation:  Custom Metrics
+
+{% hint style="info" %}
+Custom metric is an experimental feature. We are gathering feedback to refine and improve it.
+{% endhint %}
+
+#### Recording Custom Metrics
+
+Annotation of type `currents:metric` allows tracking arbitrary metrics associated with your tests, for example:
+
+* page performance
+* accessibility score
+* memory consumption
+* network response timing
+
+
+
+Use annotation  `type` of `currents:metric` and a serialized JSON object in `description`  to define a metric. For example:
+
+{% code overflow="wrap" %}
+```typescript
+{
+  type: "currents:metric",
+  description: JSON.stringify({
+    "name": "memory_usage", 
+    "value": 540.3, 
+    "type": "float",
+    "unit": "mb"
+  }),
+}
+```
+{% endcode %}
+
+The JSON string must contain `name` and `value`. And optionally can contain `type` and `unit` .&#x20;
+
+<table><thead><tr><th width="146.32421875">Parameter</th><th width="106.8671875">Type</th><th>Description</th></tr></thead><tbody><tr><td>name<mark style="color:red;">*</mark></td><td>string</td><td>The name of the metric you want to track.</td></tr><tr><td>value<mark style="color:red;">*</mark></td><td>number</td><td>The current value of the metric you want to track.</td></tr><tr><td>type</td><td>enum</td><td>The value type. Values: <code>float</code>, <code>integer</code>. Default: <code>float</code></td></tr><tr><td>unit</td><td>enum</td><td>The unit to show in the dashboard. Values: <code>none</code>, <code>ms</code>, <code>s</code>, <code>%</code>, <code>b</code> , <code>kb</code> , <code>mb</code> , <code>gb</code> Default: <code>none</code>  </td></tr></tbody></table>
+
+For example, the following test captures page load time as a custom metric metrics:
+
+```typescript
+test("performance test example", async ({ page }) => {
+  await page.goto(`https://example.com`);
+  const [performanceTiming] = await page.evaluate(() => {
+    const [timing] = performance.getEntriesByType(
+      "navigation"
+    ) as PerformanceNavigationTiming[];
+    return [timing];
+  });
+  // Get the start to load event end time
+  const startToLoadEventEnd =
+    performanceTiming.loadEventEnd - performanceTiming.startTime;
+    
+  // Add the custom metric to the annotations
+  test
+    .info()
+    .annotations.push({
+      type: "currents:metric",
+      description: JSON.stringify({
+        name: "page-performance",
+        value: startToLoadEventEnd,
+        type: "float",
+        unit: "ms",
+      }),
+    });
+});
+```
+
+#### Browsing Custom Metrics
+
+The custom metrics are avaialble in [#test-results](../dashboard/insights-and-analytics.md#test-results "mention") chart. Use "Custom Metric" control to browse the available metrics and aggregation functions.&#x20;
+
+<div data-with-frame="true"><figure><img src="../.gitbook/assets/Screenshot 2025-10-07 at 9.36.48 AM.png" alt=""><figcaption><p>Custom metric selection</p></figcaption></figure></div>
