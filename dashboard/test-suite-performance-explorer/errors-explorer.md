@@ -1,19 +1,19 @@
 ---
 description: >-
-  Errors Explorer help to discover actionable insights about the errors
-  impacting your CI executions so you can spot patterns, uncover root causes,
-  and prioritize fixes more efficiently.
+  Error Explorer help discover actionable insights about the errors impacting
+  your CI executions so you can spot patterns, uncover root causes, and
+  prioritize fixes more efficiently.
 ---
 
 # Error Explorer
 
-Currents goes beyond collecting a single “error message” by analyzing each failure and extracting fields such as:
+Currents goes beyond just collecting error messages by analyzing each failure and extracting fields such as:
 
 * **Target** (e.g. CSS selector, URL)
 * **Action** (e.g. `click`, `toBeVisible`)
 * **Category** (e.g. Assertion, Timeout)
 
-By combining those fields you can uncover precise failure patterns across your CI runs — linking **what happened** (Action), **where it happened** (Target), and **why it failed** (Category).
+By combining these fields, you can uncover precise failure patterns across your CI runs — linking **what happened** (Action), **where it happened** (Target), and **why it failed** (Category).
 
 Currents evaluates the impact of test failures across your CI pipeline by measuring
 
@@ -27,23 +27,23 @@ This allows you to distinguish between flaky UI selectors, network instability, 
 
 ## Error Classification Fields
 
-When a test fails, the raw error message (and stack trace) is parsed by Currents’ Error Classification Engine. It enriches every captured test error with structured fields that turn unstructured log text into searchable, comparable data.
+When a test fails, the raw error message and stack trace are parsed by Currents’ Error Classification Engine. It enriches every captured test error with structured fields that turn unstructured log text into searchable, comparable data.
 
 <figure><img src="../../.gitbook/assets/error-fields.png" alt=""><figcaption></figcaption></figure>
 
 ### How to use Error Classification Fields?
 
-When improving testing suite stability we focus on finding the most unstable components across multiple tests and runs. One way to do that is to look at the most frequent failures. For example consider this message:
+When improving testing suite stability, focus on finding the most unstable components across multiple tests and runs. One way to do that is to look at the most frequent failures. For example consider this message:
 
 ```
 Error: expect(locator).toBeVisible() failed
 ```
 
-This message is too generic — there can be several different CSS selectors involved. That's why we need additional context to reason about the error, not just the error message. By combining **Target + Message** we uncover what CSS selectors are generating this error.
+This message is too generic — several different CSS selectors could trigger it. That’s why additional context is needed to reason about the error, not just the message itself. By combining **Target + Message** we uncover what CSS selectors are generating this error.
 
 <figure><img src="../../.gitbook/assets/currents-2025-10-08-00.27.51@2x.png" alt=""><figcaption></figcaption></figure>
 
-Think of it as a `GROUP BY` statement - by changing the fields and their order, you gain different perspective on your test suite top failures. Let's take a look at the available fields.
+Think of it as an SQL `GROUP BY` statement - by changing the fields and their order, you gain different perspective on your test suite top failures. Let's take a look at the available fields.
 
 ### **Category**
 
@@ -82,14 +82,14 @@ The **object of the action or assertion** — typically a **UI element**, **loca
 
 ### How It Works
 
-Currents trained on hundreds of thousands of CI errors to identify patterns and assign structured fields (tokens) to each error.
+Currents has been trained on hundreds of thousands of CI errors to identify patterns and assign structured fields (tokens) to each one.
 
 1. Extract raw data - Currents captures the error’s message, stack, and location from the test run.
 2. Apply pattern recognition - the message is scanned for known Playwright formats — such as `expect(locator).toBeVisible()` or `page.waitForURL()`. Each match maps to a classification pattern (e.g., Assertion, Timeout, Action).
 3. Aggregate - metrics and charts use these tokens to calculate frequency, impact, and correlations across runs, tests, and branches.
 
 {% hint style="info" %}
-`null` value means Currents could not identify the corresponding field
+A `null` value indicates that Currents could not classify the corresponding field
 {% endhint %}
 
 ### Combining Error Fields
@@ -101,7 +101,7 @@ For example:
 * grouping by **Action + Target** can expose a single flaky selector causing hundreds of failures across multiple branches,
 * grouping by **Category + Branch** highlights whether timeouts or assertions dominate your failures in production versus feature branches.
 
-Filtering by **Target** (such as a specific API endpoint or DOM element) helps quantify how many unique tests, branches, or runs that component affects — a direct measure of its impact on CI reliability.
+Filtering by **Target** (such as a specific API endpoint or DOM element) helps quantify how many unique tests, branches, or runs are affected by that component — a direct measure of its impact on CI reliability.
 
 {% embed url="https://player.mux.com/on005u301A2xnBum3pwKeIMkkfUtcS5QvqijiPK9sMPac" %}
 
@@ -166,6 +166,6 @@ Use filters to fine-tune the data that used to calculate the metrics for the Err
 * **Group** - include items recorded for particular group (e.g. `Firefox` or `Chromium`)
 * **Search by error message** - narrow down the results by Error Message
 
-Additionally, use the Timeline Chart to focus in the time period of your interest:
+Additionally, use the Timeline Chart to focus in the time period of interest:
 
 <figure><img src="../../.gitbook/assets/currents-2025-05-23-13.31.14.gif" alt=""><figcaption><p>Using Timeline Chart controls to refine Error Explorer view</p></figcaption></figure>
