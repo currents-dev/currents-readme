@@ -39,13 +39,11 @@ When improving testing suite stability we focus on finding the most unstable com
 Error: expect(locator).toBeVisible() failed
 ```
 
-This message is too generic — there can be several different CSS selectors involved. That's why we need additional context to reason about the error, not just the error message. By combining **Target + Message** we uncover what CSS selectors are the top contributors to test suite instability:
+This message is too generic — there can be several different CSS selectors involved. That's why we need additional context to reason about the error, not just the error message. By combining **Target + Message** we uncover what CSS selectors are generating this error.
 
 <figure><img src="../../.gitbook/assets/currents-2025-10-08-00.27.51@2x.png" alt=""><figcaption></figcaption></figure>
 
-Think of it as a GROUP BY statement - by changing the fields and their order, you gain different perspective on your test suite top failures.
-
-Let's take a look at the avaialble fields.
+Think of it as a `GROUP BY` statement - by changing the fields and their order, you gain different perspective on your test suite top failures. Let's take a look at the available fields.
 
 ### **Category**
 
@@ -107,7 +105,7 @@ Filtering by **Target** (such as a specific API endpoint or DOM element) helps q
 
 {% embed url="https://player.mux.com/on005u301A2xnBum3pwKeIMkkfUtcS5QvqijiPK9sMPac" %}
 
-#### Filtering by Error Field
+#### Filtering by an Error Field
 
 Use the search popup to filter items based in the selected fields values. For example:
 
