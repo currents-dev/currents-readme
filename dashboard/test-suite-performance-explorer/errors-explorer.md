@@ -1,19 +1,18 @@
 ---
 description: >-
-  Error Explorer help discover actionable insights about the errors impacting
-  your CI executions so you can spot patterns, uncover root causes, and
-  prioritize fixes more efficiently.
+  Error Explorer helps discover the top errors, components and network request
+  impacting your Playwright CI runs.
 ---
 
 # Error Explorer
 
-Currents goes beyond just collecting error messages by analyzing each failure and extracting fields such as:
+Currents goes beyond just collecting error messages by analyzing each failure and extracting additional fields:
 
 * **Target** (e.g. CSS selector, URL)
 * **Action** (e.g. `click`, `toBeVisible`)
 * **Category** (e.g. Assertion, Timeout)
 
-By combining these fields, you can uncover precise failure patterns across your CI runs — linking **what happened** (Action), **where it happened** (Target), and **why it failed** (Category).
+By combining these fields, you can discover failure patterns across CI runs — linking **what happened** (Action), **where it happened** (Target), and **why it failed** (Category).
 
 Currents evaluates the impact of test failures across your CI pipeline by measuring
 
@@ -33,17 +32,21 @@ When a test fails, the raw error message and stack trace are parsed by Currents�
 
 ### How to use Error Classification Fields?
 
-When improving testing suite stability, focus on finding the most unstable components across multiple tests and runs. One way to do that is to look at the most frequent failures. For example consider this message:
+Finding the most unstable components across multiple tests and runs is a key to improving testing suite stability. However, Playwright error message are either too generic or too details. For example consider this message:
 
 ```
 Error: expect(locator).toBeVisible() failed
 ```
 
-This message is too generic — several different CSS selectors could trigger it. That’s why additional context is needed to reason about the error, not just the message itself. By combining **Target + Message** we uncover what CSS selectors are generating this error.
+This message is too generic — it can be associated with different CSS. That’s why additional context is needed to reason about the error, not just the message itself.&#x20;
+
+By combining **Target + Message** we uncover what CSS selectors are generating this error.
 
 <figure><img src="../../.gitbook/assets/currents-2025-10-08-00.27.51@2x.png" alt=""><figcaption></figcaption></figure>
 
-Think of it as an SQL `GROUP BY` statement - by changing the fields and their order, you gain different perspective on your test suite top failures. Let's take a look at the available fields.
+Think of it as an SQL `GROUP BY` statement - by changing the fields and their order, you gain different perspective on your test suite top failures.&#x20;
+
+Let's take a look at the available fields.
 
 ### **Category**
 
@@ -85,8 +88,8 @@ The **object of the action or assertion** — typically a **UI element**, **loca
 Currents has been trained on hundreds of thousands of CI errors to identify patterns and assign structured fields (tokens) to each one.
 
 1. Extract raw data - Currents captures the error’s message, stack, and location from the test run.
-2. Apply pattern recognition - the message is scanned for known Playwright formats — such as `expect(locator).toBeVisible()` or `page.waitForURL()`. Each match maps to a classification pattern (e.g., Assertion, Timeout, Action).
-3. Aggregate - metrics and charts use these tokens to calculate frequency, impact, and correlations across runs, tests, and branches.
+2. Apply pattern recognition - the message is scanned for known Playwright error formats — such as `expect(locator).toBeVisible()` or `page.waitForURL()`.&#x20;
+3. Aggregate - Currents calculates errors impact by measuring frequency and spread (affected tests and branches).
 
 {% hint style="info" %}
 A `null` value indicates that Currents could not classify the corresponding field
@@ -94,12 +97,12 @@ A `null` value indicates that Currents could not classify the corresponding fiel
 
 ### Combining Error Fields
 
-By combining **Error Message**, **Category**, **Action**, and **Target** fields, you can perform detailed impact analysis to understand not just how often errors occur, but also reveals which parts of your product or test suite contribute most to instability.&#x20;
+By combining **Error Message**, **Category**, **Action**, and **Target** fields, you can explore how often errors occur, and also which parts of your UI contribute most to test suite instability.
 
 For example:
 
-* grouping by **Action + Target** can expose a single flaky selector causing hundreds of failures across multiple branches,
-* grouping by **Category + Branch** highlights whether timeouts or assertions dominate your failures in production versus feature branches.
+* grouping by **Action + Target** expose selector causing failures across multiple tests
+* grouping by **Category + Branch** highlights whether timeouts or assertions dominate your failures.
 
 Filtering by **Target** (such as a specific API endpoint or DOM element) helps quantify how many unique tests, branches, or runs are affected by that component — a direct measure of its impact on CI reliability.
 
