@@ -1,12 +1,10 @@
 ---
-description: >-
-  Test Cases Health and Performance Dashboard - Flakiness, Failure Rate,
-  Duration.
+description: Test Health and Performance Dashboard - Flakiness, Failure Rate, Duration.
 ---
 
 # Test Explorer
 
-The Test Explorer displays performance and health metrics for individual tests. The metrics are:
+Test Explorer displays performance and health metrics for each individual test case. The metrics are:
 
 * Failure Rate
 * Failure Volume
@@ -15,29 +13,60 @@ The Test Explorer displays performance and health metrics for individual tests. 
 * Duration
 * Duration Volume
 
-Use it to identify underperforming tests, explore the trends and changes in test behavior.
+Additionally, it tracks the **change** of the metrics values:
 
-<figure><img src="../../.gitbook/assets/currents-2025-04-17-23.42.57@2x.png" alt=""><figcaption><p>Test Explorer View - 30-day data with no filters, sorted by duration (longests tests first)</p></figcaption></figure>
+* Failure Rate Change
+* Flakiness Rate Change
+* Duration Change
+
+Use Test Explorer to identify flaky, failing or long-running tests, explore the trends and changes in test behavior.
+
+{% hint style="info" %}
+You can fetch the Test Explorer data programmatically. See [tests.md](../../resources/api/api-resources/tests.md "mention").
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/currents-2025-10-09-14.53.16@2x (1).png" alt=""><figcaption><p>Test Explorer displays test performance and health data for a 30-day period</p></figcaption></figure>
 
 Currents calculates the metrics by aggregating the test results. You can fine-tune the aggregations by applying various filters, for example:
 
 * What are the 30-day flakiest tests from the `main` branch?
 * What are the 14-fay most failing tests tagged `onboarding` ?
 * What are the longest tests for  `mobile`  viewport?
+* What test cases started to flake recently?
+* What test case started to run slower during the last 2 months?
+
+Let's examine in detail the available metrics.
 
 ## Test Explorer Metrics
 
-{% hint style="info" %}
-**Volume Metrics vs Value Metrics**
+These Test Explorer metrics help evaluate the health and performance of your testing suite.
 
-Metrics like **Duration Volume**, **Flakiness Volume** and **Failure Volume** measure the impact of a test on overall suite performance. The scores are calculated by multiplying the corresponding metric by the number of samples. The actual number has no real meaning. See example below.
+{% hint style="info" %}
+Use **Explorer Settings** to exclude or include certain samples from the metric calculations.
 {% endhint %}
 
 {% hint style="info" %}
-Use **Explorer Settings** to exclude or include samples from the aggregations.
+You can choose the visible columns and sorting by tweaking **Table Settings.**
 {% endhint %}
 
-The Test Explorer metrics help you to evaluate the health and performance of your testing suite.
+### Value Metrics vs Volume Metrics
+
+Metrics like **Duration Volume**, **Flakiness Volume** and **Failure Volume** measure the impact of the associated test on overall suite performance. The scores are calculated by multiplying the corresponding metric by the number of samples.&#x20;
+
+\
+For example, consider two tests:
+
+* Test A runs rarely, reported `10` samples, with a `15%` flakiness rate.
+* Test B runs often, reported `40` samples, with a  `5%`  flakiness rate.
+
+\
+Test A Flakiness Volume is `10 x 0.15 = 1.5`
+
+Test B Flakiness Volume is `50 x 0.05 = 2`
+
+Test B has a higher Flakiness Volume because it affects the overall test suite flakiness more, although its rate is lower.
+
+In short, a test that’s a little flaky but runs a lot can be a bigger problem than a very flaky test that rarely runs. The actual number doesn’t matter on its own — it’s just useful to compare tests and see which ones are dragging down reliability the most.
 
 ### Duration&#x20;
 
@@ -63,6 +92,15 @@ Failure Volume measures how much a test contributes to the total number of failu
 
 This metric helps you spot which tests are the most significant contributors to failure noise, even if their failure rate isn’t high.
 
+### Failure Rate Change
+
+Failure Rate Change shows how a test’s failure rate has shifted between two periods — the current period (e.g., last 30 days) and the previous period of the same length.
+
+\
+A positive value means the test is failing more often than before; a negative value means it’s failing less often. This metric helps identify tests whose reliability is improving or degrading over time.
+
+The change is displayed only if it exceeds 1%, to filter out insignificant fluctuations.
+
 ### Flakiness Rate
 
 It measures the percentage of times a test produces inconsistent pass/fail results. Analyzing the Flakiness Rate metric allows users to focus on improving the reliability and stability of flaky tests, reducing false positives or negatives, and enhancing the overall trustworthiness of the test suite.
@@ -73,28 +111,19 @@ Quantify how much a test’s flakiness impacts the overall stability of your tes
 
 `Flakiness Volume = Flakiness Rate × Executions`
 
+### Flakiness Rate Change
+
+Flakiness Rate Change shows how a test’s flakiness has changed between two equal time periods — for example, the last 30 days compared to the previous 30 days.
+
+A positive value means the test is becoming more flaky (less reliable), while a negative value means its stability has improved.
+
+The value is displayed only if the change exceeds 1%, to ignore minor, statistically insignificant variations.
+
 ### Executions
 
 How many recordings were included for calculating the metrics — i.e. matched the period and the filters.
 
-## Value Metrics vs Volume Metrics
 
-Metrics like **Duration Volume**, **Flakiness Volume** and **Failure Volume** measure the impact of the associated test on overall suite performance. The scores are calculated by multiplying the corresponding metric by the number of samples. The actual number has no real meaning - it's just a numerical expression.
-
-\
-For example, consider two tests:
-
-* Test A runs rarely, reported `10` samples, with a `15%` flakiness rate.
-* Test B runs often, reported `40` samples, with a  `5%`  flakiness rate.
-
-\
-Test A Flakiness Volume is `10 x 0.15 = 1.5`
-
-Test B Flakiness Volume is `50 x 0.05 = 2`
-
-Test B has a higher Flakiness Volume because it affects the overall test suite flakiness more, although its rate is lower.
-
-In short, a test that’s a little flaky but runs a lot can be a bigger problem than a very flaky test that rarely runs. The actual number doesn’t matter on its own — it’s just useful to compare tests and see which ones are dragging down reliability the most.
 
 ## Customization
 
@@ -108,15 +137,39 @@ Only test recordings that match the active filters are included in the metric ca
 * **Search by spec name** - narrow down the results by test spec name.
 * **Search by test title** - narrow down the results by test title.
 
+
+
 ## Controls & Settings
 
 * Click on a column header to sort the tests by the corresponding column, and then click again to change the sorting order.
 * Click on the **Export** <img src="../../.gitbook/assets/currents-2025-04-17-23.49.35@2x.png" alt="" data-size="line"> icon to download the data in JSON format
-* Click on the **Settings** <img src="../../.gitbook/assets/currents-2025-04-17-23.49.20@2x.png" alt="" data-size="line"> icon to customize the view:&#x20;
-  * **Include Failed Executions** - include or exclude the failed execution in calculating the average duration
-  * **Include Skipped Executions** - include or exclude skipped tests from being included in metrics
 
-<figure><img src="../../.gitbook/assets/currents-2025-04-17-23.38.24@2x.png" alt="" width="563"><figcaption><p>Test Explorer Settings</p></figcaption></figure>
+#### Table Settings
+
+The Table Settings panel controls how data is presented in the Test Explorer view. Use these options to customize visible columns, sorting order, and the number of test cases displayed per page
+
+* Columns — choose which metrics or data fields are shown in the Test Explorer table
+* Sorting — select the metric or column used to sort test results. Click the sort direction icon to toggle between ascending and descending order.
+* Page Size — set how many test cases are displayed per page in the Test Explorer view.
+
+#### Metrics Settings&#x20;
+
+Click on the **Settings** <img src="../../.gitbook/assets/currents-2025-04-17-23.49.20@2x.png" alt="" data-size="line"> icon to customize how the metrics are calculated.
+
+<figure><img src="../../.gitbook/assets/currents-2025-10-09-14.45.41@2x.png" alt=""><figcaption></figcaption></figure>
+
+The Customize Test Metrics view lets you define which test outcomes are included when calculating performance and reliability metrics such as Executions, Duration, Flakiness Rate, and Failure Rate.\
+These settings control how Currents interprets test results and determine which runs contribute to aggregated statistics in Test Explorer and other analytics views.
+
+
+
+* Executions — specifies which test outcomes are counted toward total execution numbers. This affects all metrics that depend on the execution count.
+* Duration — defines which outcomes are included when calculating the average test duration.\
+  For example, you can choose whether to include failed or skipped tests when computing the average runtime.
+* Flakiness Rate — determines which outcomes are used when calculating flakiness: Flakiness Rate = (Number of flaky results) ÷ (Selected results). Adjusting the filter changes which test results are considered “eligible” for flakiness detection.
+* Failure Rate — controls which outcomes are used when calculating failure rate: Failure Rate = (Number of failed results) ÷ (Selected results). By refining the selection, you can exclude irrelevant outcomes (e.g., skipped runs) from reliability calculations.
+
+
 
 ## Use Cases
 
@@ -126,6 +179,8 @@ Here are a few examples of what information you can get from the Test Explorer:
 * The top failing tests in the suite.
 * The failure rate change for specific branches for the past months.
 * The lowest tests and how they changed their duration over time.
+
+
 
 ## **Individual Test Analysis**&#x20;
 
