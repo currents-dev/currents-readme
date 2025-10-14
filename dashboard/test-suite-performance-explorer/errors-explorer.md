@@ -32,7 +32,7 @@ When a test fails, the raw error message and stack trace are parsed by Currentsâ
 
 ### How to use Error Classification Fields?
 
-Finding the most unstable components across multiple tests and runs is a key to improving testing suite stability. However, Playwright error message are either too generic or too details. For example consider this message:
+Finding the most unstable components across multiple tests and runs is a key to improving testing suite stability. However, Playwright error messages are either too generic or too detailed. For example consider this message:
 
 ```
 Error: expect(locator).toBeVisible() failed
