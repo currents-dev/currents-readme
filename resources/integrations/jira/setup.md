@@ -28,7 +28,7 @@ You need:
 
 ## Link Jira App
 
-Now connect the app to your Currents organization:
+Connect Jira App to your Currents organization:
 
 1. In Jira, go to **Settings** (upper right) **> Apps**
 2. Open **Manage Apps** (`https://<your-domain>.atlassian.net/plugins/servlet/upm`)
@@ -38,7 +38,19 @@ Now connect the app to your Currents organization:
 
 <figure><img src="../../../.gitbook/assets/currents-2025-07-11-15.16.00@2x.png" alt="" width="373"><figcaption><p>Link Jira App to your Currents Organization</p></figcaption></figure>
 
-<p align="center">🎉 Congratulations!  </p>
+{% hint style="info" %}
+Newer versions of Jira moved **App Management** view to **Administration** section. Click **Take Me There**, find **Currents for Jira** > click **"..."** > **Configure.** Enter the link token as appears above.
+
+
+{% endhint %}
+
+<figure><img src="../../../.gitbook/assets/currents-2025-10-13-21.48.57@2x.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+<p align="center">🎉 Congratulations! </p>
+
+<p align="center"></p>
 
 <p align="center">When successful, you'll see the linked installation details in your Currents Dashboard:</p>
 
