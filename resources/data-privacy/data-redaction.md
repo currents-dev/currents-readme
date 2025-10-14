@@ -19,9 +19,9 @@ Contact our support team if you're interested in enabling this feature for your 
 
 To enhance data privacy and protect sensitive information, Currents automatically identifies and removes secrets from trace files. This process ensures that tokens, passwords, API keys, and other confidential credentials are never exposed during trace review or debugging.
 
-* Protects customer and system credentials from accidental leaks.
-* Simplifies compliance with GDPR, SOC 2, and other privacy standards.
-* Reduces the risk of exposing sensitive data during debugging or collaboration.
+* Protect customer and system credentials from accidental leaks.
+* Simplify compliance with GDPR, SOC 2, and other privacy standards.
+* Reduce the risk of exposing sensitive data during debugging or collaboration.
 
 ### How It Works
 
