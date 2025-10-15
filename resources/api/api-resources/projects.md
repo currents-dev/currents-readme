@@ -16,11 +16,11 @@ This namespace allows you to retrieve information about Currents Projects:
 
 #### Query Parameters
 
-| Name             | Type   | Description                                                                                                |
-| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------- |
-| limit            | number | Maximum number of results to return (1-100). Default: 10                                                   |
-| starting\_before | string | Pagination cursor for fetching results before this cursor. See [pagination.md](../pagination.md "mention") |
-| ending\_after    | string | Pagination cursor for fetching results after this cursor. See [pagination.md](../pagination.md "mention")  |
+| Name            | Type   | Description                                                                                                |
+| --------------- | ------ | ---------------------------------------------------------------------------------------------------------- |
+| limit           | number | Maximum number of results to return (1-100). Default: 10                                                   |
+| starting\_after | string | Pagination cursor for fetching results before this cursor. See [pagination.md](../pagination.md "mention") |
+| ending\_before  | string | Pagination cursor for fetching results after this cursor. See [pagination.md](../pagination.md "mention")  |
 
 {% tabs %}
 {% tab title="200: OK Project Items" %}
