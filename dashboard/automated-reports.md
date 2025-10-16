@@ -94,7 +94,7 @@ Each line item has the following format:
 
 *   **Top 5 Failing Spec Files**
 
-    It presents the files with the highest failure rate. The failure rate is determined by the formula `Failed Executions / Overall Executions.` The `Failed Execution` status is described on the [spec-file-status.md](tests/spec-file-status.md "mention") documentation.
+    It presents the files with the highest failure rate. The failure rate is determined by the formula `Failed Executions / Overall Executions.` The `Failed Execution` status is described on the [spec-file-status](spec-file-status/ "mention") documentation.
 
     Spec files with a high failure rate can negatively impact the overall development process, increase the risk of regression, and negatively affect confidence in the codebase.
 *   **Top 5 Slowest Spec Files**

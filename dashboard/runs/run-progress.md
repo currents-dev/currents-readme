@@ -69,7 +69,7 @@ The view **does not represent** this scenario, instead it treats each spec file 
 
 A spec file is a file containing tests. Each spec file is displayed in a worker row, with multiple spec files arranged sequentially from left to right within each row.
 
-The label for each spec file displays its execution duration. The spec file container uses color coding to indicate its status [spec-file-status.md](../tests/spec-file-status.md "mention"):
+The label for each spec file displays its execution duration. The spec file container uses color coding to indicate its status [spec-file-status](../spec-file-status/ "mention"):
 
 * **Blue**: All tests passed
 * **Red**: One or more tests failed

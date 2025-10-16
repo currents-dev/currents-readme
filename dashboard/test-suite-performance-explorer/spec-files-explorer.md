@@ -30,7 +30,7 @@ How many executions were included during in the selected period and match the fi
 
 ### **Failure Rate**
 
-The failure rate is the percentage of spec file executions that failed. A spec file is failed if it had 1 or more failed tests. See [spec-file-status.md](../tests/spec-file-status.md "mention").
+The failure rate is the percentage of spec file executions that failed. A spec file is failed if it had 1 or more failed tests. See [spec-files-status.md](../spec-file-status/spec-files-status.md "mention").
 
 ### **Timeout Rate**
 
@@ -79,11 +79,9 @@ Only test recordings matching the filters will be included for metric calculatio
 
 Clicking on an individual spec file will reveal a dedicated view of its performance, including detailed execution **History** and performance **Metrics.**
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-05-21 at 17.18.20.png" alt=""><figcaption><p>History - Spec Files Explorer</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/Screenshot 2025-05-21 at 17.18.20.png" alt=""><figcaption><p>History - Spec Files Explorer</p></figcaption></figure></div>
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-05-21 at 17.20.37.png" alt=""><figcaption><p>Spec File Performance</p></figcaption></figure>
-
-See the [reference.md](reference.md "mention") section for more details on the **Performance Charts** and **History** charts.
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/Screenshot 2025-05-21 at 17.20.37.png" alt=""><figcaption><p>Spec File Performance</p></figcaption></figure></div>
 
 ## Next Steps
 
