@@ -112,6 +112,8 @@ It is a good practice to [extend](https://playwright.dev/docs/api/class-test#tes
 ```
 {% endcode %}
 
+If you are using custom fixtures, please refer to [Combining Currents fixtures with existing custom fixtures](../../resources/reporters/currents-playwright/playwright-fixtures.md#combine-currents-fixtures-with-existing-custom-fixtures) to ensure they are set up correctly.
+
 ### Update tests to use new test method
 
 Import and use the extended `test` for every test case to enable automatic collection of coverage reports
