@@ -85,6 +85,39 @@ The associated Currents run will be cancelled with the corresponding notes:
 
 <figure><img src="../../.gitbook/assets/currents-2023-07-04-14.18.17@2x.png" alt=""><figcaption></figcaption></figure>
 
+#### Cancelling with CI Build ID
+
+The current implementation allows to cancel a run with CI information that is usually available in the Github environment variables.
+
+But sometimes is required to explicitly define what run needs to be cancelled, so this functionality allows cancelling a run with a known CI Build ID (see [ci-build-id.md](../../guides/ci-build-id.md "mention")) and a project ID (see [projects](../projects/ "mention")) which are usually known beforehand in a CI environment as these are required parameters for executing a run.
+
+```yaml
+  # Run all Currents tests
+  - name: Run Cypress on Currents.dev
+    uses: cypress-io/github-action@v4
+    env:
+      CURRENTS_CI_BUILD_ID: "a-custom-ci-build-id"
+      CURRENTS_PROJECT_ID: "my-project-id"
+    with:
+      command: npx pwc --key ${{ secrets.CURRENTS_RECORD_KEY }} --project-id ${{ CURRENTS_PROJECT_ID }} --ci-build-id ${{ CURRENTS_CI_BUILD_ID }} 
+
+  - name: Cancel the run if the workflow is cancelled
+    if: ${{ cancelled() }}
+    uses: currents-dev/cancel-run-gh-action@v1
+    with:
+      api-token: ${{ secrets.CURRENTS_API_KEY }}
+      github-run-id: ${{ github.run_id }}
+      github-run-attempt: ${{ github.run_attempt }}
+      ci-build-id: ${{ env.CURRENTS_CI_BUILD_ID }}
+      project-id: ${{ env.CURRENTS_PROJECT_ID }}
+```
+
+The example above uses `CURRENTS_CI_BUILD_ID` and `CURRENTS_PROJECT_ID` as beforehand known variables to pass it down to the run cancellation workflow.
+
+{% hint style="info" %}
+`api-token`, `github-run-id` and `github-run-attempt` are still required parameters that must be passed to the cancellation workflow.
+{% endhint %}
+
 ## FAQ
 
 ### What happens when a run is cancelled?
