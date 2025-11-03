@@ -4,19 +4,17 @@ description: Provision and de-provision users in Currents using SCIM v2
 
 # SCIM User Provisioning
 
-Currents supports [SCIM v2 ](https://datatracker.ietf.org/doc/html/rfc7644)to automatically provision and de-provision users.
+Currents supports [SCIM v2 ](https://datatracker.ietf.org/doc/html/rfc7644) to automatically provision and de-provision users.
 
-First, enable  [saml2.0-configuration.md](saml2.0-configuration.md "mention"). Once ready, contact support via in-app chat or email to request SCIM be enabled for your organization.
+First, enable  [saml2.0-configuration.md](saml2.0-configuration.md "mention"). Once ready, contact support via in-app chat or email to request SCIM to be enabled for your organization.
 
-Once enabled by Currents support, Admins will be able to find the **SCIMv2 Endpoint** and **Authorization Bearer Token** on the **Manage Team** section at https://app.currents.dev.
+Once enabled by Currents team, organization admins will be able to find the **SCIMv2 Endpoint** and **Authorization Bearer Token** on the **Manage Team** section at https://app.currents.dev.
 
 <figure><img src="../../../.gitbook/assets/scim-provisioning.png" alt=""><figcaption><p>SCIM details can be fetched in the Currents app by Org Admins</p></figcaption></figure>
 
 ### Supported features
 
-Currents supports User resource provisioning using SCIM. **Group resources are not implemented**.
-
-Only users with an email address that matches the domains configures in the [SSO setup](./) are supported.
+Currents supports User resource provisioning using SCIM. **Group resources are not supported**. Only users with an email address that matches the domains configures in the [SSO setup](./) are supported.
 
 When a user is deactivated, Currents removes the user from the team member list. When a user is activated, they are not added to the team member list in Currents until after they login.
 
