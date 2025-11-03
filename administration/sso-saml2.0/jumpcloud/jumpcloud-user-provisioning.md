@@ -28,11 +28,11 @@ In order to setup provisioning you first need to:
 
 * Login as an Admin and navigate to the **Manage Team** page.
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Navigate to the Manage Team page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Navigate to the Manage Team page</p></figcaption></figure>
 
 * Click the **Show SCIMv2 Details** button in the **DOMAIN ACCESS & SSO** section of the page.
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Getting the SCIM details from the Manage Team page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Getting the SCIM details from the Manage Team page</p></figcaption></figure>
 
 * Note the **Endpoint** and **Token** details for JumpCloud Configuration
 

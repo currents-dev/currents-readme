@@ -37,19 +37,26 @@ In addition, the report includes spec files and tests that showed a decline in p
 * Specs/tests with the most significant increase in failure rate
 * Specs/tests with the most significant increase in flakiness rate
 
-### Enabling Automated Reports
+### Managing Automated Reports
 
-The reports configuration is available in the **Reports** section of the current project.
+The Reports page can be accessed from the **Reports** section of the current project.
+
+Click the **New Report** button to create a new report.
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-11-03 at 16.24.35.png" alt=""><figcaption><p>Reports page</p></figcaption></figure>
+
+Configure the settings and enable the automated report:
 
 1. Click “Enable/Disable” to activate the report for the project.
-2. Add the emails of the report recipients.
-3. **Optionally**: add a comma-separated list of tags - only records matching the filter will be included in the report.
-4. **Optionally**: add a comma-separated list of author emails - only records matching the filter will be included in the report.
-5. **Optionally**: Add a comma-separated list of branches - only records matching the filter will be included in the report.
-6. Select the preferred timezone, day and time for sending the report.&#x20;
-7. Customize the date range: 7-day, 14-day or 28-day.
+2. **Optionally:** edit the report label. This label will appear in the report title and the email subject line.
+3. Add the emails of the report recipients.
+4. **Optionally**: add a comma-separated list of tags - only records matching the filter will be included in the report.
+5. **Optionally**: add a comma-separated list of author emails - only records matching the filter will be included in the report.
+6. **Optionally**: Add a comma-separated list of branches - only records matching the filter will be included in the report.
+7. Select the preferred timezone, day and time for sending the report.&#x20;
+8. Customize the date range: 7-day, 14-day or 28-day.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-10-01 at 16.02.26.png" alt=""><figcaption><p>Currents Automated Report Settings</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-11-03 at 16.23.23.png" alt=""><figcaption><p>Report customization page</p></figcaption></figure>
 
 Use **Preview** to examine and change the report settings.
 
@@ -80,7 +87,7 @@ Both metrics contain a changing trend, indicating how the metrics changed compar
 * The Average Run Duration of **-7.2s** means that the duration of the average runs decreased.
 * The Success Rate of -**13%** means the success rate also decreased.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-05-12 at 14.29.00.png" alt=""><figcaption><p>Report example: Header and Summary</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-11-03 at 16.34.09.png" alt=""><figcaption><p>Report example: Header and Summary</p></figcaption></figure>
 
 #### Spec Files Performance
 
@@ -168,3 +175,14 @@ Clicking on the item (spec file name or test title) will open the Currents dashb
 
     It means: the _item_ had a flakiness rate of 61% during the reported period and is a **+57%** increase, i.e., the flakiness rate increased from 4% to 61% compared to the previous week.
 
+#### Top Errors
+
+The **Top Errors** section displays up to **10 of the most frequent errors** that occurred during the selected reporting period.
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+* **Occurrences** - the total number of times the error was encountered.
+* **Affected Tests** - the number of unique tests that failed due to this error.
+* **Affected Branches** - the number of branches where this error occurred at least once.
+
+Clicking on any error in the list opens the **Error Explorer**, automatically applying filters for the selected error and reporting period.

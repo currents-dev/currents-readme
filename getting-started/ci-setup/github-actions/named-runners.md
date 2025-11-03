@@ -27,7 +27,7 @@ matrix:
 
 This creates jobs that looks like this in Github Actions:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt="" width="310"><figcaption><p>Named Runners</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt="" width="310"><figcaption><p>Named Runners</p></figcaption></figure>
 
 The final step is to visualize this in the Currents dashboard, which can be done by passing the runner name into the CURRENTS\_MACHINE\_ID environment variable:
 

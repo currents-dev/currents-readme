@@ -107,7 +107,7 @@ Make sure to update any repository rules that makes it mandatory for the commit 
 
 Single Notification for all groups (Optional) – enabling will update GitHub commit status once per run event, regardless of the number of groups.
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Single notification for all groups</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (2).png" alt=""><figcaption><p>Single notification for all groups</p></figcaption></figure>
 
 ### Troubleshooting GitHub Integration
 
