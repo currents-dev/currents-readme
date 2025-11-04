@@ -4,7 +4,7 @@ description: Reference documentation of Conditions that are available for Curren
 
 # Conditions
 
-An Actions can have one or more conditions. You can use `AND` or  `OR` combinator for multiple conditions. Use comma-separated strings to define list values.
+An Actions can have one or more condition. You can use `AND` or  `OR` combinator for multiple conditions.
 
 ### Fields
 
@@ -14,7 +14,7 @@ Test filename path, for example `path/to/file.spec.ts`.
 
 | Field Type          | `string`                                                                                                                                                                                                                                                            |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
+| Value Type          | `string \| string[] \| RegexPattern[]`                                                                                                                                                                                                                              |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
@@ -24,7 +24,7 @@ Test title, for example in test definition `test("should open landing page")` it
 
 | Field Type          | `string`                                                                                                                                                                                                                                                            |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
+| Value Type          | `string \| string[] \| RegexPattern[]`                                                                                                                                                                                                                              |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
@@ -40,11 +40,11 @@ Full title path as an array including named `describe` statements. See [testInfo
 ]
 ```
 
-Use comma-separated string:`auth.spec.ts, Auth Controller Should login with correct credentials`
+Use a string list:  <i class="fa-box">:box:</i>`auth.spec.ts` <i class="fa-box">:box:</i>`Auth Controller` <i class="fa-box">:box:</i>`Should login with correct credentials`
 
 | Field Type          | `string[]`                                                                                                                                                                  |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Value Type          | `string \| string[]`                                                                                                                                                        |
+| Value Type          | `string \| string[] \| RegexPattern[]`                                                                                                                                      |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a><br><a data-mention href="conditions.md#many-to-many-operators">#many-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>               |
 
@@ -74,7 +74,7 @@ Playwright project name as defined in your `playwright.config.ts`.&#x20;
 
 | Field Type          | `string`                                                                                                                                                                                                                                                            |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
+| Value Type          | `string \| string[] \| RegexPattern[]`                                                                                                                                                                                                                              |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
@@ -90,7 +90,7 @@ Error message thrown during the test.&#x20;
 
 | Field Type          | `string`                                                                                                                                                                                                                                                            |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
+| Value Type          | `string \| string[] \| RegexPattern[]`                                                                                                                                                                                                                              |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | [#post-test-actions](actions.md#post-test-actions "mention")                                                                                                                                                                                                        |
 
@@ -100,7 +100,7 @@ Git commit author email. See [commit-information.md](../../../dashboard/runs/com
 
 | Field Type          | `string`                                                                                                                                                                                                                                                            |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
+| Value Type          | `string \| string[] \| RegexPattern[]`                                                                                                                                                                                                                              |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
@@ -110,7 +110,7 @@ Git commit author name. See [commit-information.md](../../../dashboard/runs/comm
 
 | Field Type          | `string`                                                                                                                                                                                                                                                            |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
+| Value Type          | `string \| string[] \| RegexPattern[]`                                                                                                                                                                                                                              |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
@@ -120,7 +120,7 @@ Git commit branch name. See [commit-information.md](../../../dashboard/runs/comm
 
 | Field Type          | `string`                                                                                                                                                                                                                                                            |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
+| Value Type          | `string \| string[] \| RegexPattern[]`                                                                                                                                                                                                                              |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
@@ -130,7 +130,7 @@ Git commit message. See [commit-information.md](../../../dashboard/runs/commit-i
 
 | Field Type          | `string`                                                                                                                                                                                                                                                            |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
+| Value Type          | `string \| string[] \| RegexPattern[]`                                                                                                                                                                                                                              |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
@@ -140,7 +140,7 @@ Git remote origin URL. See [commit-information.md](../../../dashboard/runs/commi
 
 | Field Type          | `string`                                                                                                                                                                                                                                                            |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Value Type          | `string \| string[]`                                                                                                                                                                                                                                                |
+| Value Type          | `string \| string[] \| RegexPattern[]`                                                                                                                                                                                                                              |
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
@@ -150,7 +150,7 @@ Git remote origin URL. See [commit-information.md](../../../dashboard/runs/commi
 
 <table data-full-width="false"><thead><tr><th>Operator</th><th>Description</th></tr></thead><tbody><tr><td><code>is</code></td><td>exact match</td></tr><tr><td><code>is not</code></td><td>the value is different</td></tr><tr><td><code>is any</code></td><td>field returns <code>true</code> for JS expression <code>!!value === true</code></td></tr><tr><td><code>is empty</code></td><td>field returns <code>false</code> for JS expression <code>!!value === true</code></td></tr></tbody></table>
 
-#### One to one operators
+#### One to One operators
 
 <table data-full-width="false"><thead><tr><th>Operator</th><th>Description</th></tr></thead><tbody><tr><td><code>is</code></td><td>exact match</td></tr><tr><td><code>is not</code></td><td>the value is different</td></tr></tbody></table>
 
@@ -158,7 +158,7 @@ Git remote origin URL. See [commit-information.md](../../../dashboard/runs/commi
 
 Used to match a single value field (eg Test Title), against a list of values.
 
-<table data-full-width="false"><thead><tr><th>Operator</th><th>Description</th></tr></thead><tbody><tr><td><code>in</code></td><td>one of the comma-separated values is an exact match</td></tr><tr><td><code>not in</code></td><td>none of the comma-separated values match</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Operator</th><th>Description</th></tr></thead><tbody><tr><td><code>in</code></td><td>one of the values from the list is an exact match</td></tr><tr><td><code>not in</code></td><td>none of the values in the list match</td></tr></tbody></table>
 
 #### Many to Many operators
 
@@ -168,9 +168,9 @@ Added in `@currents/playwright@1.10.0`
 
 Used to match a list field (eg Test Title Path) against one or more values.
 
-<table data-full-width="false"><thead><tr><th>Operator</th><th>Description</th></tr></thead><tbody><tr><td><code>includes</code></td><td>all of the comma-separated values can be found in the field</td></tr><tr><td><code>includes some</code></td><td>at least one of the comma-separated values can be found in the field</td></tr><tr><td><code>missing</code></td><td>all of the comma-separated values are missing from the field</td></tr><tr><td><code>missing any</code></td><td>any of the comma-separated values is missing from the field</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Operator</th><th>Description</th></tr></thead><tbody><tr><td><code>includes</code></td><td>all of the values in the list can be found in the field</td></tr><tr><td><code>includes some</code></td><td>at least one of the values in the list can be found in the field</td></tr><tr><td><code>missing</code></td><td>all of the values in the list are missing from the field</td></tr><tr><td><code>missing any</code></td><td>any of the values in the list is missing from the field</td></tr></tbody></table>
 
 ### Examples
 
-<table><thead><tr><th>Field</th><th width="139">Operator</th><th width="136">Value</th><th>Description</th></tr></thead><tbody><tr><td>Test Id</td><td>is</td><td>1234</td><td>id is exact match</td></tr><tr><td>Git Branch</td><td>not in</td><td>main,stable</td><td>no matches</td></tr><tr><td>Tags</td><td>includes</td><td>featureA</td><td>tag matches</td></tr><tr><td>Tags</td><td>includes some</td><td>featA,featB</td><td>at least one tag matches</td></tr></tbody></table>
+<table><thead><tr><th>Field</th><th width="139">Operator</th><th width="136">Value</th><th>Description</th></tr></thead><tbody><tr><td>Test Id</td><td>is</td><td>1234</td><td>id is exact match</td></tr><tr><td>Git Branch</td><td>not in</td><td>main,stable</td><td>no matches</td></tr><tr><td>Tags</td><td>includes</td><td>featureA</td><td>tag matches</td></tr><tr><td>Tags</td><td>includes some</td><td>featA,featB</td><td>at least one tag matches</td></tr><tr><td>Error Message</td><td>is</td><td>Int(er|ra)net Error:</td><td>Errror Message matches the RegexPattern</td></tr></tbody></table>
 
