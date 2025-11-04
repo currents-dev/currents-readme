@@ -6,7 +6,7 @@ description: Currents reporter for Jest
 
 Currents reporter for [Jest](https://jestjs.io/) generates test results that for uploading to Currents.&#x20;
 
-The reporter stores the generated results in a temporary directory. Upload the generated results using a separate package [currents-cmd](currents-cmd/ "mention").
+The reporter stores the generated results in a temporary directory. Upload the generated results using a separate package [currents-cmd](../currents-cmd/ "mention").
 
 ### Requirements
 
@@ -47,7 +47,7 @@ We recommend adding`.currents` to `.gitignore`
 
 * Configure the reporter
 * Run the tests  `npx jest`
-* Use `currents` from [currents-cmd](currents-cmd/ "mention") package to upload the results
+* Use `currents` from [currents-cmd](../currents-cmd/ "mention") package to upload the results
 
 Example:
 
@@ -78,12 +78,12 @@ Script execution finished
 
 ### Configuration
 
-| Property    | Type     | Description                                    | Environment variable    | Default                            |
-| ----------- | -------- | ---------------------------------------------- | ----------------------- | ---------------------------------- |
-| `recordKey` | `string` | The organization's record key                  | CURRENTS\_RECORD\_KEY   |                                    |
-| `projectId` | `string` | The target project                             | CURRENTS\_PROJECT\_ID   |                                    |
-| `ciBuildId` | `string` | The [CI Build ID](../../guides/ci-build-id.md) | CURRENTS\_CI\_BUILD\_ID | Auto-generated                     |
-| `reportDir` | `string` | Test results directory                         | `CURRENTS_REPORT_DIR`   | `.currents/[timestamp]-[uuidv4()]` |
+| Property    | Type     | Description                                       | Environment variable    | Default                            |
+| ----------- | -------- | ------------------------------------------------- | ----------------------- | ---------------------------------- |
+| `recordKey` | `string` | The organization's record key                     | CURRENTS\_RECORD\_KEY   |                                    |
+| `projectId` | `string` | The target project                                | CURRENTS\_PROJECT\_ID   |                                    |
+| `ciBuildId` | `string` | The [CI Build ID](../../../guides/ci-build-id.md) | CURRENTS\_CI\_BUILD\_ID | Auto-generated                     |
+| `reportDir` | `string` | Test results directory                            | `CURRENTS_REPORT_DIR`   | `.currents/[timestamp]-[uuidv4()]` |
 
 ### Troubleshooting
 

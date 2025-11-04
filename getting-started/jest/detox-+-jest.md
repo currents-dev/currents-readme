@@ -12,7 +12,7 @@ Currents integration with Jest allows sending the results of your Detox tests to
 
 ### Add Currents Reporter for Jest
 
-After you setup and configure Detox for your mobile application, add [currents-jest.md](../../resources/reporters/currents-jest.md "mention") reporter to `jest.config.js`
+After you setup and configure Detox for your mobile application, add [currents-jest](../../resources/reporters/currents-jest/ "mention") reporter to `jest.config.js`
 
 {% code title="jest.config.js" %}
 ```javascript
@@ -43,7 +43,7 @@ Run detox tests:
 npx detox test --configuration android.emu.release
 ```
 
-Running this command with [currents-jest.md](../../resources/reporters/currents-jest.md "mention") reporter enabled generates results in a format compatible for processing by Currents.
+Running this command with [currents-jest](../../resources/reporters/currents-jest/ "mention") reporter enabled generates results in a format compatible for processing by Currents.
 
 In order to send the results for processing you'd invoke an additional command `currents upload` from [currents-cmd](../../resources/reporters/currents-cmd/ "mention") npm package.
 

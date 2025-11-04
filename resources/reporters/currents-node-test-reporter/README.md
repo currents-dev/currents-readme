@@ -29,7 +29,7 @@ Run Node.js and set `@currents/node-test-reporter`  reporter. The result is a re
 
 #### Converting the Report
 
-Run [currents-convert.md](currents-cmd/currents-convert.md "mention") command to covert the generated report into a format compatible with Currents.&#x20;
+Run [currents-convert.md](../currents-cmd/currents-convert.md "mention") command to covert the generated report into a format compatible with Currents.&#x20;
 
 ```bash
 > npx currents convert \
@@ -40,7 +40,7 @@ Run [currents-convert.md](currents-cmd/currents-convert.md "mention") command to
 
 #### Uploading the Results
 
-Upload the results to Currents, specify the projectId and the [record-key.md](../../guides/record-key.md "mention"). Read more about [currents-upload.md](currents-cmd/currents-upload.md "mention") command.
+Upload the results to Currents, specify the projectId and the [record-key.md](../../../guides/record-key.md "mention"). Read more about [currents-upload.md](../currents-cmd/currents-upload.md "mention") command.
 
 ```bash
 npx currents upload --key=XXX --project-id=C3lBM6

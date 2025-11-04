@@ -107,7 +107,7 @@ npx currents upload --key=XXX --project-id=YYY
 Set the [**Record Key**](../../guides/record-key.md), and [**Project ID**](../../dashboard/projects/project-settings.md) obtained from Currents dashboard in the previous step.
 
 {% hint style="info" %}
-You can defined the Record Key and Project ID in the [Reporter configuration](../../resources/reporters/currents-jest.md#configuration).
+You can defined the Record Key and Project ID in the [Reporter configuration](../../resources/reporters/currents-jest/#configuration).
 {% endhint %}
 
 ## Explore Your First Run

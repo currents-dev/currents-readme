@@ -66,4 +66,4 @@ jobs:
 
 ### Explore
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>@currents/jest</td><td></td><td></td><td><a href="../../../resources/reporters/currents-jest.md">currents-jest.md</a></td></tr><tr><td>CI Build ID</td><td></td><td></td><td><a href="../../../guides/ci-build-id.md">ci-build-id.md</a></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>@currents/jest</td><td></td><td></td><td><a href="../../../resources/reporters/currents-jest/">currents-jest</a></td></tr><tr><td>CI Build ID</td><td></td><td></td><td><a href="../../../guides/ci-build-id.md">ci-build-id.md</a></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>

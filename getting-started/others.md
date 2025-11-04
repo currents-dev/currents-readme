@@ -5,7 +5,7 @@ icon: grid
 
 # Others
 
-Currents has flagship integrations with various testing frameworks via the dedicated reporters (like [playwright](playwright/ "mention"), [jest](jest/ "mention"),   [currents-node-test-reporter.md](../resources/reporters/currents-node-test-reporter.md "mention") and [cypress](cypress/ "mention")).&#x20;
+Currents has flagship integrations with various testing frameworks via the dedicated reporters (like [playwright](playwright/ "mention"), [jest](jest/ "mention"),   [currents-node-test-reporter](../resources/reporters/currents-node-test-reporter/ "mention") and [cypress](cypress/ "mention")).&#x20;
 
 Integration with other frameworks is possible by uploading a JUnit XML (or compatible) test results report to Currents using our CLI utilities from [currents-cmd](../resources/reporters/currents-cmd/ "mention") package.
 
