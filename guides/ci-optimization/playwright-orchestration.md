@@ -27,8 +27,7 @@ Install `@currents/playwright`
 npm i @currents/playwright
 ```
 
-\
-
+<br>
 
 Replace `playwright` command with `pwc-p`&#x20;
 
@@ -263,8 +262,7 @@ If no workers are defined for a project, Currents will use the global workers va
 
 #### Project level batch size
 
-The Playwright project configuration can be extended with `currentsBatchSize` which explicitly sets the batch size per project. Import `CurrentsFixtures` for typescript suport.\
-
+The Playwright project configuration can be extended with `currentsBatchSize` which explicitly sets the batch size per project. Import `CurrentsFixtures` for typescript suport.<br>
 
 ```typescript
 import type { CurrentsFixtures } from "@currents/playwright";

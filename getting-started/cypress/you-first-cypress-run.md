@@ -115,7 +115,6 @@ Learn more about
 ### Update your CI provider configuration <a href="#update-your-ci-provider-configuration" id="update-your-ci-provider-configuration"></a>
 
 To unlock the full power of Currents dashboard, update your CI provider configuration to use Currents for running your cypress tests in parallel. Please read our [Parallelization Guide](https://currents.dev/readme/guides/parallelization) and check out few [CI Setup examples](https://currents.dev/readme/ci-setup) for popular CI tools.\
-\
-
+<br>
 
 ###

@@ -207,8 +207,7 @@ import type { ExecutionJSONSummary } from '@currents/playwright'
 
 ### orchestration
 
-Set of configuration items related to [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention").\
-
+Set of configuration items related to [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention").<br>
 
 #### orchestration.resetSignal
 
@@ -218,8 +217,7 @@ Set of configuration items related to [playwright-orchestration.md](../../../gui
 
 Signal used to reset the tests running on the machine. See [ci-tests-on-spot-instances.md](../../../guides/ci-optimization/ci-tests-on-spot-instances.md "mention").
 
-\
-
+<br>
 
 #### orchestration.skipReporterInjection
 
@@ -229,8 +227,7 @@ Signal used to reset the tests running on the machine. See [ci-tests-on-spot-ins
 
 Prevents `pwc-p` from automatically configuring Playwright to use Currents reporter . If see, you must add Currents reporter manuall. See [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention").
 
-\
-
+<br>
 
 #### orchestration.onFinish
 
@@ -244,8 +241,7 @@ Optional async callback called after orchestration completes. The callback runs 
 import type { OrchestrationStatus } from "@currents/playwright";
 ```
 
-\
-
+<br>
 
 #### orchestration.batchSize
 
@@ -268,8 +264,7 @@ Defining this variable will override any project level batch size/workers defini
 ### coverage
 
 Set of configuration items related to [code-coverage-for-playwright.md](../../../guides/coverage/code-coverage-for-playwright.md "mention").\
-\
-
+<br>
 
 #### coverage.projects
 
@@ -283,8 +278,7 @@ Enable or disable coverage collection for Playwright projects
 * `string[]`: only enable for specified projects
 * `false | undefined`: disabled
 
-\
-
+<br>
 
 #### coverage.dir
 

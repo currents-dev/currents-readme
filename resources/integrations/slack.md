@@ -28,8 +28,7 @@ Enabling the **Single Notification for All Groups** toggle ensures that only one
 
 <figure><img src="../../.gitbook/assets/currents-2025-07-17-11.35.37@2x.png" alt=""><figcaption></figcaption></figure>
 
-Note: You may still receive multiple notifications if one group finishes before the others were discovered. For example, if one group completes before the other groups are scheduled or detected, a notification may be sent early.\
-
+Note: You may still receive multiple notifications if one group finishes before the others were discovered. For example, if one group completes before the other groups are scheduled or detected, a notification may be sent early.<br>
 
 ### Filtering Slack notifications based on Tags
 

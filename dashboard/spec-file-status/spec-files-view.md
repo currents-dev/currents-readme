@@ -31,14 +31,14 @@ In case of errors, it provides the error details for each individual attempt. Se
 
 {% embed url="https://www.loom.com/share/155413958bb6438f9b4989e6bbe0ac4a?hideEmbedTopBar=true" %}
 
-### **Metrics**
+## **Metrics**
 
 The Metrics tab provides a summary of the six key metrics available in the Spec File Explorer: Average Duration, Overall Executions, Suite Size, Failure Rate, Flakiness Rate, and Timeout Rate.\
 For more information on these metrics and how the performance charts work, please check [#spec-files-explorer-metrics](../test-suite-performance-explorer/spec-files-explorer.md#spec-files-explorer-metrics "mention") and [#performance-charts](../test-suite-performance-explorer/reference.md#performance-charts "mention").
 
 <div data-with-frame="true"><figure><img src="../../.gitbook/assets/Screenshot 2025-10-10 at 17.07.22.png" alt=""><figcaption><p>Spec Files View - Metrics</p></figcaption></figure></div>
 
-### **History**
+## **History**
 
 The History tab presents a timeline of test executions within the Spec File. For additional details, refer to [#history](../test-suite-performance-explorer/reference.md#history "mention").
 

@@ -96,6 +96,8 @@
   * [Deleting Runs](dashboard/runs/deleting-runs.md)
   * [Run Progress](dashboard/runs/run-progress.md)
 * [Tests](dashboard/tests/README.md)
+  * [Test View](dashboard/tests/test-view.md)
+  * [Test Details](dashboard/tests/run-details.md)
   * [Test Status](dashboard/tests/test-status.md)
   * [Flaky Tests](dashboard/tests/flaky-tests.md)
   * [Test History](dashboard/tests/test-history.md)

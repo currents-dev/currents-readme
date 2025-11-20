@@ -14,8 +14,7 @@ You can allow users with your company email domain to connect to your Currents o
 
 
 
-You can also request to activate this feature by entering the members' administration panel in Currents dashboard. You can have multiple domains enabled for the organization.\
-
+You can also request to activate this feature by entering the members' administration panel in Currents dashboard. You can have multiple domains enabled for the organization.<br>
 
 <div data-full-width="false"><figure><img src="../../.gitbook/assets/Screenshot 2025-10-01 at 15.59.16.png" alt=""><figcaption><p>Enabling Domain Access via Currents Team Management view</p></figcaption></figure></div>
 

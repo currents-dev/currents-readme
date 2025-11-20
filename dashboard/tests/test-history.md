@@ -1,22 +1,19 @@
 ---
-description: >-
-  Explore historical Playwright and Cypress tests performance with Test History
-  snipper
+description: Explore historical Playwright and Cypress tests performance with Test History
 ---
 
 # Test History
 
-### Test History Snipper overview
+### Test History overview
 
 Test History helps you to review the historical performance of individual tests across different runs and branches.
 
-![Cypress test history - flaky, passed and failed instances](<../../.gitbook/assets/Kapture 2021-09-16 at 01.26.16.gif>)
+{% embed url="https://www.loom.com/share/fea3d6bfdf654fd8b3db8522f9c2354d?hideEmbedTopBar=true" %}
 
-Each individual dot is an instance of the test. The dots are arranged in chronological order.
+Each individual bar represents an instance of the test. The bars are arranged in chronological order.\
+Hovering over a bar displays the run’s details, and clicking on a bar opens the recorded test instance with full information.
 
-Hovering over a dot will show individual run details. Clicking on a dot will open the recorded test instance and reveal its details.
-
-The dots are coloured as follows:
+The bars are colored as follows:
 
 * <mark style="color:red;">red</mark> - failed
 * <mark style="color:blue;">blue</mark> - passed
@@ -24,31 +21,28 @@ The dots are coloured as follows:
 * grey - test was ignored
 * <mark style="color:orange;">orange</mark> - test was skipped due to a failure
 
-### How to access Test History Snippet?
+### How to access Test History?
 
-* While browsing the tests list, click the "Test History" button, this will open the Test History Snippet in Preview mode:
+You can access the Test History in two ways:
 
-![Test History Preview snippet in tests list view](<../../.gitbook/assets/CleanShot 2022-02-18 at 00.56.55.png>)
+1. Through the **History** tab in the  [test-view.md](test-view.md "mention").&#x20;
+2. Through the **History** section of the [tests-explorer.md](../test-suite-performance-explorer/tests-explorer.md "mention").
 
-* While browsing Test Details view, the full Test History Snippet is shown at the top of the view.
+### Test History Controls
 
-![Test History Snippet in Test Details view](<../../.gitbook/assets/CleanShot 2022-02-18 at 01.03.20.gif>)
+#### Time Range Filter
 
-### Test History Snippet Controls
+Filter test executions by a specific time range: 7, 14, 28, or 45 days.
 
-#### Show Items
+#### Test State
 
-Set the number of test instances to fetch - that includes past and future runs, we'll try to fetch an equal number of future and past instances.
-
-{% hint style="info" %}
-**Please note:** "Show Items" control is hidden for Preview mode and shows only 10 items.
-{% endhint %}
+Filter test executions by [test-status.md](test-status.md "mention").
 
 #### Collapse Branches
 
 Toggle "Collapse Branches" to show/collapse timelines for individual branches for more effective troubleshooting.
 
-#### Branch Filter
+#### Pin Branch&#x20;
 
 Show timelines only for selected branches.
 
