@@ -87,7 +87,6 @@
   * [Project Settings](dashboard/projects/project-settings.md)
   * [Archive and Unarchive Projects](dashboard/projects/archive-and-unarchive-projects.md)
 * [Runs](dashboard/runs/README.md)
-  * [Run Status](dashboard/runs/run-status.md)
   * [Run Details](dashboard/runs/run-details.md)
   * [Commit Information](dashboard/runs/commit-information.md)
   * [Tags](dashboard/runs/tags.md)
