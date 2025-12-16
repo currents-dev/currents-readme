@@ -131,7 +131,7 @@ export default defineConfig<CurrentsFixtures, CurrentsWorkerFixtures>({
 
 ## Configuration
 
-Numerous configuration options are available. See [#configuration](./#configuration "mention").
+Numerous configuration options are available. See  [configuration.md](configuration.md "mention").
 
 ***
 
