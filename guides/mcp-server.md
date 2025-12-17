@@ -78,16 +78,16 @@ Get the  `runId` from the run's "Advanced" tab in the dashboard. Soon, the MCP s
 
 Currents MCP server exposes a variety of tools.
 
-| Tool                                  | Description                                                                                                                                                                                  |
-| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `currents-get-projects`               | Retrieves a list of all [projects](../dashboard/projects/) available.                                                                                                                        |
-| `currents-get-runs`                   | Retrieves a list of the latest [runs ](../resources/api/api-resources/runs.md)for a specific project.                                                                                        |
-| `currents-get-run-details`            | Retrieves details of a specific [test run](../resources/api/api-resources/runs.md).                                                                                                          |
-| `currents-get-spec-instances`         | Retrieves execution results of a [spec file](../dashboard/spec-file-status/).                                                                                                                |
-| `currents-get-spec-files-performance` | Retrieves **spec file** [historical performance](../resources/api/api-resources/spec-files.md) metrics for a specific project.                                                               |
-| `currents-get-tests-performance`      | Retrieves **test** [historical performance](../resources/api/api-resources/tests.md) metrics for a specific project.                                                                         |
-| `currents-get-tests-signatures`       | Returns [test-signature.md](../resources/api/api-resources/test-signature.md "mention") (filtered by spec file name and test name). Allows an agent to find test results of a specific test. |
-| `currents-get-test-results`           | Retrieves [test results](../resources/api/api-resources/test-results.md) of a test, filtered by [test-signature.md](../resources/api/api-resources/test-signature.md "mention").             |
+| Tool                                  | Description                                                                                                                                                              |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `currents-get-projects`               | Retrieves a list of all [projects](../dashboard/projects/) available.                                                                                                    |
+| `currents-get-runs`                   | Retrieves a list of the latest [runs ](/broken/pages/3maQ5ygELd7XVDnwcVLf)for a specific project.                                                                        |
+| `currents-get-run-details`            | Retrieves details of a specific [test run](/broken/pages/3maQ5ygELd7XVDnwcVLf).                                                                                          |
+| `currents-get-spec-instances`         | Retrieves execution results of a [spec file](../dashboard/spec-file-status/).                                                                                            |
+| `currents-get-spec-files-performance` | Retrieves **spec file** [historical performance](/broken/pages/7QpzrkHQu3lLL1Yy0il8) metrics for a specific project.                                                     |
+| `currents-get-tests-performance`      | Retrieves **test** [historical performance](/broken/pages/4FNdjyCM54HDowFuiuj3) metrics for a specific project.                                                          |
+| `currents-get-tests-signatures`       | Returns [Broken link](/broken/pages/C2WLSjC4xpV27YXSftSB "mention") (filtered by spec file name and test name). Allows an agent to find test results of a specific test. |
+| `currents-get-test-results`           | Retrieves [test results](/broken/pages/4Uq5z6Naq6qITOUMOPaQ) of a test, filtered by [Broken link](/broken/pages/C2WLSjC4xpV27YXSftSB "mention").                         |
 
 ***
 

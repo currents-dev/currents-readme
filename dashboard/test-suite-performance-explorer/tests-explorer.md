@@ -22,7 +22,7 @@ Additionally, it tracks the **change** of the metrics values:
 Use Test Explorer to identify flaky, failing or long-running tests, explore the trends and changes in test behavior.
 
 {% hint style="info" %}
-You can fetch the Test Explorer data programmatically. See [tests.md](../../resources/api/api-resources/tests.md "mention").
+You can fetch the Test Explorer data programmatically. See [Broken link](/broken/pages/4FNdjyCM54HDowFuiuj3 "mention").
 {% endhint %}
 
 <figure><img src="../../.gitbook/assets/currents-2025-10-09-14.53.16@2x (1).png" alt=""><figcaption><p>Test Explorer displays test performance and health data for a 30-day period</p></figcaption></figure>

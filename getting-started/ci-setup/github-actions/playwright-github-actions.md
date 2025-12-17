@@ -146,7 +146,7 @@ Full examples:
 
 #### Currents Orchestration
 
-If you're using [#currents-orchestration](playwright-github-actions.md#currents-orchestration "mention") for running your Playwright tests you can also fetch the results of  from [api](../../../resources/api/ "mention").
+If you're using [#currents-orchestration](playwright-github-actions.md#currents-orchestration "mention") for running your Playwright tests you can also fetch the results of  from [Broken link](/broken/pages/EwuSYaqQeTFQaCaDrIzz "mention").
 
 {% hint style="info" %}
 Currents Orchestration dynamically assigns tests to all the available CI runners, that's why you should select **Re-run all jobs** when using Currents Orchestration. Read more at [re-run-only-failed-tests.md](../../../guides/ci-optimization/re-run-only-failed-tests.md "mention") guide.
@@ -168,7 +168,7 @@ npm i -D @currents/cmd
 
 <summary>Set <code>CURRENTS_API_KEY</code> CI environment variable</summary>
 
-Obtain an API key (see [api-keys.md](../../../resources/api/api-keys.md "mention")) from Currents Dashboard (in addition to Record Key) and set [GitHub Actions Secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
+Obtain an API key (see [Broken link](/broken/pages/yM3FI9oI5kJQSfe9LZCy "mention")) from Currents Dashboard (in addition to Record Key) and set [GitHub Actions Secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
 
 ```yaml
 env:

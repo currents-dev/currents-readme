@@ -75,7 +75,7 @@ Check out the [example workflow configuration](https://github.com/currents-dev/g
           github-run-attempt: ${{ github.run_attempt }}
 ```
 
-The example above uses a [GitHub Actions repository secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) named `CURRENTS_API_KEY.` For creating a new API secret please refer to [api-keys.md](../../resources/api/api-keys.md "mention").
+The example above uses a [GitHub Actions repository secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) named `CURRENTS_API_KEY.` For creating a new API secret please refer to [Broken link](/broken/pages/yM3FI9oI5kJQSfe9LZCy "mention").
 
 After the step is enabled, cancelling a GitHub Actions workflow will trigger cancellation:
 

@@ -182,7 +182,7 @@ test-rerun-reporter:
 
 #### Currents Orchestration
 
-In case you're using [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention") for running your Playwright tests in parallel, use [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md "mention") command to fetch the results of the last run from the [api](../../../resources/api/ "mention").
+In case you're using [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention") for running your Playwright tests in parallel, use [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md "mention") command to fetch the results of the last run from the [Broken link](/broken/pages/EwuSYaqQeTFQaCaDrIzz "mention").
 
 \
 An example workflow is available in our GitLab demo repository
@@ -203,7 +203,7 @@ npm i -D @currents/cmd
 
 <summary>Set <code>CURRENTS_API_KEY</code> environment variable</summary>
 
-Obtain an API key (see [api-keys.md](../../../resources/api/api-keys.md "mention")) and [record-key.md](../../../guides/record-key.md "mention") from Currents Dashboard and set [GitLab CI/CD variable](https://docs.gitlab.com/ee/ci/variables/) accordingly
+Obtain an API key (see [Broken link](/broken/pages/yM3FI9oI5kJQSfe9LZCy "mention")) and [record-key.md](../../../guides/record-key.md "mention") from Currents Dashboard and set [GitLab CI/CD variable](https://docs.gitlab.com/ee/ci/variables/) accordingly
 
 ```yaml
 variables:

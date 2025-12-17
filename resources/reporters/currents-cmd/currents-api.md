@@ -4,12 +4,12 @@ description: Learn how to get data from Currents API using currents api CLI comm
 
 # currents api
 
-`currents api` is a CLI command for fetching data from Currents [api](../../api/ "mention") the data is returned in JSON format.
+`currents api` is a CLI command for fetching data from Currents [Broken link](/broken/pages/EwuSYaqQeTFQaCaDrIzz "mention") the data is returned in JSON format.
 
 ### Usage
 
 {% hint style="info" %}
-The command requires the `--project-id` and [`--api-key`](../../api/api-keys.md#managing-the-api-keys) from Currents to authenticate the request and provide the required data. Alternatively, you can set the `CURRENTS_PROJECT_ID` and `CURRENTS_API_KEY` environment variables.
+The command requires the `--project-id` and [`--api-key`](/broken/pages/yM3FI9oI5kJQSfe9LZCy#managing-the-api-keys) from Currents to authenticate the request and provide the required data. Alternatively, you can set the `CURRENTS_PROJECT_ID` and `CURRENTS_API_KEY` environment variables.
 {% endhint %}
 
 Obtain run data using the [ci-build-id.md](../../../guides/ci-build-id.md "mention") by running the following command:

@@ -25,7 +25,7 @@ npm install @currents/cmd --save-dev
 
 ### Subcommands
 
-* [`currents api`](currents-api.md) - retrieve data from Currents [api](../../api/ "mention") entities
+* [`currents api`](currents-api.md) - retrieve data from Currents [Broken link](/broken/pages/EwuSYaqQeTFQaCaDrIzz "mention") entities
 * [`currents upload`](currents-upload.md) - upload the test results into the Currents Dashboard
 * [`currents cache`](currents-cache.md) - manage test artifacts and configuration cache
 * [`currents convert`](currents-convert.md) - convert test reports to Currents internal format
