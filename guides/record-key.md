@@ -17,15 +17,15 @@ You'd treat your Record Key as a secret and not publish it. Having your Record K
 
 ### Where is my Record Key?
 
-You can obtain your record key by navigating to "Record Keys" section of your organization menu.
+You can obtain your record key by navigating to "Record Keys" section of your organization menu. Accessed by clicking on your Organization's Name in the side menu.
 
-![Record Keys for Currents Dashboard](../.gitbook/assets/currents-record-key.png)
+<div data-with-frame="true"><figure><img src="../.gitbook/assets/Screenshot 2025-12-17 at 8.15.18 AM.png" alt="Record Keys for Currents Dashboard"><figcaption><p>Record Keys for Currents Dashboard</p></figcaption></figure></div>
 
 ### Can I rotate my Record Key?
 
 Yes, in "Record Keys" section of your organization menu, delete the existing key and create a new key.
 
-![Rotating a record key](../.gitbook/assets/currents-rotate-record-key.png)
+<div data-with-frame="true"><img src="../.gitbook/assets/currents-rotate-record-key.png" alt="Rotating a record key"></div>
 
 {% hint style="info" %}
 Please note: requests to create a run for non-existing or deleted Record Key will be rejected
