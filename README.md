@@ -20,8 +20,8 @@ Currents explains your test suite over time, and more.
 
 As teams scale testing in CI, they need visibility into debugging traces, flakiness, regressions, and performance trends — and ways to act on them. Currents aggregates test data across runs and repositories, optimizes CI  execution, integrates across your delivery stack, and brings test intelligence directly into daily engineering workflows.
 
-{% content-ref url="getting-started/alternatives-to-currents.md" %}
-[alternatives-to-currents.md](getting-started/alternatives-to-currents.md)
+{% content-ref url="resources/reporters/alternatives-to-currents.md" %}
+[alternatives-to-currents.md](resources/reporters/alternatives-to-currents.md)
 {% endcontent-ref %}
 
 ## Explore

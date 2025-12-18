@@ -46,7 +46,6 @@
       * [Compatibility](getting-started/other-frameworks/cypress/integrating-with-cypress/compatibility.md)
       * [Alternative Cypress Binaries](getting-started/other-frameworks/cypress/integrating-with-cypress/alternative-cypress-binaries.md)
     * [Troubleshooting Cypress](getting-started/other-frameworks/cypress/troubleshooting-cypress.md)
-* [Alternatives to Currents](getting-started/alternatives-to-currents.md)
 
 ## Guides
 
@@ -153,6 +152,7 @@
     * [Migration to Cypress@13](resources/reporters/cypress-cloud/migration-to-cypress-13.md)
     * [Changelog](https://github.com/currents-dev/cypress-currents-reporter/blob/main/CHANGELOG.md)
   * [Data Format Reference](resources/reporters/data-format-reference.md)
+  * [Alternatives to Currents](resources/reporters/alternatives-to-currents.md)
 * [Integrations](resources/integrations/README.md)
   * [GitHub](resources/integrations/github/README.md)
     * [GitHub App](resources/integrations/github/github-app.md)
