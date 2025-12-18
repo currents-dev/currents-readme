@@ -4,14 +4,14 @@ description: Displaying Commit Information on Currents
 
 # Commit Information
 
-Currents client SDKs use a set of `git`  commands to obtain git commit information. This information is being used to display Run Details and enable certain platform features, for example
+Currents client SDKs use a set of `git` commands to obtain git commit information. This information is being used to display Run Details and enable certain platform features, for example
 
 * show analytics filtered by branch flakiness
 * searching items based on commit message
 * integration with SVC providers
 
 {% hint style="info" %}
-If no commit information is available  either from`.git` folder or from environment variables, no commit data will be shown in the dashboard.&#x20;
+If no commit information is available either from`.git` folder or from environment variables, no commit data will be shown in the dashboard.&#x20;
 
 Commit information must be available for Bitbucket, GitHub and GitLab integrations (PR comments, commit status updates).
 {% endhint %}
@@ -74,5 +74,5 @@ If you're not seeing git information for your runs, most chances `.git` director
 
 * Run the [#git-commands](commit-information.md#git-commands "mention") as part of your CI jobs manually and capture the output
 * Use the environment variables from [#overriding-commit-info](commit-information.md#overriding-commit-info "mention") section
-* Enable the corresponding client SDK debug mode ([Playwright](../../getting-started/playwright/troubleshooting-playwright.md) or [Cypress](../../getting-started/cypress/troubleshooting-cypress.md#cypress-cloud))
+* Enable the corresponding client SDK debug mode ([Playwright](../../guides/troubleshooting-playwright.md) or [Cypress](../../getting-started/other-frameworks/cypress/troubleshooting-cypress.md#cypress-cloud))
 * Contact our support channels for assistance

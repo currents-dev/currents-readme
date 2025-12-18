@@ -27,7 +27,7 @@ Here's an overview of what steps you'll need to take to start running cypress te
 
 After signing up for the dashboard service, you will be prompted to create a new organization and a project. You can change the name later.
 
-![Creating an Organization and a Project in Currents dashboard](../../.gitbook/assets/currents-create-org.gif)
+![Creating an Organization and a Project in Currents dashboard](../../../.gitbook/assets/currents-create-org.gif)
 
 After creating a new organization and a project, you'll see on-screen instructions with your newly created  `projectId`
 
@@ -84,7 +84,7 @@ export default defineConfig({
 {% endtab %}
 
 {% tab title="cypress.json" %}
-`cypress-cloud` requires cypress version 10.0.0+. Please refer to our [legacy integration](../../resources/reporters/currents-cli.md) for the setup instructions&#x20;
+`cypress-cloud` requires cypress version 10.0.0+. Please refer to our [legacy integration](../../../resources/reporters/currents-cli.md) for the setup instructions&#x20;
 {% endtab %}
 {% endtabs %}
 
@@ -102,14 +102,14 @@ See all the available options `npx cypress-cloud --help`.&#x20;
 
 Running this command will create a new run in Currents dashboard.
 
-![Creating the first cypress run with Currents dashboard](../../.gitbook/assets/cypress-first-run.gif)
+![Creating the first cypress run with Currents dashboard](../../../.gitbook/assets/cypress-first-run.gif)
 
 {% hint style="info" %}
 Learn more about
 
 * [Integration with Cypress](integrating-with-cypress/)
-* [Record Key](../../guides/record-key.md)
-* [CI Build ID](../../guides/ci-build-id.md)
+* [Record Key](../../../guides/record-key.md)
+* [CI Build ID](../../../guides/ci-build-id.md)
 {% endhint %}
 
 ### Update your CI provider configuration <a href="#update-your-ci-provider-configuration" id="update-your-ci-provider-configuration"></a>

@@ -36,7 +36,7 @@ Reporting code coverage to Currents as part of running your Playwright tests con
 Requires`@currents/playwright` v1.7.0+
 {% endhint %}
 
-Install and configure Currents reporter following [you-first-playwright-run.md](../../getting-started/playwright/you-first-playwright-run.md "mention"). Make sure that [currents-playwright](../../resources/reporters/currents-playwright/ "mention") reporter is configured with the right [record-key.md](../record-key.md "mention") and **Project ID**.&#x20;
+Install and configure Currents reporter following [your-first-playwright-run.md](../../getting-started/your-first-playwright-run.md "mention"). Make sure that [currents-playwright](../../resources/reporters/currents-playwright/ "mention") reporter is configured with the right [record-key.md](../record-key.md "mention") and **Project ID**.&#x20;
 
 By default Currents reporter uploads all discovered coverage reports, you can include only certain Playwright projects by setting the coverage `projects` option, when using the reporter
 

@@ -14,4 +14,4 @@ description: A list of internet-facing Currents services and endpoints
 * docs.currents.dev - documentation
 * changelog.currents.dev - changelog
 * status.currents.dev - status page
-* cy-cdn.currents.dev  - [alternative-cypress-binaries.md](../../getting-started/cypress/integrating-with-cypress/alternative-cypress-binaries.md "mention") download proxy
+* cy-cdn.currents.dev  - [alternative-cypress-binaries.md](../../getting-started/other-frameworks/cypress/integrating-with-cypress/alternative-cypress-binaries.md "mention") download proxy

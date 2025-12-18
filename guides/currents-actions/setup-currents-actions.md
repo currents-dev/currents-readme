@@ -23,7 +23,7 @@ Check out the [example GitHub repository](https://github.com/currents-dev/curren
 
 ### Setting up the Currents Reporter
 
-Install and configure Currents reporter following [you-first-playwright-run.md](../../getting-started/playwright/you-first-playwright-run.md "mention") guide.&#x20;
+Install and configure Currents reporter following [your-first-playwright-run.md](../../getting-started/your-first-playwright-run.md "mention") guide.&#x20;
 
 ### Add Playwright Fixtures
 

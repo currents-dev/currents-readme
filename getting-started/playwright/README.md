@@ -1,6 +1,0 @@
----
-icon: masks-theater
----
-
-# Playwright
-

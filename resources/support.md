@@ -59,9 +59,9 @@ Or pass the CLI flag:
 
 Check the tools documentation below for more details, or reach out to our support team if you need help enabling debug mode for Currents packages.
 
-* [troubleshooting.md](../getting-started/jest/troubleshooting.md "mention")
-* [troubleshooting-cypress.md](../getting-started/cypress/troubleshooting-cypress.md "mention")
-* [troubleshooting-playwright.md](../getting-started/playwright/troubleshooting-playwright.md "mention")
+* [troubleshooting.md](../getting-started/other-frameworks/jest/troubleshooting.md "mention")
+* [troubleshooting-cypress.md](../getting-started/other-frameworks/cypress/troubleshooting-cypress.md "mention")
+* [troubleshooting-playwright.md](../guides/troubleshooting-playwright.md "mention")
 * [troubleshooting-sso.md](../dashboard/administration/sso-saml2.0/troubleshooting-sso.md "mention")
 
 ### Resources

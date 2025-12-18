@@ -117,7 +117,7 @@ Enable collecting debug logs for the reporter (default: false).&#x20;
 * `remote` will upload the debug logs to Currents servers.
 * `full` will print the logs to stdout and also upload to Currents.
 
-Environment variable: `CURRENTS_DEBUG=true | "remote" | "full"` . See [troubleshooting-playwright.md](../../../getting-started/playwright/troubleshooting-playwright.md "mention").
+Environment variable: `CURRENTS_DEBUG=true | "remote" | "full"` . See [troubleshooting-playwright.md](../../../guides/troubleshooting-playwright.md "mention").
 
 ***
 

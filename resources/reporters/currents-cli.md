@@ -99,7 +99,7 @@ await spawn();
 
 ### Compatibility
 
-Please refer to [compatibility.md](../../getting-started/cypress/integrating-with-cypress/compatibility.md "mention").
+Please refer to [compatibility.md](../../getting-started/other-frameworks/cypress/integrating-with-cypress/compatibility.md "mention").
 
 ### Deprecated Functionality
 

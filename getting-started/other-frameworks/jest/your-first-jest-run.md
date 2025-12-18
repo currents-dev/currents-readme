@@ -14,7 +14,7 @@ Setting up Currents for running and recording Jest tests in parallel can be done
 
 After signing up for the dashboard service, you will be prompted to create a new organization and a project. You can change their names later.
 
-<img src="../../.gitbook/assets/currents-create-org.gif" alt="Creating an Organization and a Project in Currents dashboard" data-size="original">
+<img src="../../../.gitbook/assets/currents-create-org.gif" alt="Creating an Organization and a Project in Currents dashboard" data-size="original">
 
 After creating a new organization and a project, you'll see on-screen instructions with your newly created **Project ID** and **Record Key.**&#x20;
 
@@ -88,7 +88,7 @@ Add a line in your .gitignore to avoid pushing temporary generated reports to yo
 
 ## Your First Jest Run&#x20;
 
-Upon running Jest tests, Currents reporter for jest generates a temporary folder containing the test results. To upload the results to Currents, you must run [currents-upload.md](../../resources/reporters/currents-cmd/currents-upload.md "mention")
+Upon running Jest tests, Currents reporter for jest generates a temporary folder containing the test results. To upload the results to Currents, you must run [currents-upload.md](../../../resources/reporters/currents-cmd/currents-upload.md "mention")
 
 #### Step 1: Run the tests
 
@@ -98,23 +98,23 @@ npx jest --reporters=@currents/jest
 
 #### Step 2: Upload the results
 
-Run the following command to upload the last results to Currents dashboard (see [currents-upload.md](../../resources/reporters/currents-cmd/currents-upload.md "mention"))
+Run the following command to upload the last results to Currents dashboard (see [currents-upload.md](../../../resources/reporters/currents-cmd/currents-upload.md "mention"))
 
 ```sh
 npx currents upload --key=XXX --project-id=YYY
 ```
 
-Set the [**Record Key**](../../guides/record-key.md), and [**Project ID**](../../dashboard/projects/project-settings.md) obtained from Currents dashboard in the previous step.
+Set the [**Record Key**](../../../guides/record-key.md), and [**Project ID**](../../../dashboard/projects/project-settings.md) obtained from Currents dashboard in the previous step.
 
 {% hint style="info" %}
-You can defined the Record Key and Project ID in the [Reporter configuration](../../resources/reporters/currents-jest/#configuration).
+You can defined the Record Key and Project ID in the [Reporter configuration](../../../resources/reporters/currents-jest/#configuration).
 {% endhint %}
 
 ## Explore Your First Run
 
 The execution results will show on the Currents dashboard. The latest report should be uploaded to Currents, and a link to the run will be displayed.
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption><p>A link to the recorded results</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>A link to the recorded results</p></figcaption></figure>
 
 ## Good To Know
 
