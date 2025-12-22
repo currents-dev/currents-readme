@@ -17,7 +17,7 @@ Please note that there are certain limitations to Currents SSO integration.
 
 * SSO integration is only available for customers with an **active subscription.**
 * Enabling SSO will for **all the team members.**
-* Currents only supports [idp-initiated-sessions.md](idp-initiated-sessions.md "mention").
+* Currents **does not** support [idp-initiated-sessions.md](idp-initiated-sessions.md "mention").
 * **Custom Roles are not supported** - the roles need to be manually configured for each user via the dashboard. New accounts will be created with "member" role.
 * **User Deletion is available vis SCIMv2** - For IdPs that do not support SCIMv2 you can manually delete the users on the Currents team page.
 
