@@ -36,8 +36,10 @@ Connect Jira App to your Currents organization:
 4. Expand **Currents for Jira** and click **Configure**
 5. Paste your **Installation Link Token** and click **Link Installation**
 
-{% hint style="info" %}
-Note that the **Link Installation** action won't show any success/error alert. The Jira integration status must be verified directly in the dashboard.
+{% hint style="warning" %}
+**Important:** When you click the **Link** button, the input field will be cleared without any success or error message. This is expected behavior.
+
+To verify the link was successful, return to your **Currents Dashboard > Project > Integrations > Jira App** and confirm the installation appears with the linked status (see example below).
 {% endhint %}
 
 <figure><img src="../../../.gitbook/assets/currents-2025-07-11-15.16.00@2x.png" alt="" width="373"><figcaption><p>Link Jira App to your Currents Organization</p></figcaption></figure>
