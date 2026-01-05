@@ -1,5 +1,8 @@
 ---
-description: 'Currents is the #1 All-in-one Dashboard for Playwright Testing.'
+description: >-
+  Currents is a cloud platform, dashboard and test orchestrator aimed to help
+  SDET and Software Teams to manage the complexity of running automated tests in
+  CI.
 icon: house-window
 ---
 
