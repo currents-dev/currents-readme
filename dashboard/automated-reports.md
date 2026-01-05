@@ -168,7 +168,7 @@ This section includes key subsections that provide a clearer view of the test su
 
 
 
-**Top Flaky Tests**
+#### **Top Flaky Tests**
 
 Most impactful sources of instability, weighted by frequency and flakiness rate.
 
@@ -179,7 +179,7 @@ Most impactful sources of instability, weighted by frequency and flakiness rate.
 | Metric Value | Flakiness rate per test across all its executions                                 |
 | Trend        | Flakiness rate per test across all its executions compared to the previous period |
 
-**Highest Flaky Rate**
+#### **Highest Flaky Rate**
 
 Displays the tests with the highest flakiness rates during the selected period.
 
@@ -190,7 +190,7 @@ Displays the tests with the highest flakiness rates during the selected period.
 | Metric Value | Flakiness rate per test across all its executions                                 |
 | Trend        | Flakiness rate per test across all its executions compared to the previous period |
 
-**Trending Flaky Tests**
+#### **Trending Flaky Tests**
 
 Highlights the tests whose reliability is declining, even if they were previously stable, helping teams catch regressions early.
 
@@ -201,7 +201,7 @@ Highlights the tests whose reliability is declining, even if they were previousl
 | Metric Value | Flakiness rate per test across all its executions                                 |
 | Trend        | Flakiness rate per test across all its executions compared to the previous period |
 
-**New Flaky Tests**
+#### **New Flaky Tests**
 
 Highlights newly unstable tests that were fully reliable in the previous reporting period.
 
@@ -212,7 +212,7 @@ Highlights newly unstable tests that were fully reliable in the previous reporti
 | Metric Value | Flakiness rate per test across all its executions              |
 | Trend        | A decreasing trend in flakiness rate during the current period |
 
-**Slowest Tests**
+#### **Slowest Tests**
 
 Highlights tests that take the longest to execute and have the greatest impact on overall suite duration and throughput.
 
@@ -223,7 +223,7 @@ Highlights tests that take the longest to execute and have the greatest impact o
 | Metric Value | Average test duration                                                  |
 | Trend        | Average duration compared to the previous period                       |
 
-**Highest Average Duration**
+#### **Highest Average Duration**
 
 Identifies tests with the longest single-run durations, which may be rare but are notable outliers in slowness.
 
@@ -234,7 +234,7 @@ Identifies tests with the longest single-run durations, which may be rare but ar
 | Metric Value | Average test duration                            |
 | Trend        | Average duration compared to the previous period |
 
-**Trending Slow Tests**
+#### **Trending Slow Tests**
 
 Highlights tests that have slowed down significantly compared to the previous period, indicating potential performance regressions in the code or environment.
 
@@ -245,7 +245,7 @@ Highlights tests that have slowed down significantly compared to the previous pe
 | Metric Value | Average test duration                            |
 | Trend        | Average duration compared to the previous period |
 
-**Failing Tests**
+#### **Failing Tests**
 
 Highlights tests that consistently fail, having the greatest negative impact on suite reliability.
 
@@ -256,7 +256,7 @@ Highlights tests that consistently fail, having the greatest negative impact on 
 | Metric Value | Failure rate percentage                         |
 | Trend        | Failure rate change compared to previous period |
 
-**Highest Failure Rate**
+#### **Highest Failure Rate**
 
 Identifies tests with the highest failure rates, which may be new or rarely executed tests that fail consistently.
 
@@ -267,7 +267,7 @@ Identifies tests with the highest failure rates, which may be new or rarely exec
 | Metric Value | Failure rate percentage                                                  |
 | Trend        | Failure rate change compared to previous period                          |
 
-**Trending Failing Tests**
+#### **Trending Failing Tests**
 
 Highlights tests with a significant increase in failure rate compared to the previous period, serving as early indicators of regressions or new breakages.
 
@@ -278,7 +278,7 @@ Highlights tests with a significant increase in failure rate compared to the pre
 | Metric Value | Failure rate percentage                         |
 | Trend        | Failure rate change compared to previous period |
 
-**New Failing Tests**
+#### **New Failing Tests**
 
 Highlights tests that began failing in the current reporting period after previously having a 0% failure rate.
 
