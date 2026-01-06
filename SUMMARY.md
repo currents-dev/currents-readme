@@ -54,6 +54,7 @@
   * [Reporting Strategy](guides/parallelization-guide/reporting-strategy.md)
   * [Reporting in CI](guides/parallelization-guide/playwright-sharding.md)
   * [Step-Level Reporting](guides/parallelization-guide/step-level-reporting.md)
+* [Test Orchestration](guides/test-orchestration.md)
 * [CI Optimization](guides/ci-optimization/README.md)
   * [Playwright Parallelization](guides/ci-optimization/playwright-parallelization.md)
   * [Orchestration Setup](guides/ci-optimization/playwright-orchestration.md)
