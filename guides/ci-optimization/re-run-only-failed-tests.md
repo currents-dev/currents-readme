@@ -2,7 +2,7 @@
 description: A guide on rerunning only failed Playwright tests in CI
 ---
 
-# Re-run Only Failed  Tests
+# Re-run Only Failed Tests
 
 Starting from version [1.44](https://playwright.dev/docs/release-notes?ref=playwrightsolutions.com#version-144) Playwright supports [running only the failed test from the last run](https://playwrightsolutions.com/how-to-run-failures-only-from-the-last-playwright-run/) using `--last-failed` CLI flag. For example:
 
@@ -32,7 +32,7 @@ The suggested templates do not require maintaining complex CI configurations and
 
 <summary>GitHub Actions</summary>
 
-See our step-by-step guide [#re-run-only-failed-tests-in-github-actions](../../getting-started/ci-setup/github-actions/playwright-github-actions.md#re-run-only-failed-tests-in-github-actions "mention")
+See our step-by-step guide [Broken link](/broken/pages/OBf6fxBvHtXcnh50eEgQ#re-run-only-failed-tests-in-github-actions "mention")
 
 </details>
 
@@ -48,7 +48,7 @@ See our step-by-step guide to [Setting up retries of failed job with GitLab CI](
 
 <summary>Jenkins Pipeline</summary>
 
-See our step-by-step guide to [Setting up retries of failed job with Jenkins Pipeline](../../getting-started/ci-setup/jenkins/jenkins-playwright.md#using-last-failed-flag-with-shards-and-orchestration)
+See our step-by-step guide to [Setting up retries of failed job with Jenkins Pipeline](/broken/pages/4LoOSvPTa9mW7D6zFRyO#using-last-failed-flag-with-shards-and-orchestration)
 
 </details>
 
@@ -72,7 +72,7 @@ That's why when rerunning failed orchestrated CI runs, you'd select "Rerun All J
 
 <summary>GitHub Actions</summary>
 
-See our step-by-step guide  [#re-run-only-failed-tests-in-github-actions](../../getting-started/ci-setup/github-actions/playwright-github-actions.md#re-run-only-failed-tests-in-github-actions "mention")
+See our step-by-step guide  [re-run-failed-only-tests.md](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests.md "mention")
 
 </details>
 
@@ -80,7 +80,7 @@ See our step-by-step guide  [#re-run-only-failed-tests-in-github-actions](../../
 
 <summary>GitLab CI</summary>
 
-See our step-by-step guide to [Setting up retries of failed job with GitLab CI](../../getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md#currents-orchestration)
+See our step-by-step guide [re-run-failed-only-tests.md](../../getting-started/ci-setup/gitlab/re-run-failed-only-tests.md "mention")
 
 </details>
 
@@ -88,6 +88,6 @@ See our step-by-step guide to [Setting up retries of failed job with GitLab CI](
 
 <summary>Jenkins Pipeline</summary>
 
-See our step-by-step guide to [Setting up retries of failed job with Jenkins Pipeline](../../getting-started/ci-setup/jenkins/jenkins-playwright.md#using-last-failed-flag)
+See our step-by-step guide to [Setting up retries of failed job with Jenkins Pipeline](/broken/pages/4LoOSvPTa9mW7D6zFRyO#using-last-failed-flag)
 
 </details>

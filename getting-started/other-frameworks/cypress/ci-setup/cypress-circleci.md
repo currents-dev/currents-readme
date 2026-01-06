@@ -189,4 +189,4 @@ CircleCI configuration that uses Docker image with pre-installed cypress app. Re
 
 Here's an example of the demo run in Currents.dev dashboard, note that 3 cypress agents were used as part of this run:
 
-![Running Cypress tests in parallel on CircleCI](../../../.gitbook/assets/circle-ci-parallel-cypress-tests.png)
+![Running Cypress tests in parallel on CircleCI](../../../../.gitbook/assets/circle-ci-parallel-cypress-tests.png)

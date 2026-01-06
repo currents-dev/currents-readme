@@ -59,11 +59,11 @@ jobs:
 ```
 {% endcode %}
 
-* Get your [Record Key](../../../guides/record-key.md) and set [GH secret](https://docs.github.com/en/actions/reference/encrypted-secrets) variable`CURRENTS_RECORD_KEY`.&#x20;
+* Get your [Record Key](../../../../guides/record-key.md) and set [GH secret](https://docs.github.com/en/actions/reference/encrypted-secrets) variable`CURRENTS_RECORD_KEY`.&#x20;
 * Set the Project ID
-  * Option 1: Update `npx currents upload` `--project-id` argument to [your project's id](../../../dashboard/projects/project-settings.md).&#x20;
+  * Option 1: Update `npx currents upload` `--project-id` argument to [your project's id](../../../../dashboard/projects/project-settings.md).&#x20;
   * Option 2: Set it up in the [reporter config](https://docs.currents.dev/resources/reporters/currents-jest#configuration) instead.
 
 ### Explore
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>@currents/jest</td><td></td><td></td><td><a href="../../../resources/reporters/currents-jest/">currents-jest</a></td></tr><tr><td>CI Build ID</td><td></td><td></td><td><a href="../../../guides/ci-build-id.md">ci-build-id.md</a></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>@currents/jest</td><td></td><td></td><td><a href="../../../../resources/reporters/currents-jest/">currents-jest</a></td></tr><tr><td>CI Build ID</td><td></td><td></td><td><a href="../../../../guides/ci-build-id.md">ci-build-id.md</a></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>

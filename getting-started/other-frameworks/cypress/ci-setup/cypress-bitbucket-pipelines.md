@@ -43,4 +43,4 @@ npx cypress-cloud --key $CURRENTS_RECORD_KEY --parallel
 
 Currents team is maintaining an alternative version of the MIT-licensed Cypress test runner, compatible in features and open for using with recording services like Sorry Cypress and Currents.
 
-See [alternative-cypress-binaries.md](../../other-frameworks/cypress/integrating-with-cypress/alternative-cypress-binaries.md "mention").
+See [alternative-cypress-binaries.md](../integrating-with-cypress/alternative-cypress-binaries.md "mention").

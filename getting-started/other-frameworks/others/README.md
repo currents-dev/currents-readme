@@ -5,11 +5,11 @@ icon: grid
 
 # JUnit
 
-Currents has flagship integrations with various testing frameworks via the dedicated reporters (like Playwright, [jest](jest/ "mention"),   [currents-node-test-reporter](../../resources/reporters/currents-node-test-reporter/ "mention") and [cypress](cypress/ "mention")).&#x20;
+Currents has flagship integrations with various testing frameworks via the dedicated reporters (like Playwright, [jest](../jest/ "mention"),   [currents-node-test-reporter](../../../resources/reporters/currents-node-test-reporter/ "mention") and [cypress](../cypress/ "mention")).&#x20;
 
-Integration with other frameworks is possible by uploading a JUnit XML (or compatible) test results report to Currents using our CLI utilities from [currents-cmd](../../resources/reporters/currents-cmd/ "mention") package.
+Integration with other frameworks is possible by uploading a JUnit XML (or compatible) test results report to Currents using our CLI utilities from [currents-cmd](../../../resources/reporters/currents-cmd/ "mention") package.
 
-<figure><img src="../../.gitbook/assets/Junit XML reporter.png" alt=""><figcaption><p>Send results from any framework that supports JUnit XML format</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Junit XML reporter.png" alt=""><figcaption><p>Send results from any framework that supports JUnit XML format</p></figcaption></figure>
 
 > JUnit is an XML document used to represent the outcomes of automated tests. It is widely adopted for test reporting in CI/CD pipelines, allowing CI tools like Jenkins, GitHub Actions, ands other to parse and display test results.
 >
@@ -40,19 +40,19 @@ Run the tests and save the test results at a known location
 {% step %}
 ### Conver JUnit XML file
 
-Run [currents-convert.md](../../resources/reporters/currents-cmd/currents-convert.md "mention") command to convert JUnit XML report to a format compatible with Currents
+Run [currents-convert.md](../../../resources/reporters/currents-cmd/currents-convert.md "mention") command to convert JUnit XML report to a format compatible with Currents
 {% endstep %}
 
 {% step %}
 ### Upload the results to Currents
 
-Run [currents-upload.md](../../resources/reporters/currents-cmd/currents-upload.md "mention")command to send the results to Currents for processing
+Run [currents-upload.md](../../../resources/reporters/currents-cmd/currents-upload.md "mention")command to send the results to Currents for processing
 {% endstep %}
 {% endstepper %}
 
 ### Setup
 
-* Install [currents-cmd](../../resources/reporters/currents-cmd/ "mention") package
+* Install [currents-cmd](../../../resources/reporters/currents-cmd/ "mention") package
 
 ```bash
 npm i @currents/cmd
@@ -68,7 +68,7 @@ When running the tests, make sure to save the results at a known location - you 
 
 ### Convert the JUnit XML report
 
-Use [currents-convert.md](../../resources/reporters/currents-cmd/currents-convert.md "mention") command to convert JUnit format to internal Currents format. Refer to [currents-convert.md](../../resources/reporters/currents-cmd/currents-convert.md "mention") documentation for the list of supported formats and frameworks.
+Use [currents-convert.md](../../../resources/reporters/currents-cmd/currents-convert.md "mention") command to convert JUnit format to internal Currents format. Refer to [currents-convert.md](../../../resources/reporters/currents-cmd/currents-convert.md "mention") documentation for the list of supported formats and frameworks.
 
 For example:
 
@@ -83,7 +83,7 @@ npx currents convert \
 
 ### Upload the results
 
-Use  [currents-upload.md](../../resources/reporters/currents-cmd/currents-upload.md "mention") command to send the results to Currents.  Get a [Record key](../../guides/record-key.md) and [Project ID](../../dashboard/projects/) from Currents dashboard.
+Use  [currents-upload.md](../../../resources/reporters/currents-cmd/currents-upload.md "mention") command to send the results to Currents.  Get a [Record key](../../../guides/record-key.md) and [Project ID](../../../dashboard/projects/) from Currents dashboard.
 
 ```bash
 npx currents upload --project-id=xxx --key=yyy

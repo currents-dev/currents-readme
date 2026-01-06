@@ -2,7 +2,7 @@
 description: Running Playwright tests with NX
 ---
 
-# Playwright - NX
+# NX
 
 ### Running cypress tests in NX project with Currents
 
@@ -81,7 +81,7 @@ nx run-many -t e2e  --parallel=2 --verbose --last-failed
 ```
 
 {% hint style="info" %}
-For a more detailed explanation on last failed CI setup, [see here](../../../guides/ci-optimization/re-run-only-failed-tests.md)
+For a more detailed explanation on last failed CI setup, [see here](../../guides/ci-optimization/re-run-only-failed-tests.md)
 {% endhint %}
 
 ### Orchestration in a single project
@@ -115,7 +115,7 @@ This is showcased in the `e2e-03` nx project and the `project.json` file is slig
 Key differences with other nx projects in the example repository:
 
 * `executor` property has the value `nx:run-commands`.
-* A `command` property is added within `options` . This executes `npx pwc-p` which is the [Currents orchestration ](../../../guides/ci-optimization/playwright-orchestration.md#playwright-orchestration)command.
+* A `command` property is added within `options` . This executes `npx pwc-p` which is the [Currents orchestration ](../../guides/ci-optimization/playwright-orchestration.md#playwright-orchestration)command.
 * Reporter config in `playwright.config` file is not needed
 
 To locally execute orchestration nx project:

@@ -66,4 +66,4 @@ Here are a few example setups for popular CI providers:
 * [GitHub Actions](https://github.com/currents-dev/playwright-gh-actions-demo)
 * [GitLab](https://gitlab.com/currents.dev/gitlab-playwright-currents)
 * [CircleCI](https://github.com/currents-dev/circleci-pw-example)
-* [Jenkins](../../getting-started/ci-setup/jenkins/jenkins-playwright.md)
+* [Jenkins](../../getting-started/ci-setup/jenkins.md)

@@ -2,7 +2,7 @@
 description: Running Playwright tests in parallel with Jenkins and Currents Dashboard
 ---
 
-# Playwright - Jenkins
+# Jenkins
 
 Here's an example of Jenkins pipeline that is running Playwright tests in parallel on 2 workers.&#x20;
 
@@ -12,9 +12,9 @@ The steps are:
 
 * Use `mcr.microsoft.com/playwright:v1.34.0-jammy` as the base image
 * Install the necessary dependencies: `playwright` and `@currents/playwright`
-* Populate the environment variable `CURRENTS_RECORD_KEY` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/). Learn more about [record-key.md](../../../guides/record-key.md "mention")
+* Populate the environment variable `CURRENTS_RECORD_KEY` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/). Learn more about [record-key.md](../../guides/record-key.md "mention")
 * Populate the environment variable `CURRENTS_PROJECT_ID` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/).
-* Run Playwright tests on 2 workers, using CI Build ID for "connecting" the workers to the same parallel run. See [ci-build-id.md](../../../guides/ci-build-id.md "mention").
+* Run Playwright tests on 2 workers, using CI Build ID for "connecting" the workers to the same parallel run. See [ci-build-id.md](../../guides/ci-build-id.md "mention").
 
 {% code overflow="wrap" %}
 ```
@@ -87,12 +87,12 @@ Here you will be able to find the following Jenkinsfile that accepts two paramet
 * A CI Build ID from a previous run that you can use to apply the `--last-failed` flag. If this parameter is set, then the pipeline will automatically apply this tag and only run the failed tests from that run if found.
 * A checkbox for knowing if you want to run an orchestrated run. If so, the pipeline will use `pwc-p` command instead of `pwc`.
 
-<figure><img src="../../../.gitbook/assets/image (12).png" alt="" width="375"><figcaption><p>Pipeline Params</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12).png" alt="" width="375"><figcaption><p>Pipeline Params</p></figcaption></figure>
 
 In order to use the `--last-failed` flag, in addition to the project ID and record key, a Currents API key is needed (You can find it in the API Keys section in your dashboard).
 
 {% hint style="info" %}
-This example uses the API Key and the [`@currents/cmd`](../../../resources/reporters/currents-cmd/currents-api.md) package to query for the run corresponding to the CI Build ID and generates the `.last-run.json` file with that information.
+This example uses the API Key and the [`@currents/cmd`](../../resources/reporters/currents-cmd/currents-api.md) package to query for the run corresponding to the CI Build ID and generates the `.last-run.json` file with that information.
 {% endhint %}
 
 Also, within the Jenkinsfile you can set different values as env variables for the total amount of shards `TOTAL_SHARDS` or the number of parallel jobs for orchestration `PARALLEL_JOBS.`

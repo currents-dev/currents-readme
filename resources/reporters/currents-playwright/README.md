@@ -184,11 +184,11 @@ pwc --key <record-key> --project-id <id> -- --workers 2 --timeout 10000 --shard 
 
 Check out the example repositories that showcase running Playwright tests on popular CI providers and recording the results to Currents:
 
-* [playwright-github-actions.md](../../../getting-started/ci-setup/github-actions/playwright-github-actions.md "mention")
+* [Broken link](/broken/pages/OBf6fxBvHtXcnh50eEgQ "mention")
 * [playwright-gitlab-ci-cd.md](../../../getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md "mention")
-* [jenkins-playwright.md](../../../getting-started/ci-setup/jenkins/jenkins-playwright.md "mention")
-* [playwright-circleci.md](../../../getting-started/ci-setup/circleci/playwright-circleci.md "mention")
-* [playwright-aws-code-build.md](../../../getting-started/ci-setup/aws-code-build/playwright-aws-code-build.md "mention")
-* [playwright-azure-devops.md](../../../getting-started/ci-setup/azure-devops/playwright-azure-devops.md "mention")
+* [Broken link](/broken/pages/4LoOSvPTa9mW7D6zFRyO "mention")
+* [playwright-circleci.md](../../../getting-started/ci-setup/playwright-circleci.md "mention")
+* [playwright-aws-code-build.md](../../../getting-started/ci-setup/playwright-aws-code-build.md "mention")
+* [playwright-azure-devops.md](../../../getting-started/ci-setup/playwright-azure-devops.md "mention")
 
 Explore how to speed up CI Playwright runs by enabling [playwright-parallelization.md](../../../guides/ci-optimization/playwright-parallelization.md "mention").
