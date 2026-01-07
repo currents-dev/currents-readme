@@ -36,7 +36,7 @@ npx pwc-p --key <record-key> --project-id <project-id> --ci-build-id <ci-build-i
 ```
 
 {% hint style="success" %}
-Read more about [ci-build-id.md](../ci-build-id.md "mention")  and [reporting-strategy.md](../parallelization-guide/reporting-strategy.md "mention")&#x20;
+Read more about [ci-build-id.md](../parallelization-guide/ci-build-id.md "mention")  and [reporting-strategy.md](../parallelization-guide/reporting-strategy.md "mention")&#x20;
 {% endhint %}
 
 &#x20;

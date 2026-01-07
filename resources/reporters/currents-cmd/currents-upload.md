@@ -60,7 +60,7 @@ Script execution finished
 
 
 * `--ci-build-id`
-  * The id of the build to record the test run. Read more [ci-build-id.md](../../../guides/ci-build-id.md "mention")
+  * The id of the build to record the test run. Read more [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention")
   * Environment variable: `CURRENTS_CI_BUILD_ID`
   * Type: `string`
   * Default value: `auto:[random-string]`

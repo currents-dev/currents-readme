@@ -78,12 +78,12 @@ Script execution finished
 
 ### Configuration
 
-| Property    | Type     | Description                                       | Environment variable    | Default                            |
-| ----------- | -------- | ------------------------------------------------- | ----------------------- | ---------------------------------- |
-| `recordKey` | `string` | The organization's record key                     | CURRENTS\_RECORD\_KEY   |                                    |
-| `projectId` | `string` | The target project                                | CURRENTS\_PROJECT\_ID   |                                    |
-| `ciBuildId` | `string` | The [CI Build ID](../../../guides/ci-build-id.md) | CURRENTS\_CI\_BUILD\_ID | Auto-generated                     |
-| `reportDir` | `string` | Test results directory                            | `CURRENTS_REPORT_DIR`   | `.currents/[timestamp]-[uuidv4()]` |
+| Property    | Type     | Description                                                             | Environment variable    | Default                            |
+| ----------- | -------- | ----------------------------------------------------------------------- | ----------------------- | ---------------------------------- |
+| `recordKey` | `string` | The organization's record key                                           | CURRENTS\_RECORD\_KEY   |                                    |
+| `projectId` | `string` | The target project                                                      | CURRENTS\_PROJECT\_ID   |                                    |
+| `ciBuildId` | `string` | The [CI Build ID](../../../guides/parallelization-guide/ci-build-id.md) | CURRENTS\_CI\_BUILD\_ID | Auto-generated                     |
+| `reportDir` | `string` | Test results directory                                                  | `CURRENTS_REPORT_DIR`   | `.currents/[timestamp]-[uuidv4()]` |
 
 ### Troubleshooting
 

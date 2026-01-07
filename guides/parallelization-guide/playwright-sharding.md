@@ -24,7 +24,7 @@ Currents collects test results across different machines + workers and presents 
 
 ### Reporting Sharded Playwright from localhost
 
-Running Playwright tests with sharding enabled on localhost requires running two or more `playwright` commands with the `--shard` flag and the same [CI Build ID](../ci-build-id.md).&#x20;
+Running Playwright tests with sharding enabled on localhost requires running two or more `playwright` commands with the `--shard` flag and the same [CI Build ID](ci-build-id.md).&#x20;
 
 Open two separate terminals and run an identical `pwc` command with `--shard=1/2` and `--shard=2/2` flag respectively and  `--ci-build-id` flag with identical values in both terminals. In the example below we use a dummy CI build ID `ciid`, you can replace it with any value as long as it's the same.
 

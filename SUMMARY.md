@@ -49,9 +49,9 @@
 ## Guides
 
 * [Record Key](guides/record-key.md)
-* [CI Build ID](guides/ci-build-id.md)
 * [Reporting](guides/parallelization-guide/README.md)
   * [Reporting Strategy](guides/parallelization-guide/reporting-strategy.md)
+  * [CI Build ID](guides/parallelization-guide/ci-build-id.md)
   * [Reporting in CI](guides/parallelization-guide/playwright-sharding.md)
   * [Step-Level Reporting](guides/parallelization-guide/step-level-reporting.md)
 * [Test Orchestration](guides/test-orchestration.md)

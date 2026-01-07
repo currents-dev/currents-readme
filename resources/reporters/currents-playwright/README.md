@@ -30,7 +30,7 @@ npm i -D @currents/playwright
 Create `currents.config.(m|j|t)s` configuration file.
 
 * Set the **Record Key**, and **Project ID** obtained from Currents dashboard.
-* Learn more about [ci-build-id.md](../../../guides/ci-build-id.md "mention").
+* Learn more about [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention").
 
 ```typescript
 import { CurrentsConfig } from "@currents/playwright";
@@ -95,7 +95,7 @@ npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id hello-currents
 
 * `pwc` reads configuration from `currents.config.ts`
 * Run `pwc` to start recording Playwright runs to Currents.
-* Learn more about [ci-build-id.md](../../../guides/ci-build-id.md "mention").
+* Learn more about [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention").
 * See [pwc.md](pwc.md "mention") reference documentation.
 
 {% hint style="info" %}
@@ -125,7 +125,7 @@ export default defineConfig<CurrentsFixtures, CurrentsWorkerFixtures>({
 
 * The reporter reads the configuration from `currents.config.ts` file. See additional configuration options [#configuration](./#configuration "mention").
 * Run `npx playwright test` to start sending the results to Currents dashboard.
-* Learn more about [ci-build-id.md](../../../guides/ci-build-id.md "mention").
+* Learn more about [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention").
 
 ***
 

@@ -88,6 +88,6 @@ See our step-by-step guide [re-run-failed-only-tests.md](../../getting-started/c
 
 <summary>Jenkins Pipeline</summary>
 
-See our step-by-step guide to [Setting up retries of failed job with Jenkins Pipeline](/broken/pages/4LoOSvPTa9mW7D6zFRyO#using-last-failed-flag)
+See our step-by-step guide to [Setting up retries of failed job with Jenkins Pipeline](https://docs.currents.dev/getting-started/ci-setup/jenkins#using-last-failed-flag-with-shards-and-orchestration)
 
 </details>

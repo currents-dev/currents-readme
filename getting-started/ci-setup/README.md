@@ -10,7 +10,7 @@ icon: robot
 Integrating Currents with your CI Provider is the next logical step after creating your first run. Currents supports all major CI providers and provides examples for the most popular ones.
 
 {% hint style="warning" %}
-Got stuck configuring CI? Reach out to our [support.md](../../resources/support.md "mention"), we'll be happy to help.
+Got stuck configuring CI? Reach out to our [support.md](../../resources/support.md "mention"), we'll be happy to help!
 {% endhint %}
 
 ## CI Providers

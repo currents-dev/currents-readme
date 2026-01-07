@@ -33,13 +33,13 @@ You can override Run Title by setting `COMMIT_INFO_MESSAGE` environment variable
 
 Currents collects additional information about the CI environment:
 
-| Field                | Description                                             |
-| -------------------- | ------------------------------------------------------- |
-| Duration             | Run duration                                            |
-| Progress             | Completed / overall spec files progress                 |
-| Started at           | Run start timestamp                                     |
-| Branch               | Git branch name (or HEAD for Pull Requests)             |
-| Commit Message + SHA | Git commit details                                      |
-| Browser / Project    | Cypress tests browser or Playwright Project             |
-| Author               | Git commit author                                       |
-| CI Build ID          | [ci-build-id.md](../../guides/ci-build-id.md "mention") |
+| Field                | Description                                                                   |
+| -------------------- | ----------------------------------------------------------------------------- |
+| Duration             | Run duration                                                                  |
+| Progress             | Completed / overall spec files progress                                       |
+| Started at           | Run start timestamp                                                           |
+| Branch               | Git branch name (or HEAD for Pull Requests)                                   |
+| Commit Message + SHA | Git commit details                                                            |
+| Browser / Project    | Cypress tests browser or Playwright Project                                   |
+| Author               | Git commit author                                                             |
+| CI Build ID          | [ci-build-id.md](../../guides/parallelization-guide/ci-build-id.md "mention") |

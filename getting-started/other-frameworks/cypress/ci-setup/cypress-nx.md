@@ -86,4 +86,4 @@ npx nx run web-e2e:currents --key <recordKey> --ci-build-id hello-currents-nx
 
 * Update your `currents.config.js` file with `projectId` obtained at [https://app.currents.dev](https://app.currents.dev/)
 * Use the record key obtained at [https://app.currents.dev](https://app.currents.dev/)
-* Learn more about [ci-build-id.md](../../../../guides/ci-build-id.md "mention")
+* Learn more about [ci-build-id.md](../../../../guides/parallelization-guide/ci-build-id.md "mention")

@@ -80,7 +80,7 @@ The example [config file](https://github.com/currents-dev/aws-codebuild-example/
 
 Note:
 
-* The example uses [CODEBUILD\_INITIATOR](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html) as a [CI Build ID](https://currents.dev/readme/guides/cypress-ci-build-id). When testing interactively, the CODEBUILD\_INITIATOR will be set to the username of the build initiator. When running a batched build, the variable will have the batch build id. Read more about [ci-build-id.md](../../../../guides/ci-build-id.md "mention")
+* The example uses [CODEBUILD\_INITIATOR](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html) as a [CI Build ID](https://currents.dev/readme/guides/cypress-ci-build-id). When testing interactively, the CODEBUILD\_INITIATOR will be set to the username of the build initiator. When running a batched build, the variable will have the batch build id. Read more about [ci-build-id.md](../../../../guides/parallelization-guide/ci-build-id.md "mention")
 * get your record key from [Currents.dev](https://app.currents.dev/) and set [AWS CodeBuild Environment Variable](https://docs.aws.amazon.com/codebuild/latest/userguide/change-project-console.html#change-project-console-environment) variable `CURRENTS_RECORD_KEY`. Read more about [record-key.md](../../../../guides/record-key.md "mention")
 * set the `projectId` in `currents.config.js` - obtain the project id from [Currents.dev](https://app.currents.dev/)
 * use CLI arguments to customize your cypress-cloud runs, e.g.: `npx cypress-cloud run --parallel --record --key <your currents.dev key> --group groupA`

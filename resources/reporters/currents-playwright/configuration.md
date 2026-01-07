@@ -87,7 +87,7 @@ cmd /V /C "set CURRENTS_PROJECT_ID=PROJECT_ID // the projectId from https://app.
 * Default: `undefined`
 * Environment variable: `CURRENTS_CI_BUILD_ID`
 
-<mark style="color:yellow;">Required.</mark> The ID of the build to associate the test run with. See [ci-build-id.md](../../../guides/ci-build-id.md "mention").
+<mark style="color:yellow;">Required.</mark> The ID of the build to associate the test run with. See [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention").
 
 ***
 

@@ -38,9 +38,9 @@ For example, enabling a GitHub integration allows selecting the same GitHub orga
 
 ### **Run**
 
-A recording of test results from a CI run, uniquely identified by a [ci-build-id.md](../ci-build-id.md "mention"), git commit information and CI provider execution details.&#x20;
+A recording of test results from a CI run, uniquely identified by a [ci-build-id.md](ci-build-id.md "mention"), git commit information and CI provider execution details.&#x20;
 
-By default each run represents a build (or execution of a CI pipeline), however, you can send results from different stages of a pipeline or even different pipelines to the same run using the same CI Build ID value. See [ci-build-id.md](../ci-build-id.md "mention").
+By default each run represents a build (or execution of a CI pipeline), however, you can send results from different stages of a pipeline or even different pipelines to the same run using the same CI Build ID value. See [ci-build-id.md](ci-build-id.md "mention").
 
 ***
 
@@ -151,8 +151,7 @@ Let's consider various setups and the implications.
 This is the default reporting model that uses the same `projectId` (hence sends results to the same project) and the same `ci-build-id` (hence sends the results to the same run) for each command. Assuming Currents reporter is already configured.
 
 * Running `playwright test --project UK` will create a new run with a group `UK`
-
-- Running `playwright test --project US` will update the previosuly created run by adding the new group `US`
+* Running `playwright test --project US` will update the previosuly created run by adding the new group `US`
 
 
 

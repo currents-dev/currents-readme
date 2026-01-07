@@ -1,13 +1,12 @@
 ---
 description: Using CI Build ID for reporting to Currents
-icon: file-waveform
 ---
 
 # CI Build ID
 
 ## What is CI Build ID?
 
-**CI Build ID** is a unique identifier used by Currents to collect test results. Think of it as a hard drive "folder". We call it a Run (see [runs](../dashboard/runs/ "mention")).&#x20;
+**CI Build ID** is a unique identifier used by Currents to collect test results. Think of it as a hard drive "folder". We call it a Run (see [runs](../../dashboard/runs/ "mention")).&#x20;
 
 
 
@@ -16,7 +15,7 @@ For example, when multiple CI machines run tests in parallel, their combined res
 * results with `--ci-build-id build001` will go to `build001` "folder"
 * results with `--ci-build-id build002` will go to `build002` "folder"
 
-<figure><img src="../.gitbook/assets/ci-build-id.png" alt=""><figcaption><p>Creating two distinct runs by using different CI Build ID</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ci-build-id.png" alt=""><figcaption><p>Creating two distinct runs by using different CI Build ID</p></figcaption></figure>
 
 ## Creating a CI Build ID
 
@@ -87,7 +86,7 @@ The reporting will happen for each build independently from the other. That is u
 
 In contrast, consider a situation when 2 **different** builds use the **same** CI Build ID. That's an uncommon situation, but it's worth demonstrating for understanding the use of CI Build ID.
 
-<figure><img src="../.gitbook/assets/ci-build-id-same.png" alt=""><figcaption><p>A single run is created when using a similar CI Build ID</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ci-build-id-same.png" alt=""><figcaption><p>A single run is created when using a similar CI Build ID</p></figcaption></figure>
 
 We created two different builds with the same CI Build ID. That will result in 6 machines reporting their results to the same run.
 
@@ -107,7 +106,7 @@ Currents tries to automatically detect the CI provider by looking at the environ
 
 ## Next Steps
 
-Now, after you're familiar with CI Build ID, explore [reporting-strategy.md](parallelization-guide/reporting-strategy.md "mention") to customizing your reporting to Currents.
+Now, after you're familiar with CI Build ID, explore [reporting-strategy.md](reporting-strategy.md "mention") to customizing your reporting to Currents.
 
 ## FAQ
 
@@ -153,7 +152,7 @@ Using commit SHA as a CI Build ID is a valid approach and can work for many setu
 
 <summary>How to rerun CI with only failed tests?</summary>
 
-See [re-run-only-failed-tests.md](ci-optimization/re-run-only-failed-tests.md "mention")
+See [re-run-only-failed-tests.md](../ci-optimization/re-run-only-failed-tests.md "mention")
 
 </details>
 

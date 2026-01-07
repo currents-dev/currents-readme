@@ -242,7 +242,7 @@ The last-failed-action gets the previous run information using the default CI bu
 
 `${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}`
 
-If you are using a different [ci-build-id.md](../../../guides/ci-build-id.md "mention"), specify the `previous-ci-build-id` configuration property.&#x20;
+If you are using a different [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention"), specify the `previous-ci-build-id` configuration property.&#x20;
 
 <figure><img src="../../../.gitbook/assets/custom-ci-build-id.png" alt=""><figcaption><p>Using custom CI build ID for reruns</p></figcaption></figure>
 

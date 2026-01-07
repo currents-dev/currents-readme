@@ -10,7 +10,7 @@ description: The package has CLI commands and tools for Currents platform
 * Obtain the Project Id (see [project-settings.md](../../../dashboard/projects/project-settings.md "mention")) and the [record-key.md](../../../guides/record-key.md "mention")&#x20;
 
 {% hint style="info" %}
-Get familiar with  [ci-build-id.md](../../../guides/ci-build-id.md "mention") before using `currents` in CI.&#x20;
+Get familiar with  [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention") before using `currents` in CI.&#x20;
 
 It is <mark style="color:yellow;">**important**</mark> to set the `CI Build ID` explicitly using `--ci-build-id` option, if you are using CI sharding or multiple CI machines to parallelize your tests.&#x20;
 

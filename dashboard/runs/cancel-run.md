@@ -75,7 +75,7 @@ Check out the [example workflow configuration](https://github.com/currents-dev/g
           github-run-attempt: ${{ github.run_attempt }}
 ```
 
-The example above uses a [GitHub Actions repository secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) named `CURRENTS_API_KEY.` For creating a new API secret please refer to [Broken link](/broken/pages/yM3FI9oI5kJQSfe9LZCy "mention").
+The example above uses a [GitHub Actions repository secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) named `CURRENTS_API_KEY.` For creating a new API secret please refer to [Authentication](https://app.gitbook.com/s/lcxad7NaXT7D2V6owvHN/get-started/authentication "mention").
 
 After the step is enabled, cancelling a GitHub Actions workflow will trigger cancellation:
 
@@ -89,7 +89,7 @@ The associated Currents run will be cancelled with the corresponding notes:
 
 The current implementation allows to cancel a run with CI information that is usually available in the Github environment variables.
 
-But sometimes is required to explicitly define what run needs to be cancelled, so this functionality allows cancelling a run with a known CI Build ID (see [ci-build-id.md](../../guides/ci-build-id.md "mention")) and a project ID (see [projects](../projects/ "mention")) which are usually known beforehand in a CI environment as these are required parameters for executing a run.
+But sometimes is required to explicitly define what run needs to be cancelled, so this functionality allows cancelling a run with a known CI Build ID (see [ci-build-id.md](../../guides/parallelization-guide/ci-build-id.md "mention")) and a project ID (see [projects](../projects/ "mention")) which are usually known beforehand in a CI environment as these are required parameters for executing a run.
 
 ```yaml
   # Run all Currents tests
