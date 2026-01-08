@@ -269,8 +269,4 @@ See [Slack's documentation](https://slack.com/help/articles/360057541954-Get-use
 
 ### What happens when a run has multiple groups?
 
-By default, notifications are sent as each group completes. If you enable **Single Notification for All Groups**, only one notification is sent after all groups finish.
-
-{% hint style="info" %}
-You may still receive multiple notifications if one group finishes before others are discovered. For example, if one group completes before other groups are scheduled, an early notification may be sent.
-{% endhint %}
+By default, notifications are sent when all groups complete. You may still receive multiple notifications if one group finishes before others are discovered. For example, if one group completes before other groups are known, an early notification may be sent.
