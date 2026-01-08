@@ -93,7 +93,7 @@ Hovering over a spec file displays a tooltip containing:
 
 This panel displays detailed information about a machine when selected from the Groups Panel by clicking.
 
-The panel shows a list of executed spec files for the selected machine, including important details for each file. Each spec file entry includes a link to its detailed view, where additional information about the file and its tests can be found [Broken link](/broken/pages/7QpzrkHQu3lLL1Yy0il8 "mention").
+The panel shows a list of executed spec files for the selected machine, including important details for each file. Each spec file entry includes a link to its detailed view, where additional information about the file and its tests can be found [test-view.md](../tests/test-view.md "mention").
 
 The panel also provides functionality to pin or unpin spec files in the Groups Panel.
 

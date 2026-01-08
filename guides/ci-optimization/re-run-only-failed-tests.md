@@ -32,7 +32,7 @@ The suggested templates do not require maintaining complex CI configurations and
 
 <summary>GitHub Actions</summary>
 
-See our step-by-step guide [Broken link](/broken/pages/OBf6fxBvHtXcnh50eEgQ#re-run-only-failed-tests-in-github-actions "mention")
+See our step-by-step guide [re-run-failed-only-tests.md](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests.md "mention")
 
 </details>
 

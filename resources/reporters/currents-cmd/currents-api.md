@@ -4,7 +4,7 @@ description: Learn how to get data from Currents API using currents api CLI comm
 
 # currents api
 
-`currents api` is a CLI command for fetching data from Currents [Broken link](/broken/pages/EwuSYaqQeTFQaCaDrIzz "mention") the data is returned in JSON format.
+`currents api` is a CLI command for fetching data from Currents [API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/ "mention") the data is returned in JSON format.
 
 ### Usage
 

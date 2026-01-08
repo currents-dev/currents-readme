@@ -190,7 +190,7 @@ Currents will create a run tagged with `desktop`, `chrome` + all the tags extrac
 
 ### How Tags are Applied
 
-Currents stores the recorded results as Runs, Groups, Spec Files and Tests. The items are available in the dashboard and also in [Broken link](/broken/pages/EwuSYaqQeTFQaCaDrIzz "mention") responses.&#x20;
+Currents stores the recorded results as Runs, Groups, Spec Files and Tests. The items are available in the dashboard and also in [API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/ "mention") responses.&#x20;
 
 * Run - is a high-level abstraction that represents a CI execution of a test suite
 * Group - is a subset of recorded tests - representing a playwright project

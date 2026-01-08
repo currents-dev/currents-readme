@@ -184,9 +184,9 @@ pwc --key <record-key> --project-id <id> -- --workers 2 --timeout 10000 --shard 
 
 Check out the example repositories that showcase running Playwright tests on popular CI providers and recording the results to Currents:
 
-* [Broken link](/broken/pages/OBf6fxBvHtXcnh50eEgQ "mention")
-* [playwright-gitlab-ci-cd.md](../../../getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md "mention")
-* [Broken link](/broken/pages/4LoOSvPTa9mW7D6zFRyO "mention")
+* [github-actions](../../../getting-started/ci-setup/github-actions/ "mention")
+* [gitlab](../../../getting-started/ci-setup/gitlab/ "mention")
+* [jenkins.md](../../../getting-started/ci-setup/jenkins.md "mention")
 * [playwright-circleci.md](../../../getting-started/ci-setup/playwright-circleci.md "mention")
 * [playwright-aws-code-build.md](../../../getting-started/ci-setup/playwright-aws-code-build.md "mention")
 * [playwright-azure-devops.md](../../../getting-started/ci-setup/playwright-azure-devops.md "mention")

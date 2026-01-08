@@ -140,7 +140,7 @@ npm i -D @currents/cmd
 
 <summary>Set <code>CURRENTS_API_KEY</code> CI environment variable</summary>
 
-Obtain an API key (see [Broken link](/broken/pages/yM3FI9oI5kJQSfe9LZCy "mention")) from Currents Dashboard (in addition to Record Key) and set [GitHub Actions Secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
+Obtain an API key (see [Authentication](https://app.gitbook.com/s/lcxad7NaXT7D2V6owvHN/get-started/authentication "mention")) from Currents Dashboard (in addition to Record Key) and set [GitHub Actions Secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
 
 ```yaml
 env:

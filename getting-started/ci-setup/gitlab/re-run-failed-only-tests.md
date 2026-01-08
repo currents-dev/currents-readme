@@ -125,7 +125,7 @@ npm i -D @currents/cmd
 
 <summary>Set <code>CURRENTS_API_KEY</code> environment variable</summary>
 
-Obtain an API key (see [Broken link](/broken/pages/yM3FI9oI5kJQSfe9LZCy "mention")) and [record-key.md](../../../guides/record-key.md "mention") from Currents Dashboard and set [GitLab CI/CD variable](https://docs.gitlab.com/ee/ci/variables/) accordingly
+Obtain an API key (see [Authentication](https://app.gitbook.com/s/lcxad7NaXT7D2V6owvHN/get-started/authentication "mention")) and [record-key.md](../../../guides/record-key.md "mention") from Currents Dashboard and set [GitLab CI/CD variable](https://docs.gitlab.com/ee/ci/variables/) accordingly
 
 ```yaml
 variables:

@@ -124,7 +124,7 @@ The example above uses `CURRENTS_CI_BUILD_ID` and `CURRENTS_PROJECT_ID` as befor
 
 Cancelling a run affects in-progress and pending tests, as well as integrations and run analytics.
 
-* the run will be marked as "Cancelled", depending on the test's status, it can also become "Failed" or "Passed". See [Broken link](/broken/pages/Vv8rO9X1e3m4SykGCIXj "mention").
+* the run will be marked as "Cancelled", depending on the test's status, it can also become "Failed" or "Passed". See [test-status.md](../tests/test-status.md "mention").
 * in-progress tests will run to completion, the dashboard will accept their result
 * attempts to start a new test for a cancelled run would fail with the error message `Run is cancelled`
 
