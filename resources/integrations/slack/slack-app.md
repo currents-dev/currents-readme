@@ -53,8 +53,8 @@ Each project can have up to **10 notification destinations**, allowing you to se
 
 Each destination can be:
 
-* **Enabled/Disabled individually** - Toggle notifications for specific channels without deleting the configuration
-* **Configured independently** - Each destination has its own notification settings, filters, and mention rules
+- **Enabled/Disabled individually** - Toggle notifications for specific channels without deleting the configuration
+- **Configured independently** - Each destination has its own notification settings, filters, and mention rules
 
 ## Run Notifications
 
@@ -74,36 +74,36 @@ This keeps your Slack channels organized and prevents notification overload.
 
 Configure when run notifications are sent:
 
-| Mode | Description |
-|------|-------------|
-| **Always send** | Send notifications for every run, regardless of outcome |
-| **Only on failures** | Send notifications only when there are failed tests |
-| **Only on flaky tests** | Send notifications only when flaky tests are detected |
+| Mode                    | Description                                             |
+| ----------------------- | ------------------------------------------------------- |
+| **Always send**         | Send notifications for every run, regardless of outcome |
+| **Only on failures**    | Send notifications only when there are failed tests     |
+| **Only on flaky tests** | Send notifications only when flaky tests are detected   |
 
 ### Additional Run Events
 
 You can also enable notifications for:
 
-* **Run Canceled** - When a run is canceled manually or via fail-fast strategy
-* **Run Timeout** - When a run times out before completion
+- **Run Canceled** - When a run is canceled manually or via fail-fast strategy
+- **Run Timeout** - When a run times out before completion
 
 ### Filtering Run Notifications
 
 Apply conditions to control which runs trigger notifications:
 
-| Filter | Description |
-|--------|-------------|
-| **Git Branch** | Only notify for runs from specific branches (supports patterns) |
-| **Git Commit Message** | Filter based on commit message content |
-| **Run Tags** | Only notify when runs include specific tags |
+| Filter                 | Description                                                     |
+| ---------------------- | --------------------------------------------------------------- |
+| **Git Branch**         | Only notify for runs from specific branches (supports patterns) |
+| **Git Commit Message** | Filter based on commit message content                          |
+| **Run Tags**           | Only notify when runs include specific tags                     |
 
 **Example:** To only receive notifications for production deployments:
 
-* Set **Run Tags** includes: `production`
+- Set **Run Tags** includes: `production`
 
 Or to notify only for main branch runs:
 
-* Set **Git Branch** matches: `main`
+- Set **Git Branch** matches: `main`
 
 ## Individual Test Notifications
 
@@ -118,33 +118,33 @@ Individual test notifications send a dedicated message for each failed or flaky 
 
 ### Notification Modes
 
-| Mode | Description |
-|------|-------------|
-| **Notify on failed** | Send notifications only for failed tests |
-| **Notify on flaky** | Send notifications only for flaky tests |
+| Mode                          | Description                                        |
+| ----------------------------- | -------------------------------------------------- |
+| **Notify on failed**          | Send notifications only for failed tests           |
+| **Notify on flaky**           | Send notifications only for flaky tests            |
 | **Notify on failed or flaky** | Send notifications for both failed and flaky tests |
 
 ### Filtering Test Notifications
 
 Filter individual test notifications based on test properties:
 
-| Filter | Description |
-|--------|-------------|
+| Filter        | Description                              |
+| ------------- | ---------------------------------------- |
 | **Test Tags** | Only notify for tests with specific tags |
 
 **Example:** To only receive notifications for smoke tests:
 
-* Set **Test Tags** includes: `smoke`
+- Set **Test Tags** includes: `smoke`
 
 ### Message Content
 
 Individual test notifications include:
 
-* Test name and file location
-* Failure reason and error message
-* Attempt details (for retried tests)
-* Direct link to the test in Currents dashboard
-* Mentioned users (if configured)
+- Test name and file location
+- Failure reason and error message
+- Attempt details (for retried tests)
+- Direct link to the test in Currents dashboard
+- Mentioned users (if configured)
 
 ## Annotation-Based Mentions
 
@@ -158,76 +158,36 @@ The Slack App integration supports mentioning users directly in notifications ba
 
 ### Annotation Formats
 
-Add annotations to your tests to trigger Slack mentions. The integration supports multiple formats:
+Add annotations to your tests to trigger Slack mentions using the `notify:slack` annotation type. The integration supports multiple formats:
 
-#### User ID
+| Format | Description | Example Value |
+|--------|-------------|---------------|
+| **User ID** | Slack user ID | `user:U01RWNBFGER` |
+| **User Email** | Email address associated with Slack account | `andrew@currents.dev` |
+| **User Group (Team)** | Slack user group ID | `team:S07JCUP81EG` |
+| **Slack Handle** | Slack username or group handle | `@engineering-team` |
+| **Multiple Mentions** | Comma-separated combination of formats | `user:U01RWNBFGER, team:S07JCUP81EG, miguel@currents.dev` |
 
-```typescript
-test("my test", {
-  annotation: {
-    type: "notify:slack",
-    description: "user:U01RWNBFGER"
-  }
-}, async ({ page }) => {
-  // test code
-});
-```
-
-#### User Email
+#### Example
 
 ```typescript
-test("my test", {
-  annotation: {
-    type: "notify:slack",
-    description: "andrew@currents.dev"
+test(
+  "critical test",
+  {
+    annotation: {
+      type: "notify:slack",
+      description: "user:U01RWNBFGER, team:S07JCUP81EG, miguel@currents.dev",
+    },
+  },
+  async ({ page }) => {
+    // test code
   }
-}, async ({ page }) => {
-  // test code
-});
+);
 ```
 
-#### User Group (Team)
-
-```typescript
-test("my test", {
-  annotation: {
-    type: "notify:slack",
-    description: "team:S07JCUP81EG"
-  }
-}, async ({ page }) => {
-  // test code
-});
-```
-
-#### Slack Handle
-
-```typescript
-test("my test", {
-  annotation: {
-    type: "notify:slack",
-    description: "@engineering-team"
-  }
-}, async ({ page }) => {
-  // test code
-});
-```
-
-#### Multiple Mentions
-
-Combine multiple mentions in a single annotation:
-
-```typescript
-test("critical test", {
-  annotation: {
-    type: "notify:slack",
-    description: "user:U01RWNBFGER, team:S07JCUP81EG, miguel@currents.dev"
-  }
-}, async ({ page }) => {
-  // test code
-});
-```
-
-See [Playwright Annotations](../../../guides/playwright-annotations.md) for more details on using annotations.
+{% hint style="info" %}
+See [Playwright Annotations](../../../guides/playwright-annotations.md#annotation-slack-notifications) for more details on using annotations, including how to combine `notify:slack` with other annotation types like `owner`.
+{% endhint %}
 
 ## UI-Based Mention Rules
 
@@ -243,17 +203,17 @@ In addition to code annotations, you can configure mention rules directly in the
 
 ### Rule Examples
 
-| Condition | Mentions |
-|-----------|----------|
+| Condition                    | Mentions                                 |
+| ---------------------------- | ---------------------------------------- |
 | Test tag includes `checkout` | `payments-team@company.com`, `@payments` |
-| Test tag includes `api` | `backend-team@company.com` |
-| Test tag includes `critical` | `@oncall`, `manager@company.com` |
+| Test tag includes `api`      | `backend-team@company.com`               |
+| Test tag includes `critical` | `@oncall`, `manager@company.com`         |
 
 This allows you to:
 
-* Route notifications based on test ownership
-* Notify different teams for different test categories
-* Maintain notification rules without code changes
+- Route notifications based on test ownership
+- Notify different teams for different test categories
+- Maintain notification rules without code changes
 
 ## Disabling Slack Integration
 
@@ -306,4 +266,3 @@ By default, notifications are sent as each group completes. If you enable **Sing
 {% hint style="info" %}
 You may still receive multiple notifications if one group finishes before others are discovered. For example, if one group completes before other groups are scheduled, an early notification may be sent.
 {% endhint %}
-
