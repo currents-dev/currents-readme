@@ -1,10 +1,20 @@
 ---
-description: Slack App integration for Currents
+description: Slack App integration for Currents - Playwright test notifications and alerts
 ---
 
 # Slack App
 
-The Slack App integration provides a powerful way to receive test result notifications from Currents directly in Slack. It supports organization-level installation, per-project configuration, multiple notification destinations, and advanced filtering options.
+Integrate Slack with Currents to receive real-time Playwright test notifications and failure alerts directly in your team's channels. The Slack App helps engineering teams stay informed about test results without leaving their workflow.
+
+## Use Cases
+
+- **Instant failure alerts**: Get notified immediately when Playwright tests fail, allowing your team to respond quickly before issues reach production.
+- **Flaky test detection**: Receive Slack alerts when tests exhibit flaky behavior, helping maintain test suite reliability.
+- **Team routing**: Automatically mention the right team members based on which tests failed - route checkout failures to the payments team, API failures to backend engineers.
+- **Release gating**: Send notifications to release managers when smoke tests or critical tests fail on main or release branches.
+- **On-call escalation**: Page on-call engineers when critical Playwright tests fail in production environments.
+
+The integration supports organization-level installation, per-project configuration, multiple notification destinations, and advanced filtering options.
 
 ## Installation
 
@@ -57,8 +67,8 @@ Each project can have up to **10 notification destinations**, allowing you to se
 
 Each destination can be:
 
-* **Enabled/Disabled individually** - Toggle notifications for specific channels without deleting the configuration
-* **Configured independently** - Each destination has its own notification settings, filters, and mention rules
+- **Enabled/Disabled individually** - Toggle notifications for specific channels without deleting the configuration
+- **Configured independently** - Each destination has its own notification settings, filters, and mention rules
 
 ## Run Notifications
 
@@ -90,26 +100,26 @@ Configure when run notifications are sent:
 
 You can also enable notifications for:
 
-* **Run Canceled** - When a run is canceled manually or via fail-fast strategy
-* **Run Timeout** - When a run times out before completion
+- **Run Canceled** - When a run is canceled manually or via fail-fast strategy
+- **Run Timeout** - When a run times out before completion
 
 ### Filtering Run Notifications
 
 Apply conditions to control which runs trigger notifications:
 
-| Filter                 | Description                                                     |
-| ---------------------- | --------------------------------------------------------------- |
-| **Git Branch**         | Only notify for runs from specific branches (supports patterns) |
-| **Git Commit Message** | Filter based on commit message content                          |
-| **Run Tags**           | Only notify when runs include specific tags                     |
+| Filter                 | Type   | Description                                   |
+| ---------------------- | ------ | --------------------------------------------- |
+| **Git Branch**         | String | The git branch name for the test run          |
+| **Git Commit Message** | String | The git commit message that triggered the run |
+| **Tags**               | Array  | The tags associated with the test run         |
 
 **Example:** To only receive notifications for production deployments:
 
-* Set **Run Tags** includes: `production`
+- Set **Tags** `includes any`: `production`
 
 Or to notify only for main branch runs:
 
-* Set **Git Branch** matches: `main`
+- Set **Git Branch** `matches`: `main`
 
 <figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.49.45@2x.png" alt=""><figcaption></figcaption></figure>
 
@@ -136,21 +146,33 @@ Individual test notifications send a dedicated message for each failed or flaky 
 
 ### Filtering Test Notifications
 
-Filter individual test notifications based on test properties.
+Filter individual test notifications based on test and run properties:
 
-**Example:** To only receive notifications for smoke tests:
+| Filter                 | Type   | Description                                   |
+| ---------------------- | ------ | --------------------------------------------- |
+| **Git Branch**         | String | The git branch name for the test run          |
+| **Git Commit Message** | String | The git commit message that triggered the run |
+| **Tags**               | Array  | The tags associated with the test             |
+| **Test Title**         | String | The title of the test                         |
+| **Test File Path**     | String | The file path of the test                     |
 
-* Set **Test Tags** includes: `smoke`
+**Example:** To only receive notifications for checkout tests:
+
+- Set **Test File Path** `matches`: `checkout/.*`
+
+Or to notify for critical tests:
+
+- Set **Tags** `includes any`: `critical, smoke`
 
 ### Message Content
 
 Individual test notifications include:
 
-* Test name and file location
-* Failure reason and error message
-* Attempt details (for retried tests)
-* Direct link to the test in Currents dashboard
-* Mentioned users (if configured)
+- Test name and file location
+- Failure reason and error message
+- Attempt details (for retried tests)
+- Direct link to the test in Currents dashboard
+- Mentioned users (if configured)
 
 ## Annotation-Based Mentions
 
@@ -162,17 +184,7 @@ The Slack App integration supports mentioning users directly in notifications ba
 2. Toggle **Enable** to activate annotation-based mentions
 3. Notifications will now include mentions based on test annotations
 
-### Annotation Formats
-
-Add annotations to your tests to trigger Slack mentions using the `notify:slack` annotation type. The integration supports multiple formats:
-
-| Format                | Description                                 | Example Value                                             |
-| --------------------- | ------------------------------------------- | --------------------------------------------------------- |
-| **User ID**           | Slack user ID                               | `user:U01RWNBFGER`                                        |
-| **User Email**        | Email address associated with Slack account | `andrew@currents.dev`                                     |
-| **User Group (Team)** | Slack user group ID                         | `team:S07JCUP81EG`                                        |
-| **Slack Handle**      | Slack username or group handle              | `@engineering-team`                                       |
-| **Multiple Mentions** | Comma-separated combination of formats      | `user:U01RWNBFGER, team:S07JCUP81EG, miguel@currents.dev` |
+Add annotations to your tests to trigger Slack mentions using the `notify:slack` annotation type. See [Mention Formats](#mention-formats) for supported formats.
 
 #### Example
 
@@ -205,23 +217,49 @@ In addition to code annotations, you can configure mention rules directly in the
 
 1. In your destination settings, find the **Mention Rules** section
 2. Click **Add Rule**
-3. Configure the condition (e.g., "Test tag includes `critical`")
-4. Add the users, emails, or groups to mention
+3. Configure conditions using the available filters
+4. Add the users and groups to mention (see [Mention Formats](#mention-formats) for supported formats)
 5. Click **Save**
+
+{% hint style="info" %}
+If no conditions are defined in a rule, the specified users and groups will be mentioned for all matching test notifications.
+{% endhint %}
+
+### Available Conditions
+
+Mention rules support the following filters:
+
+| Filter                 | Type   | Description                                   |
+| ---------------------- | ------ | --------------------------------------------- |
+| **Git Branch**         | String | The git branch name for the test run          |
+| **Git Commit Message** | String | The git commit message that triggered the run |
+| **Tags**               | Array  | The tags associated with the test             |
+| **Test Title**         | String | The title of the test                         |
+| **Test File Path**     | String | The file path of the test                     |
 
 ### Rule Examples
 
-| Condition                    | Mentions                                 |
-| ---------------------------- | ---------------------------------------- |
-| Test tag includes `checkout` | `payments-team@company.com`, `@payments` |
-| Test tag includes `api`      | `backend-team@company.com`               |
-| Test tag includes `critical` | `@oncall`, `manager@company.com`         |
+| Condition                               | Mentions                          | Use Case                                    |
+| --------------------------------------- | --------------------------------- | ------------------------------------------- |
+| Test File Path `matches` `.*checkout.*` | `@payments-team`                  | Route checkout failures to payments team    |
+| Tags `includes any` `critical`          | `@oncall`, `eng-lead@company.com` | Escalate critical test failures             |
+| Git Branch `eq` `main`                  | `@release-managers`               | Notify release team of main branch failures |
 
-This allows you to:
+## Mention Formats
 
-* Route notifications based on test ownership
-* Notify different teams for different test categories
-* Maintain notification rules without code changes
+Both [Annotation-Based Mentions](#annotation-based-mentions) and [UI-Based Mention Rules](#ui-based-mention-rules) support the following formats for specifying users and groups to mention:
+
+| Format                | Description                                 | Example Value                                             |
+| --------------------- | ------------------------------------------- | --------------------------------------------------------- |
+| **User Email**        | Email address associated with Slack account | `andrew@currents.dev`                                     |
+| **User ID**           | Slack user ID                               | `user:U01RWNBFGER`                                        |
+| **User Group (Team)** | Slack user group ID                         | `team:S07JCUP81EG`                                        |
+| **Slack Handle**      | Slack username or group handle              | `@engineering-team`                                       |
+| **Multiple Mentions** | Comma-separated combination of formats      | `user:U01RWNBFGER, team:S07JCUP81EG, miguel@currents.dev` |
+
+{% hint style="info" %}
+**Finding Slack IDs:** See [Slack's documentation](https://slack.com/help/articles/360057541954-Get-user-and-group-IDs) for instructions on finding user and group IDs.
+{% endhint %}
 
 ## Disabling Slack Integration
 
@@ -262,10 +300,6 @@ Check the following:
 ### Can I use both annotation mentions and UI rules?
 
 Yes, both methods work together. Annotation-based mentions take precedence and are combined with UI-configured rules.
-
-### How do I find my Slack User ID or Team ID?
-
-See [Slack's documentation](https://slack.com/help/articles/360057541954-Get-user-and-group-IDs) on finding user and group IDs.
 
 ### What happens when a run has multiple groups?
 
