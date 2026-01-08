@@ -1,10 +1,10 @@
 ---
-description: Slack App integration for Playwright and Cypress test notifications
+description: Slack App integration for Currents
 ---
 
 # Slack App
 
-The Slack App integration provides a powerful way to receive notifications about your Playwright and Cypress test results directly in Slack. It supports organization-level installation, per-project configuration, multiple notification destinations, and advanced filtering options.
+The Slack App integration provides a powerful way to receive test result notifications from Currents directly in Slack. It supports organization-level installation, per-project configuration, multiple notification destinations, and advanced filtering options.
 
 ## Installation
 
@@ -16,6 +16,8 @@ The Slack App integration is installed at the organization level and can be conf
 2. Find the **Slack** section and click **Connect**
 3. You'll be redirected to Slack to authorize the Currents app
 4. Click **Allow** to install the application in your Slack workspace
+
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.24.02@2x.png" alt=""><figcaption></figcaption></figure>
 
 After installation, you'll receive a welcome message in Slack confirming the connection.
 
@@ -33,6 +35,10 @@ After connecting Slack to your organization:
 4. Click **Save** to apply your settings
 
 You can enable or disable Slack notifications for each project independently without affecting the organization-level installation.
+
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.26.15@2x.png" alt=""><figcaption></figcaption></figure>
+
+
 
 ## Notification Destinations
 
@@ -53,12 +59,14 @@ Each project can have up to **10 notification destinations**, allowing you to se
 
 Each destination can be:
 
-- **Enabled/Disabled individually** - Toggle notifications for specific channels without deleting the configuration
-- **Configured independently** - Each destination has its own notification settings, filters, and mention rules
+* **Enabled/Disabled individually** - Toggle notifications for specific channels without deleting the configuration
+* **Configured independently** - Each destination has its own notification settings, filters, and mention rules
 
 ## Run Notifications
 
 Run notifications provide a summary of the entire test run. These are sent when a run completes and use Slack threads to organize related messages.
+
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.29.21@2x.png" alt=""><figcaption></figcaption></figure>
 
 ### How Threading Works
 
@@ -84,8 +92,8 @@ Configure when run notifications are sent:
 
 You can also enable notifications for:
 
-- **Run Canceled** - When a run is canceled manually or via fail-fast strategy
-- **Run Timeout** - When a run times out before completion
+* **Run Canceled** - When a run is canceled manually or via fail-fast strategy
+* **Run Timeout** - When a run times out before completion
 
 ### Filtering Run Notifications
 
@@ -99,15 +107,19 @@ Apply conditions to control which runs trigger notifications:
 
 **Example:** To only receive notifications for production deployments:
 
-- Set **Run Tags** includes: `production`
+* Set **Run Tags** includes: `production`
 
 Or to notify only for main branch runs:
 
-- Set **Git Branch** matches: `main`
+* Set **Git Branch** matches: `main`
+
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.28.03@2x.png" alt=""><figcaption></figcaption></figure>
 
 ## Individual Test Notifications
 
 Individual test notifications send a dedicated message for each failed or flaky test, providing detailed information about specific failures.
+
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.37.31@2x.png" alt=""><figcaption></figcaption></figure>
 
 ### Enabling Individual Test Notifications
 
@@ -134,17 +146,17 @@ Filter individual test notifications based on test properties:
 
 **Example:** To only receive notifications for smoke tests:
 
-- Set **Test Tags** includes: `smoke`
+* Set **Test Tags** includes: `smoke`
 
 ### Message Content
 
 Individual test notifications include:
 
-- Test name and file location
-- Failure reason and error message
-- Attempt details (for retried tests)
-- Direct link to the test in Currents dashboard
-- Mentioned users (if configured)
+* Test name and file location
+* Failure reason and error message
+* Attempt details (for retried tests)
+* Direct link to the test in Currents dashboard
+* Mentioned users (if configured)
 
 ## Annotation-Based Mentions
 
@@ -176,7 +188,7 @@ test(
   {
     annotation: {
       type: "notify:slack",
-      description: "user:U01RWNBFGER, team:S07JCUP81EG, miguel@currents.dev",
+      description: "@engineering-team, miguel@currents.dev",
     },
   },
   async ({ page }) => {
@@ -192,6 +204,8 @@ See [Playwright Annotations](../../../guides/playwright-annotations.md#annotatio
 ## UI-Based Mention Rules
 
 In addition to code annotations, you can configure mention rules directly in the Currents UI. This allows you to set up notification routing without modifying your test code.
+
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.39.13@2x.png" alt=""><figcaption></figcaption></figure>
 
 ### Creating Mention Rules
 
@@ -211,9 +225,9 @@ In addition to code annotations, you can configure mention rules directly in the
 
 This allows you to:
 
-- Route notifications based on test ownership
-- Notify different teams for different test categories
-- Maintain notification rules without code changes
+* Route notifications based on test ownership
+* Notify different teams for different test categories
+* Maintain notification rules without code changes
 
 ## Disabling Slack Integration
 

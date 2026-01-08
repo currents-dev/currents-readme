@@ -1,5 +1,6 @@
 ---
 description: HTTP Webhooks for Playwright and Cypress tests dashboard
+icon: webhook
 ---
 
 # HTTP Webhooks

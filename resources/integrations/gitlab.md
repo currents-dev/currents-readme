@@ -1,5 +1,6 @@
 ---
 description: Integrating Currents dashboard with GitLab
+icon: gitlab
 ---
 
 # GitLab
@@ -28,7 +29,7 @@ In order to install GitLab integration in Currents Dashboard, visit **Project Se
 **GitLab Enterprise and self-hosted GitLab users:** you'd override the default **GitLab Instance Domain** with the base URL of your GitLab setup. For example `https://gitlab.yourcompany.com`
 {% endhint %}
 
-Follow the on-screen instructions to create a new [GitLab OAuth App](https://docs.gitlab.com/ee/integration/oauth\_provider.html#user-owned-applications) with the following properties:
+Follow the on-screen instructions to create a new [GitLab OAuth App](https://docs.gitlab.com/ee/integration/oauth_provider.html#user-owned-applications) with the following properties:
 
 * `https://hub.currents.dev/gitlab/callback` as **Redirect URI**&#x20;
 * `api` scope in the application permissions

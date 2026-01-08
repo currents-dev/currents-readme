@@ -1,5 +1,6 @@
 ---
 description: Send Cypress and Playwright tests results to Microsoft Teams
+icon: people-group
 ---
 
 # Microsoft Teams

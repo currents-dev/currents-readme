@@ -2,6 +2,7 @@
 description: >-
   Connect Currents with Jira to create new or link existing issues in Jira
   without leaving Currents
+icon: jira
 cover: ../../.gitbook/assets/currents-jira.png
 coverY: 0
 ---

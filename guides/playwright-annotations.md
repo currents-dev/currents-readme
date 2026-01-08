@@ -89,51 +89,7 @@ The value will appear in various areas of the dashboard so that your team can qu
 
 ## Annotation: Slack Notifications
 
-Annotation of type `notify:slack` activates Slack mentions for failed tests - when Currents detects a failed test with `notify:slack` annotation, it will trigger Slack notification according to the following convention:
-
-* `type: "notify:slack", description: "user:userId"` - will notify user with the corresponding `userId, userId` can be either a [Slack UserId or Slack Username](https://stackoverflow.com/questions/40940327/what-is-the-simplest-way-to-find-a-slack-team-id-and-a-channel-id)
-* `type: "notify:slack", description: "team:teamId"` - will notify team with the corresponding `teamId`, (see  how to retrieve [Slack Team](https://stackoverflow.com/questions/40940327/what-is-the-simplest-way-to-find-a-slack-team-id-and-a-channel-id) id)
-
-You can combine the values to activate multiple notifications, for example:
-
-```json
-{
-  "type": "notify:slack",
-  "description": "user:U01RWNBFGER, team:S07JCUP81EG"
-}
-```
-
-For example, the following annotations will define **test owner** and activate **slack notifications**:
-
-```javascript
-test(
-    "my failed test",
-    {
-      annotation: [
-        {
-          type: "owner", // This shows the user in the dashboard
-          description: "Miguel Langarano",
-        },
-        {
-          type: "notify:slack", // This notifies the user in Slack
-          description: "user:U01RWNBFGER",
-        },
-        {
-          type: "notify:slack", // This notifies a group in Slack
-          description: "team:T01S60385HA",
-        },
-      ],
-    },
-    async ({ page }) => {
-      expect(true).toBe(false);
-    }
-);
-
-```
-
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>Test owner shown in Currents dashboard</p></figcaption></figure>
-
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>Slack notification to specific user and group in Slack</p></figcaption></figure>
+The documentation migrated to [#annotation-based-mentions](../resources/integrations/slack/slack-app.md#annotation-based-mentions "mention")
 
 ## Annotation:  Custom Metrics
 

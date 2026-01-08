@@ -1,5 +1,6 @@
 ---
 description: Integrating GitHub with Currents dashboard for running Playwright tests
+icon: github
 ---
 
 # GitHub

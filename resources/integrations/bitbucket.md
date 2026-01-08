@@ -1,5 +1,6 @@
 ---
 description: Send Cypress and Playwright tests results to Bitbucket
+icon: bitbucket
 ---
 
 # Bitbucket
