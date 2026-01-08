@@ -46,7 +46,7 @@ After connecting Slack to your organization:
 
 You can enable or disable Slack notifications for each project independently without affecting the organization-level installation.
 
-<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.26.15@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.51.04@2x.png" alt=""><figcaption></figcaption></figure>
 
 ## Notification Destinations
 
@@ -121,7 +121,7 @@ Or to notify only for main branch runs:
 
 - Set **Git Branch** `matches`: `main`
 
-<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.28.03@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.49.45@2x.png" alt=""><figcaption></figcaption></figure>
 
 ## Individual Test Notifications
 
@@ -211,7 +211,7 @@ See [Playwright Annotations](../../../guides/playwright-annotations.md#annotatio
 
 In addition to code annotations, you can configure mention rules directly in the Currents UI. This allows you to set up notification routing without modifying your test code.
 
-<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.39.13@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.50.22@2x.png" alt=""><figcaption></figcaption></figure>
 
 ### Creating Mention Rules
 
@@ -303,8 +303,4 @@ Yes, both methods work together. Annotation-based mentions take precedence and a
 
 ### What happens when a run has multiple groups?
 
-By default, notifications are sent as each group completes. If you enable **Single Notification for All Groups**, only one notification is sent after all groups finish.
-
-{% hint style="info" %}
-You may still receive multiple notifications if one group finishes before others are discovered. For example, if one group completes before other groups are scheduled, an early notification may be sent.
-{% endhint %}
+By default, notifications are sent when all groups complete. You may still receive multiple notifications if one group finishes before others are discovered. For example, if one group completes before other groups are known, an early notification may be sent.
