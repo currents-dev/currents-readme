@@ -36,9 +36,7 @@ After connecting Slack to your organization:
 
 You can enable or disable Slack notifications for each project independently without affecting the organization-level installation.
 
-<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.26.15@2x.png" alt=""><figcaption></figcaption></figure>
-
-
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.51.04@2x.png" alt=""><figcaption></figcaption></figure>
 
 ## Notification Destinations
 
@@ -113,7 +111,7 @@ Or to notify only for main branch runs:
 
 * Set **Git Branch** matches: `main`
 
-<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.28.03@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.49.45@2x.png" alt=""><figcaption></figcaption></figure>
 
 ## Individual Test Notifications
 
@@ -138,11 +136,7 @@ Individual test notifications send a dedicated message for each failed or flaky 
 
 ### Filtering Test Notifications
 
-Filter individual test notifications based on test properties:
-
-| Filter        | Description                              |
-| ------------- | ---------------------------------------- |
-| **Test Tags** | Only notify for tests with specific tags |
+Filter individual test notifications based on test properties.
 
 **Example:** To only receive notifications for smoke tests:
 
@@ -205,7 +199,7 @@ See [Playwright Annotations](../../../guides/playwright-annotations.md#annotatio
 
 In addition to code annotations, you can configure mention rules directly in the Currents UI. This allows you to set up notification routing without modifying your test code.
 
-<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.39.13@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.50.22@2x.png" alt=""><figcaption></figcaption></figure>
 
 ### Creating Mention Rules
 
