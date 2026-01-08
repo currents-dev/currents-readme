@@ -160,13 +160,13 @@ The Slack App integration supports mentioning users directly in notifications ba
 
 Add annotations to your tests to trigger Slack mentions using the `notify:slack` annotation type. The integration supports multiple formats:
 
-| Format | Description | Example Value |
-|--------|-------------|---------------|
-| **User ID** | Slack user ID | `user:U01RWNBFGER` |
-| **User Email** | Email address associated with Slack account | `andrew@currents.dev` |
-| **User Group (Team)** | Slack user group ID | `team:S07JCUP81EG` |
-| **Slack Handle** | Slack username or group handle | `@engineering-team` |
-| **Multiple Mentions** | Comma-separated combination of formats | `user:U01RWNBFGER, team:S07JCUP81EG, miguel@currents.dev` |
+| Format                | Description                                 | Example Value                                             |
+| --------------------- | ------------------------------------------- | --------------------------------------------------------- |
+| **User ID**           | Slack user ID                               | `user:U01RWNBFGER`                                        |
+| **User Email**        | Email address associated with Slack account | `andrew@currents.dev`                                     |
+| **User Group (Team)** | Slack user group ID                         | `team:S07JCUP81EG`                                        |
+| **Slack Handle**      | Slack username or group handle              | `@engineering-team`                                       |
+| **Multiple Mentions** | Comma-separated combination of formats      | `user:U01RWNBFGER, team:S07JCUP81EG, miguel@currents.dev` |
 
 #### Example
 
