@@ -51,7 +51,7 @@ test("annotated test", {
 
 Currents shows the annotations for the test:
 
-<figure><img src="../.gitbook/assets/currents-2024-08-21-23.22.12@2x.png" alt=""><figcaption><p>Playwright annotations in Currents</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-01-09 at 19.04.22.png" alt=""><figcaption><p>Playwright annotations in Currents</p></figcaption></figure>
 
 ## Limitations
 

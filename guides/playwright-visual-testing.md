@@ -22,7 +22,9 @@ test('example test', async ({ page }) => {
 
 Currents automatically detects  tests with visual comparison enabled and shows a dedicated widget for the relevant tests:
 
-<figure><img src="../.gitbook/assets/currents-playwright-visual-comparison.gif" alt=""><figcaption><p>Current Visual Comparison Widget for Playwright Tests</p></figcaption></figure>
+{% embed url="https://www.loom.com/share/3554b321e8a8409c9e37a4181b9bab1a?hideEmbedTopBar=true" %}
+Current Visual Comparison Widget for Playwright Tests
+{% endembed %}
 
 ### Playwright Visual Testing with Argos
 
@@ -212,8 +214,7 @@ function assertEnvVariable(name: string) {
 {% endcode %}
 
 * set `orchestration.skipReporterInjection` to `true`&#x20;
-
-- note the use of `onFinish` lifecycle hook - the corresponding function will run and receive `OrchestrationStatus` object that can be used to determine run's completion
+* note the use of `onFinish` lifecycle hook - the corresponding function will run and receive `OrchestrationStatus` object that can be used to determine run's completion
 
 </details>
 

@@ -8,7 +8,7 @@ An Actions can have one or more condition. You can use `AND` or  `OR` combinator
 
 ### Fields
 
-#### <mark style="color:purple;">File</mark>
+#### File
 
 Test filename path, for example `path/to/file.spec.ts`.
 
@@ -18,7 +18,7 @@ Test filename path, for example `path/to/file.spec.ts`.
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
-#### <mark style="color:purple;">Test Title</mark>
+#### Test Title
 
 Test title, for example in test definition `test("should open landing page")` it is `should open landing page`.
 
@@ -28,7 +28,7 @@ Test title, for example in test definition `test("should open landing page")` it
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
-#### <mark style="color:purple;">**Test Title Path**</mark>
+#### Test Title Path
 
 Full title path as an array including named `describe` statements. See [testInfo.titlePath](https://playwright.dev/docs/api/class-testinfo#test-info-title-path). To match the following example:
 
@@ -48,7 +48,7 @@ Use a string list:  <i class="fa-box">:box:</i>`auth.spec.ts` <i class="fa-box">
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a><br><a data-mention href="conditions.md#many-to-many-operators">#many-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>               |
 
-#### <mark style="color:purple;">Test ID</mark>
+#### Test ID
 
 Playwright [test id](https://playwright.dev/docs/api/class-testinfo#test-info-test-id), matching the test case id in the [Reporter API](https://playwright.dev/docs/api/class-reporter).
 
@@ -58,7 +58,7 @@ Playwright [test id](https://playwright.dev/docs/api/class-testinfo#test-info-te
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
-#### <mark style="color:purple;">Tags</mark>
+#### Tags
 
 Test tag list. For example, if a test has the following list of tags `['a', 'b']`, each value in the list will be evaluated separately.
 
@@ -68,7 +68,7 @@ Test tag list. For example, if a test has the following list of tags `['a', 'b']
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a><br><a data-mention href="conditions.md#many-to-many-operators">#many-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>               |
 
-#### <mark style="color:purple;">Project</mark>
+#### Project
 
 Playwright project name as defined in your `playwright.config.ts`.&#x20;
 
@@ -78,7 +78,7 @@ Playwright project name as defined in your `playwright.config.ts`.&#x20;
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
-#### <mark style="color:purple;">Error Message</mark>
+#### Error Message
 
 {% hint style="info" %}
 Added in `@currents/playwright@1.14.0`
@@ -94,7 +94,7 @@ Error message thrown during the test.&#x20;
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | [#post-test-actions](actions.md#post-test-actions "mention")                                                                                                                                                                                                        |
 
-#### <mark style="color:purple;">Git Author Email</mark>
+#### Git Author Email
 
 Git commit author email. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") to explore how Currents collects git commit information.
 
@@ -104,7 +104,7 @@ Git commit author email. See [commit-information.md](../../../dashboard/runs/com
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
-#### <mark style="color:purple;">Git Author Branch</mark>
+#### Git Author Branch
 
 Git commit author name. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") to explore how Currents collects git commit information.
 
@@ -114,7 +114,7 @@ Git commit author name. See [commit-information.md](../../../dashboard/runs/comm
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
-#### <mark style="color:purple;">Git Branch</mark>
+#### Git Branch
 
 Git commit branch name. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") to explore how Currents collects git commit information.
 
@@ -124,7 +124,7 @@ Git commit branch name. See [commit-information.md](../../../dashboard/runs/comm
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
-#### <mark style="color:purple;">Git Message</mark>
+#### Git Message
 
 Git commit message. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") to explore how Currents collects git commit information.
 
@@ -134,7 +134,7 @@ Git commit message. See [commit-information.md](../../../dashboard/runs/commit-i
 | Supported Operators | <p><a data-mention href="conditions.md#basic-operators">#basic-operators</a></p><p><a data-mention href="conditions.md#one-to-one-operators">#one-to-one-operators</a><br><a data-mention href="conditions.md#one-to-many-operators">#one-to-many-operators</a></p> |
 | Supported Actions   | <p><a data-mention href="actions.md#pre-test-actions">#pre-test-actions</a><br><a data-mention href="actions.md#post-test-actions">#post-test-actions</a></p>                                                                                                       |
 
-#### <mark style="color:purple;">Git Remote Origin</mark>
+#### Git Remote Origin
 
 Git remote origin URL. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") to explore how Currents collects git commit information.
 

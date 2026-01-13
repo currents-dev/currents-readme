@@ -21,7 +21,7 @@ An action can be in one of the following states:
 
 By default only **Active** actions are visible, change the visibility filter to see additional items.
 
-<figure><img src="../../.gitbook/assets/currents-2024-12-13-00.54.40@2x.png" alt=""><figcaption><p>Actions Management View</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-09 at 17.53.13.png" alt=""><figcaption><p>Actions Management View</p></figcaption></figure>
 
 ### Creating a new Action
 
@@ -33,21 +33,21 @@ Click **Create Action** to open action creation modal. Enter the action details:
 * **Condition** - set of conditions (filters) that a test must satisfy to activate an action. Refer to [conditions.md](reference/conditions.md "mention") reference documentation
 * **Actions** - set of actions that will apply if a test matches the conditions. Refer [actions.md](reference/actions.md "mention") reference documentation
 
-<figure><img src="../../.gitbook/assets/currents-2024-12-13-01.02.46@2x.png" alt=""><figcaption><p>Action Creation Form</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-09 at 17.55.54.png" alt=""><figcaption><p>Action Creation Form</p></figcaption></figure>
 
 Users with Admin role can **Disable** or **Edit** an action after its creation.&#x20;
 
-<figure><img src="../../.gitbook/assets/currents-2024-12-13-01.04.34@2x.png" alt=""><figcaption><p>Action Edit History</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-09 at 18.03.59.png" alt=""><figcaption><p>Action Edit History</p></figcaption></figure>
 
 ### Action Creation Shortcut
 
 When browsing test results you can create new actions using the inline Create Action shortcut. Clicking one of the predefined actions will open action creation form pre-populated with the current test details.
 
-<figure><img src="../../.gitbook/assets/currents-2024-12-13-01.07.15@2x.png" alt=""><figcaption><p>Using inline action creation shortcut</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-09 at 18.16.14.png" alt=""><figcaption><p>Using inline action creation shortcut</p></figcaption></figure>
 
 ### Action Traceability
 
 If a test was affected by an action, it will display Actions Engine trace. Clicking on a trace item takes users to the associated Action definition.
 
-<figure><img src="../../.gitbook/assets/currents-2024-12-13-01.13.25@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-09 at 18.30.04 (1).png" alt=""><figcaption></figcaption></figure>
 

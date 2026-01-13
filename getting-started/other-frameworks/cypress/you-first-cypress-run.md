@@ -102,7 +102,7 @@ See all the available options `npx cypress-cloud --help`.&#x20;
 
 Running this command will create a new run in Currents dashboard.
 
-![Creating the first cypress run with Currents dashboard](../../../.gitbook/assets/cypress-first-run.gif)
+![Newly Created Cypress Run ](<../../../.gitbook/assets/Screenshot 2026-01-08 at 17.02.08.png>)
 
 {% hint style="info" %}
 Learn more about

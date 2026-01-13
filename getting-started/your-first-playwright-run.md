@@ -150,7 +150,7 @@ A link to the recorded run will be available at the start of the execution:
 
 Open the link to see the run details in the dashboard 🎉
 
-<figure><img src="../.gitbook/assets/currents-2025-05-07-00.20.34@2x.png" alt=""><figcaption><p>Example of a newly created run</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-01-08 at 16.21.02.png" alt=""><figcaption><p>Example of a newly created run</p></figcaption></figure>
 
 {% hint style="warning" %}
 Ran into any errors? Check out our [troubleshooting-playwright.md](../guides/troubleshooting-playwright.md "mention") guide.

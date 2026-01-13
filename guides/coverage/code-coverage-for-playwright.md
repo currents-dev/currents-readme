@@ -152,4 +152,4 @@ After completing this step, your app's code is instrumented. Running `npm run de
 
 Note that Playwright tests use the extended `test.extend` command with Currents coverage fixtures. Running Playwright tests `npm run test` will activate a pre-configured Currents reporter and will send the code coverage information together with the rest of the results:
 
-<figure><img src="../../.gitbook/assets/currents-2024-11-26-19.17.48@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-09 at 17.45.12.png" alt=""><figcaption></figcaption></figure>
