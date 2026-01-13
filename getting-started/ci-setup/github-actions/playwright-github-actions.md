@@ -21,6 +21,7 @@ on:
   push:
     branches: [main]
 jobs:
+  run-tests:
     name: "Playwright Tests"
     timeout-minutes: 60
     runs-on: ubuntu-22.04
