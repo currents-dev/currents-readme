@@ -28,3 +28,7 @@ Errors that occur in [Playwright's `beforeAll`](https://playwright.dev/docs/api/
 \
 Errors that occur in other [Custom Fixtures](https://playwright.dev/docs/test-fixtures#creating-a-fixture) may prevent the action from being applied if the failure happens before the Currents Action fixture is loaded. To ensure the action is applied in such cases, the Currents fixture should be loaded before other fixtures.  See [#combine-currents-fixtures-with-existing-custom-fixtures](../../../resources/reporters/currents-playwright/playwright-fixtures.md#combine-currents-fixtures-with-existing-custom-fixtures "mention")
 
+#### **Quota calculation:**
+
+* The quarantine option will run the test, but it will be counted only if the result is a pass.
+* The skip option does not count toward the test quota.
