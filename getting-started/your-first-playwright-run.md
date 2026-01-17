@@ -48,8 +48,8 @@ Create `currents.config.ts` ( or `.mjs` / `.js` ) next to the `playwright.config
 import { CurrentsConfig } from "@currents/playwright";
 
 const config: CurrentsConfig = {
-  recordKey: process.env.CURRENTS_RECORD_KEY || "your-record-key",
-  projectId: process.env.CURRENTS_PROJECT_ID || "currents-project-id"
+  recordKey: process.env.CURRENTS_RECORD_KEY!,
+  projectId: process.env.CURRENTS_PROJECT_ID!,
 };
 
 export default config;
