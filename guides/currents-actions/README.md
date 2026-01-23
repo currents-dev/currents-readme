@@ -9,10 +9,6 @@ coverY: 0
 
 # Currents Actions
 
-{% hint style="info" %}
-The Dec 2024 release of Currents Actions supports [Playwright](setup-currents-actions.md) and implements a basic set of actions and conditions. We are collecting feedback and working on support more testing-related workflows. Please contact our team to get more detials or share ideas.
-{% endhint %}
-
 The Currents Actions Engine enables the implementation of custom workflows for testing-related activities. For example, you can conditionally and temporarily skip or quarantine a test.
 
 Writing and running tests locally or in CI is typically just one step in a more comprehensive workflow. Such a workflow can include multiple stages, such as:
