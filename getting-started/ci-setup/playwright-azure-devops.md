@@ -2,7 +2,7 @@
 description: Running Playwright test in parallel on Azure DevOps and Currents Dashboard
 ---
 
-# Playwright - Azure DevOps
+# Azure DevOps
 
 {% hint style="info" %}
 TL;DR Check out the example repository:
@@ -18,7 +18,7 @@ The [example repository](https://github.com/currents-dev/playwright-azure-devops
 * Create an organization, get your **Record Key** and **Project Id** at [https://app.currents.dev](https://app.currents.dev/)
 * Create or modify an existing [Variable Group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops\&tabs=yaml), and add a new secret variable called `CURRENTS_RECORD_KEY` with your **Record Key**.
 * Include your **Project Id** in an env variable called `CURRENTS_PROJECT_ID` in your pipeline configuration.
-* Ensure the [@current/playwright](../../../resources/reporters/currents-playwright/) package has been integrated into your tests.
+* Ensure the [@current/playwright](../../resources/reporters/currents-playwright/) package has been integrated into your tests.
 * Modify your `azure-pipelines.yml` file to run the tests and use one of the [example pipeline files](https://github.com/currents-dev/playwright-azure-devops-example/blob/main/azure-pipelines.yml) as a reference.
 
 Here's an example pipeline file:
@@ -85,10 +85,6 @@ jobs:
 
 Pipeline executions will be recorded and available in the Currents Dashboard, and test results and artifacts will be automatically uploaded.
 
-<figure><img src="../../../.gitbook/assets/pw-azure-run-console.png" alt=""><figcaption><p>Running Playwright Tests in Azure DevOps Pipeline</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/pw-azure-run-console.png" alt=""><figcaption><p>Running Playwright Tests in Azure DevOps Pipeline</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/pw-azure-pipeline.png" alt=""><figcaption><p>Running Playwright Tests in Azure DevOps Pipeline</p></figcaption></figure>
-
-Here's an example of how the demo workflow appears in the Currents dashboard
-
-<figure><img src="../../../.gitbook/assets/azure-pipeline-run.gif" alt=""><figcaption><p>Running Playwright Tests with multiple runners - Currents dashboard</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/pw-azure-pipeline.png" alt=""><figcaption><p>Running Playwright Tests in Azure DevOps Pipeline</p></figcaption></figure>

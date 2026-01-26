@@ -18,17 +18,13 @@ Cancelling a run can be useful for:
 
 ## Cancelling Runs via Dashboard
 
-In-progress runs can be cancelled by clicking the "Cancel Run" button in the Runs Feed view.
+In-progress runs can be cancelled by clicking the "Cancel Run" button in the Runs Feed view. You can also cancel a run when from the Run Details view.
 
-<figure><img src="../../.gitbook/assets/Screen Recording 2025-01-16 at 13.05.34.gif" alt=""><figcaption><p>Cancelling from Runs Feed view</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-16 at 14.21.18.png" alt=""><figcaption><p>Cancelling a Run via Dashboard</p></figcaption></figure>
 
-You can also cancel a run when from the Run Details view.
+The canceled run will be tagged accordingly, and the dashboard will display the user, date, and time of cancellation.
 
-<figure><img src="../../.gitbook/assets/Screen Recording 2025-01-16 at 13.08.44.gif" alt=""><figcaption><p>Cancelling Run Details view</p></figcaption></figure>
-
-
-
-<figure><img src="../../.gitbook/assets/currents-2023-07-04-14.07.14@2x.png" alt=""><figcaption><p>Example of a run cancelled by a dashboard user</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-16 at 14.45.22.png" alt=""><figcaption><p>Example of a run cancelled by a dashboard user</p></figcaption></figure>
 
 ## Cancelling Runs via API
 
@@ -51,7 +47,7 @@ By using the API call you can extend the - for example:
 
 If you have [fail-fast-strategy.md](../../guides/ci-optimization/fail-fast-strategy.md "mention") activated for a project, runs cancelled because of fail-fast strategy will be marked with a special badge:
 
-<figure><img src="../../.gitbook/assets/currents-2023-07-04-14.04.56@2x.png" alt=""><figcaption><p>Example of a run cancelled by fail-fast strategy</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-16 at 14.46.45.png" alt=""><figcaption><p>Example of a run cancelled by fail-fast strategy</p></figcaption></figure>
 
 ## GitHub Actions Workflow Cancellation
 

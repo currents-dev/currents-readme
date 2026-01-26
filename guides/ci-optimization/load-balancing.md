@@ -47,6 +47,6 @@ Enabling this orchestration method and sorting by failure rate can also help to 
 
 Enabling this orchestration method and [fail-fast-strategy.md](fail-fast-strategy.md "mention") can greatly reduce the CI resource usage. The tests that are likely to fail will be executed first, and whenever Currents detects a failure, the whole run will be stopped.&#x20;
 
-You can set the orchestration method by modifying individual project settings in Currents Dashboard:
+You can set the orchestration method by modifying individual project settings in Currents Dashboard: **Manage Project > Settings > Parallel Execution Strategy.**
 
-<figure><img src="../../.gitbook/assets/currents-2023-02-19-23.47.03.gif" alt=""><figcaption><p>Setting the orchestration strategy on Currents Dashboard</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Load Balancing.gif" alt=""><figcaption><p>Setting the orchestration strategy on Currents Dashboard</p></figcaption></figure>

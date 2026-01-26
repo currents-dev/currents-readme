@@ -184,9 +184,3 @@ workflows:
 #### Use Docker image with pre-installed Cypress
 
 CircleCI configuration that uses Docker image with pre-installed cypress app. Refer to the [documentation](https://currents.dev/readme/integration-with-cypress/alternative-cypress-binaries) for the list of supported binaries and versions.
-
-***
-
-Here's an example of the demo run in Currents.dev dashboard, note that 3 cypress agents were used as part of this run:
-
-![Running Cypress tests in parallel on CircleCI](../../../../.gitbook/assets/circle-ci-parallel-cypress-tests.png)

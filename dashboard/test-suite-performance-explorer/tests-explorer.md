@@ -25,7 +25,7 @@ Use Test Explorer to identify flaky, failing or long-running tests, explore the 
 You can fetch the Test Explorer data programmatically. See [API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/ "mention").
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/currents-2025-10-09-14.53.16@2x (1).png" alt=""><figcaption><p>Test Explorer displays test performance and health data for a 30-day period</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-16 at 16.39.24.png" alt=""><figcaption><p>Test Explorer displays test performance and health data</p></figcaption></figure>
 
 Currents calculates the metrics by aggregating the test results. You can fine-tune the aggregations by applying various filters, for example:
 

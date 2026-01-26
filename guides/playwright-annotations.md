@@ -85,7 +85,7 @@ testInfo.annotations.push({
 
 The value will appear in various areas of the dashboard so that your team can quickly identify the who owns the test.
 
-<figure><img src="../.gitbook/assets/currents-2024-08-21-23.43.00@2x (1).png" alt=""><figcaption><p>Showing test owner using annotations in Currents </p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-01-15 at 17.46.22.png" alt=""><figcaption><p>Showing test owner using annotations in Currents </p></figcaption></figure>
 
 ## Annotation: Slack Notifications
 
@@ -160,6 +160,6 @@ test("performance test example", async ({ page }) => {
 
 #### Browsing Custom Metrics
 
-The custom metrics are avaialble in [#test-results](../dashboard/insights-and-analytics.md#test-results "mention") chart. Use "Custom Metric" control to browse the available metrics and aggregation functions.&#x20;
+The custom metrics are available in [#test-results](../dashboard/insights-and-analytics.md#test-results "mention") chart. Use "Custom Metric" control to browse the available metrics and aggregation functions.&#x20;
 
-<div data-with-frame="true"><figure><img src="../.gitbook/assets/Screenshot 2025-10-07 at 9.36.48 AM.png" alt=""><figcaption><p>Custom metric selection</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../.gitbook/assets/Screenshot 2026-01-15 at 17.51.19.png" alt=""><figcaption><p>Custom metric selection</p></figcaption></figure></div>

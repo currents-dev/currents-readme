@@ -2,7 +2,7 @@
 description: Running Playwright Tests in Parallel on AWS CodeBuild and Currents
 ---
 
-# Playwright - AWS Code Build
+# AWS Code Build
 
 {% hint style="info" %}
 TL;DR Check out the example repository:
@@ -10,11 +10,9 @@ TL;DR Check out the example repository:
 [https://github.com/currents-dev/playwright-aws-codebuild-example](https://github.com/currents-dev/playwright-aws-codebuild-example/tree/main)
 {% endhint %}
 
-Executing Playwright tests in parallel on AWS CodeBuild can significantly reduce the overall run duration. AWS CodeBuild supports [Batched Build](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build.html) in [matrix mode](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build.html#batch\_build\_matrix) for launching several workers in parallel.&#x20;
+Executing Playwright tests in parallel on AWS CodeBuild can significantly reduce the overall run duration. AWS CodeBuild supports [Batched Build](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build.html) in [matrix mode](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build.html#batch_build_matrix) for launching several workers in parallel.&#x20;
 
-<figure><img src="../../../.gitbook/assets/currents-2023-11-15-13.23.30@2x.png" alt=""><figcaption><p>Use AWS CodeBulld Matrix mode to run Playwright tests in parallel with Currents. 1 batch job (1) triggering 3 parallel build jobs (2).</p></figcaption></figure>
-
-<figure><img src="../../../.gitbook/assets/currents-2023-11-15-13.56.35@2x.png" alt=""><figcaption><p>Parallel Playwright Tests recorded to Currents dashboard from AWS CodeBulld</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/currents-2023-11-15-13.23.30@2x.png" alt=""><figcaption><p>Use AWS CodeBulld Matrix mode to run Playwright tests in parallel with Currents. 1 batch job (1) triggering 3 parallel build jobs (2).</p></figcaption></figure>
 
 ### Prerequisites
 
@@ -24,7 +22,7 @@ To enable parallel runs, please make sure that you have privileged access to you
 
 #### Obtain Currents Credentials <a href="#user-content-obtain-currents-credentials" id="user-content-obtain-currents-credentials"></a>
 
-Create an organization, and get  [record-key.md](../../../guides/record-key.md "mention") and **Project ID** at [https://app.currents.dev](https://app.currents.dev/).&#x20;
+Create an organization, and get  [record-key.md](../../guides/record-key.md "mention") and **Project ID** at [https://app.currents.dev](https://app.currents.dev/).&#x20;
 
 #### Create `buildspec.yml`
 
@@ -85,7 +83,7 @@ phases:
 
 **Configure `CURRENTS_RECORD_KEY`**
 
-Save the [record-key.md](../../../guides/record-key.md "mention") as `CURRENTS_RECORD_KEY` [Environment variable](https://docs.aws.amazon.com/codebuild/latest/userguide/change-project-console.html#change-project-console-environment). It is strongly recommended to use your **Record Key** in a secure secrets storage. Please refer to the [detailed guide](https://www.learnaws.org/2022/11/18/aws-codebuild-secrets-manager/), here is an overview of the steps:
+Save the [record-key.md](../../guides/record-key.md "mention") as `CURRENTS_RECORD_KEY` [Environment variable](https://docs.aws.amazon.com/codebuild/latest/userguide/change-project-console.html#change-project-console-environment). It is strongly recommended to use your **Record Key** in a secure secrets storage. Please refer to the [detailed guide](https://www.learnaws.org/2022/11/18/aws-codebuild-secrets-manager/), here is an overview of the steps:
 
 * Create a new entry in AWS Secrets Manager with the **Record Key**. Please note that the generated secret is a JSON document, you should note the `json_key` of the actual record key value and use it later.
 * Get the secret ARN

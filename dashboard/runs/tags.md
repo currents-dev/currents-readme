@@ -14,19 +14,19 @@ For example, running the next command `@currents/playwright` (version 1.7.0+):
 
 {% code overflow="wrap" %}
 ```
-npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id CI_BUILD_ID --tag currents-cli,gha
+npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id CI_BUILD_ID --tag run, tagA, tagB
 ```
 {% endcode %}
 
 or for Cypress:
 
 ```
-cypress-cloud run --parallel --record --tag currents-cli,gha 
+cypress-cloud run --parallel --record --tag run, tagA, tagB 
 ```
 
 would generate a run with the corresponding tags:
 
-<figure><img src="../../.gitbook/assets/currents-2023-03-03-14.14.26@2x.png" alt=""><figcaption><p>Tagged run example</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-16 at 13.33.58.png" alt=""><figcaption><p>Tagged run example</p></figcaption></figure>
 
 The run, spec and test execution recordings will inherit the tags. You can use the tags as a filter when browsing the dashboard to narrow down the results, for example:
 
@@ -36,4 +36,4 @@ The run, spec and test execution recordings will inherit the tags. You can use t
 
 The tags are also available as part of [http-webhooks.md](../../resources/integrations/http-webhooks.md "mention") payload.
 
-<figure><img src="../../.gitbook/assets/currents-2023-03-03-14.21.10@2x.png" alt=""><figcaption><p>Example of filtering Run Status Metrics by Tags</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-16 at 13.37.05.png" alt=""><figcaption><p>Example of filtering Run Status Metrics by Tags</p></figcaption></figure>

@@ -24,7 +24,7 @@ Using tags is a common technique for better classifying recorded test results an
 
 The tags are available for producing meaningful reports, exploring metrics, narrowing down Slack notifications, filtering the results, API responses and more.
 
-<figure><img src="../.gitbook/assets/currents-2023-10-30-13.41.59@2x.png" alt=""><figcaption><p>Example of using Tags for narrowing down Flakiness chart in Currents Dashboard</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-01-15 at 18.30.45.png" alt=""><figcaption><p>Example of using Tags for narrowing down Flakiness chart in Currents Dashboard</p></figcaption></figure>
 
 ### Playwright Tags
 
@@ -37,30 +37,30 @@ The tags are available for producing meaningful reports, exploring metrics, narr
 Currents parses the test titles and recognizes the conventional [Playwright Tags](https://playwright.dev/docs/test-annotations#tag-tests) that appear in test definitions. For example, recording the results of the following tests to Currents:
 
 ```typescript
-test('Test login page @fast', async ({ page }) => {
+test('Test login page @tagA', async ({ page }) => {
   // ...
 });
 
-test('Test full report @slow', async ({ page }) => {
+test('Test full report @tagB', async ({ page }) => {
   // ...
 });
 ```
 
-...will create a run with tags: **`fast`** and **`slow`**
+...will create a run with tags: **`tagA`** and **`tagB`**
 
-<figure><img src="../.gitbook/assets/currents-2023-10-29-23.13.10@2x.png" alt=""><figcaption><p>Example of Currents run created with tags @fast and @slow</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-01-15 at 18.41.06.png" alt=""><figcaption><p>Example of Currents run created with tags @fast and @slow</p></figcaption></figure>
 
 #### Test group tags
 
 Tagging a test group (`test.describe`) will "apply" the tag to every included individual test, as well as to the created run. For example, given the following test definition:
 
 ```typescript
-test.describe("test group @groupTag", () => { // 👈🏻 note the test group tag
+test.describe("test group @run", () => { // 👈🏻 note the test group tag
 
-  test('Test login page @fast', async ({ page }) => {
+  test('Test login page @tagA', async ({ page }) => {
     // ...
   });
-  test('Test full report @slow', async ({ page }) => {
+  test('Test full report @tagB', async ({ page }) => {
     // ...
   });
 })
@@ -68,21 +68,21 @@ test.describe("test group @groupTag", () => { // 👈🏻 note the test group ta
 
 Currents will assign the following tags to the created items:
 
-<table><thead><tr><th>Item</th><th>Tags</th></tr></thead><tbody><tr><td>Run</td><td><code>groupTag</code>, <code>fast</code>, <code>slow</code></td></tr><tr><td><pre><code>Test login page @fast
-</code></pre></td><td><code>groupTag</code>, <code>fast</code></td></tr><tr><td><pre><code>Test full report @slow
-</code></pre></td><td><code>groupTag</code>, <code>slow</code></td></tr></tbody></table>
+<table><thead><tr><th>Item</th><th>Tags</th></tr></thead><tbody><tr><td>Run</td><td><code>run</code>, <code>tagA</code>, <code>tagB</code></td></tr><tr><td><pre><code>Test login page @tagA
+</code></pre></td><td><code>run</code>, <code>tagA</code></td></tr><tr><td><pre><code>Test full report @tagB
+</code></pre></td><td><code>run</code>, <code>tagB</code></td></tr></tbody></table>
 
-<figure><img src="../.gitbook/assets/currents-2023-10-30-14.48.36@2x.png" alt=""><figcaption><p>Example of a run created with various tags when tagging a test group</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-01-15 at 23.04.40.png" alt=""><figcaption><p>Example of a run created with various tags when tagging a test group</p></figcaption></figure>
 
 #### Tags with `--grep` applied
 
 If certain tags are excluded from the execution, for example by using `--grep` CLI option, only the included tests (and their tags) will be used for tagging.
 
 ```
-$ npx playwright test --grep @fast
+$ npx playwright test --grep @coverage
 ```
 
-<figure><img src="../.gitbook/assets/currents-2023-10-30-14.36.53@2x.png" alt=""><figcaption><p>Applying tags when certain tests are excluded using --grep CLI option</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-01-15 at 18.45.18.png" alt=""><figcaption><p>Applying tags when certain tests are excluded using --grep CLI option</p></figcaption></figure>
 
 #### Removing tags from test titles
 
@@ -186,7 +186,7 @@ You can tag Playwright projects by using **`metadata.pwc.tags`** field in the pr
 
 Currents will create a run tagged with `desktop`, `chrome` + all the tags extracted from individual tests.
 
-<figure><img src="../.gitbook/assets/currents-2023-10-30-15.12.47@2x.png" alt=""><figcaption><p>Example of using project-level tags</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-01-15 at 18.08.15.png" alt=""><figcaption><p>Example of using project-level tags</p></figcaption></figure>
 
 ### How Tags are Applied
 

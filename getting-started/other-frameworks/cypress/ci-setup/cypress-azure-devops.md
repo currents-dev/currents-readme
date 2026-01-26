@@ -77,9 +77,3 @@ Pipeline executions will be orchestrated via the Currents Dashboard, and executi
 <figure><img src="../../../../.gitbook/assets/Azure-Cypress example.png" alt=""><figcaption><p>Running Cypress Tests in Azure DevOps Pipeline</p></figcaption></figure>
 
 <figure><img src="../../../../.gitbook/assets/cypress-azure-devops@2x.png" alt=""><figcaption><p>Running Cypress Tests in Azure DevOps Pipeline</p></figcaption></figure>
-
-
-
-
-
-<figure><img src="../../../../.gitbook/assets/Cypress-Currents-AzureDevOps@2x.png" alt=""><figcaption><p>Currents Dashboard executing tests from Azure DevOps Pipeline</p></figcaption></figure>

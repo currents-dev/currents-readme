@@ -34,7 +34,7 @@ You can change the default timeout for each individual project in Project Settin
 
 The default timeout value is 30 minutes.&#x20;
 
-![Changing Project timeout settings](<../../.gitbook/assets/CleanShot 2022-02-19 at 01.52.33.png>)
+![Changing Project timeout settings](<../../.gitbook/assets/timeout screenshot.png>)
 
 ### How to avoid timeouts for tests?
 
@@ -58,13 +58,11 @@ Examine your CI jobs log file and eliminate any crashes or instability that caus
 
 #### Use Machines View to identify the timed out files
 
-Open the Run Details view for a "timed out" run. Make sure that **Run Summary** tab is selected.
+Open the Run Details view for a "timed out" run. Make sure that **Summary** tab is selected.
 
-Explore the list of machines and identify agents that are still in a "Running" state (marked in <mark style="color:orange;">orange</mark>).
+Explore the list of machines and the spec file name will be marked as "**Timeout**", hover the mouse cursor to see the details.
 
-The spec file name that was will be marked as "Idle", hover the mouse cursor to see the details.
-
-![](<../../.gitbook/assets/CleanShot 2022-08-19 at 01.30.37@2x.png>)
+![](<../../.gitbook/assets/Screenshot 2026-01-16 at 14.12.05.png>)
 
 #### Use Spec List view to see the idle spec files
 

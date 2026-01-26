@@ -27,8 +27,6 @@ Here's an overview of what steps you'll need to take to start running cypress te
 
 After signing up for the dashboard service, you will be prompted to create a new organization and a project. You can change the name later.
 
-![Creating an Organization and a Project in Currents dashboard](../../../.gitbook/assets/currents-create-org.gif)
-
 After creating a new organization and a project, you'll see on-screen instructions with your newly created  `projectId`
 
 ### Install `cypress` and `cypress-cloud`

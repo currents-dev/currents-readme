@@ -84,7 +84,3 @@ Note:
 * get your record key from [Currents.dev](https://app.currents.dev/) and set [AWS CodeBuild Environment Variable](https://docs.aws.amazon.com/codebuild/latest/userguide/change-project-console.html#change-project-console-environment) variable `CURRENTS_RECORD_KEY`. Read more about [record-key.md](../../../../guides/record-key.md "mention")
 * set the `projectId` in `currents.config.js` - obtain the project id from [Currents.dev](https://app.currents.dev/)
 * use CLI arguments to customize your cypress-cloud runs, e.g.: `npx cypress-cloud run --parallel --record --key <your currents.dev key> --group groupA`
-
-Here's an example of the demo run in Currents dashboard. Note that 3 runners were used as part of this run:
-
-<figure><img src="../../../../.gitbook/assets/Screenshot 2023-05-17 at 14.29.28.png" alt=""><figcaption><p>Running cypress tests in parallel on AWS Code Build</p></figcaption></figure>

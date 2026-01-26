@@ -94,7 +94,3 @@ The example [workflow config file](https://github.com/currents-dev/gh-actions-ex
 * Note: install `cypress-cloud/plugin` in `cypress.config.js`
 * Note: use CLI arguments to customize your cypress runs, e.g.: `cypress-cloud run --parallel --record --key <your currents.dev key> --group groupA`
 * Note: create an organization, get your record key on [Currents.dev](https://app.currents.dev) and set [GH secret](https://docs.github.com/en/actions/reference/encrypted-secrets) variable `CURRENTS_RECORD_KEY`
-
-Here's an example of how the demo workflow appears in Currents dashboard
-
-![Running Cypress tests in parallel - Currents dashboard](../../../../.gitbook/assets/github-actions-cypress-parallel-execution.gif)

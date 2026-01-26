@@ -112,7 +112,7 @@
 ***
 
 * [Automated Reports](dashboard/automated-reports.md)
-* [Insights and Analytics](dashboard/insights-and-analytics.md)
+* [Analytics](dashboard/insights-and-analytics.md)
 * [Administration](dashboard/administration/README.md)
   * [Email Domain Based Access](dashboard/administration/email-domain-based-access.md)
   * [SSO SAML2.0](dashboard/administration/sso-saml2.0/README.md)
@@ -125,7 +125,7 @@
       * [Okta User provisioning](dashboard/administration/sso-saml2.0/okta/okta-user-provisioning.md)
     * [Troubleshooting SSO](dashboard/administration/sso-saml2.0/troubleshooting-sso.md)
   * [Billing & Usage](dashboard/administration/billing-and-usage.md)
-* [Billing and Pricing](billing-and-pricing.md)
+* [Billing & Pricing](billing-and-pricing.md)
 
 ## Resources
 

@@ -21,8 +21,6 @@ The example [config file](https://bitbucket.org/currents-org/currents-cypress-ex
 npx cypress-cloud --key $CURRENTS_RECORD_KEY --parallel
 ```
 
-![](https://bytebucket.org/currents-org/currents-cypress-example/raw/2e36527ccf01c9135dd51afaf620e7f930571dd9/images/demo.png)
-
 ### Setup <a href="#markdown-header-setup" id="markdown-header-setup"></a>
 
 * Create an account at https://app.currents.dev
