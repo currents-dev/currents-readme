@@ -13,7 +13,7 @@ Currents can accept results from arbitrary testing frameworks. This document pro
 
 To upload the results to Currents, create a "Results Directory" with all the necessary files. The directory will be used as the `--output-dir` parameter for the [currents-upload.md](currents-cmd/currents-upload.md "mention") command, for example:
 
-`npx currents convert  --output-dir path-to-results-directory`
+`npx currents convert --output-dir path-to-results-directory`
 
 Within the Results Directory, the following structure of files and directories is expected.
 
@@ -39,7 +39,7 @@ The Full Test Suite is a JSON-formatted file that contains a list of all tests e
 
 Each element in the `fullTestSuite.json` file array represents a group of tests, organized by the `name` property which defines the group name.
 
-<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption><p>Note that the property "name" is showed as the "group name" in the dashboard.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 19.52.39.png" alt=""><figcaption><p>Note that the property "name" is showed as the "group name" in the dashboard.</p></figcaption></figure>
 
 {% hint style="info" %}
 Currents requires that all test results from the Full Test Suite be submitted before the project's specified timeout. If results are not received by the deadline, the run is marked as timed out. See [run-timeouts.md](../../dashboard/runs/run-timeouts.md "mention").
@@ -97,20 +97,20 @@ Starting on version 1.6.8 of [`@currents/cmd`](https://www.npmjs.com/package/@cu
 
 #### Group
 
-| Property | Type       | Required | Description                                                                                                                                      |
-| -------- | ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| name     | string     | Yes      | Represents the group ID that will be visualized in the dashboard. All the tests will be organized by the group ID.                             |
-| tags     | string[]   | Yes      | Run-level tags for this run/build. See [playwright-tags.md](../../guides/playwright-tags.md "mention")                                        |
-| tests    | [SuiteTest](#suitetest)[] | Yes      | List of included tests, including test title, spec file, test tags and testId. The testId of full test suite file and instance files must match. |
+| Property | Type                                               | Required | Description                                                                                                                                      |
+| -------- | -------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| name     | string                                             | Yes      | Represents the group ID that will be visualized in the dashboard. All the tests will be organized by the group ID.                               |
+| tags     | string\[]                                          | Yes      | Run-level tags for this run/build. See [playwright-tags.md](../../guides/playwright-tags.md "mention")                                           |
+| tests    | [SuiteTest](data-format-reference.md#suitetest)\[] | Yes      | List of included tests, including test title, spec file, test tags and testId. The testId of full test suite file and instance files must match. |
 
 #### `SuiteTest`
 
-| Property | Type     | Required | Description                                                                                                                                       |
-| -------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title    | string[] | Yes      | Test description plus title                                                                                                                       |
-| spec     | string   | Yes      | The spec file where this test is defined                                                                                                         |
-| tags     | string[] | No       | A list of tags associated with the test for categorization or filtering                                                                          |
-| testId   | string   | Yes      | A unique identifier for the test case. It is created with a hash of the spec file property and the title. [See how to generate this property](#generating-testid) |
+| Property | Type      | Required | Description                                                                                                                                                                               |
+| -------- | --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title    | string\[] | Yes      | Test description plus title                                                                                                                                                               |
+| spec     | string    | Yes      | The spec file where this test is defined                                                                                                                                                  |
+| tags     | string\[] | No       | A list of tags associated with the test for categorization or filtering                                                                                                                   |
+| testId   | string    | Yes      | A unique identifier for the test case. It is created with a hash of the spec file property and the title. [See how to generate this property](data-format-reference.md#generating-testid) |
 
 ### Configuration File
 
@@ -126,11 +126,11 @@ The `config.json` file contains the metadata used by Currents to properly displa
 }
 ```
 
-| Property          | Type   | Required | Description                                                                                                                |
-| ----------------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------- |
-| framework         | string | Yes      | Name of the framework used to execute the tests. The currently accepted values are `postman`, `vitest` and `wdio` (WebDriverIO) |
-| frameworkVersion  | string | Yes      | Testing framework version used to execute the tests                                                                       |
-| frameworkConfig   | object | No       | Contains information about the configuration of the framework. Currently the property format with value junit is allowed  |
+| Property         | Type   | Required | Description                                                                                                                     |
+| ---------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| framework        | string | Yes      | Name of the framework used to execute the tests. The currently accepted values are `postman`, `vitest` and `wdio` (WebDriverIO) |
+| frameworkVersion | string | Yes      | Testing framework version used to execute the tests                                                                             |
+| frameworkConfig  | object | No       | Contains information about the configuration of the framework. Currently the property format with value junit is allowed        |
 
 ### Instance Files
 
@@ -257,56 +257,56 @@ The properties that can be found in an instance file are the following:
 
 **Root Object**
 
-| Property  | Type         | Required | Description                                                                                                                                                              |
-| --------- | ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| groupId   | string       | Yes      | Identifier for the test group. It provides a reference for what the executed tests are about                                                                            |
-| spec      | string       | Yes      | The name of the spec file or logical collection that contains the executed tests. The spec property must be unique across all instance files. Example: __tests__/utils.spec.ts |
-| startTime | string       | Yes      | The timestamp indicating when the execution of the spec file started in ISO 8601 format                                                                                 |
-| results   | [TestResult](#testresult)[] | Yes      | Contains an array of test results                                                                                                                                        |
+| Property  | Type                                                 | Required | Description                                                                                                                                                                    |
+| --------- | ---------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| groupId   | string                                               | Yes      | Identifier for the test group. It provides a reference for what the executed tests are about                                                                                   |
+| spec      | string                                               | Yes      | The name of the spec file or logical collection that contains the executed tests. The spec property must be unique across all instance files. Example: **tests**/utils.spec.ts |
+| startTime | string                                               | Yes      | The timestamp indicating when the execution of the spec file started in ISO 8601 format                                                                                        |
+| results   | [TestResult](data-format-reference.md#testresult)\[] | Yes      | Contains an array of test results                                                                                                                                              |
 
 #### TestResult
 
-| Property | Type        | Required | Description                                               |
-| -------- | ----------- | -------- | --------------------------------------------------------- |
-| stats    | [StatsObject](#statsobject) | Yes      | Summary statistics for the test run                      |
-| tests    | [Test](#test)[]      | Yes      | Array of objects, each representing an individual test result |
+| Property | Type                                                | Required | Description                                                   |
+| -------- | --------------------------------------------------- | -------- | ------------------------------------------------------------- |
+| stats    | [StatsObject](data-format-reference.md#statsobject) | Yes      | Summary statistics for the test run                           |
+| tests    | [Test](data-format-reference.md#test)\[]            | Yes      | Array of objects, each representing an individual test result |
 
 #### StatsObject
 
-| Property           | Type   | Required | Description                                                                        |
-| ------------------ | ------ | -------- | ---------------------------------------------------------------------------------- |
-| suites             | number | Yes      | Number of logical groupings or collections of test results                        |
-| tests              | number | Yes      | The total number of tests executed in the current instance                        |
-| passes             | number | Yes      | The number of tests that passed in the current instance                           |
-| pending            | number | Yes      | The number of tests that are pending execution and can be reported later          |
-| skipped            | number | Yes      | The number of tests that were not executed on purpose in the current instance     |
-| failures           | number | Yes      | The number of tests that failed in the current instance                           |
+| Property           | Type   | Required | Description                                                                          |
+| ------------------ | ------ | -------- | ------------------------------------------------------------------------------------ |
+| suites             | number | Yes      | Number of logical groupings or collections of test results                           |
+| tests              | number | Yes      | The total number of tests executed in the current instance                           |
+| passes             | number | Yes      | The number of tests that passed in the current instance                              |
+| pending            | number | Yes      | The number of tests that are pending execution and can be reported later             |
+| skipped            | number | Yes      | The number of tests that were not executed on purpose in the current instance        |
+| failures           | number | Yes      | The number of tests that failed in the current instance                              |
 | flaky              | number | Yes      | The number of tests marked as flaky by the testing framework in the current instance |
-| wallClockStartedAt | string | Yes      | Time when the first test started its first attempt in ISO 8601 format            |
-| wallClockEndedAt   | string | Yes      | Time when the last test finished its last attempt in ISO 8601 format             |
-| wallClockDuration  | number | Yes      | Total duration of the spec file tests execution in milliseconds                   |
+| wallClockStartedAt | string | Yes      | Time when the first test started its first attempt in ISO 8601 format                |
+| wallClockEndedAt   | string | Yes      | Time when the last test finished its last attempt in ISO 8601 format                 |
+| wallClockDuration  | number | Yes      | Total duration of the spec file tests execution in milliseconds                      |
 
 #### Test
 
 Each object in the tests array represents the execution result of a test, possibly with multiple attempts.
 
-| Property       | Type      | Required | Description                                                                                                                                      |
-| -------------- | --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| _t             | number    | Yes      | The timestamp indicating when the execution of the spec file started, in milliseconds                                                           |
-| testId         | string    | Yes      | Unique identifier for the test. [See how to generate this property](#generating-testid)                                                         |
-| title          | string[]  | Yes      | Array containing the specification and title of the test. Example: ["75119228-2d2d-4e59-b426-60a002b8cdce / Get Run", "Response status code is 200"] |
-| state          | string    | Yes      | Final state of the test                                                                                                                          |
-| isFlaky        | boolean   | Yes      | Indicates whether the test is flaky                                                                                                             |
-| expectedStatus | string    | Yes      | The expected status of the test                                                                                                                  |
-| timeout        | number    | Yes      | Time in milliseconds that the test execution lasted without a clear state result                                                                |
-| location       | [Location](#location)  | Yes      | Object containing file location details for the test                                                                                            |
-| retries        | number    | Yes      | Number of retries attempted for the test                                                                                                        |
-| attempts       | [Attempt](#attempt)[] | Yes      | Array of objects representing each attempt made for the test                                                                                     |
+| Property       | Type                                           | Required | Description                                                                                                                                           |
+| -------------- | ---------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \_t            | number                                         | Yes      | The timestamp indicating when the execution of the spec file started, in milliseconds                                                                 |
+| testId         | string                                         | Yes      | Unique identifier for the test. [See how to generate this property](data-format-reference.md#generating-testid)                                       |
+| title          | string\[]                                      | Yes      | Array containing the specification and title of the test. Example: \["75119228-2d2d-4e59-b426-60a002b8cdce / Get Run", "Response status code is 200"] |
+| state          | string                                         | Yes      | Final state of the test                                                                                                                               |
+| isFlaky        | boolean                                        | Yes      | Indicates whether the test is flaky                                                                                                                   |
+| expectedStatus | string                                         | Yes      | The expected status of the test                                                                                                                       |
+| timeout        | number                                         | Yes      | Time in milliseconds that the test execution lasted without a clear state result                                                                      |
+| location       | [Location](data-format-reference.md#location)  | Yes      | Object containing file location details for the test                                                                                                  |
+| retries        | number                                         | Yes      | Number of retries attempted for the test                                                                                                              |
+| attempts       | [Attempt](data-format-reference.md#attempt)\[] | Yes      | Array of objects representing each attempt made for the test                                                                                          |
 
 #### Location
 
-| Property | Type   | Required | Description                               |
-| -------- | ------ | -------- | ----------------------------------------- |
+| Property | Type   | Required | Description                                  |
+| -------- | ------ | -------- | -------------------------------------------- |
 | column   | number | Yes      | Column number of the test in the source file |
 | file     | string | Yes      | The file path where the test is defined      |
 | line     | number | Yes      | Line number of the test in the source file   |
@@ -315,37 +315,37 @@ Each object in the tests array represents the execution result of a test, possib
 
 Object that describes an individual attempt of a test.
 
-| Property  | Type     | Required | Description                                                      |
-| --------- | -------- | -------- | ---------------------------------------------------------------- |
-| _s        | string   | Yes      | Intermediate test attempt status (`passed`, `failed` | `pending` | `skipped`)                             |
-| attempt   | number   | Yes      | Index of the . Defines the order of attempt execution    |
-| startTime | string   | Yes      | Timestamp when the attempt started in ISO 8601 format           |
-| steps     | [Step](#step)[]   | Yes      | Array of steps executed during the attempt                      |
-| duration  | number   | Yes      | Duration of the attempt in milliseconds                         |
-| status    | string   | Yes      | Final test attempt status `passed`, `failed`, `timedOut`, `skipped`, `interrupted`                                     |
-| stdout    | string[] | Yes      | Standard output logs for the attempt                            |
-| stderr    | string[] | Yes      | Standard error logs for the attempt                             |
-| errors    | [Error](#error)[]  | Yes      | Array of error objects encountered during the attempt           |
+| Property  | Type                                       | Required | Description                                                                        |
+| --------- | ------------------------------------------ | -------- | ---------------------------------------------------------------------------------- |
+| \_s       | string                                     | Yes      | Intermediate test attempt status (`passed`, `failed`                               |
+| attempt   | number                                     | Yes      | Index of the . Defines the order of attempt execution                              |
+| startTime | string                                     | Yes      | Timestamp when the attempt started in ISO 8601 format                              |
+| steps     | [Step](data-format-reference.md#step)\[]   | Yes      | Array of steps executed during the attempt                                         |
+| duration  | number                                     | Yes      | Duration of the attempt in milliseconds                                            |
+| status    | string                                     | Yes      | Final test attempt status `passed`, `failed`, `timedOut`, `skipped`, `interrupted` |
+| stdout    | string\[]                                  | Yes      | Standard output logs for the attempt                                               |
+| stderr    | string\[]                                  | Yes      | Standard error logs for the attempt                                                |
+| errors    | [Error](data-format-reference.md#error)\[] | Yes      | Array of error objects encountered during the attempt                              |
 
 #### Step
 
-| Property  | Type   | Required | Description                                                                                 |
-| --------- | ------ | -------- | ------------------------------------------------------------------------------------------- |
-| title     | string | Yes      | The title or description of the step. Example: "Validate API response schema"             |
-| category  | string | No       | The category of the step, indicating its classification. Example: "API Test"              |
-| duration  | number | Yes      | The duration of the step in milliseconds. Example: 200                                     |
-| error     | [Error](#error)  | No       | An optional error object describing any issue encountered during the step execution        |
-| startTime | string | Yes      | Step start date time, in ISO 8601 format                                                   |
+| Property  | Type                                    | Required | Description                                                                         |
+| --------- | --------------------------------------- | -------- | ----------------------------------------------------------------------------------- |
+| title     | string                                  | Yes      | The title or description of the step. Example: "Validate API response schema"       |
+| category  | string                                  | No       | The category of the step, indicating its classification. Example: "API Test"        |
+| duration  | number                                  | Yes      | The duration of the step in milliseconds. Example: 200                              |
+| error     | [Error](data-format-reference.md#error) | No       | An optional error object describing any issue encountered during the step execution |
+| startTime | string                                  | Yes      | Step start date time, in ISO 8601 format                                            |
 
 #### Error
 
-| Property | Type   | Required | Description                                                                                                              |
-| -------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------ |
-| message  | string | Yes      | A description of the error encountered during the test attempt. Example: "expected 631 to be below 200"               |
+| Property | Type   | Required | Description                                                                                                                            |
+| -------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| message  | string | Yes      | A description of the error encountered during the test attempt. Example: "expected 631 to be below 200"                                |
 | stack    | string | No       | The stack trace related to the error. Example: "AssertionError: expected 631 to be below 200\n at Object.eval sandbox-script.js:2:1)." |
-| value    | string | No       | The type or categorization of the error. Example: "AssertionFailure"                                                  |
+| value    | string | No       | The type or categorization of the error. Example: "AssertionFailure"                                                                   |
 
-### Generating testId&#x20;
+### Generating testId
 
 The testId is a hash composed of the test title and the spec file name. Use this function to generate it.
 
@@ -359,4 +359,3 @@ export function generateTestId(testTitle: string, specFileName: string): string 
   return fullHash.substring(0, 16);
 }
 ```
-

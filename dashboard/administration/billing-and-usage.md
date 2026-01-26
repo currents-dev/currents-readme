@@ -42,13 +42,13 @@ The usage is aggregated **hourly** to allow precise reporting and calculation of
 
 You can filter usage by period and view all past billing cycles. Moreover, you can filter by **tests** or **runs**. Most customer contracts are metered by **runs**.&#x20;
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-10-01 at 15.29.48.png" alt=""><figcaption><p>Example - Usage history chart and filters</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 19.42.07.png" alt=""><figcaption><p>Example - Usage history chart and filters</p></figcaption></figure>
 
-#### Usage per project
+#### Usage details
 
 If you click **Show Usage Details**, you can see a breakdown of all recorded tests and runs per project created within your organization account.&#x20;
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-10-01 at 15.35.16.png" alt=""><figcaption><p>Usage per Project</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 19.47.57.png" alt=""><figcaption><p>Usage Details</p></figcaption></figure>
 
 #### Usage cycle types
 
@@ -64,7 +64,7 @@ If you are still determining how many tests you need per month or if your usage 
 
 When you reach the test limits, Currents will send you an email notification informing you of the activation of the extra usage plan. You also can see the extra recordings progress on the **Usage Information**:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-10-01 at 15.52.04.png" alt=""><figcaption><p>Example - Extra usage activated</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 19.49.31.png" alt=""><figcaption><p>Example - Extra usage activated</p></figcaption></figure>
 
 At the end of the monthly cycle, the billing will include the additional usage recorded. In the case of annual plans, Currents will send a separate bill with the extra tests.&#x20;
 

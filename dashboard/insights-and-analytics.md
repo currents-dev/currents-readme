@@ -3,16 +3,14 @@ description: Test and Run Insights and Analytics Guide
 icon: chart-mixed
 ---
 
-# Insights and Analytics
+# Analytics
 
 Use Insights to explore the aggregated metrics related to your test suite performance:
 
 * changes and trends in duration and success rate of your builds and tests over time,
 * test suite flakiness and stability.
 
-{% embed url="https://www.loom.com/share/3c3d0e35f21f48af8a04954a056a3d63?hideEmbedTopBar=true" %}
-Currents Dashboard Insights
-{% endembed %}
+<figure><img src="../.gitbook/assets/Adobe Express - Screen Recording 2026-01-19 at 19.10.34.gif" alt=""><figcaption></figcaption></figure>
 
 ## Customization
 
@@ -37,7 +35,7 @@ Represents the distribution of the outcomes of your builds/runs over time.&#x20;
 * **Passed runs**: runs that have zero failed tests.
 * **Pass Rate**: passed runs / overall runs.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-05-09 at 12.02.39.png" alt=""><figcaption><p>Example chart - Run Status </p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-01-19 at 19.20.31.png" alt=""><figcaption><p>Example chart - Run Status </p></figcaption></figure>
 
 ### Run Duration
 
@@ -45,7 +43,7 @@ Represents the daily/weekly average duration of **fully reported** runs. A fully
 
 **Please note** that cancelled or timed-out runs are excluded from the report.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-05-09 at 12.02.56.png" alt=""><figcaption><p>Example chart - Run Duration </p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-01-19 at 19.20.48.png" alt=""><figcaption><p>Example chart - Run Duration </p></figcaption></figure>
 
 ### Run Completion
 
@@ -56,7 +54,7 @@ Represents the distribution of runs by their completion over time.
 * **Cancelled runs**: see [cancel-run.md](runs/cancel-run.md "mention")
 * **Timed out runs:** see [run-timeouts.md](runs/run-timeouts.md "mention")
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-05-09 at 12.17.11.png" alt=""><figcaption><p>Example chart - Run Completion</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-01-19 at 19.21.02.png" alt=""><figcaption><p>Example chart - Run Completion</p></figcaption></figure>
 
 ### Test Suite Size
 
@@ -67,7 +65,7 @@ Represents the **maximum** daily/weekly amount of specs/tests for fully complete
 
 **Please note** that cancelled or timed-out runs are excluded from the report.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-05-09 at 12.17.37.png" alt=""><figcaption><p>Example chart - Test Suite Size</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-01-19 at 19.21.17.png" alt=""><figcaption><p>Example chart - Test Suite Size</p></figcaption></figure>
 
 ### Test Results
 
@@ -83,7 +81,7 @@ Shows the distribution of test outcomes over time.
 * **Ignored test:** tests that weren't run, e.g. `it.skip()`
 * **Success Rate:** `passed  / (total - pending)`
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-05-09 at 12.40.52.png" alt=""><figcaption><p>Example chart - Test Results</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-01-19 at 19.21.28.png" alt=""><figcaption><p>Example chart - Test Results</p></figcaption></figure>
 
 ### Test Flakiness
 
@@ -92,4 +90,4 @@ Shows the distribution of flaky tests over time.
 * **Flaky tests**: overall flaky tests detected for the period. See [flaky-tests.md](tests/flaky-tests.md "mention")
 * **Flakiness rate**: `flaky tests count / passed tests count`
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-05-09 at 12.18.25.png" alt=""><figcaption><p>Example chart - Test Flakiness</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-01-19 at 19.21.47.png" alt=""><figcaption><p>Example chart - Test Flakiness</p></figcaption></figure>

@@ -35,6 +35,12 @@ Currents calculates the metrics by aggregating the test results. You can fine-tu
 * What test cases started to flake recently?
 * What test case started to run slower during the last 2 months?
 
+## Test Explorer Presets
+
+The Test Explorer provides preset filters to help you quickly identify bottlenecks in your test suite. You can spot failing, flaky, slow, or frequently ignored tests, as well as track trends over time. Results can be filtered to show only the main branch. You can set the default branch in the [project-settings.md](../projects/project-settings.md "mention").
+
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 18.04.52.png" alt=""><figcaption><p>Test Explorer Presets</p></figcaption></figure>
+
 Let's examine in detail the available metrics.
 
 ## Test Explorer Metrics
@@ -156,7 +162,7 @@ The Table Settings panel controls how data is presented in the Test Explorer vie
 
 Click on the **Settings** <img src="../../.gitbook/assets/currents-2025-04-17-23.49.20@2x.png" alt="" data-size="line"> icon to customize how the metrics are calculated.
 
-<figure><img src="../../.gitbook/assets/currents-2025-10-09-14.45.41@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 18.17.59.png" alt="Customize Test Metrics"><figcaption><p>Customize Test Metrics</p></figcaption></figure>
 
 The Customize Test Metrics view lets you define which test outcomes are included when calculating performance and reliability metrics such as Executions, Duration, Flakiness Rate, and Failure Rate.\
 These settings control how Currents interprets test results and determine which runs contribute to aggregated statistics in Test Explorer and other analytics views.
@@ -186,11 +192,11 @@ Here are a few examples of what information you can get from the Test Explorer:
 
 Clicking on a test title reveals a dedicated view of the specific test's performance, including a detailed **History of Executions**, **Performance Metrics** and **Top Errors** analysis.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-05-21 at 16.21.09.png" alt=""><figcaption><p>History - Test Explorer</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 18.20.43.png" alt=""><figcaption><p>History - Test Explorer</p></figcaption></figure>
 
 Use Metrics tab to analyze the test health trends.
 
-<figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption><p>Test Performance Overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 18.22.36.png" alt=""><figcaption><p>Test Performance Overview</p></figcaption></figure>
 
 See the [reference.md](reference.md "mention") section for more details on the **Performance Charts and History** of the tests.
 

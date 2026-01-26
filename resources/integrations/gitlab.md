@@ -48,7 +48,7 @@ Enter the details (**App ID** and **App Secret**) of the newly created GitLab OA
 
 After a successful connection, you will see a dropdown list of accessible  GitLab projects (repositories). Select the repository you'd like to integrate with the Currents project and click **Save.**
 
-![Installing GitLab Integration with Cypress](../../.gitbook/assets/cypress-gitlab-installation.gif)
+![Installing GitLab Integration ](<../../.gitbook/assets/Screenshot 2026-01-19 at 20.07.26.png>)
 
 Currents Dashboard will start posting [commit build statuses](https://docs.gitlab.com/ee/api/commits.html#post-the-build-status-to-a-commit) and [merge request comments](https://docs.gitlab.com/ee/user/discussions/) with a summary of your Playwright tests for Merge Requests in the selected project.
 

@@ -14,7 +14,7 @@ The Spec Files Explorer allows users to track and analyze spec files performance
 * Timeout Rate
 * Suite Size
 
-<figure><img src="../../.gitbook/assets/currents-2025-04-18-12.27.27@2x.png" alt=""><figcaption><p>Spec Files Explorer health and performance dashboard - flakiness, failure rate, duration, suite size.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 18.31.34.png" alt=""><figcaption><p>Spec Files Explorer health and performance dashboard - flakiness, failure rate, duration, suite size.</p></figcaption></figure>
 
 Currents calculates the metrics based on the executions recorded during the provided date range and filters. A typical use case is to monitor the performance of the spec files that cause the degraded performance of the overall test suite - e.g. spec files with the highest flakiness rate, longest duration, etc.&#x20;
 
@@ -79,9 +79,9 @@ Only test recordings matching the filters will be included for metric calculatio
 
 Clicking on an individual spec file will reveal a dedicated view of its performance, including detailed execution **History** and performance **Metrics.**
 
-<div data-with-frame="true"><figure><img src="../../.gitbook/assets/Screenshot 2025-05-21 at 17.18.20.png" alt=""><figcaption><p>History - Spec Files Explorer</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 18.33.28.png" alt=""><figcaption><p>History - Spec Files Explorer</p></figcaption></figure></div>
 
-<div data-with-frame="true"><figure><img src="../../.gitbook/assets/Screenshot 2025-05-21 at 17.20.37.png" alt=""><figcaption><p>Spec File Performance</p></figcaption></figure></div>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 18.35.22.png" alt=""><figcaption><p>Spec File Performance</p></figcaption></figure></div>
 
 ## Next Steps
 

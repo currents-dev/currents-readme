@@ -28,7 +28,7 @@ In order to setup provisioning you first need to:
 
 * Login as an Admin and navigate to the **Manage Team** page.
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Navigate to the Manage Team page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2026-01-19 at 19.36.49.png" alt=""><figcaption><p>Navigate to the Manage Team page</p></figcaption></figure>
 
 * Click the **Show SCIMv2 Details** button in the **DOMAIN ACCESS & SSO** section of the page.
 

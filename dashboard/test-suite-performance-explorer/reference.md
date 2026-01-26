@@ -25,11 +25,9 @@ Hovering over a particular day would reveal the metric values and the difference
 
 <figure><img src="../../.gitbook/assets/currents-2023-07-02-00.31.38.gif" alt=""><figcaption><p>Comparing performance for specific date</p></figcaption></figure>
 
-Another example is the spec file analyzed in the video below. During the analysis, the peak of the **average duration** for this spec file occurred on the same day as the highest **failure rate** within the selected period.&#x20;
+Another example is the spec file analyzed in the image below. During the analysis, the peak of the **average duration** for this spec file occurred on the same day as the highest **failure rate** within the selected period.&#x20;
 
-{% embed url="https://www.loom.com/share/df81020abcce4de499cf9b70c4afcd01?hideEmbedTopBar=true.&hide_owner=true&hide_share=true&hide_title=true" %}
-Zoom into one Spec File
-{% endembed %}
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 18.54.46.png" alt=""><figcaption></figcaption></figure>
 
 It suggests a potential correlation between the duration of the spec file's executions and its failure rate. The fact that the highest average duration aligns with the highest failure rate indicates that longer execution times may be associated with an increased likelihood of failures for this particular spec file.&#x20;
 
@@ -41,12 +39,12 @@ A similar analysis can be done on any other metric—the charts provide a visual
 
 The History shows the recordings matching the selected filters on a timeline - each bar is an execution, its colour is determined by the spec file or test outcome  (<mark style="color:red;">**Failed**</mark>, <mark style="color:blue;">**Passed**</mark>**,** and <mark style="color:purple;">**Flaky**</mark>), and the height is the relative duration of the recording. Each execution entry provides users with essential information such as the date, time, duration, branch, commit message, and author. Additionally, for failed tests, the feature presents an error preview.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-05-12 at 19.29.47.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 18.56.34.png" alt=""><figcaption></figcaption></figure>
 
 Users can use a brush tool to engage with these histograms, enabling them to zoom in and concentrate on executions in a particular period of interest.
 
-### Collapse Branches
+### Merge Branches
 
-Users can also arrange executions based on branches using the "Collapse branch" flag. This functionality enables a more structured and organized view of the data, grouping the executions according to their respective branches.
+Users can also arrange executions based on branches using the "Merge branches" flag. This functionality enables a more structured and organized view of the data, grouping the executions according to their respective branches.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-05-12 at 19.44.41.png" alt=""><figcaption><p>Collapse Branch - Explorer</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Adobe Express - Screen Recording 2026-01-19 at 18.58.07.gif" alt=""><figcaption><p>Collapse Branch - Explorer</p></figcaption></figure>

@@ -2,7 +2,7 @@
 
 GitHub OAuth integration allows connecting you GitHub repos to Currents dashboard for sharing Playwright test results as GitHub [Commit Status checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
 
-![GitHub Status check example](../../../.gitbook/assets/commit-status-example\_rounded.png)
+![GitHub Status check example](../../../.gitbook/assets/commit-status-example_rounded.png)
 
 GitHub OAuth uses  GitHub personal token-based authentication to send the results of your Playwright runs to GitHub.
 
@@ -13,7 +13,7 @@ For share your Playwright test results as a GitHub status check item:
 * Open Project Settings screen and click “+ Add Integration”
 * Select “GitHub (legacy)”
 
-![GitHub OAuth integration - setup example](../../../.gitbook/assets/legacy-github-integration-001.gif)
+![GitHub OAuth integration](<../../../.gitbook/assets/Screenshot 2026-01-19 at 20.03.07.png>)
 
 You will need to provide the following details to activate the integration:
 

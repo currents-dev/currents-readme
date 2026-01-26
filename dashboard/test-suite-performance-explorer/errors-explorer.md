@@ -121,7 +121,7 @@ Use the search popup to filter items based in the selected fields values. For ex
 
 The Errors Explorer displays a timeline chart showing the daily distribution of error messages over the selected period. You can switch the metric and adjust how many top errors to display. Top errors are ranked by their total value for the selected metric across the period.
 
-<figure><img src="../../.gitbook/assets/currents-2025-05-23-13.23.01@2x.png" alt=""><figcaption><p>Daily Error Distribution - Timeline Chart</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 18.40.37.png" alt=""><figcaption><p>Daily Error Distribution - Timeline Chart</p></figcaption></figure>
 
 ## Error Explorer Metrics
 
@@ -150,7 +150,7 @@ For example, if the error shows up 10 times on main and 3 times on feature/login
 
 Clicking an error item reveals more details about that specific error.
 
-<figure><img src="../../.gitbook/assets/currents-2025-05-23-13.55.33402x.png" alt=""><figcaption><p>Expanding Error Details in Error Explorer</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 18.43.16.png" alt=""><figcaption><p>Expanding Error Details in Error Explorer</p></figcaption></figure>
 
 * **Affected Tests** – A list of tests impacted by the error, sorted by occurrence. These are tests that failed or flaked due to the error. Click a test title to view its details in the [tests-explorer.md](tests-explorer.md "mention").
 * **Recent Executions** – A chronologically sorted list of the most recent test runs affected by this error. Clicking on a test title reveal its details in the [tests-explorer.md](tests-explorer.md "mention"), clicking on the commit message opens the specific execution details.
@@ -171,4 +171,4 @@ Use filters to fine-tune the data that used to calculate the metrics for the Err
 
 Additionally, use the Timeline Chart to focus in the time period of interest:
 
-<figure><img src="../../.gitbook/assets/currents-2025-05-23-13.31.14.gif" alt=""><figcaption><p>Using Timeline Chart controls to refine Error Explorer view</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Adobe Express - Screen Recording 2026-01-19 at 18.44.23.gif" alt=""><figcaption><p>Using Timeline Chart controls to refine Error Explorer view</p></figcaption></figure>

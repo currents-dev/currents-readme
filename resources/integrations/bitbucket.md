@@ -19,7 +19,7 @@ Currents integration with Bitbucket allows updating [Bitbucket Pipeline build st
   * **App Password** - Bitbucket App Password with `repo:write` access. [Create One](https://bitbucket.org/account/settings/app-passwords/)
   * **Build Name (Optional)** - the label for posting build status updates
 
-<figure><img src="../../.gitbook/assets/currents-2023-11-30-00.30.45@2x (1).png" alt=""><figcaption><p>Bitbucket integration configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 20.12.06.png" alt=""><figcaption><p>Bitbucket integration configuration</p></figcaption></figure>
 
 When enabled, Current will post Cypress test results to the corresponding pipeline execution. You
 
