@@ -29,7 +29,7 @@ Each **test attempt** can be in one of the following statuses:
   * Interrupted by a system signal like SIGINT (CTRL / CMD + C).
   * [maxFailures](https://playwright.dev/docs/api/class-testconfig#test-config-max-failures) limit reached (the rest of the tests get stats interrupted).
 * <mark style="color:orange;">**timedOut**</mark> - indicates that the test attempt did not finish within a specified time limit, leading to its automatic termination. Each test's timeout depends on [testConfig.timeout](https://playwright.dev/docs/api/class-testconfig#test-config-timeout), [testProject.timeout](https://playwright.dev/docs/api/class-testproject#test-project-timeout), [test.setTimeout()](https://playwright.dev/docs/api/class-test#test-set-timeout), [test.slow()](https://playwright.dev/docs/api/class-test#test-slow-1) and [testInfo.setTimeout()](https://playwright.dev/docs/api/class-testinfo#test-info-set-timeout).
-* **skipped** - indicates that the test retry was not executed. This can happen for several reasons:
+* **ignored** - indicates that the test retry was not executed. This can happen for several reasons:
   * If you programmatically skip tests based on certain conditions.
   * If you explicitly skip a test with [test.skip()](https://playwright.dev/docs/api/class-test#test-skip-1) or [test.fixme()](https://playwright.dev/docs/api/class-test#test-fixme-1).
   * If you're using a feature like `.only` to focus on specific test.
@@ -39,7 +39,7 @@ Each **test attempt** can be in one of the following statuses:
 
 Playwright tests have [expected status](https://playwright.dev/docs/api/class-testcase#test-case-expected-status), you can set the expected status as follows:
 
-* Tests marked as [test.skip()](https://playwright.dev/docs/api/class-test#test-skip-1) or [test.fixme()](https://playwright.dev/docs/api/class-test#test-fixme-1) are expected to be `skipped`.
+* Tests marked as [test.skip()](https://playwright.dev/docs/api/class-test#test-skip-1) or [test.fixme()](https://playwright.dev/docs/api/class-test#test-fixme-1) are expected to be `ignored`.
 * Tests marked as [test. fail()](https://playwright.dev/docs/api/class-test#test-fail-1) are expected to be `failed`.
 * Other tests are expected to be `passed`.
 
@@ -47,7 +47,7 @@ Playwright tests have [expected status](https://playwright.dev/docs/api/class-te
 
 Combining the expected status with test retries status defines [Playwright test outcome](https://playwright.dev/docs/api/class-testcase#test-case-outcome):
 
-* `skipped` - means all the attempts were skipped (because the test was marked as [test.skip()](https://playwright.dev/docs/api/class-test#test-skip-1) or [test.fixme()](https://playwright.dev/docs/api/class-test#test-fixme-1))&#x20;
+* `ignored` - means all the attempts were skipped (because the test was marked as [test.skip()](https://playwright.dev/docs/api/class-test#test-skip-1) or [test.fixme()](https://playwright.dev/docs/api/class-test#test-fixme-1))&#x20;
 * `expected` - means all the attempts' status matches the `expectedStatus`
   * a test has `expectedStatus=failed` all attempts were `failed` (but not `timedOut` )
   * a test has `expectedStatus=passed` and all attempts have a status `passed`
