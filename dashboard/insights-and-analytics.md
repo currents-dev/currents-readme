@@ -18,13 +18,13 @@ Customize the reports by applying various filters for a more focused and meaning
 
 All charts support filtering by **tag**, **git author**, and **git branch**. In addition:
 
-* **Suite Size**, **Test Results**, and **Test Flakiness** charts also support the **group** filter.
+* **Run Size**, **Test Results**, and **Test Flakiness** charts also support the **group** filter.
 * **Test Results** and **Test Flakiness** charts also support the [playwright-annotations.md](../guides/playwright-annotations.md "mention")filter.&#x20;
 * **Test Results** also supports displaying custom metrics from [#annotation-custom-metrics](../guides/playwright-annotations.md#annotation-custom-metrics "mention")
 
 The aggregated metrics are based in the samples collected during the selected **Date Range**.
 
-## Insight Charts
+## Analytic Charts
 
 ### Run Status
 
@@ -56,7 +56,7 @@ Represents the distribution of runs by their completion over time.
 
 <figure><img src="../.gitbook/assets/Screenshot 2026-01-19 at 19.21.02.png" alt=""><figcaption><p>Example chart - Run Completion</p></figcaption></figure>
 
-### Test Suite Size
+### Run Size
 
 Represents the **maximum** daily/weekly amount of specs/tests for fully completed runs. A fully reported run is a run that wasn't cancelled and didn't time out.
 
@@ -65,7 +65,7 @@ Represents the **maximum** daily/weekly amount of specs/tests for fully complete
 
 **Please note** that cancelled or timed-out runs are excluded from the report.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-01-19 at 19.21.17.png" alt=""><figcaption><p>Example chart - Test Suite Size</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-01-19 at 19.21.17.png" alt=""><figcaption><p>Example chart - Run Size</p></figcaption></figure>
 
 ### Test Results
 
