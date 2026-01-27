@@ -13,7 +13,7 @@ Analytics Section provides a comprehensive view of your test suite health throug
 
 ## Charts
 
-Explore detailed documentation for each chart:
+Explore the avaiable charts:
 
 - [run-status.md](run-status.md "mention") - Distribution of run outcomes over time
 - [run-duration.md](run-duration.md "mention") - Average duration of fully reported runs
@@ -23,7 +23,38 @@ Explore detailed documentation for each chart:
 - [test-flakiness.md](test-flakiness.md "mention") - Flaky test distribution over time
 - [suite-size.md](suite-size.md "mention") - Track test suite composition changes
 
-## Filters
+## Examples
+
+Here are some practical ways to use Analytics to answer common questions about your test suite.
+
+### Investigating a Spike in Test Failures
+
+When you notice an increase in failed tests:
+
+1. Use **Test Results** filtered by the affected **Git Branch**
+2. Compare the **Success Rate** before and after the suspected change
+3. Cross-reference with **Test Flakiness** to distinguish between genuine failures and flaky tests
+4. Filter by **Git Author** to identify if specific commits correlate with the increase
+
+### Tracking Test Suite Growth Over a Quarter
+
+For sprint retrospectives or quarterly reviews:
+
+1. Open **Suite Size** with a 3-month date range
+2. Use the **Rolling Presence** smoothing to see stable growth trends
+3. Group by **Tag** to see which feature areas are getting more test coverage
+4. Export to **CSV** for inclusion in team reports
+
+### Comparing Test Performance Across Browsers
+
+To identify browser-specific performance issues:
+
+1. Open **Run Duration** and filter by **Group** (e.g., Chromium, Firefox, WebKit)
+2. Compare average durations to spot slower browsers
+3. Check **Test Flakiness** grouped by browser to identify stability differences
+4. Use this data to prioritize browser-specific optimizations
+
+## Customization
 
 All charts can be filtered to focus on specific subsets of your data. Use the **Date Range** selector to define the time period for aggregation.
 
@@ -36,8 +67,6 @@ Available on all charts:
 | **Tag**        | Filter by Playwright tags |
 | **Git Author** | Filter by commit author   |
 | **Git Branch** | Filter by branch name     |
-
-### Additional Filters
 
 Some charts support extra filtering options:
 
