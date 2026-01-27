@@ -24,7 +24,7 @@ redirects:
   guides/pw-parallelization/playwright-sharding: guides/parallelization-guide/pw-parallelization/playwright-sharding.md
   guides/load-balancing: guides/parallelization-guide/load-balancing.md
   guides/fail-fast-strategy: guides/parallelization-guide/fail-fast-strategy.md
-  insights/runs-analytics: dashboard/insights-and-analytics.md
+  insights/runs-analytics: dashboard/analytics/README.md
   tests/test-status: dashboard/tests/test-status.md
   tests/flaky-tests: dashboard/tests/flaky-tests.md
   tests/spec-file-status: dashboard/tests/spec-file-status.md
@@ -37,7 +37,8 @@ redirects:
   integration-with-playwright/currents-playwright: resources/reporters/currents-playwright.md
   integration-with-playwright/playwright-component-testing: getting-started/playwright/integration-with-playwright/playwright-component-testing.md
   integration-with-playwright/troubleshooting: getting-started/playwright/troubleshooting-playwright.md
-  insights/insights-and-analytics: dashboard/insights-and-analytics.md
+  insights/insights-and-analytics: dashboard/analytics/README.md
+  dashboard/insights-and-analytics: dashboard/analytics/README.md
   integrations/github/github-app: resources/integrations/github/github-app.md
   integrations/github/github-oauth: resources/integrations/github/github-oauth.md
   integrations/github: resources/integrations/github/README.md

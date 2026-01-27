@@ -112,8 +112,14 @@
 ***
 
 * [Automated Reports](dashboard/automated-reports.md)
-* [Analytics](dashboard/insights-and-analytics.md)
-* [Suite Size](dashboard/suite-size.md)
+* [Analytics](dashboard/analytics/README.md)
+  * [Run Status](dashboard/analytics/run-status.md)
+  * [Run Duration](dashboard/analytics/run-duration.md)
+  * [Run Completion](dashboard/analytics/run-completion.md)
+  * [Run Size](dashboard/analytics/run-size.md)
+  * [Test Results](dashboard/analytics/test-results.md)
+  * [Test Flakiness](dashboard/analytics/test-flakiness.md)
+  * [Suite Size](dashboard/analytics/suite-size.md)
 * [Administration](dashboard/administration/README.md)
   * [Manage Team](administration/manage-team.md)
   * [Email Domain Based Access](dashboard/administration/email-domain-based-access.md)

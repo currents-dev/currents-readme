@@ -5,7 +5,7 @@ icon: chart-line-up
 
 # Suite Size
 
-Suite Size tracks unique tests and spec files discovered in CI runs over time, helping you monitor test suite growth and composition changes. Unlike the [insights-and-analytics.md](insights-and-analytics.md "mention") Run Size chart which shows the maximum tests per run, Suite Size aggregates unique tests across all runs in each period.
+Suite Size tracks unique tests and spec files discovered in CI runs over time, helping you monitor test suite growth and composition changes. Unlike the [run-size.md](run-size.md "mention") chart which shows the maximum tests per run, Suite Size aggregates unique tests across all runs in each period.
 
 ## Key Metrics
 
@@ -106,5 +106,6 @@ Suite Size analytics help you:
 
 ## Related
 
-* [insights-and-analytics.md](insights-and-analytics.md "mention") - Overview of all analytics charts including Run Size
-* [test-suite-performance-explorer](test-suite-performance-explorer/ "mention") - Explore individual test and spec file performance
+* [README.md](README.md "mention") - Analytics overview
+* [run-size.md](run-size.md "mention") - Maximum tests per run
+* [../test-suite-performance-explorer/README.md](../test-suite-performance-explorer/README.md "mention") - Explore individual test and spec file performance
