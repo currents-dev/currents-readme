@@ -160,6 +160,6 @@ test("performance test example", async ({ page }) => {
 
 #### Browsing Custom Metrics
 
-The custom metrics are available in [#test-results](../dashboard/insights-and-analytics.md#test-results "mention") chart. Use "Custom Metric" control to browse the available metrics and aggregation functions.&#x20;
+The custom metrics are available in [test-results.md](../dashboard/analytics/test-results.md "mention") chart. Use "Custom Metric" control to browse the available metrics and aggregation functions.&#x20;
 
 <div data-with-frame="true"><figure><img src="../.gitbook/assets/Screenshot 2026-01-15 at 17.51.19.png" alt=""><figcaption><p>Custom metric selection</p></figcaption></figure></div>
