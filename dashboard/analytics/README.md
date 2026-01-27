@@ -1,30 +1,47 @@
 ---
-description: Test and Run Insights and Analytics Guide
+description: Visualize test suite trends, track performance metrics, and identify patterns over time
 icon: chart-mixed
 ---
 
 # Analytics
 
-Use Insights to explore the aggregated metrics related to your test suite performance:
+Analytics Section provides a comprehensive view of your test suite health through interactive charts and trend analysis. Monitor key metrics to understand how your tests perform over time and make data-driven decisions about your testing strategy.
 
-* changes and trends in duration and success rate of your builds and tests over time,
-* test suite flakiness and stability.
+* **Performance trends** — Track duration and success rates across builds
+* **Stability insights** — Identify flaky tests and monitor reliability
+* **Growth tracking** — Observe how your test suite evolves over time
 
 <figure><img src="../../.gitbook/assets/Adobe Express - Screen Recording 2026-01-19 at 19.10.34.gif" alt=""><figcaption></figcaption></figure>
 
-## Customization
+## Filters
 
-Customize the reports by applying various filters for a more focused and meaningful insights.
+All charts can be filtered to focus on specific subsets of your data. Use the **Date Range** selector to define the time period for aggregation.
 
-All charts support filtering by **tag**, **git author**, and **git branch**. In addition:
+### Common Filters
 
-* **Run Size**, **Test Results**, and **Test Flakiness** charts also support the **group** filter.
-* **Test Results** and **Test Flakiness** charts also support the [playwright-annotations.md](../../guides/playwright-annotations.md "mention") filter.
-* **Test Results** also supports displaying custom metrics from [#annotation-custom-metrics](../../guides/playwright-annotations.md#annotation-custom-metrics "mention")
+Available on all charts:
 
-The aggregated metrics are based in the samples collected during the selected **Date Range**.
+| Filter | Description |
+|--------|-------------|
+| **Tag** | Filter by Playwright tags |
+| **Git Author** | Filter by commit author |
+| **Git Branch** | Filter by branch name |
 
-## Analytic Charts
+### Additional Filters
+
+Some charts support extra filtering options:
+
+| Filter | Available On |
+|--------|--------------|
+| **Group** | Run Size, Test Results, Test Flakiness |
+| **Playwright Annotations** | Test Results, Test Flakiness |
+| **Custom Metrics** | Test Results |
+
+{% hint style="info" %}
+Learn more about annotations and custom metrics in the [playwright-annotations.md](../../guides/playwright-annotations.md "mention") guide.
+{% endhint %}
+
+## Charts
 
 Explore detailed documentation for each chart:
 
