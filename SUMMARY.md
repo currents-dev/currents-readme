@@ -114,6 +114,7 @@
 * [Automated Reports](dashboard/automated-reports.md)
 * [Analytics](dashboard/insights-and-analytics.md)
 * [Administration](dashboard/administration/README.md)
+  * [Manage Team](administration/manage-team.md)
   * [Email Domain Based Access](dashboard/administration/email-domain-based-access.md)
   * [SSO SAML2.0](dashboard/administration/sso-saml2.0/README.md)
     * [SAML2.0 Configuration](dashboard/administration/sso-saml2.0/saml2.0-configuration.md)

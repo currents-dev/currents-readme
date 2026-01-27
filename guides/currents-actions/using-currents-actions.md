@@ -6,6 +6,7 @@ description: Create and Manage Currents Actions, trace action applications and o
 
 {% hint style="info" %}
 * Users with **Admin** role can create and modify actions.&#x20;
+* Users with **Actions admin** role can create and modify actions
 * Users with **Member** role can browse actions in read-only mode.
 {% endhint %}
 
