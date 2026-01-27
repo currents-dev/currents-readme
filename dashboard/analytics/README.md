@@ -11,6 +11,18 @@ Analytics Section provides a comprehensive view of your test suite health throug
 - **Stability insights** — Identify flaky tests and monitor reliability
 - **Growth tracking** — Observe how your test suite evolves over time
 
+## Charts
+
+Explore detailed documentation for each chart:
+
+- [run-status.md](run-status.md "mention") - Distribution of run outcomes over time
+- [run-duration.md](run-duration.md "mention") - Average duration of fully reported runs
+- [run-completion.md](run-completion.md "mention") - Distribution of runs by completion status
+- [run-size.md](run-size.md "mention") - Maximum specs/tests per run
+- [test-results.md](test-results.md "mention") - Distribution of test outcomes
+- [test-flakiness.md](test-flakiness.md "mention") - Flaky test distribution over time
+- [suite-size.md](suite-size.md "mention") - Track test suite composition changes
+
 ## Filters
 
 All charts can be filtered to focus on specific subsets of your data. Use the **Date Range** selector to define the time period for aggregation.
@@ -61,15 +73,3 @@ Export chart data for further analysis or reporting. Click the export button on 
 | **JSON** | Download structured data for programmatic use      |
 
 Exported data includes all applied filters and the selected date range.
-
-## Charts
-
-Explore detailed documentation for each chart:
-
-- [run-status.md](run-status.md "mention") - Distribution of run outcomes over time
-- [run-duration.md](run-duration.md "mention") - Average duration of fully reported runs
-- [run-completion.md](run-completion.md "mention") - Distribution of runs by completion status
-- [run-size.md](run-size.md "mention") - Maximum specs/tests per run
-- [test-results.md](test-results.md "mention") - Distribution of test outcomes
-- [test-flakiness.md](test-flakiness.md "mention") - Flaky test distribution over time
-- [suite-size.md](suite-size.md "mention") - Track test suite composition changes
