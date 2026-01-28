@@ -39,7 +39,9 @@ Currents calculates the metrics by aggregating the test results. You can fine-tu
 
 The Test Explorer provides preset filters to help you quickly identify bottlenecks in your test suite. You can spot failing, flaky, slow, or frequently ignored tests, as well as track trends over time. Results can be filtered to show only the main branch. You can set the default branch in the [project-settings.md](../projects/project-settings.md "mention").
 
-<figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 18.04.52.png" alt=""><figcaption><p>Test Explorer Presets</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/currents-2026-01-27-23.20.06@2x.png" alt=""><figcaption><p>Test Explorer Presets</p></figcaption></figure>
+
+
 
 Let's examine in detail the available metrics.
 
