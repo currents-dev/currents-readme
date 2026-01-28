@@ -5,20 +5,16 @@ icon: chart-line-up
 
 # Suite Size
 
-Suite Size tracks unique tests and spec files discovered in CI runs over time, helping you monitor test suite growth and composition changes.
-
-Unlike the [run-size.md](run-size.md "mention") chart which shows the number of tests per run, Suite Size aggregates unique tests across all runs in each period.
-
-<figure><img src="../../.gitbook/assets/currents-2026-01-27-14.17.46@2x.png" alt=""><figcaption><p>Suite Size view tracks unique tests and spec files discovered in CI runs over time</p></figcaption></figure>
-
-## Use Cases
-
-Suite Size analytics help you:
+Suite Size tracks unique tests and spec files discovered in CI runs over time, helping you monitor test suite growth and composition changes. You can use this view to:
 
 * **Monitor test suite growth**: Track how your test coverage expands over sprints or releases
 * **Identify test changes**: Pinpoint exactly when and what tests were added or removed from your suite
 * **Track coverage by segment**: Use grouping and filters to monitor test growth by branch, tag, or team
 * **Detect anomalies**: Spot unexpected changes in suite composition that might indicate issues with test discovery or configuration
+
+Unlike the [run-size.md](run-size.md "mention") chart which shows the number of tests per run, Suite Size aggregates unique tests across all runs in each period.
+
+<figure><img src="../../.gitbook/assets/currents-2026-01-27-14.17.46@2x.png" alt=""><figcaption><p>Suite Size view tracks unique tests and spec files discovered in CI runs over time</p></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/currents-2026-01-27-14.43.09@2x.png" alt=""><figcaption><p>Identify test changes <strong>-</strong> pinpoint exactly when and what tests were added or removed from your suite</p></figcaption></figure>
 
