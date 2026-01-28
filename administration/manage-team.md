@@ -12,10 +12,10 @@ Currents supports three organization roles that determine what actions users can
 
 * **Admin** - Full access to all organization features
 * **Actions Admin** - Can manage actions/rules and view organization data
-* **Member** - Read-only access to organization data, and able to execute runs
+* **Member** - Read-only access to organization data
 
 {% hint style="info" %}
-All the roles (including **Member)** can execute runs with existing record keys in the organization. Also can make API requests and use Currents MCP server with existing API keys.
+All the roles (including **Member**) can browse test results, artifacts, and analytics. They can also make API requests and use Currents MCP server with existing API keys.
 {% endhint %}
 
 ***
@@ -26,52 +26,35 @@ Admins have full access to all organization features and settings. They can mana
 
 #### Permissions
 
-**Runs, API & MCP**
+**Browse Test Results**
 
-* Execute runs with existing record keys
-* Make API requests with existing API keys
-* Use Currents MCP server with existing API keys
+* Browse test results
+* Browse artifacts
+* Browse Analytics and Explorers
 
-**Organization Management**
+**API and Record Keys**
 
-* Manage organization settings and configuration
-* Invite, manage, and remove organization members
-* Upload and manage organization logo
-* Configure organization alerts and notifications
-
-**Projects**
-
-* Create, edit, and delete projects
-* View all projects and test results
-
-**Actions and Rules**
-
-* Manage actions and rules
-
-**API Keys**
-
-* Create API keys
 * View API keys
-* Delete API keys
-
-**Record Keys**
-
-* Create record keys
 * View record keys
-* Delete record keys
+* Manage API keys
+* Manage record keys
 
-**Billing**
+**Organization and Billing**
 
-* Access and manage billing and subscription settings
+* View organization settings
+* View organization members
+* Manage organization members
+* Manage organization settings
+* Access and manage billing
+* Manage billing alerts
 
-**Integrations**
+**Projects, Actions and Integrations**
 
-* Manage organization integrations and webhooks
-* View organization integrations
-
-**Data Access**
-
-* View all projects, test results, and organization data
+* View all projects and test results
+* View integrations
+* Manage actions and rules
+* Create, edit, and archive projects
+* Manage integrations
 
 ***
 
@@ -81,99 +64,108 @@ Actions Admins can manage actions and rules while having read-only access to oth
 
 #### Permissions
 
-**Runs, API & MCP**
+**Browse Test Results**
 
-* Execute runs with existing record keys
-* Make API requests with existing API keys
-* Use Currents MCP server with existing API keys
+* Browse test results
+* Browse artifacts
+* Browse Analytics and Explorers
 
-**Actions and Rules**
+**API and Record Keys**
 
-* Manage actions and rules
-
-**View Access**
-
-* View all projects and test results
-* View organization settings
 * View API keys
 * View record keys
+
+**Organization and Billing**
+
+* View organization settings
 * View organization members
-* View organization integrations
+* Manage organization members
+
+**Projects, Actions and Integrations**
+
+* View all projects and test results
+* View integrations
+* Manage actions and rules
 
 #### Limitations
 
 Actions Admins **cannot**:
 
-* Manage organization settings or members
-* Create, edit, or delete projects
-* Create or delete API keys
-* Create or delete record keys
-* Access billing settings
+* Manage API keys or record keys
+* Manage organization settings
+* Access and manage billing or billing alerts
+* Create, edit, or archive projects
 * Manage integrations
 
 ***
 
 ### Member
 
-Members have read-only access to organization data. This role is suitable for team members who need to execute runs, and view test results but don't need to make organization or setting changes.
+Members have read-only access to organization data. This role is suitable for team members who need to view test results but don't need to make organization or setting changes.
 
 #### Permissions
 
-**Runs, API & MCP**
+**Browse Test Results**
 
-* Execute runs with existing record keys
-* Make API requests with existing API keys
-* Use Currents MCP server with existing API keys
+* Browse test results
+* Browse artifacts
+* Browse Analytics and Explorers
 
-**View Access**
+**API and Record Keys**
 
-* View all projects and test results
-* View organization settings
 * View API keys
 * View record keys
+
+**Organization and Billing**
+
+* View organization settings
 * View organization members
-* View organization integrations
+* Manage organization members
+
+**Projects, Actions and Integrations**
+
+* View all projects and test results
+* View integrations
 
 #### Limitations
 
 Members **cannot**:
 
-* Manage organization settings or members
-* Create, edit, or delete projects
+* Manage API keys or record keys
+* Manage organization settings
+* Access and manage billing or billing alerts
 * Manage actions and rules
-* Create or delete API keys
-* Create or delete record keys
-* Access billing settings
+* Create, edit, or archive projects
 * Manage integrations
 
 ***
 
 ### Role Comparison
 
-| Permission                   | Admin | Actions Admin | Member |
-| ---------------------------- | ----- | ------------- | ------ |
-| Manage organization settings | ✅     | ❌             | ❌      |
-| Invite/manage members        | ✅     | ❌             | ❌      |
-| Manage organization logo     | ✅     | ❌             | ❌      |
-| Configure alerts             | ✅     | ❌             | ❌      |
-| **Projects**                 |       |               |        |
-| Create/edit/delete projects  | ✅     | ❌             | ❌      |
-| View projects and results    | ✅     | ✅             | ✅      |
-| **Actions & Rules**          |       |               |        |
-| Manage actions and rules     | ✅     | ✅             | ❌      |
-| **API Keys**                 |       |               |        |
-| Create API keys              | ✅     | ❌             | ❌      |
-| View API keys                | ✅     | ✅             | ✅      |
-| Delete API keys              | ✅     | ❌             | ❌      |
-| **Record Keys**              |       |               |        |
-| Create record keys           | ✅     | ❌             | ❌      |
-| View record keys             | ✅     | ✅             | ✅      |
-| Delete record keys           | ✅     | ❌             | ❌      |
-| **Billing**                  |       |               |        |
-| Manage billing               | ✅     | ❌             | ❌      |
-| **Integrations**             |       |               |        |
-| Manage integrations          | ✅     | ❌             | ❌      |
-| View integrations            | ✅     | ✅             | ✅      |
+| Permission                                      | Admin | Actions Admin | Member |
+| ----------------------------------------------- | ----- | ------------- | ------ |
+| **Browse Test Results**                         |       |               |        |
+| Browse test results                             | ✅     | ✅             | ✅      |
+| Browse artifacts                                | ✅     | ✅             | ✅      |
+| Browse Analytics and Explorers                  | ✅     | ✅             | ✅      |
+| **API and Record Keys**                         |       |               |        |
+| View API keys                                   | ✅     | ✅             | ✅      |
+| View record keys                                | ✅     | ✅             | ✅      |
+| Manage API keys                                 | ✅     | ❌             | ❌      |
+| Manage record keys                              | ✅     | ❌             | ❌      |
+| **Organization and Billing**                    |       |               |        |
+| View organization settings                      | ✅     | ✅             | ✅      |
+| View organization members                       | ✅     | ✅             | ✅      |
+| Manage organization members                     | ✅     | ✅             | ✅      |
+| Manage organization settings                    | ✅     | ❌             | ❌      |
+| Access and manage billing                       | ✅     | ❌             | ❌      |
+| Manage billing alerts                           | ✅     | ❌             | ❌      |
+| **Projects, Actions and Integrations**          |       |               |        |
+| View all projects and test results              | ✅     | ✅             | ✅      |
+| View integrations                               | ✅     | ✅             | ✅      |
+| Manage actions and rules                        | ✅     | ✅             | ❌      |
+| Create, edit, and archive projects              | ✅     | ❌             | ❌      |
+| Manage integrations                             | ✅     | ❌             | ❌      |
 
 ***
 
