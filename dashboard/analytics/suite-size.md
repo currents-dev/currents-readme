@@ -5,9 +5,24 @@ icon: chart-line-up
 
 # Suite Size
 
-Suite Size tracks unique tests and spec files discovered in CI runs over time, helping you monitor test suite growth and composition changes. Unlike the [run-size.md](run-size.md "mention") chart which shows the maximum tests per run, Suite Size aggregates unique tests across all runs in each period.
+Suite Size tracks unique tests and spec files discovered in CI runs over time, helping you monitor test suite growth and composition changes.
 
-## Key Metrics
+Unlike the [run-size.md](run-size.md "mention") chart which shows the number of tests per run, Suite Size aggregates unique tests across all runs in each period.
+
+<figure><img src="../../.gitbook/assets/currents-2026-01-27-14.17.46@2x.png" alt=""><figcaption><p>Suite Size view tracks unique tests and spec files discovered in CI runs over time</p></figcaption></figure>
+
+## Use Cases
+
+Suite Size analytics help you:
+
+* **Monitor test suite growth**: Track how your test coverage expands over sprints or releases
+* **Identify test changes**: Pinpoint exactly when and what tests were added or removed from your suite
+* **Track coverage by segment**: Use grouping and filters to monitor test growth by branch, tag, or team
+* **Detect anomalies**: Spot unexpected changes in suite composition that might indicate issues with test discovery or configuration
+
+<figure><img src="../../.gitbook/assets/currents-2026-01-27-14.43.09@2x.png" alt=""><figcaption><p>Identify test changes <strong>-</strong> pinpoint exactly when and what tests were added or removed from your suite</p></figcaption></figure>
+
+## Metrics
 
 The Suite Size view provides three primary metrics:
 
@@ -16,6 +31,16 @@ The Suite Size view provides three primary metrics:
 * **Delta**: Period-over-period change showing growth or reduction in your test suite
 
 ## Visualization Components
+
+<figure><img src="../../.gitbook/assets/suite-size-v2 (1).png" alt=""><figcaption></figcaption></figure>
+
+### Summary Stats
+
+Metric cards at the top display:
+
+* Current period values for tests and specs
+* Absolute delta values compared to previous period
+* Percentage change indicators
 
 ### Main Chart
 
@@ -33,14 +58,6 @@ A bar chart showing period-over-period changes:
 * **Green bars**: Positive delta (tests/specs added)
 * **Red bars**: Negative delta (tests/specs removed)
 
-### Summary Statistics
-
-Metric cards at the top display:
-
-* Current period values for tests and specs
-* Absolute delta values compared to previous period
-* Percentage change indicators
-
 ### Metrics Table
 
 A tabular view with expandable rows showing:
@@ -50,6 +67,8 @@ A tabular view with expandable rows showing:
 * Easy identification of suite composition changes
 
 ## Smoothing Options
+
+Provides a stable view that accounts for tests that don't run every day (e.g., scheduled tests, branch-specific tests)
 
 {% hint style="info" %}
 Daily resolution without smoothing may show high variance due to partial runs, branch-specific tests, or selective test execution. Use rolling presence mode for a more stable view of your suite size.
@@ -65,9 +84,10 @@ Counts unique tests and spec files seen within a rolling window:
 
 * **Window Size**: Configurable from 1 to 14 periods (default: 3)
 * **Behavior**: A test is counted if it appeared in any run within the rolling window
-* **Use Case**: Provides a stable view that accounts for tests that don't run every day (e.g., scheduled tests, branch-specific tests)
 
 ## Grouping Options
+
+<figure><img src="../../.gitbook/assets/currents-2026-01-27-16.01.03@2x.png" alt=""><figcaption><p>Test Suite evolution - grouped by tags</p></figcaption></figure>
 
 Group your suite size data by different dimensions:
 
@@ -86,26 +106,17 @@ When grouping is applied, the chart displays multiple series with a configurable
 
 Customize your view using the available filters:
 
-| Filter | Description |
-|--------|-------------|
-| **Date Range** | Select the time period to analyze |
-| **Tag** | Filter by Playwright tags |
-| **Git Author** | Filter by commit author |
-| **Git Branch** | Filter by branch name |
-| **Group** | Filter by test group |
+| Filter            | Description                                  |
+| ----------------- | -------------------------------------------- |
+| **Date Range**    | Select the time period to analyze            |
+| **Tag**           | Filter by Playwright tags                    |
+| **Git Author**    | Filter by commit author                      |
+| **Git Branch**    | Filter by branch name                        |
+| **Group**         | Filter by test group                         |
 | **Tags Operator** | AND/OR logic when multiple tags are selected |
-
-## Use Cases
-
-Suite Size analytics help you:
-
-* **Monitor test suite growth**: Track how your test coverage expands over sprints or releases
-* **Identify test changes**: Pinpoint exactly when tests were added or removed from your suite
-* **Track coverage by segment**: Use grouping and filters to monitor test growth by branch, tag, or team
-* **Detect anomalies**: Spot unexpected changes in suite composition that might indicate issues with test discovery or configuration
 
 ## Related
 
-* [README.md](README.md "mention") - Analytics overview
+* [.](./ "mention") - Analytics overview
 * [run-size.md](run-size.md "mention") - Maximum tests per run
-* [../test-suite-performance-explorer/README.md](../test-suite-performance-explorer/README.md "mention") - Explore individual test and spec file performance
+* [test-suite-performance-explorer](../test-suite-performance-explorer/ "mention") - Explore individual test and spec file performance
