@@ -6,16 +6,16 @@ description: Test Health and Performance Dashboard - Flakiness, Failure Rate, Du
 
 Test Explorer displays performance and health metrics for test cases. The metrics are:
 
-- **Failure Rate** — Percentage of test executions that ended in failure.
-- **Failure Impact** — Impact of the test failures (failure rate × executions).
-- **% Failure Trend** — Change in failure rate compared to the previous period (up/down).
-- **Flakiness Rate** — Percentage of executions with non-deterministic outcome.
-- **Flakiness Impact** — Impact of the test flakiness (flakiness rate × executions).
-- **% Flaky Trend** — Change in flakiness rate compared to the previous period.
-- **Duration** — Average runtime of the test case.
-- **Duration Impact** — Cumulative time spent running this test (duration × executions).
-- **Duration Trend** — Change in average duration compared to previous period.
-- **% Ignored** — Percentage of test executions where this test was skipped, ignored, or marked as muted.
+* **Failure Rate** — Percentage of test executions that ended in failure.
+* **Failure Impact** — Impact of the test failures (failure rate × executions).
+* **% Failure Trend** — Change in failure rate compared to the previous period (up/down).
+* **Flakiness Rate** — Percentage of executions with non-deterministic outcome.
+* **Flakiness Impact** — Impact of the test flakiness (flakiness rate × executions).
+* **% Flaky Trend** — Change in flakiness rate compared to the previous period.
+* **Duration** — Average runtime of the test case.
+* **Duration Impact** — Cumulative time spent running this test (duration × executions).
+* **Duration Trend** — Change in average duration compared to previous period.
+* **% Ignored** — Percentage of test executions where this test was skipped, ignored, or marked as muted.
 
 Use Test Explorer to identify flaky, failing or long-running tests, explore the trends and changes in test behavior.
 
@@ -23,56 +23,57 @@ Use Test Explorer to identify flaky, failing or long-running tests, explore the 
 You can fetch the Test Explorer data programmatically. See [API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/ "mention").
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/Screenshot 2026-01-16 at 16.39.24.png" alt=""><figcaption><p>Test Explorer displays test performance and health data</p></figcaption></figure>
+<div data-full-width="true"><figure><img src="../../.gitbook/assets/currents-2026-01-28-00.04.56@2x.webp" alt=""><figcaption></figcaption></figure></div>
 
 ## Use Cases
 
 Here are a few examples of how you can use the Test Explorer:
 
-- The flakiest tests from the last months for a specific branch.
-- The top failing tests in the suite.
-- The failure rate trend for specific branches for the past months.
-- The lowest tests and how they changed their duration over time.
-- What are the 30-day flakiest tests from the `main` branch?
-- What are the 14-day most failing tests tagged `onboarding`?
-- What are the longest tests for `mobile` viewport?
-- What test cases started to flake recently?
-- What test case started to run slower during the last 2 months?
+* The flakiest tests from the last months for a specific branch.
+* The top failing tests in the suite.
+* The failure rate trend for specific branches for the past months.
+* The lowest tests and how they changed their duration over time.
+* What are the 30-day flakiest tests from the `main` branch?
+* What are the 14-day most failing tests tagged `onboarding`?
+* What are the longest tests for `mobile` viewport?
+* What test cases started to flake recently?
+* What test case started to run slower during the last 2 months?
 
-- Schedule [automated-reports.md](../automated-reports.md "mention") with the top items from the Test Explorer view to automatically arrive to your inbox for proactive monitoring of test suite health.
-- View [reference.md](reference.md "mention") for detailed information on test **History and** **Performance Charts.**
+{% hint style="info" %}
+Schedule [automated-reports.md](../automated-reports.md "mention") to receive the Test Explorer data to your inbox for proactive monitoring.
+{% endhint %}
 
 ## Test Explorer Presets
 
 The Test Explorer provides preset filters to help you quickly identify bottlenecks in your test suite. You can spot failing, flaky, slow, or frequently ignored tests, as well as track trends over time. Results can be filtered to show only the main branch. You can set the default branch in the [project-settings.md](../projects/project-settings.md "mention").
 
-<figure><img src="../../.gitbook/assets/currents-2026-01-27-23.20.06@2x.png" alt=""><figcaption><p>Test Explorer Presets</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/currents-2026-01-28-00.09.38@2x.webp" alt=""><figcaption><p>Test Explorer Presets</p></figcaption></figure>
 
 The presets are organized into four categories:
 
 #### Failures
 
-- **Top Failing** — Tests with highest failure rate
-- **Currently Failing** — Tests with most recent execution failed
-- **Getting Worse** — Tests with increasing failure rate
-- **High Impact** — Tests that run frequently and often fail (failure rate × executions)
+* **Top Failing** — Tests with highest failure rate
+* **Currently Failing** — Tests with most recent execution failed
+* **Getting Worse** — Tests with increasing failure rate
+* **High Impact** — Tests that run frequently and often fail (failure rate × executions)
 
 #### Flakiness
 
-- **Top Flaky** — Tests with highest flakiness rate
-- **Currently Flaky** — Tests with the most recent flaky execution
-- **Trending Flaky** — Tests with increasing flakiness rate
-- **High Impact** — Tests that run frequently and often flake (flakiness rate × executions)
+* **Top Flaky** — Tests with highest flakiness rate
+* **Currently Flaky** — Tests with the most recent flaky execution
+* **Trending Flaky** — Tests with increasing flakiness rate
+* **High Impact** — Tests that run frequently and often flake (flakiness rate × executions)
 
 #### Duration
 
-- **Slowest** — Tests with highest average duration
-- **Slowing Down** — Tests with increasing average duration
+* **Slowest** — Tests with highest average duration
+* **Slowing Down** — Tests with increasing average duration
 
 #### Ignored
 
-- **Currently Ignored** — Tests with most recent execution skipped
-- **Mostly Ignored** — Tests with highest skipped rate
+* **Currently Ignored** — Tests with most recent execution skipped
+* **Mostly Ignored** — Tests with highest skipped rate
 
 ## Test Explorer Metrics
 
@@ -91,8 +92,8 @@ Metrics like **Duration Impact**, **Flakiness Impact** and **Failure Impact** me
 \
 For example, consider two tests:
 
-- Test A runs rarely, reported `10` samples, with a `15%` flakiness rate.
-- Test B runs often, reported `40` samples, with a `5%` flakiness rate.
+* Test A runs rarely, reported `10` samples, with a `15%` flakiness rate.
+* Test B runs often, reported `40` samples, with a `5%` flakiness rate.
 
 \
 Test A Flakiness Impact is `10 x 0.15 = 1.5`
@@ -180,57 +181,58 @@ Displays the outcome of the most recent test execution along with a timestamp sh
 
 Only test recordings that match the active filters are included in the metric calculations.
 
-- **Date Range** - include items recorded within the specified period.
-- **Tag** - include items with the matching [playwright-tags.md](../../guides/playwright-tags.md "mention").
-- **Author** - include items with the matching Git Author (see [commit-information.md](../runs/commit-information.md "mention")).
-- **Branch** - include items with the matching Git Branch (see [commit-information.md](../runs/commit-information.md "mention")).
-- **Group** - include items recorded for a particular group (e.g. `Firefox` or `Chromium`).
-- **Search by spec name** - narrow down the results by test spec name.
-- **Search by test title** - narrow down the results by test title.
+* **Date Range** - include items recorded within the specified period.
+* **Tag** - include items with the matching [playwright-tags.md](../../guides/playwright-tags.md "mention").
+* **Author** - include items with the matching Git Author (see [commit-information.md](../runs/commit-information.md "mention")).
+* **Branch** - include items with the matching Git Branch (see [commit-information.md](../runs/commit-information.md "mention")).
+* **Group** - include items recorded for a particular group (e.g. `Firefox` or `Chromium`).
+* **Search by spec name** - narrow down the results by test spec name.
+* **Search by test title** - narrow down the results by test title.
 
 ### Outcome Filters
 
 Use the outcome filter buttons to filter the test list by the most recent test status:
 
-- **All** — Show all tests regardless of their current status
-- **Passing** — Show only tests that are currently passing
-- **Failing** — Show only tests that are currently failing
-- **Flaky** — Show only tests that have exhibited flaky behavior
-- **Ignored** — Show only tests that are currently being skipped or ignored
+* **All** — Show all tests regardless of their current status
+* **Passing** — Show only tests that are currently passing
+* **Failing** — Show only tests that are currently failing
+* **Flaky** — Show only tests that have exhibited flaky behavior
+* **Ignored** — Show only tests that are currently being skipped or ignored
 
 These filters work in combination with the other filters and presets to help you focus on specific subsets of your test suite.
 
 ## Controls & Settings
 
-- Click on a column header to sort the tests by the corresponding column, and then click again to change the sorting order.
-- Click on the **Export** <img src="../../.gitbook/assets/currents-2025-04-17-23.49.35@2x.png" alt="" data-size="line"> icon to download the data in JSON format
+* Click on a column header to sort the tests by the corresponding column, and then click again to change the sorting order.
+* Click on the **Export** <img src="../../.gitbook/assets/currents-2025-04-17-23.49.35@2x.png" alt="" data-size="line"> icon to download the data in JSON format
 
 #### Table Settings
 
 The Table Settings panel controls how data is presented in the Test Explorer view. Use these options to customize visible columns, sorting order, and the number of test cases displayed per page
 
-- Columns — choose which metrics or data fields are shown in the Test Explorer table
-- Sorting — select the metric or column used to sort test results. Click the sort direction icon to toggle between ascending and descending order.
-- Page Size — set how many test cases are displayed per page in the Test Explorer view.
+* Columns — choose which metrics or data fields are shown in the Test Explorer table
+* Sorting — select the metric or column used to sort test results. Click the sort direction icon to toggle between ascending and descending order.
+* Page Size — set how many test cases are displayed per page in the Test Explorer view.
 
-#### Metrics Settings&#x20;
+#### Metrics Settings
 
 Click on the **Settings** <img src="../../.gitbook/assets/currents-2025-04-17-23.49.20@2x.png" alt="" data-size="line"> icon to customize how the metrics are calculated.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 18.17.59.png" alt="Customize Test Metrics"><figcaption><p>Customize Test Metrics</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/currents-2026-01-28-00.10.37@2x.webp" alt=""><figcaption></figcaption></figure>
 
-The Customize Test Metrics view lets you define which test outcomes are included when calculating performance and reliability metrics such as Executions, Duration, Flakiness Rate, and Failure Rate.\
-These settings control how Currents interprets test results and determine which runs contribute to aggregated statistics in Test Explorer and other analytics views.
+The Customize Test Metrics view lets you define which test outcomes are included when calculating performance and reliability metrics such as Executions, Duration, Flakiness Rate, and Failure Rate.<br>
 
-- Executions — specifies which test outcomes are counted toward total execution numbers. This affects all metrics that depend on the execution count.
-- Duration — defines which outcomes are included when calculating the average test duration.\
+These settings control which runs contribute to aggregated metrics in Test Explorer and other analytics views.
+
+* **Executions** — specifies which test outcomes are counted toward total execution numbers. This affects all metrics that depend on the execution count.
+* **Duration** — defines which outcomes are included when calculating the average test duration.\
   For example, you can choose whether to include failed or skipped tests when computing the average runtime.
-- Flakiness Rate — determines which outcomes are used when calculating flakiness: Flakiness Rate = (Number of flaky results) ÷ (Selected results). Adjusting the filter changes which test results are considered “eligible” for flakiness detection.
-- Failure Rate — controls which outcomes are used when calculating failure rate: Failure Rate = (Number of failed results) ÷ (Selected results). By refining the selection, you can exclude irrelevant outcomes (e.g., skipped runs) from reliability calculations.
+* **Flakiness Rate** — determines which outcomes are used when calculating flakiness: Flakiness Rate = (Number of flaky results) ÷ (Selected results). Adjusting the filter changes which test results are considered “eligible” for flakiness detection.
+* **Failure Rate** — controls which outcomes are used when calculating failure rate: Failure Rate = (Number of failed results) ÷ (Selected results). By refining the selection, you can exclude irrelevant outcomes (e.g., skipped runs) from reliability calculations.
 
-## **Individual Test Analysis**&#x20;
+## **Individual Test Analysis**
 
-Clicking on a test title reveals a dedicated view of the specific test's performance, including a detailed **History of Executions**, **Performance Metrics** and **Top Errors** analysis.
+Clicking on a test case title reveals a dedicated view of the specific test's performance, including a detailed **History of Executions**, **Performance Metrics** and **Top Errors** analysis.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 18.20.43.png" alt=""><figcaption><p>History - Test Explorer</p></figcaption></figure>
 
