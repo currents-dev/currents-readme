@@ -4,21 +4,18 @@ description: Test Health and Performance Dashboard - Flakiness, Failure Rate, Du
 
 # Test Explorer
 
-Test Explorer displays performance and health metrics for each individual test case. The metrics are:
+Test Explorer displays performance and health metrics for test cases. The metrics are:
 
-* Failure Rate
-* Failure Impact
-* Flakiness Rate
-* Flakiness Impact
-* Duration
-* Duration Impact
-* % Ignored
-
-Additionally, it tracks the **trends** of the metrics values:
-
-* % Failure Trend
-* % Flaky Trend
-* Duration Trend
+- **Failure Rate** — Percentage of test executions that ended in failure.
+- **Failure Impact** — Impact of the test failures (failure rate × executions).
+- **% Failure Trend** — Change in failure rate compared to the previous period (up/down).
+- **Flakiness Rate** — Percentage of executions with non-deterministic outcome.
+- **Flakiness Impact** — Impact of the test flakiness (flakiness rate × executions).
+- **% Flaky Trend** — Change in flakiness rate compared to the previous period.
+- **Duration** — Average runtime of the test case.
+- **Duration Impact** — Cumulative time spent running this test (duration × executions).
+- **Duration Trend** — Change in average duration compared to previous period.
+- **% Ignored** — Percentage of test executions where this test was skipped, ignored, or marked as muted.
 
 Use Test Explorer to identify flaky, failing or long-running tests, explore the trends and changes in test behavior.
 
@@ -28,13 +25,22 @@ You can fetch the Test Explorer data programmatically. See [API](https://app.git
 
 <figure><img src="../../.gitbook/assets/Screenshot 2026-01-16 at 16.39.24.png" alt=""><figcaption><p>Test Explorer displays test performance and health data</p></figcaption></figure>
 
-Currents calculates the metrics by aggregating the test results. You can fine-tune the aggregations by applying various filters, for example:
+## Use Cases
 
-* What are the 30-day flakiest tests from the `main` branch?
-* What are the 14-day most failing tests tagged `onboarding`?
-* What are the longest tests for  `mobile`  viewport?
-* What test cases started to flake recently?
-* What test case started to run slower during the last 2 months?
+Here are a few examples of how you can use the Test Explorer:
+
+- The flakiest tests from the last months for a specific branch.
+- The top failing tests in the suite.
+- The failure rate trend for specific branches for the past months.
+- The lowest tests and how they changed their duration over time.
+- What are the 30-day flakiest tests from the `main` branch?
+- What are the 14-day most failing tests tagged `onboarding`?
+- What are the longest tests for `mobile` viewport?
+- What test cases started to flake recently?
+- What test case started to run slower during the last 2 months?
+
+- Schedule [automated-reports.md](../automated-reports.md "mention") with the top items from the Test Explorer view to automatically arrive to your inbox for proactive monitoring of test suite health.
+- View [reference.md](reference.md "mention") for detailed information on test **History and** **Performance Charts.**
 
 ## Test Explorer Presets
 
@@ -46,33 +52,29 @@ The presets are organized into four categories:
 
 #### Failures
 
-* **Top Failing** — Tests with highest failure rate
-* **Currently Failing** — Tests with most recent execution failed
-* **Getting Worse** — Tests with increasing failure rate
-* **High Impact** — Tests that run frequently and often fail (failure rate × executions)
+- **Top Failing** — Tests with highest failure rate
+- **Currently Failing** — Tests with most recent execution failed
+- **Getting Worse** — Tests with increasing failure rate
+- **High Impact** — Tests that run frequently and often fail (failure rate × executions)
 
 #### Flakiness
 
-* **Top Flaky** — Tests with highest flakiness rate
-* **Currently Flaky** — Tests with the most recent flaky execution
-* **Trending Flaky** — Tests with increasing flakiness rate
-* **High Impact** — Tests that run frequently and often flake (flakiness rate × executions)
+- **Top Flaky** — Tests with highest flakiness rate
+- **Currently Flaky** — Tests with the most recent flaky execution
+- **Trending Flaky** — Tests with increasing flakiness rate
+- **High Impact** — Tests that run frequently and often flake (flakiness rate × executions)
 
 #### Duration
 
-* **Slowest** — Tests with highest average duration
-* **Slowing Down** — Tests with increasing average duration
+- **Slowest** — Tests with highest average duration
+- **Slowing Down** — Tests with increasing average duration
 
 #### Ignored
 
-* **Currently Ignored** — Tests with most recent execution skipped
-* **Mostly Ignored** — Tests with highest skipped rate
-
-Let's examine in detail the available metrics.
+- **Currently Ignored** — Tests with most recent execution skipped
+- **Mostly Ignored** — Tests with highest skipped rate
 
 ## Test Explorer Metrics
-
-These Test Explorer metrics help evaluate the health and performance of your testing suite.
 
 {% hint style="info" %}
 Use **Explorer Settings** to exclude or include certain samples from the metric calculations.
@@ -84,13 +86,13 @@ You can choose the visible columns and sorting by tweaking **Table Settings.**
 
 ### Value Metrics vs Impact Metrics
 
-Metrics like **Duration Impact**, **Flakiness Impact** and **Failure Impact** measure the impact of the associated test on overall suite performance. The scores are calculated by multiplying the corresponding metric by the number of samples.&#x20;
+Metrics like **Duration Impact**, **Flakiness Impact** and **Failure Impact** measure the impact of the associated test on overall suite performance. The scores are calculated by multiplying the corresponding metric by the number of samples.
 
 \
 For example, consider two tests:
 
-* Test A runs rarely, reported `10` samples, with a `15%` flakiness rate.
-* Test B runs often, reported `40` samples, with a  `5%`  flakiness rate.
+- Test A runs rarely, reported `10` samples, with a `15%` flakiness rate.
+- Test B runs often, reported `40` samples, with a `5%` flakiness rate.
 
 \
 Test A Flakiness Impact is `10 x 0.15 = 1.5`
@@ -101,9 +103,9 @@ Test B has a higher Flakiness Impact because it affects the overall test suite f
 
 In short, a test that’s a little flaky but runs a lot can be a bigger problem than a very flaky test that rarely runs. The actual number doesn’t matter on its own — it’s just useful to compare tests and see which ones are dragging down reliability the most.
 
-### Duration&#x20;
+### Duration
 
-The average execution time **for fully completed tests**, excluding cancelled or skipped tests during execution.
+The average execution time **for fully completed tests**, excluding cancelled or skipped tests executions.
 
 ### Duration Impact
 
@@ -112,6 +114,12 @@ Duration Impact measures how much total time a test contributes to the overall r
 `Duration Impact = Avg.Duration × Executions`
 
 The raw number isn’t important on its own — it helps prioritize which tests are the biggest time sinks across all runs.
+
+### Duration Trend
+
+Duration Trend shows how a test's average duration has changed between two equal time periods — for example, the last 30 days compared to the previous 30 days.
+
+A positive value means the test is taking longer to run than before; a negative value means it's running faster. This metric helps identify tests whose performance is improving or degrading over time.
 
 ### Failure Rate
 
@@ -152,12 +160,6 @@ A positive value means the test is becoming more flaky (less reliable), while a 
 
 The trend is displayed only if it exceeds 1%, to ignore minor, statistically insignificant variations.
 
-### Duration Trend
-
-Duration Trend shows how a test's average duration has changed between two equal time periods — for example, the last 30 days compared to the previous 30 days.
-
-A positive value means the test is taking longer to run than before; a negative value means it's running faster. This metric helps identify tests whose performance is improving or degrading over time.
-
 ### % Ignored
 
 Measures the percentage of times a test was skipped or ignored (e.g., using `test.skip()` in Playwright). This metric helps identify tests that are frequently being skipped and may need attention — either to fix underlying issues or to clean up obsolete test cases.
@@ -178,38 +180,38 @@ Displays the outcome of the most recent test execution along with a timestamp sh
 
 Only test recordings that match the active filters are included in the metric calculations.
 
-* **Date Range** - include items recorded within the specified period.
-* **Tag** - include items with the matching [playwright-tags.md](../../guides/playwright-tags.md "mention").
-* **Author** - include items with the matching Git Author (see [commit-information.md](../runs/commit-information.md "mention")).
-* **Branch** - include items with the matching Git Branch (see [commit-information.md](../runs/commit-information.md "mention")).
-* **Group** - include items recorded for a particular group (e.g. `Firefox` or `Chromium`).
-* **Search by spec name** - narrow down the results by test spec name.
-* **Search by test title** - narrow down the results by test title.
+- **Date Range** - include items recorded within the specified period.
+- **Tag** - include items with the matching [playwright-tags.md](../../guides/playwright-tags.md "mention").
+- **Author** - include items with the matching Git Author (see [commit-information.md](../runs/commit-information.md "mention")).
+- **Branch** - include items with the matching Git Branch (see [commit-information.md](../runs/commit-information.md "mention")).
+- **Group** - include items recorded for a particular group (e.g. `Firefox` or `Chromium`).
+- **Search by spec name** - narrow down the results by test spec name.
+- **Search by test title** - narrow down the results by test title.
 
 ### Outcome Filters
 
 Use the outcome filter buttons to filter the test list by the most recent test status:
 
-* **All** — Show all tests regardless of their current status
-* **Passing** — Show only tests that are currently passing
-* **Failing** — Show only tests that are currently failing
-* **Flaky** — Show only tests that have exhibited flaky behavior
-* **Ignored** — Show only tests that are currently being skipped or ignored
+- **All** — Show all tests regardless of their current status
+- **Passing** — Show only tests that are currently passing
+- **Failing** — Show only tests that are currently failing
+- **Flaky** — Show only tests that have exhibited flaky behavior
+- **Ignored** — Show only tests that are currently being skipped or ignored
 
 These filters work in combination with the other filters and presets to help you focus on specific subsets of your test suite.
 
 ## Controls & Settings
 
-* Click on a column header to sort the tests by the corresponding column, and then click again to change the sorting order.
-* Click on the **Export** <img src="../../.gitbook/assets/currents-2025-04-17-23.49.35@2x.png" alt="" data-size="line"> icon to download the data in JSON format
+- Click on a column header to sort the tests by the corresponding column, and then click again to change the sorting order.
+- Click on the **Export** <img src="../../.gitbook/assets/currents-2025-04-17-23.49.35@2x.png" alt="" data-size="line"> icon to download the data in JSON format
 
 #### Table Settings
 
 The Table Settings panel controls how data is presented in the Test Explorer view. Use these options to customize visible columns, sorting order, and the number of test cases displayed per page
 
-* Columns — choose which metrics or data fields are shown in the Test Explorer table
-* Sorting — select the metric or column used to sort test results. Click the sort direction icon to toggle between ascending and descending order.
-* Page Size — set how many test cases are displayed per page in the Test Explorer view.
+- Columns — choose which metrics or data fields are shown in the Test Explorer table
+- Sorting — select the metric or column used to sort test results. Click the sort direction icon to toggle between ascending and descending order.
+- Page Size — set how many test cases are displayed per page in the Test Explorer view.
 
 #### Metrics Settings&#x20;
 
@@ -220,26 +222,11 @@ Click on the **Settings** <img src="../../.gitbook/assets/currents-2025-04-17-23
 The Customize Test Metrics view lets you define which test outcomes are included when calculating performance and reliability metrics such as Executions, Duration, Flakiness Rate, and Failure Rate.\
 These settings control how Currents interprets test results and determine which runs contribute to aggregated statistics in Test Explorer and other analytics views.
 
-
-
-* Executions — specifies which test outcomes are counted toward total execution numbers. This affects all metrics that depend on the execution count.
-* Duration — defines which outcomes are included when calculating the average test duration.\
+- Executions — specifies which test outcomes are counted toward total execution numbers. This affects all metrics that depend on the execution count.
+- Duration — defines which outcomes are included when calculating the average test duration.\
   For example, you can choose whether to include failed or skipped tests when computing the average runtime.
-* Flakiness Rate — determines which outcomes are used when calculating flakiness: Flakiness Rate = (Number of flaky results) ÷ (Selected results). Adjusting the filter changes which test results are considered “eligible” for flakiness detection.
-* Failure Rate — controls which outcomes are used when calculating failure rate: Failure Rate = (Number of failed results) ÷ (Selected results). By refining the selection, you can exclude irrelevant outcomes (e.g., skipped runs) from reliability calculations.
-
-
-
-## Use Cases
-
-Here are a few examples of what information you can get from the Test Explorer:
-
-* The flakiest tests from the last months for a specific branch.
-* The top failing tests in the suite.
-* The failure rate trend for specific branches for the past months.
-* The lowest tests and how they changed their duration over time.
-
-
+- Flakiness Rate — determines which outcomes are used when calculating flakiness: Flakiness Rate = (Number of flaky results) ÷ (Selected results). Adjusting the filter changes which test results are considered “eligible” for flakiness detection.
+- Failure Rate — controls which outcomes are used when calculating failure rate: Failure Rate = (Number of failed results) ÷ (Selected results). By refining the selection, you can exclude irrelevant outcomes (e.g., skipped runs) from reliability calculations.
 
 ## **Individual Test Analysis**&#x20;
 
@@ -252,8 +239,3 @@ Use Metrics tab to analyze the test health trends.
 <figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 18.22.36.png" alt=""><figcaption><p>Test Performance Overview</p></figcaption></figure>
 
 See the [reference.md](reference.md "mention") section for more details on the **Performance Charts and History** of the tests.
-
-## Next Steps
-
-* Schedule [automated-reports.md](../automated-reports.md "mention") with the top items from the Test Explorer view to automatically arrive to your inbox for proactive monitoring of test suite health.
-* View [reference.md](reference.md "mention") for detailed information on test **History and** **Performance Charts.**
