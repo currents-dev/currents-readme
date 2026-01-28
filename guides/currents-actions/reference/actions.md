@@ -8,7 +8,7 @@ description: >-
 
 ### Available Actions
 
-The following actions are supported by Currents Actions Engine
+The following actions are supported by the Currents Actions Engine.
 
 #### Pre-Test Actions
 
@@ -16,17 +16,30 @@ Actions that run in the client immediately **before** test execution.
 
 <table><thead><tr><th width="188">Action</th><th width="434">Description</th><th>Min Version</th></tr></thead><tbody><tr><td>skip</td><td>Do not run the test at all, same as <code>test.skip().</code></td><td>v1.9.0</td></tr></tbody></table>
 
+{% hint style="info" %}
+Pre-Test Actions are applied using a [Custom Fixture](../../../resources/reporters/currents-playwright/playwright-fixtures.md#actionsfixtures) that runs the Currents Actions Engine before each of your tests.
+{% endhint %}
+
 #### Post-Test Actions
 
 Actions that run in the client **after** test execution, but before reporting the results to Currents.
 
-<table><thead><tr><th width="188">Action</th><th width="434">Description</th><th>Min Version</th></tr></thead><tbody><tr><td>quarantine</td><td>Run the test, but ignore the failures; the results will be sent over to Currents, test status will be <code>skipped</code>.</td><td>v1.9.0</td></tr><tr><td>add tag</td><td>Add tags to the test result. Only affects affects the current test execution attempt.</td><td>v1.15.0</td></tr></tbody></table>
+<table><thead><tr><th width="188">Action</th><th width="434">Description</th><th>Min Version</th></tr></thead><tbody><tr><td>quarantine</td><td>Run the test, but ignore the failures; the results will be sent over to Currents, test status will be <code>skipped</code>.</td><td>v1.9.0</td></tr><tr><td>add tag</td><td>Add tags to the test result. Only affects the current test execution attempt.</td><td>v1.15.0</td></tr></tbody></table>
+
+{% hint style="info" %}
+Post-Test Actions can end up evaluated in two places: as a [Custom Fixture](../../../resources/reporters/currents-playwright/playwright-fixtures.md#actionsfixtures) that runs after each of your tests, and as a [Custom Reporter](../../../resources/reporters/currents-playwright/) that catches scenarios where the fixture wasn't run, such as errors or timeouts in test teardown.
+{% endhint %}
 
 ### Limitations
 
-Errors that occur in [Playwright's `beforeAll`](https://playwright.dev/docs/api/class-test#test-before-all)  hook are not supported even if the corresponding test has the `skip` or `quarantine` action, resulting in tests still being reported as failed. Actions fixture runs after the `beforeAll` hook, and skipped by Playwright if the hook fails. We are looking at solutions to resolve this in a future release.\
+Errors that occur in [Playwright's `beforeAll`](https://playwright.dev/docs/api/class-test#test-before-all)  hook are not supported even if the corresponding test has the `skip` or `quarantine` action, resulting in tests still being reported as failed. Actions fixture runs after the `beforeAll` hook, and is skipped by Playwright if the hook fails. We are looking at solutions to resolve this in a future release.\
 \
 Errors that occur in other [Custom Fixtures](https://playwright.dev/docs/test-fixtures#creating-a-fixture) may prevent the action from being applied if the failure happens before the Currents Action fixture is loaded. To ensure the action is applied in such cases, the Currents fixture should be loaded before other fixtures.  See [#combine-currents-fixtures-with-existing-custom-fixtures](../../../resources/reporters/currents-playwright/playwright-fixtures.md#combine-currents-fixtures-with-existing-custom-fixtures "mention")
+
+The behaviour of [#post-test-actions](actions.md#post-test-actions "mention") can differ slightly depending on whether the failure was in the test body, or in a fixture/hook.
+
+* quarantined in the **per-test fixture** → can mark attempt as skipped early, avoiding retries
+* failures in **after hooks/teardown** → may only be quarantined at reporter stage, so retries may already be in progress
 
 #### **Quota calculation:**
 
