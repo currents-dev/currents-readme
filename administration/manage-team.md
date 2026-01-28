@@ -34,7 +34,7 @@ All the roles (including **Member**) can browse test results, artifacts, and ana
 | **Organization and Billing**           |       |               |        |
 | View organization settings             | ✅     | ✅             | ✅      |
 | View organization members              | ✅     | ✅             | ✅      |
-| Manage organization members            | ✅     | ✅             | ✅      |
+| Manage organization members            | ✅     | ❌             | ❌      |
 | Manage organization settings           | ✅     | ❌             | ❌      |
 | Access and manage billing              | ✅     | ❌             | ❌      |
 | Manage billing alerts                  | ✅     | ❌             | ❌      |
