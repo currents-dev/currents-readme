@@ -46,6 +46,11 @@
       * [Cypress - NX](getting-started/other-frameworks/cypress/ci-setup/cypress-nx.md)
     * [Troubleshooting Cypress](getting-started/other-frameworks/cypress/troubleshooting-cypress.md)
 
+## AI
+
+* [MCP Server](ai/mcp-server.md)
+* [Agent Skill: Playwright Best Practices](ai/agent-skill-playwright-best-practices.md "Playwright Skill")
+
 ## Guides
 
 * [Record Key](guides/record-key.md)
@@ -76,7 +81,6 @@
 * [Playwright Visual Testing](guides/playwright-visual-testing.md)
 * [Playwright Annotations](guides/playwright-annotations.md)
 * [Playwright Tags](guides/playwright-tags.md)
-* [MCP Server](guides/mcp-server.md)
 * [Troubleshooting](guides/troubleshooting-playwright.md)
 
 ## Dashboard
