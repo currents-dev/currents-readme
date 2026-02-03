@@ -5,8 +5,6 @@ icon: message-bot
 
 # MCP Server
 
-{% embed url="https://www.youtube.com/embed/r3ukps46JqA?cc_lang_pref=en&cc_load_policy=1&rel=0&si=_rmQ4X_tsFTrVcIS" %}
-
 ## What is MCP
 
 MCP stands for [**Model Context Protocol**](https://modelcontextprotocol.io/introduction). It's an open pattern, introduced by Anthropic, that provides a consistent way for systems to expose tools and resources that can be used by AI models.
