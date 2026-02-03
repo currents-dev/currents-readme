@@ -19,9 +19,9 @@ Integrate Currents with Playwright to enable recording test results together wit
 {% step %}
 #### Create a Project
 
-When first signing in, you will be prompted to create a new organization and a project. _(You can change their names later)_
+When first signing in, you will be prompted to create a new organization and a project. You can change their names and settings anytime.
 
-<img src="../.gitbook/assets/currents-create-org.gif" alt="Creating an Organization and a Project in Currents dashboard" data-size="original">
+<div data-with-frame="true"><figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure></div>
 
 Next, you'll see on-screen instructions with your newly created **Project ID** and **Record Key.**&#x20;
 
