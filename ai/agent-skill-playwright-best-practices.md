@@ -41,29 +41,36 @@ This means the agent gets precise, expert knowledge exactly when it's relevant�
 
 ### How is it used?
 
-The skill triggers automatically when the AI infers you need help with Playwright-related tasks. You don't have to mention "skill" or "Playwright best practices"—just describe your task and the AI will use the skill when it's relevant.
+The skill triggers automatically when the AI infers you need help with Playwright-related tasks. You don't have to mention "skill" or "Playwright best practices", just describe your task and the AI will use the skill when it's relevant.
 
-
-
-**Example prompts:**
+#### **Example prompts:**
 
 * "Fix this flaky login test" → The agent pulls in debugging and assertions guidance
 * "Add a test for the checkout flow" → The agent uses test organization and locator best practices
 * "Refactor these tests to use Page Object Model" → The agent references POM patterns and structure
 * "Why is this test timing out in CI?" → The agent consults debugging and CI/CD references
 * "Set up parallel execution for our test suite" → The agent uses performance and CI/CD guidance
+* "Add accessibility tests for the dashboard" → The agent uses axe-core and keyboard navigation guidance
+* "Test the mobile layout and touch gestures" → The agent references device emulation and touch patterns
+* "Mock the payment gateway in tests" → The agent uses third-party service mocking patterns
+* "Test the real-time collaboration feature" → The agent references multi-user and WebSocket testing
 
+#### The skill covers:
 
-
-**The skill activates for tasks like:**
-
-* Writing new E2E, component, API, or visual regression tests
+* Writing new E2E, component, API, visual regression, or accessibility tests
+* Testing mobile/responsive layouts, touch gestures, or device emulation
+* Implementing file uploads/downloads, date/time mocking, or WebSocket testing
+* Handling OAuth popups, geolocation, permissions, or multi-tab flows
+* Testing iframes, canvas/WebGL, service workers, or PWA features
+* Testing Electron desktop apps or browser extensions
+* Internationalization (i18n), locales, RTL layouts, or date/number formats
+* Testing error states, offline mode, or network failure scenarios
+* Security testing (XSS, CSRF, authentication, authorization)
+* Performance testing with Web Vitals or Lighthouse
 * Reviewing or refactoring Playwright test code
 * Fixing flaky tests or debugging failures
-* Setting up or changing test infrastructure and config
-* Configuring CI/CD, parallel runs, or performance
-
-
+* Setting up CI/CD, test coverage, or global setup/teardown
+* Configuring projects, dependencies, parallel runs, or sharding
 
 ### Learn more
 
