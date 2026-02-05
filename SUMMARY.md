@@ -183,6 +183,7 @@
 * [Data Privacy](resources/data-privacy/README.md)
   * [Access to Customer Data](resources/data-privacy/access-to-customer-data.md)
   * [Data Redaction](resources/data-privacy/data-redaction.md)
+  * [Bring Your Own Storage](resources/data-privacy/data-redaction-1.md)
   * [Data Retention](resources/data-privacy/data-retention.md)
   * [Cloud Endpoints](resources/data-privacy/cloud-endpoints.md)
 * [Changelog](resources/changelog.md)
