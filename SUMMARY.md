@@ -167,6 +167,7 @@
   * [Data Format Reference](resources/reporters/data-format-reference.md)
   * [Alternatives to Currents](resources/reporters/alternatives-to-currents.md)
 * [Integrations](resources/integrations/README.md)
+  * [n8n](resources/integrations/n8n.md)
   * [GitHub](resources/integrations/github/README.md)
     * [GitHub App](resources/integrations/github/github-app.md)
     * [GitHub OAuth](resources/integrations/github/github-oauth.md)
