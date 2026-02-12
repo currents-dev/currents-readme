@@ -70,21 +70,34 @@ Each destination can be:
 - **Enabled/Disabled individually** - Toggle notifications for specific channels without deleting the configuration
 - **Configured independently** - Each destination has its own notification settings, filters, and mention rules
 
+### Message Threading
+
+Each destination has a **Message Threading** toggle that controls how notifications are organized in Slack:
+
+| Setting      | Behavior                                                                                    |
+| ------------ | ------------------------------------------------------------------------------------------- |
+| **Enabled**  | Messages related to the same run are grouped in a single thread, keeping channels organized |
+| **Disabled** | Each notification is sent as a standalone message in the channel                            |
+
+Message threading is enabled by default for new destinations. Disable it if your team prefers individual messages or if you're using Slack workflows that process messages independently.
+
 ## Run Notifications
 
-Run notifications provide a summary of the entire test run. These are sent when a run completes and use Slack threads to organize related messages.
+Run notifications provide a summary of the entire test run. These are sent when a run completes and can use Slack threads to organize related messages.
 
 <figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.29.21@2x.png" alt=""><figcaption></figcaption></figure>
 
 ### How Threading Works
 
-When Currents sends run notifications:
+When **Message Threading** is enabled for a destination, Currents organizes notifications as follows:
 
 1. A **main message** is posted indicating notifications are available for the run
 2. **Detailed results** are added as replies in a thread
 3. Subsequent updates (like individual test failures) appear in the same thread
 
 This keeps your Slack channels organized and prevents notification overload.
+
+When **Message Threading** is disabled, each notification is sent as a standalone message in the channel.
 
 ### Notification Modes
 
