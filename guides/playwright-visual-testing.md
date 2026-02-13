@@ -103,7 +103,7 @@ Using Argos with [playwright-orchestration.md](ci-optimization/playwright-orches
 Requires @currents/playwright 1.6.0+
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/currents-2024-09-09-09.44.13@2x.png" alt=""><figcaption><p>Currents Orchestration onFinish callback finalizes Parallel Argos build</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Currents Orchestration.png" alt="Currents Orchestration onFinish callback finalizes Parallel Argos build"><figcaption><p>Currents Orchestration onFinish callback finalizes Parallel Argos build</p></figcaption></figure>
 
 See the [example repository](https://github.com/currents-dev/playwright-gh-actions-demo/tree/example-argos-currents-orchestration/argos) which showcases using GitHub Actions with 3 parallel containers + Currents Orchestration + Argos.&#x20;
 

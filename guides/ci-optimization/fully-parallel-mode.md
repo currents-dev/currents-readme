@@ -4,7 +4,7 @@ description: A guide on Playwright Fully Parallel mode
 
 # Fully Parallel Mode
 
-Playwright has multiple levels of concurrency:
+laywright has multiple levels of concurrency:
 
 * split all the tests between different machines using [sharding](https://playwright.dev/docs/test-sharding#sharding-tests-between-multiple-machines);
 * each shard can have [multiple workers](https://playwright.dev/docs/api/class-testconfig#test-config-workers) (according to # of CPUs or explicit configuration).
@@ -17,11 +17,11 @@ By default, Playwright runs the tests of the **same spec file in the same worker
 
 For example, if your machine has 4 workers and sharding assigns one spec file, only one worker will be utilized at a time and the tests will be executed one after another, not in parallel.
 
-<figure><img src="../../.gitbook/assets/pw-workers-serial.png" alt=""><figcaption><p>Example of underutilizing workers in Playwright</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Underutilizing Workers.png" alt="Underutilizing Workers"><figcaption><p>Underutilizing Workers</p></figcaption></figure>
 
 Enabling `fullyParallel: true` ([see configuration details](https://playwright.dev/docs/api/class-testconfig#test-config-workers)) allows running tests from the **same spec file in parallel** on different workers. This way, all available workers can be utilized, and the tests will be executed faster.
 
-<figure><img src="../../.gitbook/assets/pw-workers-parallel.png" alt=""><figcaption><p>Enabling fullyParallel mode uses all available Playwright workers</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Fully Parallel.png" alt="Enabling fullyParallel mode uses all available Playwright workers"><figcaption><p>Enabling fullyParallel mode uses all available Playwright workers</p></figcaption></figure>
 
 Note that the tests are required to be isolated and not shared in any state. Playwright will run the tests on different workers or even on different machines (a.k.a shards).
 

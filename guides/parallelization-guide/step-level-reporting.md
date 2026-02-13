@@ -10,7 +10,7 @@ Traditionally, Playwright reporters generate results **after** the run completio
 
 For example, imagine running a spec file with 10 tests on a CI machine. Nine tests can be completed successfully, but the last test can cause a crash. If we report after completion, no results will be reported at all, even for the nine finished tests.
 
-<figure><img src="../../.gitbook/assets/pw-reporting-failure.png" alt=""><figcaption><p>Failure to finish test execution can result in no results reported at all</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Traditional reporting fails when execution doesn’t finish.png" alt="Failure to finish test execution can result in no results reported at all"><figcaption><p>Failure to finish test execution can result in no results reported at all</p></figcaption></figure>
 
 This problem affects not only the test results per se but also the generating and uploading of artifacts like traces, screenshots, and videos. We observed this issue occurring in different scenarios, ranging from infrastructure issues to Playwright bugs.
 

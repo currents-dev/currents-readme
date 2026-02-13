@@ -63,7 +63,7 @@ By using [GitHub Actions matrix execution strategy](https://docs.github.com/en/a
 
 Each container will receive a unique set of tests to run so that your tests will run faster and you can receive faster feedback from your browser test suite.
 
-![Tests Parallelization with Github Actions](../../../.gitbook/assets/Cypress-Parallelization-github-actions.jpg)
+<figure><img src="../../../.gitbook/assets/CI Runners.png" alt="Tests Parallelization with Github Actions"><figcaption><p>Tests Parallelization with Github Actions</p></figcaption></figure>
 
 You can achieve that through [Playwright Sharding](https://playwright.dev/docs/test-sharding). Playwright supports splitting the tests between multiple CI machines using `--shard` CLI flag. Below you can find examples on how to setup sharding, and orchestration.
 

@@ -32,7 +32,7 @@ Imagine a scenario when you have two machines running a testing suite consisting
 
 When a spot instance is just about to be terminated (let's say Machine A),  Currents will identify the affected spec files and reassign them a different machine.&#x20;
 
-<figure><img src="../../.gitbook/assets/spot-instances-schema.png" alt=""><figcaption><p>Reassigning tests in case of spot instance termination</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Reassigning tests in case of spot instance termination.png" alt="Reassigning tests in case of spot instance termination"><figcaption><p>Reassigning tests in case of spot instance termination</p></figcaption></figure>
 
 ### Setup and Configuration
 
