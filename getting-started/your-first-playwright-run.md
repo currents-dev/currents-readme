@@ -75,11 +75,33 @@ use: {
 {% step %}
 #### Setup Currents Reporter
 
-You have two options to integrate Currents into your test suite. You can either use our custom test runner `pwc`, or your can manually add our reporter to Playwright configuration and keep using your existing test command.
+You have two options to integrate Currents into your test suite. You can either add our reporter to Playwright configuration and keep using your existing test command, or use our custom test runner `pwc`.
 
 <details>
 
-<summary><strong>Option 1: Run tests with the pwc command </strong><em><strong>(recommended)</strong></em></summary>
+<summary><strong>Option 1: Add Currents Reporter </strong><em><strong>(recommended)</strong></em></summary>
+
+You can add Currents reporter to `playwright.config.ts` and keep using `playwright test` command.&#x20;
+
+```typescript
+// playwright.config.ts
+import { defineConfig, devices, PlaywrightTestConfig } from "@playwright/test";
+import { currentsReporter } from "@currents/playwright";
+
+export default defineConfig({
+  // ...
+  reporter: [currentsReporter()], // 👈🏻 add Currents reporter
+})
+```
+
+* Run `npx playwright test` or your existing test command to start sending the results to Currents dashboard.
+* The reporter reads the configuration from `currents.config.ts` file. See [currents-playwright](../resources/reporters/currents-playwright/ "mention") for more configuration options.
+
+</details>
+
+<details>
+
+<summary><strong>Option 2: Run tests with the pwc command</strong></summary>
 
 `pwc` is a lightweight command-line executable included in `@currents/playwright` npm package — it runs `playwright` with a predefined configuration.&#x20;
 
@@ -104,28 +126,6 @@ You have two options to integrate Currents into your test suite. You can either 
 * `pwc` reads the configuration from `currents.config.ts` file. See additional configuration options [configuration.md](../resources/reporters/currents-playwright/configuration.md "mention").
 * `pwc` injects Currents reporter into Playwright configuration.
 * You can also provide CLI configuration parameters, e.g. `npx pwc --key RECORD_KEY --project-id PROJECT_ID`
-
-</details>
-
-<details>
-
-<summary><strong>Option 2: Manually Add Currents Reporter</strong></summary>
-
-You can manually add Currents reporter to `playwright.config.ts` and keep using `playwright test` command.&#x20;
-
-```typescript
-// playwright.config.ts
-import { defineConfig, devices, PlaywrightTestConfig } from "@playwright/test";
-import { currentsReporter } from "@currents/playwright";
-
-export default defineConfig({
-  // ...
-  reporter: [currentsReporter()], // 👈🏻 add Currents reporter
-})
-```
-
-* Run `npx playwright test` or your existing test command to start sending the results to Currents dashboard.
-* The reporter reads the configuration from `currents.config.ts` file. See [currents-playwright](../resources/reporters/currents-playwright/ "mention") for more configuration options.
 
 </details>
 {% endstep %}
