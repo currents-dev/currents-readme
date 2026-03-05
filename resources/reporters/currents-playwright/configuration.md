@@ -205,6 +205,22 @@ import type { ExecutionJSONSummary } from '@currents/playwright'
 
 ***
 
+### consoleOutput
+
+* Type: `none | summary | detailed`
+* Default: `detailed`
+* Environment variable: `CURRENTS_CONSOLE_OUTPUT`
+
+Reporter console output: "none" (no stdout), "summary" (intro, one line per test, summary), "detailed" (full per-test output).
+
+The TypeScript definition of the configuration property is available:&#x20;
+
+```typescript
+import type { ConsoleOutputPreset } from '@currents/playwright'
+```
+
+***
+
 ### orchestration
 
 Set of configuration items related to [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention").<br>

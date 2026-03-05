@@ -125,6 +125,12 @@ Coverage reports directory path. See [#coverage.dir](configuration.md#coverage.d
 
 ***
 
+### **`--pwc-console-output <preset>`**
+
+Reporter console output. See [#consoleoutput](configuration.md#consoleoutput "mention").
+
+***
+
 ### **`--pwc-test-suite-file <path>`**
 
 Path to the full test suite file for orchestration and reporting. See [#testsuitefile](configuration.md#testsuitefile "mention").

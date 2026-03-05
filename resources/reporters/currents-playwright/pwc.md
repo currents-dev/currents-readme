@@ -139,6 +139,12 @@ Coverage reports directory path. See [#coverage.dir](configuration.md#coverage.d
 
 ***
 
+### **`--pwc-console-output <preset>`**
+
+Reporter console output. See [#consoleoutput](configuration.md#consoleoutput "mention").
+
+***
+
 ### **`-V, --version`**&#x20;
 
 Show package version
