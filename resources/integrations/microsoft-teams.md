@@ -13,17 +13,27 @@ Currents integration with Microsoft Team allows posting test results of your Cyp
 
 In order to enable MS Teams integration and share cypress test results to Teams channels, follow the steps:
 
-* Navigate to "Manage Project" section for the selected project
-* Click "Add Integration", and select "Microsoft Teams"
-* Enter the details of your Slack Integration and click "Save"
+* Navigate to **Manage Project > Integrations**
+* Add Microsoft Teams integration and provide the details:
+  * **Microsoft** **Teams Webhook URL -** Incoming Webhook URL, e.g. `https://currents463.webhook.office.com/XXX/YYY/ZZZ`. [Read the guide](https://support.microsoft.com/en-us/office/create-incoming-webhooks-with-workflows-for-microsoft-teams-8ae491c7-0394-4861-ba59-055e33f75498) to generate the URL.
+  * **Failed Runs Only** - enabling the toggle would only send results for failed runs.
+  * **Events (Optional)** - specify events that will trigger the integration and send the results. Leaving this field blank activates all the events.
+* Click **Save** to preserve the changes
 
-![Enabling Microsoft Teams Slack integration](../../.gitbook/assets/cypress-msteam-setup.gif)
 
-Provide the following details to finalize Slack integration, click "Save" to finish:
 
-* **Incoming Webhook URL -** Incoming Webhook URL, e.g. `https://hooks.slack.com/services/XXX/YYY/ZZZ`. [Read the guide](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook) to generate the URL.
-* **Failed Runs Only** - enabling the toggle would only send results for failed, timed out or cancelled runs.
-* **Events (Optional)** - specify the event that triggers the integration and sends results. Leaving this field blank activates all the events.
+<div data-with-frame="true"><picture><source srcset="../../.gitbook/assets/Screenshot 2026-03-05 at 3.09.45 PM.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-03-05 at 3.08.19 PM.png" alt="Enabling Microsoft Teams Slack integration"></picture></div>
+
+### Filtering MS Teams notifications based on Tags
+
+{% hint style="info" %}
+**Please note:** We use [glob patterns](https://www.npmjs.com/package/micromatch) to evaluate the filters. Test your filtering rules using the [playground](https://currents-branch-filter.stackblitz.io/). See examples for some popular filter patterns:
+
+* Include only **`tagA`** or **`tagB`**: `(tagA|tagB)`
+* Exclude **`tagA`** an&#x64;**`tagB`**`: !(tagA|tagB)`
+* Include only tags starting with **`production`**: `production*`
+* Include only tags starting with **`smoke-`** or **`prod-`**`: (smoke-*|prod-*)`
+{% endhint %}
 
 ### What events trigger notifications for MSTeams // Currents integration?
 
