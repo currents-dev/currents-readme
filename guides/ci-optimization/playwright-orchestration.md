@@ -80,9 +80,9 @@ $ npx pwc-p --key **redacted** --project-id **redacted** --ci-build-id `date +%s
 
 Check out the following example configuration of running orchestration in popular CI providers:
 
-* [GitHub Actions](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-or8n.yml)
+* [GitHub Actions](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/test-or8n.yml)
 * [GitLab CI/CD](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwcp.yml?ref_type=heads)
-* [GitHub Actions + NX](https://github.com/currents-dev/currents-playwright-nx-example/blob/main/.github/workflows/or8n.yml)
+* [GitHub Actions + NX](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/nx/.github/workflows/or8n.yml)
 * _Missing an example?_ [_Let us know_](mailto:support@currents.dev)_._
 
 
@@ -171,7 +171,7 @@ You can generate other reports by passing the blob results to the `merge-reports
 npx playwright merge-reports --reporter=html ./blob-report
 ```
 
-Check an [example of Github Actions setup here.](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/test-or8n.yml)
+Check an [example of Github Actions setup here.](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/test-or8n.yml)
 
 
 

@@ -80,7 +80,7 @@ pipeline {
 
 ### Using last failed flag with shards and orchestration
 
-We have made available a [public repository with an example ](https://github.com/currents-dev/jenkins-last-failed)of how to setup last failed functionality using shards and orchestration in different machines.
+We have made available a [public repository with an example ](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/jenkins/jenkins-last-failed)of how to setup last failed functionality using shards and orchestration in different machines.
 
 Here you will be able to find the following Jenkinsfile that accepts two parameters:
 

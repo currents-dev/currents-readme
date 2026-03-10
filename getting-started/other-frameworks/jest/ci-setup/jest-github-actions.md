@@ -7,7 +7,7 @@ description: Running Jest in Parallel on GitHub Actions using Matrix Workflow
 {% hint style="info" %}
 TL;DR Check out the example repository:
 
-[https://github.com/currents-dev/currents-jest-github-actions-example](https://github.com/currents-dev/currents-jest-github-actions-example)
+[https://github.com/currents-dev/currents-examples](https://github.com/currents-dev/currents-examples/tree/main/generic-reporter/jest/github-actions)
 {% endhint %}
 
 Currents uses the native [Jest sharding](https://jestjs.io/docs/next/cli#--shard) (Jest v28+) to split the tests between multiple containers.

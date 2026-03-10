@@ -2,7 +2,7 @@
 description: Setting up Current Actions for your Playwright Project
 ---
 
-# Setup Currents Actions
+# Setting up Currents Actions
 
 ### Requirements
 
@@ -18,7 +18,7 @@ Setting up the Currents Actions consists of 3 steps:
 3. Updating the tests code
 
 {% hint style="info" %}
-Check out the [example GitHub repository](https://github.com/currents-dev/currents-playwright-rules-example).
+Check out the [example GitHub repository](https://github.com/currents-dev/currents-examples/tree/main/playwright/currents-actions).
 {% endhint %}
 
 ### Setting up the Currents Reporter

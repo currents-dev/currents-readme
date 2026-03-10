@@ -7,7 +7,7 @@ description: Running Playwright Tests in Parallel on AWS CodeBuild and Currents
 {% hint style="info" %}
 TL;DR Check out the example repository:
 
-[https://github.com/currents-dev/playwright-aws-codebuild-example](https://github.com/currents-dev/playwright-aws-codebuild-example/tree/main)
+[https://github.com/currents-dev/currents-examples](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/aws-codebuild)
 {% endhint %}
 
 Executing Playwright tests in parallel on AWS CodeBuild can significantly reduce the overall run duration. AWS CodeBuild supports [Batched Build](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build.html) in [matrix mode](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build.html#batch_build_matrix) for launching several workers in parallel.&#x20;
@@ -104,7 +104,7 @@ Configure AWS-specific project settings like IAM execution policy, resources cla
 
 ### Example: Triggering Parallel Playwright AWS CodeBuild&#x20;
 
-This [example repository](https://github.com/currents-dev/playwright-aws-codebuild-example) showcases running Playwright tests on AWS CodeBuild in parallel while using [Currents](https://currents.dev/) as the reporting dashboard. It has an example [AWS CodeBuilld Project configuration](https://github.com/currents-dev/playwright-aws-codebuild-example/blob/main/aws-project-config-output.json).
+This [example repository](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/aws-codebuild) showcases running Playwright tests on AWS CodeBuild in parallel while using [Currents](https://currents.dev/) as the reporting dashboard. It has an example [AWS CodeBuilld Project configuration](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/aws-codebuild/aws-project-config-output.json).
 
 {% embed url="https://www.loom.com/share/36d9130a292949668cc875599927e83c?hideEmbedTopBar=true&hide_share=true&sid=4f798cda-d45f-4d05-841b-40aa6eed6f94?hide_owner=true" %}
 Example of triggering an AWS CodeBuild Playwright Tests via a commit

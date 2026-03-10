@@ -63,7 +63,7 @@ Any CI provider or tool that allows creating multiple containers/jobs can be int
 
 Here are a few example setups for popular CI providers:
 
-* [GitHub Actions](https://github.com/currents-dev/playwright-gh-actions-demo)
+* [GitHub Actions](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/github-actions)
 * [GitLab](https://gitlab.com/currents.dev/gitlab-playwright-currents)
-* [CircleCI](https://github.com/currents-dev/circleci-pw-example)
+* [CircleCI](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/circleci)
 * [Jenkins](../../getting-started/ci-setup/jenkins.md)

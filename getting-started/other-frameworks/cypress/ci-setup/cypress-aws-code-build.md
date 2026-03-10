@@ -7,7 +7,7 @@ description: Running Cypress in parallel on AWS CodeBuild
 {% hint style="info" %}
 TL;DR Check out the example repository:
 
-[https://github.com/currents-dev/aws-codebuild-example](https://github.com/currents-dev/aws-codebuild-example)
+[https://github.com/currents-dev/currents-examples](https://github.com/currents-dev/currents-examples/tree/main/cypress/aws-codebuild)
 {% endhint %}
 
 Executing Cypress tests in parallel on AWS CodeBuild can significantly reduce the overall run duration. AWS CodeBuild supports [Batched Build](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build.html) in [matrix mode](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build.html#batch_build_matrix) for launching several workers in parallel.&#x20;
@@ -71,9 +71,9 @@ Additionally, Currents captures screenshots and videos during the test execution
 
 ### Example:  Cypress Tests in parallel on AWS CodeBuild
 
-Please refer to [example repository](https://github.com/currents-dev/aws-codebuild-example) that demonstrates how to set up AWS Code Build for running cypress tests in parallel using [Currents](https://currents.dev) service.
+Please refer to [example repository](https://github.com/currents-dev/currents-examples/tree/main/cypress/aws-codebuild) that demonstrates how to set up AWS Code Build for running cypress tests in parallel using [Currents](https://currents.dev) service.
 
-The example [config file](https://github.com/currents-dev/aws-codebuild-example/blob/main/buildspec.yml):
+The example [config file](https://github.com/currents-dev/currents-examples/blob/main/cypress/aws-codebuild/buildspec.yml):
 
 * uses 3 workers in [matrix mode](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build.html#batch_build_matrix).&#x20;
 * is designed to be executed within a [batch build](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build.html).

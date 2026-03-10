@@ -29,7 +29,7 @@ Reporting code coverage to Currents as part of running your Playwright tests con
 
 {% hint style="info" %}
 * Follow the [feature request](https://currents.featurebase.app/p/v8-coverage-reports-for-playwright) to get notified when we enable V8 coverage reports
-* Check out the [example GitHub repository](https://github.com/currents-dev/currents-playwright-coverage-example)&#x20;
+* Check out the [example GitHub repository](https://github.com/currents-dev/currents-examples/tree/main/playwright/code-coverage/instrumented-coverage)&#x20;
 {% endhint %}
 
 {% hint style="info" %}
@@ -127,7 +127,7 @@ After completing this step and running the tests, Currents reporter will automat
 
 ### NextJS + Babel Example&#x20;
 
-We will be using the [example GitHub repository](https://github.com/currents-dev/currents-playwright-coverage-example) to configure code coverage reporting for NextJS + babel.
+We will be using the [example GitHub repository](https://github.com/currents-dev/currents-examples/tree/main/playwright/code-coverage/instrumented-coverage) to configure code coverage reporting for NextJS + babel.
 
 Install `babel-plugin-istanbul`
 

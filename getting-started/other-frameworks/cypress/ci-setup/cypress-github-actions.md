@@ -7,14 +7,14 @@ description: Using GitHub Actions Matrix for parallelizing Cypress tests
 {% hint style="info" %}
 TL;DR Check out the GitHub repository:
 
-[https://github.com/currents-dev/gh-actions-example](https://github.com/currents-dev/gh-actions-example)
+[https://github.com/currents-dev/currents-examples](https://github.com/currents-dev/currents-examples/tree/main/cypress/github-actions)
 {% endhint %}
 
 By using [GitHub Actions matrix execution strategy](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix), you can create multiple containers that will run  Cypress tests in parallel. Currents orchestrates the tests between multiple containers, applying intelligent optimizations to reduce the overall runtime of your workflow, and records screenshots and videos for later troubleshooting.
 
 <figure><img src="../../../../.gitbook/assets/CI Runners.png" alt="Tests Parallelization with Github Actions"><figcaption><p>Tests Parallelization with Github Actions</p></figcaption></figure>
 
-Please take a look at the [example repository](https://github.com/currents-dev/gh-actions-example) that showcases running cypress tests in parallel using GitHub Actions.&#x20;
+Please take a look at the [example repository](https://github.com/currents-dev/currents-examples/tree/main/cypress/github-actions) that showcases running cypress tests in parallel using GitHub Actions.&#x20;
 
 {% code overflow="wrap" %}
 ```yaml
@@ -86,7 +86,7 @@ jobs:
 ```
 {% endcode %}
 
-The example [workflow config file](https://github.com/currents-dev/gh-actions-example/blob/main/.github/workflows/currents.yml):
+The example [workflow config file](https://github.com/currents-dev/currents-examples/blob/main/cypress/github-actions/.github/workflows/currents.yml):
 
 * runs 3 containers with cypress tests in parallel
 * uses [Custom Test Command](https://github.com/cypress-io/github-action#custom-test-command) to run `cypress-cloud` for recording test results and parallelization with [Currents.dev](https://currents.dev)

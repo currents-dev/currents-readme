@@ -8,7 +8,7 @@ description: Running Playwright tests with NX
 
 [Nx](https://github.com/nrwl/nx) is a build system with monorepo support and powerful integrations. Playwright tests executions in Nx can be done by using [@nx/playwright](https://nx.dev/nx-api/playwright) plugin.
 
-[This example repository](https://github.com/currents-dev/currents-playwright-nx-example) showcases all the implementation described here.
+[This example repository](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/nx) showcases all the implementation described here.
 
 To use the nx playwright plugin, Currents client must be set as reporter option in the `playwright.config` file.&#x20;
 
@@ -34,7 +34,7 @@ export default defineConfig({
 ```
 
 {% hint style="info" %}
-See a more scalable [example for multiple projects here](https://github.com/currents-dev/currents-playwright-nx-example/tree/main)
+See a more scalable [example for multiple projects here](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/nx)
 {% endhint %}
 
 In order to execute the tests, our example `project.json` file includes the `e2e` target and Playwright plugin as `executor` property.

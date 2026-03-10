@@ -13,7 +13,7 @@ Run [Playwright Component testing](https://playwright.dev/docs/test-components) 
 
 Please refer to the example integration of Playwright Component testing with Currents:
 
-{% embed url="https://github.com/currents-dev/currents-playwright-component-tests-example" %}
+{% embed url="https://github.com/currents-dev/currents-examples/tree/main/playwright/component-testing" %}
 
 The project contains two simple component tests:
 

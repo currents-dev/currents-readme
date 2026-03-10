@@ -113,8 +113,8 @@ Note the use of [#custom-ci-build-id-for-reruns](re-run-failed-only-tests.md#cus
 
 Full examples:
 
-* [rerun-shards-pwc.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-pwc.yml) - rerun only the tests that failed in the previous run, using `pwc` helper command that is included in `@currents/playwright` package.
-* [rerun-shards-reporter.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/rerun-shards-reporter.yml) - rerun only the tests that failed in the previous run, using reporter explicitly configured in `playwright.config.ts`
+* [rerun-shards-pwc.yml](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/rerun-shards-pwc.yml) - rerun only the tests that failed in the previous run, using `pwc` helper command that is included in `@currents/playwright` package.
+* [rerun-shards-reporter.yml](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/rerun-shards-reporter.yml) - rerun only the tests that failed in the previous run, using reporter explicitly configured in `playwright.config.ts`
 
 #### Currents Orchestration
 
@@ -230,7 +230,7 @@ jobs:
 
 Example workflow:
 
-* [reruns-or8n.yml](https://github.com/currents-dev/playwright-gh-actions-demo/blob/main/.github/workflows/reruns-or8n.yml) - rerun only the tests that failed in the previous orchestrated run.
+* [reruns-or8n.yml](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/reruns-or8n.yml) - rerun only the tests that failed in the previous orchestrated run.
 
 {% hint style="info" %}
 Note the use of [#custom-ci-build-id-for-reruns](re-run-failed-only-tests.md#custom-ci-build-id-for-reruns "mention").

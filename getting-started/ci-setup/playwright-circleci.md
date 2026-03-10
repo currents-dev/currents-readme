@@ -2,7 +2,7 @@
 description: Running Playwright Tests in Parallel on CircleCI and Currents
 ---
 
-# Playwright - CircleCI
+# CircleCI
 
 {% hint style="info" %}
 TL;DR Check out the example repository:
@@ -16,11 +16,11 @@ Currents collects the results of distributed parallel CircleCI builds for more e
 
 Create multiple containers that will run your tests in parallel by setting the desired amount of containers with [`parallelism`](https://circleci.com/docs/2.0/configuration-reference/#parallelism) flag in  `config.yaml` file.
 
-Please refer to the [example repository](https://github.com/currents-dev/circleci-pw-example) demonstrating how to set up [CircleCI](https://circleci.com) for running Playwright tests in parallel using [Currents](https://currents.dev) service.
+Please refer to the [example repository](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/circleci) demonstrating how to set up [CircleCI](https://circleci.com) for running Playwright tests in parallel using [Currents](https://currents.dev) service.
 
 * Create an organization at https://app.currents.dev
 * Create a new project
-* Grab `CURRENTS_RECORD_KEY` [record-key.md](../../../guides/record-key.md "mention") and `CURRENTS_PROJECT_ID` &#x20;
+* Grab `CURRENTS_RECORD_KEY` [record-key.md](../../guides/record-key.md "mention") and `CURRENTS_PROJECT_ID` &#x20;
 * Store `CURRENTS_RECORD_KEY`: [https://circleci.com/docs/contexts/](https://circleci.com/docs/contexts/)
 
 {% code overflow="wrap" %}
@@ -55,7 +55,7 @@ workflows:
 ```
 {% endcode %}
 
-The example [config file](https://github.com/currents-dev/circleci-pw-example/blob/main/.circleci/config.yml):
+The example [config file](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/circleci/.circleci/config.yml):
 
 * runs 3 containers with Playwright tests in parallel
 * Note: use CLI arguments to customize your cypress runs, e.g.: `pwc run --key <your Currents.dev key>`

@@ -7,7 +7,7 @@ description: Running Node.js Tests on GitHub Actions
 {% hint style="info" %}
 TL;DR Check out the example repository:
 
-[https://github.com/currents-dev/currents-nodejs-github-actions-example](https://github.com/currents-dev/currents-nodejs-github-actions-example)
+[https://github.com/currents-dev/currents-examples](https://github.com/currents-dev/currents-examples/tree/main/generic-reporter/junit/nodejs-github-actions)
 {% endhint %}
 
 Here's an example workflow configuration file:

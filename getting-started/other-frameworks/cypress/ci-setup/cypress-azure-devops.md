@@ -7,14 +7,14 @@ description: Running Cypress test in parallel on Azure DevOps and Currents Dashb
 This guide will help you to run Cypress tests in parallel using Azure DevOps and Currents Dashboard. The example showcases using 3 Azure DevOps containers for parallelizing the execution using Currents as an orchestration and reporting service.
 
 {% hint style="info" %}
-TLDR; Check out the example Azure DevOps pipeline [configuration file](https://github.com/currents-dev/azure-devops-example/blob/main/azure-pipelines.yml)
+TLDR; Check out the example Azure DevOps pipeline [configuration file](https://github.com/currents-dev/currents-examples/blob/main/cypress/azure-devops/azure-pipelines.yml)
 {% endhint %}
 
 * Connect a new/existing pipeline to a repository containing your Cypress tests
 * Make sure that your `cypress.config.js` file has the correct `projectId`. You can fetch the `projectId` by navigating to [https://app.currents.dev](https://app.currents.dev) and then **Project Name > Manage Project**
 * Make sure that both `cypress` and [cypress-cloud](../../../../resources/reporters/cypress-cloud/) are listed in your `package.json` as dependencies
 * Create or modify an existing [Variable Group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops\&tabs=yaml), and add a new secret variable called `CURRENTS_SECRET`. You can grab the secret key at **Currents Dashboard > Org Name (Header Menu) > Record Keys**
-* Modify your `azure-pipelines.yml` file and use [this file](https://github.com/currents-dev/azure-devops-example/blob/main/azure-pipelines.yml) as a reference.&#x20;
+* Modify your `azure-pipelines.yml` file and use [this file](https://github.com/currents-dev/currents-examples/blob/main/cypress/azure-devops/azure-pipelines.yml) as a reference.&#x20;
 
 ```yaml
 jobs:

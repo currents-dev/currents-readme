@@ -7,19 +7,19 @@ description: Running Playwright test in parallel on Azure DevOps and Currents Da
 {% hint style="info" %}
 TL;DR Check out the example repository:
 
-[https://github.com/currents-dev/playwright-azure-devops-example](https://github.com/currents-dev/playwright-azure-devops-example)
+[https://github.com/currents-dev/currents-examples](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/azure-devops)
 {% endhint %}
 
 Currents can use the native [Playwright Sharding](https://playwright.dev/docs/test-sharding) to split the tests between multiple containers. The results from distributed runs will be collected together with the generated artifacts to provide insights into test suite performance.&#x20;
 
-The [example repository](https://github.com/currents-dev/playwright-azure-devops-example)  `https://github.com/currents-dev/playwright-azure-devops-example`showcases using 3 Azure DevOps containers to allow parallel execution of the test using Currents as a reporting service.
+The [example repository](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/azure-devops) uses 3 Azure DevOps containers to allow parallel execution of the test showcasing Currents as a reporting service.
 
 * Connect a new/existing Azure Pipeline to a repository containing your Playwright tests.
 * Create an organization, get your **Record Key** and **Project Id** at [https://app.currents.dev](https://app.currents.dev/)
 * Create or modify an existing [Variable Group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops\&tabs=yaml), and add a new secret variable called `CURRENTS_RECORD_KEY` with your **Record Key**.
 * Include your **Project Id** in an env variable called `CURRENTS_PROJECT_ID` in your pipeline configuration.
 * Ensure the [@current/playwright](../../resources/reporters/currents-playwright/) package has been integrated into your tests.
-* Modify your `azure-pipelines.yml` file to run the tests and use one of the [example pipeline files](https://github.com/currents-dev/playwright-azure-devops-example/blob/main/azure-pipelines.yml) as a reference.
+* Modify your `azure-pipelines.yml` file to run the tests and use one of the [example pipeline files](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/azure-devops/azure-pipelines.yml) as a reference.
 
 Here's an example pipeline file:
 

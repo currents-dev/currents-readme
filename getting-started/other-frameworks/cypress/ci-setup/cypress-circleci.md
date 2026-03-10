@@ -7,14 +7,14 @@ description: Running Cypress tests in parallel on CircleCI and Currents dashboar
 {% hint style="info" %}
 TL;DR Check out the example repository:
 
-[https://github.com/currents-dev/circleci-example](https://github.com/currents-dev/circleci-example)
+[https://github.com/currents-dev/currents-examples](https://github.com/currents-dev/currents-examples/tree/main/cypress/circleci)
 {% endhint %}
 
 This is an example repository that showcases using [CircleCI](https://circleci.com/) with [Currents.dev](https://currents.dev/).
 
 We are hosting independent versions of the Cypress App and [docker images](https://hub.docker.com/r/currentsdev/cypress-included) with pre-installed binaries. Please refer to the [documentation](https://currents.dev/readme/integration-with-cypress/alternative-cypress-binaries) for the list of supported binaries and versions.
 
-The example [config file](https://github.com/currents-dev/circleci-example/blob/master/.circleci/config.yml) installs the custom Cypress App and runs 3 containers with Cypress tests in parallel using various setup scenarios.
+The example [config file](https://github.com/currents-dev/currents-examples/blob/main/cypress/circleci/.circleci/config.yml) installs the custom Cypress App and runs 3 containers with Cypress tests in parallel using various setup scenarios.
 
 ### Prerequisites
 
@@ -94,7 +94,7 @@ workflows:
 
 [Cypress Orb](https://circleci.com/developer/orbs/orb/cypress-io/cypress) has pre-defined commands that facilitate creating CircleCI configuration. The examples below show how to integrate Cypress tests with Currents using Cypress Orb and various setup scenarios.
 
-The examples below use [Custom Test Command](https://github.com/currents-dev/circleci-example/blob/master/.circleci/config.yml#L9) to run `cypress-cloud` for recording test results and parallelization with [Currents.dev](https://currents.dev/)
+The examples below use [Custom Test Command](https://github.com/currents-dev/currents-examples/blob/main/cypress/circleci/.circleci/config.yml#L9) to run `cypress-cloud` for recording test results and parallelization with [Currents.dev](https://currents.dev/)
 
 #### Using `cypress/default` executor example
 

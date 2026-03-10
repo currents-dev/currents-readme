@@ -105,7 +105,7 @@ Requires @currents/playwright 1.6.0+
 
 <figure><img src="../.gitbook/assets/Currents Orchestration.png" alt="Currents Orchestration onFinish callback finalizes Parallel Argos build"><figcaption><p>Currents Orchestration onFinish callback finalizes Parallel Argos build</p></figcaption></figure>
 
-See the [example repository](https://github.com/currents-dev/playwright-gh-actions-demo/tree/example-argos-currents-orchestration/argos) which showcases using GitHub Actions with 3 parallel containers + Currents Orchestration + Argos.&#x20;
+See the [example repository](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/github-actions/argos) which showcases using GitHub Actions with 3 parallel containers + Currents Orchestration + Argos.&#x20;
 
 <details>
 
@@ -144,7 +144,7 @@ const config: PlaywrightTestConfig = {
 
 <details>
 
-<summary><a href="https://github.com/currents-dev/playwright-gh-actions-demo/blob/example-argos-currents-orchestration/.github/workflows/argos-example.yml#L40">GitHub Actions Workflow</a> </summary>
+<summary><a href="https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/argos/argos-example.yml">GitHub Actions Workflow</a> </summary>
 
 ```yaml
 strategy:
@@ -168,7 +168,7 @@ strategy:
 
 <details>
 
-<summary><a href="https://github.com/currents-dev/playwright-gh-actions-demo/blob/example-argos-currents-orchestration/argos/currents.config.ts">Currents Configuration</a></summary>
+<summary><a href="https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/argos/currents.config.ts">Currents Configuration</a></summary>
 
 {% code overflow="wrap" %}
 ```typescript

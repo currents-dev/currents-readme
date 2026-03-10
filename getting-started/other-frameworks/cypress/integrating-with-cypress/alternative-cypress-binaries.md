@@ -66,6 +66,6 @@ Use the following [docker image](https://hub.docker.com/r/currentsdev/cypress-in
 
 #### Examples
 
-* [GitHub Actions](https://github.com/currents-dev/gh-actions-example/blob/main/.github/workflows/currents.yml) example [workflow](https://github.com/currents-dev/gh-actions-example/blob/main/.github/workflows/currents.yml) with `cypress-io/github-action@v6`
+* GitHub Actions [example workflow](https://github.com/currents-dev/currents-examples/blob/main/cypress/github-actions/.github/workflows/currents.yml) with `cypress-io/github-action@v6`
 
 Please contact our support channels for additional information and assistance.

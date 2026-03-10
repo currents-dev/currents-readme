@@ -53,7 +53,7 @@ If you have [fail-fast-strategy.md](../../guides/ci-optimization/fail-fast-strat
 
 You can automatically cancel Currents runs (cypress and playwright) when cancelling GitHub Actions workflow using [cancel-run-gh-action](https://github.com/currents-dev/cancel-run-gh-action).
 
-Check out the [example workflow configuration](https://github.com/currents-dev/gh-actions-example/blob/main/.github/workflows/currents.yml#L38):
+Check out the [example workflow configuration](https://github.com/currents-dev/currents-examples/blob/main/cypress/github-actions/.github/workflows/currents.yml):
 
 ```yaml
       # Run all Currents tests
