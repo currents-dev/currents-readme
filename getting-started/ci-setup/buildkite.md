@@ -28,40 +28,11 @@ Buildkite provides `BUILDKITE_PARALLEL_JOB` (0-indexed) and `BUILDKITE_PARALLEL_
 
 {% code overflow="wrap" %}
 ```bash
-npx pwc --shard=$((BUILDKITE_PARALLEL_JOB + 1))/$BUILDKITE_PARALLEL_JOB_COUNT
+npx playwright test --shard=$((BUILDKITE_PARALLEL_JOB + 1))/$BUILDKITE_PARALLEL_JOB_COUNT
 ```
 {% endcode %}
 
-## Example Pipeline
-
-The example [pipeline.yml](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/buildkite/.buildkite/pipeline.yml) demonstrates two methods for running Playwright tests with Currents:
-
-| Step                          | Description                                | Method                            |
-| ----------------------------- | ------------------------------------------ | --------------------------------- |
-| `Playwright Tests - pwc`      | Run tests using `pwc` CLI wrapper          | CLI (`npx pwc`)                   |
-| `Playwright Tests - Reporter` | Run tests using Playwright Reporter config | Reporter (`playwright.config.ts`) |
-
-### Using `pwc` CLI
-
-{% code title=".buildkite/pipeline.yml" overflow="wrap" %}
-```yaml
-steps:
-  - label: ":playwright: Playwright Tests"
-    command: |
-      npm ci
-      npx playwright install --with-deps
-      npx pwc --shard=$((BUILDKITE_PARALLEL_JOB + 1))/$BUILDKITE_PARALLEL_JOB_COUNT
-    parallelism: 3
-    plugins:
-      - docker#v5.11.0:
-          image: "mcr.microsoft.com/playwright:latest"
-    env:
-      CURRENTS_PROJECT_ID: "bnsqNa"  # Your Project ID
-      CURRENTS_RECORD_KEY: "${CURRENTS_RECORD_KEY}"  # From secrets
-```
-{% endcode %}
-
-### Using Playwright Reporter
+## Configuration
 
 Configure the Currents reporter in your `playwright.config.ts`:
 
@@ -92,7 +63,7 @@ export default currentsConfig;
 ```
 {% endcode %}
 
-Then run tests with the standard Playwright command:
+## Example Pipeline
 
 {% code title=".buildkite/pipeline.yml" overflow="wrap" %}
 ```yaml
@@ -112,53 +83,21 @@ steps:
 ```
 {% endcode %}
 
-## Full Pipeline Example
-
-Here's a complete pipeline configuration with parallel test execution:
-
-{% code title=".buildkite/pipeline.yml" overflow="wrap" %}
-```yaml
-env:
-  CURRENTS_PROJECT_ID: "bnsqNa"  # Your Project ID
-
-steps:
-  - label: ":npm: Install dependencies"
-    command: npm ci
-    plugins:
-      - docker#v5.11.0:
-          image: "mcr.microsoft.com/playwright:latest"
-
-  - wait
-
-  - label: ":playwright: Install Playwright"
-    command: npx playwright install --with-deps
-
-  - wait
-
-  - label: ":test_tube: Run Playwright Tests"
-    command: |
-      npx pwc --shard=$((BUILDKITE_PARALLEL_JOB + 1))/$BUILDKITE_PARALLEL_JOB_COUNT
-    parallelism: 3
-    env:
-      CURRENTS_RECORD_KEY: "${CURRENTS_RECORD_KEY}"
-```
-{% endcode %}
-
 This pipeline:
 
 * Runs 3 parallel containers using Buildkite's `parallelism` feature
 * Uses the official Microsoft Playwright Docker image
 * Splits tests using Playwright's native sharding with Buildkite environment variables
-* Reports results to Currents for consolidated viewing
+* Reports results to Currents via the Playwright Reporter
 
 ## Environment Variables
 
-| Variable                      | Description                                          |
-| ----------------------------- | ---------------------------------------------------- |
-| `CURRENTS_PROJECT_ID`         | Your Currents project ID                             |
-| `CURRENTS_RECORD_KEY`         | Your Currents record key (store as secret)           |
-| `BUILDKITE_PARALLEL_JOB`      | Current job index (0-indexed, provided by Buildkite) |
-| `BUILDKITE_PARALLEL_JOB_COUNT`| Total number of parallel jobs (provided by Buildkite)|
+| Variable                       | Description                                           |
+| ------------------------------ | ----------------------------------------------------- |
+| `CURRENTS_PROJECT_ID`          | Your Currents project ID                              |
+| `CURRENTS_RECORD_KEY`          | Your Currents record key (store as secret)            |
+| `BUILDKITE_PARALLEL_JOB`       | Current job index (0-indexed, provided by Buildkite)  |
+| `BUILDKITE_PARALLEL_JOB_COUNT` | Total number of parallel jobs (provided by Buildkite) |
 
 {% hint style="info" %}
 Looking for more ways to speed up CI? Read our [ci-optimization](../../guides/ci-optimization/ "mention") guide.
