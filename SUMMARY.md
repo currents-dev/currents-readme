@@ -17,6 +17,7 @@
     * [Custom Docker runners](getting-started/ci-setup/gitlab/custom-docker-runners.md)
   * [Jenkins](getting-started/ci-setup/jenkins.md)
   * [CircleCI](getting-started/ci-setup/playwright-circleci.md)
+  * [Buildkite](getting-started/ci-setup/buildkite.md)
   * [Azure DevOps](getting-started/ci-setup/playwright-azure-devops.md)
   * [AWS Code Build](getting-started/ci-setup/playwright-aws-code-build.md)
   * [NX](getting-started/ci-setup/nx.md)
