@@ -131,6 +131,7 @@
     * [SAML2.0 Configuration](dashboard/administration/sso-saml2.0/saml2.0-configuration.md)
     * [SCIM User Provisioning](dashboard/administration/sso-saml2.0/scim-user-provisioning.md)
     * [IdP-initiated Sessions](dashboard/administration/sso-saml2.0/idp-initiated-sessions.md)
+    * [Azure AD / Entra ID](dashboard/administration/sso-saml2.0/azure-ad/README.md)
     * [JumpCloud](administration/sso-saml2.0/jumpcloud/README.md)
       * [JumpCloud User provisioning](administration/sso-saml2.0/jumpcloud/jumpcloud-user-provisioning.md)
     * [Okta](dashboard/administration/sso-saml2.0/okta/README.md)
