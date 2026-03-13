@@ -1,0 +1,10 @@
+<svg class="svg-icon" style="width: 1em;height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;"
+    viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(0, 113)">
+        <path d="M369.152 366.293333v285.696l-285.696-139.946666V226.261333zM657.706667 512V226.304l282.88 139.989333z"
+            fill="#00FF93" />
+        <path
+            d="M369.152 366.293333v285.696l288.554667-139.946666V226.261333zM657.706667 512v285.696l282.88-145.706667V366.293333z"
+            fill="#00B368" />
+    </g>
+</svg>
