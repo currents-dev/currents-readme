@@ -109,7 +109,7 @@ See the [example repository](https://github.com/currents-dev/currents-examples/t
 
 <details>
 
-<summary><a href="https://github.com/currents-dev/playwright-gh-actions-demo/blob/example-argos-currents-orchestration/argos/playwright.config.ts">Playwright Configuration</a></summary>
+<summary><a href="https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/github-actions/argos/playwright.config.ts">Playwright Configuration</a></summary>
 
 ```typescript
 // playwright.config.ts
