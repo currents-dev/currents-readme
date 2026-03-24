@@ -20,6 +20,7 @@
   * [Buildkite](getting-started/ci-setup/buildkite.md)
   * [Azure DevOps](getting-started/ci-setup/playwright-azure-devops.md)
   * [AWS Code Build](getting-started/ci-setup/playwright-aws-code-build.md)
+  * [Harness](getting-started/ci-setup/playwright-harness.md)
   * [NX](getting-started/ci-setup/nx.md)
 * [Other Frameworks](getting-started/other-frameworks/README.md)
   * [JUnit](getting-started/other-frameworks/others/README.md)
