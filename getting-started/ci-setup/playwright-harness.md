@@ -6,8 +6,8 @@ description: Running Playwright tests on Harness CI with Currents reporting and 
 
 This guide explains how to run Playwright tests on [Harness Continuous Integration](https://developer.harness.io/docs/category/set-up-cicd-pipelines) and report results to [Currents](https://currents.dev). It follows Harness NextGen pipeline patterns ([Run steps](https://developer.harness.io/docs/continuous-integration/use-ci/run-step-settings), [stage parallelism](https://developer.harness.io/docs/continuous-integration/use-ci/run-tests/speed-up-ci-test-pipelines-using-parallelism), [secrets](https://developer.harness.io/docs/platform/secrets/add-use-text-secrets)).
 
-{% hint style="info" %}
-Harness is **not** in Currents’ [auto-detected CI providers](../../guides/parallelization-guide/ci-build-id.md#build-id-for-popular-ci-providers) for CI Build ID. Set **`CURRENTS_CI_BUILD_ID` explicitly** (see below) so parallel shards aggregate into one run and retries get a new ID when needed.
+{% hint style="warning" %}
+**`CURRENTS_CI_BUILD_ID` is mandatory** for Harness. Harness is **not** in Currents’ [auto-detected CI providers](../../guides/parallelization-guide/ci-build-id.md#build-id-for-popular-ci-providers). If you omit it, Currents may generate a **different** build ID per job or shard: parallel Playwright shards **will not merge into one run**, reporting and orchestration **break**, and **retries** can collide with or duplicate prior runs. Always set `CURRENTS_CI_BUILD_ID` in every Run step (see below).
 {% endhint %}
 
 ## Prerequisites
@@ -16,6 +16,7 @@ Harness is **not** in Currents’ [auto-detected CI providers](../../guides/para
 
 - Organization and project at [https://app.currents.dev](https://app.currents.dev)
 - **Project ID** and **Record Key** — see [record-key.md](../../guides/record-key.md "mention")
+- **`CURRENTS_CI_BUILD_ID`** set in CI for every Playwright step (mandatory on Harness — see [CI Build ID](#ci-build-id-mandatory-on-harness))
 - `@currents/playwright` installed and configured — see [currents-playwright](../../resources/reporters/currents-playwright/ "mention")
 
 **Harness**
@@ -75,13 +76,20 @@ export default config;
 
 {% endcode %}
 
-## CI Build ID (required for Harness)
+## CI Build ID (mandatory on Harness)
 
-Set **`CURRENTS_CI_BUILD_ID`** to a value that is:
+**You must provide `CURRENTS_CI_BUILD_ID`** (environment variable or reporter config). It is a **required** input for correct Currents behavior on Harness — not optional.
 
-- **Unique per pipeline execution** (each run gets its own Currents run)
+Without a stable, explicit value:
+
+- Each parallel shard may get its own ID → **multiple runs** instead of one combined run
+- Reruns may reuse or collide with IDs → **stale or rejected** uploads — see the [CI Build ID FAQ](../../guides/parallelization-guide/ci-build-id.md#faq-retrying-builds-and-ci-build-id)
+
+The value must be:
+
+- **Unique per pipeline execution** (each execution gets its own Currents run)
 - **Identical across all parallel Playwright shards** in the same execution (shards merge into one run)
-- **Different when you retry the same logical build**, if you need reruns to report as new runs — see [CI Build ID](../../guides/parallelization-guide/ci-build-id.md "mention")
+- **Different when you retry the same logical build**, when you need a fresh run — see [CI Build ID](../../guides/parallelization-guide/ci-build-id.md "mention")
 
 Harness resolves expressions before the step runs. Common choices:
 
@@ -176,7 +184,7 @@ Do **not** rely on Harness `split_tests` for Playwright unless you intentionally
 {% endcode %}
 
 - Tune `parallelism` and `maxConcurrency` per [best practices for looping strategies](https://developer.harness.io/docs/platform/pipelines/looping-strategies/best-practices-for-looping-strategies).
-- The **same** `CURRENTS_CI_BUILD_ID` must reach every shard (expression above resolves identically for all parallel instances of the same execution).
+- **`CURRENTS_CI_BUILD_ID` is mandatory** — the **same** value must reach every shard (the `<+pipeline.executionId>` expression above resolves identically for all parallel instances of the same execution).
 
 ## Environment variables reference
 
@@ -184,7 +192,7 @@ Do **not** rely on Harness `split_tests` for Playwright unless you intentionally
 | ---------------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | `CURRENTS_PROJECT_ID`  | Yes                             | Currents project ID from the dashboard                                                                                            |
 | `CURRENTS_RECORD_KEY`  | Yes                             | Record key; inject via `<+secrets.getValue("SECRET_IDENTIFIER")>` (or org/account-scoped variant)                                 |
-| `CURRENTS_CI_BUILD_ID` | Strongly recommended on Harness | Explicit build ID for grouping shards and reruns — see [CI Build ID](../../guides/parallelization-guide/ci-build-id.md "mention") |
+| `CURRENTS_CI_BUILD_ID` | **Yes (mandatory)** | **Required on Harness.** Stable ID shared by all shards in one execution; must change appropriately on retries — see [CI Build ID](../../guides/parallelization-guide/ci-build-id.md "mention") |
 | `CI`                   | Optional                        | Set to `true` so tools behave as in CI                                                                                            |
 | `HARNESS_NODE_INDEX`   | Parallel only                   | `<+strategy.iteration>` — 0-based shard index                                                                                     |
 | `HARNESS_NODE_TOTAL`   | Parallel only                   | `<+strategy.iterations>` — must match `parallelism`                                                                               |
@@ -195,7 +203,7 @@ You can define **pipeline** or **stage** variables for non-secret settings (for 
 
 ## Harness Open Source / GitOps pipeline YAML
 
-If you use the **open-source pipeline** schema (`kind: pipeline`), environment variables are often declared under `spec.options.envs` (pipeline-wide) or `spec.envs` on a `ci` stage, and Run steps use `spec.container` and `spec.script`. The **Currents** requirements (`CURRENTS_*` and `npx playwright test` with optional `--shard`) are the same; map them to your schema per [CI stage reference](https://developer.harness.io/docs/open-source/reference/pipelines/yaml/stage.type.ci).
+If you use the **open-source pipeline** schema (`kind: pipeline`), environment variables are often declared under `spec.options.envs` (pipeline-wide) or `spec.envs` on a `ci` stage, and Run steps use `spec.container` and `spec.script`. The **Currents** requirements are the same: include **`CURRENTS_CI_BUILD_ID` (mandatory)**, other `CURRENTS_*` variables, and `npx playwright test` with optional `--shard`. Map them to your schema per [CI stage reference](https://developer.harness.io/docs/open-source/reference/pipelines/yaml/stage.type.ci).
 
 ## Further reading
 
