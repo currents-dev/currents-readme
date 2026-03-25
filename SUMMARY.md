@@ -79,6 +79,7 @@
   * [Reference](guides/currents-actions/reference/README.md)
     * [Conditions](guides/currents-actions/reference/conditions.md)
     * [Actions](guides/currents-actions/reference/actions.md)
+  * [Lifecycle Notifications](guides/currents-actions/lifecycle-notifications.md)
 * [Playwright Component Testing](guides/playwright-component-testing.md)
 * [Playwright Visual Testing](guides/playwright-visual-testing.md)
 * [Playwright Annotations](guides/playwright-annotations.md)

@@ -1,5 +1,7 @@
 ---
-description: Setting up SAML2.0 SSO with Azure AD / Microsoft Entra ID as an IdP for Currents
+description: >-
+  Setting up SAML2.0 SSO with Azure AD / Microsoft Entra ID as an IdP for
+  Currents
 ---
 
 # Azure AD / Entra ID
@@ -30,7 +32,7 @@ You **must** configure claim transformations as described below to ensure correc
 
 {% stepper %}
 {% step %}
-### Create Enterprise Application
+#### Create Enterprise Application
 
 1. Sign in to the [Azure Portal](https://portal.azure.com)
 2. Navigate to **Microsoft Entra ID** (formerly Azure Active Directory)
@@ -41,28 +43,28 @@ You **must** configure claim transformations as described below to ensure correc
 {% endstep %}
 
 {% step %}
-### Configure SAML Single Sign-On
+#### Configure SAML Single Sign-On
 
 1. In your new application, go to **Single sign-on** in the left menu
 2. Select **SAML** as the single sign-on method
 3. In the **Basic SAML Configuration** section, click **Edit** and set:
 
-| Setting | Value |
-| ------- | ----- |
-| Identifier (Entity ID) | `urn:amazon:cognito:sp:us-east-1_Z9TVEnj0k` |
-| Reply URL (ACS URL) | `https://auth.currents.dev/saml2/idpresponse` |
+| Setting                | Value                                         |
+| ---------------------- | --------------------------------------------- |
+| Identifier (Entity ID) | `urn:amazon:cognito:sp:us-east-1_Z9TVEnj0k`   |
+| Reply URL (ACS URL)    | `https://auth.currents.dev/saml2/idpresponse` |
 
 4. Click **Save**
 {% endstep %}
 
 {% step %}
-### Configure User Attributes and Claims
+#### Configure User Attributes and Claims
 
 This is the most critical step. You must configure claims to send the user's lowercase email as both `NameID` and the `identifier` attribute.
 
 1. In the **Attributes & Claims** section, click **Edit**
 
-#### Configure NameID
+**Configure NameID**
 
 2. Click on the **Unique User Identifier (Name ID)** claim
 3. Set the following:
@@ -73,15 +75,15 @@ This is the most critical step. You must configure claims to send the user's low
    * **Transformation**: `ToLowercase()`
 5. Click **Save**
 
-#### Add Required Claims
+**Add Required Claims**
 
 Add the following claims by clicking **Add new claim** for each:
 
-| Claim Name | Namespace | Source Attribute | Transformation |
-| ---------- | --------- | ---------------- | -------------- |
-| `emailaddress` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail` | `ToLowercase()` |
-| `identifier` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail` | `ToLowercase()` |
-| `name` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.displayname` | — |
+| Claim Name     | Namespace                                               | Source Attribute   | Transformation  |
+| -------------- | ------------------------------------------------------- | ------------------ | --------------- |
+| `emailaddress` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail`        | `ToLowercase()` |
+| `identifier`   | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail`        | `ToLowercase()` |
+| `name`         | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.displayname` | —               |
 
 {% hint style="info" %}
 The `ToLowercase()` transformation is essential. Without it, users with mixed-case email addresses will encounter authentication errors.
@@ -89,7 +91,7 @@ The `ToLowercase()` transformation is essential. Without it, users with mixed-ca
 {% endstep %}
 
 {% step %}
-### Download Federation Metadata
+#### Download Federation Metadata
 
 1. In the **SAML Certificates** section, locate **Federation Metadata XML**
 2. Click **Download** to save the metadata file
@@ -106,7 +108,7 @@ The `ToLowercase()` transformation is essential. Without it, users with mixed-ca
 {% endstep %}
 
 {% step %}
-### Share Configuration with Currents
+#### Share Configuration with Currents
 
 Contact Currents support (support@currents.dev or via in-app chat) and provide:
 
@@ -117,7 +119,7 @@ Currents support will configure your SSO integration and notify you when it's re
 {% endstep %}
 
 {% step %}
-### Assign Users
+#### Assign Users
 
 1. In your Enterprise application, go to **Users and groups**
 2. Click **Add user/group**
@@ -126,7 +128,7 @@ Currents support will configure your SSO integration and notify you when it's re
 {% endstep %}
 
 {% step %}
-### Test the Integration
+#### Test the Integration
 
 Once Currents support confirms the integration is active:
 
