@@ -66,27 +66,23 @@ This is the most critical step. You must configure claims to send the user's low
 
 **Configure NameID**
 
-2. Click on the **Unique User Identifier (Name ID)** claim
-3. Set the following:
-   * **Source**: Attribute
-   * **Source attribute**: `user.mail`
-   * **Name identifier format**: `Persistent`
-4. Expand **Manage transformation** and add a transformation:
-   * **Transformation**: `ToLowercase()`
-5. Click **Save**
+2. Open the **Unique User Identifier (Name ID)** claim (claim name `nameidentifier`; namespace `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` is shown read-only in the portal).
+3. Under **Choose name identifier format**, set **Name identifier format** to **Persistent**.
+4. Under **Source**, select **Transformation** (not Attribute).
+5. Set **Transformation** to **ToLowercase** with input **`user.mail`** — the portal displays this as **ToLowercase (user.mail)**.
+6. Click **Save**
 
-**Add Required Claims**
+**Additional claims**
 
-Add the following claims by clicking **Add new claim** for each:
+Under **Attributes & Claims**, in **Additional claims**, click **Add new claim** for each row below. Use **SAML** as the claim type where the portal asks for it.
 
-| Claim Name     | Namespace                                               | Source Attribute   | Transformation  |
-| -------------- | ------------------------------------------------------- | ------------------ | --------------- |
-| `emailaddress` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail`        | `ToLowercase()` |
-| `identifier`   | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail`        | `ToLowercase()` |
-| `name`         | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.displayname` | —               |
+* **Claim name:** `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` — **Type:** SAML — **Attribute / value:** transformation **ToLowercase** with source `user.mail` (shown as `ToLowercase (user.mail)`).
+* **Claim name:** `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` — **Type:** SAML — **Attribute / value:** `user.displayname`.
 
 {% hint style="info" %}
-The `ToLowercase()` transformation is essential. Without it, users with mixed-case email addresses will encounter authentication errors.
+Use the **ToLowercase** transformation for email values so mixed-case addresses from Azure AD match Currents accounts.
+
+Also add a third claim — **Claim name:** `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/identifier` — **Type:** SAML — with the same **ToLowercase** (`user.mail`) mapping as `NameID`. The `identifier` value must match `NameID` exactly; see [saml2.0-configuration.md](../saml2.0-configuration.md "mention").
 {% endhint %}
 {% endstep %}
 
