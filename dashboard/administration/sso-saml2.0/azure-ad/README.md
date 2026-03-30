@@ -15,24 +15,11 @@ Enabling SSO will affect all users of your organization, users would not be able
 * SP-initiated SSO (Single Sign-On)
 * Just-In-Time provisioning
 
-### Important: Azure AD Default Behavior
-
-{% hint style="warning" %}
-Azure AD's default SAML configuration uses an **opaque persistent identifier** (Object ID) for `NameID`, not the user's email. Additionally, Azure AD may send email addresses with mixed-case characters.
-
-Currents requires:
-
-* `NameID` to be the user's **email address in lowercase**
-* The `identifier` claim to match `NameID` exactly
-
-You **must** configure claim transformations as described below to ensure correct operation.
-{% endhint %}
-
 ### Setup Steps
 
 {% stepper %}
 {% step %}
-#### Create Enterprise Application
+**Create Enterprise Application**
 
 1. Sign in to the [Azure Portal](https://portal.azure.com)
 2. Navigate to **Microsoft Entra ID** (formerly Azure Active Directory)
@@ -43,7 +30,7 @@ You **must** configure claim transformations as described below to ensure correc
 {% endstep %}
 
 {% step %}
-#### Configure SAML Single Sign-On
+**Configure SAML Single Sign-On**
 
 1. In your new application, go to **Single sign-on** in the left menu
 2. Select **SAML** as the single sign-on method
@@ -58,36 +45,52 @@ You **must** configure claim transformations as described below to ensure correc
 {% endstep %}
 
 {% step %}
-#### Configure User Attributes and Claims
+**Configure User Attributes and Claims**
 
-This is the most critical step. You must configure claims to send the user's lowercase email as both `NameID` and the `identifier` attribute.
+{% hint style="warning" %}
+You **must** configure claim transformations as described below to ensure correct operation.
+
+
+
+Azure AD may send email addresses with mixed-case characters which is not supported by Currents Authentication provider.
+
+Currents requires Unique User Identifier (Name ID) `NameID` to be the user's email address in lowercase.
+{% endhint %}
+
+**Unique User Identifier (Name ID)**
+
+Configure Entra to send the user's lowercase email as `NameID`  attribute.
 
 1. In the **Attributes & Claims** section, click **Edit**
-
-**Configure NameID**
-
-2. Open the **Unique User Identifier (Name ID)** claim (claim name `nameidentifier`; namespace `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` is shown read-only in the portal).
+2. Open the **Unique User Identifier (Name ID)** claim&#x20;
+   1. claim name `nameidentifier`;&#x20;
+   2. namespace `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`&#x20;
 3. Under **Choose name identifier format**, set **Name identifier format** to **Persistent**.
 4. Under **Source**, select **Transformation** (not Attribute).
 5. Set **Transformation** to **ToLowercase** with input **`user.mail`** — the portal displays this as **ToLowercase (user.mail)**.
 6. Click **Save**
 
+
+
 **Additional claims**
 
 Under **Attributes & Claims**, in **Additional claims**, click **Add new claim** for each row below. Use **SAML** as the claim type where the portal asks for it.
 
-* **Claim name:** `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` — **Type:** SAML — **Attribute / value:** transformation **ToLowercase** with source `user.mail` (shown as `ToLowercase (user.mail)`).
-* **Claim name:** `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` — **Type:** SAML — **Attribute / value:** `user.displayname`.
+| Claim Name                                                           | Value                                                                                        |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` | Transformation **ToLowercase** with source `user.mail` (shown as `ToLowercase (user.mail)`). |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`         | `user.displayname`                                                                           |
+|                                                                      |                                                                                              |
 
 {% hint style="info" %}
 Use the **ToLowercase** transformation for email values so mixed-case addresses from Azure AD match Currents accounts.
-
-Also add a third claim — **Claim name:** `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/identifier` — **Type:** SAML — with the same **ToLowercase** (`user.mail`) mapping as `NameID`. The `identifier` value must match `NameID` exactly; see [saml2.0-configuration.md](../saml2.0-configuration.md "mention").
 {% endhint %}
+
+<figure><img src="../../../../.gitbook/assets/CleanShot 2026-03-30 at 13.05.55@2x.png" alt=""><figcaption><p>Microsoft Entra Attributes Mapping Example</p></figcaption></figure>
 {% endstep %}
 
 {% step %}
-#### Download Federation Metadata
+**Download Federation Metadata**
 
 1. In the **SAML Certificates** section, locate **Federation Metadata XML**
 2. Click **Download** to save the metadata file
@@ -104,7 +107,7 @@ Also add a third claim — **Claim name:** `http://schemas.xmlsoap.org/ws/2005/0
 {% endstep %}
 
 {% step %}
-#### Share Configuration with Currents
+**Share Configuration with Currents**
 
 Contact Currents support (support@currents.dev or via in-app chat) and provide:
 
@@ -115,7 +118,7 @@ Currents support will configure your SSO integration and notify you when it's re
 {% endstep %}
 
 {% step %}
-#### Assign Users
+**Assign Users**
 
 1. In your Enterprise application, go to **Users and groups**
 2. Click **Add user/group**
@@ -124,7 +127,7 @@ Currents support will configure your SSO integration and notify you when it's re
 {% endstep %}
 
 {% step %}
-#### Test the Integration
+**Test the Integration**
 
 Once Currents support confirms the integration is active:
 
