@@ -52,6 +52,7 @@
 
 * [MCP Server](ai/mcp-server.md)
 * [Agent Skill: Playwright Best Practices](ai/agent-skill-playwright-best-practices.md "Playwright Skill")
+* [IDE Extension](ai/ide-extension.md)
 
 ## Guides
 
