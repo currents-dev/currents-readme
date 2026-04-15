@@ -7,30 +7,28 @@ description: Provision and de-provision users in Currents using Okta
 ### Supported features
 
 * **Create users:**
-  * Creates new users in Currents when assigned to the Okta app.&#x20;
+  * Creates new users in Currents when assigned to the Okta app.
   * Users won't appear in the Currents team member list until they login.
-* **Update user attributes:**&#x20;
+* **Update user attributes:**
   * Currents accepts name updates for users.
-* **Deactivate users:**&#x20;
+* **Deactivate users:**
   * Prevent the user from logging into Currents
   * Deactivated users are removed from the Currents team member list.
-* **Import users:**&#x20;
+* **Import users:**
   * Link your existing Currents users to their Okta profile.
 
 For more information on the listed features, visit the [Okta Glossary](https://help.okta.com/okta_help.htm?type=oie\&id=ext_glossary).
 
-
-
 ### Requirements
 
-Provisioning is available for customers with an active subscription.&#x20;
+Provisioning is available for customers with an active subscription.
 
 In order to setup provisioning you first need to:
 
-* Setup the the  [Okta integration for SAML](./).&#x20;
+* Setup the the [Okta integration for SAML](./).
 * Reach out to the Current support team to have provisioning enabled for your organization.
 
-&#x20;Please follow the guide below to enable the provisioning integration.
+Please follow the guide below to enable the provisioning integration.
 
 ### Configuration Steps
 
@@ -40,9 +38,9 @@ In order to setup provisioning you first need to:
 
 <figure><img src="../../../../.gitbook/assets/Screenshot 2024-07-25 at 9.30.26 AM.png" alt=""><figcaption><p>Navigate to Manage Team page</p></figcaption></figure>
 
-* Click the **Show SCIMv2 Details**  button in the **DOMAIN ACCESS & SSO** section of the page.
+* Click the **Show SCIMv2 Details** button in the **DOMAIN ACCESS & SSO** section of the page.
 
-<figure><img src="../../../../.gitbook/assets/scim-admin-dash (1).png" alt=""><figcaption><p>Getting the SCIM details from the Manage Team page</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/scim-admin-dash.png" alt=""><figcaption><p>Getting the SCIM details from the Manage Team page</p></figcaption></figure>
 
 * The **Endpoint** and **Token** details will be needed to configure Okta.
 
@@ -69,7 +67,7 @@ In order to setup provisioning you first need to:
 
 <figure><img src="../../../../.gitbook/assets/okta-currents-save-settings.png" alt=""><figcaption><p>Enable and Save all actions</p></figcaption></figure>
 
-* Ensure that the **Application username format** is set to **Email**. This is found in the **Sign On** tab, under **Credentials Details**.&#x20;
+* Ensure that the **Application username format** is set to **Email**. This is found in the **Sign On** tab, under **Credentials Details**.
 
 <figure><img src="../../../../.gitbook/assets/okta-scim-credential-details.png" alt=""><figcaption><p>Application username format set to Email</p></figcaption></figure>
 

@@ -4,7 +4,7 @@ description: Running Playwright tests in parallel with Jenkins and Currents Dash
 
 # Jenkins
 
-Here's an example of Jenkins pipeline that is running Playwright tests in parallel on 2 workers.&#x20;
+Here's an example of Jenkins pipeline that is running Playwright tests in parallel on 2 workers.
 
 The pipeline will be running 2 workers, based on `mcr.microsoft.com/playwright:v1.34.0-jammy` Docker image. Those workers will run all the tests in parallel.
 
@@ -87,7 +87,7 @@ Here you will be able to find the following Jenkinsfile that accepts two paramet
 * A CI Build ID from a previous run that you can use to apply the `--last-failed` flag. If this parameter is set, then the pipeline will automatically apply this tag and only run the failed tests from that run if found.
 * A checkbox for knowing if you want to run an orchestrated run. If so, the pipeline will use `pwc-p` command instead of `pwc`.
 
-<figure><img src="../../.gitbook/assets/image (12).png" alt="" width="375"><figcaption><p>Pipeline Params</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11).png" alt="" width="375"><figcaption><p>Pipeline Params</p></figcaption></figure>
 
 In order to use the `--last-failed` flag, in addition to the project ID and record key, a Currents API key is needed (You can find it in the API Keys section in your dashboard).
 
@@ -269,7 +269,4 @@ def runPlaywrightTestsLastFailedOrchestration(parallelIndex) {
 
 ```
 
-
-
 </details>
-

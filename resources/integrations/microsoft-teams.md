@@ -20,8 +20,6 @@ In order to enable MS Teams integration and share cypress test results to Teams 
   * **Events (Optional)** - specify events that will trigger the integration and send the results. Leaving this field blank activates all the events.
 * Click **Save** to preserve the changes
 
-
-
 <div data-with-frame="true"><picture><source srcset="../../.gitbook/assets/Screenshot 2026-03-05 at 3.09.45 PM.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-03-05 at 3.08.19 PM.png" alt="Enabling Microsoft Teams Slack integration"></picture></div>
 
 ### Filtering MS Teams notifications based on Tags
@@ -49,15 +47,15 @@ It is triggered when a new run starts. If a run contains multiple groups, the no
 
 It is triggered when a run finishes its execution or when a run times out. If a run contains multiple groups, the notification will be triggered for each group. For timed out runs, the message will contain the last know results for the run or run group.
 
-![Example of MS Teams notification for Cypress Run Finished](<../../.gitbook/assets/cypress-run-canceled-slack (1).png>)
+![Example of MS Teams notification for Cypress Run Finished](../../.gitbook/assets/cypress-run-canceled-slack.png)
 
-![Example of MS Teams notification for Cypress Run Finished with Timeout event ](../../.gitbook/assets/cypress-msteams-run-timedout.png)
+![Example of MS Teams notification for Cypress Run Finished with Timeout event](../../.gitbook/assets/cypress-msteams-run-timedout.png)
 
 #### Run Canceled
 
 Triggered when a run gets cancelled. If a run contains multiple groups, the notification will be triggered for each group. The message will contain the last know results for the run or run group.
 
-![Example of MS Teams notification for Cypress Run Canceled event ](../../.gitbook/assets/cypress-teams-run-canceled.png)
+![Example of MS Teams notification for Cypress Run Canceled event](../../.gitbook/assets/cypress-teams-run-canceled.png)
 
 ### How to disable MS Teams integration?
 

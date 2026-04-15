@@ -7,7 +7,7 @@ icon: masks-theater
 
 Connect Playwright to Currents in a few minutes and start seeing runs, screenshots, videos, and traces in one place. This guide keeps the setup minimal so you can go from "tests run locally" to "results show up in Currents" without extra ceremony.
 
-## Prerequisites  <a href="#prerequisites" id="prerequisites"></a>
+## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
 * An account — [sign up](https://app.currents.dev/signup) for a free trial.
 * NodeJS v14.0.0+
@@ -17,7 +17,11 @@ Connect Playwright to Currents in a few minutes and start seeing runs, screensho
 Want to hand this off to AI? Copy the prompt below into Cursor, Claude, ChatGPT, or your editor assistant and let it wire up the basics for you.
 {% endhint %}
 
-```text
+<details>
+
+<summary>Expand to see the prompt</summary>
+
+```
 Your task is to update Playwright setup to report test results to Currents.dev
 
 1. Install "@currents/playwright" package:
@@ -61,29 +65,25 @@ const config: CurrentsConfig = {
 export default config;
 ```
 
+
+
+</details>
+
 ## Setup Currents
 
 {% stepper %}
 {% step %}
-
-### Create a Project
+#### Create a Project
 
 When you first sign in, create an organization and a project. You can rename both later, so keep moving.
 
-<div data-with-frame="true"><figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure></div>
-
 Next, Currents shows your `Project ID` and `Record Key`. Keep that page open for the next steps.
 
-Select Playwright from the framework selection list.
-
-{% hint style="info" %}
-Recommended screenshot: the onboarding screen with `Project ID` and `Record Key` visibly highlighted. This is the single most useful image in the guide because it helps users instantly map the config values to what they see in the app.
-{% endhint %}
+<figure><img src="../.gitbook/assets/CleanShot 2026-04-15 at 13.03.32@2x.png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
-
-### Install @currents/playwright
+#### Install @currents/playwright
 
 Install the native Playwright reporter with your project's package manager.
 
@@ -95,32 +95,28 @@ If you use `pnpm`, `yarn`, or `bun`, run the equivalent dev dependency install c
 {% endstep %}
 
 {% step %}
-
-### Create currents.config.ts
+#### Create currents.config.ts
 
 Create `currents.config.ts` next to `playwright.config.ts`, usually in the project root. If your Playwright config uses `.js` or `.mjs`, use that same extension for `currents.config`.
 
 {% code title="currents.config.ts" %}
-
 ```typescript
 import { CurrentsConfig } from "@currents/playwright";
 
 const config: CurrentsConfig = {
   recordKey: process.env.CURRENTS_RECORD_KEY!,
-  projectId: "iDxgqa",
+  projectId: "you project id goes here",
 };
 
 export default config;
 ```
-
 {% endcode %}
 
 Use your real project ID from Currents. Keeping `recordKey` in an environment variable is the safest default.
 {% endstep %}
 
 {% step %}
-
-### Enable artifacts
+#### Enable artifacts
 
 Update `playwright.config.ts` so every recorded run includes traces, videos, and screenshots.
 
@@ -137,8 +133,7 @@ These artifacts are what make the dashboard feel useful on the first run, so it 
 {% endstep %}
 
 {% step %}
-
-### Setup Currents Reporter
+#### Setup Currents Reporter
 
 You have two ways to finish the integration. Most teams should start with the reporter because it keeps the existing Playwright command unchanged.
 
@@ -200,7 +195,7 @@ After setup, run Playwright and watch results get [streamed in real-time](../gui
 
 A link to the recorded run will be available at the start of the execution:
 
-```text
+```
 > npx pwc --key XXX --project-id YYY
 
 📦 Currents reporter: 1.12.0 recording to project WlKqJ0
@@ -213,11 +208,7 @@ A link to the recorded run will be available at the start of the execution:
 
 Open the link to see the run in the dashboard.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-01-08 at 16.21.02.png" alt=""><figcaption><p>Example of a newly created run</p></figcaption></figure>
-
-{% hint style="info" %}
-Recommended screenshot: a fresh run page with the trace, video, and screenshot artifacts visible. This helps users immediately understand why they enabled artifacts in the earlier step.
-{% endhint %}
+{% embed url="https://player.mux.com/qpKec7RVobezySxuxI52G9bCt4vr2ffi4rNGqbm9Ab4" %}
 
 {% hint style="warning" %}
 Ran into any errors? Check out our [troubleshooting-playwright.md](../guides/troubleshooting-playwright.md "mention") guide.
@@ -225,7 +216,7 @@ Ran into any errors? Check out our [troubleshooting-playwright.md](../guides/tro
 
 ## Next Step
 
-Once your Playwright project is set up and reporting locally, configure your CI pipeline.&#x20;
+Once your Playwright project is set up and reporting locally, configure your CI pipeline.
 
 Running tests in CI is where you get consistent, repeatable feedback on every pull request and deployment, not just on your local machine.
 

@@ -18,7 +18,7 @@ We wanted to provide a crash-resilient solution that would help debug failed CI 
 
 In addition, Currents uploads the generated artifacts to cloud storage as soon as they are available, so you can access them even if the execution crashes.
 
-<figure><img src="../../.gitbook/assets/pw-currents-streaming (1).png" alt=""><figcaption><p>Streaming step-level results in Currents reporter for Playwright tests</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/pw-currents-streaming.png" alt=""><figcaption><p>Streaming step-level results in Currents reporter for Playwright tests</p></figcaption></figure>
 
 In addition to being resilient to crashes, collecting data about individual steps allows Currents to present detailed information via its web interface. The results are stored in cloud storage, providing easy access to the entire team during Playwright tests execution. Think of it as a light version of Playwright traces that are available immediately and are not dependent on the test completion or the successful upload of a trace file.
 

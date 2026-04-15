@@ -18,7 +18,7 @@ Enabling SSO will affect all users of your organization, users would not be able
 
 {% stepper %}
 {% step %}
-Create a new SSO Application: **User Authentication  > SSO Applications > + Add New Application.**&#x20;
+Create a new SSO Application: **User Authentication > SSO Applications > + Add New Application.**
 
 Type **Currents** and then click **Create a Custom Integration > Next**
 
@@ -61,7 +61,7 @@ Configure SSO Settings
 {% endstep %}
 
 {% step %}
-### Done
+#### Done
 
 * Share the Metadata XML file together with other details appearing in [saml2.0-configuration.md](../../../dashboard/administration/sso-saml2.0/saml2.0-configuration.md "mention") with Currents support team to active the SSO.
 * Assign users or groups to the newly created SSO application

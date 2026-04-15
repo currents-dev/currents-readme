@@ -19,7 +19,7 @@ The recent (Jan 30, 2024) releases of `@currents/playwright@0.12.0` and `cypress
 * Effective Branch becomes the PR HEAD branch name - allowing more meaningful usage in analytics and notification filters
 * UI will display a direct link to GitHub Pull Request issue
 
-<figure><img src="../../../.gitbook/assets/currents-2024-01-30-14.57.07@2x (1).png" alt=""><figcaption><p>Capturing GitHub PR data</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2024-01-30-14.57.07@2x.png" alt=""><figcaption><p>Capturing GitHub PR data</p></figcaption></figure>
 
 ### Temporary commit in GitHub Pull Requests
 

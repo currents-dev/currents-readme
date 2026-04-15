@@ -4,21 +4,19 @@ description: A guide to Playwright Parallelization for speeding up Playwright te
 
 # Playwright Parallelization
 
-Running Playwright tests in parallel is most popular technique for speeding up end-to-end tests in CI. Playwright is highly concurrent  — you can run multiple tests in parallel by:
+Running Playwright tests in parallel is most popular technique for speeding up end-to-end tests in CI. Playwright is highly concurrent — you can run multiple tests in parallel by:
 
 * splitting tests between multiple machines (sharding)
 * running multiple tests in parallel on the same machine using [playwright worker processes](https://playwright.dev/docs/test-parallel#worker-processes)
 
 <figure><img src="../../.gitbook/assets/playwright concurrency.png" alt=""><figcaption><p>Playwright concurrency example - 5 shard with 4 workers each allows parallel execution of 20 tests</p></figcaption></figure>
 
-In the example above, the overall "bandwidth" is 20 concurrent tests — 5 shards with 4 workers each.  Consider setting the number of workers according to the CI resource class, and also consider enabling [fully-parallel-mode.md](fully-parallel-mode.md "mention").
-
-
+In the example above, the overall "bandwidth" is 20 concurrent tests — 5 shards with 4 workers each. Consider setting the number of workers according to the CI resource class, and also consider enabling [fully-parallel-mode.md](fully-parallel-mode.md "mention").
 
 In addition to using multiple workers, we will explore the parallelization methods:
 
 * Playwright Sharding
-* Currents Orchestration&#x20;
+* Currents Orchestration
 
 ## Playwright Sharding
 
@@ -28,7 +26,7 @@ Playwright has a built-in support of [Sharding](https://playwright.dev/docs/test
 npx playwright test --shard 1/2 # current shard = 1; overall shards = 2.
 ```
 
-<figure><img src="../../.gitbook/assets/playwright-sharding-example (1).png" alt=""><figcaption><p>Example of running 12 test files on 5 CI machines in parallel using Playwright Sharding</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/playwright-sharding-example.png" alt=""><figcaption><p>Example of running 12 test files on 5 CI machines in parallel using Playwright Sharding</p></figcaption></figure>
 
 The example above demonstrates running 12 test files on 5 CI machines. Each shard only runs a subset of tests, which is faster than running all the tests on a single machine.
 
@@ -40,9 +38,9 @@ The overall CI job duration is determined by the slowest (busiest) shard. There 
 * Optimal splitting of tests between the shards
 
 {% hint style="info" %}
-#### Load Balancing
+**Load Balancing**
 
-Optimally splitting tests between shards can significantly affect the CI execution time. Sharding splits test files based on the lexical order of test file paths — it often leads to unbalanced workloads.&#x20;
+Optimally splitting tests between shards can significantly affect the CI execution time. Sharding splits test files based on the lexical order of test file paths — it often leads to unbalanced workloads.
 
 Take, for example, a testing suite consisting of 4 test files with the following durations:
 
@@ -51,24 +49,18 @@ Take, for example, a testing suite consisting of 4 test files with the following
 * `spec03`: 3 minutes
 *   `spec04`: 2 minutes
 
-
-
     <figure><img src="../../.gitbook/assets/load-balancing-shards.png" alt=""><figcaption><p>Sharding splits the files inefficiently (20 minutes vs 13 minutes).</p></figcaption></figure>
 
-
-
-With 2 machines,  sharding splits the files inefficiently (20 minutes vs 13 minutes).
+With 2 machines, sharding splits the files inefficiently (20 minutes vs 13 minutes).
 
 * Shard 1: `spec01`, `spec02` (20 minutes total)
 * Shard 2: `spec03`, `spec04` (5 minutes total)
-
-
 {% endhint %}
 
 ## Playwright Orchestration
 
 {% hint style="success" %}
-**Orchestration for Playwright** is included with your Currents subscription.&#x20;
+**Orchestration for Playwright** is included with your Currents subscription.
 
 * ✅ Integrate with any CI provider and run tests on your own infrastructure
 * ✅ Speeds up your CI pipeline by analyzing your test suite and intelligently distributing tests across available CI runners
@@ -89,8 +81,6 @@ All test executions stays entirely within your environment, using your existing 
 
 Orchestration is especially effective for suites with 20+ files of various duration, resulting in up to [40% reduction the CI execution time](https://currents.dev/posts/currents-and-fundguard) with minimal changes to configuration.
 
-
-
 ## Sharding vs Orchestration
 
 ### Sharding
@@ -98,7 +88,7 @@ Orchestration is especially effective for suites with 20+ files of various durat
 Sharding is a great start for speeding up CI runs:
 
 * **Supported out-of-the-box** — just add `--shard i/n` to enable;
-* **it is a core feature** —  and has been supported by the Playwright team.
+* **it is a core feature** — and has been supported by the Playwright team.
 
 As your testing suite grows, you an discover some limitations:
 
@@ -116,8 +106,6 @@ Instead of pre-allocating tests to CI nodes, the orchestrator keeps a live queue
 
 <figure><img src="../../.gitbook/assets/currents-orchestration-queue.png" alt=""><figcaption><p>Orchestration service instructs each machine what tests to run in real time.</p></figcaption></figure>
 
-
-
 * **Dynamic test distribution** — tests are split based on real-time machine availability, not pre-assigned upfront.
 * **Handles CI quirks** — automatically adapts to runner spin-up delays or unresponsive machines.
 * **Learning from history** — tracks test durations and uses that data to improve distribution in future runs.
@@ -126,11 +114,9 @@ Instead of pre-allocating tests to CI nodes, the orchestrator keeps a live queue
 * **Your CI, your environment** — the tests are running on your existing environment, the orchestrator client communicates with Currents for task assignments and reporting the results.
 * **It's just Playwright** — an orchestrator uses Playwright internally, using the same configuration and interfaces to run the tests.
 
-
-
 Orchestration does come with its own limitations:
 
-* [**Playwright Project dependencies**](https://playwright.dev/docs/test-projects#dependencies) are not supported — as a workaround, run the projects in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)&#x20;
+* [**Playwright Project dependencies**](https://playwright.dev/docs/test-projects#dependencies) are not supported — as a workaround, run the projects in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)
 * [**Global Setup and Teardown**](https://playwright.dev/docs/test-global-setup-teardown) — an orchestrated execution runs `playwright` for each iteration. Beware, that the global setup or teardown routines will run accordingly.
 
 ### Comparing Sharding and Orchestration
@@ -153,7 +139,6 @@ Orchestration does come with its own limitations:
 
 Continue exploring more topics related to improving Playwright efficiency on CI
 
-* **Reduce CI costs by utilizing Cloud Spot Instances** —  orchestration allows dynamically reroute tests from a to-be-terminated to a healthy instance. See [ci-tests-on-spot-instances.md](ci-tests-on-spot-instances.md "mention").
+* **Reduce CI costs by utilizing Cloud Spot Instances** — orchestration allows dynamically reroute tests from a to-be-terminated to a healthy instance. See [ci-tests-on-spot-instances.md](ci-tests-on-spot-instances.md "mention").
 * **Enable Playwright Fully Parallel Mode** — run tests from the same test file in parallel using all the available CPUs. See [fully-parallel-mode.md](fully-parallel-mode.md "mention").
 * **Explore Load Balancing Strategies** — run frequently failing or flaky tests first with Currents Orchestration. See [fail-fast-strategy.md](fail-fast-strategy.md "mention").
-

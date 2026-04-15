@@ -13,7 +13,7 @@ Currents **Automated Reports** helps teams to proactively identify regressions i
 
 ### Test Performance Blind Spots
 
-An unwanted change in test performance can go unnoticed for a long time, especially for larger teams where multiple contributors change the tests often.&#x20;
+An unwanted change in test performance can go unnoticed for a long time, especially for larger teams where multiple contributors change the tests often.
 
 When a duration, flakiness, or failure rate change happens, it can often pass days or weeks before the regression in performance can be noticed. Meanwhile, teams waste time waiting for CI test results to appear, dealing with flaky, non-reliable, or often failing results.
 
@@ -58,7 +58,7 @@ Configure the settings and enable the automated report:
 
 7. Define the lookback period used to compare the current metrics.
 
-<figure><img src="../.gitbook/assets/image (43).png" alt=""><figcaption><p>Loopback period</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (42).png" alt=""><figcaption><p>Loopback period</p></figcaption></figure>
 
 8. Choose a scheduling frequency: Weekly, Daily, or Every 3 Days. Weekly schedules run on a specific weekday and require a weekday, time, and timezone. Daily and Every 3 Days schedules run at a fixed interval, so only the time and timezone need to be configured.
 
@@ -148,7 +148,7 @@ Maximum duration among all executed tests.
 
 * The trend is negative and increasing, meaning that tests with longer execution times are taking even more time.
 
-<figure><img src="../.gitbook/assets/image (33).png" alt=""><figcaption><p>Tests section summary</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (32).png" alt=""><figcaption><p>Tests section summary</p></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (34).png" alt=""><figcaption><p>Test flakiness chart</p></figcaption></figure>
 
@@ -165,8 +165,6 @@ This section includes key subsections that provide a clearer view of the test su
 * [Highest Failure Rate](automated-reports.md#highest-failure-rate)
 * [Trending Failing Tests](automated-reports.md#trending-failing-tests)
 * [New Failing Tests](automated-reports.md#new-failing-tests)
-
-
 
 #### **Top Flaky Tests**
 

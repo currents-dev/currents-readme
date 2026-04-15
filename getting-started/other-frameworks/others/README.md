@@ -5,7 +5,7 @@ icon: grid
 
 # JUnit
 
-Currents has flagship integrations with various testing frameworks via the dedicated reporters (like Playwright, [jest](../jest/ "mention"),   [currents-node-test-reporter](../../../resources/reporters/currents-node-test-reporter/ "mention") and [cypress](../cypress/ "mention")).&#x20;
+Currents has flagship integrations with various testing frameworks via the dedicated reporters (like Playwright, [jest](../jest/ "mention"), [currents-node-test-reporter](../../../resources/reporters/currents-node-test-reporter/ "mention") and [cypress](../cypress/ "mention")).
 
 Integration with other frameworks is possible by uploading a JUnit XML (or compatible) test results report to Currents using our CLI utilities from [currents-cmd](../../../resources/reporters/currents-cmd/ "mention") package.
 
@@ -26,25 +26,25 @@ A typical workflow for reporting JUnit XML results to Currents:
 
 {% stepper %}
 {% step %}
-### Configure testing framework
+#### Configure testing framework
 
 Configure your testing tool to generate the results in JUnit XML format
 {% endstep %}
 
 {% step %}
-### Run the tests
+#### Run the tests
 
 Run the tests and save the test results at a known location
 {% endstep %}
 
 {% step %}
-### Conver JUnit XML file
+#### Conver JUnit XML file
 
 Run [currents-convert.md](../../../resources/reporters/currents-cmd/currents-convert.md "mention") command to convert JUnit XML report to a format compatible with Currents
 {% endstep %}
 
 {% step %}
-### Upload the results to Currents
+#### Upload the results to Currents
 
 Run [currents-upload.md](../../../resources/reporters/currents-cmd/currents-upload.md "mention")command to send the results to Currents for processing
 {% endstep %}
@@ -83,7 +83,7 @@ npx currents convert \
 
 ### Upload the results
 
-Use  [currents-upload.md](../../../resources/reporters/currents-cmd/currents-upload.md "mention") command to send the results to Currents.  Get a [Record key](../../../guides/record-key.md) and [Project ID](../../../dashboard/projects/) from Currents dashboard.
+Use [currents-upload.md](../../../resources/reporters/currents-cmd/currents-upload.md "mention") command to send the results to Currents. Get a [Record key](../../../guides/record-key.md) and [Project ID](../../../dashboard/projects/) from Currents dashboard.
 
 ```bash
 npx currents upload --project-id=xxx --key=yyy

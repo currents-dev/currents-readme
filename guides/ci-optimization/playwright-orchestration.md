@@ -6,18 +6,14 @@ description: Playwright Orchestration setup instructions
 
 Orchestration helps decrease the duration of Playwright tests in CI pipelines. Read our detailed guide on [playwright-parallelization.md](playwright-parallelization.md "mention") that compares the native sharding with orchestration.
 
-
-
 ### How does it work
 
-`@currents/playwright` contains a command-line executable `pwc-p` —  a lightweight wrapper that implements  Orchestration and runs Playwright behind the scenes.
+`@currents/playwright` contains a command-line executable `pwc-p` — a lightweight wrapper that implements Orchestration and runs Playwright behind the scenes.
 
 * it scans the testing suite
 * it establishes an orchestration session with Currents servers
 * **it** runs Playwright, executing spec files in the optimal order
 * the results are recorded to Currents for troubleshooting and analysis
-
-
 
 ### Setup
 
@@ -29,17 +25,15 @@ npm i @currents/playwright
 
 <br>
 
-Replace `playwright` command with `pwc-p`&#x20;
+Replace `playwright` command with `pwc-p`
 
 ```bash
 npx pwc-p --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id>
 ```
 
 {% hint style="success" %}
-Read more about [ci-build-id.md](../parallelization-guide/ci-build-id.md "mention")  and [reporting-strategy.md](../parallelization-guide/reporting-strategy.md "mention")&#x20;
+Read more about [ci-build-id.md](../parallelization-guide/ci-build-id.md "mention") and [reporting-strategy.md](../parallelization-guide/reporting-strategy.md "mention")
 {% endhint %}
-
-&#x20;
 
 `pwc-p` accepts additional playwright arguments and flags (see [currents-playwright](../../resources/reporters/currents-playwright/ "mention")), for example:
 
@@ -55,8 +49,6 @@ There's no need to define shards,
 
 Make sure to remove `--shard` flag — Currents uses all the available machines automatically.
 {% endhint %}
-
-
 
 A successfully created orchestration prints an output similar to this:
 
@@ -74,8 +66,6 @@ $ npx pwc-p --key **redacted** --project-id **redacted** --ci-build-id `date +%s
 ```
 {% endcode %}
 
-
-
 ### Examples
 
 Check out the following example configuration of running orchestration in popular CI providers:
@@ -85,15 +75,11 @@ Check out the following example configuration of running orchestration in popula
 * [GitHub Actions + NX](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/nx/.github/workflows/or8n.yml)
 * _Missing an example?_ [_Let us know_](mailto:support@currents.dev)_._
 
-
-
 ### Orchestration and Reporters
 
 #### Adding Additional Reporters
 
 `pwc-p` automatically injects Currents reporter [currents-playwright](../../resources/reporters/currents-playwright/ "mention") into playwright, replacing all other reporters configured in `playwright.config.ts` . To add additional reporters use one of the two options
-
-
 
 **Add additional reporters via a CLI parameter.**
 
@@ -103,8 +89,6 @@ Check out the following example configuration of running orchestration in popula
 pwc-p --key <record-key> --project-id <id> --ci-build-id <build-id> --reporter="./myreporter/my-awesome-reporter.ts"
 ```
 {% endcode %}
-
-
 
 **Prevent automatic injection of Currents reporter, add it manually.**
 
@@ -141,7 +125,7 @@ const config: PlaywrightTestConfig = {
 }
 ```
 
-* **Optional:** Update `pwc-p` CLI  command
+* **Optional:** Update `pwc-p` CLI command
 
 `pwc-p` reads all the configuration from `currents.config.ts` - no need to use CLI params.
 
@@ -150,8 +134,6 @@ const config: PlaywrightTestConfig = {
 pwc-p  -- [...playwright-cli-params]
 ```
 {% endcode %}
-
-
 
 #### Merging Fragmented Reports
 
@@ -173,13 +155,11 @@ npx playwright merge-reports --reporter=html ./blob-report
 
 Check an [example of Github Actions setup here.](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/test-or8n.yml)
 
-
-
 ### Orchestration and Multiple Workers
 
-`@currents/playwright#13.0.0+` supports automatic detection of global workers and the orchestration adjusts to make the best use of the available workers.&#x20;
+`@currents/playwright#13.0.0+` supports automatic detection of global workers and the orchestration adjusts to make the best use of the available workers.
 
-When multiple workers are enabled, the orchestrator creates a  "batch" of multiple test files to ensure the most optimal utilization of all the available workers. The batch runs as single playwright command.
+When multiple workers are enabled, the orchestrator creates a "batch" of multiple test files to ensure the most optimal utilization of all the available workers. The batch runs as single playwright command.
 
 As of May 2025, the Playwright Test Runner [does not respect the execution order of test files](https://github.com/microsoft/playwright/issues/35743). This means that even if Currents suggests an optimal execution order, Playwright may run files in a different sequence when multiple workers are used. It only affects cases when multiple workers are involved and has a minor impact.
 
@@ -189,7 +169,7 @@ Also see [fully-parallel-mode.md](fully-parallel-mode.md "mention").
 
 The batch size can be configured via [env variable or cli option](https://docs.currents.dev/resources/reporters/currents-playwright/pwc-p-orchestration#pwc-batch-size-less-than-auto-or-number-greater-than).
 
-&#x20;Starting at `@currents/playwright` version `1.14.0`  and `@playwright/test` version starting at `1.52.0` the option can be set per project.
+Starting at `@currents/playwright` version `1.14.0` and `@playwright/test` version starting at `1.52.0` the option can be set per project.
 
 This means that the batch size can be handled globally, that also supports automatic detection of global workers, but also the project level workers and batch size is taken into account for defining the batch size.
 
@@ -197,37 +177,37 @@ Batch size for each project is determined by evaluating options in the following
 
 {% stepper %}
 {% step %}
-### Global batch size
+#### Global batch size
 
 A global batch size defined via [environment variable or CLI option](https://docs.currents.dev/resources/reporters/currents-playwright/pwc-p-orchestration#pwc-batch-size-less-than-auto-or-number-greater-than) will override any batch size or worker settings defined at the project level.
 
-<sub>Starting with version</sub> <sub></sub><sub>`1.13.0`</sub><sub>, the reporter can automatically detect and use the global worker count as the batch size, if global workers are defined.</sub>
+<sub>Starting with version</sub> <sub>`1.13.0`</sub><sub>, the reporter can automatically detect and use the global worker count as the batch size, if global workers are defined.</sub>
 {% endstep %}
 
 {% step %}
-### Project batch size
+#### Project batch size
 
 `currentsBatchSize` defined at [project level](playwright-orchestration.md#project-level-batch-size)
 
-<sub>This configuration is available in</sub><sub>`@currents/playwright`</sub> <sub></sub><sub>version starting at</sub>  <sub></sub><sub>`1.14.0`</sub>  <sub></sub><sub>and</sub> <sub></sub><sub>`@playwright/test`</sub> <sub></sub><sub>version starting at</sub> <sub></sub><sub>`1.52.0`</sub>
+<sub>This configuration is available in</sub><sub>`@currents/playwright`</sub> <sub>version starting at</sub> <sub>`1.14.0`</sub> <sub>and</sub> <sub>`@playwright/test`</sub> <sub>version starting at</sub> <sub>`1.52.0`</sub>
 {% endstep %}
 
 {% step %}
-### Project workers
+#### Project workers
 
 `workers` defined at [project level](playwright-orchestration.md#project-level-workers)
 
-<sub>This configuration is available in</sub><sub>`@currents/playwright`</sub> <sub></sub><sub>version starting at</sub>  <sub></sub><sub>`1.14.0`</sub>  <sub></sub><sub>and</sub> <sub></sub><sub>`@playwright/test`</sub> <sub></sub><sub>version starting at</sub> <sub></sub><sub>`1.52.0`</sub>
+<sub>This configuration is available in</sub><sub>`@currents/playwright`</sub> <sub>version starting at</sub> <sub>`1.14.0`</sub> <sub>and</sub> <sub>`@playwright/test`</sub> <sub>version starting at</sub> <sub>`1.52.0`</sub>
 {% endstep %}
 
 {% step %}
-### Global workers
+#### Global workers
 
-[Globally defined `workers`](https://playwright.dev/docs/api/class-testconfig#test-config-workers)&#x20;
+[Globally defined `workers`](https://playwright.dev/docs/api/class-testconfig#test-config-workers)
 {% endstep %}
 
 {% step %}
-### Default
+#### Default
 
 If none of the above is defined, batch size is `1`
 {% endstep %}
@@ -300,12 +280,10 @@ For the `firefox` project, the `currentsBatchSize` is set to `auto`, so Currents
 
 Re-running only failed tests for orchestrated runs requires collecting the results from multiple machines, or alternatively getting the failed test from Currents [API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/ "mention"). We have created a set of tools to simplify the setup. See [re-run-only-failed-tests.md](re-run-only-failed-tests.md "mention").
 
-
-
 ### Limitations and Nuances
 
 * Orchestration works on a **file level** - i.e. it balances test files (rather than tests)
-* [**Playwright Project dependencies**](https://playwright.dev/docs/test-projects#dependencies) is not supported - i.e. if you have projects that depend one on another, orchestration will not consider the dependencies. As a workaround, run the dependencies in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)&#x20;
+* [**Playwright Project dependencies**](https://playwright.dev/docs/test-projects#dependencies) is not supported - i.e. if you have projects that depend one on another, orchestration will not consider the dependencies. As a workaround, run the dependencies in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)
 * [**Global Setup and Teardown**](https://playwright.dev/docs/test-global-setup-teardown). An orchestrated execution will run `playwright` command multiple times. Beware, that the global setup or teardown routines will run for each invocation of `playwright`.
 
 ### Next Steps

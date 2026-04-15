@@ -12,7 +12,7 @@ Notification settings are configured entirely in the dashboard. The REST API can
 
 <figure><img src="../../.gitbook/assets/image (55).png" alt=""><figcaption><p>Navigate to Action Settings</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (58).png" alt=""><figcaption><p>Actions Settings > Notifications Page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (56).png" alt=""><figcaption><p>Actions Settings > Notifications Page</p></figcaption></figure>
 
 ### Configuration and Delivery
 
@@ -20,7 +20,7 @@ Notification settings are configured entirely in the dashboard. The REST API can
 
 Enabling Slack notifications requires two steps:
 
-1. **Connect Slack to the organization** following the [#installation](../../resources/integrations/slack/slack-app.md#installation "mention").&#x20;
+1. **Connect Slack to the organization** following the [#installation](../../resources/integrations/slack/slack-app.md#installation "mention").
 
 {% hint style="info" %}
 Note that this OAuth flow requires an organization administrator.
@@ -28,14 +28,14 @@ Note that this OAuth flow requires an organization administrator.
 
 <figure><img src="../../.gitbook/assets/image (48).png" alt=""><figcaption><p>Missing Slack App installation</p></figcaption></figure>
 
-2. **Enable Slack notifications** in the Action Settings page:&#x20;
+2. **Enable Slack notifications** in the Action Settings page:
 
 * select a channel
 * choose the events
 
 Connecting Slack under Integrations alone does not enable notifications — they must be configured on this page.
 
-<figure><img src="../../.gitbook/assets/image (60).png" alt=""><figcaption><p>Slack channel configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (59).png" alt=""><figcaption><p>Slack channel configuration</p></figcaption></figure>
 
 Once Slack is connected, anyone with **Actions Admin** access can configure the channel and events. If the Slack option is unavailable, an organization administrator must complete the Integrations setup first.
 

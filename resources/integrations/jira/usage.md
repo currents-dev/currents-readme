@@ -32,7 +32,7 @@ To create a new issue:
 
 Example of a newly created issue:
 
-<figure><img src="../../../.gitbook/assets/currents-2025-07-11-15.41.48@2x (1).png" alt="Example of New Jira Issue creation form"><figcaption><p>Example of New Jira Issue creation form</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2025-07-11-15.41.48@2x.png" alt="Example of New Jira Issue creation form"><figcaption><p>Example of New Jira Issue creation form</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/currents-2025-07-11-15.42.28@2x.png" alt="Example of an new Jira issue created from Currents"><figcaption><p>Example of an new Jira issue created from Currents</p></figcaption></figure>
 
@@ -48,8 +48,6 @@ To link and comment on an existing issue:
 4. Toggle **Include Details** to add test context
 5. Click **Add Comment**
 
-
-
 Example of commenting on an existing issue:
 
 <figure><img src="../../../.gitbook/assets/currents-2025-07-11-15.45.42@2x.png" alt="Example of linking test failure to an existing Jira issue"><figcaption><p>Example of linking test failure to an existing Jira issue</p></figcaption></figure>
@@ -61,11 +59,11 @@ Example of commenting on an existing issue:
 Open Jira dialog to list existing Jira Issues linked to the current test.
 
 * Click on the Jira Issue ID to explore its details (opens a new tab)
-* Click 💬  to add a new comment to an existing issue
+* Click 💬 to add a new comment to an existing issue
 * Click ⛓️‍💥 to unlink Jira Issue from the test
-* Click **Add Jira Issue** to create new or link an additional Jira Issue&#x20;
+* Click **Add Jira Issue** to create new or link an additional Jira Issue
 
-<figure><img src="../../../.gitbook/assets/currents-2025-10-13-22.11.37@2x.png" alt=""><figcaption><p>Listing Jira Issues related to the test </p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2025-10-13-22.11.37@2x.png" alt=""><figcaption><p>Listing Jira Issues related to the test</p></figcaption></figure>
 
 ### Notes
 
@@ -79,7 +77,7 @@ Open Jira dialog to list existing Jira Issues linked to the current test.
 
 **Problem**: Jira issues allows _required_ custom properties when an issue is created depending on the _issue type_. This is currently **not supported** in our integration, as we can't send custom payload to the create issue endpoint.
 
-**Solution**: Two options are available to overcome this issue. First,&#x20;
+**Solution**: Two options are available to overcome this issue. First,
 
 * Don't enforce custom properties as required.
 * Use a different issue type that has no required custom properties.
