@@ -19,7 +19,7 @@ Want to hand this off to AI? Copy the prompt below into Cursor, Claude, ChatGPT,
 
 <details>
 
-<summary>Expand to see the prompt</summary>
+<summary>🤖 Expand to see the prompt </summary>
 
 ```
 Your task is to update Playwright setup to report test results to Currents.dev
@@ -208,7 +208,7 @@ A link to the recorded run will be available at the start of the execution:
 
 Open the link to see the run in the dashboard.
 
-{% embed url="https://player.mux.com/qpKec7RVobezySxuxI52G9bCt4vr2ffi4rNGqbm9Ab4" %}
+{% embed url="https://player.mux.com/qpKec7RVobezySxuxI52G9bCt4vr2ffi4rNGqbm9Ab4?thumbnail-time=35" %}
 
 {% hint style="warning" %}
 Ran into any errors? Check out our [troubleshooting-playwright.md](../guides/troubleshooting-playwright.md "mention") guide.
