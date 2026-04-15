@@ -74,6 +74,26 @@ Depending on the Usage and Billing Cycle (see below) and payment method, we will
 We recommend switching to a higher-tier plan to avoid incurring extra usage fees.
 {% endhint %}
 
+### Capping Extra Usage
+
+If your organization uses an extra usage plan, you can cap how much usage beyond the plan limit is allowed before Currents stops recording new results.
+
+To configure it, go to **Billing & Usage** and enable **Limit extra usage**. Then set **Extra usage cap %**.
+
+<figure><img src=".gitbook/assets/CleanShot 2026-04-15 at 00.59.11@2x.png" alt=""><figcaption></figcaption></figure>
+
+The cap is calculated as a percentage of your plan limit:
+
+* `0%` means Currents will stop recording as soon as you go over the included plan limit.
+* `50%` means Currents will allow up to 50% extra usage beyond the plan limit before stopping recording.
+* Example: if your plan includes `10,000` tests or runs and the cap is `50%`, recording stops after `15,000` total tests or runs.
+
+When the cap is reached, your CI pipelines and test runners continue running, but Currents pauses recording until one of the following happens:
+
+* the current usage cycle resets
+* you increase or remove the cap
+* you upgrade your plan
+
 ## Enterprise Plans
 
 Enterprise Plans allows customizing the terms and cadence of billing and usage cycle, in addition to premium support, unlimited seats and other contract customizations.
