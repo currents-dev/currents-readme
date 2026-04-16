@@ -5,14 +5,17 @@ icon: people-group
 
 # Microsoft Teams
 
-Currents integration with Microsoft Team allows posting test results of your Cypress tests directly into MS Teams channels.
+Currents integration with Microsoft Team allows posting test results of your tests directly into MS Teams channels.
 
 ![Cypress Tests Results in Microsoft Teams](../../.gitbook/assets/cypress-msteams-example.png)
 
-### How to enable Microsoft Teams integration for Cypress tests?
+### How to enable Microsoft Teams integration?
 
-In order to enable MS Teams integration and share cypress test results to Teams channels, follow the steps:
+In order to enable MS Teams integration and share test results to Teams channels, follow the steps:
 
+* Navigate to "Manage Project" section for the selected project
+* Click "Add Integration", and select "Microsoft Teams"
+* Enter the details of your Microsoft Teams Integration and click "Save"
 * Navigate to **Manage Project > Integrations**
 * Add Microsoft Teams integration and provide the details:
   * **Microsoft** **Teams Webhook URL -** Incoming Webhook URL, e.g. `https://currents463.webhook.office.com/XXX/YYY/ZZZ`. [Read the guide](https://support.microsoft.com/en-us/office/create-incoming-webhooks-with-workflows-for-microsoft-teams-8ae491c7-0394-4861-ba59-055e33f75498) to generate the URL.
