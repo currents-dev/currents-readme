@@ -11,7 +11,7 @@ The **Affected Tests** tab is part of the project **Actions** area in Currents. 
 1. Open the project in Currents.
 2. Go to **Manage Project** -> **Actions**.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -23,7 +23,7 @@ From top to bottom:
 2. **Filters** — limit by action status, action type, and how far back in time to look.
 3. **Affected tests —** List of the affected tests with its executions by the actions using the filters set.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -31,7 +31,7 @@ From top to bottom:
 
 When a specific action is selected, a list of affected tests with its executions will show up at the bottom of the panel.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 ***
 

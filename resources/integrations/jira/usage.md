@@ -70,14 +70,3 @@ Open Jira dialog to list existing Jira Issues linked to the current test.
 * The integration creates one-way links from Currents to Jira
 * Deleting or closing Jira Issue do not remove those issues in Currents - you will need to do that manually
 * Comments include a link back to the relevant test in Currents
-
-### Limitations
-
-#### Required Jira issue custom properties
-
-**Problem**: Jira issues allows _required_ custom properties when an issue is created depending on the _issue type_. This is currently **not supported** in our integration, as we can't send custom payload to the create issue endpoint.
-
-**Solution**: Two options are available to overcome this issue. First,
-
-* Don't enforce custom properties as required.
-* Use a different issue type that has no required custom properties.

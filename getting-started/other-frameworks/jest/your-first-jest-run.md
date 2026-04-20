@@ -16,7 +16,7 @@ After signing up for the dashboard service, you will be prompted to create a new
 
 <img src="../../../.gitbook/assets/currents-create-org.gif" alt="Creating an Organization and a Project in Currents dashboard" data-size="original">
 
-After creating a new organization and a project, you'll see on-screen instructions with your newly created **Project ID** and **Record Key.**&#x20;
+After creating a new organization and a project, you'll see on-screen instructions with your newly created **Project ID** and **Record Key.**
 
 Select Jest from the framework selection list.
 
@@ -86,7 +86,7 @@ Add a line in your .gitignore to avoid pushing temporary generated reports to yo
 
 </details>
 
-## Your First Jest Run&#x20;
+## Your First Jest Run
 
 Upon running Jest tests, Currents reporter for jest generates a temporary folder containing the test results. To upload the results to Currents, you must run [currents-upload.md](../../../resources/reporters/currents-cmd/currents-upload.md "mention")
 
@@ -114,14 +114,14 @@ You can defined the Record Key and Project ID in the [Reporter configuration](..
 
 The execution results will show on the Currents dashboard. The latest report should be uploaded to Currents, and a link to the run will be displayed.
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>A link to the recorded results</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption><p>A link to the recorded results</p></figcaption></figure>
 
 ## Good To Know
 
-To provide reliable information about your tests, Currents run a "discovery" process - i.e. exploring the full test suite details. The discovery runs as part of `currents upload` command. Behind the scenes, the command runs `jest` in discovery mode.&#x20;
+To provide reliable information about your tests, Currents run a "discovery" process - i.e. exploring the full test suite details. The discovery runs as part of `currents upload` command. Behind the scenes, the command runs `jest` in discovery mode.
 
 {% hint style="info" %}
 It is important to ensure that
 
-`npx jest --reporters=@currents/jest` and `currents upload`  share the same environment variables
+`npx jest --reporters=@currents/jest` and `currents upload` share the same environment variables
 {% endhint %}

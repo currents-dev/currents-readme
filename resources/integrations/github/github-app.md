@@ -36,7 +36,7 @@ After approving the installation you'll be able to see the list of repositories.
 
 #### Connecting multiple GitHub organizations
 
-You can have multiple GitHub organizations connected to Currents. Click **+ Add Installation** to restart the approval process for a new organization.&#x20;
+You can have multiple GitHub organizations connected to Currents. Click **+ Add Installation** to restart the approval process for a new organization.
 
 After the new approval is complete, you will be able to switch the GitHub organizations and select a new repository.
 
@@ -97,17 +97,17 @@ Using the same status label for the same repo across different projects can crea
 
 #### Run one check per framework
 
-If you are reporting tests from multiple frameworks in the same job, you can enable this option to make sure the commit status check has a prefix with the framework label. This will guarantee that each testing framework gets their own status check.&#x20;
+If you are reporting tests from multiple frameworks in the same job, you can enable this option to make sure the commit status check has a prefix with the framework label. This will guarantee that each testing framework gets their own status check.
 
 {% hint style="warning" %}
-Make sure to update any repository rules that makes it mandatory for the commit status check to pass, as enabling this option will change the commit status title.&#x20;
+Make sure to update any repository rules that makes it mandatory for the commit status check to pass, as enabling this option will change the commit status title.
 {% endhint %}
 
 #### Grouping commit status event into a single comment
 
 Single Notification for all groups (Optional) – enabling will update GitHub commit status once per run event, regardless of the number of groups.
 
-<figure><img src="../../../.gitbook/assets/image (2) (2).png" alt=""><figcaption><p>Single notification for all groups</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (2) (1).png" alt=""><figcaption><p>Single notification for all groups</p></figcaption></figure>
 
 ### Troubleshooting GitHub Integration
 
@@ -128,7 +128,7 @@ remote: COMMIT_INFO_REMOTE
 
 #### I have enabled GitHub integration, but nothing appears in GitHub
 
-Behind the scenes, Currents is using git commit data to identify the PR (issue) to comment on.&#x20;
+Behind the scenes, Currents is using git commit data to identify the PR (issue) to comment on.
 
 The simplified flow is:
 

@@ -187,6 +187,7 @@
   * [Jira](resources/integrations/jira.md)
     * [Setup](resources/integrations/jira/setup.md)
     * [Usage](resources/integrations/jira/usage.md)
+    * [Custom Fields](resources/integrations/jira/custom-fields.md)
 * [Data Privacy](resources/data-privacy/README.md)
   * [Access to Customer Data](resources/data-privacy/access-to-customer-data.md)
   * [Data Redaction](resources/data-privacy/data-redaction.md)
