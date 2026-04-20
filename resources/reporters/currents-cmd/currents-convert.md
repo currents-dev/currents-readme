@@ -59,38 +59,70 @@ npx currents convert \
 
 `currents convert` options apart from `--framework-version` are required. Use `--help` flag to list the available options.
 
-*   `--input-format`
-
-    * The format of the input test reports. Use the `--help` flag to see the supported formats
-    * **Type:** `junit`
-
-
-*   `--input-file`
-
-    * Comma-separated glob patterns to match the test results files (e.g., "report1.xml,report2.xml)
-    * The multi-file match is only available starting on version 1.6.8 of `@currents/cmd` package.
-    * **Type:** `string`
-
-
-*   `-o, --output-dir`
-
-    * The directory to save the converted test reports
-    * **Type:** `string`
-
-
-*   `--framework`
-
-    * The testing framework used to generate the test reports
-    * **Type:** `postman, vitest, wdio`
-
-
-*   `--framework-version`
-
-    * The version of the testing framework used to generate the test reports
-    * **Type:** `string`
-
-
+* `--input-format`
+  * The format of the input test reports. Use the `--help` flag to see the supported formats
+  * **Type:** `junit`
+* `--input-file`
+  * Comma-separated glob patterns to match the test results files (e.g., "report1.xml,report2.xml)
+  * The multi-file match is only available starting on version 1.6.8 of `@currents/cmd` package.
+  * **Type:** `string`
+* `-o, --output-dir`
+  * The directory to save the converted test reports
+  * **Type:** `string`
+* `--framework`
+  * The testing framework used to generate the test reports
+  * **Type:** `postman, vitest, wdio`
+* `--framework-version`
+  * The version of the testing framework used to generate the test reports
+  * **Type:** `string`
 * `--debug`
   * Enable debug logs
   * Environment variable: `DEBUG=currents*`
   * **Type:** `boolean`
+
+### Artifacts
+
+Artifacts are files that can be linked with specific `instance`, `test` or `attempt` according to the [#artifact-level](currents-convert.md#artifact-level "mention") of the artifact.&#x20;
+
+The artifacts are taken from the JUnit XML file that can be read from this tags structure:
+
+```
+<properties>
+      <property name="currents.artifact.{level}.path" value="./artifacts/manual/coverage.json" />
+      <property name="currents.artifact.{level}.type" value="coverage" />
+      <property name="currents.artifact.{level}.contentType" value="application/json" />
+      <property name="currents.artifact.{level}.name" value="Test Coverage" />
+</properties>
+```
+
+if the artifact is at attempt level it must also include the attempt index:
+
+```
+<properties>
+      <property name="currents.artifact.attempt.{n}.path" value="./artifacts/video.mp4" />
+      <property name="currents.artifact.attempt.{n}.type" value="video" />
+      <property name="currents.artifact.attempt.{n}.contentType" value="video/mp4" />
+      <property name="currents.artifact.attempt.{n}.name" value="Test Video" />
+</properties>
+```
+
+* For `instance` level artifacts, the `<properties>` tag must exist within a `<testsuite>` tag.
+* For `test` and `attempt` level artifacts, the `<properties>` tag must exist within a `<testcase>` tag.
+
+See [#artifact](../data-format-reference.md#artifact "mention") for a more specific data structure and the [JUnit example in the repository](https://github.com/currents-dev/currents-reporter/blob/main/examples/junit/junit-attempts.xml).
+
+#### Level <a href="#artifact-level" id="artifact-level"></a>
+
+The generic API reports support three types [#artifact-type](currents-convert.md#artifact-type "mention") of artifact levels:
+
+* `attempt`: Corresponds to the attempts (retries) made on each test.
+* `test`: Is the specific test code executed for a testing framework.
+* `instance`: Group of tests in a spec file.
+
+#### Type <a href="#artifact-type" id="artifact-type"></a>
+
+Currents Generic API accepts the following types of artifacts, each one according to the artifact level.
+
+* `attempt`: `video`, `screenshot`, `attachment`
+* `test`: `attachment`
+* `instance`: `coverage`, `attachment`, `stdout`

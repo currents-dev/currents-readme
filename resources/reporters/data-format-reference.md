@@ -19,6 +19,10 @@ Within the Results Directory, the following structure of files and directories i
 
 ```
 results-dir/
+├── artifacts/
+│   ├── <artifact-hash-1>.mp4
+│   ├── <artifact-hash-2>.png
+│   ├── <artifact-hash-3>.txt
 ├── instances/
 │   ├── <instance-id-1>.json
 │   ├── <instance-id-2>.json
@@ -32,6 +36,7 @@ The output consists of three main components:
 * `fullTestSuite.json` is the [#full-test-suite](data-format-reference.md#full-test-suite "mention") JSON document that contains the tests expected to be reported. It does not contain test results.
 * `config.json` is a [#configuration-file](data-format-reference.md#configuration-file "mention") that contains metadata such as test framework name, version, and more.
 * `instances` folder contains [#instance-files](data-format-reference.md#instance-files "mention") - JSON documents that represent a spec file or logical collection and the associated test results.
+* `artifacts` folder contains [#artifact](data-format-reference.md#artifact "mention") files that can be any file restricted by level on the accepted formats.
 
 ## Full Test Suite
 
@@ -40,6 +45,10 @@ The Full Test Suite is a JSON-formatted file that contains a list of all tests e
 Each element in the `fullTestSuite.json` file array represents a group of tests, organized by the `name` property which defines the group name.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 19.52.39.png" alt=""><figcaption><p>Note that the property "name" is showed as the "group name" in the dashboard.</p></figcaption></figure>
+
+
+
+
 
 {% hint style="info" %}
 Currents requires that all test results from the Full Test Suite be submitted before the project's specified timeout. If results are not received by the deadline, the run is marked as timed out. See [run-timeouts.md](../../dashboard/runs/run-timeouts.md "mention").
@@ -344,6 +353,16 @@ Object that describes an individual attempt of a test.
 | message  | string | Yes      | A description of the error encountered during the test attempt. Example: "expected 631 to be below 200"                                |
 | stack    | string | No       | The stack trace related to the error. Example: "AssertionError: expected 631 to be below 200\n at Object.eval sandbox-script.js:2:1)." |
 | value    | string | No       | The type or categorization of the error. Example: "AssertionFailure"                                                                   |
+
+### Artifact
+
+| Property    | Type                                                                     | Required | Description                                                                                                                                                              |
+| ----------- | ------------------------------------------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| path        | string                                                                   | Yes      | Relative path of the artifact saved in the `artifacts` folder                                                                                                            |
+| type        | string [currents-convert.md](currents-cmd/currents-convert.md "mention") | Yes      | Type of the artifact in Currents. Accepted values are: `screenshot`, `video`, `coverage`, `attachment`, `stdout`                                                         |
+| contentType | string                                                                   | Yes      | The MIME type of the file                                                                                                                                                |
+| name        | string                                                                   | Yes      | The name of the file                                                                                                                                                     |
+| level       | string [currents-convert.md](currents-cmd/currents-convert.md "mention") | Yes      | <p>Level to which the artifact belongs to.</p><p> Accepted values are (default <code>attempt</code>): <code>instance</code>, <code>test</code>, <code>attempt</code></p> |
 
 ### Generating testId
 
