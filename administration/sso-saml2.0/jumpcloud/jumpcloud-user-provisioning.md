@@ -32,7 +32,7 @@ In order to setup provisioning you first need to:
 
 * Click the **Show SCIMv2 Details** button in the **DOMAIN ACCESS & SSO** section of the page.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>Getting the SCIM details from the Manage Team page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>Getting the SCIM details from the Manage Team page</p></figcaption></figure>
 
 * Note the **Endpoint** and **Token** details for JumpCloud Configuration
 
@@ -74,7 +74,7 @@ Currents does not accept updates to the following attributes:
 
 #### Username errors on import
 
-JumpCloud attempts to use the first part of the email as the username when importing new users from Currents.  (eg, `andrew@currents.dev` becomes `andrew` )
+JumpCloud attempts to use the first part of the email as the username when importing new users from Currents. (eg, `andrew@currents.dev` becomes `andrew` )
 
 If your users have a `+` character in their email, the import will fail. To workaround, first create the user in JumpCloud, then sync them with Currents. JumpCloud and Currents will sync based on the user email.
 
