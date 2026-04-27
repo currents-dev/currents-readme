@@ -22,8 +22,6 @@ Please follow the steps below to help collect information when you have issues w
 
 Share the screenshot and the generated HAR file with our Support team
 
-
-
 ### Invalid ProviderName/Username Combination
 
 This error occurs when Currents cannot match the SAML response to a valid user account:
@@ -34,17 +32,15 @@ Invalid SAML response received: Invalid ProviderName/Username combination.
 
 #### Common Causes
 
-1. **NameID uses an opaque identifier instead of email**
-   
-   Some IdPs (notably Azure AD / Entra ID) default to sending an opaque persistent identifier (e.g., Object ID) as the `NameID` value. Currents requires the `NameID` to be the user's **email address**, not an opaque ID.
+1.  **NameID uses an opaque identifier instead of email**
 
-2. **NameID and identifier claim mismatch**
-   
-   The `identifier` SAML attribute must contain the exact same value as `NameID`. If `NameID` is set to one value (e.g., an opaque ID) while `identifier` contains the email, authentication will fail.
+    Some IdPs (notably Azure AD / Entra ID) default to sending an opaque persistent identifier (e.g., Object ID) as the `NameID` value. Currents requires the `NameID` to be the user's **email address**, not an opaque ID.
+2.  **NameID and identifier claim mismatch**
 
-3. **Case-sensitive email values**
-   
-   If `NameID` or `identifier` contains uppercase characters (e.g., `User@Example.com`), it may not match existing Currents accounts which use lowercase emails.
+    The `identifier` SAML attribute must contain the exact same value as `NameID`. If `NameID` is set to one value (e.g., an opaque ID) while `identifier` contains the email, authentication will fail.
+3.  **Case-sensitive email values**
+
+    If `NameID` or `identifier` contains uppercase characters (e.g., `User@Example.com`), it may not match existing Currents accounts which use lowercase emails.
 
 #### Resolution
 
@@ -56,7 +52,7 @@ Ensure your IdP is configured to:
 
 **For Azure AD / Entra ID:**
 
-See [azure-ad](azure-ad/ "mention") for detailed configuration steps, including how to apply the `ToLowercase()` transformation to claims.
+See [azure-ad.md](azure-ad.md "mention") for detailed configuration steps, including how to apply the `ToLowercase()` transformation to claims.
 
 **For other IdPs:**
 

@@ -50,8 +50,6 @@ Enabling SSO will affect all users of your organization, users would not be able
 {% hint style="warning" %}
 You **must** configure claim transformations as described below to ensure correct operation.
 
-
-
 Azure AD may send email addresses with mixed-case characters which is not supported by Currents Authentication provider.
 
 Currents requires Unique User Identifier (Name ID) `NameID` to be the user's email address in lowercase.
@@ -59,18 +57,16 @@ Currents requires Unique User Identifier (Name ID) `NameID` to be the user's ema
 
 **Unique User Identifier (Name ID)**
 
-Configure Entra to send the user's lowercase email as `NameID`  attribute.
+Configure Entra to send the user's lowercase email as `NameID` attribute.
 
 1. In the **Attributes & Claims** section, click **Edit**
-2. Open the **Unique User Identifier (Name ID)** claim&#x20;
-   1. claim name `nameidentifier`;&#x20;
-   2. namespace `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`&#x20;
+2. Open the **Unique User Identifier (Name ID)** claim
+   1. claim name `nameidentifier`;
+   2. namespace `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`
 3. Under **Choose name identifier format**, set **Name identifier format** to **Persistent**.
 4. Under **Source**, select **Transformation** (not Attribute).
 5. Set **Transformation** to **ToLowercase** with input **`user.mail`** — the portal displays this as **ToLowercase (user.mail)**.
 6. Click **Save**
-
-
 
 **Additional claims**
 
@@ -86,7 +82,7 @@ Under **Attributes & Claims**, in **Additional claims**, click **Add new claim**
 Use the **ToLowercase** transformation for email values so mixed-case addresses from Azure AD match Currents accounts.
 {% endhint %}
 
-<figure><img src="../../../../.gitbook/assets/CleanShot 2026-03-30 at 13.05.55@2x.png" alt=""><figcaption><p>Microsoft Entra Attributes Mapping Example</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/CleanShot 2026-03-30 at 13.05.55@2x.png" alt=""><figcaption><p>Microsoft Entra Attributes Mapping Example</p></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -136,7 +132,7 @@ Once Currents support confirms the integration is active:
 3. You will be redirected to Microsoft's login page
 4. After authenticating, you should be redirected back to the Currents dashboard
 
-If you encounter errors, see [troubleshooting-sso.md](../troubleshooting-sso.md "mention").
+If you encounter errors, see [troubleshooting-sso.md](troubleshooting-sso.md "mention").
 {% endstep %}
 {% endstepper %}
 
@@ -144,5 +140,5 @@ If you encounter errors, see [troubleshooting-sso.md](../troubleshooting-sso.md 
 
 For more details on SAML attribute configuration, see:
 
-* [saml2.0-configuration.md](../saml2.0-configuration.md "mention") — full SAML configuration reference
+* [saml2.0-configuration.md](saml2.0-configuration.md "mention") — full SAML configuration reference
 * [Microsoft Entra SAML Claims Customization](https://learn.microsoft.com/en-us/entra/identity-platform/saml-claims-customization) — official Microsoft documentation on claim transformations

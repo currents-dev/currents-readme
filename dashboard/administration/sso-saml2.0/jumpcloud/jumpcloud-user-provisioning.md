@@ -28,11 +28,11 @@ In order to setup provisioning you first need to:
 
 * Login as an Admin and navigate to the **Manage Team** page.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2026-01-19 at 19.36.49.png" alt=""><figcaption><p>Navigate to the Manage Team page</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2026-01-19 at 19.36.49.png" alt=""><figcaption><p>Navigate to the Manage Team page</p></figcaption></figure>
 
 * Click the **Show SCIMv2 Details** button in the **DOMAIN ACCESS & SSO** section of the page.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>Getting the SCIM details from the Manage Team page</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>Getting the SCIM details from the Manage Team page</p></figcaption></figure>
 
 * Note the **Endpoint** and **Token** details for JumpCloud Configuration
 
@@ -40,18 +40,18 @@ In order to setup provisioning you first need to:
 
 *   Navigate to the existing Currents SSO Application in JumpCloud **USER AUTHENTICATION** > **SSO Applications**. Click on the Currents SSO Application you previously setup.
 
-    <figure><img src="../../../.gitbook/assets/CurrentsJumpCloudSSO.png" alt=""><figcaption><p>Navigate tot he Currents App</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/CurrentsJumpCloudSSO.png" alt=""><figcaption><p>Navigate tot he Currents App</p></figcaption></figure>
 * Select the **Identity Management** tab. Then provide the **Base URL** (Endpoint) and **API Token** information from Currents. Also enter a **Test User Email** that does not already exist in Currents.
 * Click **Test Connection** and verify it was successful.
 * Toggle off **Group Management** and click **Activate** to verify the [default mappings](https://jumpcloud.com/support/provision-and-manage-users-and-groups-in-apps-using-custom-scim-identity-management-integration#custom-scim-user-attributes).
 * If everything was succeful, click **Save**
 
-<figure><img src="../../../.gitbook/assets/CurrentsJumpCloudSCIM.png" alt=""><figcaption><p>Configure and Test the API Credentials</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/CurrentsJumpCloudSCIM.png" alt=""><figcaption><p>Configure and Test the API Credentials</p></figcaption></figure>
 
 * Navigate to the Current SSO App again, and back into the **Identity Management Tab**
 * Use the **manual import** button to find your existing Currents accounts
 
-<figure><img src="../../../.gitbook/assets/CurrentsJumpCloudManualImport.png" alt=""><figcaption><p>Import Users</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/CurrentsJumpCloudManualImport.png" alt=""><figcaption><p>Import Users</p></figcaption></figure>
 
 * Your existing users should have been auto-matched based on email. If there are any additional Currents users that failed to be matched, you can import them from the import screen. (See [JumpCloud's Importing Users Guide](https://jumpcloud.com/support/provision-and-manage-users-and-groups-in-apps-using-custom-scim-identity-management-integration#importing-users))
 

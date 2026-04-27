@@ -24,7 +24,7 @@ In order to add additional recipients, navigate to **Organization > Billing & Us
 
 ### Usage Information
 
-The Billing & Usage view displays the Usage section with a daily/monthly breakdown of the recorded tests.&#x20;
+The Billing & Usage view displays the Usage section with a daily/monthly breakdown of the recorded tests.
 
 The usage includes a [<mark style="color:blue;">**Failed**</mark>](../tests/test-status.md) or [<mark style="color:orange;">**Passed**</mark> ](../tests/test-status.md)test recorded to Currents Dashboard. Retries of the same test are considered a single test result, therefore, a [<mark style="background-color:purple;">**Flaky Test**</mark>](../tests/test-status.md) counts as one record, regardless of the number of attempts.
 
@@ -40,13 +40,13 @@ The usage is aggregated **hourly** to allow precise reporting and calculation of
 
 #### Usage Information filters
 
-You can filter usage by period and view all past billing cycles. Moreover, you can filter by **tests** or **runs**. Most customer contracts are metered by **runs**.&#x20;
+You can filter usage by period and view all past billing cycles. Moreover, you can filter by **tests** or **runs**. Most customer contracts are metered by **runs**.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 19.42.07.png" alt=""><figcaption><p>Example - Usage history chart and filters</p></figcaption></figure>
 
 #### Usage details
 
-If you click **Show Usage Details**, you can see a breakdown of all recorded tests and runs per project created within your organization account.&#x20;
+If you click **Show Usage Details**, you can see a breakdown of all recorded tests and runs per project created within your organization account.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 19.47.57.png" alt=""><figcaption><p>Usage Details</p></figcaption></figure>
 
@@ -56,7 +56,7 @@ If you click **Show Usage Details**, you can see a breakdown of all recorded tes
 * **Enterprise Plans:** An **annual usage cycle** is available, with monthly cycle is also supported.\
   The annual cycle is recommended for teams with **seasonal usage patterns** or **peaks in usage** during certain times of the year.
 
-More details on [billing-and-pricing.md](../../billing-and-pricing.md "mention")&#x20;
+More details on [billing-and-pricing.md](../billing-and-pricing.md "mention")
 
 ### Extra Usage Plans
 
@@ -66,7 +66,7 @@ When you reach the test limits, Currents will send you an email notification inf
 
 <figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 19.49.31.png" alt=""><figcaption><p>Example - Extra usage activated</p></figcaption></figure>
 
-At the end of the monthly cycle, the billing will include the additional usage recorded. In the case of annual plans, Currents will send a separate bill with the extra tests.&#x20;
+At the end of the monthly cycle, the billing will include the additional usage recorded. In the case of annual plans, Currents will send a separate bill with the extra tests.
 
 The cost for extra recordings ranges and depends on your plan. For detailed pricing information, please check our [**pricing page**](https://currents.dev/#pricing). If you have any questions or concerns, please don't hesitate to contact us via _support@currents.dev_ or our in-app support chat.
 
@@ -74,7 +74,7 @@ The cost for extra recordings ranges and depends on your plan. For detailed pric
 
 Our legacy plans (created before April 2023) do not have extra usage enabled.
 
-When legacy plan subscribers reach the usage limits, our system automatically increases the quota by **10%** to safeguard your usage. Then, you will get emails from our automated system with warnings, asking you to upgrade your subscription or activate an extra usage plan.&#x20;
+When legacy plan subscribers reach the usage limits, our system automatically increases the quota by **10%** to safeguard your usage. Then, you will get emails from our automated system with warnings, asking you to upgrade your subscription or activate an extra usage plan.
 
 You can activate an extra-usage or upgrade the plan in **Billing & Usage** section:
 

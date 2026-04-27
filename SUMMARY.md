@@ -117,9 +117,6 @@
   * [Spec Files Explorer](dashboard/test-suite-performance-explorer/spec-files-explorer.md)
   * [Error Explorer](dashboard/test-suite-performance-explorer/errors-explorer.md)
   * [Reference](dashboard/test-suite-performance-explorer/reference.md)
-
-***
-
 * [Automated Reports](dashboard/automated-reports.md)
 * [Analytics](dashboard/analytics/README.md)
   * [Run Status](dashboard/analytics/run-status.md)
@@ -130,20 +127,20 @@
   * [Test Flakiness](dashboard/analytics/test-flakiness.md)
   * [Suite Size](dashboard/analytics/suite-size.md)
 * [Administration](dashboard/administration/README.md)
-  * [Manage Team](administration/manage-team.md)
+  * [Manage Team](dashboard/administration/manage-team.md)
   * [Email Domain Based Access](dashboard/administration/email-domain-based-access.md)
   * [SSO SAML2.0](dashboard/administration/sso-saml2.0/README.md)
     * [SAML2.0 Configuration](dashboard/administration/sso-saml2.0/saml2.0-configuration.md)
     * [SCIM User Provisioning](dashboard/administration/sso-saml2.0/scim-user-provisioning.md)
     * [IdP-initiated Sessions](dashboard/administration/sso-saml2.0/idp-initiated-sessions.md)
-    * [Azure AD / Entra ID](dashboard/administration/sso-saml2.0/azure-ad/README.md)
-    * [JumpCloud](administration/sso-saml2.0/jumpcloud/README.md)
-      * [JumpCloud User provisioning](administration/sso-saml2.0/jumpcloud/jumpcloud-user-provisioning.md)
+    * [Azure AD / Entra ID](dashboard/administration/sso-saml2.0/azure-ad.md)
+    * [JumpCloud](dashboard/administration/sso-saml2.0/jumpcloud/README.md)
+      * [JumpCloud User provisioning](dashboard/administration/sso-saml2.0/jumpcloud/jumpcloud-user-provisioning.md)
     * [Okta](dashboard/administration/sso-saml2.0/okta/README.md)
       * [Okta User provisioning](dashboard/administration/sso-saml2.0/okta/okta-user-provisioning.md)
     * [Troubleshooting SSO](dashboard/administration/sso-saml2.0/troubleshooting-sso.md)
   * [Billing & Usage](dashboard/administration/billing-and-usage.md)
-* [Billing & Pricing](billing-and-pricing.md)
+* [Billing & Pricing](dashboard/billing-and-pricing.md)
 
 ## Resources
 

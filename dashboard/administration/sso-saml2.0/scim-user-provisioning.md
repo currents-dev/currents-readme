@@ -4,9 +4,9 @@ description: Provision and de-provision users in Currents using SCIM v2
 
 # SCIM User Provisioning
 
-Currents supports [SCIM v2 ](https://datatracker.ietf.org/doc/html/rfc7644) to automatically provision and de-provision users.
+Currents supports [SCIM v2 ](https://datatracker.ietf.org/doc/html/rfc7644)to automatically provision and de-provision users.
 
-First, enable  [saml2.0-configuration.md](saml2.0-configuration.md "mention"). Once ready, contact support via in-app chat or email to request SCIM to be enabled for your organization.
+First, enable [saml2.0-configuration.md](saml2.0-configuration.md "mention"). Once ready, contact support via in-app chat or email to request SCIM to be enabled for your organization.
 
 Once enabled by Currents team, organization admins will be able to find the **SCIMv2 Endpoint** and **Authorization Bearer Token** on the **Manage Team** section at https://app.currents.dev.
 
@@ -20,7 +20,7 @@ When a user is deactivated, Currents removes the user from the team member list.
 
 The following provisioning endpoints are supported:
 
-* GET Users&#x20;
+* GET Users
   * List all users belonging to your organization in our system
   * Search for a specific user using SCIM filtering
 * GET User
@@ -37,7 +37,7 @@ The following provisioning endpoints are supported:
 We are maintaining a Managed SCIM provisioning settings for popular providers:
 
 * [Okta Provisioning](okta/okta-user-provisioning.md)
-* [JumpCloud Provisioning](../../../administration/sso-saml2.0/jumpcloud/jumpcloud-user-provisioning.md)
+* [JumpCloud Provisioning](jumpcloud/jumpcloud-user-provisioning.md)
 
 ### Manual SCIM Configuration
 

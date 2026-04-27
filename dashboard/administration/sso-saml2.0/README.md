@@ -6,9 +6,9 @@ description: SSO SAML2.0 Instructions for Currents
 
 Currents supports SSO integration via SAML 2.0, including JIT provisioning and SCIMv2. When enabled, authentication will be deferred to your Identity Provider (IdP). Follow the instructions for your IdP:
 
-* Setup with [azure-ad](azure-ad/ "mention")&#x20;
+* Setup with [azure-ad.md](azure-ad.md "mention")
 * Setup with [okta](okta/ "mention")
-* Setup with [jumpcloud](../../../administration/sso-saml2.0/jumpcloud/ "mention")
+* Setup with [jumpcloud](jumpcloud/ "mention")
 * Manual [saml2.0-configuration.md](saml2.0-configuration.md "mention")
 
 ### SSO Features
