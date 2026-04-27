@@ -26,7 +26,9 @@ Skipped[^2] recordings do not count for billing purpose. Number of attempts or t
 
 #### Team Members
 
-Every account associated with your organization is considered a team member for billing purposes. Each plan has a predetermined limit of seats (Team Members). You can purchase additional seats, up to 30 seats total, using [billing-and-usage.md](administration/billing-and-usage.md "mention") section.
+Every non-guest account associated with your organization is considered a team member for billing purposes. Each plan has a predetermined limit of seats (Team Members). You can purchase additional seats, up to 30 seats total, using [billing-and-usage.md](administration/billing-and-usage.md "mention") section.
+
+[Guest accounts](administration/manage-team.md) do not count toward the organization limit and can be invited without limits.&#x20;
 
 If you need more seats please contact us at [hello@currents.dev](mailto:hello@currents.dev).
 
@@ -61,8 +63,6 @@ The usage cycle resets each month on the day of subscription creation.
 ### Extra Seats
 
 Each plan has a predetermined limit of seats (Team Members). You can purchase additional seats, up to 30 seats total, using [billing-and-usage.md](administration/billing-and-usage.md "mention") section.
-
-Note: All plans comes with unlimited "Guest" accounts, which are limited accounts with read-only permissions.
 
 If you need more seats please contact us at [hello@currents.dev](mailto:hello@currents.dev).
 
@@ -139,7 +139,11 @@ We will charge a small amount of Extra Usage fees for every 1K extra recording o
 
 #### Are there limits on the number of team members I can have? <a href="#are-there-limits-on-the-number-of-team-members-i-can-have-3f" id="are-there-limits-on-the-number-of-team-members-i-can-have-3f"></a>
 
-Up to 30 team members for non-enterprise plans. No limit for enterprise plans. If you need more seats please contact us at [hello@currents.dev](mailto:hello@currents.dev).
+No limit for [guest accounts](administration/manage-team.md).&#x20;
+
+Up to 30 team members for non-enterprise plans. No limit for enterprise plans.&#x20;
+
+If you need more seats please contact us at [hello@currents.dev](mailto:hello@currents.dev).
 
 ### What kind of support is included in each tier? <a href="#what-kind-of-support-is-included-in-each-tier-3f" id="what-kind-of-support-is-included-in-each-tier-3f"></a>
 
