@@ -278,7 +278,7 @@ For the `firefox` project, the `currentsBatchSize` is set to `auto`, so Currents
 
 ### Re-running Only Failed Tests
 
-Re-running only failed tests for orchestrated runs requires collecting the results from multiple machines, or alternatively getting the failed test from Currents [API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/ "mention"). We have created a set of tools to simplify the setup. See [re-run-only-failed-tests.md](re-run-only-failed-tests.md "mention").
+Re-running only failed tests for orchestrated runs requires collecting the results from multiple machines, or alternatively getting the failed test from Currents [API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/ "mention"). We have created a set of tools to simplify the setup. See [re-run-only-failed-tests-orchestrated.md](re-run-only-failed-tests-orchestrated.md "mention").
 
 ### Limitations and Nuances
 
@@ -289,4 +289,4 @@ Re-running only failed tests for orchestrated runs requires collecting the resul
 ### Next Steps
 
 * Use [ci-tests-on-spot-instances.md](ci-tests-on-spot-instances.md "mention") to reduce your CI bills by 90%
-* Explore how to [re-run-only-failed-tests.md](re-run-only-failed-tests.md "mention")
+* Explore how to [re-run-only-failed-tests-orchestrated.md](re-run-only-failed-tests-orchestrated.md "mention")

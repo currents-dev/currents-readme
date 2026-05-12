@@ -68,6 +68,8 @@
   * [Orchestration Setup](guides/ci-optimization/playwright-orchestration.md)
   * [Fully Parallel Mode](guides/ci-optimization/fully-parallel-mode.md)
   * [Re-run Only Failed Tests](guides/ci-optimization/re-run-only-failed-tests.md)
+    * [Sharded runs](guides/ci-optimization/re-run-only-failed-tests-sharded.md)
+    * [Orchestrated runs](guides/ci-optimization/re-run-only-failed-tests-orchestrated.md)
   * [Cloud Spot Instances](guides/ci-optimization/ci-tests-on-spot-instances.md)
   * [Failing Fast](guides/ci-optimization/fail-fast-strategy.md)
   * [Load Balancing](guides/ci-optimization/load-balancing.md)

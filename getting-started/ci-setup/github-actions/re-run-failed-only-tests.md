@@ -121,7 +121,7 @@ Full examples:
 If you're using [#currents-orchestration](re-run-failed-only-tests.md#currents-orchestration "mention") for running your Playwright tests you can also fetch the results of from [Runs](https://app.gitbook.com/s/lcxad7NaXT7D2V6owvHN/resources/runs "mention").
 
 {% hint style="info" %}
-Currents Orchestration dynamically assigns tests to all the available CI runners, that's why you should select **Re-run all jobs** when using Currents Orchestration. Read more at [re-run-only-failed-tests.md](../../../guides/ci-optimization/re-run-only-failed-tests.md "mention") guide.
+Currents Orchestration dynamically assigns tests to all the available CI runners, that's why you should select **Re-run all jobs** when using Currents Orchestration. Read more at [re-run-only-failed-tests-orchestrated.md](../../../guides/ci-optimization/re-run-only-failed-tests-orchestrated.md "mention") guide.
 {% endhint %}
 
 Step-by-step guide:
