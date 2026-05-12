@@ -4,19 +4,19 @@ description: How to setup failed tests re-run on GitHub Actions
 
 # Re-run Only Failed Tests
 
-When a workflow fails in GitHub Actions you have the option to re-run the failed jobs. However, an additional setup is required for properly configure Playwright for rerunning only the failed tests.&#x20;
+When a workflow fails in GitHub Actions, the failed jobs can be re-run. However, an additional setup is required for properly configure Playwright for rerunning only the failed tests.&#x20;
 
 See [re-run-only-failed-tests.md](../../../guides/ci-optimization/re-run-only-failed-tests.md "mention") guide for more details on re-runs.
 
-For GitHub Actions, we provide the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to simplify the re-runs.
+For GitHub Actions, Currents provides the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to simplify the re-runs.
 
 {% hint style="info" %}
-We recommend you install [@currents/cmd](../../../resources/reporters/currents-cmd/) as a dev dependency in your `package.json`, and using `npm ci` or your package manager's **frozen lockfile** install method in your GitHub Actions.  If you do not the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) will instead install and use a global package, which will not respect your package's version lock files, and instead always pull in the latest of `@currents/cmd`and it's dependencies.
+Installing [@currents/cmd](../../../resources/reporters/currents-cmd/) as a dev dependency in `package.json`, and using `npm ci` or another package manager's **frozen lockfile** install method in GitHub Actions, is recommended. Otherwise the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) installs and uses a global package, which does not respect the repository's version lock files and always pulls the latest `@currents/cmd` and its dependencies.
 {% endhint %}
 
 #### Playwright Sharding
 
-If you're using [playwright-sharding.md](../../../guides/parallelization-guide/playwright-sharding.md "mention") for running your tests in parallel, you can use the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to include the data from the last run.
+With [playwright-sharding.md](../../../guides/parallelization-guide/playwright-sharding.md "mention") for parallel runs, the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) can include the data from the last run.
 
 Step-by-step guide:
 
@@ -34,13 +34,13 @@ npm i -D @currents/cmd
 
 <summary>Add the currents-dev/playwright-last-failed step</summary>
 
-Add a step to your workflow before you run your tests
+Add a step to the workflow before the test step runs
 
 <pre class="language-yaml"><code class="lang-yaml">- name: Playwright Last Failed action
 <strong>  id: last-failed-action
 </strong><strong>  uses: currents-dev/playwright-last-failed@v1
 </strong>  with:
-    # if you're using a custom CI build id, set "previous-ci-build-id" accordingly 
+    # if a custom CI build id is used, set "previous-ci-build-id" accordingly 
     # previous-ci-build-id: default is ${{ github.repository }}-${{ github.run_id }}-&#x3C;%= ${{ github.run_attempt }} - 1 %>
     pw-output-dir: basic/test-results
     matrix-index: ${{ matrix.shard }}
@@ -118,10 +118,10 @@ Full examples:
 
 #### Currents Orchestration
 
-If you're using [#currents-orchestration](re-run-failed-only-tests.md#currents-orchestration "mention") for running your Playwright tests you can also fetch the results of from [Runs](https://app.gitbook.com/s/lcxad7NaXT7D2V6owvHN/resources/runs "mention").
+With [#currents-orchestration](re-run-failed-only-tests.md#currents-orchestration "mention") for Playwright tests, results can also be fetched from [Runs](https://app.gitbook.com/s/lcxad7NaXT7D2V6owvHN/resources/runs "mention").
 
 {% hint style="info" %}
-Currents Orchestration dynamically assigns tests to all the available CI runners, that's why you should select **Re-run all jobs** when using Currents Orchestration. Read more at [re-run-only-failed-tests-orchestrated.md](../../../guides/ci-optimization/re-run-only-failed-tests-orchestrated.md "mention") guide.
+Currents Orchestration dynamically assigns tests to all the available CI runners, so **Re-run all jobs** should be used instead of re-running only failed jobs. Read more at [re-run-only-failed-tests-orchestrated.md](../../../guides/ci-optimization/re-run-only-failed-tests-orchestrated.md "mention") guide.
 {% endhint %}
 
 Step-by-step guide:
@@ -242,7 +242,7 @@ The last-failed-action gets the previous run information using the default CI bu
 
 `${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}`
 
-If you are using a different [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention"), specify the `previous-ci-build-id` configuration property.&#x20;
+If a different [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention") is used, specify the `previous-ci-build-id` configuration property.&#x20;
 
 <figure><img src="../../../.gitbook/assets/custom-ci-build-id.png" alt=""><figcaption><p>Using custom CI build ID for reruns</p></figcaption></figure>
 
@@ -254,7 +254,7 @@ For example:
 # an example for custom value like:
 # currents-${{ github.run_id }}-${{ github.run_attempt }}
 with:
-    # if you're using a custom CI build id, set "previous-ci-build-id" accordingly 
+    # if a custom CI build id is used, set "previous-ci-build-id" accordingly 
     previous-ci-build-id: currents-${{ github.run_id }}-<%= ${{ github.run_attempt }} - 1 %>
     pw-output-dir: basic/test-results
     matrix-index: ${{ matrix.shard }}
