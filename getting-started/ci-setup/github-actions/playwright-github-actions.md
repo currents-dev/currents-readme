@@ -25,7 +25,7 @@ jobs:
     name: "Playwright Tests"
     timeout-minutes: 60
     runs-on: ubuntu-22.04
-    container: mcr.microsoft.com/playwright:v1.49.0-jammy
+    container: mcr.microsoft.com/playwright:v1.59.1-noble
 
     steps:
       - uses: actions/checkout@v4
@@ -39,7 +39,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
+          node-version: "24.x"
 
       - name: Install dependencies
         run: | # Add more browsers if needed
@@ -49,23 +49,23 @@ jobs:
       - name: Playwright Tests
         continue-on-error: false
         env:
-          CURRENTS_PROJECT_ID: bnsqNa # Update to your Project ID
+          CURRENTS_PROJECT_ID: bnsqNa # Update to the Currents Project ID
           CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
         run: |
           npx pwc
 ```
 
-The workflow above is the simplest way to get started. As you scale, using parallelization becomes very important to keep execution time fast.&#x20;
+The workflow above is the simplest way to get started. As the test suite grows, parallelization helps keep execution time fast.&#x20;
 
 ### Parallelization
 
-By using [GitHub Actions matrix execution strategy](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix), you can create multiple containers that will run your Playwright tests in parallel.
+The [GitHub Actions matrix execution strategy](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix) can create multiple containers that run Playwright tests in parallel.
 
-Each container will receive a unique set of tests to run so that your tests will run faster and you can receive faster feedback from your browser test suite.
+Each container receives a unique set of tests. This makes the browser test suite finish faster and gives feedback sooner.
 
 <figure><img src="../../../.gitbook/assets/CI Runners.png" alt="Tests Parallelization with Github Actions"><figcaption><p>Tests Parallelization with Github Actions</p></figcaption></figure>
 
-You can achieve that through [Playwright Sharding](https://playwright.dev/docs/test-sharding). Playwright supports splitting the tests between multiple CI machines using `--shard` CLI flag. Below you can find examples on how to setup sharding, and orchestration.
+This can be done with [Playwright Sharding](https://playwright.dev/docs/test-sharding). Playwright can split tests between multiple CI machines using the `--shard` CLI flag. The examples below show how to set up sharding and orchestration.
 
 {% hint style="info" %}
 Looking for more ways to speed up CI? Read our [ci-optimization](../../../guides/ci-optimization/ "mention") page.
