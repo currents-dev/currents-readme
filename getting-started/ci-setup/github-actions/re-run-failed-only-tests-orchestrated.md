@@ -10,10 +10,6 @@ With [playwright-orchestration.md](../../../guides/ci-optimization/playwright-or
 Currents Orchestration assigns tests to all available CI runners, so **Re-run all jobs** should be used instead of re-running only failed jobs. Read more at [re-run-only-failed-tests-orchestrated.md](../../../guides/ci-optimization/re-run-only-failed-tests-orchestrated.md "mention").
 {% endhint %}
 
-{% hint style="info" %}
-Install [@currents/cmd](../../../resources/reporters/currents-cmd/) as a dev dependency in `package.json`, and use `npm ci` or another package manager's **frozen lockfile** install method in GitHub Actions. Otherwise the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) installs a global package. The global package does not use the repository lock files and always pulls the latest `@currents/cmd` and its dependencies.
-{% endhint %}
-
 Step-by-step guide:
 
 <details>
