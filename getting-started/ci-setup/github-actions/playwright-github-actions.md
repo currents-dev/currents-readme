@@ -13,46 +13,28 @@ Check out the example repository [https://github.com/currents-dev/currents-examp
 The example workflow file below shows how to run Playwright tests in GitHub actions.
 
 ```yaml
-name: demo.playwright.pwc
+name: Run Playwright Tests
 on:
-  workflow_dispatch:
   pull_request:
-    branches: [main]
-  push:
     branches: [main]
 jobs:
   run-tests:
     name: "Playwright Tests"
-    timeout-minutes: 60
-    runs-on: ubuntu-22.04
-    container: mcr.microsoft.com/playwright:v1.60.0-noble
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:latest
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-
-      # https://github.com/actions/runner-images/issues/6775
-      - run: |
-          echo "$GITHUB_WORKSPACE"
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "24.x"
 
       - name: Install dependencies
-        run: | # Add more browsers if needed
-          npm ci
-          npx playwright install chrome
+        run: npm ci
 
       - name: Playwright Tests
         continue-on-error: false
         env:
-          CURRENTS_PROJECT_ID: bnsqNa # Update to the Currents Project ID
           CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
-        run: |
-          npx pwc
+        run: npx playwright test
 ```
 
 The workflow above is the simplest way to get started. As the test suite grows, parallelization helps keep execution time fast.&#x20;

@@ -45,7 +45,7 @@ jobs:
     vmImage: ubuntu-latest
 
   # If you choose to not use the playwright container, you will also need to npx install playwright in your steps
-  container: mcr.microsoft.com/playwright:v1.42.1-jammy
+  container: mcr.microsoft.com/playwright:v1.60.0-noble
   variables:
   - name: npm_config_cache
     value: $(Pipeline.Workspace)/.npm
@@ -56,7 +56,7 @@ jobs:
   - task: NodeTool@0
     displayName: 'Install NodeJS'
     inputs:
-      versionSpec: '18'
+      versionSpec: '24'
 
   # Speed up the execution by caching the dependencies
   # https://docs.microsoft.com/en-us/azure/devops/pipelines/caching/?view=azure-devops

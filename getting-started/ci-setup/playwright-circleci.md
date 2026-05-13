@@ -7,7 +7,7 @@ description: Running Playwright Tests in Parallel on CircleCI and Currents
 {% hint style="info" %}
 TL;DR Check out the example repository:
 
-[https://github.com/currents-dev/circleci-pw-example](https://github.com/currents-dev/circleci-pw-example)
+[https://github.com/currents-dev/currents-examples](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/circleci)
 {% endhint %}
 
 Run Playwright tests in [parallel on CircleCI](https://circleci.com/docs/2.0/parallelism-faster-jobs/) using the native [Playwright Sharding](https://playwright.dev/docs/test-sharding) to split the tests between multiple containers. Parallelizing the test will help in decreasing the overall run duration.&#x20;
@@ -58,4 +58,4 @@ workflows:
 The example [config file](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/circleci/.circleci/config.yml):
 
 * runs 3 containers with Playwright tests in parallel
-* Note: use CLI arguments to customize your cypress runs, e.g.: `pwc run --key <your Currents.dev key>`
+* Note: use CLI arguments to customize your Playwright runs, e.g.: `pwc --key <your Currents.dev key>`

@@ -6,11 +6,11 @@ description: Running Playwright tests in parallel with Jenkins and Currents Dash
 
 Here's an example of Jenkins pipeline that is running Playwright tests in parallel on 2 workers.
 
-The pipeline will be running 2 workers, based on `mcr.microsoft.com/playwright:v1.34.0-jammy` Docker image. Those workers will run all the tests in parallel.
+The pipeline will be running 2 workers, based on `mcr.microsoft.com/playwright:v1.60.0-noble` Docker image. Those workers will run all the tests in parallel.
 
 The steps are:
 
-* Use `mcr.microsoft.com/playwright:v1.34.0-jammy` as the base image
+* Use `mcr.microsoft.com/playwright:v1.60.0-noble` as the base image
 * Install the necessary dependencies: `playwright` and `@currents/playwright`
 * Populate the environment variable `CURRENTS_RECORD_KEY` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/). Learn more about [record-key.md](../../guides/record-key.md "mention")
 * Populate the environment variable `CURRENTS_PROJECT_ID` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/).
@@ -30,7 +30,7 @@ pipeline {
   agent {
     // this image provides everything needed to run Playwright
     docker {
-      image 'mcr.microsoft.com/playwright:v1.34.0-jammy'
+      image 'mcr.microsoft.com/playwright:v1.60.0-noble'
     }
   }
 
@@ -78,9 +78,9 @@ pipeline {
 ```
 {% endcode %}
 
-### Using last failed flag with shards and orchestration
+### Using `--last-failed` with shards and orchestration
 
-We have made available a [public repository with an example ](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/jenkins/jenkins-last-failed)of how to setup last failed functionality using shards and orchestration in different machines.
+We have made available a [public repository with an example](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/jenkins/jenkins-last-failed) of how to setup last failed functionality using shards and orchestration in different machines.
 
 Here you will be able to find the following Jenkinsfile that accepts two parameters:
 
