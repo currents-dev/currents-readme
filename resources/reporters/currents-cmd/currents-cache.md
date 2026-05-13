@@ -2,6 +2,7 @@
 description: >-
   Use currents cache command to store and retrieve data from Currents-managed
   remote cache
+icon: terminal
 ---
 
 # currents cache
