@@ -15,13 +15,18 @@ When a different [ci-build-id.md](../../../guides/parallelization-guide/ci-build
 For example:
 
 {% code overflow="wrap" %}
-```
+```yaml
 
 # an example for custom value like:
 # currents-${{ github.run_id }}-${{ github.run_attempt }}
-with:
+- name: Compute previous run attempt
+  id: previous-attempt
+  run: echo "previous=$(( ${{ github.run_attempt }} - 1 ))" >> "$GITHUB_OUTPUT"
+- name: Playwright Last Failed action
+  uses: currents-dev/playwright-last-failed@v1
+  with:
     # if a custom CI build id is used, set "previous-ci-build-id" accordingly
-    previous-ci-build-id: currents-${{ github.run_id }}-<%= ${{ github.run_attempt }} - 1 %>
+    previous-ci-build-id: currents-${{ github.run_id }}-${{ steps.previous-attempt.outputs.previous }}
     pw-output-dir: basic/test-results
     matrix-index: ${{ matrix.shard }}
     matrix-total: ${{ strategy.job-total }}
@@ -31,10 +36,15 @@ with:
 For orchestrated runs, keep the `or8n` input and skip the matrix values:
 
 {% code overflow="wrap" %}
-```
-with:
+```yaml
+- name: Compute previous run attempt
+  id: previous-attempt
+  run: echo "previous=$(( ${{ github.run_attempt }} - 1 ))" >> "$GITHUB_OUTPUT"
+- name: Playwright Last Failed action
+  uses: currents-dev/playwright-last-failed@v1
+  with:
     or8n: true
-    previous-ci-build-id: currents-${{ github.run_id }}-<%= ${{ github.run_attempt }} - 1 %>
+    previous-ci-build-id: currents-${{ github.run_id }}-${{ steps.previous-attempt.outputs.previous }}
     pw-output-dir: basic/test-results
 ```
 {% endcode %}

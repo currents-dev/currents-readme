@@ -4,7 +4,7 @@ description: Re-run only failed Playwright tests when using native CI sharding
 
 # Re-run Only Failed Tests — Sharded runs
 
-The suggested templates do not require long CI files or custom scripts. They work with popular CI providers and can be used without Currents reporter.
+The suggested templates do not require long CI files or custom scripts. They work with popular CI providers and can be used without the Currents reporter.
 
 Step-by-step guides and examples:
 
