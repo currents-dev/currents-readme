@@ -1,5 +1,6 @@
 ---
 description: Playwright Orchestration v1 setup instructions
+icon: sitemap
 ---
 
 # Orchestration Setup v1
