@@ -69,6 +69,8 @@
 * [CI Optimization](guides/ci-optimization/README.md)
   * [Playwright Parallelization](guides/ci-optimization/playwright-parallelization.md)
   * [Orchestration Setup](guides/ci-optimization/playwright-orchestration.md)
+    * [v1 setup](guides/ci-optimization/playwright-orchestration-v1.md)
+    * [v2 setup](guides/ci-optimization/playwright-orchestration-v2.md)
   * [Fully Parallel Mode](guides/ci-optimization/fully-parallel-mode.md)
   * [Re-run Only Failed Tests](guides/ci-optimization/re-run-only-failed-tests.md)
     * [Sharded runs](guides/ci-optimization/re-run-only-failed-tests-sharded.md)
