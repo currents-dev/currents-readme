@@ -114,16 +114,13 @@ export default config;
 
 ```typescript
 import { currentsReporter } from "@currents/playwright";
-import { PlaywrightTestConfig } from "@playwright/test";
+import { defineConfig } from "@playwright/test";
 
-const config: PlaywrightTestConfig = {
-  reporter: [
-    currentsReporter(), // Currents reporter will use 
-    // reporter
-  ],
+export default defineConfig({
+  reporter: [currentsReporter(), ["list"]],
 
   // ... rest of playwright configuration
-}
+});
 ```
 
 * **Optional:** Update `pwc-p` CLI command
