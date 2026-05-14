@@ -21,6 +21,10 @@ The [example repository](https://github.com/currents-dev/currents-examples/tree/
 * Ensure the [@current/playwright](../../resources/reporters/currents-playwright/) package has been integrated into your tests.
 * Modify your `azure-pipelines.yml` file to run the tests and use one of the [example pipeline files](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/azure-devops/azure-pipelines.yml) as a reference.
 
+{% hint style="info" %}
+Playwright publishes versioned images to [Microsoft Container Registry](https://mcr.microsoft.com/en-us/product/playwright/about) for each release. Use a `mcr.microsoft.com/playwright:*` tag that matches your installed `@playwright/test` version (see [Playwright: Docker](https://playwright.dev/docs/docker)). The example below uses `v1.60.0-noble`; adjust the tag if your project pins a different Playwright version.
+{% endhint %}
+
 Here's an example pipeline file:
 
 ```yaml
@@ -45,6 +49,7 @@ jobs:
     vmImage: ubuntu-latest
 
   # If you choose to not use the playwright container, you will also need to npx install playwright in your steps
+  # Pin the image tag to your Playwright version (tags are listed under Playwright Docker / MCR).
   container: mcr.microsoft.com/playwright:v1.60.0-noble
   variables:
   - name: npm_config_cache
