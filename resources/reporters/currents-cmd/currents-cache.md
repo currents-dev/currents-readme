@@ -2,14 +2,13 @@
 description: >-
   Use currents cache command to store and retrieve data from Currents-managed
   remote cache
-icon: terminal
 ---
 
 # currents cache
 
 The `currents cache` command stores and retrieves files on CI machines. The files are securely stored in Currents-managed storage. This command is designed to be used in CI environments to facilitate activities like [re-run-only-failed-tests-sharded.md](../../../guides/ci-optimization/re-run-only-failed-tests-sharded.md "mention").
 
-`currents cache` stores  meta data about CI execution and test artifacts, each cache item has a unique `id.` The `id` can be set manually, or Currents can generate it automatically based on CI environment variables
+`currents cache` stores  metadata about CI execution and test artifacts, each cache item has a unique `id.` The `id` can be set manually, or Currents can generate it automatically based on CI environment variables
 
 {% hint style="info" %}
 Automatic CI parameters detection is only supported for GitHub Actions and GitLab CI
