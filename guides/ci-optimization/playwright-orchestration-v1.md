@@ -6,7 +6,7 @@ description: Playwright Orchestration v1 setup instructions
 
 Orchestration v1 is the current single-command `pwc-p` implementation for Playwright. Read the general [playwright-orchestration.md](playwright-orchestration.md "mention") guide for the version-neutral overview.
 
-### How does it work
+## How does it work
 
 `@currents/playwright` contains a command-line executable `pwc-p` — a lightweight wrapper that implements Orchestration v1 and runs Playwright behind the scenes.
 
