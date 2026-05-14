@@ -4,7 +4,7 @@ description: Running Playwright tests with NX
 
 # NX
 
-### Running Playwright tests in an Nx project with Currents
+## Running Playwright tests in an Nx project with Currents
 
 [Nx](https://github.com/nrwl/nx) is a build system with monorepo support and powerful integrations. Playwright tests executions in Nx can be done by using [@nx/playwright](https://nx.dev/nx-api/playwright) plugin.
 
