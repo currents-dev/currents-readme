@@ -25,8 +25,8 @@ Currents Orchestration has two implementation flows for Playwright.
 
 | Version | Use this when | Setup guide | Failed-test reruns |
 | ------- | ------------- | ----------- | ------------------- |
-| v1 | You use the current single-command `pwc-p` orchestration flow. | [playwright-orchestration-v1.md](playwright-orchestration-v1.md "mention") | [re-run-only-failed-tests-orchestrated.md](re-run-only-failed-tests-orchestrated.md "mention") |
-| v2 | You want the preview two-phase orchestration flow with separate discovery and test execution steps. | [playwright-orchestration-v2.md](playwright-orchestration-v2.md "mention") | [playwright-orchestration-v2.md#re-running-only-failed-tests](playwright-orchestration-v2.md#re-running-only-failed-tests "mention") |
+| v1 | Projects using the current single-command `pwc-p` orchestration flow. | [playwright-orchestration-v1.md](playwright-orchestration-v1.md "mention") | [re-run-only-failed-tests-orchestrated.md](re-run-only-failed-tests-orchestrated.md "mention") |
+| v2 | Projects evaluating the preview two-phase orchestration flow with separate discovery and test execution steps. | [playwright-orchestration-v2.md](playwright-orchestration-v2.md "mention") | [playwright-orchestration-v2.md#re-running-only-failed-tests](playwright-orchestration-v2.md#re-running-only-failed-tests "mention") |
 
 {% hint style="info" %}
 The purpose of orchestration has not changed between v1 and v2. The implementation flow has changed: v1 discovers and runs tests from one command, while v2 separates discovery from execution.
