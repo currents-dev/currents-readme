@@ -289,4 +289,4 @@ Re-running only failed tests for orchestrated runs requires collecting the resul
 ### Next Steps
 
 * Use [ci-tests-on-spot-instances.md](ci-tests-on-spot-instances.md "mention") to reduce your CI bills by 90%
-* Explore how to [re-run-only-failed-tests-orchestrated.md](re-run-only-failed-tests-orchestrated.md "mention")
+* [Explore how to re-run only failed tests for orchestrated runs](re-run-only-failed-tests-orchestrated.md "mention")
