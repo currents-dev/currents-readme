@@ -1,7 +1,3 @@
-# AGENTS.md
-
-This file provides guidance to Codex (Codex.ai/code) when working with code in this repository.
-
 ## Repository Overview
 
 This is the **Currents documentation repository** - a GitBook-powered documentation site for Currents, a cloud platform and dashboard for test orchestration. Currents specializes in Playwright testing but also supports Cypress, Jest, WebdriverIO, and other testing frameworks.
