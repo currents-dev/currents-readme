@@ -1,5 +1,6 @@
 ---
 description: How to set up failed test reruns for orchestrated Playwright runs on GitHub Actions
+icon: github
 ---
 
 # Re-run Only Failed Tests — Orchestrated runs
