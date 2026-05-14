@@ -130,7 +130,7 @@ const config: PlaywrightTestConfig = {
 `pwc-p` reads all the configuration from `currents.config.ts` - no need to use CLI params.
 
 {% code overflow="wrap" %}
-```
+```bash
 pwc-p  -- [...playwright-cli-params]
 ```
 {% endcode %}
