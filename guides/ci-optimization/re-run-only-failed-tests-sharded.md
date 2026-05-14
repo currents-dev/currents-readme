@@ -1,5 +1,6 @@
 ---
 description: Re-run only failed Playwright tests when using native CI sharding
+icon: microchip
 ---
 
 # Re-run Only Failed Tests — Sharded runs
