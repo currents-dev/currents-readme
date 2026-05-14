@@ -58,4 +58,4 @@ workflows:
 The example [config file](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/circleci/.circleci/config.yml):
 
 * runs 3 containers with Playwright tests in parallel
-* Note: use CLI arguments to customize your Playwright runs, e.g.: `pwc --key <your Currents.dev key>`
+* Note: use CLI arguments to customize your Playwright runs, for example: `SHARD="$((${CIRCLE_NODE_INDEX}+1))"; npx pwc --key $CURRENTS_RECORD_KEY --project-id YOUR_PROJECT_ID --shard=${SHARD}/${CIRCLE_NODE_TOTAL}`
