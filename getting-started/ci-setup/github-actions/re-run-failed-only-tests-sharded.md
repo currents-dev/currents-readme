@@ -14,14 +14,15 @@ Step-by-step guide:
 
 Add a step to the workflow before the test step runs.
 
-<pre class="language-yaml"><code class="lang-yaml">- name: Playwright Last Failed action
-<strong>  id: last-failed-action
-</strong><strong>  uses: currents-dev/playwright-last-failed@v1
-</strong>  with:
+```yaml
+- name: Playwright Last Failed action
+  id: last-failed-action
+  uses: currents-dev/playwright-last-failed@v2
+  with:
     pw-output-dir: basic/test-results
     matrix-index: ${{ matrix.shard }}
     matrix-total: ${{ strategy.job-total }}
-</code></pre>
+```
 
 See the [action configuration for details](https://github.com/currents-dev/playwright-last-failed/blob/main/action.yml).
 
@@ -46,7 +47,7 @@ jobs:
         shard: [1, 2, 3]
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/playwright:latest
+    container: mcr.microsoft.com/playwright:v1.60.0-noble
     env:
       CURRENTS_PROJECT_ID: bnsqNa
       CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
@@ -67,7 +68,7 @@ jobs:
           npx playwright install chrome
       - name: Playwright Last Failed action
         id: last-failed-action
-        uses: currents-dev/playwright-last-failed@v1
+        uses: currents-dev/playwright-last-failed@v2
         with:
           pw-output-dir: basic/test-results
           matrix-index: ${{ matrix.shard }}

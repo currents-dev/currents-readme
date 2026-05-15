@@ -1,6 +1,5 @@
 ---
 description: Re-run only failed Playwright tests when using Currents Orchestration
-icon: microchip
 ---
 
 # Re-run Only Failed Tests — Orchestrated runs
