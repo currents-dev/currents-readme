@@ -68,7 +68,7 @@ jobs:
           npx playwright install chrome
       - name: Playwright Last Failed action
         id: last-failed-action
-        uses: currents-dev/playwright-last-failed@v1
+        uses: currents-dev/playwright-last-failed@v2
         with:
           pw-output-dir: basic/test-results
           matrix-index: ${{ matrix.shard }}
