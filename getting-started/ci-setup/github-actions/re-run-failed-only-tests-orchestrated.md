@@ -45,7 +45,7 @@ Add a step that fetches the last-run information before tests run.
 ```yaml
 - name: Playwright Last Failed action
   id: last-failed-action
-  uses: currents-dev/playwright-last-failed@v1
+  uses: currents-dev/playwright-last-failed@v2
   with:
     or8n: true
     # debug: true
@@ -97,7 +97,7 @@ jobs:
           npx playwright install chrome
       - name: Playwright Last Failed action
         id: last-failed-action
-        uses: currents-dev/playwright-last-failed@v1
+        uses: currents-dev/playwright-last-failed@v2
         with:
           or8n: true
           pw-output-dir: basic/test-results
