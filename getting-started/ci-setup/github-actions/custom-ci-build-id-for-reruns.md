@@ -23,7 +23,7 @@ For example:
   id: previous-attempt
   run: echo "previous=$(( ${{ github.run_attempt }} - 1 ))" >> "$GITHUB_OUTPUT"
 - name: Playwright Last Failed action
-  uses: currents-dev/playwright-last-failed@v1
+  uses: currents-dev/playwright-last-failed@v2
   with:
     # if a custom CI build id is used, set "previous-ci-build-id" accordingly
     previous-ci-build-id: currents-${{ github.run_id }}-${{ steps.previous-attempt.outputs.previous }}
@@ -41,7 +41,7 @@ For orchestrated runs, keep the `or8n` input and skip the matrix values:
   id: previous-attempt
   run: echo "previous=$(( ${{ github.run_attempt }} - 1 ))" >> "$GITHUB_OUTPUT"
 - name: Playwright Last Failed action
-  uses: currents-dev/playwright-last-failed@v1
+  uses: currents-dev/playwright-last-failed@v2
   with:
     or8n: true
     previous-ci-build-id: currents-${{ github.run_id }}-${{ steps.previous-attempt.outputs.previous }}
