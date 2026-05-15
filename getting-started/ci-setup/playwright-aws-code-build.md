@@ -59,7 +59,7 @@ batch:
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: 24
     commands:
       # install playwright and its dependencies
       - npm ci
