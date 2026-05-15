@@ -14,14 +14,15 @@ Step-by-step guide:
 
 Add a step to the workflow before the test step runs.
 
-<pre class="language-yaml"><code class="lang-yaml">- name: Playwright Last Failed action
-<strong>  id: last-failed-action
-</strong><strong>  uses: currents-dev/playwright-last-failed@v1
-</strong>  with:
+```yaml
+- name: Playwright Last Failed action
+  id: last-failed-action
+  uses: currents-dev/playwright-last-failed@v2
+  with:
     pw-output-dir: basic/test-results
     matrix-index: ${{ matrix.shard }}
     matrix-total: ${{ strategy.job-total }}
-</code></pre>
+```
 
 See the [action configuration for details](https://github.com/currents-dev/playwright-last-failed/blob/main/action.yml).
 
