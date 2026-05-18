@@ -4,7 +4,7 @@ description: How to set up failed test reruns for sharded Playwright runs on Git
 
 # Re-run Only Failed Tests — Sharded runs
 
-With [playwright-sharding.md](../../../guides/parallelization-guide/playwright-sharding.md "mention") for parallel runs, the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) can include the data from the last run.
+When using native Playwright `--shard` parallelism, the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) can fetch and rerun failed tests from the last workflow run.
 
 Step-by-step guide:
 
@@ -47,7 +47,7 @@ jobs:
         shard: [1, 2, 3]
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/playwright:v1.60.0-noble
+    container: mcr.microsoft.com/playwright:latest
     env:
       CURRENTS_PROJECT_ID: bnsqNa
       CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}

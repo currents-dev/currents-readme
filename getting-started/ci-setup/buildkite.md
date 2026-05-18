@@ -76,7 +76,7 @@ steps:
     parallelism: 3
     plugins:
       - docker#v5.11.0:
-          image: "mcr.microsoft.com/playwright:v1.60.0-noble"
+          image: "mcr.microsoft.com/playwright:latest"
     env:
       CURRENTS_PROJECT_ID: "bnsqNa"
       CURRENTS_RECORD_KEY: "${CURRENTS_RECORD_KEY}"

@@ -45,7 +45,7 @@ jobs:
     vmImage: ubuntu-latest
 
   # If you choose to not use the playwright container, you will also need to npx install playwright in your steps
-  container: mcr.microsoft.com/playwright:v1.60.0-noble
+  container: mcr.microsoft.com/playwright:latest
   variables:
   - name: npm_config_cache
     value: $(Pipeline.Workspace)/.npm

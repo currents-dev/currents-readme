@@ -4,10 +4,10 @@ description: How to set up failed test reruns for orchestrated Playwright runs o
 
 # Re-run Only Failed Tests — Orchestrated runs
 
-With [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention") for Playwright tests, results can also be fetched from [Runs](https://app.gitbook.com/s/lcxad7NaXT7D2V6owvHN/resources/runs "mention").
+When using Currents Orchestration, reruns of failed tests require a different approach than native Playwright sharding.
 
 {% hint style="info" %}
-Currents Orchestration assigns tests to all available CI runners, so **Re-run all jobs** should be used instead of re-running only failed jobs. Read more at [re-run-only-failed-tests-orchestrated.md](../../../guides/ci-optimization/re-run-only-failed-tests-orchestrated.md "mention").
+**Important**: With Currents Orchestration, use **Rerun all jobs** (not "Rerun failed only") when retrying failed tests. This allows Currents to redistribute all tests across available machines for optimal performance. Learn more in the [CI optimization guide](../../../guides/ci-optimization/re-run-only-failed-tests-orchestrated.md "mention").
 {% endhint %}
 
 Step-by-step guide:
@@ -75,7 +75,7 @@ jobs:
         shard: [1, 2, 3]
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/playwright:v1.60.0-noble
+    container: mcr.microsoft.com/playwright:latest
     env:
       CURRENTS_PROJECT_ID: bnsqNa
       CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}

@@ -11,7 +11,7 @@ See [re-run-only-failed-tests.md](../../../guides/ci-optimization/re-run-only-fa
 For GitHub Actions, Currents provides the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to simplify the re-runs.
 
 {% hint style="info" %}
-Install [@currents/cmd](../../../resources/reporters/currents-cmd/) as a dev dependency in `package.json`, and use `npm ci` or another package manager's **frozen lockfile** install method in GitHub Actions. Otherwise the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) installs a global package. The global package does not use the repository lock files and always pulls the latest `@currents/cmd` and its dependencies.
+The `playwright-last-failed` action uses `@currents/cmd` as a dependency. To control which version of `@currents/cmd` is used, install it as a dev dependency in `package.json` and use `npm ci` (or your package manager's equivalent frozen lockfile install) in GitHub Actions. Without this, the action installs `@currents/cmd` globally from npm, which may pull a different version than what's pinned in your lockfile.
 {% endhint %}
 
 Select the guide that matches the CI setup:
