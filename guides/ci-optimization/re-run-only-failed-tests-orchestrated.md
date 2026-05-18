@@ -4,7 +4,7 @@ description: Re-run only failed Playwright tests when using Currents Orchestrati
 
 # Re-run Only Failed Tests — Orchestrated runs
 
-{% hint style="info" %} 
+{% hint style="info" %}
 Failed orchestrated reruns require **Rerun All Jobs** in the CI provider, not **Rerun Failed Only**.
 {% endhint %}
 
