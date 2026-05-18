@@ -16,13 +16,13 @@ The example [`.gitlab-ci.yml`](https://gitlab.com/currents.dev/gitlab-playwright
 ```yaml
 # .gitlab-ci.yml
 default:
-  image: mcr.microsoft.com/playwright:v1.60.0-noble
+  image: {{space.vars.PW_IMAGE_ROUTE}}:{{space.vars.LATEST_PW_IMAGE_VERSION}}
 
 stages:
   - test
 
 test:
-  image: mcr.microsoft.com/playwright:v1.60.0-noble
+  image: {{space.vars.PW_IMAGE_ROUTE}}:{{space.vars.LATEST_PW_IMAGE_VERSION}}
   stage: test
   parallel: 3
 

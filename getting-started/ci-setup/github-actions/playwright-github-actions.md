@@ -22,7 +22,7 @@ jobs:
     name: "Playwright Tests"
     timeout-minutes: 60
     runs-on: ubuntu-22.04
-    container: mcr.microsoft.com/playwright:v1.60.0-noble
+    container: {{space.vars.PW_IMAGE_ROUTE}}:{{space.vars.LATEST_PW_IMAGE_VERSION}}
 
     steps:
       - uses: actions/checkout@v4

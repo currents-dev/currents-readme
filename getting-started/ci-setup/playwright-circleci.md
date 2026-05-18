@@ -30,7 +30,7 @@ version: 2.1
 jobs:
   run-test:
     docker:
-      - image: mcr.microsoft.com/playwright:v1.60.0-noble
+      - image: {{space.vars.PW_IMAGE_ROUTE}}:{{space.vars.LATEST_PW_IMAGE_VERSION}}
     # Enable parallelism of 3
     parallelism: 3
     steps:

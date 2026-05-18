@@ -77,7 +77,7 @@ jobs:
         shard: [1, 2, 3]
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/playwright:v1.60.0-noble
+    container: {{space.vars.PW_IMAGE_ROUTE}}:{{space.vars.LATEST_PW_IMAGE_VERSION}}
     env:
       CURRENTS_PROJECT_ID: bnsqNa
       CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
