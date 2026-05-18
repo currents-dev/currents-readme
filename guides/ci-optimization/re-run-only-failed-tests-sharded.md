@@ -1,15 +1,13 @@
 ---
-description: Re-run only failed Playwright tests when using native CI sharding
+description: Re-run only failed tests when using native Playwright sharding
 ---
 
 # Re-run Only Failed Tests — Sharded runs
 
-The suggested templates do not require long CI files or custom scripts. They work with popular CI providers and can be used without the Currents reporter.
+Native Playwright sharding runs tests in parallel across a fixed set of jobs. On retry, each job should run only the tests that failed in the previous execution. The guides below show how to wire `--last-failed` into GitHub Actions, GitLab CI, and Jenkins—using the `playwright-last-failed` helper where needed.
 
-Step-by-step guides and examples:
+Step-by-step guides:
 
-* **GitHub Actions** — [re-run-failed-only-tests-sharded.md](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-sharded.md "mention")
-* **GitLab CI** — [re-run-failed-only-tests](../../getting-started/ci-setup/gitlab/re-run-failed-only-tests.md#playwright-sharding "mention")
-* **Jenkins Pipeline** — [jenkins.md](../../getting-started/ci-setup/jenkins.md#using-last-failed-flag-with-shards-and-orchestration "mention")
-
-See also the overview: [re-run-only-failed-tests.md](re-run-only-failed-tests.md "mention").
+* [**GitHub Actions**](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-sharded.md)
+* [**GitLab CI**](../../getting-started/ci-setup/gitlab/re-run-failed-only-tests.md#playwright-sharding)
+* [**Jenkins Pipeline**](../../getting-started/ci-setup/jenkins.md#using-last-failed-flag-with-shards-and-orchestration)

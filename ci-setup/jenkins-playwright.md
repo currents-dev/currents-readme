@@ -6,11 +6,11 @@ description: Running Playwright tests in parallel with Jenkins and Currents Dash
 
 Here's an example of Jenkins pipeline that is running Playwright tests in parallel on 2 workers.&#x20;
 
-The pipeline will be running 2 workers, based on `mcr.microsoft.com/playwright:v1.60.0-noble` Docker image. Those workers will run all the tests in parallel.
+The pipeline will be running 2 workers, based on `{{space.vars.PW_IMAGE_ROUTE}}:{{space.vars.LATEST_PW_IMAGE_VERSION}}` Docker image. Those workers will run all the tests in parallel.
 
 The steps are:
 
-* Use `mcr.microsoft.com/playwright:v1.60.0-noble` as the base image
+* Use `{{space.vars.PW_IMAGE_ROUTE}}:{{space.vars.LATEST_PW_IMAGE_VERSION}}` as the base image
 * Install the necessary dependencies: `playwright` and `@currents/playwright`
 * Populate the environment variable `CURRENTS_RECORD_KEY` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/). Learn more about [record-key.md](../guides/record-key.md "mention")
 * Populate the environment variable `CURRENTS_PROJECT_ID` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/).
@@ -30,7 +30,7 @@ pipeline {
   agent {
     // this image provides everything needed to run Playwright
     docker {
-      image 'mcr.microsoft.com/playwright:v1.60.0-noble'
+      image '{{space.vars.PW_IMAGE_ROUTE}}:{{space.vars.LATEST_PW_IMAGE_VERSION}}'
     }
   }
 
