@@ -41,6 +41,8 @@ Or search "Currents" in the Extensions panel of your editor.
 
 ### Run Feed
 
+<figure><img src="../.gitbook/assets/CleanShot 2026-05-18 at 11.29.56@2x.png" alt=""><figcaption></figcaption></figure>
+
 Browse your latest CI test runs directly in the sidebar. Runs refresh automatically every 30 seconds so you always see the current state of your builds.
 
 * Filter by branch, author, tags, or status
@@ -49,12 +51,18 @@ Browse your latest CI test runs directly in the sidebar. Runs refresh automatica
 
 ### Pull Requests
 
+<figure><img src="../.gitbook/assets/CleanShot 2026-05-18 at 11.31.21@2x.png" alt=""><figcaption></figcaption></figure>
+
+
+
 Surface CI failures grouped by pull request. Each PR shows a timeline of commits and builds so you can spot regressions immediately and fix them before merging.
 
 * Filter by branch, author, tags, or status
 * Toggle auto-refresh on or off
 
 ### Run Details
+
+<figure><img src="../.gitbook/assets/CleanShot 2026-05-18 at 11.32.36@2x.png" alt=""><figcaption></figcaption></figure>
 
 Click any run to open a detail panel with every spec and test result. Failed tests show error messages and stack traces inline.
 
@@ -66,6 +74,8 @@ Click any run to open a detail panel with every spec and test result. Failed tes
 
 ### Test Explorer
 
+<figure><img src="../.gitbook/assets/CleanShot 2026-05-18 at 11.34.05@2x.png" alt=""><figcaption></figcaption></figure>
+
 Surface the flakiest and slowest tests across your project over a configurable date range (14, 30, 60, or 90 days). Use this view to proactively address test reliability before flaky tests slow down your team.
 
 * Sort by flakiness rate or average duration
@@ -74,6 +84,8 @@ Surface the flakiest and slowest tests across your project over a configurable d
 * Open in Dashboard for historical trends
 
 ### Inline Trace Viewer
+
+<figure><img src="../.gitbook/assets/CleanShot 2026-05-18 at 11.36.23.gif" alt=""><figcaption></figcaption></figure>
 
 When a Playwright test fails, the trace file is often the fastest path to understanding what went wrong. Normally that means downloading the trace, opening it in a browser, and mentally mapping it back to your source code. The inline Trace Viewer removes those steps entirely.
 
@@ -85,6 +97,8 @@ Click the **Trace Viewer** button on any failed test attempt in the Run Details 
 * Trace data streams directly from Currents -- no manual download or local file management
 
 ### Fix with AI
+
+{% embed url="https://player.mux.com/h7mDts1TwwARJseGM01u0001W638rJB9TKLlr01rkLRNtMI?metadata-video-title=Currents+IDE+Error+Context&video-title=Currents+IDE+Error+Context" %}
 
 Copying error messages from a CI log into an AI chat loses the surrounding context that makes a fix possible -- the stack trace gets truncated, the test history is missing, and the agent has to guess at what the test was doing when it failed. The "Fix with agent" actions solve this by assembling a rich, server-processed context package before the prompt ever reaches your AI assistant.
 
