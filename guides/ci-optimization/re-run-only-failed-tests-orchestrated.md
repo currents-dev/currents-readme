@@ -3,7 +3,9 @@ description: Re-run only failed Playwright tests when using Currents Orchestrati
 icon: microchip
 ---
 
-# Re-run Only Failed Tests — Orchestrated runs
+# Re-run Only Failed Tests — Orchestrated runs (V1)
+
+For Orchestration V2 (`pwc-p discover` + `pwc-p run`), see [re-run-only-failed-tests-orchestrated-v2.md](re-run-only-failed-tests-orchestrated-v2.md "mention").
 
 {% hint style="info" %}
 Failed orchestrated reruns require **Rerun All Jobs** in the CI provider, not **Rerun Failed Only**.
@@ -21,7 +23,8 @@ That's why failed orchestrated CI reruns use **Rerun All Jobs** instead of **Rer
 
 Step-by-step guides and examples:
 
-* **GitHub Actions** — [re-run-failed-only-tests-orchestrated.md](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-orchestrated.md "mention")
+* **GitHub Actions (V1)** — [re-run-failed-only-tests-orchestrated.md](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-orchestrated.md "mention")
+* **GitHub Actions (V2)** — [re-run-failed-only-tests-orchestrated-v2.md](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-orchestrated-v2.md "mention")
 * **GitLab CI** — [re-run-failed-only-tests.md](../../getting-started/ci-setup/gitlab/re-run-failed-only-tests.md "mention")
 * **Jenkins Pipeline** — [jenkins.md](../../getting-started/ci-setup/jenkins.md#using-last-failed-flag-with-shards-and-orchestration "mention")
 

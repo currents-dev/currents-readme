@@ -4,9 +4,13 @@ description: Currents orchestration pwc-p command-line executable documentation
 
 # pwc-p (orchestration)
 
-`pwc-p` is a  command-line executable that implements Currents Orchestration for Playwright. See [playwright-parallelization.md](../../../guides/ci-optimization/playwright-parallelization.md "mention") and [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention").
+`pwc-p` is a command-line executable that implements Currents Orchestration for Playwright. See [playwright-parallelization.md](../../../guides/ci-optimization/playwright-parallelization.md "mention") and [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention").
 
-`pwc-p` allows providing [configuration.md](configuration.md "mention") options via CLI flags. Additionally, is passes down CLI flags to the underlying `playwright` command.&#x20;
+{% hint style="info" %}
+**Orchestration V2** splits the CLI into `pwc-p discover` and `pwc-p run`. See [playwright-orchestration-v2.md](../../../guides/ci-optimization/playwright-orchestration-v2.md "mention"). The options below apply to **Orchestration V1** (`pwc-p` without subcommands) and to `pwc-p run` where noted.
+{% endhint %}
+
+`pwc-p` allows providing [configuration.md](configuration.md "mention") options via CLI flags. Additionally, it passes down CLI flags to the underlying `playwright` command.&#x20;
 
 {% hint style="success" %}
 We recommended using `currents.config.ts` file. See [#configuration-sources](configuration.md#configuration-sources "mention").

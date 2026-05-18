@@ -1,22 +1,22 @@
 ---
-description: Playwright Orchestration v1 setup instructions
+description: Playwright Orchestration V1 setup instructions
 icon: sitemap
 ---
 
-# Orchestration Setup v1
+# Orchestration Setup V1
 
-Orchestration v1 is the current single-command `pwc-p` implementation for Playwright. Read the general [playwright-orchestration.md](playwright-orchestration.md "mention") guide for the version-neutral overview.
+Orchestration V1 is the single-command `pwc-p` implementation for Playwright. Read the general [playwright-orchestration.md](playwright-orchestration.md "mention") guide for the version-neutral overview.
 
 ## How does it work
 
-`@currents/playwright` contains a command-line executable `pwc-p` — a lightweight wrapper that implements Orchestration v1 and runs Playwright behind the scenes.
+`@currents/playwright` contains a command-line executable `pwc-p` — a lightweight wrapper that implements Orchestration V1 and runs Playwright behind the scenes.
 
 * it scans the testing suite
 * it establishes an orchestration session with Currents servers
 * **it** runs Playwright, executing spec files in the optimal order
 * the results are recorded to Currents for troubleshooting and analysis
 
-### Setup v1
+### Setup V1
 
 Install `@currents/playwright`
 
@@ -69,7 +69,7 @@ $ npx pwc-p --key **redacted** --project-id **redacted** --ci-build-id `date +%s
 
 ### Examples
 
-Check out the following example configuration of running orchestration v1 in popular CI providers:
+Check out the following example configuration of running Orchestration V1 in popular CI providers:
 
 * [GitHub Actions](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/test-or8n.yml)
 * [GitLab CI/CD](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwcp.yml?ref_type=heads)
@@ -282,7 +282,7 @@ Re-running only failed tests for orchestrated runs requires collecting the resul
 
 * Orchestration works on a **file level** - i.e. it balances test files (rather than tests)
 * [Playwright Project dependencies](https://playwright.dev/docs/test-projects#dependencies) is not supported - i.e. if projects depend on one another, orchestration will not consider the dependencies. As a workaround, run the dependencies in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)
-* [**Global Setup and Teardown**](https://playwright.dev/docs/test-global-setup-teardown). An orchestrated execution will run `playwright` command multiple times. Beware, that the global setup or teardown routines will run for each invocation of `playwright`.
+* [Global Setup and Teardown](https://playwright.dev/docs/test-global-setup-teardown). An orchestrated execution will run `playwright` command multiple times. Beware, that the global setup or teardown routines will run for each invocation of `playwright`.
 
 ### Next Steps
 

@@ -88,7 +88,10 @@ test-rerun-reporter:
 
 #### Currents Orchestration
 
-In case you're using [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention") for running your Playwright tests in parallel, use [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md "mention") command to fetch the results of the last run from the [API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/ "mention").
+In case you're using Currents Orchestration for running Playwright tests in parallel, use [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md "mention") to fetch the results of the last run from the [API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/ "mention").
+
+* [Orchestration V1](../../../guides/ci-optimization/playwright-orchestration-v1.md "mention") — single-command `pwc-p`
+* [Orchestration V2](../../../guides/ci-optimization/playwright-orchestration-v2.md "mention") — use `pwc-p discover` with `--last-failed`, then `pwc-p run --pwc-discovery-file`
 
 \
 An example workflow is available in our GitLab demo repository

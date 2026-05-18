@@ -60,7 +60,7 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - uses: actions/setup-node@v4
         with:
-          node-version: "24.x"
+          node-version: "{{space.vars.LATEST_NODE_VERSION}}"
       - name: Install dependencies
         run: |
           npm ci

@@ -241,7 +241,7 @@ Signal used to reset the tests running on the machine. See [ci-tests-on-spot-ins
 * Default: `false`
 * Environment variable: N/A
 
-Prevents `pwc-p` from automatically configuring Playwright to use Currents reporter . If see, you must add Currents reporter manuall. See [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention").
+Prevents `pwc-p` from automatically configuring Playwright to use Currents reporter . If see, you must add Currents reporter manuall. See [playwright-orchestration-v1.md](../../../guides/ci-optimization/playwright-orchestration-v1.md "mention") or [playwright-orchestration-v2.md](../../../guides/ci-optimization/playwright-orchestration-v2.md "mention").
 
 <br>
 

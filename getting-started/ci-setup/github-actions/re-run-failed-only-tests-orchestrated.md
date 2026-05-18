@@ -3,7 +3,9 @@ description: How to set up failed test reruns for orchestrated Playwright runs o
 icon: github
 ---
 
-# Re-run Only Failed Tests — Orchestrated runs
+# Re-run Only Failed Tests — Orchestrated runs (V1)
+
+This guide is for [Orchestration V1](../../../guides/ci-optimization/playwright-orchestration-v1.md "mention"). For V2, see [re-run-failed-only-tests-orchestrated-v2.md](re-run-failed-only-tests-orchestrated-v2.md "mention").
 
 With [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention") for Playwright tests, results can also be fetched from [Runs](https://app.gitbook.com/s/lcxad7NaXT7D2V6owvHN/resources/runs "mention").
 
@@ -46,7 +48,7 @@ Add a step that fetches the last-run information before tests run.
 ```yaml
 - name: Playwright Last Failed action
   id: last-failed-action
-  uses: currents-dev/playwright-last-failed@v1
+  uses: currents-dev/playwright-last-failed@v2
   with:
     or8n: true
     # debug: true
@@ -91,14 +93,14 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - uses: actions/setup-node@v4
         with:
-          node-version: "24.x"
+          node-version: "{{space.vars.LATEST_NODE_VERSION}}"
       - name: Install dependencies
         run: |
           npm ci
           npx playwright install chrome
       - name: Playwright Last Failed action
         id: last-failed-action
-        uses: currents-dev/playwright-last-failed@v1
+        uses: currents-dev/playwright-last-failed@v2
         with:
           or8n: true
           pw-output-dir: basic/test-results

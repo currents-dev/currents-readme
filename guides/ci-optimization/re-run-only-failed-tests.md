@@ -19,4 +19,5 @@ We have created a set of tools that simplify rerunning only the failed Playwrigh
 Follow the guide that matches how tests are run in CI:
 
 * [Sharded runs](re-run-only-failed-tests-sharded.md "mention") — fixed shard count and native Playwright `--shard` parallelism
-* [Orchestrated runs](re-run-only-failed-tests-orchestrated.md "mention") — Currents assigns tests across runners
+* [Orchestrated runs (V1)](re-run-only-failed-tests-orchestrated.md "mention") — single-command `pwc-p`
+* [Orchestrated runs (V2)](re-run-only-failed-tests-orchestrated-v2.md "mention") — `pwc-p discover` and `pwc-p run`
