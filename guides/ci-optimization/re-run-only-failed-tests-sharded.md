@@ -4,7 +4,7 @@ description: Re-run only failed tests when using native Playwright sharding
 
 # Re-run Only Failed Tests — Sharded runs
 
-The examples shown in the guides below do not require long CI files or custom scripts. They work with popular CI providers and can be used without the Currents reporter.
+Native Playwright sharding runs tests in parallel across a fixed set of jobs. On retry, each job should run only the tests that failed in the previous execution. The guides below show how to wire `--last-failed` into GitHub Actions, GitLab CI, and Jenkins—using the `playwright-last-failed` helper where needed.
 
 Step-by-step guides:
 
