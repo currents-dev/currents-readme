@@ -16,6 +16,8 @@ Step-by-step guide:
 
 <summary>Install the @currents/cmd package</summary>
 
+The `@currents/cmd` CLI tool is a dependency of the Last Failed action and provides utilities for managing test results and artifacts.
+
 ```bash
 npm i -D @currents/cmd
 ```
@@ -47,7 +49,7 @@ Add a step that fetches the last-run information before tests run.
   id: last-failed-action
   uses: currents-dev/playwright-last-failed@v2
   with:
-    or8n: true
+    or8n: true  # "or8n" is short for "orchestration" - use this for Currents Orchestration
     # debug: true
     pw-output-dir: basic/test-results
 ```
