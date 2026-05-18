@@ -99,7 +99,7 @@ When you click **Fix with agent** on a single test, the extension uses Currents 
 - Historical pass/fail data for the test
 - Instance and attempt metadata the AI agent can use to query further details via MCP
 
-Alongside the markdown prompt, the extension fetches a separate **error-context snapshot** -- a post-processed artifact produced by the Currents backend that can include the page accessibility tree, console, network logs and other diagnostic data captured at the moment of failure. Giving the agent structured context that goes well beyond what a raw error message provides.
+Alongside the markdown prompt, the extension fetches a separate **error-context snapshot** powered by Currents backend that includes the page accessibility tree, console, network logs and other diagnostic data captured at the moment of failure. Giving the agent structured context that goes well beyond what a raw error message provides.
 
 The same flow scales up:
 
