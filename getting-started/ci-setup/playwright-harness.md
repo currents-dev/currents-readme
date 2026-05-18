@@ -115,7 +115,7 @@ execution:
         identifier: playwright_currents
         spec:
           connectorRef: YOUR_DOCKER_CONNECTOR
-          image: mcr.microsoft.com/playwright:latest
+          image: mcr.microsoft.com/playwright:v1.60.0-noble
           shell: Bash
           command: |-
             npm ci
@@ -165,7 +165,7 @@ Do **not** rely on Harness `split_tests` for Playwright unless you intentionally
               identifier: playwright_currents_shard
               spec:
                 connectorRef: YOUR_DOCKER_CONNECTOR
-                image: mcr.microsoft.com/playwright:latest
+                image: mcr.microsoft.com/playwright:v1.60.0-noble
                 shell: Bash
                 command: |-
                   npm ci

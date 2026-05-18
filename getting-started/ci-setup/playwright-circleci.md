@@ -30,7 +30,7 @@ version: 2.1
 jobs:
   run-test:
     docker:
-      - image: mcr.microsoft.com/playwright:latest
+      - image: mcr.microsoft.com/playwright:v1.60.0-noble
     # Enable parallelism of 3
     parallelism: 3
     steps:

@@ -61,7 +61,7 @@ See the [configuration for details](../../../resources/reporters/currents-cmd/#c
 {% code lineNumbers="true" %}
 ```yaml
 test-rerun-reporter:
-  image: mcr.microsoft.com/playwright:latest
+  image: mcr.microsoft.com/playwright:v1.60.0-noble
   stage: test
   parallel: 3
   variables:
@@ -153,7 +153,7 @@ See [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md 
 {% code lineNumbers="true" %}
 ```yaml
 test-rerun-pwcp:
-  image: mcr.microsoft.com/playwright:latest
+  image: mcr.microsoft.com/playwright:v1.60.0-noble
   stage: test
   parallel: 3
   variables:
