@@ -33,7 +33,7 @@ Or search "Currents" in the Extensions panel of your editor.
 
 ## Features
 
-#### Run Feed
+### Run Feed
 
 Browse your latest CI test runs directly in the sidebar. Runs refresh automatically every 30 seconds so you always see the current state of your builds.
 
@@ -43,7 +43,7 @@ Browse your latest CI test runs directly in the sidebar. Runs refresh automatica
 - Toggle auto-refresh on or off
 - Load older runs on demand
 
-#### Pull Requests
+### Pull Requests
 
 Surface CI failures grouped by pull request. Each PR shows a timeline of commits and builds so you can spot regressions immediately and fix them before merging.
 
@@ -52,7 +52,7 @@ Surface CI failures grouped by pull request. Each PR shows a timeline of commits
 - Filter by branch, author, tags, or status
 - Toggle auto-refresh on or off
 
-#### Run Details
+### Run Details
 
 Click any run to open a detail panel with every spec and test result. Failed tests show error messages and stack traces inline.
 
@@ -64,7 +64,7 @@ Click any run to open a detail panel with every spec and test result. Failed tes
 - **Trace Viewer** -- open the Playwright Trace Viewer inline (see [Inline Trace Viewer](#inline-trace-viewer) below)
 - **Open in Dashboard** -- open the full Currents dashboard for deeper analysis of the run, spec, or test attempt
 
-#### Test Explorer
+### Test Explorer
 
 Surface the flakiest and slowest tests across your project over a configurable date range (14, 30, 60, or 90 days). Use this view to proactively address test reliability before flaky tests slow down your team.
 
@@ -75,7 +75,7 @@ Surface the flakiest and slowest tests across your project over a configurable d
 - Send flaky or slow tests to AI for analysis and automated fixes
 - Open in Dashboard for historical trends
 
-#### Inline Trace Viewer
+### Inline Trace Viewer
 
 When a Playwright test fails, the trace file is often the fastest path to understanding what went wrong. Normally that means downloading the trace, opening it in a browser, and mentally mapping it back to your source code. The inline Trace Viewer removes those steps entirely.
 
@@ -88,7 +88,7 @@ Click the **Trace Viewer** button on any failed test attempt in the Run Details 
 - "Open in browser" button if you need the trace in a full browser window
 - Trace data streams directly from Currents -- no manual download or local file management
 
-#### Fix with AI
+### Fix with AI
 
 Copying error messages from a CI log into an AI chat loses the surrounding context that makes a fix possible -- the stack trace gets truncated, the test history is missing, and the agent has to guess at what the test was doing when it failed. The "Fix with agent" actions solve this by assembling a rich, server-processed context package before the prompt ever reaches your AI assistant.
 
@@ -111,7 +111,7 @@ If the AI chat API is not available (for example in editors without a built-in c
 
 <!-- TODO: screenshot or short video — clicking "Fix with agent" on a failed test, showing the AI chat opening with the enriched prompt and attached error-context file -->
 
-#### Analyze with Currents
+### Analyze with Currents
 
 An inline CodeLens action appears above every `test`, `it`, `describe`, and `context` definition in your code. Click it to pull recent failure data from the Currents API and send a context-rich prompt to your AI assistant that:
 
@@ -123,7 +123,7 @@ A Quick Fix action (Cmd+. / Ctrl+.) is also always available on any test line, e
 
 <!-- TODO: screenshot — CodeLens "Analyze with Currents" action appearing above a test definition, with the Quick Fix menu shown -->
 
-#### MCP Server
+### MCP Server
 
 The extension automatically registers a [Currents MCP server](https://www.npmjs.com/package/@currents/mcp) so AI agents in Cursor and VS Code can query runs, test results, and spec instances directly through tool calls. No manual configuration needed -- the extension passes your API key to the MCP server and keeps it in sync.
 
