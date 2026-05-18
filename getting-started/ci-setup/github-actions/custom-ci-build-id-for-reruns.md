@@ -4,15 +4,17 @@ description: How to configure custom CI build IDs for failed test reruns on GitH
 
 # Custom CI Build ID for Reruns
 
-The [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) gets the previous run information using the default CI build ID pattern:
+The [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) uses the default CI build ID pattern to fetch the previous run information:
 
 `${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}`
 
-When a different [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention") is used for sharded or orchestrated runs, set `previous-ci-build-id`.
+When you use a custom [CI build ID](../../../guides/parallelization-guide/ci-build-id.md "mention") for your test runs, set `previous-ci-build-id` to match that custom pattern.
 
 <figure><img src="../../../.gitbook/assets/custom-ci-build-id.png" alt=""><figcaption><p>Using custom CI build ID for reruns</p></figcaption></figure>
 
-For example:
+## For Sharded Runs (with matrix strategy)
+
+Use the matrix index and total to ensure each shard reruns its own failed tests:
 
 {% code overflow="wrap" %}
 ```yaml
@@ -33,7 +35,9 @@ For example:
 ```
 {% endcode %}
 
-For orchestrated runs, keep the `or8n` input and skip the matrix values:
+## For Orchestrated Runs (Currents assigns tests across machines)
+
+Omit the matrix parameters and use `or8n: true` so Currents handles test distribution:
 
 {% code overflow="wrap" %}
 ```yaml

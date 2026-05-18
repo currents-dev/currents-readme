@@ -8,15 +8,9 @@ description: Re-run only failed Playwright tests when using Currents Orchestrati
 Failed orchestrated reruns require **Rerun All Jobs** in the CI provider, not **Rerun Failed Only**.
 {% endhint %}
 
-Orchestrated runs work differently from native Playwright sharding. Currents assigns tests to **all available machines**. More machines can run the tests faster, and the total number of CI machines does not need to be set in advance.
+Orchestrated runs work differently from native Playwright sharding. Currents assigns tests to **all available machines**. When retrying, use **Rerun All Jobs** to let Currents redistribute the failed tests across all available containers for optimal parallel execution.
 
 <figure><img src="../../.gitbook/assets/currents-2024-09-30-13.59.22@2x.png" alt=""><figcaption><p>Rerunning Failed Only Playwright Tests using Currents Orchestration</p></figcaption></figure>
-
-That's why failed orchestrated CI reruns use **Rerun All Jobs** instead of **Rerun Failed Only**:
-
-* The CI provider will spin up all the containers
-* Currents will assign the failed tests to all the available containers
-* More available containers will run the tests in parallel faster
 
 Step-by-step guides and examples:
 
