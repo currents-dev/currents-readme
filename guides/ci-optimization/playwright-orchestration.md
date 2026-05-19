@@ -6,6 +6,10 @@ description: Playwright Orchestration setup instructions
 
 Orchestration helps decrease the duration of Playwright tests in CI pipelines. Read our detailed guide on [playwright-parallelization.md](playwright-parallelization.md "mention") that compares native sharding with orchestration.
 
+{% hint style="warning" %}
+When using **Playwright 1.60.0+**, update `@currents/playwright` to **2.0.0+**. See [migration-to-playwright-1.60.md](../../resources/reporters/currents-playwright/migration-to-playwright-1.60.md "mention"). Orchestration CI also requires [playwright-orchestration-migration-guide.md](playwright-orchestration-migration-guide.md "mention").
+{% endhint %}
+
 ## How does it work
 
 `@currents/playwright` includes `pwc-p`, a command-line executable that coordinates Playwright test execution with Currents Orchestration.
@@ -21,10 +25,6 @@ At a high level, orchestration:
 
 1. `pwc-p discover` — runs Playwright test discovery and writes the canonical test list to a file.
 2. `pwc-p run` — initiates the orchestration execution.
-
-{% hint style="warning" %}
-When using **Playwright 1.60.0+**, update `@currents/playwright` to **2.0.0+**. See [migration-to-playwright-1.60.md](../../resources/reporters/currents-playwright/migration-to-playwright-1.60.md "mention"). Orchestration CI also requires [playwright-orchestration-migration-guide.md](playwright-orchestration-migration-guide.md "mention").
-{% endhint %}
 
 ## Setup
 
