@@ -41,7 +41,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "{{space.vars.LATEST_NODE_VERSION}}"
+          node-version: "24.x"
 
       - name: Install dependencies
         run: npm install

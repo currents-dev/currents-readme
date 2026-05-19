@@ -41,7 +41,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: "{{space.vars.LATEST_NODE_VERSION}}"
+          node-version: "24.x"
 
       - name: Install dependencies
         run: |

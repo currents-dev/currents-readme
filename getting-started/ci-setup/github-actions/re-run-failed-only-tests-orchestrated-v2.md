@@ -8,7 +8,7 @@ Currents Orchestration assigns tests to all available CI runners, so **Re-run al
 
 ## Prerequisites
 
-* [Orchestration V2](../../../guides/ci-optimization/playwright-orchestration-v2.md "mention") with `@currents/playwright` that supports `pwc-p discover` and `pwc-p run`
+* [Orchestration V2](../../../guides/ci-optimization/playwright-orchestration-v2.md "mention") `@currents/playwright` on its latest version.
 * `CURRENTS_RECORD_KEY`, `CURRENTS_PROJECT_ID`, and `CURRENTS_API_KEY` configured in GitHub Actions secrets
 * [playwright-last-failed@v2](https://github.com/currents-dev/playwright-last-failed) — exposes `extra-discovery-flags` for the discover step
 
@@ -85,7 +85,7 @@ jobs:
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/playwright:v1.60.0-noble
     env:
-      CURRENTS_PROJECT_ID: bnsqNa
+      CURRENTS_PROJECT_ID: ${{ vars.CURRENTS_PROJECT_ID }}
       CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
       CURRENTS_CI_BUILD_ID: ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
       CURRENTS_API_KEY: ${{ secrets.CURRENTS_API_KEY }}
@@ -98,7 +98,7 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - uses: actions/setup-node@v4
         with:
-          node-version: "{{space.vars.LATEST_NODE_VERSION}}"
+          node-version: "24.x"
       - name: Install dependencies
         run: |
           npm ci
