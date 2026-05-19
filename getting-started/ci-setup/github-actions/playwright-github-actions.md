@@ -43,7 +43,7 @@ jobs:
       - name: Playwright Tests
         continue-on-error: false
         env:
-          CURRENTS_PROJECT_ID: bnsqNa # Update to the Currents Project ID
+          CURRENTS_PROJECT_ID: ${{ vars.CURRENTS_PROJECT_ID }}
           CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
         run: npx playwright test
 </code></pre>

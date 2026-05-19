@@ -63,8 +63,8 @@ See the [configuration for details](../../../resources/reporters/currents-cmd/#c
   stage: test
   parallel: 3
   variables:
-    CURRENTS_PROJECT_ID: bnsqNa
-    # CURRENTS_RECORD_KEY: <set in your CI/CD variables>
+    CURRENTS_PROJECT_ID: ${{ vars.CURRENTS_PROJECT_ID }}
+    # CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
   script:
     - npm ci
     # Grab the last run from cache. CacheId is automatically calculated for GitLab, and a .currents_env file is created with extra env variables
@@ -103,9 +103,9 @@ Obtain an API key (see [Authentication](https://app.gitbook.com/s/lcxad7NaXT7D2V
 
 ```yaml
 variables:
-    CURRENTS_PROJECT_ID: bnsqNa
-    CURRENTS_RECORD_KEY: # set CI/CD variable
-    CURRENTS_API_KEY: # set CI/CD variable
+    CURRENTS_PROJECT_ID: ${{ vars.CURRENTS_PROJECT_ID }}
+    CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
+    CURRENTS_API_KEY: ${{ secrets.CURRENTS_API_KEY }}
 ```
 
 ##### Add an after_script to upload the cache
@@ -151,9 +151,9 @@ See [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md 
   stage: test
   parallel: 3
   variables:
-    CURRENTS_PROJECT_ID: bnsqNa
-    # CURRENTS_RECORD_KEY: <set in your CI/CD variables>
-    # CURRENTS_API_KEY: <set in your CI/CD variables>
+    CURRENTS_PROJECT_ID: ${{ vars.CURRENTS_PROJECT_ID }}
+    # CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
+    # CURRENTS_API_KEY: ${{ secrets.CURRENTS_API_KEY }}
   script:
     - npm ci
     # Grab the last run from cache. CacheId is automatically calculated for GitLab, and a .currents_env file is created with extra env variables
