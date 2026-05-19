@@ -58,10 +58,8 @@ See the [configuration for details](../../../resources/reporters/currents-cmd/#c
 
 ##### Full example
 
-{% code lineNumbers="true" %}
-```yaml
-test-rerun-reporter:
-  image: {{space.vars.PW_IMAGE_ROUTE}}:{{space.vars.LATEST_PW_IMAGE_VERSION}}
+<pre class="language-yaml"><code class="lang-yaml">test-rerun-reporter:
+  image: <code class="expression">space.vars.PW_IMAGE_ROUTE + ":" + space.vars.LATEST_PW_IMAGE_VERSION</code>
   stage: test
   parallel: 3
   variables:
@@ -82,9 +80,7 @@ test-rerun-reporter:
   after_script:
     # Save the last-run.json to cache after the run
     - npx currents cache set --pw-output-dir basic/test-results --preset last-run
-
-```
-{% endcode %}
+</code></pre>
 
 #### Currents Orchestration
 
@@ -150,10 +146,8 @@ See [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md 
 
 ##### Full example
 
-{% code lineNumbers="true" %}
-```yaml
-test-rerun-pwcp:
-  image: {{space.vars.PW_IMAGE_ROUTE}}:{{space.vars.LATEST_PW_IMAGE_VERSION}}
+<pre class="language-yaml"><code class="lang-yaml">test-rerun-pwcp:
+  image: <code class="expression">space.vars.PW_IMAGE_ROUTE + ":" + space.vars.LATEST_PW_IMAGE_VERSION</code>
   stage: test
   parallel: 3
   variables:
@@ -175,6 +169,4 @@ test-rerun-pwcp:
   after_script:
     # Save the last-run to cache in order to track the run attempts
     - npx currents cache set --preset last-run --pw-output-dir basic/test-results
-
-```
-{% endcode %}
+</code></pre>

@@ -32,9 +32,7 @@ See the [action configuration for details](https://github.com/currents-dev/playw
 
 <summary>A full example</summary>
 
-{% code lineNumbers="true" %}
-```yaml
-name: failed-only-reruns
+<pre class="language-yaml"><code class="lang-yaml">name: failed-only-reruns
 
 on:
   push:
@@ -47,7 +45,7 @@ jobs:
         shard: [1, 2, 3]
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    container: {{space.vars.PW_IMAGE_ROUTE}}:{{space.vars.LATEST_PW_IMAGE_VERSION}}
+    container: <code class="expression">space.vars.PW_IMAGE_ROUTE + ":" + space.vars.LATEST_PW_IMAGE_VERSION</code>
     env:
       CURRENTS_PROJECT_ID: bnsqNa
       CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
@@ -79,8 +77,7 @@ jobs:
           COMMAND="npx playwright test --config playwright.config.reporter.ts ${{ steps.last-failed-action.outputs.extra-pw-flags }}"
           echo "Running command: $COMMAND"
           $COMMAND
-```
-{% endcode %}
+</code></pre>
 
 </details>
 

@@ -65,9 +65,7 @@ export default currentsConfig;
 
 ## Example Pipeline
 
-{% code title=".buildkite/pipeline.yml" overflow="wrap" %}
-```yaml
-steps:
+<pre class="language-yaml"><code class="lang-yaml">steps:
   - label: ":playwright: Playwright Tests"
     command: |
       npm ci
@@ -76,12 +74,11 @@ steps:
     parallelism: 3
     plugins:
       - docker#v5.11.0:
-          image: "{{space.vars.PW_IMAGE_ROUTE}}:{{space.vars.LATEST_PW_IMAGE_VERSION}}"
+          image: "<code class="expression">space.vars.PW_IMAGE_ROUTE + ":" + space.vars.LATEST_PW_IMAGE_VERSION</code>"
     env:
       CURRENTS_PROJECT_ID: "bnsqNa"
       CURRENTS_RECORD_KEY: "${CURRENTS_RECORD_KEY}"
-```
-{% endcode %}
+</code></pre>
 
 This pipeline:
 

@@ -104,10 +104,7 @@ Compose multi-part IDs with the concatenation patterns documented under **Harnes
 
 Add a **Run** step in your **CI** stage. Set **Container Registry** to your Docker connector and **Image** to a [Playwright image](https://playwright.dev/docs/docker) tag that matches your `@playwright/test` version.
 
-{% code overflow="wrap" %}
-
-```yaml
-execution:
+<pre class="language-yaml"><code class="lang-yaml">execution:
   steps:
     - step:
         type: Run
@@ -115,7 +112,7 @@ execution:
         identifier: playwright_currents
         spec:
           connectorRef: YOUR_DOCKER_CONNECTOR
-          image: {{space.vars.PW_IMAGE_ROUTE}}:{{space.vars.LATEST_PW_IMAGE_VERSION}}
+          image: <code class="expression">space.vars.PW_IMAGE_ROUTE + ":" + space.vars.LATEST_PW_IMAGE_VERSION</code>
           shell: Bash
           command: |-
             npm ci
@@ -126,9 +123,7 @@ execution:
             CURRENTS_PROJECT_ID: YOUR_CURRENTS_PROJECT_ID
             CURRENTS_RECORD_KEY: <+secrets.getValue("currents_record_key")>
             CURRENTS_CI_BUILD_ID: <+pipeline.executionId>
-```
-
-{% endcode %}
+</code></pre>
 
 - Replace `YOUR_CURRENTS_PROJECT_ID` with your project ID, or use a [pipeline variable](https://developer.harness.io/docs/platform/variables-and-expressions/harness-variables) (for example `<+pipeline.variables.currents_project_id>`).
 - Replace `currents_record_key` with your secret’s **identifier**.
@@ -139,10 +134,7 @@ Use **stage-level** [parallelism](https://developer.harness.io/docs/continuous-i
 
 Do **not** rely on Harness `split_tests` for Playwright unless you intentionally drive a custom split; native sharding matches the rest of Currents’ CI docs and keeps setup simple.
 
-{% code overflow="wrap" %}
-
-```yaml
-- stage:
+<pre class="language-yaml"><code class="lang-yaml">- stage:
     name: playwright_tests
     identifier: playwright_tests
     type: CI
@@ -165,7 +157,7 @@ Do **not** rely on Harness `split_tests` for Playwright unless you intentionally
               identifier: playwright_currents_shard
               spec:
                 connectorRef: YOUR_DOCKER_CONNECTOR
-                image: {{space.vars.PW_IMAGE_ROUTE}}:{{space.vars.LATEST_PW_IMAGE_VERSION}}
+                image: <code class="expression">space.vars.PW_IMAGE_ROUTE + ":" + space.vars.LATEST_PW_IMAGE_VERSION</code>
                 shell: Bash
                 command: |-
                   npm ci
@@ -179,9 +171,7 @@ Do **not** rely on Harness `split_tests` for Playwright unless you intentionally
                   CURRENTS_PROJECT_ID: YOUR_CURRENTS_PROJECT_ID
                   CURRENTS_RECORD_KEY: <+secrets.getValue("currents_record_key")>
                   CURRENTS_CI_BUILD_ID: <+pipeline.executionId>
-```
-
-{% endcode %}
+</code></pre>
 
 - Tune `parallelism` and `maxConcurrency` per [best practices for looping strategies](https://developer.harness.io/docs/platform/pipelines/looping-strategies/best-practices-for-looping-strategies).
 - **`CURRENTS_CI_BUILD_ID` is mandatory** — the **same** value must reach every shard (the `<+pipeline.executionId>` expression above resolves identically for all parallel instances of the same execution).
