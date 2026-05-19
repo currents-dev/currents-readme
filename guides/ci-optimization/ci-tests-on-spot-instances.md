@@ -37,7 +37,7 @@ When a spot instance is just about to be terminated (let's say Machine A),  Curr
 ### Setup and Configuration
 
 {% hint style="info" %}
-Only tests orchestrated with `pwc-p` or `pwc-p run` can be dynamically reassigned. Read more about [playwright-orchestration.md](playwright-orchestration.md "mention").
+Only tests orchestrated with `pwc-p` can be dynamically reassigned. Read more about [playwright-orchestration.md](playwright-orchestration.md "mention").
 {% endhint %}
 
 Starting from version `1.3.0` of `@currents/playwright` set `--pwc-reset-signal` CLI parameter:
@@ -48,13 +48,31 @@ pwc-p run .... --pwc-reset-signal SIGUSR1|SIGUSR2
 
 When specified, `pwc-p run` starts listening to POSIX signal (`SIGUSR1` or `SIGUSR2`). After receiving the signal, it sends a request to Currents servers to reassign the affected tests to healthy machines. Currents updates the run status accordingly.
 
-Upon receiving the signal, expect log lines similar to:
+An example output you're expected to see upon termination:
 
+{% code overflow="wrap" %}
 ```
+$ npx pwc-p run --key XXX --project-id YYY --ci-build-id reset-001 --pwc-reset-signal SIGUSR1
+
+🚥 Will reset tests on SIGUSR1. PID: 66640
+🚀 Starting orchestration session...
+📦 Currents reporter: 1.3.0 recording CI build reset-001 for project YYY
+🎭 Playwright: 1.44.0 1 test in 1 project [chromium] 
+
+🌐 Executing orchestrated task: [chromium] test.spec.ts 
+🌐 Run URL: https://app.currents.dev/run/c11610c6e1644913
+
+================================================================
+
+2024-05-15T23:31:57.336Z starting test attempt #1: [chromium] › test.spec.ts:15:5 › A
+
+# in another terminal: kill -SIGUSR1 66640
+
 🚥 Received SIGUSR1
 🚥 Resetting tests: machineId: <id>, runId: <run-id>
 🚥 Success resetting tests: machineId: <id>, runId: <run-id>
 ```
+{% endcode %}
 
 {% hint style="warning" %}
 It is your responsibility to capture the eviction notice, detect the PID and send the signal to `pwc-p` process before an eviction.&#x20;
