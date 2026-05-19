@@ -6,7 +6,6 @@ description: Migration guide for upgrading to Orchestration v2
 
 {% hint style="warning" %}
 When using **Playwright 1.60.0+**, update all `@currents/playwright` packages to **2.0.0+**. Playwright 1.60.0 introduced breaking changes that are addressed in the latest Currents packages.
-For the orchestration setup, see [playwright-orchestration-v2.md](playwright-orchestration-v2.md "mention").
 {% endhint %}
 
 ## 1. Upgrade `@currents/playwright`
