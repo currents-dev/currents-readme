@@ -2,7 +2,7 @@
 description: Playwright Orchestration v2 setup instructions
 ---
 
-# Orchestration Setup v2
+# Orchestration setup v2
 
 {% hint style="warning" %}
 When using **Playwright 1.60.0+**, update all `@currents/playwright` packages to **2.0.0+**. Playwright 1.60.0 introduced breaking changes that are addressed in the latest Currents packages.
@@ -36,7 +36,7 @@ Read more about [ci-build-id.md](../parallelization-guide/ci-build-id.md "mentio
 
 
 
-## When to use `discover`
+## When to use `discover`?
 
 `pwc-p discover` is only required when applying **filtering** to the run — for example by using commands like `--grep / -g`, `--last-failed`, `--project`, or a positional spec path.
 
@@ -96,20 +96,17 @@ Add tags on the recorded run (no discovery step):
 npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --tag tagA --tag tagB
 ```
 
-## CI Setup
+## CI example
 
-* [re-run-failed-only-tests-orchestrated-v2.md](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-orchestrated-v2.md "mention") — GitHub Actions workflow with `discover` and `run` for failed-only reruns
-* [test-or8n.yml](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/test-or8n.yml) — adapt the V1 orchestration workflow by replacing `pwc-p` with `pwc-p run` (no discovery step when running the full suite)
+* [test-or8n.yml](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/test-or8n.yml) — Example
 
-_Missing an example?_ [_Let us know_](mailto:support@currents.dev)_._
-
-## Re-running Only Failed Tests
+## Re-running only failed tests
 
 Orchestration v2 reruns use `pwc-p discover` with `--last-failed` (or flags from the [playwright-last-failed](https://github.com/currents-dev/playwright-last-failed) action) to build the filtered test list, then `pwc-p run` with `--pwc-discovery-file`.
 
 See [re-run-only-failed-tests-orchestrated-v2.md](re-run-only-failed-tests-orchestrated-v2.md "mention") for the full implementation details.
 
-## Limitations and Nuances
+## Limitations and nuances
 
 * Orchestration works on a **file level** — it balances test files (rather than individual tests).
 * [Playwright Project dependencies](https://playwright.dev/docs/test-projects#dependencies) is not supported — if projects depend on one another, orchestration will not consider the dependencies. As a workaround, run the dependencies in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)
