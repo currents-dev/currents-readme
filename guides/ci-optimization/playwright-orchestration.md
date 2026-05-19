@@ -217,7 +217,7 @@ Check an [example of Github Actions setup here.](https://github.com/currents-dev
 
 ## Orchestration and Multiple Workers
 
-`@currents/playwright@1.3.0+` supports automatic detection of global workers and the orchestration adjusts to make the best use of the available workers.
+`@currents/playwright@1.13.0+` supports automatic detection of global workers and the orchestration adjusts to make the best use of the available workers.
 
 When multiple workers are enabled, the orchestrator creates a "batch" of multiple test files to ensure the most optimal utilization of all the available workers. The batch runs as single playwright command.
 

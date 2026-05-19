@@ -10,7 +10,7 @@ An additional benefit of using Currents for balancing tests is the ability to au
 
 {% hint style="info" %}
 * Get familiar with [playwright-orchestration.md](playwright-orchestration.md "mention")
-* Requires `@currents/playwright@1.3.0+`
+* Requires `@currents/playwright@1.13.0+`
 {% endhint %}
 
 ### Cost Efficiency of Spot Instances
