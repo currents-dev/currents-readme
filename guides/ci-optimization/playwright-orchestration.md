@@ -355,6 +355,19 @@ See [re-run only failed tests — orchestrated runs](re-run-only-failed-tests-or
 * [Playwright Project dependencies](https://playwright.dev/docs/test-projects#dependencies) is not supported — if projects depend on one another, orchestration will not consider the dependencies. As a workaround, run the dependencies in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)
 * [Global Setup and Teardown](https://playwright.dev/docs/test-global-setup-teardown). An orchestrated execution runs `playwright` multiple times. Beware that global setup or teardown routines run for each invocation of `playwright`.
 
+## CI provider examples
+
+Provider-specific orchestration examples are being updated for `discover` and `run`. Use these pages as starting points:
+
+* [GitHub Actions](../../getting-started/ci-setup/github-actions/playwright-github-actions.md "mention")
+* [GitLab CI/CD](../../getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md "mention")
+* [NX](../../getting-started/ci-setup/nx.md "mention")
+* [Jenkins](../../getting-started/ci-setup/jenkins.md "mention")
+* [CircleCI](../../getting-started/ci-setup/playwright-circleci.md "mention")
+* [Azure DevOps](../../getting-started/ci-setup/playwright-azure-devops.md "mention")
+* [AWS CodeBuild](../../getting-started/ci-setup/playwright-aws-code-build.md "mention")
+* [Harness](../../getting-started/ci-setup/playwright-harness.md "mention")
+
 ## Next Steps
 
 * Use [ci-tests-on-spot-instances.md](ci-tests-on-spot-instances.md "mention") to reduce your CI bills by 90%

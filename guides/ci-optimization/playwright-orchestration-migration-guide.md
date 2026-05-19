@@ -61,16 +61,3 @@ npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-bui
 ```
 
 Playwright filter flags belong on **`discover`**. Currents and runtime flags belong on **`run`**.
-
-## CI provider examples
-
-Provider-specific orchestration examples are being updated for `discover` and `run`. Use these pages as starting points:
-
-* [GitHub Actions](../../getting-started/ci-setup/github-actions/playwright-github-actions.md "mention")
-* [GitLab CI/CD](../../getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md "mention")
-* [NX](../../getting-started/ci-setup/nx.md "mention")
-* [Jenkins](../../getting-started/ci-setup/jenkins.md "mention")
-* [CircleCI](../../getting-started/ci-setup/playwright-circleci.md "mention")
-* [Azure DevOps](../../getting-started/ci-setup/playwright-azure-devops.md "mention")
-* [AWS CodeBuild](../../getting-started/ci-setup/playwright-aws-code-build.md "mention")
-* [Harness](../../getting-started/ci-setup/playwright-harness.md "mention")
