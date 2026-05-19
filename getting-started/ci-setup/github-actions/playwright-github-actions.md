@@ -10,7 +10,7 @@ Check out the example repository [https://github.com/currents-dev/currents-examp
 
 ### Quick Start
 
-The example workflow file below shows how to run Playwright tests in GitHub actions.
+The example workflow file below shows how to run Playwright tests in GitHub actions {{space.vars.PW_IMAGE_ROUTE}}.
 
 ```yaml
 name: Run Playwright Tests
