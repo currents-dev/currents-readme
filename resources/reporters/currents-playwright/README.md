@@ -85,9 +85,10 @@ Choose the preferred usage method. See details below.
 
 
 * `pwc-p` command-line executable for orchestration.
-  * Required to enable [#playwright-orchestration](../../../guides/ci-optimization/playwright-parallelization.md#playwright-orchestration "mention").
-  * See [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention").
-  * See [pwc-p-orchestration.md](pwc-p-orchestration.md "mention")
+  * Run `pwc-p run` to orchestrate tests across CI machines
+  * Run `pwc-p discover` when filtering the suite (`--grep`, `--last-failed`, `--project`, spec paths)
+  * Required to enable [#playwright-orchestration](../../../guides/ci-optimization/playwright-parallelization.md#playwright-orchestration "mention")
+  * See [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention") and [pwc-p-orchestration.md](pwc-p-orchestration.md "mention")
 
 
 
@@ -105,6 +106,27 @@ npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id hello-currents
 {% hint style="info" %}
 Using `pwc` command overrides the reporters configured in `playwright.config.ts` - you can specify additional reporters using `--reporter` flag. Alternatively, you can explicitly add currents reported in the Playwright configuration as appears below.
 {% endhint %}
+
+
+
+### `pwc-p` command-line executable
+
+Use `pwc-p run` to orchestrate the full suite. When applying Playwright filters, run `pwc-p discover` first and pass the same discovery file to `pwc-p run`.
+
+```bash
+npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id>
+```
+
+Filter tests, then orchestrate the discovered list:
+
+```bash
+npx pwc-p discover --pwc-discovery-file tests.txt --grep @smoke
+npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --pwc-discovery-file tests.txt
+```
+
+* `pwc-p run` reads configuration from `currents.config.ts`
+* Playwright filter flags belong on `discover`; runtime flags (`-j`, `--timeout`) belong on `run`
+* See [pwc-p-orchestration.md](pwc-p-orchestration.md "mention") and [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention")
 
 
 
@@ -163,10 +185,17 @@ pwc --key <record-key> --project-id <id>
 * Run orchestration for all tests in the current directory:
 
 ```
-pwc-p --key <record-key> --project-id <id> --ci-build-id <build-id>
+npx pwc-p run --key <record-key> --project-id <id> --ci-build-id <build-id>
 ```
 
-* Run only tests filtered by the tag "@smoke":
+* Run orchestration for tests filtered by the tag "@smoke":
+
+```
+npx pwc-p discover --pwc-discovery-file tests.txt --grep @smoke
+npx pwc-p run --key <record-key> --project-id <id> --ci-build-id <build-id> --pwc-discovery-file tests.txt
+```
+
+* Run only tests filtered by the tag "@smoke" (non-orchestrated):
 
 ```
 pwc --key <record-key> --project-id <id> --grep smoke
