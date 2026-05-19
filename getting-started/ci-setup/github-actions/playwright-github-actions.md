@@ -22,7 +22,7 @@ jobs:
     name: "Playwright Tests"
     timeout-minutes: 60
     runs-on: ubuntu-22.04
-    container: {{space.vars.PW_IMAGE_ROUTE}}:{{space.vars.LATEST_PW_IMAGE_VERSION}}
+    container: <code class="expression">space.vars.LATEST\_PW\_IMAGE\_ROUTE</code>:<code class="expression">space.vars.LATEST\_PW\_IMAGE\_VERSION</code>
 
     steps:
       - uses: actions/checkout@v4
