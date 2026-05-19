@@ -61,7 +61,7 @@ A successfully created orchestration prints an output similar to this:
 $ npx pwc-p run --key **redacted** --project-id **redacted** --ci-build-id `date +%s` -c ./or8n/playwright.config.ts
 
 🚀 Starting orchestration session...
-📦 Currents reporter: 1.1.2 recording CI build 1712134904 for project JJzd65, orchestration id 260264cfa16950ab4dc98d5c54333136
+📦 Currents reporter: 2.0.0 recording CI build 1712134904 for project JJzd65, orchestration id 260264cfa16950ab4dc98d5c54333136
 🎭 Playwright: 1.42.1 5 tests in 1 project [chromium]
 
 🌐 Executing orchestrated task: [chromium] spec-or8n-e.spec.ts
