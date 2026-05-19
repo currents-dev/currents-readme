@@ -54,6 +54,22 @@ Read more about [ci-build-id.md](../parallelization-guide/ci-build-id.md "mentio
 Currents uses all available machines automatically, so removing the `--shard` flag from the execution command is required.
 {% endhint %}
 
+A successfully created orchestration prints an output similar to this:
+
+{% code overflow="wrap" %}
+```bash
+$ npx pwc-p run --key **redacted** --project-id **redacted** --ci-build-id `date +%s` -c ./or8n/playwright.config.ts
+
+🚀 Starting orchestration session...
+📦 Currents reporter: 1.1.2 recording CI build 1712134904 for project JJzd65, orchestration id 260264cfa16950ab4dc98d5c54333136
+🎭 Playwright: 1.42.1 5 tests in 1 project [chromium]
+
+🌐 Executing orchestrated task: [chromium] spec-or8n-e.spec.ts
+🌐 Run URL: https://app.currents.dev/run/9b93659915fe653f
+# ...start executing the tests in an optimal order.
+```
+{% endcode %}
+
 ## Why two commands?
 
 Playwright filter flags (`--grep`, `--last-failed`, spec paths, and similar) are not accepted by `pwc-p run`. They must be applied during discovery so the orchestration process receives a fixed test list.

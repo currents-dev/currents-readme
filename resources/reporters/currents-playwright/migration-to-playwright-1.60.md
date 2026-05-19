@@ -4,7 +4,9 @@ description: Upgrade @currents/playwright for Playwright 1.60+
 
 # Upgrade for Playwright 1.60+
 
+{% hint style="warning" %}
 When using **Playwright 1.60.0+**, update `@currents/playwright` to **2.0.0+**. Playwright 1.60.0 introduced breaking changes that are addressed in Currents 2.x.
+{% endhint %}
 
 ```bash
 npm i @currents/playwright@^2
