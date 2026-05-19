@@ -247,7 +247,7 @@ def runPlaywrightOrchestration(parallelTotal, lastFailed) {
 def runPlaywrightTestsOrchestration(parallelIndex) {
     stage("Run Playwright Tests - Orchestration ${parallelIndex}") {
         script {
-            def command = 'npx pwc-p'
+            def command = 'npx pwc-p run'
             echo "Running command: ${command}"
             sh "${command}"
         }
@@ -257,9 +257,13 @@ def runPlaywrightTestsOrchestration(parallelIndex) {
 def runPlaywrightTestsLastFailedOrchestration(parallelIndex) {
     stage("Run Playwright Tests - Orchestration ${parallelIndex}") {
         script {
-            def command = "npx pwc-p --last-failed --output test-results/parallel-${parallelIndex}"
-            echo "Running command: ${command}"
-            sh "${command}"
+            def discoveryFile = "test-results/parallel-${parallelIndex}/tests.txt"
+            def discoverCommand = "npx pwc-p discover --pwc-discovery-file ${discoveryFile} --last-failed --output test-results/parallel-${parallelIndex}"
+            def runCommand = "npx pwc-p run --pwc-discovery-file ${discoveryFile}"
+            echo "Running command: ${discoverCommand}"
+            sh "${discoverCommand}"
+            echo "Running command: ${runCommand}"
+            sh "${runCommand}"
         }
     }
 }

@@ -15,5 +15,5 @@ The `playwright-last-failed` action uses `@currents/cmd` as a dependency. To con
 Select the guide that matches your setup:
 
 * [Sharded runs](re-run-failed-only-tests-sharded.md "mention") — fixed shard count and native Playwright `--shard` parallelism
-* [Orchestrated runs](re-run-failed-only-tests-orchestrated.md "mention") — Currents automatically distributes tests to all available runners
+* [Orchestrated runs](re-run-failed-only-tests-orchestrated-v2.md "mention") — `pwc-p discover` and `pwc-p run`
 * [Custom CI build ID for reruns](custom-ci-build-id-for-reruns.md "mention") — for sharded or orchestrated runs with a non-default CI build ID

@@ -116,8 +116,8 @@ Instead of pre-allocating tests to CI nodes, the orchestrator keeps a live queue
 
 Orchestration does come with its own limitations:
 
-* [**Playwright Project dependencies**](https://playwright.dev/docs/test-projects#dependencies) are not supported — as a workaround, run the projects in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)
-* [**Global Setup and Teardown**](https://playwright.dev/docs/test-global-setup-teardown) — an orchestrated execution runs `playwright` for each iteration. Beware, that the global setup or teardown routines will run accordingly.
+* [Playwright Project dependencies](https://playwright.dev/docs/test-projects#dependencies) are not supported — as a workaround, run the projects in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)
+* [Global Setup and Teardown](https://playwright.dev/docs/test-global-setup-teardown) — an orchestrated execution runs `playwright` for each iteration. Beware, that the global setup or teardown routines will run accordingly.
 
 ### Comparing Sharding and Orchestration
 

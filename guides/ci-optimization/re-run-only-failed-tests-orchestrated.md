@@ -14,6 +14,8 @@ Orchestrated runs work differently from native Playwright sharding. Currents ass
 
 Step-by-step guides and examples:
 
-* [**GitHub Actions**](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-orchestrated.md)
-* [**GitLab CI**](../../getting-started/ci-setup/gitlab/re-run-failed-only-tests.md)
-* [**Jenkins Pipeline**](../../getting-started/ci-setup/jenkins.md#using-last-failed-flag-with-shards-and-orchestration)
+* **GitHub Actions** — [re-run-failed-only-tests-orchestrated-v2.md](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-orchestrated-v2.md "mention")
+* **GitLab CI** — [re-run-failed-only-tests.md](../../getting-started/ci-setup/gitlab/re-run-failed-only-tests.md "mention")
+* **Jenkins Pipeline** — [jenkins.md](../../getting-started/ci-setup/jenkins.md#using-last-failed-flag-with-shards-and-orchestration "mention")
+
+See also the overview: [re-run-only-failed-tests.md](re-run-only-failed-tests.md "mention").

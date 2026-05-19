@@ -39,9 +39,8 @@ jobs:
       - run:
           name: Run tests
           # Enable Playwright Shards
-          # - Use CURRENTS_RECORD_KEY secret from context
-          # - Grab Project ID from https://app.currents.dev
-          command: SHARD="$((${CIRCLE_NODE_INDEX}+1))"; npx pwc --key $CURRENTS_RECORD_KEY --project-id bnsqNa --shard=${SHARD}/${CIRCLE_NODE_TOTAL}
+          # - Add CURRENTS_RECORD_KEY and CURRENTS_PROJECT_ID to the "currents" CircleCI context
+          command: SHARD="$((${CIRCLE_NODE_INDEX}+1))"; npx pwc --key "$CURRENTS_RECORD_KEY" --project-id "$CURRENTS_PROJECT_ID" --shard="${SHARD}/${CIRCLE_NODE_TOTAL}"
 
 # Invoke jobs via workflows
 workflows:
@@ -55,4 +54,4 @@ workflows:
 The example [config file](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/circleci/.circleci/config.yml):
 
 * runs 3 containers with Playwright tests in parallel
-* Note: use CLI arguments to customize your Playwright runs, e.g.: `pwc --key <your Currents.dev key>`
+* Note: the `Run tests` step above is ready to run once the `currents` context defines `CURRENTS_RECORD_KEY` and `CURRENTS_PROJECT_ID` (from [app.currents.dev](https://app.currents.dev)); you can append other `pwc` flags as needed.

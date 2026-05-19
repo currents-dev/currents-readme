@@ -4,42 +4,68 @@ description: Currents orchestration pwc-p command-line executable documentation
 
 # pwc-p (orchestration)
 
-`pwc-p` is a  command-line executable that implements Currents Orchestration for Playwright. See [playwright-parallelization.md](../../../guides/ci-optimization/playwright-parallelization.md "mention") and [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention").
+`pwc-p` is a command-line executable that implements Currents Orchestration for Playwright. See [playwright-parallelization.md](../../../guides/ci-optimization/playwright-parallelization.md "mention") and [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention").
 
-`pwc-p` allows providing [configuration.md](configuration.md "mention") options via CLI flags. Additionally, is passes down CLI flags to the underlying `playwright` command.&#x20;
+{% hint style="info" %}
+**Orchestration** uses `pwc-p discover` and `pwc-p run`. See [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention").
+{% endhint %}
+
+`pwc-p` has two subcommands:
+
+* **`pwc-p discover`** — runs Playwright test discovery and writes the test list to a file. Accepts Playwright filter flags (`--grep`, `--last-failed`, `--project`, spec paths, and similar).
+* **`pwc-p run`** — starts orchestration and executes tests. Accepts [configuration.md](configuration.md "mention") options and supported Playwright runtime flags (`-j`, `--timeout`, and similar).
+
+Both commands accept Currents configuration via CLI flags or `currents.config.ts`. See [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention") for setup and CI examples.
 
 {% hint style="success" %}
 We recommended using `currents.config.ts` file. See [#configuration-sources](configuration.md#configuration-sources "mention").
 {% endhint %}
 
-```bash
-> pwc-p [options] [playwright arguments and flags]
-
-✨ Orchestrate 🎭 Playwright tests on CI using https://currents.dev
-
-----------------------------------------------------
-📖 Documentation: https://docs.currents.dev
-🤙 Support:       support@currents.dev
-----------------------------------------------------
-```
-
 ## **Examples**
 
-Orchestrate all tests in the current directory:
+Run the full suite (no filters):
 
-```
-pwc-p --key --project-id --ci-build-id
-```
-
-Add additional playwright arguments and flags:
-
-```
-pwc-p --key --project-id --ci-build-id -- --workers 2 --timeout 10000
+```bash
+npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id>
 ```
 
+Add Playwright runtime flags:
 
+```bash
+npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> -j 2 --timeout 10000
+```
+
+Filter tests with grep, then orchestrate the discovered list:
+
+```bash
+npx pwc-p discover --pwc-discovery-file tests.txt --grep @smoke
+npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --pwc-discovery-file tests.txt
+```
+
+Re-run only failed tests:
+
+```bash
+npx pwc-p discover --pwc-discovery-file tests.txt --last-failed
+npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --pwc-discovery-file tests.txt
+```
+
+Pass the discovery file via environment variable or config instead of `--pwc-discovery-file` on every command:
+
+```bash
+export CURRENTS_DISCOVERY_FILE=tests.txt
+npx pwc-p discover
+npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id>
+```
 
 ## **Options**
+
+Unless noted, options below apply to **`pwc-p run`**. Use them on **`pwc-p discover`** only when the option is listed for discovery.
+
+### **`--pwc-discovery-file <path>`**
+
+Path to the discovery output file written by `pwc-p discover` and read by `pwc-p run`. Also available as `CURRENTS_DISCOVERY_FILE` or `orchestration.discoveryFile` in `currents.config.ts` (recommended for CI so both commands use the same path).
+
+***
 
 ### **`--ci-build-id`**&#x20;
 
