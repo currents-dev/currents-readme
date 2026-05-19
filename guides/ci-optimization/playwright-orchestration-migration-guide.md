@@ -4,10 +4,6 @@ description: Migrate from Orchestration v1 to v2 (pwc-p discover + run)
 
 # Migration from Orchestration v1
 
-{% hint style="info" %}
-**Not using Currents Orchestration?** Upgrade `@currents/playwright` to 2.x and you are done. See [migration-to-playwright-1.60.md](../../resources/reporters/currents-playwright/migration-to-playwright-1.60.md "mention") — no `pwc-p` changes required.
-{% endhint %}
-
 This guide is for CI that runs tests with **`pwc-p`**. If you use `pwc`, `playwright test` with the Currents reporter, or sharding only, follow the [Playwright 1.60+ upgrade guide](../../resources/reporters/currents-playwright/migration-to-playwright-1.60.md "mention") instead.
 
 ## Prerequisites
