@@ -87,7 +87,7 @@ strategy:
   working-directory: ./argos
   env:
     ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }} 
-    CURRENTS_PROJECT_ID: bnsqNa
+    CURRENTS_PROJECT_ID: ${{ vars.CURRENTS_PROJECT_ID }}
     CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
   run: | # start playwright
     npx playwright test --shard=${{ matrix.shard }}/${{ strategy.job-total }}
@@ -158,7 +158,7 @@ strategy:
     ARGOS_PARALLEL: 1
     ARGOS_PARALLEL_TOTAL: -1 # important to set to -1 to enable "finalize" call.
     ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }} 
-    CURRENTS_PROJECT_ID: bnsqNa
+    CURRENTS_PROJECT_ID: ${{ vars.CURRENTS_PROJECT_ID }}
     CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
   run: | # start Currents Orchestration
     npx pwc-p 

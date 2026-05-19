@@ -12,17 +12,15 @@ TL;DR take a look at the example repository:
 
 The example [`.gitlab-ci.yml`](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab-ci.yml) file creates a GitLab CI pipeline with 3 workers using 3 [Playwright Shards](https://playwright.dev/docs/test-sharding):
 
-{% code overflow="wrap" %}
-```yaml
-# .gitlab-ci.yml
+<pre class="language-yaml"><code class="lang-yaml"># .gitlab-ci.yml
 default:
-  image: mcr.microsoft.com/playwright:v1.60.0-noble
+  image: <code class="expression">space.vars.PW_IMAGE_ROUTE + ":" + space.vars.LATEST_PW_IMAGE_VERSION</code>
 
 stages:
   - test
 
 test:
-  image: mcr.microsoft.com/playwright:v1.60.0-noble
+  image: <code class="expression">space.vars.PW_IMAGE_ROUTE + ":" + space.vars.LATEST_PW_IMAGE_VERSION</code>
   stage: test
   parallel: 3
 
@@ -31,9 +29,7 @@ test:
     - npx playwright install
     - cd ./basic
     - npx pwc --key $CURRENTS_RECORD_KEY --project-id bnsqNa --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
-
-```
-{% endcode %}
+</code></pre>
 
 <figure><img src="../../../.gitbook/assets/currents-2023-11-04-02.04.23@2x.png" alt=""><figcaption><p>Running 3 parallel jobs Playwright jobs in GitLab CI</p></figcaption></figure>
 
