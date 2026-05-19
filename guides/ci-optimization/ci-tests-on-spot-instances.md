@@ -6,7 +6,7 @@ description: >-
 
 # Cloud Spot Instances
 
-An additional benefit of using Currents for balancing tests is the ability to automatically redrive tests from one machine to another.
+An additional benefit of using Currents for balancing tests is the ability to automatically redrive tests from one machine to another. 
 
 {% hint style="info" %}
 * Get familiar with [playwright-orchestration.md](playwright-orchestration.md "mention")
