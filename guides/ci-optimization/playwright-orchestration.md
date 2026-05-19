@@ -26,6 +26,10 @@ At a high level, orchestration:
 1. `pwc-p discover` — runs Playwright test discovery and writes the canonical test list to a file.
 2. `pwc-p run` — initiates the orchestration execution.
 
+{% hint style="info" %}
+Currents uses all available machines automatically, so removing the `--shard` flag from the execution command is required.
+{% endhint %}
+
 ## Setup
 
 Install `@currents/playwright`:
@@ -48,10 +52,6 @@ npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-bui
 
 {% hint style="success" %}
 Read more about [ci-build-id.md](../parallelization-guide/ci-build-id.md "mention") and [reporting-strategy.md](../parallelization-guide/reporting-strategy.md "mention").
-{% endhint %}
-
-{% hint style="info" %}
-Currents uses all available machines automatically, so removing the `--shard` flag from the execution command is required.
 {% endhint %}
 
 A successfully created orchestration prints an output similar to this:
@@ -137,8 +137,6 @@ Check out the following example configuration of running orchestration in popula
 * [GitHub Actions + NX](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/nx/.github/workflows/or8n.yml)
 * [GitHub Actions: re-run failed tests](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-orchestrated-v2.md) — workflow with `discover` and `run` for failed-only reruns
 
-_Missing an example?_ [_Let us know_](mailto:support@currents.dev)_._
-
 ## Orchestration and Reporters
 
 ### Adding Additional Reporters
@@ -219,7 +217,7 @@ Check an [example of Github Actions setup here.](https://github.com/currents-dev
 
 ## Orchestration and Multiple Workers
 
-`@currents/playwright#13.0.0+` supports automatic detection of global workers and the orchestration adjusts to make the best use of the available workers.
+`@currents/playwright@1.3.0+` supports automatic detection of global workers and the orchestration adjusts to make the best use of the available workers.
 
 When multiple workers are enabled, the orchestrator creates a "batch" of multiple test files to ensure the most optimal utilization of all the available workers. The batch runs as single playwright command.
 
@@ -359,14 +357,14 @@ See [re-run only failed tests — orchestrated runs](re-run-only-failed-tests-or
 
 Provider-specific orchestration examples are being updated for `discover` and `run`. Use these pages as starting points:
 
-* [GitHub Actions](../../getting-started/ci-setup/github-actions/playwright-github-actions.md "mention")
-* [GitLab CI/CD](../../getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md "mention")
-* [NX](../../getting-started/ci-setup/nx.md "mention")
-* [Jenkins](../../getting-started/ci-setup/jenkins.md "mention")
-* [CircleCI](../../getting-started/ci-setup/playwright-circleci.md "mention")
-* [Azure DevOps](../../getting-started/ci-setup/playwright-azure-devops.md "mention")
-* [AWS CodeBuild](../../getting-started/ci-setup/playwright-aws-code-build.md "mention")
-* [Harness](../../getting-started/ci-setup/playwright-harness.md "mention")
+* [GitHub Actions](../../getting-started/ci-setup/github-actions/playwright-github-actions.md)
+* [GitLab CI/CD](../../getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md)
+* [NX](../../getting-started/ci-setup/nx.md)
+* [Jenkins](../../getting-started/ci-setup/jenkins.md)
+* [CircleCI](../../getting-started/ci-setup/playwright-circleci.md)
+* [Azure DevOps](../../getting-started/ci-setup/playwright-azure-devops.md)
+* [AWS CodeBuild](../../getting-started/ci-setup/playwright-aws-code-build.md)
+* [Harness](../../getting-started/ci-setup/playwright-harness.md)
 
 ## Next Steps
 
