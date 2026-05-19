@@ -5,7 +5,7 @@ description: Legacy Playwright Orchestration setup
 # Legacy Orchestration Setup
 
 {% hint style="warning" %}
-This page documents the **legacy single-command** `pwc-p` orchestration flow. For current setup with `pwc-p discover` and `pwc-p run`, see [playwright-orchestration.md](playwright-orchestration.md "mention"). To upgrade, see [playwright-orchestration-migration-guide.md](playwright-orchestration-migration-guide.md "mention").
+This page documents the **legacy** `pwc-p` orchestration flow. For current setup with `pwc-p discover` and `pwc-p run`, see [playwright-orchestration.md](playwright-orchestration.md "mention"). To upgrade, see [playwright-orchestration-migration-guide.md](playwright-orchestration-migration-guide.md "mention").
 {% endhint %}
 
 Orchestration helps decrease the duration of Playwright tests in CI pipelines. Read our detailed guide on [playwright-parallelization.md](playwright-parallelization.md "mention") that compares native sharding with orchestration.
