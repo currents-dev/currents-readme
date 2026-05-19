@@ -1,9 +1,8 @@
 ---
 description: Re-run only failed Playwright tests when using Currents Orchestration V2
-icon: microchip
 ---
 
-# Re-run Only Failed Tests — Orchestrated runs (V2)
+# Re-run Only Failed Tests — Orchestrated runs
 
 {% hint style="info" %}
 Failed orchestrated reruns require **Rerun All Jobs** in the CI provider, not **Rerun Failed Only**.
@@ -19,9 +18,9 @@ That's why failed orchestrated CI reruns use **Rerun All Jobs** instead of **Rer
 * Currents will assign the failed tests to all the available containers
 * More available containers will run the tests in parallel faster
 
-## Orchestration V2 flow
+## Orchestration flow
 
-In Orchestration V2, Playwright filter flags such as `--last-failed` belong on `pwc-p discover`. The generated test list is passed to `pwc-p run` with `--pwc-discovery-file`.
+In Orchestration, Playwright filter flags such as `--last-failed` belong on `pwc-p discover`. The generated test list is passed to `pwc-p run` with `--pwc-discovery-file`.
 
 ```bash
 npx pwc-p discover --pwc-discovery-file tests.txt --last-failed
@@ -32,9 +31,8 @@ See [playwright-orchestration.md](playwright-orchestration.md "mention") for set
 
 ## Step-by-step guides
 
-* **GitHub Actions (V2)** — [re-run-failed-only-tests-orchestrated-v2.md](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-orchestrated-v2.md "mention")
-* **GitHub Actions (V1)** — [re-run-failed-only-tests-orchestrated.md](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-orchestrated.md "mention")
-* **GitLab CI** — [re-run-failed-only-tests.md](../../getting-started/ci-setup/gitlab/re-run-failed-only-tests.md "mention") (Orchestration V1; use `pwc-p discover` / `pwc-p run` for V2)
+* **GitHub Actions** — [re-run-failed-only-tests-orchestrated-v2.md](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-orchestrated-v2.md "mention")
+* **GitLab CI** — [re-run-failed-only-tests.md](../../getting-started/ci-setup/gitlab/re-run-failed-only-tests.md "mention")
 * **Jenkins Pipeline** — [jenkins.md](../../getting-started/ci-setup/jenkins.md#using-last-failed-flag-with-shards-and-orchestration "mention")
 
 See also the overview: [re-run-only-failed-tests.md](re-run-only-failed-tests.md "mention").
