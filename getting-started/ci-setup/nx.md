@@ -103,7 +103,7 @@ This is showcased in the `e2e-03` nx project and the `project.json` file is slig
         "config": "apps/e2e-03/playwright.config.ts",
         "commands": [
           {
-            "command": "npx pwc-p"
+            "command": "npx pwc-p run"
           }
         ]
       }
@@ -115,7 +115,7 @@ This is showcased in the `e2e-03` nx project and the `project.json` file is slig
 Key differences with other nx projects in the example repository:
 
 * `executor` property has the value `nx:run-commands`.
-* A `command` property is added within `options`. This executes `npx pwc-p` (Orchestration V1) or `npx pwc-p run` (Orchestration V2). See [playwright-orchestration.md](../../guides/ci-optimization/playwright-orchestration.md "mention").
+* A `command` property is added within `options`. This executes `npx pwc-p run`. See [playwright-orchestration.md](../../guides/ci-optimization/playwright-orchestration.md "mention").
 * Reporter config in `playwright.config` file is not needed
 
 To locally execute orchestration nx project:
