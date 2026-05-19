@@ -86,8 +86,8 @@ See the [configuration for details](../../../resources/reporters/currents-cmd/#c
 
 In case you're using Currents Orchestration for running Playwright tests in parallel, use [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md "mention") to fetch the results of the last run from the [API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/ "mention").
 
-* [Legacy orchestration](../../../guides/ci-optimization/playwright-orchestration-v1.md "mention")
 * [Orchestration setup](../../../guides/ci-optimization/playwright-orchestration.md "mention")
+* [Legacy orchestration](../../../guides/ci-optimization/playwright-orchestration-v1.md "mention")
 
 \
 An example workflow is available in our GitLab demo repository
@@ -132,15 +132,17 @@ Update your job script to download the cache prior to running tests, and then al
 script:
     - npm ci
     # Grab the last run from cache. CacheId is automatically calculated for GitLab, and a .currents_env file is created with extra env variables
-    # $EXTRA_PWCP_FLAGS will contain --last-failed if this was a retried job
+    # $EXTRA_PWCP_FLAGS will contain --last-failed if this was a retried job (pass to discover, not run)
     # $RUN_ATTEMPT will be populated with a value 1+ based on how many times this job has been retried
     - npx currents cache get --preset last-run --continue
     - cat .currents_env >> $GITLAB_ENV && source .currents_env
     # Grab the complete last run from the API so orchestration can find all the failures
     - npx currents api get-run --branch=$CI_COMMIT_REF_NAME --pw-last-run --output=basic/test-results/.last-run.json || true
     - npx playwright install
-    # Run pwc-p, provide a build id with the run-attempt included, and also pass EXTRA_PWCP_FLAGS
-    - npx pwc-p --ci-build-id=or8n-$CI_PIPELINE_ID-$RUN_ATTEMPT $EXTRA_PWCP_FLAGS
+    # Discover tests to run; $EXTRA_PWCP_FLAGS includes --last-failed on retried jobs
+    - npx pwc-p discover --pwc-discovery-file tests.txt $EXTRA_PWCP_FLAGS
+    # Run pwc-p with the discovery file and a build id that includes the run attempt
+    - npx pwc-p run --ci-build-id=or8n-$CI_PIPELINE_ID-$RUN_ATTEMPT --pwc-discovery-file tests.txt
 
 ```
 {% endcode %}
@@ -160,15 +162,17 @@ See [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md 
   script:
     - npm ci
     # Grab the last run from cache. CacheId is automatically calculated for GitLab, and a .currents_env file is created with extra env variables
-    # $EXTRA_PWCP_FLAGS will contain --last-failed if this was a retried job
+    # $EXTRA_PWCP_FLAGS will contain --last-failed if this was a retried job (pass to discover, not run)
     # $RUN_ATTEMPT will be populated with a value 1+ based on how many times this job has been retried
     - npx currents cache get --preset last-run --continue
     - cat .currents_env >> $GITLAB_ENV && source .currents_env
     # Grab the complete last run from the API so orchestration can find all the failures
     - npx currents api get-run --branch=$CI_COMMIT_REF_NAME --pw-last-run --output=basic/test-results/.last-run.json || true
     - npx playwright install
-    # Run pwc-p, provide a build id with the run-attempt included, and also pass EXTRA_PWCP_FLAGS
-    - npx pwc-p --ci-build-id=or8n-$CI_PIPELINE_ID-$RUN_ATTEMPT $EXTRA_PWCP_FLAGS
+    # Discover tests to run; $EXTRA_PWCP_FLAGS includes --last-failed on retried jobs
+    - npx pwc-p discover --pwc-discovery-file tests.txt $EXTRA_PWCP_FLAGS
+    # Run pwc-p with the discovery file and a build id that includes the run attempt
+    - npx pwc-p run --ci-build-id=or8n-$CI_PIPELINE_ID-$RUN_ATTEMPT --pwc-discovery-file tests.txt
   after_script:
     # Save the last-run to cache in order to track the run attempts
     - npx currents cache set --preset last-run --pw-output-dir basic/test-results
