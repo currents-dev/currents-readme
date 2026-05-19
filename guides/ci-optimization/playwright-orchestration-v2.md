@@ -59,7 +59,7 @@ That separation keeps orchestration predictable: discovery records which tests m
 Discovery writes a file path you pass to `pwc-p run`:
 
 ```bash
-npx pwc-p discover -c ./playwright.config.ts --pwc-discovery-file tests.txt
+npx pwc-p discover --pwc-discovery-file tests.txt
 ```
 
 Example output:
@@ -85,14 +85,14 @@ Run `discover` only when you pass a **discovery filter flag** (`--grep`, `--last
 Filter with grep:
 
 ```bash
-npx pwc-p discover -c ./playwright.config.ts --pwc-discovery-file tests.txt --grep @smoke
+npx pwc-p discover --pwc-discovery-file tests.txt --grep @smoke
 npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --pwc-discovery-file tests.txt
 ```
 
 Filter with last-failed:
 
 ```bash
-npx pwc-p discover -c ./playwright.config.ts --pwc-discovery-file tests.txt --last-failed
+npx pwc-p discover --pwc-discovery-file tests.txt --last-failed
 npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --pwc-discovery-file tests.txt
 ```
 

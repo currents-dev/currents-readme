@@ -58,7 +58,7 @@ Run discovery once per job (or in a dedicated setup job that shares the test lis
 - name: Discover tests to run
   working-directory: ./basic
   run: |
-    npx pwc-p discover -c ./playwright.config.ts \
+    npx pwc-p discover \
       --pwc-discovery-file tests.txt \
       ${{ steps.last-failed-action.outputs.extra-discovery-flags }}
 
@@ -117,7 +117,7 @@ jobs:
       - name: Discover tests to run
         working-directory: ./basic
         run: |
-          npx pwc-p discover -c ./playwright.config.ts \
+          npx pwc-p discover \
             --pwc-discovery-file tests.txt \
             ${{ steps.last-failed-action.outputs.extra-discovery-flags }}
       - name: Playwright Tests

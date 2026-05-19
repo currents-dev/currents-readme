@@ -24,7 +24,7 @@ That's why failed orchestrated CI reruns use **Rerun All Jobs** instead of **Rer
 In Orchestration V2, Playwright filter flags such as `--last-failed` belong on `pwc-p discover`. The generated test list is passed to `pwc-p run` with `--pwc-discovery-file`.
 
 ```bash
-npx pwc-p discover -c ./playwright.config.ts --pwc-discovery-file tests.txt --last-failed
+npx pwc-p discover --pwc-discovery-file tests.txt --last-failed
 npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --pwc-discovery-file tests.txt
 ```
 
