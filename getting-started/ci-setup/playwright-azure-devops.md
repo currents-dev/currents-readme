@@ -27,8 +27,7 @@ Playwright publishes versioned images to [Microsoft Container Registry](https://
 
 Here's an example pipeline file:
 
-```yaml
-trigger:
+<pre class="language-yaml"><code class="lang-yaml">trigger:
 - main
 
 jobs:
@@ -49,7 +48,7 @@ jobs:
     vmImage: ubuntu-latest
 
   # If you choose to not use the playwright container, you will also need to npx install playwright in your steps
-  container: mcr.microsoft.com/playwright:v1.60.0-noble
+  container: <code class="expression">space.vars.PW_IMAGE_ROUTE + ":" + space.vars.LATEST_PW_IMAGE_VERSION</code>
   variables:
   - name: npm_config_cache
     value: $(Pipeline.Workspace)/.npm
@@ -85,7 +84,7 @@ jobs:
       CI: 'true'
       CURRENTS_PROJECT_ID: '3W3DU4'
       CURRENTS_RECORD_KEY: $(CURRENTS_RECORD_KEY)
-```
+</code></pre>
 
 Pipeline executions will be recorded and available in the Currents Dashboard, and test results and artifacts will be automatically uploaded.
 

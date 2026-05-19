@@ -6,11 +6,11 @@ description: Running Playwright tests in parallel with Jenkins and Currents Dash
 
 Here's an example of Jenkins pipeline that is running Playwright tests in parallel on 2 workers.&#x20;
 
-The pipeline will be running 2 workers, based on `mcr.microsoft.com/playwright:v1.60.0-noble` Docker image. Those workers will run all the tests in parallel.
+The pipeline will be running 2 workers, based on <code class="expression">space.vars.PW\_IMAGE\_ROUTE + ":" + space.vars.LATEST\_PW\_IMAGE\_VERSION</code> Docker image. Those workers will run all the tests in parallel.
 
 The steps are:
 
-* Use `mcr.microsoft.com/playwright:v1.60.0-noble` as the base image
+* Use <code class="expression">space.vars.PW\_IMAGE\_ROUTE + ":" + space.vars.LATEST\_PW\_IMAGE\_VERSION</code> as the base image
 * Install the necessary dependencies: `playwright` and `@currents/playwright`
 * Populate the environment variable `CURRENTS_RECORD_KEY` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/). Learn more about [record-key.md](../guides/record-key.md "mention")
 * Populate the environment variable `CURRENTS_PROJECT_ID` using [Jenkins Credentials Store](https://jenkins.io/doc/book/using/using-credentials/).
@@ -24,13 +24,11 @@ npx pwc --key CURRENTS_RECORD_KEY --project-id CURRENTS_PROJECT_ID --ci-build-id
 
 Here's the full Jenkins pipeline configuration file:
 
-{% code overflow="wrap" %}
-```groovy
-pipeline {
+<pre class="language-groovy"><code class="lang-groovy">pipeline {
   agent {
     // this image provides everything needed to run Playwright
     docker {
-      image 'mcr.microsoft.com/playwright:v1.60.0-noble'
+      image '<code class="expression">space.vars.PW_IMAGE_ROUTE + ":" + space.vars.LATEST_PW_IMAGE_VERSION</code>'
     }
   }
 
@@ -75,5 +73,4 @@ pipeline {
     }
   }
 }
-```
-{% endcode %}
+</code></pre>

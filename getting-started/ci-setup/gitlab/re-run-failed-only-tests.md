@@ -58,15 +58,13 @@ See the [configuration for details](../../../resources/reporters/currents-cmd/#c
 
 ##### Full example
 
-{% code lineNumbers="true" %}
-```yaml
-test-rerun-reporter:
-  image: mcr.microsoft.com/playwright:v1.60.0-noble
+<pre class="language-yaml"><code class="lang-yaml">test-rerun-reporter:
+  image: <code class="expression">space.vars.PW_IMAGE_ROUTE + ":" + space.vars.LATEST_PW_IMAGE_VERSION</code>
   stage: test
   parallel: 3
   variables:
-    CURRENTS_PROJECT_ID: bnsqNa
-    # CURRENTS_RECORD_KEY: <set in your CI/CD variables>
+    CURRENTS_PROJECT_ID: ${{ vars.CURRENTS_PROJECT_ID }}
+    # CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
   script:
     - npm ci
     # Grab the last run from cache. CacheId is automatically calculated for GitLab, and a .currents_env file is created with extra env variables
@@ -82,9 +80,7 @@ test-rerun-reporter:
   after_script:
     # Save the last-run.json to cache after the run
     - npx currents cache set --pw-output-dir basic/test-results --preset last-run
-
-```
-{% endcode %}
+</code></pre>
 
 #### Currents Orchestration
 
@@ -110,9 +106,9 @@ Obtain an API key (see [Authentication](https://app.gitbook.com/s/lcxad7NaXT7D2V
 
 ```yaml
 variables:
-    CURRENTS_PROJECT_ID: bnsqNa
-    CURRENTS_RECORD_KEY: # set CI/CD variable
-    CURRENTS_API_KEY: # set CI/CD variable
+    CURRENTS_PROJECT_ID: ${{ vars.CURRENTS_PROJECT_ID }}
+    CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
+    CURRENTS_API_KEY: ${{ secrets.CURRENTS_API_KEY }}
 ```
 
 ##### Add an after_script to upload the cache
@@ -153,16 +149,14 @@ See [currents-api.md](../../../resources/reporters/currents-cmd/currents-api.md 
 
 ##### Full example
 
-{% code lineNumbers="true" %}
-```yaml
-test-rerun-pwcp:
-  image: mcr.microsoft.com/playwright:v1.60.0-noble
+<pre class="language-yaml"><code class="lang-yaml">test-rerun-pwcp:
+  image: <code class="expression">space.vars.PW_IMAGE_ROUTE + ":" + space.vars.LATEST_PW_IMAGE_VERSION</code>
   stage: test
   parallel: 3
   variables:
-    CURRENTS_PROJECT_ID: bnsqNa
-    # CURRENTS_RECORD_KEY: <set in your CI/CD variables>
-    # CURRENTS_API_KEY: <set in your CI/CD variables>
+    CURRENTS_PROJECT_ID: ${{ vars.CURRENTS_PROJECT_ID }}
+    # CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
+    # CURRENTS_API_KEY: ${{ secrets.CURRENTS_API_KEY }}
   script:
     - npm ci
     # Grab the last run from cache. CacheId is automatically calculated for GitLab, and a .currents_env file is created with extra env variables
@@ -178,6 +172,4 @@ test-rerun-pwcp:
   after_script:
     # Save the last-run to cache in order to track the run attempts
     - npx currents cache set --preset last-run --pw-output-dir basic/test-results
-
-```
-{% endcode %}
+</code></pre>

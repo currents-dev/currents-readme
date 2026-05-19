@@ -7,10 +7,10 @@ icon: github
 
 This guide is for [Orchestration V1](../../../guides/ci-optimization/playwright-orchestration-v1.md "mention"). For V2, see [re-run-failed-only-tests-orchestrated-v2.md](re-run-failed-only-tests-orchestrated-v2.md "mention").
 
-With [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention") for Playwright tests, results can also be fetched from [Runs](https://app.gitbook.com/s/lcxad7NaXT7D2V6owvHN/resources/runs "mention").
+When using Currents Orchestration, reruns of failed tests require a different approach than native Playwright sharding.
 
 {% hint style="info" %}
-Currents Orchestration assigns tests to all available CI runners, so **Re-run all jobs** should be used instead of re-running only failed jobs. Read more at [re-run-only-failed-tests-orchestrated.md](../../../guides/ci-optimization/re-run-only-failed-tests-orchestrated.md "mention").
+**Important**: With Currents Orchestration, use **Rerun all jobs** (not "Rerun failed only") when retrying failed tests. This allows Currents to redistribute all tests across available machines for optimal performance. Learn more in the [CI optimization guide](../../../guides/ci-optimization/re-run-only-failed-tests-orchestrated.md "mention").
 {% endhint %}
 
 Step-by-step guide:
@@ -18,6 +18,8 @@ Step-by-step guide:
 <details>
 
 <summary>Install the @currents/cmd package</summary>
+
+The `@currents/cmd` CLI tool is a dependency of the Last Failed action and provides utilities for managing test results and artifacts.
 
 ```bash
 npm i -D @currents/cmd
@@ -50,7 +52,7 @@ Add a step that fetches the last-run information before tests run.
   id: last-failed-action
   uses: currents-dev/playwright-last-failed@v2
   with:
-    or8n: true
+    or8n: true  # "or8n" is short for "orchestration" - use this for Currents Orchestration
     # debug: true
     pw-output-dir: basic/test-results
 ```
@@ -63,9 +65,7 @@ See the [action configuration for details](https://github.com/currents-dev/playw
 
 <summary>A full example</summary>
 
-{% code lineNumbers="true" %}
-```yaml
-name: failed-only-or8n
+<pre class="language-yaml"><code class="lang-yaml">name: failed-only-or8n
 
 on:
   push:
@@ -78,9 +78,9 @@ jobs:
         shard: [1, 2, 3]
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/playwright:v1.60.0-noble
+    container: <code class="expression">space.vars.PW_IMAGE_ROUTE + ":" + space.vars.LATEST_PW_IMAGE_VERSION</code>
     env:
-      CURRENTS_PROJECT_ID: bnsqNa
+      CURRENTS_PROJECT_ID: ${{ vars.CURRENTS_PROJECT_ID }}
       CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
       CURRENTS_CI_BUILD_ID: ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
       CURRENTS_API_KEY: ${{ secrets.CURRENTS_API_KEY }}
@@ -110,8 +110,7 @@ jobs:
           COMMAND="npx pwc-p ${{ steps.last-failed-action.outputs.extra-pw-flags }}"
           echo "Running command: $COMMAND"
           $COMMAND
-```
-{% endcode %}
+</code></pre>
 
 </details>
 

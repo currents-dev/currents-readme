@@ -23,14 +23,12 @@ Please refer to the [example repository](https://github.com/currents-dev/current
 * Grab `CURRENTS_RECORD_KEY` [record-key.md](../../guides/record-key.md "mention") and `CURRENTS_PROJECT_ID` &#x20;
 * Store `CURRENTS_RECORD_KEY`: [https://circleci.com/docs/contexts/](https://circleci.com/docs/contexts/)
 
-{% code overflow="wrap" %}
-```yaml
-# .circleci/config.yml
+<pre class="language-yaml"><code class="lang-yaml"># .circleci/config.yml
 version: 2.1
 jobs:
   run-test:
     docker:
-      - image: mcr.microsoft.com/playwright:v1.60.0-noble
+      - image: <code class="expression">space.vars.PW_IMAGE_ROUTE + ":" + space.vars.LATEST_PW_IMAGE_VERSION</code>
     # Enable parallelism of 3
     parallelism: 3
     steps:
@@ -51,8 +49,7 @@ workflows:
       - run-test:
           # Use "currents" CircleCI context to enable access to secrets
           context: currents
-```
-{% endcode %}
+</code></pre>
 
 The example [config file](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/circleci/.circleci/config.yml):
 

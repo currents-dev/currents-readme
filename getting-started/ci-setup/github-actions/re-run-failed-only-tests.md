@@ -4,17 +4,15 @@ description: How to set up failed test reruns on GitHub Actions
 
 # Re-run Only Failed Tests
 
-When a workflow fails in GitHub Actions, the failed jobs can be re-run. However, Playwright needs extra setup to rerun only the failed tests.&#x20;
+When a workflow fails in GitHub Actions, the failed jobs can be re-run. However, Playwright needs extra setup to rerun only the failed tests.
 
-See [re-run-only-failed-tests.md](../../../guides/ci-optimization/re-run-only-failed-tests.md "mention") guide for more details on re-runs.
-
-For GitHub Actions, Currents provides the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to simplify the re-runs.
+For GitHub Actions, Currents provides the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) to simplify reruns with Playwright sharding or Currents Orchestration.
 
 {% hint style="info" %}
-Install [@currents/cmd](../../../resources/reporters/currents-cmd/) as a dev dependency in `package.json`, and use `npm ci` or another package manager's **frozen lockfile** install method in GitHub Actions. Otherwise the [Last Failed GitHub Action](https://github.com/currents-dev/playwright-last-failed) installs a global package. The global package does not use the repository lock files and always pulls the latest `@currents/cmd` and its dependencies.
+The `playwright-last-failed` action uses `@currents/cmd` as a dependency. To control which version of `@currents/cmd` is used, install it as a dev dependency in `package.json` and use `npm ci` (or your package manager's equivalent frozen lockfile install) in GitHub Actions. Without this, the action installs `@currents/cmd` globally from npm, which may pull a different version than what's pinned in your lockfile.
 {% endhint %}
 
-Select the guide that matches the CI setup:
+Select the guide that matches your setup:
 
 * [Sharded runs](re-run-failed-only-tests-sharded.md "mention") — fixed shard count and native Playwright `--shard` parallelism
 * [Orchestrated runs (V1)](re-run-failed-only-tests-orchestrated.md "mention") — single-command `pwc-p`
