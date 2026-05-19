@@ -126,7 +126,6 @@ npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-bui
 
 * `pwc-p run` reads configuration from `currents.config.ts`
 * Playwright filter flags belong on `discover`; runtime flags (`-j`, `--timeout`) belong on `run`
-* See [pwc-p-orchestration.md](pwc-p-orchestration.md "mention") and [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention")
 
 
 
@@ -185,14 +184,14 @@ pwc --key <record-key> --project-id <id>
 * Run orchestration for all tests in the current directory:
 
 ```
-npx pwc-p run --key <record-key> --project-id <id> --ci-build-id <build-id>
+pwc-p run --key <record-key> --project-id <id> --ci-build-id <build-id>
 ```
 
 * Run orchestration for tests filtered by the tag "@smoke":
 
 ```
-npx pwc-p discover --pwc-discovery-file tests.txt --grep @smoke
-npx pwc-p run --key <record-key> --project-id <id> --ci-build-id <build-id> --pwc-discovery-file tests.txt
+pwc-p discover --pwc-discovery-file tests.txt --grep @smoke
+pwc-p run --key <record-key> --project-id <id> --ci-build-id <build-id> --pwc-discovery-file tests.txt
 ```
 
 * Run only tests filtered by the tag "@smoke" (non-orchestrated):
