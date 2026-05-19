@@ -272,7 +272,7 @@ Sets the batch size for orchestration. Batch size defines how many parallel work
 * `number` explicitly sets the batch size, must be greater than `0`
 
 {% hint style="info" %}
-Defining this variable will override any project level batch size/workers definition in `playwright.config.ts` (`workers`, `currentsBatchSize` per project). Available on `@currents/playwright` starting at version `1.14.0`.
+Defining this variable will override any project-level batch size/workers definition in `playwright.config.ts` (`workers`, `currentsBatchSize` per project). Available on `@currents/playwright` starting at version `1.14.0`.
 {% endhint %}
 
 ***
