@@ -31,7 +31,7 @@ npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-bui
 
 Until this point, the tests execution should work as always without any further change if the intention is to execute all the test suite.
 
-If the execution command included filtering flags like `--grep / -g`, `--project / -p`, `--last-failed`, that affects/scopes the set of tests that will be executed, follow to the step 3.
+If the execution command included filtering flags like `--grep / -g`, `--project`, `--last-failed`, that affects/scopes the set of tests that will be executed, follow to the step 3.
 
 ## 3. Add `pwc-p discover` when filtering
 
@@ -39,7 +39,7 @@ Add a **`pwc-p discover`** step **before** `pwc-p run` only when a **CLI filter*
 
 * `--last-failed`
 * `--grep / -g`
-* `--project / -p`
+* `--project`
 * a positional spec path
 
 | Scenario | Commands (in order) |
