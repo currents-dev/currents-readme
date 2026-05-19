@@ -69,7 +69,7 @@
 * [CI Optimization](guides/ci-optimization/README.md)
   * [Playwright Parallelization](guides/ci-optimization/playwright-parallelization.md)
   * [Orchestration Setup](guides/ci-optimization/playwright-orchestration.md)
-    * [Setup](guides/ci-optimization/playwright-orchestration-v2.md)
+    * [Legacy Orchestration (single-command `pwc-p`)](guides/ci-optimization/playwright-orchestration-v1.md)
     * [Migration Guide](guides/ci-optimization/playwright-orchestration-migration-guide.md)
   * [Fully Parallel Mode](guides/ci-optimization/fully-parallel-mode.md)
   * [Re-run Only Failed Tests](guides/ci-optimization/re-run-only-failed-tests.md)

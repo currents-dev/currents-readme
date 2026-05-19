@@ -8,7 +8,7 @@ Currents Orchestration assigns tests to all available CI runners, so **Re-run al
 
 ## Prerequisites
 
-* [Orchestration V2](../../../guides/ci-optimization/playwright-orchestration-v2.md "mention") `@currents/playwright` on its latest version.
+* [Orchestration setup](../../../guides/ci-optimization/playwright-orchestration.md "mention") — `@currents/playwright` on its latest version.
 * `CURRENTS_RECORD_KEY`, `CURRENTS_PROJECT_ID`, and `CURRENTS_API_KEY` configured in GitHub Actions secrets
 * [playwright-last-failed@v2](https://github.com/currents-dev/playwright-last-failed) — exposes `extra-discovery-flags` for the discover step
 

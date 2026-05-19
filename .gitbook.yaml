@@ -21,6 +21,7 @@ redirects:
   getting-started/you-first-cypress-run: getting-started/cypress/you-first-cypress-run.md
   guides/parallelization: guides/parallelization-guide/cypress-parallelization.md
   guides/pw-parallelization/playwright-orchestration: guides/parallelization-guide/pw-parallelization/playwright-orchestration.md
+  guides/ci-optimization/playwright-orchestration-v2: guides/ci-optimization/playwright-orchestration-v1.md
   guides/pw-parallelization/playwright-sharding: guides/parallelization-guide/pw-parallelization/playwright-sharding.md
   guides/load-balancing: guides/parallelization-guide/load-balancing.md
   guides/fail-fast-strategy: guides/parallelization-guide/fail-fast-strategy.md

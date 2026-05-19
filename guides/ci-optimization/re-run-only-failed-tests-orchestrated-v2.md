@@ -28,7 +28,7 @@ npx pwc-p discover --pwc-discovery-file tests.txt --last-failed
 npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --pwc-discovery-file tests.txt
 ```
 
-See [playwright-orchestration-v2.md](playwright-orchestration-v2.md "mention") for setup details.
+See [playwright-orchestration.md](playwright-orchestration.md "mention") for setup details.
 
 ## Step-by-step guides
 
