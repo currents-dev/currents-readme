@@ -2,10 +2,10 @@
 description: Playwright Orchestration v2 setup instructions
 ---
 
-# Orchestration setup v2
+# Orchestration setup
 
 {% hint style="warning" %}
-When using **Playwright 1.60.0+**, update all `@currents/playwright` packages to **2.0.0+**. Playwright 1.60.0 introduced breaking changes that are addressed in the latest Currents packages.
+When using **Playwright 1.60.0+**, update `@currents/playwright` to **2.0.0+**. See [migration-to-playwright-1.60.md](../../resources/reporters/currents-playwright/migration-to-playwright-1.60.md "mention"). Orchestration CI also requires [playwright-orchestration-migration-guide.md](playwright-orchestration-migration-guide.md "mention").
 {% endhint %}
 
 Orchestration v2 introduces a separation of `pwc-p` into two different commands:
@@ -34,6 +34,11 @@ npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-bui
 Read more about [ci-build-id.md](../parallelization-guide/ci-build-id.md "mention") and [reporting-strategy.md](../parallelization-guide/reporting-strategy.md "mention").
 {% endhint %}
 
+## Why two commands?
+
+Playwright filter flags (`--grep`, `--last-failed`, spec paths, and similar) are not accepted by `pwc-p run`. They must be applied during discovery so the orchestration process receives a fixed test list.
+
+That separation keeps orchestration process explicit: `discover` records which tests match the filters and `run` orchestrates exactly that set of tests across machines.
 
 
 ## When to use `discover`?
@@ -46,12 +51,6 @@ If all configured projects and tests should run, use `pwc-p run` only. No discov
 | -------- | -------- |
 | Run the full suite (no filters) | `pwc-p run ...` |
 | Filter tests with Playwright flags | first `pwc-p discover ...` then `pwc-p run ...` |
-
-## Why two commands?
-
-Playwright filter flags (`--grep`, `--last-failed`, spec paths, and similar) are not accepted by `pwc-p run`. They must be applied during discovery so the orchestration process receives a fixed test list.
-
-That separation keeps orchestration process explicit: `discover` records which tests match the filters and `run` orchestrates exactly that set of tests across machines.
 
 ## Discovery output
 

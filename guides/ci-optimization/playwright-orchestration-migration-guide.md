@@ -1,22 +1,24 @@
 ---
-description: Migration guide for upgrading to Orchestration v2
+description: Migrate from Orchestration v1 to v2 (pwc-p discover + run)
 ---
 
-# Migration from Orchestration V1
+# Migration from Orchestration v1
 
-{% hint style="warning" %}
-When using **Playwright 1.60.0+**, update all `@currents/playwright` packages to **2.0.0+**. Playwright 1.60.0 introduced breaking changes that are addressed in the latest Currents packages.
+{% hint style="info" %}
+**Not using Currents Orchestration?** Upgrade `@currents/playwright` to 2.x and you are done. See [migration-to-playwright-1.60.md](../../resources/reporters/currents-playwright/migration-to-playwright-1.60.md "mention") — no `pwc-p` changes required.
 {% endhint %}
 
-## 1. Upgrade `@currents/playwright`
+This guide is for CI that runs tests with **`pwc-p`**. If you use `pwc`, `playwright test` with the Currents reporter, or sharding only, follow the [Playwright 1.60+ upgrade guide](../../resources/reporters/currents-playwright/migration-to-playwright-1.60.md "mention") instead.
+
+## Prerequisites
+
+Upgrade `@currents/playwright` to **2.0.0+** before changing orchestration commands:
 
 ```bash
 npm i @currents/playwright@^2
 ```
 
-`@currents/playwright` **2.0.0+** supports **Playwright 1.60.0+**. Move to **2.x** for Playwright compatibility even if you do not use orchestration.
-
-## 2. Replace `pwc-p` with `pwc-p run`
+## 1. Replace `pwc-p` with `pwc-p run`
 
 In every CI orchestration job, change the execution command from bare `pwc-p` to `pwc-p run`:
 
@@ -30,9 +32,9 @@ npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-bui
 
 Until this point, the tests execution should work as always without any further change if the intention is to execute all the test suite.
 
-If the execution command included filtering flags like `--grep / -g`, `--project`, `--last-failed`, that affects/scopes the set of tests that will be executed, follow to the step 3.
+If the execution command included filtering flags like `--grep / -g`, `--project`, `--last-failed`, that affects/scopes the set of tests that will be executed, follow to the step 2.
 
-## 3. Add `pwc-p discover` when filtering
+## 2. Add `pwc-p discover` when filtering
 
 Add a **`pwc-p discover`** step **before** `pwc-p run` only when a **CLI filter** narrows which tests run:
 

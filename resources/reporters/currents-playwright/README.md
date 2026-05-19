@@ -11,6 +11,10 @@ description: >-
 * NodeJS 14.0.0+
 * Playwright 1.22.2+
 
+{% hint style="warning" %}
+**Playwright 1.60.0+** requires `@currents/playwright` **2.0.0+**. See [migration-to-playwright-1.60.md](migration-to-playwright-1.60.md "mention").
+{% endhint %}
+
 ***
 
 ## Setup

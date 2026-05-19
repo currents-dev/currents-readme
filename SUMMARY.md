@@ -155,6 +155,7 @@
 * [API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/)
 * [Reporters](resources/reporters/README.md)
   * [@currents/playwright](resources/reporters/currents-playwright/README.md)
+    * [Upgrade for Playwright 1.60+](resources/reporters/currents-playwright/migration-to-playwright-1.60.md)
     * [Configuration](resources/reporters/currents-playwright/configuration.md)
     * [pwc](resources/reporters/currents-playwright/pwc.md)
     * [pwc-p (orchestration)](resources/reporters/currents-playwright/pwc-p-orchestration.md)
