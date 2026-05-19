@@ -1,5 +1,5 @@
 ---
-description: Re-run only failed Playwright tests when using Currents Orchestration V2
+description: Re-run only failed Playwright tests when using Currents Orchestration
 ---
 
 # Re-run Only Failed Tests — Orchestrated runs
