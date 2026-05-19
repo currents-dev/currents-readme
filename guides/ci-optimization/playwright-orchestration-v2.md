@@ -80,6 +80,8 @@ Flags are split by phase:
 * Playwright discovery flags → `pwc-p discover` (for example `-c`, `--grep`, `--last-failed`, `--project`).
 * Supported Playwright runtime flags → `pwc-p run` (for example `-j`, `--timeout`).
 
+Run `discover` only when you pass a **discovery filter flag** (`--grep`, `--last-failed`, `--project`, or a spec path). Then pass the output file to `run`. For an unfiltered full suite, use `pwc-p run` alone.
+
 Filter with grep:
 
 ```bash
@@ -94,10 +96,10 @@ npx pwc-p discover -c ./playwright.config.ts --pwc-discovery-file tests.txt --la
 npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --pwc-discovery-file tests.txt
 ```
 
-Add tags on the recorded run:
+Add tags on the recorded run (no discovery step):
 
 ```bash
-npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --pwc-discovery-file tests.txt --tag tagA --tag tagB
+npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --tag tagA --tag tagB
 ```
 
 ## CI examples
