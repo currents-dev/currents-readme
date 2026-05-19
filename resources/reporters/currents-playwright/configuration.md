@@ -241,7 +241,7 @@ Signal used to reset the tests running on the machine. See [ci-tests-on-spot-ins
 * Default: `false`
 * Environment variable: N/A
 
-Prevents `pwc-p` from automatically configuring Playwright to use Currents reporter . If see, you must add Currents reporter manuall. See [playwright-orchestration-v1.md](../../../guides/ci-optimization/playwright-orchestration-v1.md "mention") or [playwright-orchestration-v2.md](../../../guides/ci-optimization/playwright-orchestration-v2.md "mention").
+Prevents `pwc-p` from automatically configuring Playwright to use Currents reporter . If see, you must add Currents reporter manuall. See [playwright-orchestration-v2.md](../../../guides/ci-optimization/playwright-orchestration-v2.md "mention").
 
 <br>
 
@@ -272,7 +272,7 @@ Sets the batch size for orchestration. Batch size defines how many parallel work
 * `number` explicitly sets the batch size, must be greater than `0`
 
 {% hint style="info" %}
-Defining this variable will override any project level batch size/workers definition. [Project level settings](../../../guides/ci-optimization/playwright-orchestration-v1.md#project-level-workers) are available on `@currents/playwright` starting at version `1.14.0`.
+Defining this variable will override any project level batch size/workers definition in `playwright.config.ts` (`workers`, `currentsBatchSize` per project). Available on `@currents/playwright` starting at version `1.14.0`.
 {% endhint %}
 
 ***

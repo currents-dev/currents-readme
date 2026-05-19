@@ -4,6 +4,10 @@ description: Playwright Orchestration V2 setup instructions
 
 # Orchestration Setup V2
 
+{% hint style="warning" %}
+When using **Playwright 1.60.0+**, update all `@currents/playwright` packages to **2.0.0+**. Playwright 1.60.0 introduced breaking changes that are addressed in the latest Currents packages.
+{% endhint %}
+
 Orchestration V2 is a preview implementation for Playwright. The purpose of orchestration is the same as described in [playwright-orchestration.md](playwright-orchestration.md "mention"), but `pwc-p` is split into two subcommands:
 
 1. `pwc-p discover` — runs Playwright test discovery and writes the canonical test list to a file.
@@ -115,7 +119,7 @@ Orchestration V2 reruns use `pwc-p discover` with `--last-failed` (or flags from
 
 See [re-run-only-failed-tests-orchestrated-v2.md](re-run-only-failed-tests-orchestrated-v2.md "mention") for the shared orchestrated rerun behavior and [re-run-failed-only-tests-orchestrated-v2.md](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-orchestrated-v2.md "mention") for a GitHub Actions workflow.
 
-For Orchestration V1, see [re-run-only-failed-tests-orchestrated.md](re-run-only-failed-tests-orchestrated.md "mention").
+Migrating from the legacy single-command `pwc-p` flow? See [playwright-orchestration-v1.md](playwright-orchestration-v1.md "mention").
 
 ## Limitations and Nuances
 
@@ -126,4 +130,4 @@ For Orchestration V1, see [re-run-only-failed-tests-orchestrated.md](re-run-only
 ## Next Steps
 
 * Review the general [playwright-orchestration.md](playwright-orchestration.md "mention") overview.
-* Compare with [playwright-orchestration-v1.md](playwright-orchestration-v1.md "mention").
+* [playwright-orchestration-v1.md](playwright-orchestration-v1.md "mention") — migration from legacy V1
