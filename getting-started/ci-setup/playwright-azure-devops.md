@@ -49,7 +49,6 @@ jobs:
     vmImage: ubuntu-latest
 
   # If you choose to not use the playwright container, you will also need to npx install playwright in your steps
-  # Pin the image tag to your Playwright version (tags are listed under Playwright Docker / MCR).
   container: mcr.microsoft.com/playwright:v1.60.0-noble
   variables:
   - name: npm_config_cache

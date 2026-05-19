@@ -1,6 +1,5 @@
 ---
 description: How to set up failed test reruns on GitHub Actions
-icon: github
 ---
 
 # Re-run Only Failed Tests

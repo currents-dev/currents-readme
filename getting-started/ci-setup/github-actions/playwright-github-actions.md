@@ -20,12 +20,23 @@ on:
 jobs:
   run-tests:
     name: "Playwright Tests"
-    timeout-minutes: 30
-    runs-on: ubuntu-latest
-    container: mcr.microsoft.com/playwright:latest
+    timeout-minutes: 60
+    runs-on: ubuntu-22.04
+    container: mcr.microsoft.com/playwright:v1.60.0-noble
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      # https://github.com/actions/runner-images/issues/6775
+      - run: |
+          echo "$GITHUB_WORKSPACE"
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.x"
 
       - name: Install dependencies
         run: npm ci

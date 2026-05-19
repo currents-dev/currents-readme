@@ -1,11 +1,8 @@
 ---
 description: Re-run only failed Playwright tests when using Currents Orchestration
-icon: microchip
 ---
 
-# Re-run Only Failed Tests — Orchestrated runs (V1)
-
-For Orchestration V2 (`pwc-p discover` + `pwc-p run`), see [re-run-only-failed-tests-orchestrated-v2.md](re-run-only-failed-tests-orchestrated-v2.md "mention").
+# Re-run Only Failed Tests — Orchestrated runs
 
 {% hint style="info" %}
 Failed orchestrated reruns require **Rerun All Jobs** in the CI provider, not **Rerun Failed Only**.

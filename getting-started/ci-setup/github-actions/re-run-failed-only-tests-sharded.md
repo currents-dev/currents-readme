@@ -16,7 +16,7 @@ Add a step to the workflow before the test step runs.
 
 <pre class="language-yaml"><code class="lang-yaml">- name: Playwright Last Failed action
 <strong>  id: last-failed-action
-</strong><strong>  uses: currents-dev/playwright-last-failed@v1
+</strong><strong>  uses: currents-dev/playwright-last-failed@v2
 </strong>  with:
     pw-output-dir: basic/test-results
     matrix-index: ${{ matrix.shard }}
@@ -60,14 +60,14 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - uses: actions/setup-node@v4
         with:
-          node-version: "{{space.vars.LATEST_NODE_VERSION}}"
+          node-version: "24.x"
       - name: Install dependencies
         run: |
           npm ci
           npx playwright install chrome
       - name: Playwright Last Failed action
         id: last-failed-action
-        uses: currents-dev/playwright-last-failed@v1
+        uses: currents-dev/playwright-last-failed@v2
         with:
           pw-output-dir: basic/test-results
           matrix-index: ${{ matrix.shard }}
