@@ -1,11 +1,6 @@
 ---
-description: How to set up failed test reruns for Orchestration V2 on GitHub Actions
-icon: github
+description: How to set up failed test reruns for Orchestration on GitHub Actions
 ---
-
-# Re-run Only Failed Tests — Orchestrated runs (V2)
-
-This guide is for [Orchestration V2](../../../guides/ci-optimization/playwright-orchestration-v2.md "mention"). For the single-command V1 flow, see [re-run-failed-only-tests-orchestrated.md](re-run-failed-only-tests-orchestrated.md "mention").
 
 {% hint style="info" %}
 Currents Orchestration assigns tests to all available CI runners, so **Re-run all jobs** should be used instead of re-running only failed jobs. Read more at [re-run-only-failed-tests-orchestrated-v2.md](../../../guides/ci-optimization/re-run-only-failed-tests-orchestrated-v2.md "mention").

@@ -10,7 +10,7 @@ When using **Playwright 1.60.0+**, update all `@currents/playwright` packages to
 
 Orchestration v2 introduces a separation of `pwc-p` into two different commands:
 1. `pwc-p discover` — runs Playwright test discovery and writes the canonical test list to a file.
-2. `pwc-p run` — orchestrates execution of the test list through Currents.
+2. `pwc-p run` — initiates the orchestration execution.
 
 Install `@currents/playwright`:
 
@@ -44,18 +44,18 @@ If all configured projects and tests should run, use `pwc-p run` only. No discov
 
 | Scenario | Commands |
 | -------- | -------- |
-| Run the full suite (no CLI filters) | `pwc-p run ...` |
-| Filter tests with Playwright CLI flags | `pwc-p discover ...` then `pwc-p run --pwc-discovery-file ...` |
+| Run the full suite (no filters) | `pwc-p run ...` |
+| Filter tests with Playwright flags | first `pwc-p discover ...` then `pwc-p run ...` |
 
-## Why two commands
+## Why two commands?
 
-In v2, Playwright filter flags (`--grep`, `--last-failed`, spec paths, and similar) are not accepted by `pwc-p run`. They must be applied during discovery so the orchestrator receives a fixed test list.
+Playwright filter flags (`--grep`, `--last-failed`, spec paths, and similar) are not accepted by `pwc-p run`. They must be applied during discovery so the orchestration process receives a fixed test list.
 
-That separation keeps orchestration process explicit: `discover` records which tests match the filters and `run` distributes exactly that set of tests across CI machines.
+That separation keeps orchestration process explicit: `discover` records which tests match the filters and `run` orchestrates exactly that set of tests across machines.
 
 ## Discovery output
 
-Discovery writes a file path you pass to `pwc-p run`:
+Discovery writes a file path that must be passed to `pwc-p run`:
 
 ```bash
 npx pwc-p discover --pwc-discovery-file tests.txt --grep @smoke --project frontend
@@ -64,7 +64,7 @@ npx pwc-p discover --pwc-discovery-file tests.txt --grep @smoke --project fronte
 Pass the file to `run` with `--pwc-discovery-file`, the `CURRENTS_DISCOVERY_FILE` environment variable, or `orchestration.discoveryFile` in `currents.config.ts`.
 
 {% hint style="info" %}
-Using `CURRENTS_DISCOVERY_FILE` or `orchestration.discoveryFile` are the recommended options for CI environments, as this setup applies to both `discover` and `run` commands.
+Using `CURRENTS_DISCOVERY_FILE` and `orchestration.discoveryFile` are the recommended options for CI environments, as this setup applies to both `discover` and `run` commands.
 {% endhint %}
 
 ## Discovery and runtime flags
@@ -80,14 +80,14 @@ Filter with grep:
 
 ```bash
 npx pwc-p discover --pwc-discovery-file tests.txt --grep @smoke
-npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --pwc-discovery-file tests.txt
+npx pwc-p run --pwc-discovery-file tests.txt --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id>
 ```
 
 Filter with last-failed:
 
 ```bash
 npx pwc-p discover --pwc-discovery-file tests.txt --last-failed
-npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --pwc-discovery-file tests.txt
+npx pwc-p run --pwc-discovery-file tests.txt --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id>
 ```
 
 Add tags on the recorded run (no discovery step):
@@ -96,7 +96,7 @@ Add tags on the recorded run (no discovery step):
 npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --tag tagA --tag tagB
 ```
 
-## CI examples
+## CI Setup
 
 * [re-run-failed-only-tests-orchestrated-v2.md](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-orchestrated-v2.md "mention") — GitHub Actions workflow with `discover` and `run` for failed-only reruns
 * [test-or8n.yml](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/test-or8n.yml) — adapt the V1 orchestration workflow by replacing `pwc-p` with `pwc-p run` (no discovery step when running the full suite)
@@ -105,19 +105,12 @@ _Missing an example?_ [_Let us know_](mailto:support@currents.dev)_._
 
 ## Re-running Only Failed Tests
 
-Orchestration V2 reruns use `pwc-p discover` with `--last-failed` (or flags from the [playwright-last-failed](https://github.com/currents-dev/playwright-last-failed) action) to build the filtered test list, then `pwc-p run` with `--pwc-discovery-file`.
+Orchestration v2 reruns use `pwc-p discover` with `--last-failed` (or flags from the [playwright-last-failed](https://github.com/currents-dev/playwright-last-failed) action) to build the filtered test list, then `pwc-p run` with `--pwc-discovery-file`.
 
-See [re-run-only-failed-tests-orchestrated-v2.md](re-run-only-failed-tests-orchestrated-v2.md "mention") for the shared orchestrated rerun behavior and [re-run-failed-only-tests-orchestrated-v2.md](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-orchestrated-v2.md "mention") for a GitHub Actions workflow.
-
-Migrating from the legacy single-command `pwc-p` flow? See [playwright-orchestration-v1.md](playwright-orchestration-v1.md "mention").
+See [re-run-only-failed-tests-orchestrated-v2.md](re-run-only-failed-tests-orchestrated-v2.md "mention") for the full implementation details.
 
 ## Limitations and Nuances
 
 * Orchestration works on a **file level** — it balances test files (rather than individual tests).
 * [Playwright Project dependencies](https://playwright.dev/docs/test-projects#dependencies) is not supported — if projects depend on one another, orchestration will not consider the dependencies. As a workaround, run the dependencies in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)
 * [Global Setup and Teardown](https://playwright.dev/docs/test-global-setup-teardown). An orchestrated execution runs `playwright` multiple times. Beware that global setup or teardown routines run for each invocation of `playwright`.
-
-## Next Steps
-
-* Review the general [playwright-orchestration.md](playwright-orchestration.md "mention") overview.
-* [playwright-orchestration-v1.md](playwright-orchestration-v1.md "mention") — migration from legacy V1

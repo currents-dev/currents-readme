@@ -70,7 +70,6 @@ The [example repository](https://github.com/currents-dev/currents-examples/tree/
 
 * [test-basic-pwc.yml](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/test-basic-pwc.yml) - run Playwright tests in parallel using 3 shards of GitHub Actions Matrix and `pwc` command.
 * [test-basic-reporter.yml](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/test-basic-reporter.yml) - run Playwright tests in parallel run using 3 shards of GitHub Actions Matrix and configuring Currents Reporter in `playwright.config.ts`.
-* [test-or8n.yml](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/test-or8n.yml) - Orchestration V1 with `pwc-p` and GitHub Actions Matrix.
-* [reruns-or8n.yml](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/reruns-or8n.yml) - Orchestration V1 failed-only reruns.
-* Orchestration V2 — see [playwright-orchestration-v2.md](../../../guides/ci-optimization/playwright-orchestration-v2.md "mention") and [re-run-failed-only-tests-orchestrated-v2.md](re-run-failed-only-tests-orchestrated-v2.md "mention") (replace `pwc-p` with `pwc-p run`, or use `discover` + `run` for filtered reruns).
+* [test-or8n.yml](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/test-or8n.yml) - Orchestration with `pwc-p run` and GitHub Actions Matrix.
+* [reruns-or8n.yml](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/reruns-or8n.yml) - Orchestration failed-only reruns.
 * [argos-example.yml](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/.github/workflows/argos-example.yml) - run Playwright tests in parallel using Currents Orchestration, use Argos CI for visual testing.
