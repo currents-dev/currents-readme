@@ -12,22 +12,20 @@ description: >-
 * Playwright 1.22.2+
 
 {% hint style="warning" %}
-**Playwright 1.60.0+** requires `@currents/playwright` **2.0.0+**. See [migration-to-playwright-1.60.md](migration-to-playwright-1.60.md "mention").
+**Playwright 1.60.0+** requires `@currents/playwright` **2.0.0+**. See [compatibility.md](compatibility.md "mention").
 {% endhint %}
 
 ***
 
 ## Setup
 
-Creating a new organization and a project at [https://app.currents.dev](https://app.currents.dev), you'll see on-screen instructions with your newly created **Project ID** and **Record Key.**&#x20;
+Creating a new organization and a project at [https://app.currents.dev](https://app.currents.dev), you'll see on-screen instructions with your newly created **Project ID** and **Record Key.**
 
-### Install `@currents/playwright`&#x20;
+### Install `@currents/playwright`
 
 ```bash
 npm i -D @currents/playwright
 ```
-
-
 
 ### Create `currents.config.ts`
 
@@ -46,8 +44,6 @@ const config: CurrentsConfig = {
 
 export default config;
 ```
-
-
 
 ### Update `playwright.config.js|ts`
 
@@ -68,29 +64,19 @@ use: {
 
 Choose the preferred usage method. See details below.
 
-
-
-*   `pwc` command-line executable.
-
-    * Run `pwc test` instead of `playwright test`
-    * `pwc` automatically configures Playwright to work with Currents
-    * Keep Currents configuration in `currents.config.ts`
-
-
-* Manually add Currents Reporter.
-  * Explicitly add Currents reporter to `playwright.config.ts`&#x20;
-  * Run `playwright test`  as usual
+* `pwc` command-line executable.
+  * Run `pwc test` instead of `playwright test`
+  * `pwc` automatically configures Playwright to work with Currents
   * Keep Currents configuration in `currents.config.ts`
-
-
-
+* Manually add Currents Reporter.
+  * Explicitly add Currents reporter to `playwright.config.ts`
+  * Run `playwright test` as usual
+  * Keep Currents configuration in `currents.config.ts`
 * `pwc-p` command-line executable for orchestration.
   * Run `pwc-p run` to orchestrate tests across CI machines
   * Run `pwc-p discover` when filtering the suite (`--grep`, `--last-failed`, `--project`, spec paths)
   * Required to enable [#playwright-orchestration](../../../guides/ci-optimization/playwright-parallelization.md#playwright-orchestration "mention")
   * See [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention") and [pwc-p-orchestration.md](pwc-p-orchestration.md "mention")
-
-
 
 ### `pwc` command-line executable
 
@@ -106,8 +92,6 @@ npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id hello-currents
 {% hint style="info" %}
 Using `pwc` command overrides the reporters configured in `playwright.config.ts` - you can specify additional reporters using `--reporter` flag. Alternatively, you can explicitly add currents reported in the Playwright configuration as appears below.
 {% endhint %}
-
-
 
 ### `pwc-p` command-line executable
 
@@ -127,11 +111,9 @@ npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-bui
 * `pwc-p run` reads configuration from `currents.config.ts`
 * Playwright filter flags belong on `discover`; runtime flags (`-j`, `--timeout`) belong on `run`
 
-
-
 ### Manually Add Currents Reporter
 
-You can manually add Current sreporter to `playwright.config.ts` and keep using `playwright test` CLI command.&#x20;
+You can manually add Current sreporter to `playwright.config.ts` and keep using `playwright test` CLI command.
 
 ```typescript
 // playwright.config.ts
@@ -156,7 +138,7 @@ export default defineConfig<CurrentsFixtures, CurrentsWorkerFixtures>({
 
 ## Configuration
 
-Numerous configuration options are available. See  [configuration.md](configuration.md "mention").
+Numerous configuration options are available. See [configuration.md](configuration.md "mention").
 
 ***
 

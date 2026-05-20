@@ -5,7 +5,7 @@ description: Migration Guide for Currents Orchestration v1 -> v2
 # Migration Guide
 
 {% hint style="info" %}
-This guide is for migrating Currents Orchestration from `v1` to `v2` . If you are not using Currents Orchestration see [migration-to-playwright-1.60.md](../../resources/reporters/currents-playwright/migration-to-playwright-1.60.md "mention")&#x20;
+This guide is for migrating Currents Orchestration from `v1` to `v2` . If you are not using Currents Orchestration see [compatibility.md](../../resources/reporters/currents-playwright/compatibility.md "mention")&#x20;
 {% endhint %}
 
 ## What Has Changed?
