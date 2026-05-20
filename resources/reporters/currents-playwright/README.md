@@ -8,14 +8,14 @@ description: >-
 
 ## Requirements
 
-* NodeJS 14.0.0+
-* Playwright 1.22.2+
+- NodeJS 14.0.0+
+- Playwright 1.22.2+
 
 {% hint style="warning" %}
 **Playwright 1.60.0+** requires `@currents/playwright` **2.0.0+**. See [compatibility.md](compatibility.md "mention").
 {% endhint %}
 
-***
+---
 
 ## Setup
 
@@ -31,8 +31,8 @@ npm i -D @currents/playwright
 
 Create `currents.config.(m|j|t)s` configuration file.
 
-* Set the **Record Key**, and **Project ID** obtained from Currents dashboard.
-* Learn more about [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention").
+- Set the **Record Key**, and **Project ID** obtained from Currents dashboard.
+- Learn more about [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention").
 
 ```typescript
 import { CurrentsConfig } from "@currents/playwright";
@@ -58,39 +58,39 @@ use: {
 }
 ```
 
-***
+---
 
 ## Usage
 
 Choose the preferred usage method. See details below.
 
-* `pwc` command-line executable.
-  * Run `pwc test` instead of `playwright test`
-  * `pwc` automatically configures Playwright to work with Currents
-  * Keep Currents configuration in `currents.config.ts`
-* Manually add Currents Reporter.
-  * Explicitly add Currents reporter to `playwright.config.ts`
-  * Run `playwright test` as usual
-  * Keep Currents configuration in `currents.config.ts`
-* `pwc-p` command-line executable for orchestration.
-  * Run `pwc-p run` to orchestrate tests across CI machines
-  * Run `pwc-p discover` when filtering the suite (`--grep`, `--last-failed`, `--project`, spec paths)
-  * Required to enable [#playwright-orchestration](../../../guides/ci-optimization/playwright-parallelization.md#playwright-orchestration "mention")
-  * See [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention") and [pwc-p-orchestration.md](pwc-p-orchestration.md "mention")
+- `pwc` command-line executable.
+  - Run `pwc test` instead of `playwright test`
+  - `pwc` automatically configures Playwright to work with Currents
+  - Keep Currents configuration in `currents.config.ts`
+- Manually add Currents Reporter.
+  - Explicitly add Currents reporter to `playwright.config.ts`
+  - Run `playwright test` as usual
+  - Keep Currents configuration in `currents.config.ts`
+- `pwc-p` command-line executable for orchestration.
+  - Run `pwc-p run` to orchestrate tests across CI machines
+  - Run `pwc-p discover` when filtering the suite (`--grep`, `--last-failed`, `--project`, spec paths)
+  - Required to enable [#playwright-orchestration](../../../guides/ci-optimization/playwright-parallelization.md#playwright-orchestration "mention")
+  - See [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention") and [pwc-p.md](pwc-p.md "mention")
 
 ### `pwc` command-line executable
 
-```
+```bash
 npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id hello-currents
 ```
 
-* `pwc` reads configuration from `currents.config.ts`
-* Run `pwc` to start recording Playwright runs to Currents.
-* Learn more about [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention").
-* See [pwc.md](pwc.md "mention") reference documentation.
+- `pwc` reads configuration from `currents.config.ts`
+- Run `pwc` to start recording Playwright runs to Currents.
+- Learn more about [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention").
+- See [pwc.md](pwc.md "mention") reference documentation.
 
 {% hint style="info" %}
-Using `pwc` command overrides the reporters configured in `playwright.config.ts` - you can specify additional reporters using `--reporter` flag. Alternatively, you can explicitly add currents reported in the Playwright configuration as appears below.
+Using `pwc` command overrides the reporters configured in `playwright.config.ts` — you can specify additional reporters using `--reporter` flag. Alternatively, you can explicitly add the Currents reporter to `playwright.config.ts` and use `playwright test` as usual.
 {% endhint %}
 
 ### `pwc-p` command-line executable
@@ -108,89 +108,89 @@ npx pwc-p discover --pwc-discovery-file tests.txt --grep @smoke
 npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --pwc-discovery-file tests.txt
 ```
 
-* `pwc-p run` reads configuration from `currents.config.ts`
-* Playwright filter flags belong on `discover`; runtime flags (`-j`, `--timeout`) belong on `run`
+- `pwc-p run` reads configuration from `currents.config.ts`
+- Playwright filter flags belong on `discover`; runtime flags (`-j`, `--timeout`) belong on `run`
 
 ### Manually Add Currents Reporter
 
-You can manually add Current sreporter to `playwright.config.ts` and keep using `playwright test` CLI command.
+You can manually add the Currents reporter to `playwright.config.ts` and use `playwright test` as usual.
 
 ```typescript
 // playwright.config.ts
 import { defineConfig, devices, PlaywrightTestConfig } from "@playwright/test";
-import { 
+import {
   CurrentsFixtures,
   CurrentsWorkerFixtures,
-  currentsReporter
+  currentsReporter,
 } from "@currents/playwright";
 
 export default defineConfig<CurrentsFixtures, CurrentsWorkerFixtures>({
   // ...
   reporter: [currentsReporter()], // 👈🏻 add Currents reporter
-})
+});
 ```
 
-* The reporter reads the configuration from `currents.config.ts` file. See additional configuration options [#configuration](./#configuration "mention").
-* Run `npx playwright test` to start sending the results to Currents dashboard.
-* Learn more about [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention").
+- The reporter reads the configuration from `currents.config.ts` file. See additional configuration options [#configuration](./#configuration "mention").
+- Run `npx playwright test` to start sending the results to Currents dashboard.
+- Learn more about [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention").
 
-***
+---
 
 ## Configuration
 
 Numerous configuration options are available. See [configuration.md](configuration.md "mention").
 
-***
+---
 
 ## Fixtures
 
 The package also provides additional fixtures for Playwright that support various features:
 
-* [code-coverage-for-playwright.md](../../../guides/coverage/code-coverage-for-playwright.md "mention")
-* [currents-actions](../../../guides/currents-actions/ "mention")
+- [code-coverage-for-playwright.md](../../../guides/coverage/code-coverage-for-playwright.md "mention")
+- [currents-actions](../../../guides/currents-actions/ "mention")
 
 {% content-ref url="playwright-fixtures.md" %}
 [playwright-fixtures.md](playwright-fixtures.md)
 {% endcontent-ref %}
 
-***
+---
 
 ## Examples
 
-* Run all tests in the current directory:
+- Run all tests in the current directory:
 
-```
-pwc --key <record-key> --project-id <id>    
+```bash
+pwc --key <record-key> --project-id <id>
 ```
 
-* Run orchestration for all tests in the current directory:
+- Run orchestration for all tests in the current directory:
 
-```
+```bash
 pwc-p run --key <record-key> --project-id <id> --ci-build-id <build-id>
 ```
 
-* Run orchestration for tests filtered by the tag "@smoke":
+- Run orchestration for tests filtered by the tag "@smoke":
 
-```
+```bash
 pwc-p discover --pwc-discovery-file tests.txt --grep @smoke
 pwc-p run --key <record-key> --project-id <id> --ci-build-id <build-id> --pwc-discovery-file tests.txt
 ```
 
-* Run only tests filtered by the tag "@smoke" (non-orchestrated):
+- Run only tests filtered by the tag "@smoke" (non-orchestrated):
 
-```
+```bash
 pwc --key <record-key> --project-id <id> --grep smoke
 ```
 
-* Run playwright tests and add tags "tagA", "tagB" to the recorded run:
+- Run playwright tests and add tags "tagA", "tagB" to the recorded run:
 
-```
+```bash
 pwc --key <record-key> --project-id <id> --tag tagA --tag tagB
 ```
 
-* Provide `playwright` arguments and flags:
+- Provide `playwright` arguments and flags:
 
-```
+```bash
 pwc --key <record-key> --project-id <id> -- --workers 2 --timeout 10000 --shard 1/2
 ```
 
@@ -198,11 +198,11 @@ pwc --key <record-key> --project-id <id> -- --workers 2 --timeout 10000 --shard 
 
 Check out the example repositories that showcase running Playwright tests on popular CI providers and recording the results to Currents:
 
-* [github-actions](../../../getting-started/ci-setup/github-actions/ "mention")
-* [gitlab](../../../getting-started/ci-setup/gitlab/ "mention")
-* [jenkins.md](../../../getting-started/ci-setup/jenkins.md "mention")
-* [playwright-circleci.md](../../../getting-started/ci-setup/playwright-circleci.md "mention")
-* [playwright-aws-code-build.md](../../../getting-started/ci-setup/playwright-aws-code-build.md "mention")
-* [playwright-azure-devops.md](../../../getting-started/ci-setup/playwright-azure-devops.md "mention")
+- [github-actions](../../../getting-started/ci-setup/github-actions/ "mention")
+- [gitlab](../../../getting-started/ci-setup/gitlab/ "mention")
+- [jenkins.md](../../../getting-started/ci-setup/jenkins.md "mention")
+- [playwright-circleci.md](../../../getting-started/ci-setup/playwright-circleci.md "mention")
+- [playwright-aws-code-build.md](../../../getting-started/ci-setup/playwright-aws-code-build.md "mention")
+- [playwright-azure-devops.md](../../../getting-started/ci-setup/playwright-azure-devops.md "mention")
 
 Explore how to speed up CI Playwright runs by enabling [playwright-parallelization.md](../../../guides/ci-optimization/playwright-parallelization.md "mention").

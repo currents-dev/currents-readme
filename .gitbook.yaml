@@ -35,6 +35,7 @@ redirects:
   runs/run-status: dashboard/runs/run-status.md
   runs/cancel-run: dashboard/runs/cancel-run.md
   runs/deleting-runs: dashboard/runs/deleting-runs.md
+  resources/reporters/currents-playwright/pwc-p-orchestration: resources/reporters/currents-playwright/pwc-p.md
   integration-with-playwright/currents-playwright: resources/reporters/currents-playwright.md
   integration-with-playwright/playwright-component-testing: getting-started/playwright/integration-with-playwright/playwright-component-testing.md
   integration-with-playwright/troubleshooting: getting-started/playwright/troubleshooting-playwright.md
