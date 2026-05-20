@@ -80,7 +80,7 @@ Choose the preferred usage method. See details below.
 
 ### `pwc` command-line executable
 
-```
+```bash
 npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id hello-currents
 ```
 
@@ -159,38 +159,38 @@ The package also provides additional fixtures for Playwright that support variou
 
 - Run all tests in the current directory:
 
-```
+```bash
 pwc --key <record-key> --project-id <id>
 ```
 
 - Run orchestration for all tests in the current directory:
 
-```
+```bash
 pwc-p run --key <record-key> --project-id <id> --ci-build-id <build-id>
 ```
 
 - Run orchestration for tests filtered by the tag "@smoke":
 
-```
+```bash
 pwc-p discover --pwc-discovery-file tests.txt --grep @smoke
 pwc-p run --key <record-key> --project-id <id> --ci-build-id <build-id> --pwc-discovery-file tests.txt
 ```
 
 - Run only tests filtered by the tag "@smoke" (non-orchestrated):
 
-```
+```bash
 pwc --key <record-key> --project-id <id> --grep smoke
 ```
 
 - Run playwright tests and add tags "tagA", "tagB" to the recorded run:
 
-```
+```bash
 pwc --key <record-key> --project-id <id> --tag tagA --tag tagB
 ```
 
 - Provide `playwright` arguments and flags:
 
-```
+```bash
 pwc --key <record-key> --project-id <id> -- --workers 2 --timeout 10000 --shard 1/2
 ```
 
