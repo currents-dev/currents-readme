@@ -5,7 +5,7 @@ description: Setup instructions for Playwright Orchestration
 # Orchestration Setup
 
 {% hint style="warning" %}
-Migrating from `v1` — see [playwright-orchestration-migration-guide.md](playwright-orchestration-migration-guide.md "mention")
+Migrating from `v1`? See [playwright-orchestration-migration-guide.md](playwright-orchestration-migration-guide.md "mention").
 {% endhint %}
 
 Orchestration helps decrease the duration of Playwright tests in CI pipelines. Read our detailed guide on [playwright-parallelization.md](playwright-parallelization.md "mention") that compares native sharding with orchestration.
