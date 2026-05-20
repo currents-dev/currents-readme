@@ -1,11 +1,11 @@
 ---
-description: Legacy Playwright Orchestration setup
+description: Playwright Orchestration Setup Guide for Currents v1
 ---
 
-# Legacy Orchestration Setup
+# Orchestration (v1)
 
 {% hint style="warning" %}
-This page documents the **legacy** `pwc-p` orchestration flow. For current setup with `pwc-p discover` and `pwc-p run`, see [playwright-orchestration.md](playwright-orchestration.md "mention"). To upgrade, see [playwright-orchestration-migration-guide.md](playwright-orchestration-migration-guide.md "mention").
+This page documents orchestration flow for deprecated `v1` version of Currents. See [playwright-orchestration-migration-guide.md](playwright-orchestration-migration-guide.md "mention").
 {% endhint %}
 
 Orchestration helps decrease the duration of Playwright tests in CI pipelines. Read our detailed guide on [playwright-parallelization.md](playwright-parallelization.md "mention") that compares native sharding with orchestration.
@@ -33,10 +33,6 @@ Replace `playwright` with `pwc-p`:
 npx pwc-p --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id>
 ```
 
-{% hint style="success" %}
-Read more about [ci-build-id.md](../parallelization-guide/ci-build-id.md "mention") and [reporting-strategy.md](../parallelization-guide/reporting-strategy.md "mention").
-{% endhint %}
-
 `pwc-p` accepts additional Playwright arguments and flags (see [currents-playwright](../../resources/reporters/currents-playwright/ "mention")), for example:
 
 {% code overflow="wrap" %}
@@ -45,6 +41,10 @@ Read more about [ci-build-id.md](../parallelization-guide/ci-build-id.md "mentio
 pwc-p --key <record-key> --project-id <id> --ci-build-id <build-id> -- --workers 2 --timeout 10000
 ```
 {% endcode %}
+
+{% hint style="success" %}
+Read more about [ci-build-id.md](../parallelization-guide/ci-build-id.md "mention") and [reporting-strategy.md](../parallelization-guide/reporting-strategy.md "mention").
+{% endhint %}
 
 {% hint style="info" %}
 There's no need to define shards. Remove the `--shard` flag — Currents uses all available machines automatically.

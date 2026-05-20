@@ -1,59 +1,97 @@
 ---
-description: Migrate from Orchestration v1 to v2 (pwc-p discover + run)
+description: Migration Guide for Currents Orchestration v1 -> v2
 ---
 
-# Migration from Orchestration v1
+# Migration Guide
 
-This guide is for CI that runs tests with **`pwc-p`**. If you use `pwc`, `playwright test` with the Currents reporter, or sharding only, follow the [Playwright 1.60+ upgrade guide](../../resources/reporters/currents-playwright/migration-to-playwright-1.60.md "mention") instead.
+{% hint style="info" %}
+This guide is for migrating Currents Orchestration from `v1` to `v2` . If you are not using Currents Orchestration see [migration-to-playwright-1.60.md](../../resources/reporters/currents-playwright/migration-to-playwright-1.60.md "mention")&#x20;
+{% endhint %}
 
-## Prerequisites
+## What Has Changed?
 
-Upgrade `@currents/playwright` to **2.0.0+** before changing orchestration commands:
+`v2` of Currents Orchestration requires running two separate commands:
 
-```bash
+* `pwc-p discover` — runs Playwright in discovery mode and writes the list of tests to be orchestrated to a file.
+* `pwc-p run` — initiates the orchestrated execution based on the previous step, using the list of tests as an input.
+
+That's different from `v1` that was using a single command for discovery and execution.&#x20;
+
+
+
+The migration involves:
+
+* Adding `pwc-p discover`  step
+* Using `pwc-p run` command
+
+## Migration Steps
+
+{% stepper %}
+{% step %}
+### Update `@currents/playwright` to 2.0.0+
+
+{% code overflow="wrap" lineNumbers="true" %}
+```
 npm i @currents/playwright@^2
 ```
+{% endcode %}
+{% endstep %}
 
-## 1. Replace `pwc-p` with `pwc-p run`
+{% step %}
+### Use `pwc-p discover` command
 
-In every CI orchestration job, change the execution command from bare `pwc-p` to `pwc-p run`:
+* Run  `pwc-p discover` to create a discovery file with tests selected for orchestration, you can apply the same filters and CLI arguments as for `playwright` command.
+* Run `pwc-p run` with `--pwc-discovery-file` to execute the orchestration. Run `pwc-p run --help`  to see the available flags or refer to [currents-playwright](../../resources/reporters/currents-playwright/ "mention").
 
+{% code overflow="wrap" lineNumbers="true" %}
+```bash
+npx pwc-p discover --pwc-discovery-file discovery-path [...filters]
+npx pwc-p run --pwc-discovery-file discovery-path --key currents-record-key --project-id currents-project-id --ci-build-id ci-build-id
+```
+{% endcode %}
+{% endstep %}
+
+{% step %}
+### Replace `pwc-p` with `pwc-p run`
+
+Update your CI configuration to use `pwc-p run` instead of `pwc-p`
+
+{% code overflow="wrap" %}
 ```bash
 # Before
-npx pwc-p --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id>
+npx pwc-p --key record-key --project-id project-id --ci-build-id ci-build-id
 
 # After
-npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id>
+npx pwc-p run --pwc-discovery-file discovery-path --key record-key --project-id project-id --ci-build-id ci-build-id
 ```
+{% endcode %}
+{% endstep %}
+{% endstepper %}
 
-Until this point, the tests execution should work as always without any further change if the intention is to execute all the test suite.
+## When to use `discover`
 
-If the execution command included filtering flags like `--grep / -g`, `--project`, `--last-failed`, that affects/scopes the set of tests that will be executed, follow to the step 2.
+`pwc-p discover` is required when you want to explicitly select tests for orchestration — for example:
 
-## 2. Add `pwc-p discover` when filtering
+* Filtering tests by tag:  `--grep / -g @smoke`
+* Filtering tests by last run outcome:  `--last-failed`  (see [#re-running-only-failed-tests](playwright-orchestration-migration-guide.md#re-running-only-failed-tests "mention"))
+* Filtering tests by Playwright project: `--project chromium`
+* Explicit spec file location: `playwright test <spec-file-path>`
 
-Add a **`pwc-p discover`** step **before** `pwc-p run` only when a **CLI filter** narrows which tests run:
+Apply the desired arguments and parameters as if you are running `playwright` command, for example:
 
-* `--last-failed`
-* `--grep / -g`
-* `--project`
-* a positional spec path
+{% code overflow="wrap" lineNumbers="true" %}
+```sh
+# Create discovery file with filters applied
+npx pwc-p discover --pwc-discovery-file ./test-list --grep @smoke --project chromium
 
-| Scenario | Commands (in order) |
-| -------- | ------------------- |
-| Full suite, no CLI filters | `pwc-p run` only |
-| Filtered suite or last-failed rerun | `pwc-p discover` → `pwc-p run --pwc-discovery-file <file>` |
-
-**Discovery**:
-
-```bash
-npx pwc-p discover --pwc-discovery-file tests.txt --grep @smoke
+# Use the discovery file as an input for orchestration
+npx pwc-p run --pwc-discovery-file ./test-list --key currents-record-key --project-id currents-project-id --ci-build-id ci-build-id
 ```
+{% endcode %}
 
-**Execution**:
+Omitting discovery stage selects **all** tests for orchestration.
 
-```bash
-npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --pwc-discovery-file tests.txt
-```
-
-Playwright filter flags belong on **`discover`**. Currents and runtime flags belong on **`run`**.
+| Scenario                           | Commands                                        |
+| ---------------------------------- | ----------------------------------------------- |
+| Run the full suite (no filters)    | `pwc-p run ...`                                 |
+| Filter tests with Playwright flags | first `pwc-p discover ...` then `pwc-p run ...` |
