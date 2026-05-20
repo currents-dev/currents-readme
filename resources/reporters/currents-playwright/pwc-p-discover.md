@@ -4,7 +4,7 @@ description: pwc-p discover command documentation - test discovery and filtering
 
 # pwc-p discover
 
-`pwc-p discover` runs Playwright test discovery and writes the test list to a file. This output is then used by [`pwc-p run`](pwc-p-run.md) to execute tests with orchestration load balancing.
+`pwc-p discover` runs Playwright test discovery and writes the test list to a file for use by [`pwc-p run`](pwc-p-run.md) during orchestration.
 
 The discover command accepts Playwright filter flags to narrow down the test suite before orchestration. See the [Playwright docs](https://playwright.dev/docs/test-cli#reference) for complete filter flag documentation.
 
@@ -48,7 +48,7 @@ Path to the discovery output file written by `pwc-p discover` and read by `pwc-p
 
 ### `--grep <pattern>`
 
-Filter tests by title using a regex pattern (Playwright passthrough). For example, `--grep @smoke` runs tests with `@smoke` tag.
+Filter tests by title using a regex pattern (Playwright passthrough). For example, `--grep @smoke` filters to tests with the `@smoke` tag.
 
 ### `--last-failed`
 
@@ -56,7 +56,7 @@ Discover only tests that failed in the previous run (Playwright passthrough).
 
 ### `--project <name>`
 
-Filter tests by project name (Playwright passthrough). For example, `--project chromium` runs tests only on Chromium.
+Filter tests by project name (Playwright passthrough). For example, `--project chromium` filters to tests configured for Chromium only.
 
 ### Spec files
 

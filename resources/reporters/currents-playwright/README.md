@@ -90,7 +90,7 @@ npx pwc --key RECORD_KEY --project-id PROJECT_ID --ci-build-id hello-currents
 - See [pwc.md](pwc.md "mention") reference documentation.
 
 {% hint style="info" %}
-Using `pwc` command overrides the reporters configured in `playwright.config.ts` - you can specify additional reporters using `--reporter` flag. Alternatively, you can explicitly add currents reported in the Playwright configuration as appears below.
+Using `pwc` command overrides the reporters configured in `playwright.config.ts` — you can specify additional reporters using `--reporter` flag. Alternatively, you can explicitly add the Currents reporter to `playwright.config.ts` and use `playwright test` as usual.
 {% endhint %}
 
 ### `pwc-p` command-line executable
@@ -113,7 +113,7 @@ npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-bui
 
 ### Manually Add Currents Reporter
 
-You can manually add Current sreporter to `playwright.config.ts` and keep using `playwright test` CLI command.
+You can manually add the Currents reporter to `playwright.config.ts` and use `playwright test` as usual.
 
 ```typescript
 // playwright.config.ts

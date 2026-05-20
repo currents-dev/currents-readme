@@ -4,7 +4,7 @@ description: pwc-p run command documentation - orchestration execution for Playw
 
 # pwc-p run
 
-`pwc-p run` starts orchestration and executes Playwright tests with load balancing across available workers. It reads the test list produced by [`pwc-p discover`](pwc-p-discover.md) and distributes tests optimally for parallel execution.
+`pwc-p run` starts orchestration and executes Playwright tests with load balancing across available workers. It distributes tests from the list produced by [`pwc-p discover`](pwc-p-discover.md) for parallel execution.
 
 ## Examples
 

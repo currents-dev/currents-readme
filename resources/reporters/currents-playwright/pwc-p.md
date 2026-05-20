@@ -4,10 +4,10 @@ description: Currents orchestration pwc-p command-line executable documentation
 
 # pwc-p (orchestration)
 
-`pwc-p` is a command-line executable that implements Currents Orchestration for Playwright. See [playwright-parallelization.md](../../../guides/ci-optimization/playwright-parallelization.md "mention") and [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention").
+`pwc-p` is a command-line executable that implements Currents Orchestration for Playwright. See [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention") and [playwright-parallelization.md](../../../guides/ci-optimization/playwright-parallelization.md "mention") for detailed guides.
 
 {% hint style="info" %}
-**Orchestration** is a two-step process: first run `pwc-p discover` to build a test list, then run `pwc-p run` to execute tests in parallel with load balancing. See [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention").
+**Orchestration** is a two-step process: first run `pwc-p discover` to build a test list, then run `pwc-p run` to execute tests in parallel with load balancing.
 {% endhint %}
 
 ## Subcommands
@@ -15,11 +15,7 @@ description: Currents orchestration pwc-p command-line executable documentation
 - **[`pwc-p discover`](pwc-p-discover.md)** — Runs Playwright test discovery and writes the test list to a file. Accepts Playwright filter flags (`--grep`, `--last-failed`, `--project`, spec paths, and similar).
 - **[`pwc-p run`](pwc-p-run.md)** — Starts orchestration and executes tests with load balancing. Accepts [configuration.md](configuration.md "mention") options and supported Playwright runtime flags (`-j`, `--timeout`, and similar).
 
-Both commands accept Currents configuration via CLI flags or `currents.config.ts`. See [playwright-orchestration.md](../../../guides/ci-optimization/playwright-orchestration.md "mention") for setup and CI examples.
-
-{% hint style="success" %}
-We recommend using `currents.config.ts` file. See [#configuration-sources](configuration.md#configuration-sources "mention").
-{% endhint %}
+Both commands accept Currents configuration via CLI flags or `currents.config.ts`. See [#configuration-sources](configuration.md#configuration-sources "mention") for recommended setup.
 
 ## Basic Workflow
 
