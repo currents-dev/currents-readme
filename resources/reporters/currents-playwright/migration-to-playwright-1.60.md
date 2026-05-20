@@ -1,15 +1,20 @@
 ---
-description: Upgrade @currents/playwright for Playwright 1.60+
+description: Discover the compatible versions of @currents/playwright
 ---
 
-# Upgrade for Playwright 1.60+
+# Compatibility Guide
 
-{% hint style="warning" %}
-When using **Playwright 1.60.0+**, update `@currents/playwright` to **2.0.0+**. Playwright 1.60.0 introduced breaking changes that are addressed in Currents 2.x.
-{% endhint %}
+### Compatibility Table
 
-```bash
-npm i @currents/playwright@^2
-```
+Use the following table to discover what versions of `@currents/playwright` to use:
 
-This applies to all Currents Playwright setups — `pwc`, the reporter with `playwright test`, and CI with sharding. **No other changes are required** unless you run tests with **`pwc-p`** (Currents Orchestration). For orchestration CI, continue with the [Orchestration v2 migration guide](../../../guides/ci-optimization/playwright-orchestration-migration-guide.md "mention").
+| @playwright/test | @currents/playwright |
+| ---------------- | -------------------- |
+| 1.59.1           | 1.24.0, 2.0.0+       |
+| 1.60.0+          | 2.0.0+               |
+
+#### Notes
+
+* **May 19 2026** `@playwright/test@1.60.0` introduced changes that require updating Currents reporter to version `2.0.0+`.
+  * Currents Orchestration users, follow the  [playwright-orchestration-migration-guide.md](../../../guides/ci-optimization/playwright-orchestration-migration-guide.md "mention")
+  * If you are **not** using Currents Orchestration no additional changed required beyond version bump.
