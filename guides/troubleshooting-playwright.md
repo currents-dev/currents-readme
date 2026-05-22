@@ -12,32 +12,32 @@ If you are experiencing issues with using `@currents/playwright`, enable debug m
 
 Collect environment information
 
-- Package Versions
-- Currents Run ID or Dashboard URL associated with the issue
-- Screenshots or video recordings if applicable
-- Full error message, including the stack trace, if available
-- Full and relevant CI execution logs with sensitive information redacted
-- CI pipeline configuration
-  - The exact commands used during the execution
-  - Relevant configuration of the CI setup stages
+* Package Versions
+* Currents Run ID or Dashboard URL associated with the issue
+* Screenshots or video recordings if applicable
+* Full error message, including the stack trace, if available
+* Full and relevant CI execution logs with sensitive information redacted
+* CI pipeline configuration
+  * The exact commands used during the execution
+  * Relevant configuration of the CI setup stages
 
 \
 Collect and share the debug logs
 
-- `npx pwc --pwc-debug=full ...` OR
-- `npx pwc-p --pwc-debug=remote ...` OR
-- `DEBUG=currents* playwright test ...`
+* `npx pwc --pwc-debug=full ...` OR
+* `npx pwc-p --pwc-debug=remote ...` OR
+* `DEBUG=currents* playwright test ...`
   {% endhint %}
 
 ### 1. Collecting Environment Information
 
 Please collect the following information to help us effectively debug the problem:
 
-- The associated dashboard Run URL
-- Screenshots if applicable
-- Your setup method and configuration files
-- The exact command used to run playwright
-- Environment information (use the command below)
+* The associated dashboard Run URL
+* Screenshots if applicable
+* Your setup method and configuration files
+* The exact command used to run playwright
+* Environment information (use the command below)
 
 Use the following command to print information about your CI environment
 

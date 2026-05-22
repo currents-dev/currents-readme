@@ -194,7 +194,7 @@ const config: CurrentsConfig = {
 export default config;
 ```
 
-- Update `playwright.config.ts`
+* Update `playwright.config.ts`
 
 ```typescript
 import { currentsReporter } from "@currents/playwright";
@@ -207,7 +207,7 @@ const config: PlaywrightTestConfig = {
 };
 ```
 
-- **Optional:** Update the `pwc-p run` CLI command
+* **Optional:** Update the `pwc-p run` CLI command
 
 `pwc-p run` reads all the configuration from `currents.config.ts` — no need to use CLI params.
 
@@ -373,9 +373,9 @@ See [re-run-only-failed-tests-orchestrated-v2.md](re-run-only-failed-tests-orche
 
 ## Limitations and Nuances
 
-- Orchestration works on a **file level** — it balances test files (rather than individual tests).
-- [Playwright Project dependencies](https://playwright.dev/docs/test-projects#dependencies) is not supported — if projects depend on one another, orchestration will not consider the dependencies. As a workaround, run the dependencies in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)
-- [Global Setup and Teardown](https://playwright.dev/docs/test-global-setup-teardown). An orchestrated execution runs `playwright` multiple times. Beware that global setup or teardown routines run for each invocation of `playwright`.
+* Orchestration works on a **file level** — it balances test files (rather than individual tests).
+* [Playwright Project dependencies](https://playwright.dev/docs/test-projects#dependencies) is not supported — if projects depend on one another, orchestration will not consider the dependencies. As a workaround, run the dependencies in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)
+* [Global Setup and Teardown](https://playwright.dev/docs/test-global-setup-teardown). An orchestrated execution runs `playwright` multiple times. Beware that global setup or teardown routines run for each invocation of `playwright`.
 
 ## Next Steps
 
