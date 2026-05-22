@@ -97,13 +97,24 @@ This is showcased in the `e2e-03` nx project and the `project.json` file is slig
   "projectType": "application",
   "sourceRoot": "apps/e2e-03/src",
   "targets": {
+    "or8n-discover": {
+      "executor": "nx:run-commands",
+      "options": {
+        "config": "apps/e2e-03/playwright.config.ts",
+        "commands": [
+          {
+            "command": "npx pwc-p discover --pwc-discovery-file tests.txt"
+          }
+        ]
+      }
+    },
     "or8n": {
       "executor": "nx:run-commands",
       "options": {
         "config": "apps/e2e-03/playwright.config.ts",
         "commands": [
           {
-            "command": "npx pwc-p run"
+            "command": "npx pwc-p run --pwc-discovery-file tests.txt"
           }
         ]
       }
@@ -115,8 +126,9 @@ This is showcased in the `e2e-03` nx project and the `project.json` file is slig
 Key differences with other nx projects in the example repository:
 
 * `executor` property has the value `nx:run-commands`.
-* A `command` property is added within `options`. This executes `npx pwc-p run`. See [playwright-orchestration.md](../../guides/ci-optimization/playwright-orchestration.md "mention").
+* A `command` property is added within `options`. This executes `npx pwc-p run` for orchestration. See [playwright-orchestration.md](../../guides/ci-optimization/playwright-orchestration.md "mention").
 * Reporter config in `playwright.config` file is not needed
+* Orchestration runs the full suite by default — use `or8n-discover` first to filter tests
 
 To locally execute orchestration nx project:
 
@@ -127,7 +139,14 @@ CURRENTS_CI_BUILD_ID=unique-id \
 nx run-many -t or8n
 ```
 
-This Github Action yaml file executes the Playwright tests distributed in three shards:
+Or with discovery (for filtered runs):
+
+```bash
+CURRENTS_RECORD_KEY=recordkey \
+CURRENTS_PROJECT_ID=projectid \
+CURRENTS_CI_BUILD_ID=unique-id \
+nx run-many -t or8n-discover -- --grep @smoke && nx run-many -t or8n
+```
 
 ```yaml
 name: Run or8n Tests

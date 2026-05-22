@@ -14,17 +14,15 @@ Orchestration helps decrease the duration of Playwright tests in CI pipelines. R
 
 At a high level:
 
-* create a list of tests for orchestration using&#x20;
-* establishes an orchestration session with Currents servers
-* assigns work to available CI machines using historical execution and timing data
-* records results to Currents for troubleshooting and analysis
+* create a list of tests for orchestration using `pwc-p discover`
+* establish an orchestration session with Currents servers
+* assign work to available CI machines using historical execution and timing data
+* record results to Currents for troubleshooting and analysis
 
+`@currents/playwright` includes a CLI command `pwc-p` that implements Playwright Orchestration.
 
-
-`@currents/playwright` includes a CLI command `pwc-p`  that implements Playwright Orchestration.
-
-1. `pwc-p discover` — runs Playwright in discovery mode and writes the list of tests to be orchestrated to a file.
-2. `pwc-p run` — initiates the orchestrated execution based on the previous step.
+1. [`pwc-p discover`](../../resources/reporters/currents-playwright/pwc-p-discover.md) — runs Playwright in discovery mode and writes the list of tests to be orchestrated to a file.
+2. [`pwc-p run`](../../resources/reporters/currents-playwright/pwc-p-run.md) — initiates the orchestrated execution based on the previous step.
 
 ## Setup
 
@@ -34,19 +32,22 @@ Install `@currents/playwright`
 npm i @currents/playwright@latest
 ```
 
-* Run  `pwc-p discover` to create a discovery file with tests selected for orchestration, you can apply the same filters and CLI arguments as for `playwright` command.
-* Run `pwc-p run` with `--pwc-discovery-file` to execute the orchestration. Run `pwc-p run --help`  to see the available flags or refer to [currents-playwright](../../resources/reporters/currents-playwright/ "mention").
+* Run `pwc-p discover` to create a discovery file with tests selected for orchestration, you can apply the same filters and CLI arguments as for `playwright` command.
+* Run `pwc-p run` with `--pwc-discovery-file` to execute the orchestration. Run `pwc-p run --help` to see the available flags or refer to [currents-playwright](../../resources/reporters/currents-playwright/ "mention").
 
 {% code overflow="wrap" lineNumbers="true" %}
+
 ```bash
 npx pwc-p discover --pwc-discovery-file <discovery-path> [...filters]
 npx pwc-p run --pwc-discovery-file <discovery-path> --key <currents-record-key> --project-id <currents-project-id> --ci-build-id <ci-build-id>
 ```
+
 {% endcode %}
 
 A successfully created orchestration prints an output similar to this.
 
 {% code overflow="wrap" %}
+
 ```bash
 $ npx pwc-p run --key *secret* --project-id WeZwSj --ci-build-id example-001
 🚀 Starting orchestration session...
@@ -62,10 +63,11 @@ $ npx pwc-p run --key *secret* --project-id WeZwSj --ci-build-id example-001
 🌐 Run URL: https://app.currents.dev/run/4aefcb5cd3bb5c89
 #...
 ```
+
 {% endcode %}
 
 {% hint style="info" %}
-Currents automatically balances tests between all available CI machines, which makes  `--shard` redundant — it should be removed.
+Currents automatically balances tests between all available CI machines, which makes `--shard` redundant — it should be removed.
 
 Read more about [ci-build-id.md](../parallelization-guide/ci-build-id.md "mention") and [reporting-strategy.md](../parallelization-guide/reporting-strategy.md "mention").
 {% endhint %}
@@ -74,14 +76,15 @@ Read more about [ci-build-id.md](../parallelization-guide/ci-build-id.md "mentio
 
 `pwc-p discover` is required when you want to explicitly select tests for orchestration — for example:
 
-* Filtering tests by tag:  `--grep / -g @smoke`
-* Filtering tests by last run outcome:  `--last-failed`  (see [#re-running-only-failed-tests](playwright-orchestration.md#re-running-only-failed-tests "mention"))
+* Filtering tests by tag: `--grep / -g @smoke`
+* Filtering tests by last run outcome: `--last-failed` (see [#re-running-only-failed-tests](playwright-orchestration.md#re-running-only-failed-tests "mention"))
 * Filtering tests by Playwright project: `--project chromium`
 * Explicit spec file location: `playwright test <spec-file-path>`
 
 Apply the desired arguments and parameters as if you are running `playwright` command, for example:
 
 {% code overflow="wrap" lineNumbers="true" %}
+
 ```sh
 # Create discovery file with filters applied
 npx pwc-p discover --pwc-discovery-file ./test-list --grep @smoke --project chromium
@@ -89,6 +92,7 @@ npx pwc-p discover --pwc-discovery-file ./test-list --grep @smoke --project chro
 # Use the discovery file as an input for orchestration
 npx pwc-p run --pwc-discovery-file ./test-list --key currents-record-key --project-id currents-project-id --ci-build-id ci-build-id
 ```
+
 {% endcode %}
 
 Omitting discovery stage selects **all** tests for orchestration.
@@ -100,7 +104,7 @@ Omitting discovery stage selects **all** tests for orchestration.
 
 ## Discovery output
 
-Creates a  discover file at a destination, the use the file as an input for `pwc-p run`  command
+Creates a discover file at a destination, the use the file as an input for `pwc-p run` command
 
 ```bash
 npx pwc-p discover --pwc-discovery-file tests.txt --grep @smoke --project frontend
@@ -138,7 +142,7 @@ Add tags on the recorded run (no discovery step):
 npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --tag tagA --tag tagB
 ```
 
-Run  `pwc-p discover --help` or  `pwc-p run --help` to see the list of supported flags.
+Run `pwc-p discover --help` or `pwc-p run --help` to see the list of supported flags.
 
 ## Orchestration in CI
 
@@ -161,12 +165,14 @@ Provider-specific orchestration examples are being updated for `discover` and `r
 
 `pwc-p run` automatically injects Currents reporter [currents-playwright](../../resources/reporters/currents-playwright/ "mention") into Playwright, replacing all other reporters configured in `playwright.config.ts`. To add additional reporters use one of the two options.
 
-#### **Add  reporters as a CLI parameter.**
+#### **Add reporters as a CLI parameter.**
 
 {% code overflow="wrap" %}
+
 ```bash
 pwc-p run --key <record-key> --project-id <id> --ci-build-id <build-id> --reporter="./myreporter/my-awesome-reporter.ts"
 ```
+
 {% endcode %}
 
 #### **Manual Configuration**
@@ -188,29 +194,29 @@ const config: CurrentsConfig = {
 export default config;
 ```
 
-* Update `playwright.config.ts`
+- Update `playwright.config.ts`
 
 ```typescript
 import { currentsReporter } from "@currents/playwright";
 import { PlaywrightTestConfig } from "@playwright/test";
 
 const config: PlaywrightTestConfig = {
-  reporter: [
-    currentsReporter(),
-  ],
+  reporter: [currentsReporter()],
 
   // ... rest of playwright configuration
-}
+};
 ```
 
-* **Optional:** Update the `pwc-p run` CLI command
+- **Optional:** Update the `pwc-p run` CLI command
 
 `pwc-p run` reads all the configuration from `currents.config.ts` — no need to use CLI params.
 
 {% code overflow="wrap" %}
+
 ```
 pwc-p run -- [...playwright-cli-params]
 ```
+
 {% endcode %}
 
 ### Merging Fragmented Reports
@@ -367,10 +373,10 @@ See [re-run-only-failed-tests-orchestrated-v2.md](re-run-only-failed-tests-orche
 
 ## Limitations and Nuances
 
-* Orchestration works on a **file level** — it balances test files (rather than individual tests).
-* [Playwright Project dependencies](https://playwright.dev/docs/test-projects#dependencies) is not supported — if projects depend on one another, orchestration will not consider the dependencies. As a workaround, run the dependencies in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)
-* [Global Setup and Teardown](https://playwright.dev/docs/test-global-setup-teardown). An orchestrated execution runs `playwright` multiple times. Beware that global setup or teardown routines run for each invocation of `playwright`.
+- Orchestration works on a **file level** — it balances test files (rather than individual tests).
+- [Playwright Project dependencies](https://playwright.dev/docs/test-projects#dependencies) is not supported — if projects depend on one another, orchestration will not consider the dependencies. As a workaround, run the dependencies in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)
+- [Global Setup and Teardown](https://playwright.dev/docs/test-global-setup-teardown). An orchestrated execution runs `playwright` multiple times. Beware that global setup or teardown routines run for each invocation of `playwright`.
 
 ## Next Steps
 
-* Use [ci-tests-on-spot-instances.md](ci-tests-on-spot-instances.md "mention") to reduce your CI bills by 90%
+- Use [ci-tests-on-spot-instances.md](ci-tests-on-spot-instances.md "mention") to reduce your CI bills by 90%
