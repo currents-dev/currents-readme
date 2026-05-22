@@ -379,4 +379,4 @@ See [re-run-only-failed-tests-orchestrated-v2.md](re-run-only-failed-tests-orche
 
 ## Next Steps
 
-- Use [ci-tests-on-spot-instances.md](ci-tests-on-spot-instances.md "mention") to reduce your CI bills by 90%
+* Use [ci-tests-on-spot-instances.md](ci-tests-on-spot-instances.md "mention") to reduce your CI bills by 90%

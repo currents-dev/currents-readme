@@ -55,9 +55,9 @@ Capture and share the **full** debug log - that will help the support person ide
 
 To enable uploading the debug logs:
 
-- For `pwc` command-line executable run `pwc --pwc-debug=full` OR
-- For `pwc-p` run `pwc-p --pwc-debug=full` OR
-- Set environment variable `DEBUG=currents* playwright test...`
+* For `pwc` command-line executable run `pwc --pwc-debug=full` OR
+* For `pwc-p` run `pwc-p --pwc-debug=full` OR
+* Set environment variable `DEBUG=currents* playwright test...`
 
 `--pwc-debug` enables uploading the debug logs to our servers (see [pwc-p run](../../resources/reporters/currents-playwright/pwc-p-run.md#debugging--output) documentation):
 
