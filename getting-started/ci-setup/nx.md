@@ -100,7 +100,7 @@ This is showcased in the `e2e-03` nx project and the `project.json` file is slig
     "or8n-discover": {
       "executor": "nx:run-commands",
       "options": {
-        "config": "apps/e2e-03/playwright.config.ts",
+        "cwd": "apps/e2e-03",
         "commands": [
           {
             "command": "npx pwc-p discover --pwc-discovery-file tests.txt"
@@ -111,10 +111,10 @@ This is showcased in the `e2e-03` nx project and the `project.json` file is slig
     "or8n": {
       "executor": "nx:run-commands",
       "options": {
-        "config": "apps/e2e-03/playwright.config.ts",
+        "cwd": "apps/e2e-03",
         "commands": [
           {
-            "command": "npx pwc-p run --pwc-discovery-file tests.txt"
+            "command": "npx pwc-p run"
           }
         ]
       }
@@ -145,7 +145,7 @@ Or with discovery (for filtered runs):
 CURRENTS_RECORD_KEY=recordkey \
 CURRENTS_PROJECT_ID=projectid \
 CURRENTS_CI_BUILD_ID=unique-id \
-nx run-many -t or8n-discover -- --grep @smoke && nx run-many -t or8n
+nx run-many -t or8n-discover -- --grep @smoke && nx run-many -t or8n -- --pwc-discovery-file tests.txt
 ```
 
 ```yaml

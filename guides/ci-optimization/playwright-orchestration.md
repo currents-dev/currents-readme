@@ -104,7 +104,7 @@ Omitting discovery stage selects **all** tests for orchestration.
 
 ## Discovery output
 
-Creates a discover file at a destination, the use the file as an input for `pwc-p run` command
+Creates a discovery file at a destination, then use the file as an input for `pwc-p run` command
 
 ```bash
 npx pwc-p discover --pwc-discovery-file tests.txt --grep @smoke --project frontend
@@ -213,7 +213,7 @@ const config: PlaywrightTestConfig = {
 
 {% code overflow="wrap" %}
 
-```
+```bash
 pwc-p run -- [...playwright-cli-params]
 ```
 

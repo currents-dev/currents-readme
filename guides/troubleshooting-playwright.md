@@ -69,7 +69,7 @@ For example:
 {% tabs %}
 {% tab title="pwc" %}
 
-```
+```bash
 npx pwc --pwc-debug=full ...
 ```
 
