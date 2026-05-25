@@ -105,3 +105,50 @@ Asset URLs (videos, screenshots) are signed URLs valid for 2h.
 - `resources/api/api-resources/` - Individual resource documentation
 - `resources/api/pagination.md` - Pagination patterns
 - `resources/api/errors.md` - HTTP status codes and error handling
+
+## Cursor Cloud specific instructions
+
+This is a pure documentation repository with no build process, no package manager, and no runtime dependencies. GitBook renders the site via its SaaS platform when changes are pushed to the repo.
+
+### Linting
+
+Run markdown lint (installed globally via npm):
+
+```
+markdownlint '**/*.md' --disable MD013 MD033 MD041 MD025 MD036 MD040 MD024 MD001
+```
+
+Many existing files trigger style warnings because GitBook-flavored markdown uses HTML elements and non-standard heading patterns. The disabled rules account for this.
+
+### Link validation
+
+Verify SUMMARY.md links resolve to real files:
+
+```
+python3 -c "
+import re, os
+with open('SUMMARY.md') as f:
+    content = f.read()
+links = re.findall(r'\[.*?\]\((.*?)\)', content)
+local = [l for l in links if not l.startswith('http')]
+missing = [l for l in local if not os.path.exists(l.split('#')[0].split(' ')[0].strip('\"'))]
+print(f'Local: {len(local)}, Broken: {len(missing)}')
+for m in missing: print(f'  BROKEN: {m}')
+"
+```
+
+### Local preview
+
+Serve docs locally with `python3 -m http.server 8080 --directory /workspace` for raw markdown or install `grip` (`pip install grip`) for GitHub-style rendered preview at port 8080.
+
+### Key files
+
+- `.gitbook.yaml` - GitBook config with URL redirects
+- `.gitbook/vars.yaml` - Template variables (e.g. `LATEST_PW_IMAGE_VERSION`)
+- `SUMMARY.md` - Table of contents / navigation structure (189 entries)
+
+### Gotchas
+
+- There are no automated tests in this repo; linting and link validation are the only programmatic checks.
+- GitBook uses custom markdown extensions (`{% hint %}`, `{% tabs %}`, `{% content-ref %}`) that standard markdown renderers won't process.
+- When adding new pages, always add them to `SUMMARY.md` and verify the file path resolves.
