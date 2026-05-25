@@ -14,10 +14,10 @@ Orchestration helps decrease the duration of Playwright tests in CI pipelines. R
 
 At a high level:
 
-* create a list of tests for orchestration using `pwc-p discover`
-* establish an orchestration session with Currents servers
-* assign work to available CI machines using historical execution and timing data
-* record results to Currents for troubleshooting and analysis
+* creates a list of tests for orchestration using `pwc-p discover`
+* establishes an orchestration session with Currents servers
+* assigns work to available CI machines using historical execution and timing data
+* records results to Currents for troubleshooting and analysis
 
 `@currents/playwright` includes a CLI command `pwc-p` that implements Playwright Orchestration.
 
