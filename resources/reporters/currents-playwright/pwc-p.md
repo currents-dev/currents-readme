@@ -12,14 +12,20 @@ description: Currents orchestration pwc-p command-line executable documentation
 
 ## Subcommands
 
-- **[`pwc-p discover`](pwc-p-discover.md)** — Runs Playwright test discovery and writes the test list to a file. Accepts Playwright filter flags (`--grep`, `--last-failed`, `--project`, spec paths, and similar).
-- **[`pwc-p run`](pwc-p-run.md)** — Starts orchestration and executes tests with load balancing. Accepts [configuration.md](configuration.md "mention") options and supported Playwright runtime flags (`-j`, `--timeout`, and similar).
+* **[`pwc-p discover`](pwc-p-discover.md)** — Runs Playwright test discovery and writes the test list to a file. Accepts Playwright filter flags (`--grep`, `--last-failed`, `--project`, spec paths, and similar).
+* **[`pwc-p run`](pwc-p-run.md)** — Starts orchestration and executes tests with load balancing. Accepts [configuration.md](configuration.md "mention") options and supported Playwright runtime flags (`-j`, `--timeout`, and similar).
 
 Both commands accept Currents configuration via CLI flags or `currents.config.ts`. See [#configuration-sources](configuration.md#configuration-sources "mention") for recommended setup.
 
 ## Basic Workflow
 
-A typical orchestrated run follows this pattern:
+**Full suite (no filters):**
+
+```bash
+npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id>
+```
+
+**Filtered tests (with discovery):**
 
 ```bash
 # Step 1: Discover tests with optional filters
@@ -33,7 +39,7 @@ npx pwc-p run \
   --pwc-discovery-file tests.txt
 ```
 
-Alternatively, use environment variables or `currents.config.ts` to avoid repeating the discovery file path on every command:
+Or use environment variables to avoid repeating the discovery file path:
 
 ```bash
 export CURRENTS_DISCOVERY_FILE=tests.txt
@@ -41,4 +47,7 @@ npx pwc-p discover --grep @smoke
 npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id>
 ```
 
-See [pwc-p discover](pwc-p-discover.md) and [pwc-p run](pwc-p-run.md) for all available options.
+**Reference:**
+
+* [pwc-p discover](pwc-p-discover.md) — test discovery and filtering options
+* [pwc-p run](pwc-p-run.md) — orchestration execution and runtime options

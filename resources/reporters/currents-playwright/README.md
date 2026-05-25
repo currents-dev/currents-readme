@@ -97,19 +97,21 @@ Using `pwc` command overrides the reporters configured in `playwright.config.ts`
 
 Use `pwc-p run` to orchestrate the full suite. When applying Playwright filters, run `pwc-p discover` first and pass the same discovery file to `pwc-p run`.
 
+**Full suite (discovery optional):**
+
 ```bash
 npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id>
 ```
 
-Filter tests, then orchestrate the discovered list:
+**Filtered tests (discovery required):**
 
 ```bash
 npx pwc-p discover --pwc-discovery-file tests.txt --grep @smoke
 npx pwc-p run --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id> --pwc-discovery-file tests.txt
 ```
 
-- `pwc-p run` reads configuration from `currents.config.ts`
-- Playwright filter flags belong on `discover`; runtime flags (`-j`, `--timeout`) belong on `run`
+* `pwc-p run` reads configuration from `currents.config.ts`
+* Playwright filter flags belong on `discover`; runtime flags (`-j`, `--timeout`) belong on `run`
 
 ### Manually Add Currents Reporter
 
