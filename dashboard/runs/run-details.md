@@ -43,3 +43,4 @@ Currents collects additional information about the CI environment:
 | Browser / Project    | Cypress tests browser or Playwright Project                                   |
 | Author               | Git commit author                                                             |
 | CI Build ID          | [ci-build-id.md](../../guides/parallelization-guide/ci-build-id.md "mention") |
+| CI Provider Link     | Auto-detected or custom CI job/run URL. Set `CURRENTS_CI_URL` to override. See [configuration.md](../reporters/currents-playwright/configuration.md "mention") |

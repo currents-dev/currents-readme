@@ -111,3 +111,35 @@ npx playwright test ...
 When enabled, the debug logs will be uploaded to Currents servers and a confirmation message will be shown after the run's completion, for example:
 
 <figure><img src="../../.gitbook/assets/currents-2023-12-11-15.56.04@2x.png" alt=""><figcaption><p>Remote debug logs notification example</p></figcaption></figure>
+
+## CI Link Issues
+
+### Problem: CI link is missing or incorrect in the dashboard
+
+Currents displays a link to the CI job/run where the tests were executed. If this link is missing or incorrect:
+
+**Possible causes:**
+
+1. **Auto-detection failed** — Your CI provider environment variables are not available in the test environment (e.g., inside a Docker container, custom runner, or self-hosted CI)
+2. **Custom CI system** — Your CI provider is not automatically recognized by Currents
+3. **URL override needed** — You need to manually specify the CI URL
+
+**Solution:**
+
+Set the `CURRENTS_CI_URL` environment variable to provide the correct CI job/run URL:
+
+```bash
+# GitHub Actions example
+export CURRENTS_CI_URL="https://github.com/my-org/my-repo/actions/runs/$GITHUB_RUN_ID"
+
+# GitLab CI example
+export CURRENTS_CI_URL="$CI_JOB_URL"
+
+# Jenkins example
+export CURRENTS_CI_URL="$BUILD_URL"
+
+# Custom CI system
+export CURRENTS_CI_URL="https://ci.mycompany.com/builds/run-123"
+```
+
+For more details on `CURRENTS_CI_URL`, see [configuration.md](../../resources/reporters/currents-playwright/configuration.md "mention").

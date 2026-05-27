@@ -30,3 +30,19 @@ COMMIT_INFO_REMOTE=$CI_REPOSITORY_URL
 ```
 
 Adding these environment variables to your `.yml` file will allow your custom docker runner to report the correct information to Currents and have all the available information in the dashboard to use it as a usual Gitlab CI/CD tests execution.
+
+## Fallback: Using CURRENTS_CI_URL
+
+If your GitLab environment variables are not forwarded to the Docker container and auto-detection fails, you can explicitly provide the CI URL using the `CURRENTS_CI_URL` environment variable:
+
+```
+CURRENTS_CI_URL=$CI_JOB_URL
+```
+
+Or for GitLab pipelines:
+
+```
+CURRENTS_CI_URL=$CI_PIPELINE_URL
+```
+
+This ensures the run link in the Currents Dashboard points back to the correct GitLab job or pipeline. See [configuration.md](../../../resources/reporters/currents-playwright/configuration.md "mention") for more details on `CURRENTS_CI_URL`.
