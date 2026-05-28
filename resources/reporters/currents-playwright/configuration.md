@@ -79,29 +79,6 @@ cmd /V /C "set CURRENTS_PROJECT_ID=PROJECT_ID // the projectId from https://app.
 {% endtab %}
 {% endtabs %}
 
-### Environment Variables
-
-The following are environment variables that affect the Currents reporter but are **not configuration properties** (i.e., they cannot be set via `CurrentsConfig`, `currents.config.ts`, or CLI flags).
-
-#### CURRENTS_CI_URL
-
-Optional environment variable that overrides or provides a CI job/run URL when the reporter creates a run on Currents.
-
-By default, Currents automatically detects and constructs the CI URL from environment variables specific to your CI provider (e.g., GitHub Actions, GitLab CI, CircleCI, Jenkins, etc.). Set `CURRENTS_CI_URL` to override this auto-detected URL or provide one when auto-detection is unavailable (e.g., in Docker containers, custom runners, or self-hosted CI).
-
-**Example:**
-
-```bash
-export CURRENTS_CI_URL="https://github.com/org/repo/actions/runs/123456789"
-npx playwright test --reporter=@currents/playwright
-```
-
-The URL is displayed in the [Currents Dashboard run details](../../../dashboard/runs/run-details.md "mention"), allowing quick navigation back to the CI job.
-
-{% hint style="info" %}
-Whitespace is automatically trimmed. If the value is empty or contains only whitespace, it is ignored.
-{% endhint %}
-
 ## Reference
 
 ### ciBuildId <mark style="color:yellow;">\*</mark>
@@ -225,6 +202,21 @@ File path for the JSON output summary. The TypeScript definition of the contents
 ```typescript
 import type { ExecutionJSONSummary } from '@currents/playwright'
 ```
+
+***
+
+### ciUrl
+
+* Type: `string`
+* Default: `undefined`
+* Environment variable: `CURRENTS_CI_URL`
+* Released in: `2.1.3`
+
+Overrides or provides the CI job/run URL shown in the [Currents Dashboard run details](../../../dashboard/runs/run-details.md "mention"). By default Currents auto-detects the CI URL from your provider's environment variables (GitHub Actions, GitLab CI, CircleCI, Jenkins, etc.). Set this to override the auto-detected URL, or to supply one when auto-detection is unavailable (e.g. Docker containers, custom runners, or self-hosted CI).
+
+{% hint style="info" %}
+Whitespace is automatically trimmed. If the value is empty or contains only whitespace, it is ignored.
+{% endhint %}
 
 ***
 
