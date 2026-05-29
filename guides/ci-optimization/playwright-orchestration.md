@@ -36,18 +36,15 @@ npm i @currents/playwright@latest
 * Run `pwc-p run` with `--pwc-discovery-file` to execute the orchestration. Run `pwc-p run --help` to see the available flags or refer to [currents-playwright](../../resources/reporters/currents-playwright/ "mention").
 
 {% code overflow="wrap" lineNumbers="true" %}
-
 ```bash
 npx pwc-p discover --pwc-discovery-file <discovery-path> [...filters]
 npx pwc-p run --pwc-discovery-file <discovery-path> --key <currents-record-key> --project-id <currents-project-id> --ci-build-id <ci-build-id>
 ```
-
 {% endcode %}
 
 A successfully created orchestration prints an output similar to this.
 
 {% code overflow="wrap" %}
-
 ```bash
 $ npx pwc-p run --key *secret* --project-id WeZwSj --ci-build-id example-001
 🚀 Starting orchestration session...
@@ -63,7 +60,6 @@ $ npx pwc-p run --key *secret* --project-id WeZwSj --ci-build-id example-001
 🌐 Run URL: https://app.currents.dev/run/4aefcb5cd3bb5c89
 #...
 ```
-
 {% endcode %}
 
 {% hint style="info" %}
@@ -84,7 +80,6 @@ Read more about [ci-build-id.md](../parallelization-guide/ci-build-id.md "mentio
 Apply the desired arguments and parameters as if you are running `playwright` command, for example:
 
 {% code overflow="wrap" lineNumbers="true" %}
-
 ```sh
 # Create discovery file with filters applied
 npx pwc-p discover --pwc-discovery-file ./test-list --grep @smoke --project chromium
@@ -92,7 +87,6 @@ npx pwc-p discover --pwc-discovery-file ./test-list --grep @smoke --project chro
 # Use the discovery file as an input for orchestration
 npx pwc-p run --pwc-discovery-file ./test-list --key currents-record-key --project-id currents-project-id --ci-build-id ci-build-id
 ```
-
 {% endcode %}
 
 Omitting discovery stage selects **all** tests for orchestration.
@@ -114,10 +108,10 @@ npx pwc-p run --pwc-discovery-file tests.txt ...
 Additional methods for providing discovery file:
 
 * `CURRENTS_DISCOVERY_FILE` environment variable
-* &#x20;`orchestration.discoveryFile` in `currents.config.ts`
+* `orchestration.discoveryFile` in `currents.config.ts`
 
 {% hint style="info" %}
-`CURRENTS_DISCOVERY_FILE` or `orchestration.discoveryFile` are the recommended options for CI environments, as this setup applies to both `discover` and `run` commands.&#x20;
+`CURRENTS_DISCOVERY_FILE` or `orchestration.discoveryFile` are the recommended options for CI environments, as this setup applies to both `discover` and `run` commands.
 {% endhint %}
 
 ## Examples
@@ -149,7 +143,7 @@ Run `pwc-p discover --help` or `pwc-p run --help` to see the list of supported f
 Provider-specific orchestration examples are being updated for `discover` and `run`. Use these pages as starting points:
 
 * [GitHub Actions](../../getting-started/ci-setup/github-actions/playwright-github-actions.md)
-* [GitHub Actions: re-run only failed tests](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-orchestrated-v2.md)&#x20;
+* [GitHub Actions: re-run only failed tests](../../getting-started/ci-setup/github-actions/re-run-failed-only-tests-orchestrated-v2.md)
 * [GitHub Actions + NX](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/nx/.github/workflows/or8n.yml)
 * [GitLab CI/CD](https://gitlab.com/currents.dev/gitlab-playwright-currents/-/blob/main/.gitlab/ci/with-reruns-pwcp.yml?ref_type=heads)
 * [NX](../../getting-started/ci-setup/nx.md)
@@ -168,11 +162,9 @@ Provider-specific orchestration examples are being updated for `discover` and `r
 #### **Add reporters as a CLI parameter.**
 
 {% code overflow="wrap" %}
-
 ```bash
 pwc-p run --key <record-key> --project-id <id> --ci-build-id <build-id> --reporter="./myreporter/my-awesome-reporter.ts"
 ```
-
 {% endcode %}
 
 #### **Manual Configuration**
@@ -212,11 +204,9 @@ const config: PlaywrightTestConfig = {
 `pwc-p run` reads all the configuration from `currents.config.ts` — no need to use CLI params.
 
 {% code overflow="wrap" %}
-
 ```bash
 pwc-p run -- [...playwright-cli-params]
 ```
-
 {% endcode %}
 
 ### Merging Fragmented Reports
@@ -247,7 +237,9 @@ When multiple workers are enabled, the orchestrator creates a "batch" of multipl
 
 As of May 2025, the Playwright Test Runner [does not respect the execution order of test files](https://github.com/microsoft/playwright/issues/35743). This means that even if Currents suggests an optimal execution order, Playwright may run files in a different sequence when multiple workers are used. It only affects cases when multiple workers are involved and has a minor impact.
 
-Also see [fully-parallel-mode.md](fully-parallel-mode.md "mention").
+{% hint style="info" %}
+Having multiple workers behaves differently in Playwright's [fully-parallel-mode.md](fully-parallel-mode.md "mention").  If you are using Fully Parallel Mode, and most of your test files contain more than one test, you will want to keep your Batch Size at 1 and your Playwright workers at a larger number.
+{% endhint %}
 
 ### Batch size configuration
 
@@ -374,6 +366,7 @@ See [re-run-only-failed-tests-orchestrated-v2.md](re-run-only-failed-tests-orche
 ## Limitations and Nuances
 
 * Orchestration works on a **file level** — it balances test files (rather than individual tests).
+* Batch Size needs to manually set to 1 for [fully-parallel-mode.md](fully-parallel-mode.md "mention") in order to correctly balance your machines. We will improve this in a future update.
 * [Playwright Project dependencies](https://playwright.dev/docs/test-projects#dependencies) is not supported — if projects depend on one another, orchestration will not consider the dependencies. As a workaround, run the dependencies in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)
 * [Global Setup and Teardown](https://playwright.dev/docs/test-global-setup-teardown). An orchestrated execution runs `playwright` multiple times. Beware that global setup or teardown routines run for each invocation of `playwright`.
 

@@ -4,7 +4,7 @@ description: A guide on Playwright Fully Parallel mode
 
 # Fully Parallel Mode
 
-laywright has multiple levels of concurrency:
+Playwright has multiple levels of concurrency:
 
 * split all the tests between different machines using [sharding](https://playwright.dev/docs/test-sharding#sharding-tests-between-multiple-machines);
 * each shard can have [multiple workers](https://playwright.dev/docs/api/class-testconfig#test-config-workers) (according to # of CPUs or explicit configuration).
@@ -13,7 +13,7 @@ laywright has multiple levels of concurrency:
 
 Playwright Workers run the tests in parallel, allowing for a speedup in execution and full utilization of machine's resources.
 
-By default, Playwright runs the tests of the **same spec file in the same worker** — one after another. Even if you have a powerful machine capable of supporting multiple workers, it can be under-utilized.&#x20;
+By default, Playwright runs the tests of the **same spec file in the same worker** — one after another. Even if you have a powerful machine capable of supporting multiple workers, it can be under-utilized.
 
 For example, if your machine has 4 workers and sharding assigns one spec file, only one worker will be utilized at a time and the tests will be executed one after another, not in parallel.
 
