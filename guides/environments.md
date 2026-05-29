@@ -1,5 +1,7 @@
 ---
-description: How to label and filter Currents runs by environment (e.g. staging, production)
+description: >-
+  How to label and filter Currents runs by environment (e.g. staging,
+  production)
 icon: layer-group
 ---
 
@@ -9,8 +11,7 @@ icon: layer-group
 **Availability**
 
 * Setting an environment is available in [currents-playwright](../resources/reporters/currents-playwright/ "mention") version **2.1.0+**.
-* Filtering by environment in the Dashboard ([Run feed](../dashboard/runs/ "mention") + [Analytics](../dashboard/analytics/ "mention")) and the REST [API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/ "mention") is available for all projects.
-* `@currents/cmd`, `@currents/jest`, `@currents/node-test-reporter`, and `cypress-cloud` do not expose an `environment` option yet.
+* Filtering by environment in the Dashboard ([runs](../dashboard/runs/ "mention") + [analytics](../dashboard/analytics/ "mention")) and the REST [API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/ "mention") is available for all projects.
 {% endhint %}
 
 An **environment** is a label that describes _where_ or _under which conditions_ a test run was executed — for example `staging`, `production`, `preview`, or a CI matrix dimension such as a target region or device pool. Attaching an environment lets you compare and filter results across deployment targets without mixing them into the same metrics.
@@ -19,19 +20,21 @@ Common uses:
 
 * Separate **staging** vs **production** smoke runs in the same project.
 * Compare stability of the same suite across regions (e.g. `us-east`, `eu-west`).
-* Slice [Analytics](../dashboard/analytics/ "mention") (run status, duration, flakiness, test results) by deployment target.
+* Slice [analytics](../dashboard/analytics/ "mention") (run status, duration, flakiness, test results) by deployment target.
+
+<figure><img src="../.gitbook/assets/CleanShot 2026-05-29 at 11.17.51@2x.png" alt=""><figcaption><p>Run with multiple group-level environments: production, staging </p></figcaption></figure>
 
 ## Environments vs. Tags
 
 Both classify runs, but they serve different purposes:
 
-| | Environment | [Tags](playwright-tags.md) |
-|---|---|---|
-| Cardinality | One value per run or per Playwright project | Many values per run/group/test |
-| Intent | _Where_ the tests ran (deployment target) | Arbitrary classification (feature, team, lifecycle) |
-| Source | Reporter config / project metadata | Test titles, project metadata, run config |
+|             | Environment                                 | [Tags](playwright-tags.md)                          |
+| ----------- | ------------------------------------------- | --------------------------------------------------- |
+| Cardinality | One value per run or per Playwright project | Many values per run/group/test                      |
+| Intent      | _Where_ the tests ran (deployment target)   | Arbitrary classification (feature, team, lifecycle) |
+| Source      | Reporter config / project metadata          | Test titles, project metadata, run config           |
 
-A run can still end up with **multiple environments** when different Playwright projects within the same run set different values — see [How environments aggregate to a run](#how-environments-aggregate-to-a-run) below.
+A run can still end up with **multiple environments** when different Playwright projects within the same run set different values — see [How environments aggregate to a run](environments.md#how-environments-aggregate-to-a-run) below.
 
 ## Setting the environment
 
@@ -108,7 +111,8 @@ export default defineConfig({
 
 When the environment is defined in more than one place, Currents resolves the value as follows (highest priority first):
 
-* **Per-project** `projects[].metadata.pwc.environment`, if set for the project; otherwise the run-level value:
+* **Per-project** `projects[].metadata.pwc.environment`, if set for the project;&#x20;
+* Otherwise the run-level value:
   * `CURRENTS_ENVIRONMENT` environment variable, if provided; otherwise
   * `--pwc-environment` CLI option, if provided; otherwise
   * `environment` from the inline reporter options in `playwright.config.ts`; otherwise
@@ -121,36 +125,20 @@ The environment is resolved **per Playwright project** and attached to the corre
 
 For the per-project example above, the resulting run is associated with **both** `staging` and `production`, and shows up when filtering by either value:
 
-| Item | Environment |
-|---|---|
-| Run | `staging`, `production` |
-| Group `chromium` | `staging` |
-| Group `firefox` | `production` |
+| Item             | Environment             |
+| ---------------- | ----------------------- |
+| Run              | `staging`, `production` |
+| Group `chromium` | `staging`               |
+| Group `firefox`  | `production`            |
 
 If every project shares the same value (or you only set a run-level value), the run is associated with that single environment.
 
 ## Filtering in the Dashboard
 
-Once runs carry an environment, an **Environment** filter is available in the [Run feed](../dashboard/runs/ "mention") and across [Analytics](../dashboard/analytics/ "mention") charts (run status, run duration, run completion, run size, test results, and flakiness). Selecting one or more environments narrows every metric on the page to runs that ran in those environments.
+Once runs carry an environment, an **Environment** filter is available in the [runs](../dashboard/runs/ "mention") and across [analytics](../dashboard/analytics/ "mention"). Selecting one or more environments narrows every metric on the page to runs that ran in those environments.
 
 ## Filtering via the REST API
 
 Both the runs and insights endpoints accept an `environments[]` query parameter (repeat it to pass multiple values). Runs that match **any** of the supplied environments are returned.
-
-{% tabs %}
-{% tab title="Runs" %}
-```bash
-curl "https://api.currents.dev/v1/projects/PROJECT_ID/runs?environments[]=staging&environments[]=production" \
-  -H "Authorization: Bearer API_KEY_HERE"
-```
-{% endtab %}
-
-{% tab title="Insights" %}
-```bash
-curl "https://api.currents.dev/v1/projects/PROJECT_ID/insights?date_start=2026-01-01T00:00:00Z&date_end=2026-01-31T23:59:59Z&environments[]=staging" \
-  -H "Authorization: Bearer API_KEY_HERE"
-```
-{% endtab %}
-{% endtabs %}
 
 See the [API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/ "mention") reference for the full list of query parameters.

@@ -21,7 +21,7 @@ Current integration with Playwright includes a several fixtures for enabling adv
 
 {% stepper %}
 {% step %}
-#### Create and export a new instance of test for adding fixtures
+**Create and export a new instance of test for adding fixtures**
 
 Create a new file in your repo in a location that can be imported from your tests. (Or if you are already using custom fixtures, follow your existing pattern).
 
@@ -37,12 +37,10 @@ export const test = baseTest.extend<CurrentsFixtures, CurrentsWorkerFixtures>({
   ...fixtures.baseFixtures,
 });
 ```
-
-
 {% endstep %}
 
 {% step %}
-#### Add additional Currents feature fixtures
+**Add additional Currents feature fixtures**
 
 The `baseFixtures` are required for loading the currents config for the other Currents fixtures. You will also want to include any Currents fixture you plan on using. Here is[ Playwright coverage](../../../guides/coverage/#code-coverage-for-playwright) and [Currents Actions](../../../guides/currents-actions/setup-currents-actions.md) as an example:
 
@@ -62,12 +60,10 @@ export const test = baseTest.extend<CurrentsFixtures, CurrentsWorkerFixtures>({
 });
 ```
 {% endcode %}
-
-
 {% endstep %}
 
 {% step %}
-#### Optional: set fixture configuration
+**Optional: set fixture configuration**
 
 We pick up the configuration automatically from the `currents.config.js|ts` file - if you created the file you can skip this step. If you explicitly provide config to the Currents reporter in your `playwright.config.ts` you will also need to pass that same config to the fixture like this:
 
@@ -95,12 +91,10 @@ const config = defineConfig<CurrentsFixtures, CurrentsWorkerFixtures>({
 export default config;
 ```
 {% endcode %}
-
-
 {% endstep %}
 
 {% step %}
-#### Use the new implementation in your tests
+**Use the new implementation in your tests**
 
 Import the new `test` implementation and use it in your tests where you want to use the features provided by the fixtures (or [#combine-currents-fixtures-with-existing-custom-fixtures](playwright-fixtures.md#combine-currents-fixtures-with-existing-custom-fixtures "mention")).
 
@@ -156,14 +150,12 @@ test('passes', async ({ database, page, currentsConfig }) => {
 {% endcode %}
 
 {% hint style="info" %}
-When combining the Currents fixtures with existing fixtures, it's often desirable to place the Currents fixtures first. This enables Currents to take actions even if a failure happened in your later fixtures.&#x20;
+When combining the Currents fixtures with existing fixtures, it's often desirable to place the Currents fixtures first. This enables Currents to take actions even if a failure happened in your later fixtures.
 {% endhint %}
-
-
 
 ### Conditionally Enable Fixtures
 
-After extending the  `test` method, many Currents fixtures are enabled by default. If you wish to only conditionally enable them (such as only in CI) you can use the `currentsFixturesEnabled` property in your `playwright.config.ts` file.
+After extending the `test` method, many Currents fixtures are enabled by default. If you wish to only conditionally enable them (such as only in CI) you can use the `currentsFixturesEnabled` property in your `playwright.config.ts` file.
 
 {% code title="playwright.config.ts" %}
 ```typescript
@@ -175,19 +167,17 @@ use: {
 ```
 {% endcode %}
 
-
-
 ### Available Fixtures
 
 <details>
 
 <summary>baseFixtures</summary>
 
-* `curentsConfigOptions`&#x20;
+* `curentsConfigOptions`
 * `currentsConfig`
 * `gitInfo`
 
-Other Currents fixtures depend on these. They are loaded once per worker.&#x20;
+Other Currents fixtures depend on these. They are loaded once per worker.
 
 </details>
 
@@ -207,7 +197,6 @@ See [#code-coverage-for-playwright](../../../guides/coverage/#code-coverage-for-
 
 Available for in `@currents/playwright` v1.9.0+
 
-See [currents-actions](../../../guides/currents-actions/ "mention")  for details
+See [currents-actions](../../../guides/currents-actions/ "mention") for details
 
 </details>
-

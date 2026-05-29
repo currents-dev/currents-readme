@@ -13,7 +13,7 @@ In Feb 2023, Cypress.io team decided to [restrict access](#user-content-fn-1)[^1
 
 Migrate to [cypress-cloud](cypress-cloud/) if you are seeing any of the errors below
 
-* `Integrity check failed`&#x20;
+* `Integrity check failed`
 * `DecryptionError: JWE Recipients missing or incorrect type`
 * `Cypress does not support recording test results to this third party service`
 {% endhint %}
@@ -28,7 +28,7 @@ Migrate to [cypress-cloud](cypress-cloud/) if you are seeing any of the errors b
 In fact, currents runs cypress command behind the scenes, passing down all the CLI flags or API options. **currents** requires **cypress** to be installed.
 
 {% hint style="info" %}
-**Please note:** @currents/cli is designed to be used in CI environments. Using it for running cypress tests interactively is not recommended.&#x20;
+**Please note:** @currents/cli is designed to be used in CI environments. Using it for running cypress tests interactively is not recommended.
 {% endhint %}
 
 ### Using @currents/cli
@@ -120,7 +120,7 @@ The package contains a few other utilities:
 **Deprecated**: this functionality was deprecated in @currents/cli@4+
 {% endhint %}
 
-`currents-prepare` can be useful when you need to invoke custom scripts that run `cypress` behind the scenes.&#x20;
+`currents-prepare` can be useful when you need to invoke custom scripts that run `cypress` behind the scenes.
 
 For example: let's say you have a custom script that's starting cypress via its [Module API](https://docs.cypress.io/guides/guides/module-api). Before running the custom script, you'd run `currents-prepare.` It will change cypress configuration to use Currents Dashboard:
 
@@ -136,15 +136,15 @@ npx cypress-repeat ...
 **Please note**: this functionality is only relevant for versions 3 and below.
 {% endhint %}
 
-Older versions of @currents/cli  (prior to 3) were used to modify cypress installation. Use one of the following methods for restoring the original cypress configuration and removing Currents from cypress package:
+Older versions of @currents/cli (prior to 3) were used to modify cypress installation. Use one of the following methods for restoring the original cypress configuration and removing Currents from cypress package:
 
-* Run `npx currents-reset`  from `@currents/cli` npm package to restore the original configuration
+* Run `npx currents-reset` from `@currents/cli` npm package to restore the original configuration
 * Remove the [cached Cypress binaries](https://docs.cypress.io/guides/references/advanced-installation#Binary-cache)
 * Run `cypress install --force` to install a fresh version of cypress binaries
 * Reinstall cypress npm package from scratch
 
 {% hint style="warning" %}
-#### **MacOS Ventura Users**
+**MacOS Ventura Users**
 
 Running the commands in an interactive shell (or VSCode) can fail with`EPERM: operation not permitted` error.
 
@@ -154,7 +154,7 @@ Add the app to the App Management allowed list to stop the error.
 
 **Mac OS Settings > Privacy and Security > App Management**
 
-![](<../../.gitbook/assets/CleanShot 2022-11-03 at 00.04.10@2x.png>)
+<img src="../../.gitbook/assets/CleanShot 2022-11-03 at 00.04.10@2x.png" alt="" data-size="original">
 {% endhint %}
 
 [^1]: ...by showing "Cypress does not support recording test results to this third party service."
