@@ -93,6 +93,7 @@
 - [Playwright Visual Testing](guides/playwright-visual-testing.md)
 - [Playwright Annotations](guides/playwright-annotations.md)
 - [Playwright Tags](guides/playwright-tags.md)
+- [Environments](guides/environments.md)
 - [Troubleshooting](guides/troubleshooting-playwright.md)
 
 ## Dashboard

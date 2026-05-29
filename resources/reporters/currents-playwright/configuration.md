@@ -144,6 +144,18 @@ Tags added to the test run metadata. See [playwright-tags.md](../../../guides/pl
 
 ***
 
+### environment
+
+* Type: `string`
+* Default: `undefined`
+* Environment variable: `CURRENTS_ENVIRONMENT`
+* CLI option: `--pwc-environment`
+* Released in: `2.1.0`
+
+Run-level environment label (e.g. `staging`, `production`) attached to the recorded run for filtering and analytics. Override it per Playwright project with `projects[].metadata.pwc.environment` in `playwright.config.ts`. See [environments.md](../../../guides/environments.md "mention").
+
+***
+
 ### removeTitleTags
 
 * Type: `boolean`
