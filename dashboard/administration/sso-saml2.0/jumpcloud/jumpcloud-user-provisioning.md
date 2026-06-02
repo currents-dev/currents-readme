@@ -15,7 +15,7 @@ For more information on the listed features, visit the [JumpCloud Support Page](
 
 ## Requirements <a href="#requirements" id="requirements"></a>
 
-Provisioning is available for customers with an active subscription.
+Provisioning is available for customers with an active Enterprise subscription.
 
 In order to setup provisioning you first need to:
 

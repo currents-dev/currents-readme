@@ -6,7 +6,7 @@ description: Setting up SAML2.0 SSO with Okta as an IdP - Currents SSO
 
 ### Prerequisites
 
-SAML as the SSO mode with provisioning is available for customers with an active subscription. Please follow the guide below to enable the integration and provide the necessary details to Currents support team.
+SAML as the SSO mode with provisioning is available for customers with an active Enterprise subscription. Please follow the guide below to enable the integration and provide the necessary details to Currents support team.
 
 {% hint style="info" %}
 **Please note**

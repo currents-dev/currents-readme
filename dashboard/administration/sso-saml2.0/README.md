@@ -15,7 +15,7 @@ Currents supports SSO integration via SAML 2.0, including JIT provisioning and S
 
 Please note that there are certain limitations to Currents SSO integration.
 
-* SSO integration is only available for customers with an **active subscription.**
+* SSO integration is only available for customers with an **active Enterprise subscription.**
 * Enabling SSO will for **all the team members.**
 * Follow the guide on enabling [idp-initiated-sessions.md](idp-initiated-sessions.md "mention")
 * Follow the guides on enabling [scim-user-provisioning.md](scim-user-provisioning.md "mention")
