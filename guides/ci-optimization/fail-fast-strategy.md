@@ -2,9 +2,9 @@
 description: Fail-fast or cancelling runs on first failure
 ---
 
-# Fail Fast Strategy
+# Failing Fast
 
-Automatically cancelling your test suite right after the first failure is called a "fail-fast strategy". Currents dashboard allows tracking the outcome of your tests and automatically cancels runs whenever the first failed spec file is detected.&#x20;
+Automatically cancelling your test suite right after the first failure is called a "fail-fast strategy". Currents dashboard allows tracking the outcome of your tests and automatically cancels runs whenever the first failed spec file is detected.
 
 After executing a spec file, the runner sends the results to the Currents dashboard. The dashboard receives the results, identifies a failed test, and marks the associated run as "cancelled". Any new requests associated with the run will fail with a warning, as a result, cypress runners will not be able to start executing a new spec file for the run.
 
@@ -26,7 +26,7 @@ At the same time, utilizing a "fail-fast" strategy has some caveats:
 
 ![Automatically cancelled runs will be marked as failed and cancelled](<../../.gitbook/assets/Screenshot 2023-10-12 at 02.25.10.png>)
 
-If you are dealing with a stable and predictable suite of tests that rarely fail - "fail-fast" can be a great way to optimize your cypress tests.&#x20;
+If you are dealing with a stable and predictable suite of tests that rarely fail - "fail-fast" can be a great way to optimize your cypress tests.
 
 {% hint style="info" %}
 [Read more](../../dashboard/runs/cancel-run.md) about how cancelling runs affects runs status, analytics and integrations
@@ -36,17 +36,21 @@ If you are dealing with a stable and predictable suite of tests that rarely fail
 
 To enable the "fail-fast" strategy navigate to the **Manage Project** screen and toggle **Enable Fail Fast Strategy** controller.
 
-Customers using our [cypress-cloud](../../resources/reporters/cypress-cloud/ "mention") integration can control the "fail-fast" behaviour using the command line CLI flag `--auto-cancel-after-failures <number | false>`.&#x20;
+Customers using our [cypress-cloud](../../resources/reporters/cypress-cloud/ "mention") integration can control the "fail-fast" behaviour using the command line CLI flag `--auto-cancel-after-failures <number | false>`.
 
 Customers using our [currents-playwright](../../resources/reporters/currents-playwright/ "mention") integration can use `--pwc-cancel-after-failures <number | false>` option.
 
-&#x20;If set, it overrides the project's default fail-fast strategy setting. If not set, use the default project settings:
+If set, it overrides the project's default fail-fast strategy setting. If not set, use the default project settings:
 
 * `false` prevents fail-fast
-* `number` aborts the run across all the participating machines failed + skipped tests detected exceed the provided value
+* `number` aborts the run across all the participating machines when the threshold is exceeded
+
+{% hint style="info" %}
+`@currents/playwright` ≥ 1.0 count failed tests only - skipped or interrupted tests do not trigger cancellation. `@currents/playwright` < 1.0 (0.x) and `cypress-cloud` count failed and skipped tests toward the threshold.
+{% endhint %}
 
 For example
 
 * `npx pwc --key xxx --project-id xxx --ci-build-id id-001 --pwc-cancel-after-failures 1`
-* `npx cypress-cloud run --parallel --record --key xxx --ci-build-id id-001 --spec "./cypress/e2e/*.spec.js" --auto-cancel-after-failures`**`false`** will deactivate the fail-fast strategy, regardless of your project settings&#x20;
+* `npx cypress-cloud run --parallel --record --key xxx --ci-build-id id-001 --spec "./cypress/e2e/*.spec.js" --auto-cancel-after-failures`**`false`** will deactivate the fail-fast strategy, regardless of your project settings
 * `npx cypress-cloud run --parallel --record --key xxx --ci-build-id id-001 --spec "./cypress/e2e/*.spec.js" --auto-cancel-after-failures`**`5`** will stop the run if more than 5 failed tests detected
