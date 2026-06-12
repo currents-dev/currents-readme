@@ -45,11 +45,9 @@ After the workspace is connected, turn the integration on for each project that 
 
 If the workspace is already connected at the organization level, you can enable the current project without repeating OAuth.
 
-***
-
-<p align="center">🎉 Congratulations!</p>
-
-<p align="center">A successful connection shows the linked workspace on the integration page:</p>
+{% hint style="success" %}
+**You're all set.** After connecting and enabling the integration for your project, the Linear workspace appears on the integration page.
+{% endhint %}
 
 ## Disconnect
 

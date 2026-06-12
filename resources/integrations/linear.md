@@ -1,6 +1,5 @@
 ---
 description: Create and link issues from test failures in your Linear workspace
-icon: linear
 ---
 
 # Linear

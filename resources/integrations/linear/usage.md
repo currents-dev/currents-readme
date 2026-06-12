@@ -13,9 +13,9 @@ With the integration enabled for your project, open any test execution in Curren
 
 The icon appears only when Linear is enabled for the project. A badge shows how many issues are already associated with the test.
 
-<figure><img src="../../../.gitbook/assets/linear-linked-issues-badge.png" alt=""><figcaption><p>A test has linked Linear issues</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/linear-linked-issues-badge.png" alt="" width="400"><figcaption><p>A test has linked Linear issues</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/linear-no-issues.png" alt=""><figcaption><p>A test has no existing Linear issues</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/linear-no-issues.png" alt="" width="400"><figcaption><p>A test has no existing Linear issues</p></figcaption></figure>
 
 From the panel you can list linked issues, create a new one, or search for an existing issue to link.
 
