@@ -14,14 +14,14 @@ Connect Currents to your Linear workspace to create and track issues from test f
 
 <p align="center">The integration uses OAuth to connect one Linear workspace per Currents organization.</p>
 
-### Setup
+## Setup
 
 1. Connect your Linear workspace from **Project > Integrations**
 2. Enable the integration for each Currents project that needs it
 
 See the [Setup Guide](linear/setup.md) for complete instructions.
 
-### Usage
+## Usage
 
 * Create issues from test failures
 * Link failures to existing issues and post comments with test context
@@ -29,6 +29,6 @@ See the [Setup Guide](linear/setup.md) for complete instructions.
 
 See the [Usage Guide](linear/usage.md) for details.
 
-#### Limitations
+## Limitations
 
 See [#limitations](linear/usage.md#limitations "mention")
