@@ -67,7 +67,7 @@ Steps:
 4. Write your **Comment**
 5. Toggle **Include Details** if you want test context in the comment
 6. If **Include Details** is on, pick the failing **Attempt**
-7. Click **Add Comment**
+7. Click **Link issue**
 
 Example of commenting on an existing issue:
 
