@@ -5,13 +5,13 @@ icon: linear
 
 # Linear
 
-Connect Currents to your Linear workspace to file and track issues from test failures without leaving the dashboard. From a failing test, you can create a new issue or comment on an existing one with context such as:
+Connect Currents to your Linear workspace to create and track issues from test failures without leaving the dashboard. From a failing test, you can create a new issue or comment on an existing one with context such as:
 
 * error messages and stack traces
 * run and test metadata
 * git information and links back to Currents
 
-<figure><img src="../../.gitbook/assets/linear-create-issue-placeholder.png" alt="TODO: Linear issue creation form"><figcaption><p>Creating an issue from a test failure</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/linear-create-issue.png" alt="Linear issue creation form"><figcaption><p>Creating an issue from a test failure</p></figcaption></figure>
 
 <p align="center">The integration uses OAuth to connect one Linear workspace per Currents organization.</p>
 
