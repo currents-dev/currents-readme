@@ -28,7 +28,7 @@ Multiple Currents projects can share the same workspace connection.
 4. Approve the OAuth request in Linear
 5. Return to Currents and confirm the workspace appears as connected
 
-<figure><img src="../../../.gitbook/assets/linear-connect.png" alt="Connect Linear App button"><figcaption><p>Starting the OAuth connection</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/linear-connect.png" alt="Connect Linear App button" width="400"><figcaption><p>Starting the OAuth connection</p></figcaption></figure>
 
 {% hint style="info" %}
 Only organization admins can connect, disconnect, or change settings. Other members can view connection status.

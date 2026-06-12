@@ -13,9 +13,9 @@ With the integration enabled for your project, open any test execution in Curren
 
 The icon appears only when Linear is enabled for the project. A badge shows how many issues are already associated with the test.
 
-<figure><img src="../../../.gitbook/assets/linear-linked-issues-badge.png" alt="" width="400"><figcaption><p>A test has linked Linear issues</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/linear-linked-issues-badge.png" alt="A test has linked Linear issues" width="400"><figcaption><p>A test has linked Linear issues</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/linear-no-issues.png" alt="" width="400"><figcaption><p>A test has no existing Linear issues</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/linear-no-issues.png" alt="A test has no existing Linear issues" width="400"><figcaption><p>A test has no existing Linear issues</p></figcaption></figure>
 
 From the panel you can list linked issues, create a new one, or search for an existing issue to link.
 
@@ -45,7 +45,7 @@ Example of a newly created issue:
 
 <figure><img src="../../../.gitbook/assets/linear-create-issue.png" alt="Example of New Linear Issue creation form"><figcaption><p>Example of New Linear Issue creation form</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/linear-created-issue.png" alt="Example of a new Linear issue created from Currents"><figcaption><p>Example of a new Linear issue created from Currents</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/linear-created-issue.png" alt="Example of a new Linear issue created from Currents" width="400"><figcaption><p>Example of a new Linear issue created from Currents</p></figcaption></figure>
 
 ## Link an existing issue
 
@@ -71,7 +71,7 @@ Steps:
 
 Example of commenting on an existing issue:
 
-<figure><img src="../../../.gitbook/assets/linear-link-form-placeholder.png" alt="Example of linking test failure to an existing Linear issue"><figcaption><p>Example of linking test failure to an existing Linear issue</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/linear-link-form.png" alt="Example of linking test failure to an existing Linear issue"><figcaption><p>Example of linking test failure to an existing Linear issue</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/linear-link-comment.png" alt="Example of a Linear issue comment originating from Currents"><figcaption><p>Example of a Linear issue comment originating from Currents</p></figcaption></figure>
 
@@ -84,7 +84,7 @@ The issues panel lists every issue associated with the current test:
 * Click ⛓️‍💥 to remove the association in Currents
 * Click **Add Linear Issue** to create or link another issue
 
-<figure><img src="../../../.gitbook/assets/linear-issues-list.png" alt=""><figcaption><p>Listing Linear issues related to the test</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/linear-issues-list.png" alt="Listing Linear issues related to the test"><figcaption><p>Listing Linear issues related to the test</p></figcaption></figure>
 
 ### Notes
 
