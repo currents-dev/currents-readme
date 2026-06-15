@@ -35,11 +35,12 @@ Steps:
 
 1. Select a **Team**
 2. Optionally select a **Project**
-3. Adjust the **Title** or **Description** if needed
-4. Optionally choose an **Assignee**
-5. Toggle **Include Details** to append test context to the description
-6. If **Include Details** is on, pick the failing **Attempt**
-7. Click **Create Issue**
+3. Review the prefilled **Title** and edit it if needed
+4. Optionally add a **Description** — the field starts empty
+5. Optionally choose an **Assignee**
+6. Toggle **Include Details** to fill the description with test context (test name, git information, and links back to Currents). Add a short note of your own if it helps — for example, what failed or what the assignee should check first
+7. If **Include Details** is on, pick the failing **Attempt**
+8. Click **Create Issue**
 
 Example of a newly created issue:
 
