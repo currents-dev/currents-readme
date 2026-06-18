@@ -16,6 +16,34 @@ Integrate Slack with Currents to receive real-time Playwright test notifications
 
 The integration supports organization-level installation, per-project configuration, multiple notification destinations, and advanced filtering options.
 
+## Requirements
+
+Before installing the Currents Slack App, the installation must be performed by a user with the correct administrator permissions in Slack. The required role depends on how the Slack account is structured:
+
+| Slack setup                                    | Who must install the app                                                                   |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Single workspace**                           | A **Workspace Owner** or **Workspace Admin**                                               |
+| **Enterprise Grid (multiple workspaces / org)** | An **Org Owner** or **Org Admin** (workspace-level admins are not sufficient on their own) |
+
+{% hint style="warning" %}
+**The app must be installed by an Org Admin when the Slack account belongs to an Enterprise Grid organization.**
+
+If a workspace-level admin installs the app while the workspace is part of a larger Slack organization, the installation may appear to succeed and Currents will store the access token, but Slack can later invalidate that token. When this happens, Currents receives an [`account_inactive`](https://docs.slack.dev/reference/methods/admin.apps.uninstall/#errors) error from the Slack API and notifications silently stop working.
+
+This occurs because, in an Enterprise Grid organization, apps are managed and approved at the org level. Tokens tied to a workspace-only installation can be deactivated when the installation is not authorized by an Org Owner/Admin. See Slack's documentation on [managing apps in an Enterprise organization](https://slack.com/help/articles/360000281563-Manage-apps-in-an-Enterprise-organization) and [org-level app policies](https://slack.com/help/articles/360038559694-Set-organisation-level-policies-for-apps) for details.
+{% endhint %}
+
+### Installation checklist
+
+1. Determine whether the Slack account is a single workspace or part of an **Enterprise Grid** organization. A Slack administrator can confirm this if it's unclear.
+2. For a single workspace, the Currents Slack App must be installed by a **Workspace Owner/Admin**.
+3. For an Enterprise Grid organization, an **Org Owner/Admin** must perform the installation (or approve and complete it). A workspace-level admin alone is not enough.
+4. If the app was already installed and notifications stopped working with an `account_inactive` error, the integration should be **disconnected** and reinstalled by an Org Owner/Admin. Reinstalling generates a new, valid token.
+
+{% hint style="info" %}
+The `account_inactive` error generally means the stored bot token is no longer valid - typically because the app was uninstalled or the installation was not authorized at the right level. The fix is to reinstall the app with an account that has the required permissions. See Slack's note on [deactivated members' apps and integrations](https://slack.com/help/articles/360000446446-Manage-deactivated-members-apps-and-integrations).
+{% endhint %}
+
 ## Installation
 
 ### Connecting Slack to Your Organization
@@ -309,6 +337,13 @@ Check the following:
 3. **Notification mode** - If set to "Only on failures", passing runs won't trigger notifications
 4. **Filters** - Check if any tag or branch filters are excluding your runs
 5. **Mention rules** - Ensure conditions match your test properties
+6. **Installation permissions** - If notifications stopped entirely, the Slack token may have been invalidated (`account_inactive`). See [Why did notifications stop with an `account_inactive` error?](#why-did-notifications-stop-with-an-account_inactive-error)
+
+### Why did notifications stop with an `account_inactive` error?
+
+This usually means the Slack access token was invalidated because the app was installed without the required administrator permissions. In an Enterprise Grid organization, apps must be installed (or approved) by an **Org Owner/Admin** - a workspace-level admin alone is not sufficient, and Slack may later deactivate that installation's token.
+
+The fix is to [disconnect](#disconnect-slack) the integration and reinstall it with an Org Owner/Admin (or a Workspace Owner/Admin for single-workspace accounts). See [Requirements](#requirements) for the full breakdown.
 
 ### Can I use both annotation mentions and UI rules?
 
