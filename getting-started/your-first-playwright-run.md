@@ -34,8 +34,8 @@ Your task is to update Playwright setup to report test results to Currents.dev
   - enable traces, videos and screenshots by updating the "use" property, e.g.:
 
   use: {
-      trace: "on",
-      video: "on",
+      trace: "retain-on-failure-and-retries",
+      video: "retain-on-failure",
       screenshot: "on",
   }
 
@@ -123,8 +123,8 @@ Update `playwright.config.ts` so every recorded run includes traces, videos, and
 ```json
 use: {
     // ...
-    trace: "on",
-    video: "on",
+    trace: "retain-on-failure-and-retries",
+    video: "retain-on-failure",
     screenshot: "on",
 }
 ```

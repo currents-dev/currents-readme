@@ -49,8 +49,8 @@ import { defineConfig } from "@playwright/test";
 export default defineConfig({
   reporter: [currentsReporter()],
   use: {
-    trace: "on",
-    video: "on",
+    trace: "retain-on-failure-and-retries",
+    video: "retain-on-failure",
     screenshot: "on",
   },
   // ...projects, testDir, etc.
