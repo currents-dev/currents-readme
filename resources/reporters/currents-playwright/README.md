@@ -52,8 +52,8 @@ Enabled traces, videos and screenshots in `playwright.config.js|ts`
 ```javascript
 use: {
     // ...
-    trace: "on",
-    video: "on",
+    trace: "retain-on-failure-and-retries",
+    video: "retain-on-failure",
     screenshot: "on",
 }
 ```
