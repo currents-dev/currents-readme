@@ -75,7 +75,7 @@ Prevent reporting tags defined in the test title or by test annotations (default
 
 ### `--pwc-batch-size <auto|number>`
 
-Defines how many Playwright workers are available for orchestration. See [#orchestration.batchsize](configuration.md#orchestration.batchsize "mention").
+Sets the number of parallel lanes the orchestrator fills per machine (defaults to `auto`, derived from your Playwright `--workers`). It is **not** a hard limit on how many spec files a machine claims — see [Orchestration and Multiple Workers](../../../guides/ci-optimization/playwright-orchestration.md). See [#orchestration.batchsize](configuration.md#orchestration.batchsize "mention").
 
 ### `--pwc-reset-signal <SIGUSR1|SIGUSR2>`
 

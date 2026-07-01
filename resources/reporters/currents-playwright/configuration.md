@@ -293,10 +293,14 @@ import type { OrchestrationStatus } from "@currents/playwright";
 * Environment variable: `CURRENTS_BATCH_SIZE`
 * Released in: `1.13.0`
 
-Sets the batch size for orchestration. Batch size defines how many parallel workers should be used for the orchestration.&#x20;
+Sets the batch size for orchestration. Batch size defines how many parallel lanes the orchestrator fills per machine.&#x20;
 
 * `auto` infers the batch size from Playwright workers.&#x20;
 * `number` explicitly sets the batch size, must be greater than `0`
+
+{% hint style="warning" %}
+Batch size is the number of parallel lanes the orchestrator fills for the requesting machine — not a hard cap on how many spec files the machine claims. With a batch size of 2 or more, the orchestrator packs the heaviest spec plus additional lighter specs into one claim, so a machine can pick up more files than the batch size. A value of `1` claims exactly one file per request. See [Orchestration and Multiple Workers](../../../guides/ci-optimization/playwright-orchestration.md).
+{% endhint %}
 
 {% hint style="info" %}
 Defining this variable will override any project-level batch size/workers definition in `playwright.config.ts` (`workers`, `currentsBatchSize` per project). Available on `@currents/playwright` starting at version `1.14.0`.
