@@ -254,7 +254,7 @@ Because of step 2, **batch size is not a hard limit on how many spec files a mac
 For most suites these are effectively one dial, which is why `auto` ties them together:
 
 * **File-level suites (not fully parallel):** Playwright runs one file per worker, so usable concurrency is bounded by the number of files in the batch. Keep `batch-size == workers` (the default). Setting them apart either queues files (`batch-size > workers`) or idles workers (`batch-size < workers`).
-* **Fully parallel suites:** Playwright parallelizes individual tests, so one file can keep many workers busy. Here a small batch size with a larger worker count — e.g. `--pwc-batch-size 1 --workers 4` — gives fine-grained, even distribution across machines while still using all workers.
+* **Fully parallel suites:** Playwright parallelizes individual tests, so one file can keep many workers busy. Here a small batch size with a larger worker count — e.g. `--pwc-batch-size 1 --workers 4` — gives fine-grained, even distribution across machines while still using all workers. See [fully-parallel-mode.md](fully-parallel-mode.md "mention").
 
 ### Distribution across machines
 
@@ -266,10 +266,6 @@ The orchestrator is **machine-unaware**: it doesn't know how many machines will 
 For the most even distribution across a large matrix, use `--pwc-batch-size 1`. Trade-off: in file-level suites each machine then runs its files one at a time, so you gain even distribution but reduce per-machine parallelism.
 
 As of May 2025, the Playwright Test Runner [does not respect the execution order of test files](https://github.com/microsoft/playwright/issues/35743). This means that even if Currents suggests an optimal execution order, Playwright may run files in a different sequence when multiple workers are used. It only affects cases when multiple workers are involved and has a minor impact.
-
-{% hint style="info" %}
-Having multiple workers behaves differently in Playwright's [fully-parallel-mode.md](fully-parallel-mode.md "mention").  If you are using Fully Parallel Mode, and most of your test files contain more than one test, you will want to keep your Batch Size at 1 and your Playwright workers at a larger number.
-{% endhint %}
 
 ### Batch size configuration
 
@@ -396,7 +392,7 @@ See [re-run-only-failed-tests-orchestrated-v2.md](re-run-only-failed-tests-orche
 ## Limitations and Nuances
 
 * Orchestration works on a **file level** — it balances test files (rather than individual tests).
-* Batch Size needs to manually set to 1 for [fully-parallel-mode.md](fully-parallel-mode.md "mention") in order to correctly balance your machines. We will improve this in a future update.
+* For [fully-parallel-mode.md](fully-parallel-mode.md "mention"), set Batch Size to 1 (and raise Playwright workers) so machines are balanced correctly — a single file's tests still run in parallel across workers.
 * [Playwright Project dependencies](https://playwright.dev/docs/test-projects#dependencies) is not supported — if projects depend on one another, orchestration will not consider the dependencies. As a workaround, run the dependencies in the desired order explicitly by defining separate CI steps with `--project <name>` [specification.](https://playwright.dev/docs/test-projects#run-projects)
 * [Global Setup and Teardown](https://playwright.dev/docs/test-global-setup-teardown). An orchestrated execution runs `playwright` multiple times. Beware that global setup or teardown routines run for each invocation of `playwright`.
 
