@@ -48,12 +48,10 @@ Configuration values will resolve as follows:
 
 * environment variable value if exists, otherwise
 * corresponding CLI parameter value if exists, otherwise
-* value from `playwright.config.ts`  if exists, otherwise
+* value from `playwright.config.ts` if exists, otherwise
 * value from `currents.config.ts` if exists, otherwise
 * the default value, otherwise
 * throw if the value is mandatory
-
-
 
 Example of using environment variables
 
@@ -94,7 +92,7 @@ cmd /V /C "set CURRENTS_PROJECT_ID=PROJECT_ID // the projectId from https://app.
 ### projectId <mark style="color:yellow;">\*</mark>
 
 * Type: `string`
-* Default:  `undefined`
+* Default: `undefined`
 * Environment variable: `CURRENTS_PROJECT_ID`
 
 <mark style="color:yellow;">Required.</mark> The Currents project ID used for reporting. See [projects](../../../dashboard/projects/ "mention").
@@ -224,7 +222,7 @@ import type { ExecutionJSONSummary } from '@currents/playwright'
 * Environment variable: `CURRENTS_CI_URL`
 * Released in: `2.1.3`
 
-Overrides or provides the CI job/run URL shown in the [Currents Dashboard run details](../../../dashboard/runs/run-details.md "mention"). By default Currents auto-detects the CI URL from your provider's environment variables (GitHub Actions, GitLab CI, CircleCI, Jenkins, etc.). Set this to override the auto-detected URL, or to supply one when auto-detection is unavailable (e.g. Docker containers, custom runners, or self-hosted CI).
+Overrides or provides the CI job/run URL shown in the [run-details.md](../../../dashboard/runs/run-details.md "mention"). By default Currents auto-detects the CI URL from your provider's environment variables (GitHub Actions, GitLab CI, CircleCI, Jenkins, etc.). Set this to override the auto-detected URL, or to supply one when auto-detection is unavailable (e.g. Docker containers, custom runners, or self-hosted CI).
 
 {% hint style="info" %}
 Whitespace is automatically trimmed. If the value is empty or contains only whitespace, it is ignored.
@@ -240,7 +238,7 @@ Whitespace is automatically trimmed. If the value is empty or contains only whit
 
 Reporter console output: "none" (no stdout), "summary" (intro, one line per test, summary), "detailed" (full per-test output).
 
-The TypeScript definition of the configuration property is available:&#x20;
+The TypeScript definition of the configuration property is available:
 
 ```typescript
 import type { ConsoleOutputPreset } from '@currents/playwright'
@@ -293,9 +291,9 @@ import type { OrchestrationStatus } from "@currents/playwright";
 * Environment variable: `CURRENTS_BATCH_SIZE`
 * Released in: `1.13.0`
 
-Sets the batch size for orchestration. Batch size defines how many parallel lanes the orchestrator fills per machine.&#x20;
+Sets the batch size for orchestration. Batch size defines how many parallel lanes the orchestrator fills per machine.
 
-* `auto` infers the batch size from Playwright workers.&#x20;
+* `auto` infers the batch size from Playwright workers.
 * `number` explicitly sets the batch size, must be greater than `0`
 
 {% hint style="warning" %}
@@ -305,6 +303,21 @@ Batch size is the number of parallel lanes the orchestrator fills for the reques
 {% hint style="info" %}
 Defining this variable will override any project-level batch size/workers definition in `playwright.config.ts` (`workers`, `currentsBatchSize` per project). Available on `@currents/playwright` starting at version `1.14.0`.
 {% endhint %}
+
+<br>
+
+#### orchestration.pendingChildExitTimeoutMs
+
+* Type: `number`
+* Default: `undefined`
+* Environment variable: `CURRENTS_OR8N_PENDING_CHILD_EXIT_TIMEOUT_MS`
+
+Maximum time (in milliseconds) to wait for pending Playwright child processes to exit after orchestration has finished. Once the timeout expires, the parent process sends **SIGTERM** to any remaining child processes. If a process is still running **5 seconds later**, it is forcefully terminated with **SIGKILL**.
+
+The orchestration session exits with:
+
+* **0** if all test results were successfully reported, even if some child processes had to be terminated after reporting completed.
+* **1** if any test results could not be reported, a task failed, or the run was cancelled.
 
 ***
 

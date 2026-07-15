@@ -101,15 +101,19 @@ Path to the full test suite file for orchestration and reporting. See [#testsuit
 
 Abort the cloud run after the specified number of failed tests detected. Overrides the default Currents Project settings. See [#cancelafterfailures](configuration.md#cancelafterfailures "mention").
 
+### `--pwc-pending-child-exit-timeout-ms <number>`
+
+Force-exit pending Playwright child processes after the orchestration finishes if they do not exit within the configured timeout. See [#orchestration.pendingchildexittimeoutms](configuration.md#orchestration.pendingchildexittimeoutms "mention").
+
 ## Debugging & Output
 
 ### `--pwc-debug [boolean | "remote" | "full"]`
 
 Enable collecting debug logs for the reporter (default: false).
 
-- `true` will print the debug logs to stdout
-- `remote` will upload the debug logs to Currents servers
-- `full` will print the logs to stdout and also upload to Currents
+* `true` will print the debug logs to stdout
+* `remote` will upload the debug logs to Currents servers
+* `full` will print the logs to stdout and also upload to Currents
 
 Environment variable: `CURRENTS_DEBUG=true | "remote" | "full"`. See [troubleshooting-playwright.md](../../../guides/troubleshooting-playwright.md "mention").
 
