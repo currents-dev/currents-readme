@@ -306,6 +306,34 @@ Batch size is the number of parallel lanes the orchestrator fills for the reques
 Defining this variable will override any project-level batch size/workers definition in `playwright.config.ts` (`workers`, `currentsBatchSize` per project). Available on `@currents/playwright` starting at version `1.14.0`.
 {% endhint %}
 
+<br>
+
+#### orchestration.createTimeoutMs
+
+* Type: `number`
+* Default: `60000` (60 seconds)
+* Environment variable: `CURRENTS_OR8N_CREATE_TIMEOUT_MS`
+* Released in: `2.5.0`
+
+Milliseconds to wait for orchestration session creation during `pwc-p run`. This timeout covers the discovery phase (`playwright test --list`) and Currents session creation. 
+
+For large test suites with thousands of spec files, the default 60-second timeout may be insufficient. Increase this value if you encounter `Failed to start orchestration within 60000ms` errors during orchestration startup.
+
+**Example:**
+
+```typescript
+// currents.config.ts
+export default {
+  orchestration: {
+    createTimeoutMs: 300000, // 5 minutes for large test suites
+  },
+};
+```
+
+{% hint style="info" %}
+This timeout only affects the initial orchestration session setup. It does not impact individual test execution timeouts or the `orchestration.pendingChildExitTimeoutMs` setting.
+{% endhint %}
+
 ***
 
 ### coverage
