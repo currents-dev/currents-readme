@@ -12,21 +12,21 @@ Sharded reruns use **Re-run failed jobs** in the CI provider — not **Re-run al
 
 ## How sharding changes `--last-failed`
 
-Each shard is an independent Playwright process with its own `.last-run.json`. A shard's file lists **only the tests that ran in that shard**, so:
+Each shard is an independent Playwright process with its own `.last-run.json`. A shard's file lists only the tests that ran in that shard, so:
 
-* Every shard needs its **own** cached copy of `.last-run.json` — keyed by shard index.
+* Every shard needs its own cached copy of `.last-run.json` — keyed by shard index.
 * Shard 2 re-runs shard 2's failures. Shards never see each other's results, so there is nothing to merge.
-* Shard assignment must stay **stable between attempts**. Playwright distributes tests deterministically, so keep the shard total and the test files unchanged between the original run and the retry.
+* Shard assignment must stay stable between attempts. Playwright distributes tests deterministically, so keep the shard total and the test files unchanged between the original run and the retry.
 
 ## What the setup has to do
 
 Three things have to be true for a sharded rerun to work:
 
-1. **`.last-run.json` survives between attempts.** CI machines are ephemeral — the file must be cached (or fetched from Currents) and restored into the retried job.
-2. **The cache is scoped per shard and per attempt.** The key needs the shard index (each shard has a different file) and the run attempt (on GitHub Actions an existing cache key cannot be overwritten, so each retry must write a new entry).
-3. **`--last-failed` is passed conditionally.** The first attempt has no `.last-run.json` — passing `--last-failed` when the file is missing is not what you want on a clean run. The flag should only be added when a previous run's file was restored.
+1. `.last-run.json` survives between attempts. CI machines are ephemeral — the file must be cached (or fetched from Currents) and restored into the retried job.
+2. The cache is scoped per shard and per attempt. The key needs the shard index (each shard has a different file) and the run attempt (on GitHub Actions an existing cache key cannot be overwritten, so each retry must write a new entry).
+3. `--last-failed` is passed conditionally. The first attempt has no `.last-run.json` — passing `--last-failed` when the file is missing is not what you want on a clean run. The flag should only be added when a previous run's file was restored.
 
-Additionally, the file has to be saved **even when the job fails**, which is exactly the case that matters. On GitHub Actions this means using `actions/cache/save` with `if: always()`, since the combined `actions/cache` action skips its save step when the job fails.
+Additionally, the file has to be saved even when the job fails, which is exactly the case that matters. On GitHub Actions this means using `actions/cache/save` with `if: always()`, since the combined `actions/cache` action skips its save step when the job fails.
 
 ## Re-run the failed jobs only
 

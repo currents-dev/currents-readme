@@ -26,7 +26,7 @@ Re-running failed tests is for the cases where a human fixed something between t
 
 Playwright records the outcome of each run in a `.last-run.json` file. On the next run, `--last-failed` reads that file and executes only the tests listed as failed.
 
-By default the file is written to `<outputDir>/.last-run.json` — inside the **first project's** `outputDir` (commonly `test-results/`). That default is the source of most CI problems: `outputDir` is wiped before each run, so the file has to be preserved outside of it between runs.
+By default the file is written to `<outputDir>/.last-run.json` — inside the first project's `outputDir` (commonly `test-results/`). That default is the source of most CI problems: `outputDir` is wiped before each run, so the file has to be preserved outside of it between runs.
 
 Newer Playwright versions accept `--last-failed-file <path>` (or the `PLAYWRIGHT_LAST_RUN_OUTPUT_FILE` environment variable) to write the file to an explicit location, instead of depending on the internal `outputDir` layout:
 
@@ -37,18 +37,18 @@ npx playwright test --last-failed --last-failed-file .last-run.json
 See the [Playwright CLI reference](https://playwright.dev/docs/test-cli) for the exact flag definition and your version's support.
 
 {% hint style="warning" %}
-Store the last-run file **outside** `test-results/` or any configured `outputDir` — those directories are deleted before tests start.
+Store the last-run file outside `test-results/` or any configured `outputDir` — those directories are deleted before tests start.
 {% endhint %}
 
 ## Why CI makes it harder
 
 Wiring `--last-failed` into CI requires solving a few problems that don't exist locally:
 
-* **The file must survive between runs.** CI machines are ephemeral, so `.last-run.json` has to be cached or fetched from an external source.
-* **Each shard has its own file.** With native `--shard` parallelism, the file records only the tests from that shard, so caching must be per-shard.
-* **Cache keys are immutable.** On GitHub Actions an existing key cannot be overwritten, so the retry attempt (`run_attempt`) has to be part of the key.
-* **The file must be saved even when the job fails** — which is exactly when it matters. On GitHub Actions this means `actions/cache/save` with `if: always()`, since the combined `actions/cache` action skips the save step on failure.
-* **The right re-run button matters.** The correct choice differs between sharded and orchestrated runs — see the guides below.
+* The file must survive between runs. CI machines are ephemeral, so `.last-run.json` has to be cached or fetched from an external source.
+* Each shard has its own file. With native `--shard` parallelism, the file records only the tests from that shard, so caching must be per-shard.
+* Cache keys are immutable. On GitHub Actions an existing key cannot be overwritten, so the retry attempt (`run_attempt`) has to be part of the key.
+* The file must be saved even when the job fails, which is exactly when it matters. On GitHub Actions this means `actions/cache/save` with `if: always()`, since the combined `actions/cache` action skips the save step on failure.
+* The right re-run button matters. The correct choice differs between sharded and orchestrated runs — see the guides below.
 
 The [`currents-dev/playwright-last-failed`](https://github.com/currents-dev/playwright-last-failed) action handles the caching, the per-shard keys, and the conditional flags for you, and outputs the flags to pass to Playwright.
 
