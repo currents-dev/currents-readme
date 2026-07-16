@@ -77,6 +77,10 @@ Prevent reporting tags defined in the test title or by test annotations (default
 
 Sets the number of parallel lanes the orchestrator fills per machine (defaults to `auto`, derived from your Playwright `--workers`). It is **not** a hard limit on how many spec files a machine claims — see [Orchestration and Multiple Workers](../../../guides/ci-optimization/playwright-orchestration.md). See [#orchestration.batchsize](configuration.md#orchestration.batchsize "mention").
 
+### `--pwc-create-timeout-ms <milliseconds>`
+
+Milliseconds to wait for orchestration session creation during discovery and session setup (defaults to `60000`). Increase for large test suites that exceed the default timeout. See [#orchestration.createtimeoutms](configuration.md#orchestration.createtimeoutms "mention").
+
 ### `--pwc-reset-signal <SIGUSR1|SIGUSR2>`
 
 Specify a process signal to listen for to trigger a reset of the current in-progress tests. Only available on OS with POSIX signal support. See [#orchestration.resetsignal](configuration.md#orchestration.resetsignal "mention").
