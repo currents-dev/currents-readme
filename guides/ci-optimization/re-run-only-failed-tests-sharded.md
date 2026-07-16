@@ -20,13 +20,24 @@ Each shard is an independent Playwright process with its own `.last-run.json`. A
 
 ## What the setup has to do
 
-Three things have to be true for a sharded rerun to work:
+Four things have to be true for a sharded rerun to work:
 
 1. `.last-run.json` survives between attempts. CI machines are ephemeral — the file must be cached (or fetched from Currents) and restored into the retried job.
-2. The cache is scoped per shard and per attempt. The key needs the shard index (each shard has a different file) and the run attempt (on GitHub Actions an existing cache key cannot be overwritten, so each retry must write a new entry).
-3. `--last-failed` is passed conditionally. The first attempt has no `.last-run.json` — passing `--last-failed` when the file is missing is not what you want on a clean run. The flag should only be added when a previous run's file was restored.
+2. The save key is unique per shard and per attempt. It needs the shard index, because each shard has a different file, and the attempt number, because on GitHub Actions an existing cache key cannot be overwritten — each retry has to write a new entry.
+3. The restore key is a prefix that omits the attempt. This is the step that is easy to miss: a key containing the attempt number never hits on a retry, because that attempt has not written a cache yet. Restore has to fall back to a stable `run_id` + shard prefix so it picks up the most recent previous attempt.
+4. `--last-failed` is passed conditionally. The first attempt has no `.last-run.json` — passing `--last-failed` when the file is missing is not what you want on a clean run. Add the flag only when a previous attempt's file was actually restored.
 
-Additionally, the file has to be saved even when the job fails, which is exactly the case that matters. On GitHub Actions this means using `actions/cache/save` with `if: always()`, since the combined `actions/cache` action skips its save step when the job fails.
+On GitHub Actions, points 2 and 3 come out as a save key with `run_attempt` and a restore prefix without it:
+
+```yaml
+key: last-run-${{ github.run_id }}-${{ matrix.shard }}-${{ github.run_attempt }}
+restore-keys: |
+  last-run-${{ github.run_id }}-${{ matrix.shard }}-
+```
+
+Scoping the key to `run_id` also keeps a previous workflow's results from leaking into a fresh run.
+
+The file also has to be saved even when the job fails, which is the case that matters here. Use `actions/cache/save` with `if: always()` — the combined `actions/cache` action skips its save step when the job fails.
 
 ## Re-run the failed jobs only
 

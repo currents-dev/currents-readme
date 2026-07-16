@@ -46,7 +46,7 @@ Wiring `--last-failed` into CI requires solving a few problems that don't exist 
 
 * The file must survive between runs. CI machines are ephemeral, so `.last-run.json` has to be cached or fetched from an external source.
 * Each shard has its own file. With native `--shard` parallelism, the file records only the tests from that shard, so caching must be per-shard.
-* Cache keys are immutable. On GitHub Actions an existing key cannot be overwritten, so the retry attempt (`run_attempt`) has to be part of the key.
+* Cache keys are immutable. On GitHub Actions an existing key cannot be overwritten, so the retry attempt (`run_attempt`) has to be part of the key it saves under — and the restore step then has to fall back to a prefix without the attempt, or the retry will never find the previous attempt's file.
 * The file must be saved even when the job fails, which is exactly when it matters. On GitHub Actions this means `actions/cache/save` with `if: always()`, since the combined `actions/cache` action skips the save step on failure.
 * The right re-run button matters. The correct choice differs between sharded and orchestrated runs — see the guides below.
 
