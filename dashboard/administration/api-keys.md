@@ -1,6 +1,5 @@
 ---
 description: Create and manage API keys to access the Currents REST API, MCP server, and integrations
-icon: key
 ---
 
 # API Keys
