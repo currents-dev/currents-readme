@@ -87,3 +87,23 @@ Here are some examples of AI prompts:
 * "What were the top flaky tests in the last 30 days?
 * "What were the slowest specs in the last 7 days?"
 * "Please fix all my flaky tests"
+
+### Permissions & Security
+
+The MCP server authenticates with the configured `CURRENTS_API_KEY`, and **every operation is limited by that API key's permissions**. The server does not grant any access beyond what the key already allows.
+
+* When the server is configured with a **Read Only** API key, all write operations (for example deleting a run, creating a webhook, or changing an action) are rejected by the Currents API with an **HTTP 403 Forbidden** - regardless of which tools the MCP server exposes to the agent.
+* A **Read & Write** key allows the agent to perform write operations. A Read Only key is recommended when the agent only needs to read test results and analytics.
+
+A dedicated key with the appropriate permission should be created to restrict what an AI agent can do through the MCP server. See [api-keys.md](../dashboard/administration/api-keys.md "mention") for how to create and scope API keys.
+
+{% hint style="danger" %}
+**Beware of destructive, irrecoverable operations.** When used with a **Read & Write** key, the MCP server can perform permanent deletions with no confirmation step and no way to restore the data. Currently the irrecoverable tools are:
+
+* **`currents-delete-run`** - permanently deletes a run and all associated data (test results, test records, instances, and analytics). This cannot be undone.
+* **`currents-delete-webhook`** - permanently removes a webhook configuration.
+
+* **`currents-delete-action`** - permanently removes an action.
+
+Other write operations - such as `currents-cancel-run`, `currents-reset-run`, webhook and action creation/updates, and Jira issue creation/linking - are impactful but reversible. Grant a Read & Write key to an agent only when these capabilities are required.
+{% endhint %}

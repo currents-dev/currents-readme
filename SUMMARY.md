@@ -136,6 +136,7 @@
   - [Suite Size](dashboard/analytics/suite-size.md)
 - [Administration](dashboard/administration/README.md)
   - [Manage Team](dashboard/administration/manage-team.md)
+  - [API Keys](dashboard/administration/api-keys.md)
   - [Email Domain Based Access](dashboard/administration/email-domain-based-access.md)
   - [SSO SAML2.0](dashboard/administration/sso-saml2.0/README.md)
     - [SAML2.0 Configuration](dashboard/administration/sso-saml2.0/saml2.0-configuration.md)
