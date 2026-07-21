@@ -84,7 +84,7 @@ If your organization uses an extra usage plan, you can cap how much usage beyond
 
 To configure it, go to **Billing & Usage** and enable **Limit extra usage**. Then set **Extra usage cap %**.
 
-<figure><img src="../../.gitbook/assets/CleanShot 2026-04-15 at 00.59.11@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/CleanShot 2026-04-15 at 00.59.11@2x.png" alt="Limit extra usage settings with the toggle enabled, Extra usage cap % set to 50, and a preview reading &#x22;Recording will stop after 1,500,000 tests (Plan limit 1,000,000 + 500,000)&#x22;"><figcaption><p>Limit extra usage - Billing &#x26; Usage settings</p></figcaption></figure>
 
 The cap is calculated as a percentage of your plan limit:
 
