@@ -70,7 +70,7 @@ At the end of the monthly cycle, the billing will include the additional usage r
 
 The cost for extra recordings ranges and depends on your plan. For detailed pricing information, please check our [**pricing page**](https://currents.dev/#pricing). If you have any questions or concerns, please don't hesitate to contact us via _support@currents.dev_ or our in-app support chat.
 
-To limit how much extra usage can accrue, see [Usage Alerts and Spend Control](billing-and-usage.md#usage-alerts-and-spend-control) below.
+To limit how much extra usage can accrue, see [Usage Alerts and Spend Control](#usage-alerts-and-spend-control) below.
 
 ### Usage Alerts and Spend Control
 
