@@ -148,8 +148,8 @@
       - [Okta User provisioning](dashboard/administration/sso-saml2.0/okta/okta-user-provisioning.md)
     - [Troubleshooting SSO](dashboard/administration/sso-saml2.0/troubleshooting-sso.md)
 - [Billing](dashboard/billing/README.md)
-  - [Billing & Pricing](dashboard/billing/billing-and-pricing.md)
-  - [Billing & Usage](dashboard/billing/billing-and-usage.md)
+  - [Plans & Pricing](dashboard/billing/plans-and-pricing.md)
+  - [Usage & Spend Control](dashboard/billing/usage-and-spend-control.md)
 
 ## Resources
 
