@@ -1,8 +1,8 @@
 ---
-description: Managing Billing and Subscription for your Organization
+description: Monitor usage, configure alerts and spend control for your organization
 ---
 
-# Billing & Usage
+# Usage & Spend Control
 
 The **Billing & Usage** view is accessible by navigating to the organization management menu and clicking on your **Organization Name > Billing & Usage** on the **left-hand menu.** Within the Billing & Usage view, you can explore the organization's usage and plan limits, and manage the subscription and billing email recipients.
 
@@ -56,7 +56,7 @@ If you click **Show Usage Details**, you can see a breakdown of all recorded tes
 * **Enterprise Plans:** An **annual usage cycle** is available, with monthly cycle is also supported.\
   The annual cycle is recommended for teams with **seasonal usage patterns** or **peaks in usage** during certain times of the year.
 
-More details on [billing-and-pricing.md](../billing-and-pricing.md "mention")
+More details on [plans-and-pricing.md](plans-and-pricing.md "mention")
 
 ### Extra Usage Plans
 
@@ -69,6 +69,17 @@ When you reach the test limits, Currents will send you an email notification inf
 At the end of the monthly cycle, the billing will include the additional usage recorded. In the case of annual plans, Currents will send a separate bill with the extra tests.
 
 The cost for extra recordings ranges and depends on your plan. For detailed pricing information, please check our [**pricing page**](https://currents.dev/#pricing). If you have any questions or concerns, please don't hesitate to contact us via _support@currents.dev_ or our in-app support chat.
+
+To limit how much extra usage can accrue, see [Usage Alerts and Spend Control](#usage-alerts-and-spend-control) below.
+
+### Usage Alerts and Spend Control
+
+The **Usage Alerts** section of **Billing & Usage** lets organization admins configure usage notifications and cap extra usage spend:
+
+* **Usage Alert Threshold %** — Currents sends an email to organization admins when usage exceeds this percentage of the plan limit. The default threshold is 90%.
+* **Limit extra usage** — stops recording new results when extra usage beyond the plan limit reaches a cap. The cap is set as **Extra usage cap %** — a percentage of the plan limit. For example, with a plan limit of 10,000 tests and a cap of 50%, recording stops after 15,000 tests. Setting the cap to 0% stops recording as soon as the plan limit is reached. See [Capping Extra Usage](plans-and-pricing.md#capping-extra-usage) for details.
+
+When the cap is reached, Currents emails organization admins and pauses recording. CI pipelines and test runners keep running — Currents resumes recording when the usage cycle resets, the cap is increased or removed, or the plan is upgraded.
 
 ### Legacy Plans
 
