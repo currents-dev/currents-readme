@@ -70,6 +70,17 @@ At the end of the monthly cycle, the billing will include the additional usage r
 
 The cost for extra recordings ranges and depends on your plan. For detailed pricing information, please check our [**pricing page**](https://currents.dev/#pricing). If you have any questions or concerns, please don't hesitate to contact us via _support@currents.dev_ or our in-app support chat.
 
+To limit how much extra usage can accrue, see [Usage Alerts and Spend Control](billing-and-usage.md#usage-alerts-and-spend-control) below.
+
+### Usage Alerts and Spend Control
+
+The **Usage Alerts** section of **Billing & Usage** lets organization admins configure usage notifications and cap extra usage spend:
+
+* **Usage Alert Threshold %** — Currents sends an email to organization admins when usage exceeds this percentage of the plan limit. The default threshold is 90%.
+* **Limit extra usage** — stops recording new results when extra usage beyond the plan limit reaches a cap. The cap is set as **Extra usage cap %** — a percentage of the plan limit. For example, with a plan limit of 10,000 tests and a cap of 50%, recording stops after 15,000 tests. Setting the cap to 0% stops recording as soon as the plan limit is reached. See [Capping Extra Usage](../billing-and-pricing.md#capping-extra-usage) for details.
+
+When the cap is reached, Currents emails organization admins and pauses recording. CI pipelines and test runners keep running — Currents resumes recording when the usage cycle resets, the cap is increased or removed, or the plan is upgraded.
+
 ### Legacy Plans
 
 Our legacy plans (created before April 2023) do not have extra usage enabled.
