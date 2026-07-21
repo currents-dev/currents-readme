@@ -26,7 +26,7 @@ Skipped[^2] recordings do not count for billing purpose. Number of attempts or t
 
 #### Team Members
 
-Every non-guest account associated with your organization is considered a team member for billing purposes. Each plan has a predetermined limit of seats (Team Members). You can purchase additional seats, up to 30 seats total, using [billing-and-usage.md](administration/billing-and-usage.md "mention") section.
+Every non-guest account associated with your organization is considered a team member for billing purposes. Each plan has a predetermined limit of seats (Team Members). You can purchase additional seats, up to 30 seats total, using [billing-and-usage.md](billing-and-usage.md "mention") section.
 
 [Guest accounts](administration/manage-team.md) do not count toward the organization limit and can be invited without limits.&#x20;
 
@@ -38,7 +38,7 @@ For a ballpark estimate, count the number of `it` and `test` statements in your 
 
 `Test Recording Volume` = `it or test statements` x `CI runs per month`
 
-To have a more accurate estimation, create a free trial account and start sending the test results, after a couple of days use the [billing-and-usage.md](administration/billing-and-usage.md "mention") section to review your usage. Contact our team to extend your trial [hello@currents.dev](mailto:hello@currents.dev).
+To have a more accurate estimation, create a free trial account and start sending the test results, after a couple of days use the [billing-and-usage.md](billing-and-usage.md "mention") section to review your usage. Contact our team to extend your trial [hello@currents.dev](mailto:hello@currents.dev).
 
 ## Subscription Types
 
@@ -62,7 +62,7 @@ The usage cycle resets each month on the day of subscription creation.
 
 ### Extra Seats
 
-Each plan has a predetermined limit of seats (Team Members). You can purchase additional seats, up to 30 seats total, using [billing-and-usage.md](administration/billing-and-usage.md "mention") section.
+Each plan has a predetermined limit of seats (Team Members). You can purchase additional seats, up to 30 seats total, using [billing-and-usage.md](billing-and-usage.md "mention") section.
 
 If you need more seats please contact us at [hello@currents.dev](mailto:hello@currents.dev).
 
@@ -70,7 +70,7 @@ If you need more seats please contact us at [hello@currents.dev](mailto:hello@cu
 
 We will charge the Extra Usage fee for every additional 1K tests (or portion of it) at the end of usage cycle. The price for the extra usage unit depends on the plan and varies.
 
-When your organization start incurring Extra Usage fee Currents sends a period email notification to organization owners with an alert. Additionally, you can set up usage warning in [billing-and-usage.md](administration/billing-and-usage.md "mention") section of the dashboard.
+When your organization start incurring Extra Usage fee Currents sends a period email notification to organization owners with an alert. Additionally, you can set up usage warning in [billing-and-usage.md](billing-and-usage.md "mention") section of the dashboard.
 
 Depending on the Usage and Billing Cycle (see below) and payment method, we will charge the fee on Monthly, Quarterly or Annual Basis.
 
@@ -84,7 +84,7 @@ If your organization uses an extra usage plan, you can cap how much usage beyond
 
 To configure it, go to **Billing & Usage** and enable **Limit extra usage**. Then set **Extra usage cap %**.
 
-<figure><img src="../.gitbook/assets/CleanShot 2026-04-15 at 00.59.11@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/CleanShot 2026-04-15 at 00.59.11@2x.png" alt=""><figcaption></figcaption></figure>
 
 The cap is calculated as a percentage of your plan limit:
 
@@ -156,7 +156,7 @@ Currents doesn't have a free plan.
 
 ### How can I track my usage?
 
-Use [billing-and-usage.md](administration/billing-and-usage.md "mention") section to setup usage warnings. Additionally, Currents will send an automated emails when you start incurring Extra Usage fees. Our Customer Success team will reach out to your organization admins if you consistently exceed your plan limits or incur significant charges with a recommendation to upgrade your plan.
+Use [billing-and-usage.md](billing-and-usage.md "mention") section to setup usage warnings. Additionally, Currents will send an automated emails when you start incurring Extra Usage fees. Our Customer Success team will reach out to your organization admins if you consistently exceed your plan limits or incur significant charges with a recommendation to upgrade your plan.
 
 ### Do you charge for data storage?
 

@@ -52,3 +52,5 @@ redirects:
   projects/project-settings: dashboard/projects/project-settings.md
   projects/projects-summary-view: dashboard/projects/projects-summary-view.md
   projects/archive-and-unarchive-projects: dashboard/projects/archive-and-unarchive-projects.md
+  dashboard/billing-and-pricing: dashboard/billing/billing-and-pricing.md
+  dashboard/administration/billing-and-usage: dashboard/billing/billing-and-usage.md
