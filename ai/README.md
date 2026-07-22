@@ -92,7 +92,7 @@ This is the bridge from investigation to action: whoever is looking at the faili
 
 Context tells an agent *what* failed; the [Playwright Best Practices skill](agent-skill-playwright-best-practices.md) tells it *how* to fix it well. It's an [Agent Skill](https://agentskills.io/home) - an open standard supported by Claude Code, Cursor, VS Code, and others - that packages expert Playwright knowledge: locator strategy, web-first assertions, debugging flaky tests, CI configuration, and more.
 
-It is the most-installed Playwright skill on [skills.sh](https://skills.sh) with 64K+ installs, ranking second among all skills for the "playwright" keyword.
+As of July 2026, it is the most-installed Playwright skill on [skills.sh](https://skills.sh) - over 64K installs - and the second-ranked result among all skills for the "playwright" keyword.
 
 Without it, agents fall back on generic patterns from training data - sprinkling `waitForTimeout` calls, brittle CSS selectors, retries that mask real bugs. With it, fixes follow the same practices an experienced Playwright engineer would apply. Install it alongside any of the entry points above; the agent picks it up automatically when a task involves Playwright.
 
@@ -102,7 +102,7 @@ npx skills add https://github.com/currents-dev/playwright-best-practices-skill
 
 ### n8n
 
-The [n8n integration](../resources/integrations/n8n.md) connects Currents to 1,300+ apps for workflows that run without a human in the loop. The Currents n8n node reads runs and test results via the API, so you can build automations that react to test outcomes: route new failures to Slack with context attached, open tickets for tests that cross a flakiness threshold, or feed failure data to an AI agent node for automated analysis and triage.
+The [n8n integration](../resources/integrations/n8n.md) connects Currents to more than a thousand apps for workflows that run without a human in the loop. The Currents n8n node reads runs and test results via the API, so you can build automations that react to test outcomes: route new failures to Slack with context attached, open tickets for tests that cross a flakiness threshold, or feed failure data to an AI agent node for automated analysis and triage.
 
 Combined with [HTTP webhooks](../resources/integrations/http-webhooks.md) as a trigger, this covers the fully autonomous end of the spectrum - no editor, no dashboard, just test results flowing into whatever process you define.
 
