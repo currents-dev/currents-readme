@@ -76,6 +76,12 @@ The [n8n integration](../resources/integrations/n8n.md) connects Currents to 1,3
 
 Combined with [HTTP webhooks](../resources/integrations/http-webhooks.md) as a trigger, this covers the fully autonomous end of the spectrum - no editor, no dashboard, just test results flowing into whatever process you define.
 
+## Coming up
+
+### Slack
+
+**Fix with AI** is coming to the [Slack integration](../resources/integrations/slack/README.md): failed-test notifications will include a Fix with AI button that opens one-click deep links to AI coding tools, plus a copyable prompt for everything else - prefilled with the same enriched failure context and MCP identifiers as the dashboard and IDE actions. A failure lands in your team channel, and anyone in the thread can route it to an agent without opening the dashboard first.
+
 ## Combining entry points
 
 These methods compose - most teams end up using several:
