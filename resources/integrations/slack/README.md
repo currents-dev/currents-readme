@@ -20,13 +20,18 @@ There are two versions of Slack integration available:
 The Slack App integration provides a rich, feature-complete experience for test notifications:
 
 * ✅ Organization-level installation with per-project configuration
-* ✅ Multiple destinations (up to 10 channels per project)
+* ✅ Multiple destinations (the dashboard shows your organization's limit; the default is 10)
 * ✅ Run-level notifications with thread-based grouping
-* ✅ Individual test failure notifications
+* ✅ Individual failed or flaky test notifications
+* ✅ Fix with AI from failed-test messages
 * ✅ Advanced filtering by tags, branches, and commit messages
 * ✅ Annotation-based mentions (users, groups, emails)
 * ✅ UI-based mention rules configuration
 * ✅ Improved security with OAuth 2.0
+
+Run and individual-test notifications support Playwright and Cypress recordings. Annotation-based mentions use Playwright's `notify:slack` annotations.
+
+The Slack App also delivers independently configured [Action lifecycle notifications](../../../guides/currents-actions/lifecycle-notifications.md) for actions that are created, disabled, re-enabled, archived, expiring, or expired. Connecting Slack under **Integrations** does not enable these notifications; configure them under **Actions > Settings**.
 
 ## [Slack Webhook](slack-webhook.md) Integration (Legacy)
 
@@ -39,3 +44,5 @@ The webhook-based integration provides basic notification functionality:
 * ❌ No individual test notifications
 * ❌ No annotation-based mentions
 * ❌ Limited to single channel per integration
+
+Already using incoming webhooks? Follow the [migration guidance](slack-webhook.md#migrate-to-the-slack-app) to move notification settings without unintentionally sending duplicate messages.

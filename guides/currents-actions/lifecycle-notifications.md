@@ -8,7 +8,7 @@ Action lifecycle notifications inform teams when actions are created, disabled, 
 
 This provides visibility into changes and upcoming expirations without requiring visiting the dashboard. Teams receive timely updates, allowing them to respond before a forgotten quarantine leads to unexpected test failures.
 
-Notification settings are configured entirely in the dashboard. The REST API can create and manage actions, but notification routing is configured per project in the **Action > Settings** page.
+Notification settings are configured entirely in the dashboard. The REST API can create and manage actions, but notification routing is configured per project under **Actions > Settings**.
 
 <figure><img src="../../.gitbook/assets/image (55).png" alt=""><figcaption><p>Navigate to Action Settings</p></figcaption></figure>
 
@@ -23,7 +23,7 @@ Enabling Slack notifications requires two steps:
 1. **Connect Slack to the organization** following the [#installation](../../resources/integrations/slack/slack-app.md#installation "mention").
 
 {% hint style="info" %}
-Note that this OAuth flow requires an organization administrator.
+A **Currents organization administrator** must connect, re-authenticate, or disconnect the integration. A **Slack administrator** must authorize the app; the exact required Slack role depends on whether the account uses a single workspace or Enterprise Grid. Currents organization members can view the installation and project configuration.
 {% endhint %}
 
 <figure><img src="../../.gitbook/assets/image (48).png" alt=""><figcaption><p>Missing Slack App installation</p></figcaption></figure>
@@ -37,7 +37,7 @@ Connecting Slack under Integrations alone does not enable notifications — they
 
 <figure><img src="../../.gitbook/assets/image (59).png" alt=""><figcaption><p>Slack channel configuration</p></figcaption></figure>
 
-Once Slack is connected, anyone with **Actions Admin** access can configure the channel and events. If the Slack option is unavailable, an organization administrator must complete the Integrations setup first.
+Once Slack is connected, anyone with **Actions Admin** access can configure the channel and events. If the Slack option is unavailable, a Currents organization administrator must complete the Integrations setup first.
 
 #### Email
 
