@@ -34,7 +34,7 @@ A Currents organization administrator starts the connection from Currents. The S
 | **Enterprise Grid (multiple workspaces / org)** | An **Org Owner** or **Org Admin** (workspace-level admins are not sufficient on their own) |
 
 {% hint style="warning" %}
-**The app must be installed by an Org Admin when the Slack account belongs to an Enterprise Grid organization.**
+**When the Slack account belongs to an Enterprise Grid organization, the app must be installed by an Org Owner or Org Admin.**
 
 If a workspace-level admin installs the app while the workspace is part of a larger Slack organization, the installation may appear to succeed and Currents will store the access token, but Slack can later invalidate that token. When this happens, Currents receives an [`account_inactive`](https://docs.slack.dev/reference/methods/admin.apps.uninstall/#errors) error from the Slack API and notifications silently stop working.
 
