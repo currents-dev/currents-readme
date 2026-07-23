@@ -201,7 +201,7 @@ Currents will create a run tagged with `project:chrome`, `project:firefox`, plus
 <figure><img src="../.gitbook/assets/Screenshot 2026-01-15 at 18.08.15.png" alt=""><figcaption><p>Example of a run with project-level tags <code>project:chrome</code> and <code>project:firefox</code></p></figcaption></figure>
 
 {% hint style="info" %}
-The `project:{name}` format shown above (e.g. `project:chrome`, `project:firefox`) is a naming convention, not an automatic feature. Currents does not auto-generate tags from project names — you define whatever tag values make sense for your team in `metadata.pwc.tags`. The `project:` prefix is a popular choice because it makes project-level tags easy to distinguish from test-title tags or run-level tags when filtering results in the dashboard.
+The `project:{name}` format shown above (e.g. `project:chrome`, `project:firefox`) is a naming convention, not an automatic feature. Currents does not auto-generate tags from project names — you define whatever tag values make sense for your team in `metadata.pwc.tags`. Using a `project:` prefix can make project-level tags easier to distinguish from test-title tags or run-level tags when filtering results in the dashboard.
 {% endhint %}
 
 ### How Tags are Applied
