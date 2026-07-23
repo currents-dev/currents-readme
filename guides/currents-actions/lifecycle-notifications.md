@@ -8,7 +8,7 @@ Action lifecycle notifications inform teams when actions are created, disabled, 
 
 This provides visibility into changes and upcoming expirations without requiring visiting the dashboard. Teams receive timely updates, allowing them to respond before a forgotten quarantine leads to unexpected test failures.
 
-Notification settings are configured entirely in the dashboard. The REST API can create and manage actions, but notification routing is configured per project under **Actions > Settings**.
+Notification settings are configured entirely in the dashboard. The REST API can create and manage actions, but notification routing is configured per project in the **Action > Settings** page.
 
 <figure><img src="../../.gitbook/assets/image (55).png" alt=""><figcaption><p>Navigate to Action Settings</p></figcaption></figure>
 
