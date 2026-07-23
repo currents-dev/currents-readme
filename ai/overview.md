@@ -88,7 +88,7 @@ This is the bridge from investigation to action: whoever is looking at the faili
 
 Context tells an agent _what_ failed; the [Playwright Best Practices skill](agent-skill-playwright-best-practices.md) tells it _how_ to fix it well. It's an [Agent Skill](https://agentskills.io/home) - an open standard supported by Claude Code, Cursor, VS Code, and others - that packages expert Playwright knowledge: locator strategy, web-first assertions, debugging flaky tests, CI configuration, and more.
 
-{% hint style="info" %}
+{% hint style="success" icon="trophy" %}
 As of July 2026, it is the most-installed Playwright skill on [skills.sh](https://skills.sh) - over 64K installs - and the second-ranked result among all skills for the "playwright" keyword.
 {% endhint %}
 
