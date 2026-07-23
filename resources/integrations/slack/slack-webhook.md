@@ -84,7 +84,14 @@ To replace a legacy webhook:
 
 1. [Connect the Slack App](slack-app.md#installation).
 2. Add a destination for each channel used by a webhook.
-3. Recreate the failed-run, lifecycle-event, branch, and tag settings for each destination.
+3. For each destination, recreate the failed-run, lifecycle-event, branch, and tag settings:
+   - **Failed Runs Only** → set the [run-result notification mode](slack-app.md#notification-modes) (for example, **Only when there are failures**).
+   - **Events (Optional)** → map each selected event to the destination's run notification settings:
+     - **Run Finish** → enable run notifications and configure the run-result notification mode.
+     - **Run Timeout** → enable **Run Timeout** under [Additional Run Events](slack-app.md#additional-run-events).
+     - **Run Canceled** → enable **Run Canceled** under [Additional Run Events](slack-app.md#additional-run-events).
+     - **Run Start** → no Slack App equivalent.
+   - **Branch Name Filter** and **Tags Filter** → recreate as [run notification filters](slack-app.md#filtering-run-notifications).
 4. Verify delivery using a test run.
 5. Delete the legacy webhook.
 
