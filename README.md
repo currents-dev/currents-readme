@@ -31,7 +31,7 @@ As teams scale testing in CI, they need visibility into debugging traces, flakin
 
 Currents turns test failures into structured context that AI agents can act on - full errors, traces, historical results, and flakiness data - so an agent fixes a failing test from real evidence instead of a pasted error message. Debug interactively in your editor, hand failures to an agent from the dashboard, or build pipelines that auto-heal failing tests.
 
-<table><thead><tr><th width="280" data-type="content-ref">AI</th><th></th></tr></thead><tbody><tr><td><a href="ai/">ai</a></td><td>All the ways to connect AI agents to your test results.</td></tr><tr><td><a href="ai/ide-extension.md">ide-extension.md</a></td><td>Fix CI failures with AI without leaving your editor.</td></tr><tr><td><a href="ai/mcp-server.md">mcp-server.md</a></td><td>Let agents query runs, tests, and analytics on demand.</td></tr><tr><td><a href="ai/agent-skill-playwright-best-practices.md">agent-skill-playwright-best-practices.md</a></td><td>Expert Playwright knowledge for your AI agents.</td></tr></tbody></table>
+<table><thead><tr><th width="280" data-type="content-ref">AI</th><th></th></tr></thead><tbody><tr><td><a href="ai/overview.md">overview.md</a></td><td>All the ways to connect AI agents to your test results.</td></tr><tr><td><a href="ai/ide-extension.md">ide-extension.md</a></td><td>Fix CI failures with AI without leaving your editor.</td></tr><tr><td><a href="ai/mcp-server.md">mcp-server.md</a></td><td>Let agents query runs, tests, and analytics on demand.</td></tr><tr><td><a href="ai/agent-skill-playwright-best-practices.md">agent-skill-playwright-best-practices.md</a></td><td>Expert Playwright knowledge for your AI agents.</td></tr></tbody></table>
 
 ## Explore
 
