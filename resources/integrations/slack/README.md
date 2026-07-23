@@ -1,13 +1,12 @@
 ---
 description: >-
-  Integrating Slack with Currents dashboard for Playwright and Cypress test
-  notifications
+  Integrating Slack with Currents dashboard for test notifications
 icon: slack
 ---
 
 # Slack
 
-Currents integration with Slack allows posting test results of your Playwright or Cypress tests directly into Slack channels, helping your team stay informed about test outcomes without leaving Slack.
+Currents integration with Slack allows posting test results directly into Slack channels, helping your team stay informed about test outcomes without leaving Slack.
 
 There are two versions of Slack integration available:
 
@@ -28,8 +27,6 @@ The Slack App integration provides a rich, feature-complete experience for test 
 * ✅ Annotation-based mentions (users, groups, emails)
 * ✅ UI-based mention rules configuration
 * ✅ Improved security with OAuth 2.0
-
-Run and individual-test notifications support Playwright and Cypress recordings. Annotation-based mentions use Playwright's `notify:slack` annotations.
 
 The Slack App also delivers independently configured [Action lifecycle notifications](../../../guides/currents-actions/lifecycle-notifications.md) for actions that are created, disabled, re-enabled, archived, expiring, or expired. Connecting Slack under **Integrations** does not enable these notifications; configure them under **Actions > Settings**.
 

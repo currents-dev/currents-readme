@@ -1,22 +1,20 @@
 ---
-description: Slack App integration for Currents - Playwright and Cypress test notifications and alerts
+description: Slack App integration for Currents - test notifications and alerts
 ---
 
 # Slack App
 
-Integrate Slack with Currents to receive real-time Playwright and Cypress test notifications and failure alerts directly in your team's channels. The Slack App helps engineering teams stay informed about test results without leaving their workflow.
+Integrate Slack with Currents to receive real-time test notifications and failure alerts directly in your team's channels. The Slack App helps engineering teams stay informed about test results without leaving their workflow.
 
 ## Use Cases
 
-- **Instant failure alerts**: Get notified immediately when Playwright or Cypress tests fail, allowing your team to respond quickly before issues reach production.
+- **Instant failure alerts**: Get notified immediately when tests fail, allowing your team to respond quickly before issues reach production.
 - **Flaky test detection**: Receive Slack alerts when tests exhibit flaky behavior, helping maintain test suite reliability.
 - **Team routing**: Automatically mention the right team members based on which tests failed - route checkout failures to the payments team, API failures to backend engineers.
 - **Release gating**: Send notifications to release managers when smoke tests or critical tests fail on main or release branches.
 - **On-call escalation**: Page on-call engineers when critical tests fail in production environments.
 
 The integration supports organization-level installation, per-project configuration, multiple notification destinations, and advanced filtering options.
-
-Run and individual-test notifications support Playwright and Cypress recordings. Annotation-based mentions use Playwright's `notify:slack` annotations.
 
 ## Requirements and permissions
 
@@ -262,7 +260,7 @@ See [AI-powered test troubleshooting](../../../ai/overview.md) for other Fix wit
 
 ## Annotation-Based Mentions
 
-The Slack App integration supports mentioning users directly in notifications based on Playwright test annotations. When a test fails, the configured users or groups are notified in the Slack message.
+The Slack App integration supports mentioning users directly in notifications based on test annotations. When a test fails, the configured users or groups are notified in the Slack message.
 
 ### Enabling Annotation Mentions
 
@@ -270,27 +268,10 @@ The Slack App integration supports mentioning users directly in notifications ba
 2. Toggle **Enable** to activate annotation-based mentions
 3. Notifications will now include mentions based on test annotations
 
-Add annotations to your tests to trigger Slack mentions using the `notify:slack` annotation type. See [Mention Formats](#mention-formats) for supported formats.
-
-#### Example
-
-```typescript
-test(
-  "critical test",
-  {
-    annotation: {
-      type: "notify:slack",
-      description: "@engineering-team, miguel@currents.dev",
-    },
-  },
-  async ({ page }) => {
-    // test code
-  }
-);
-```
+Add annotations to your tests to trigger Slack mentions. See [Mention Formats](#mention-formats) for supported formats.
 
 {% hint style="info" %}
-See [Playwright Annotations](../../../guides/playwright-annotations.md#annotation-slack-notifications) for more details on using annotations, including how to combine `notify:slack` with other annotation types like `owner`.
+See [Annotation-based Slack mentions](../../../guides/playwright-annotations.md#annotation-slack-notifications) for setup examples.
 {% endhint %}
 
 ## UI-Based Mention Rules
@@ -341,7 +322,7 @@ Use the following formats for specifying users and groups to mention:
 | **User group** | `@group-handle` or `team:SXXXXXXX` | `@engineering-team` or `team:S07JCUP81EG` |
 | **Annotation with multiple targets** | Comma-separated values | `user:U01RWNBFGER, team:S07JCUP81EG, miguel@currents.dev` |
 
-Raw `UXXXXXXX` and `SXXXXXXX` IDs are not supported: use the `user:` or `team:` prefix. Comma-separated values apply to the Playwright `notify:slack` annotation; in UI-based mention rules, add users and groups through their corresponding fields.
+Raw `UXXXXXXX` and `SXXXXXXX` IDs are not supported: use the `user:` or `team:` prefix. Comma-separated values apply to annotation-based mentions; in UI-based mention rules, add users and groups through their corresponding fields.
 
 {% hint style="info" %}
 **Finding Slack IDs:** See [Slack's documentation](https://slack.com/help/articles/360057541954-Get-user-and-group-IDs) for instructions on finding user and group IDs.
