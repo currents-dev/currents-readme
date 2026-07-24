@@ -33,6 +33,7 @@ Every entry point below delivers this same context - they differ in where you ar
 | [MCP Server](mcp-server.md)                                  | Any MCP-capable agent             | Agents querying runs, tests, and analytics on demand; autonomous troubleshooting |
 | [IDE Extension](ide-extension.md)                            | VS Code, Cursor, compatible forks | Debugging CI failures without leaving the editor                                 |
 | [Fix with AI](overview.md#fix-with-ai-from-the-dashboard)    | Currents dashboard                | Handing a failure to an agent while triaging a run                               |
+| [Slack Fix with AI](../resources/integrations/slack/slack-app.md#fix-with-ai) | Slack | Handing a failed-test notification to an agent from a team channel |
 | [Playwright Skill](agent-skill-playwright-best-practices.md) | Claude Code, Cursor, other agents | Teaching agents how to write and fix Playwright tests correctly                  |
 | [n8n](../resources/integrations/n8n.md)                      | n8n workflows                     | Automated triage, notifications, and agent pipelines without code                |
 
@@ -84,6 +85,10 @@ You can copy the prompt to your clipboard for any agent, or open it directly in 
 
 This is the bridge from investigation to action: whoever is looking at the failing run - not necessarily the person with the repo open - can package the failure with its full context and route it to an agent in one click.
 
+### Fix with AI from Slack
+
+Failed-test notifications from the [Slack App](../resources/integrations/slack/slack-app.md#fix-with-ai) include a **Fix with AI** button. The modal can open the failure in Cursor or GitHub Copilot, provide a copyable prompt for Claude, Codex, Zed, Conductor, and other tools, and link to the Currents MCP installation. This lets anyone monitoring a team channel route a failure to an agent without first opening the Currents dashboard.
+
 ### Playwright Skill
 
 Context tells an agent _what_ failed; the [Playwright Best Practices skill](agent-skill-playwright-best-practices.md) tells it _how_ to fix it well. It's an [Agent Skill](https://agentskills.io/home) - an open standard supported by Claude Code, Cursor, VS Code, and others - that packages expert Playwright knowledge: locator strategy, web-first assertions, debugging flaky tests, CI configuration, and more.
@@ -105,12 +110,6 @@ npx skills add https://github.com/currents-dev/playwright-best-practices-skill
 The [n8n integration](../resources/integrations/n8n.md) connects Currents to more than a thousand apps for workflows that run without a human in the loop. The Currents n8n node reads runs and test results via the API, so you can build automations that react to test outcomes: route new failures to Slack with context attached, open tickets for tests that cross a flakiness threshold, or feed failure data to an AI agent node for automated analysis and triage.
 
 Combined with [HTTP webhooks](../resources/integrations/http-webhooks.md) as a trigger, this covers the fully autonomous end of the spectrum - no editor, no dashboard, just test results flowing into whatever process you define.
-
-## Coming up
-
-### Slack
-
-**Fix with AI** is coming to the [Slack integration](../resources/integrations/slack/): failed-test notifications will include a Fix with AI button that opens one-click deep links to AI coding tools, plus a copyable prompt for everything else - prefilled with the same enriched failure context and MCP identifiers as the dashboard and IDE actions. A failure lands in your team channel, and anyone in the thread can route it to an agent without opening the dashboard first.
 
 ## Combining entry points
 
