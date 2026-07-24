@@ -330,15 +330,15 @@ Mention rules support the following filters:
 
 ## Mention Formats
 
-Use the following formats for specifying users and groups to mention:
+Both [Annotation-Based Mentions](#annotation-based-mentions) and [UI-Based Mention Rules](#ui-based-mention-rules) support the following formats for specifying users and groups to mention:
 
-| Target | Format | Example |
-| --- | --- | --- |
-| **User** | Email address or `user:UXXXXXXX` | `andrew@currents.dev` or `user:U01RWNBFGER` |
-| **User group** | `@group-handle` or `team:SXXXXXXX` | `@engineering-team` or `team:S07JCUP81EG` |
-| **Annotation with multiple targets** | Comma-separated values | `user:U01RWNBFGER, team:S07JCUP81EG, miguel@currents.dev` |
-
-Raw `UXXXXXXX` and `SXXXXXXX` IDs are not supported: use the `user:` or `team:` prefix. Comma-separated values apply to annotation-based mentions; in UI-based mention rules, add users and groups through their corresponding fields.
+| Format                | Description                                 | Example Value                                             |
+| --------------------- | ------------------------------------------- | --------------------------------------------------------- |
+| **User Email**        | Email address associated with Slack account | `andrew@currents.dev`                                     |
+| **User ID**           | Slack user ID                               | `user:U01RWNBFGER`                                        |
+| **User Group (Team)** | Slack user group ID                         | `team:S07JCUP81EG`                                        |
+| **Slack Handle**      | Slack username or group handle              | `@engineering-team`                                       |
+| **Multiple Mentions** | Comma-separated combination of formats      | `user:U01RWNBFGER, team:S07JCUP81EG, miguel@currents.dev` |
 
 {% hint style="info" %}
 **Finding Slack IDs:** See [Slack's documentation](https://slack.com/help/articles/360057541954-Get-user-and-group-IDs) for instructions on finding user and group IDs.
