@@ -18,24 +18,19 @@ In order to enable Slack integration and share Playwright test results to Slack 
 
 - Navigate to **Manage Project > Integrations**
 - Add Slack integration and provide the details:
-  - **Label** - a descriptive name for this integration.
   - **Slack Webhook URL -** Incoming Webhook URL, e.g. `https://hooks.slack.com/services/XXX/YYY/ZZZ`. Read more about [Slack Incoming Webhooks](https://api.slack.com/messaging/webhooks).
   - **Failed Runs Only** - enabling the toggle would only send results for failed runs.
-  - **Single Notification for All Groups** - combine results from a run's groups into one notification.
   - **Events (Optional)** - specify events that will trigger the integration and send the results. Leaving this field blank activates all the events.
   - **Branch Name Filter (Optional)** - if specified, only send notifications for runs with branch names matching the pattern. Please note, that you must provide the branch name within the [run-details.md](../../../dashboard/runs/run-details.md "mention") to activate filtering.
-  - **Tags Filter (Optional)** - only send notifications for runs whose tags match the configured pattern.
-  - **Test Your Tags Filter** - verify the tag pattern before saving it.
-  - **Remove** - delete the webhook integration.
 - Click **Save** to preserve the changes
 
-<figure><img src="../../../.gitbook/assets/currents-2025-07-17-11.37.26@2x.png" alt="Legacy Slack webhook configuration fields in Currents"><figcaption><p>Configure the webhook URL, events, grouping, branch, and tag filters.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2025-07-17-11.37.26@2x.png" alt=""><figcaption></figcaption></figure>
 
 ### Grouping Slack messages
 
 Enabling the **Single Notification for All Groups** toggle ensures that only one notification is sent per run, regardless of how many groups it includes.
 
-<figure><img src="../../../.gitbook/assets/currents-2025-07-17-11.35.37@2x.png" alt="Single Notification for All Groups setting for a legacy Slack webhook"><figcaption><p>Combine known run groups into a single Slack notification.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2025-07-17-11.35.37@2x.png" alt=""><figcaption></figcaption></figure>
 
 Note: You may still receive multiple notifications if one group finishes before the others were discovered. For example, if one group completes before the other groups are scheduled or detected, a notification may be sent early.<br>
 
@@ -77,27 +72,6 @@ Triggered when a time out detected for a run. The message will contain the last 
 Triggered when a run gets cancelled. If a run contains multiple groups, the notification will be triggered for each group. The message will contain the last known results for the run or run group.
 
 ![Example of Slack notification for Run Canceled event ](../../../.gitbook/assets/cypress-run-canceled-slack.png)
-
-### Migrate to the Slack App
-
-To replace a legacy webhook:
-
-1. [Connect the Slack App](slack-app.md#installation).
-2. Add a destination for each channel used by a webhook.
-3. For each destination, recreate the failed-run, lifecycle-event, branch, and tag settings:
-   - **Failed Runs Only** → set the [run-result notification mode](slack-app.md#notification-modes) (for example, **Only when there are failures**).
-   - **Events (Optional)** → map each selected event to the destination's run notification settings:
-     - **Run Finish** → enable run notifications and configure the run-result notification mode.
-     - **Run Timeout** → enable **Run Timeout** under [Additional Run Events](slack-app.md#additional-run-events).
-     - **Run Canceled** → enable **Run Canceled** under [Additional Run Events](slack-app.md#additional-run-events).
-     - **Run Start** → no Slack App equivalent.
-   - **Branch Name Filter** and **Tags Filter** → recreate as [run notification filters](slack-app.md#filtering-run-notifications).
-4. Verify delivery using a test run.
-5. Delete the legacy webhook.
-
-{% hint style="warning" %}
-Keeping both integrations enabled for the same channel and events can produce duplicate notifications.
-{% endhint %}
 
 ### Disabling Slack integration
 

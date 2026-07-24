@@ -41,5 +41,3 @@ The webhook-based integration provides basic notification functionality:
 * ❌ No individual test notifications
 * ❌ No annotation-based mentions
 * ❌ Limited to single channel per integration
-
-Already using incoming webhooks? Follow the [migration guidance](slack-webhook.md#migrate-to-the-slack-app) to move notification settings without unintentionally sending duplicate messages.
