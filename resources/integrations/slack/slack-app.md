@@ -270,7 +270,7 @@ The Slack App integration supports mentioning users directly in notifications ba
 Add annotations to your tests to trigger Slack mentions. See [Mention Formats](#mention-formats) for supported formats.
 
 {% hint style="info" %}
-See [Annotation-based Slack mentions](../../../guides/playwright-annotations.md#annotation-slack-notifications) for setup examples.
+See [Playwright Annotations](../../../guides/playwright-annotations.md#annotation-slack-notifications) for more details on using annotations, including how to combine `notify:slack` with other annotation types like `owner`.
 {% endhint %}
 
 ## UI-Based Mention Rules
