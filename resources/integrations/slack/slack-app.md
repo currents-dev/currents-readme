@@ -24,7 +24,6 @@ Currents and Slack permissions are separate:
 | --- | --- |
 | **Currents organization administrator** | Connect, re-authenticate, disconnect, and change the Slack App settings in Currents |
 | **Slack administrator** | Authorize the Currents app in Slack; the exact role depends on whether Slack uses a single workspace or Enterprise Grid |
-| **Currents organization member** | View the installation and project configuration |
 
 A Currents organization administrator starts the connection from Currents. The Slack authorization step must be completed by a user with the correct Slack administrator permissions:
 

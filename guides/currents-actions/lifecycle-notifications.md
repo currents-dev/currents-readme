@@ -23,7 +23,7 @@ Enabling Slack notifications requires two steps:
 1. **Connect Slack to the organization** following the [#installation](../../resources/integrations/slack/slack-app.md#installation "mention").
 
 {% hint style="info" %}
-A **Currents organization administrator** must connect, re-authenticate, or disconnect the integration. A **Slack administrator** must authorize the app; the exact required Slack role depends on whether the account uses a single workspace or Enterprise Grid. Currents organization members can view the installation and project configuration.
+A **Currents organization administrator** must connect, re-authenticate, or disconnect the integration. A **Slack administrator** must authorize the app; the exact required Slack role depends on whether the account uses a single workspace or Enterprise Grid.
 {% endhint %}
 
 <figure><img src="../../.gitbook/assets/image (48).png" alt=""><figcaption><p>Missing Slack App installation</p></figcaption></figure>
