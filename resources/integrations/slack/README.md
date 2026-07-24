@@ -6,12 +6,12 @@ icon: slack
 
 # Slack
 
-Currents integration with Slack allows posting test results directly into Slack channels, helping your team stay informed about test outcomes without leaving Slack.
+Currents integration with Slack allows posting test results directly into Slack channels, helping teams stay informed about test outcomes without leaving Slack.
 
 There are two versions of Slack integration available:
 
 {% hint style="info" %}
-**Recommendation:** We recommend using the Slack App integration due to its advanced features and improved security model.
+**Recommendation:** Currents recommends using the Slack App integration due to its advanced features and improved security model.
 {% endhint %}
 
 ## [Slack App](slack-app.md) Integration (Recommended)
@@ -19,7 +19,7 @@ There are two versions of Slack integration available:
 The Slack App integration provides a rich, feature-complete experience for test notifications:
 
 * ✅ Organization-level installation with per-project configuration
-* ✅ Multiple destinations (the dashboard shows your organization's limit; the default is 10)
+* ✅ Multiple destinations (the dashboard shows the organization's limit; the default is 10)
 * ✅ Run-level notifications with thread-based grouping
 * ✅ Individual failed or flaky test notifications
 * ✅ Fix with AI from failed-test messages

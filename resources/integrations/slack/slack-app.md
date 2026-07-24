@@ -4,11 +4,11 @@ description: Slack App integration for Currents - test notifications and alerts
 
 # Slack App
 
-Integrate Slack with Currents to receive real-time test notifications and failure alerts directly in your team's channels. The Slack App helps engineering teams stay informed about test results without leaving their workflow.
+Integrate Slack with Currents to receive real-time test notifications and failure alerts directly in team channels. The Slack App helps engineering teams stay informed about test results without leaving their workflow.
 
 ## Use Cases
 
-- **Instant failure alerts**: Get notified immediately when tests fail, allowing your team to respond quickly before issues reach production.
+- **Instant failure alerts**: Notify teams immediately when tests fail so they can respond quickly before issues reach production.
 - **Flaky test detection**: Receive Slack alerts when tests exhibit flaky behavior, helping maintain test suite reliability.
 - **Team routing**: Automatically mention the right team members based on which tests failed - route checkout failures to the payments team, API failures to backend engineers.
 - **Release gating**: Send notifications to release managers when smoke tests or critical tests fail on main or release branches.
@@ -100,7 +100,7 @@ Re-authenticating normally preserves the existing project configuration. If Slac
 
 ## Notification Destinations
 
-The dashboard shows the destination limit for your organization; the default is **10**. Destinations let you send notifications to different Slack channels based on your needs.
+The dashboard shows the destination limit for the organization; the default is **10**. Destinations allow notifications to be sent to different Slack channels based on project needs.
 
 ### Adding a Destination
 
@@ -248,7 +248,7 @@ Messages display up to five test results. When more tests require attention, the
 
 ### Fix with AI
 
-Failed-test messages include a **Fix with AI** button. It opens a modal where you can:
+Failed-test messages include a **Fix with AI** button. The modal provides options to:
 
 - Open the failure context directly in Cursor
 - Open it in GitHub Copilot
@@ -368,7 +368,7 @@ This removes the organization-level Slack installation and disables notification
 
 ### Can I send notifications to multiple channels?
 
-Yes. The dashboard shows the destination limit for your organization; the default is 10. Each destination can target a different Slack channel with its own configuration.
+Yes. The dashboard shows the destination limit for the organization; the default is 10. Each destination can target a different Slack channel with its own configuration.
 
 ### Why am I not receiving notifications?
 
@@ -376,9 +376,9 @@ Check the following:
 
 1. **Project-level toggle** - Ensure "Enable Notifications" is turned on
 2. **Destination toggle** - Ensure the specific destination is enabled
-3. **Notification mode** - Confirm the selected run-result mode matches the outcome you expect
-4. **Filters** - Check if any tag or branch filters are excluding your runs
-5. **Mention rules** - Ensure conditions match your test properties
+3. **Notification mode** - Confirm the selected run-result mode matches the expected outcome
+4. **Filters** - Check whether any tag or branch filters are excluding runs
+5. **Mention rules** - Ensure conditions match test properties
 6. **Installation permissions** - If notifications stopped entirely, the Slack token may have been invalidated (`account_inactive`). See [Why did notifications stop with an `account_inactive` error?](#why-did-notifications-stop-with-an-account_inactive-error)
 
 ### Why did notifications stop with an `account_inactive` error?
