@@ -267,7 +267,24 @@ The Slack App integration supports mentioning users directly in notifications ba
 2. Toggle **Enable** to activate annotation-based mentions
 3. Notifications will now include mentions based on test annotations
 
-Add annotations to your tests to trigger Slack mentions. See [Mention Formats](#mention-formats) for supported formats.
+Add annotations to your tests to trigger Slack mentions using the `notify:slack` annotation type. See [Mention Formats](#mention-formats) for supported formats.
+
+#### Example
+
+```typescript
+test(
+  "critical test",
+  {
+    annotation: {
+      type: "notify:slack",
+      description: "@engineering-team, miguel@currents.dev",
+    },
+  },
+  async ({ page }) => {
+    // test code
+  }
+);
+```
 
 {% hint style="info" %}
 See [Playwright Annotations](../../../guides/playwright-annotations.md#annotation-slack-notifications) for more details on using annotations, including how to combine `notify:slack` with other annotation types like `owner`.
