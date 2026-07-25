@@ -58,5 +58,5 @@ cancel_currents_run:
 ### Notes
 
 * Every job of a parallelized run records into the same run. Cancelling a run that is already cancelled succeeds, so it is safe for each job to run the command.
-* A run only exists once results have been recorded. Cancelling before the first results were uploaded reports that no run was found for the CI build id.
+* A run only exists once results have been recorded. Cancelling before the first results were uploaded reports that there is no run to cancel and exits successfully, so the step does not fail on an already cancelled job.
 * Cancelled runs are marked in the dashboard and trigger the usual integrations. See [cancel-run.md](../../../dashboard/runs/cancel-run.md "mention") for what cancelling a run affects.

@@ -11,6 +11,7 @@
       - [Sharded runs](getting-started/ci-setup/github-actions/re-run-failed-only-tests-sharded.md)
       - [Orchestrated runs](getting-started/ci-setup/github-actions/re-run-failed-only-tests-orchestrated-v2.md)
       - [Custom CI Build ID for Reruns](getting-started/ci-setup/github-actions/custom-ci-build-id-for-reruns.md)
+    - [Cancel Runs on Workflow Cancellation](getting-started/ci-setup/github-actions/cancel-runs.md)
     - [Commit data for GitHub Actions](getting-started/ci-setup/github-actions/commit-data-for-github-actions.md)
     - [Custom Docker runners](getting-started/ci-setup/github-actions/custom-docker-runners.md)
     - [Named Runners](getting-started/ci-setup/github-actions/named-runners.md)

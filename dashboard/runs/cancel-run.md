@@ -38,6 +38,8 @@ When a CI job is cancelled — manually, or because a newer commit superseded it
 
 [`currents cancel`](../../resources/reporters/currents-cmd/currents-cancel.md) authenticates with the [record-key.md](../../guides/record-key.md "mention") the job already uses to report results, so it needs no additional secret, and it identifies the run by its [ci-build-id.md](../../guides/parallelization-guide/ci-build-id.md "mention") — which makes it work on any CI provider. See [currents-cancel.md](../../resources/reporters/currents-cmd/currents-cancel.md "mention") for the available options.
 
+On GitHub Actions the same thing is available as an action — see [cancel-runs.md](../../getting-started/ci-setup/github-actions/cancel-runs.md "mention").
+
 ## Cancelling Runs via API
 
 You can programmatically cancel a run via the `PUT runs/:runId/cancel` HTTP API call. For example, here is an example of `curl` command that cancels a particular run
@@ -63,31 +65,26 @@ If you have [fail-fast-strategy.md](../../guides/ci-optimization/fail-fast-strat
 
 ## GitHub Actions Workflow Cancellation
 
-{% hint style="info" %}
-The action below authenticates with an API key. If you would rather not add a second secret to your workflow, [currents-cancel.md](../../resources/reporters/currents-cmd/currents-cancel.md "mention") does the same using the record key the workflow already has.
-{% endhint %}
-
-You can automatically cancel Currents runs (cypress and playwright) when cancelling GitHub Actions workflow using [cancel-run-gh-action](https://github.com/currents-dev/cancel-run-gh-action).
-
-Check out the [example workflow configuration](https://github.com/currents-dev/currents-examples/blob/main/cypress/github-actions/.github/workflows/currents.yml):
+On GitHub Actions the same cancellation is also available as an action, [cancel-run-gh-action](https://github.com/currents-dev/cancel-run-gh-action). See [cancel-runs.md](../../getting-started/ci-setup/github-actions/cancel-runs.md "mention") for a complete workflow.
 
 ```yaml
-      # Run all Currents tests
-      - name: Run Cypress on Currents.dev
-        uses: cypress-io/github-action@v4
-        with:
-          command: npx cypress-cloud run --record --parallel --browser chrome --key ${{ secrets.CURRENTS_RECORD_KEY }} --ci-build-id ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt}}
+      - name: Run tests
+        env:
+          CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
+          CURRENTS_PROJECT_ID: my-project-id
+          CURRENTS_CI_BUILD_ID: ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
+        run: npx playwright test
 
       - name: Cancel the run if the workflow is cancelled
         if: ${{ cancelled() }}
         uses: currents-dev/cancel-run-gh-action@v1
         with:
-          api-token: ${{ secrets.CURRENTS_API_KEY }}
-          github-run-id: ${{ github.run_id }}
-          github-run-attempt: ${{ github.run_attempt }}
+          record-key: ${{ secrets.CURRENTS_RECORD_KEY }}
+          project-id: my-project-id
+          ci-build-id: ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
 ```
 
-The example above uses a [GitHub Actions repository secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) named `CURRENTS_API_KEY.` For creating a new API secret please refer to [Authentication](https://app.gitbook.com/s/lcxad7NaXT7D2V6owvHN/get-started/authentication "mention").
+All three inputs default to `CURRENTS_RECORD_KEY`, `CURRENTS_PROJECT_ID` and `CURRENTS_CI_BUILD_ID`, so a job that already exports them for the reporting step can use the action with no inputs at all.
 
 After the step is enabled, cancelling a GitHub Actions workflow will trigger cancellation:
 
@@ -97,38 +94,35 @@ The associated Currents run will be cancelled with the corresponding notes:
 
 <figure><img src="../../.gitbook/assets/currents-2023-07-04-14.18.17@2x.png" alt=""><figcaption></figcaption></figure>
 
-#### Cancelling with CI Build ID
+#### Cancelling with an API key
 
-The current implementation allows to cancel a run with CI information that is usually available in the Github environment variables.
-
-But sometimes is required to explicitly define what run needs to be cancelled, so this functionality allows cancelling a run with a known CI Build ID (see [ci-build-id.md](../../guides/parallelization-guide/ci-build-id.md "mention")) and a project ID (see [projects](../projects/ "mention")) which are usually known beforehand in a CI environment as these are required parameters for executing a run.
+The action also accepts an [api-keys.md](../administration/api-keys.md "mention") instead of a record key. It then identifies the run by the GitHub run id and attempt recorded on it, so no other input is needed:
 
 ```yaml
-  # Run all Currents tests
-  - name: Run Cypress on Currents.dev
-    uses: cypress-io/github-action@v4
+  - name: Cancel the run if the workflow is cancelled
+    if: ${{ cancelled() }}
+    uses: currents-dev/cancel-run-gh-action@v1
+    with:
+      api-token: ${{ secrets.CURRENTS_API_KEY }}
+```
+
+Pass `project-id` and `ci-build-id` as well to identify the run by its [ci-build-id.md](../../guides/parallelization-guide/ci-build-id.md "mention") instead — which is what you need when the workflow records under a CI build ID of its own:
+
+```yaml
+  - name: Run tests
     env:
       CURRENTS_CI_BUILD_ID: "a-custom-ci-build-id"
       CURRENTS_PROJECT_ID: "my-project-id"
-    with:
-      command: npx pwc --key ${{ secrets.CURRENTS_RECORD_KEY }} --project-id ${{ CURRENTS_PROJECT_ID }} --ci-build-id ${{ CURRENTS_CI_BUILD_ID }} 
+    run: npx pwc --key ${{ secrets.CURRENTS_RECORD_KEY }}
 
   - name: Cancel the run if the workflow is cancelled
     if: ${{ cancelled() }}
     uses: currents-dev/cancel-run-gh-action@v1
     with:
       api-token: ${{ secrets.CURRENTS_API_KEY }}
-      github-run-id: ${{ github.run_id }}
-      github-run-attempt: ${{ github.run_attempt }}
-      ci-build-id: ${{ env.CURRENTS_CI_BUILD_ID }}
       project-id: ${{ env.CURRENTS_PROJECT_ID }}
+      ci-build-id: ${{ env.CURRENTS_CI_BUILD_ID }}
 ```
-
-The example above uses `CURRENTS_CI_BUILD_ID` and `CURRENTS_PROJECT_ID` as beforehand known variables to pass it down to the run cancellation workflow.
-
-{% hint style="info" %}
-`api-token`, `github-run-id` and `github-run-attempt` are still required parameters that must be passed to the cancellation workflow.
-{% endhint %}
 
 ## FAQ
 
