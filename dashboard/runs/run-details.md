@@ -6,7 +6,7 @@ description: Run details and metadata - git, environment, status
 
 ## Run Status
 
-A run can  have the following status:
+A run can have the following status:
 
 * <mark style="color:orange;">**Running**</mark> - the default state for newly created runs
 * <mark style="color:red;">Failing</mark> - a run still hasn't reported all the results and has 1 or more failed tests
@@ -16,7 +16,7 @@ A run can  have the following status:
 In addition, an interrupted run can be in one of the following completion states:
 
 * **👤 Cancelled** - a run was cancelled. See [cancel-run.md](cancel-run.md "mention") for details.
-* **⚡️ Cancelled** - a run was cancelled due to the [Fail Fast](../../guides/ci-optimization/fail-fast-strategy.md) strategy. See&#x20;
+* **⚡️ Cancelled** - a run was cancelled due to the [Fail Fast](../../guides/ci-optimization/fail-fast-strategy.md) strategy. See
 * **Timeout** - a run exceeded the timeout threshold for the project. See [run-timeouts.md](run-timeouts.md "mention")for details.
 
 ## Run Title
@@ -33,14 +33,14 @@ You can override Run Title by setting `COMMIT_INFO_MESSAGE` environment variable
 
 Currents collects additional information about the CI environment:
 
-| Field                | Description                                                                   |
-| -------------------- | ----------------------------------------------------------------------------- |
-| Duration             | Run duration                                                                  |
-| Progress             | Completed / overall spec files progress                                       |
-| Started at           | Run start timestamp                                                           |
-| Branch               | Git branch name (or HEAD for Pull Requests)                                   |
-| Commit Message + SHA | Git commit details                                                            |
-| Browser / Project    | Cypress tests browser or Playwright Project                                   |
-| Author               | Git commit author                                                             |
-| CI Build ID          | [ci-build-id.md](../../guides/parallelization-guide/ci-build-id.md "mention") |
-| CI Provider Link     | Auto-detected or custom CI job/run URL. Set `CURRENTS_CI_URL` to override. See [configuration.md](../reporters/currents-playwright/configuration.md "mention") |
+| Field                | Description                                                                                                                                                                                                                                                                                                                       |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Duration             | Run duration                                                                                                                                                                                                                                                                                                                      |
+| Progress             | Completed / overall spec files progress                                                                                                                                                                                                                                                                                           |
+| Started at           | Run start timestamp                                                                                                                                                                                                                                                                                                               |
+| Branch               | Git branch name (or HEAD for Pull Requests)                                                                                                                                                                                                                                                                                       |
+| Commit Message + SHA | Git commit details                                                                                                                                                                                                                                                                                                                |
+| Browser / Project    | Cypress tests browser or Playwright Project                                                                                                                                                                                                                                                                                       |
+| Author               | Git commit author                                                                                                                                                                                                                                                                                                                 |
+| CI Build ID          | [ci-build-id.md](../../guides/parallelization-guide/ci-build-id.md "mention")                                                                                                                                                                                                                                                     |
+| CI Provider Link     | Auto-detected or custom CI job/run URL. Set `CURRENTS_CI_URL` to override. See [https://github.com/currents-dev/currents-readme/blob/main/dashboard/reporters/currents-playwright/configuration.md](https://github.com/currents-dev/currents-readme/blob/main/dashboard/reporters/currents-playwright/configuration.md "mention") |

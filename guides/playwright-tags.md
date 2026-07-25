@@ -160,7 +160,9 @@ If there are multiple definitions of run-level tags, Currents will pick the tags
 [currents-playwright](../resources/reporters/currents-playwright/ "mention") version **0.10.0+** is required for project-level tags
 {% endhint %}
 
-You can tag Playwright projects by using **`metadata.pwc.tags`** field in the project's configuration. For example, given the following Playwright project configuration:
+You can tag Playwright projects by using the **`metadata.pwc.tags`** field in a project's configuration. Tags defined here are attached to every test recording, spec file, and group that belongs to that project, and they bubble up to the run level as well.
+
+For example, given the following Playwright configuration with two browser projects:
 
 ```typescript
 // playwright.config.ts
@@ -172,21 +174,35 @@ You can tag Playwright projects by using **`metadata.pwc.tags`** field in the pr
         name: "Desktop Chrome",
         metadata: {
           pwc: {
-            tags: ["desktop", "chrome"], // 👈🏻 note the tags
+            tags: ["project:chrome"], // 👈🏻 project-level tags
           },
         },
         use: {
           ...devices["Desktop Chrome"],
         },
       },
-      // ...
+      {
+        name: "Desktop Firefox",
+        metadata: {
+          pwc: {
+            tags: ["project:firefox"], // 👈🏻 project-level tags
+          },
+        },
+        use: {
+          ...devices["Desktop Firefox"],
+        },
+      },
   ]
 }
 ```
 
-Currents will create a run tagged with `desktop`, `chrome` + all the tags extracted from individual tests.
+Currents will create a run tagged with `project:chrome`, `project:firefox`, plus all tags extracted from individual tests.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-01-15 at 18.08.15.png" alt=""><figcaption><p>Example of using project-level tags</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-01-15 at 18.08.15.png" alt=""><figcaption><p>Example of a run with project-level tags <code>project:chrome</code> and <code>project:firefox</code></p></figcaption></figure>
+
+{% hint style="info" %}
+The `project:{name}` format shown above (e.g. `project:chrome`, `project:firefox`) is a naming convention, not an automatic feature. Currents does not auto-generate tags from project names — you define whatever tag values make sense for your team in `metadata.pwc.tags`. Using a `project:` prefix can make project-level tags easier to distinguish from test-title tags or run-level tags when filtering results in the dashboard.
+{% endhint %}
 
 ### How Tags are Applied
 
