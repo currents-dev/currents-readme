@@ -169,6 +169,7 @@
     - [currents api](resources/reporters/currents-cmd/currents-api.md)
     - [currents upload](resources/reporters/currents-cmd/currents-upload.md)
     - [currents cache](resources/reporters/currents-cmd/currents-cache.md)
+    - [currents cancel](resources/reporters/currents-cmd/currents-cancel.md)
     - [currents convert](resources/reporters/currents-cmd/currents-convert.md)
     - [Changelog](https://github.com/currents-dev/currents-reporter/blob/main/packages/cmd/CHANGELOG.md)
   - [@currents/jest](resources/reporters/currents-jest/README.md)

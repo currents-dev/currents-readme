@@ -28,6 +28,7 @@ npm install @currents/cmd --save-dev
 * [`currents api`](currents-api.md) - retrieve data from Currents [Resources](https://app.gitbook.com/s/lcxad7NaXT7D2V6owvHN/resources "mention") entities
 * [`currents upload`](currents-upload.md) - upload the test results into the Currents Dashboard
 * [`currents cache`](currents-cache.md) - manage test artifacts and configuration cache
+* [`currents cancel`](currents-cancel.md) - cancel a run in progress, e.g. when its CI job is cancelled
 * [`currents convert`](currents-convert.md) - convert test reports to Currents internal format
 
 ### Troubleshooting

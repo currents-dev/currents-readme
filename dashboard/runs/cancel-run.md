@@ -26,6 +26,18 @@ The canceled run will be tagged accordingly, and the dashboard will display the 
 
 <figure><img src="../../.gitbook/assets/Screenshot 2026-01-16 at 14.45.22.png" alt=""><figcaption><p>Example of a run cancelled by a dashboard user</p></figcaption></figure>
 
+## Cancelling Runs from CI
+
+When a CI job is cancelled — manually, or because a newer commit superseded it — it stops reporting mid-run, and the run stays in progress until it hits the project's [run-timeouts.md](run-timeouts.md "mention"). Add a step that cancels the run when the job is cancelled:
+
+```yaml
+- name: Cancel the run if the workflow is cancelled
+  if: ${{ cancelled() }}
+  run: npx currents cancel
+```
+
+[`currents cancel`](../../resources/reporters/currents-cmd/currents-cancel.md) authenticates with the [record-key.md](../../guides/record-key.md "mention") the job already uses to report results, so it needs no additional secret, and it identifies the run by its [ci-build-id.md](../../guides/parallelization-guide/ci-build-id.md "mention") — which makes it work on any CI provider. See [currents-cancel.md](../../resources/reporters/currents-cmd/currents-cancel.md "mention") for the available options.
+
 ## Cancelling Runs via API
 
 You can programmatically cancel a run via the `PUT runs/:runId/cancel` HTTP API call. For example, here is an example of `curl` command that cancels a particular run
@@ -50,6 +62,10 @@ If you have [fail-fast-strategy.md](../../guides/ci-optimization/fail-fast-strat
 <figure><img src="../../.gitbook/assets/Screenshot 2026-01-16 at 14.46.45.png" alt=""><figcaption><p>Example of a run cancelled by fail-fast strategy</p></figcaption></figure>
 
 ## GitHub Actions Workflow Cancellation
+
+{% hint style="info" %}
+The action below authenticates with an API key. If you would rather not add a second secret to your workflow, [currents-cancel.md](../../resources/reporters/currents-cmd/currents-cancel.md "mention") does the same using the record key the workflow already has.
+{% endhint %}
 
 You can automatically cancel Currents runs (cypress and playwright) when cancelling GitHub Actions workflow using [cancel-run-gh-action](https://github.com/currents-dev/cancel-run-gh-action).
 
