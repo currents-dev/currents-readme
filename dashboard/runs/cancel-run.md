@@ -86,6 +86,8 @@ On GitHub Actions the same cancellation is also available as an action, [cancel-
 
 All three inputs default to `CURRENTS_RECORD_KEY`, `CURRENTS_PROJECT_ID` and `CURRENTS_CI_BUILD_ID`, so a job that already exports them for the reporting step can use the action with no inputs at all.
 
+Pass `run-id` instead of `ci-build-id` to cancel a run you already have the id of. It defaults to `CURRENTS_RUN_ID` and takes precedence when both are set.
+
 After the step is enabled, cancelling a GitHub Actions workflow will trigger cancellation:
 
 <figure><img src="../../.gitbook/assets/currents-2023-07-04-14.16.21@2x.png" alt=""><figcaption><p>Example of a cancellation step</p></figcaption></figure>
