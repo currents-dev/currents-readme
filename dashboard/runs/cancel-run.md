@@ -36,7 +36,7 @@ When a CI job is cancelled — manually, or because a newer commit superseded it
   run: npx currents cancel
 ```
 
-[`currents cancel`](../../resources/reporters/currents-cmd/currents-cancel.md) authenticates with the [record-key.md](../../guides/record-key.md "mention") the job already uses to report results, so it needs no additional secret, and it identifies the run by its [ci-build-id.md](../../guides/parallelization-guide/ci-build-id.md "mention") — which makes it work on any CI provider. See [currents-cancel.md](../../resources/reporters/currents-cmd/currents-cancel.md "mention") for the available options.
+[`currents cancel`](../../resources/reporters/currents-cmd/currents-cancel.md) authenticates with the [record-key.md](../../guides/record-key.md "mention") the job already uses to report results, so it needs no additional secret, and it identifies the run by its [ci-build-id.md](../../guides/parallelization-guide/ci-build-id.md "mention") or its run ID — which makes it work on any CI provider. See [currents-cancel.md](../../resources/reporters/currents-cmd/currents-cancel.md "mention") for the available options.
 
 On GitHub Actions the same thing is available as an action — see [cancel-runs.md](../../getting-started/ci-setup/github-actions/cancel-runs.md "mention").
 
