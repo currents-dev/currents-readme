@@ -28,7 +28,7 @@ npx currents cancel --key <record-key> --project-id <project-id> --run-id <run-i
 
 `--run-id` takes precedence when both are set.
 
-Use `--ci-build-id` for cancelling from CI. Set `CURRENTS_CI_BUILD_ID` on the job — for example `${{ github.run_id }}-${{ github.run_attempt }}` — and both the reporting step and the cancelling step read the same variable, so no value has to be passed between them.
+Use `--ci-build-id` for cancelling from CI. Set `CURRENTS_CI_BUILD_ID` on the job — for example `${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}` — and both the reporting step and the cancelling step read the same variable, so no value has to be passed between them.
 
 Use `--run-id` when you already have the run id: it is the last segment of the run URL, `https://app.currents.dev/run/<run-id>`. This is the option for cancelling a specific run from a script or by hand.
 
@@ -45,7 +45,7 @@ A job that already exports the record key, project and CI build id needs no argu
   env:
     CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
     CURRENTS_PROJECT_ID: my-project-id
-    CURRENTS_CI_BUILD_ID: ${{ github.run_id }}-${{ github.run_attempt }}
+    CURRENTS_CI_BUILD_ID: ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
   run: npx playwright test
 
 - name: Cancel the run if the workflow is cancelled
@@ -53,23 +53,26 @@ A job that already exports the record key, project and CI build id needs no argu
   env:
     CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
     CURRENTS_PROJECT_ID: my-project-id
-    CURRENTS_CI_BUILD_ID: ${{ github.run_id }}-${{ github.run_attempt }}
+    CURRENTS_CI_BUILD_ID: ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
   run: npx currents cancel
 ```
 
 ### Cancelling from other CI providers
 
-The command only needs the record key, the project and the CI build id, so the same step works anywhere. GitLab CI, for example:
+The command only needs the record key, the project and the CI build id, so the same step works anywhere. Set the CI build id for the whole pipeline, so the job that reports and the job that cancels use the same value. GitLab CI, for example:
 
 ```yaml
+variables:
+  CURRENTS_CI_BUILD_ID: $CI_PIPELINE_ID
+
 cancel_currents_run:
   stage: .post
   when: on_failure
   script:
     - npx currents cancel
-  variables:
-    CURRENTS_CI_BUILD_ID: $CI_PIPELINE_ID
 ```
+
+`CURRENTS_RECORD_KEY` and `CURRENTS_PROJECT_ID` come from the pipeline's variables, the same ones the reporting job uses.
 
 ### Notes
 
