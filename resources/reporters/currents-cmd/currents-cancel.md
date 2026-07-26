@@ -11,14 +11,30 @@ A cancelled CI job stops reporting mid-run, so without an explicit cancellation 
 ### Usage
 
 {% hint style="info" %}
-The command authenticates with the [record-key.md](../../../guides/record-key.md "mention") the job already uses to report results — no API key is needed. It accepts `--key`, `--project-id` and `--ci-build-id`, or the `CURRENTS_RECORD_KEY`, `CURRENTS_PROJECT_ID` and `CURRENTS_CI_BUILD_ID` environment variables.
+The command authenticates with the [record-key.md](../../../guides/record-key.md "mention") the job already uses to report results — no API key is needed. It accepts `--key`, `--project-id`, `--ci-build-id` and `--run-id`, or the `CURRENTS_RECORD_KEY`, `CURRENTS_PROJECT_ID`, `CURRENTS_CI_BUILD_ID` and `CURRENTS_RUN_ID` environment variables.
 {% endhint %}
 
 ```bash
 npx currents cancel --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id>
 ```
 
-The run is identified by the [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention") it was recorded with, so pass the same value the reporting step used.
+### Identifying the run
+
+Pass either the [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention") the run was recorded with, or the run id:
+
+```bash
+npx currents cancel --key <record-key> --project-id <project-id> --run-id <run-id>
+```
+
+`--run-id` takes precedence when both are set.
+
+Use `--ci-build-id` for cancelling from CI. Set `CURRENTS_CI_BUILD_ID` on the job — for example `${{ github.run_id }}-${{ github.run_attempt }}` — and both the reporting step and the cancelling step read the same variable, so no value has to be passed between them.
+
+Use `--run-id` when you already have the run id: it is the last segment of the run URL, `https://app.currents.dev/run/<run-id>`. This is the option for cancelling a specific run from a script or by hand.
+
+{% hint style="warning" %}
+If the job does not set `CURRENTS_CI_BUILD_ID`, Currents generates a CI build id from the CI environment, and the generated value includes the test framework — for example `pw:owner/repo-16873-1`. A cancelling step that rebuilds the CI build id from environment variables will not produce that string and will report that there is no run to cancel. Set `CURRENTS_CI_BUILD_ID` explicitly on any job you want to cancel from CI.
+{% endhint %}
 
 ### Cancelling from GitHub Actions
 

@@ -20,6 +20,10 @@ Add a step that cancels the run when the job is cancelled:
 
 [`currents cancel`](../../../resources/reporters/currents-cmd/currents-cancel.md) authenticates with the [record-key.md](../../../guides/record-key.md "mention") the job already uses to report results, so no additional secret is needed. It identifies the run by its [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention"), which means the same step works on any CI provider.
 
+{% hint style="warning" %}
+Set `CURRENTS_CI_BUILD_ID` on the job, as the example below does. Without it Currents generates a CI build id that includes the test framework, and the cancelling step cannot reconstruct that value from the environment — it would report that there is no run to cancel.
+{% endhint %}
+
 The [cancel-run-gh-action](https://github.com/currents-dev/cancel-run-gh-action) does the same as a GitHub action and accepts either a record key or an [api-keys.md](../../../dashboard/administration/api-keys.md "mention"):
 
 ```yaml
