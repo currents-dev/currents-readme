@@ -5,7 +5,7 @@ icon: grid
 
 # JUnit
 
-Currents has flagship integrations with various testing frameworks via the dedicated reporters (like Playwright, [jest](../jest/ "mention"), [currents-node-test-reporter](../../../resources/reporters/currents-node-test-reporter/ "mention") and [cypress](../cypress/ "mention")).
+Currents has flagship integrations with various testing frameworks via the dedicated reporters (like Playwright, [jest](../jest/ "mention"), [currents-node-test-reporter](../../../resources/reporters/currents-node-test-reporter/ "mention") and [cypress](../cypress/ "mention")), and framework-specific instructions for [vitest](../vitest/ "mention").
 
 Integration with other frameworks is possible by uploading a JUnit XML (or compatible) test results report to Currents using our CLI utilities from [currents-cmd](../../../resources/reporters/currents-cmd/ "mention") package.
 
@@ -62,7 +62,7 @@ npm i @currents/cmd
 
 Refer to your framework documentation or contact Currents support for help with enabling JUnit reporter for your framework
 
-<table><thead><tr><th width="232">Framework</th><th>Instructions</th></tr></thead><tbody><tr><td>Vitest</td><td><a href="https://vitest.dev/guide/reporters#junit-reporter">https://vitest.dev/guide/reporters#junit-reporter</a></td></tr><tr><td>NodeJS Test Runner</td><td><a href="https://nodejs.org/api/test.html#test-reporters">https://nodejs.org/api/test.html#test-reporters</a></td></tr><tr><td>WebdriverIO</td><td><a href="https://webdriver.io/docs/junit-reporter/">https://webdriver.io/docs/junit-reporter/</a></td></tr><tr><td>Cypress</td><td><a href="https://github.com/michaelleeallen/mocha-junit-reporter">https://github.com/michaelleeallen/mocha-junit-reporter</a></td></tr><tr><td>Postman (Newman)</td><td><a href="https://github.com/postmanlabs/newman?tab=readme-ov-file#junitxml-reporter">https://github.com/postmanlabs/newman?tab=readme-ov-file#junitxml-reporter</a></td></tr></tbody></table>
+<table><thead><tr><th width="232">Framework</th><th>Instructions</th></tr></thead><tbody><tr><td>Vitest</td><td><a href="../vitest/">Vitest</a></td></tr><tr><td>NodeJS Test Runner</td><td><a href="https://nodejs.org/api/test.html#test-reporters">https://nodejs.org/api/test.html#test-reporters</a></td></tr><tr><td>WebdriverIO</td><td><a href="https://webdriver.io/docs/junit-reporter/">https://webdriver.io/docs/junit-reporter/</a></td></tr><tr><td>Cypress</td><td><a href="https://github.com/michaelleeallen/mocha-junit-reporter">https://github.com/michaelleeallen/mocha-junit-reporter</a></td></tr><tr><td>Postman (Newman)</td><td><a href="https://github.com/postmanlabs/newman?tab=readme-ov-file#junitxml-reporter">https://github.com/postmanlabs/newman?tab=readme-ov-file#junitxml-reporter</a></td></tr></tbody></table>
 
 When running the tests, make sure to save the results at a known location - you will need to provide path to the generated files later.
 
