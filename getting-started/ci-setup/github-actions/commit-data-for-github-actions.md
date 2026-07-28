@@ -1,6 +1,5 @@
 ---
 description: How to get correct git commit information when using GitHub Actions
-coverY: 0
 ---
 
 # Commit data for GitHub Actions
