@@ -28,7 +28,7 @@ The Slack App integration provides a rich, feature-complete experience for test 
 * ✅ UI-based mention rules configuration
 * ✅ Improved security with OAuth 2.0
 
-The Slack App also delivers independently configured [Action lifecycle notifications](../../../guides/currents-actions/lifecycle-notifications.md) for actions that are created, disabled, re-enabled, archived, expiring, or expired. Connecting Slack under **Integrations** does not enable these notifications; configure them under **Actions > Settings**.
+The Slack App also delivers independently configured [Action lifecycle notifications](../../../guides/currents-actions/lifecycle-notifications.md) for actions that are created, disabled, re-enabled, archived, expiring, or expired. Connecting Slack under **Integrations** does not enable these notifications; Action notifications are configured under **Actions > Settings**.
 
 ## [Slack Webhook](slack-webhook.md) Integration (Legacy)
 
