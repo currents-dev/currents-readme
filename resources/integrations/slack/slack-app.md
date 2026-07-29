@@ -157,15 +157,17 @@ When **Message Threading** is disabled, each notification is sent as a standalon
 
 ### Run message appearance
 
-Run notifications use Slack **attachment colors** so run state is easy to scan in the channel list:
+Run notifications set the Slack attachment [`color`](https://api.slack.com/reference/messaging/attachments) field (the colored bar beside the message). Only Slack-defined values are valid for `attachments[].color`; do not use display labels such as “Success” or “In progress” as the field value.
 
-| Attachment color | Meaning |
+| Slack `color` value | Run state |
 | --- | --- |
-| **In progress** | The run is still executing |
-| **Success** | The run finished with a passing outcome for the configured notification mode |
-| **Error** | The run finished in a failed or otherwise error state for the configured notification mode |
+| `warning` | The run is still in progress |
+| `good` | The run finished with a passing outcome for the configured notification mode |
+| `danger` | The run finished with a failed or otherwise error outcome for the configured notification mode |
 
-Detailed counts in the threaded **groups** table use the same status colors as other Currents Slack notifications: <mark style="color:green;">green</mark> for passed tests, <mark style="color:red;">red</mark> for failed and skipped tests, grey for ignored tests, and <mark style="color:purple;">purple</mark> for flaky tests.
+A recovery notification after a prior failure uses `good` when the run completes with a passing outcome.
+
+The threaded **groups** table uses separate status styling in the message body (not the attachment `color` field): <mark style="color:green;">green</mark> for passed tests, <mark style="color:red;">red</mark> for failed and skipped tests, grey for ignored tests, and <mark style="color:purple;">purple</mark> for flaky tests.
 
 ### Results table updates during a run
 
