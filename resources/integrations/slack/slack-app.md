@@ -155,6 +155,22 @@ This keeps your Slack channels organized and prevents notification overload.
 
 When **Message Threading** is disabled, each notification is sent as a standalone message in the channel.
 
+### Run message appearance
+
+Run notifications use Slack **attachment colors** so run state is easy to scan in the channel list:
+
+| Attachment color | Meaning |
+| --- | --- |
+| **In progress** | The run is still executing |
+| **Success** | The run finished with a passing outcome for the configured notification mode |
+| **Error** | The run finished in a failed or otherwise error state for the configured notification mode |
+
+Detailed counts in the threaded **groups** table use the same status colors as other Currents Slack notifications: <mark style="color:green;">green</mark> for passed tests, <mark style="color:red;">red</mark> for failed and skipped tests, grey for ignored tests, and <mark style="color:purple;">purple</mark> for flaky tests.
+
+### Results table updates during a run
+
+When **Message Threading** is enabled, Currents posts a main thread for the run and **updates the groups table on that thread** as groups finish while the run is still in progress. Teams see partial group results without waiting for every group to complete first.
+
 ### Notification Modes
 
 Configure when run notifications are sent:
@@ -164,7 +180,9 @@ Configure when run notifications are sent:
 | **Always send**         | Send notifications for every run, regardless of outcome |
 | **Only when there are failures** | Send notifications only when there are failed tests |
 | **Only when there are failed or flaky tests** | Send notifications when failed or flaky tests are detected |
-| **Only when all tests are passing** | Send notifications only when all tests pass |
+| **Only when all tests are passing** | Send notifications only when all tests pass (passing-only run outcome) |
+
+When **Only when there are failures** is selected, the platform can also send a **recovery** notification: if a run already triggered a failure notification for that destination, a later completion with a passing outcome can post a success update so the channel shows when the pipeline is green again.
 
 ### Additional Run Events
 
@@ -393,4 +411,4 @@ Yes, both methods work together. Annotation-based mentions take precedence and a
 
 ### What happens when a run has multiple groups?
 
-By default, notifications are sent when all groups complete. You may still receive multiple notifications if one group finishes before others are discovered. For example, if one group completes before other groups are known, an early notification may be sent.
+With **Message Threading** enabled, Currents keeps one run thread per destination and updates the **groups** table on that thread as groups complete during the run. Individual test failures and run-result replies stay in the same thread instead of filling the channel with separate run summaries for each group.
