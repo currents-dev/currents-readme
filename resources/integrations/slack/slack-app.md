@@ -364,6 +364,47 @@ Both [Annotation-Based Mentions](#annotation-based-mentions) and [UI-Based Menti
 **Finding Slack IDs:** See [Slack's documentation](https://slack.com/help/articles/360057541954-Get-user-and-group-IDs) for instructions on finding user and group IDs.
 {% endhint %}
 
+## Automated Reports to Slack
+
+Scheduled [Automated Reports](../../../dashboard/automated-reports.md) can be delivered to Slack channels through the **Currents Slack App**, in addition to email. Delivery uses the same report definition (schedule, lookback period, and tag, author, and branch filters) as email; only the destination changes.
+
+Automated report messages are separate from [run notifications](#run-notifications) and [individual test notifications](#individual-test-notifications). Report Slack settings are configured on each report in the **Reports** section of the project, not under **Project Settings > Integrations > Slack** destinations.
+
+### Prerequisites
+
+Before a report can post to Slack:
+
+1. The organization must [connect the Slack App](#connecting-slack-to-your-organization) with a user who has the required Slack administrator role (see [Requirements and permissions](#requirements-and-permissions)).
+2. The Currents app must be allowed to post in the target channel. For **private channels**, the app must be invited to the channel before delivery succeeds (see [Public and Private Channels](#public-and-private-channels)).
+
+{% hint style="info" %}
+Native Slack App delivery for automated reports is available on Currents cloud. It does not replace per-project Incoming Webhook integrations or on-premises report configuration.
+{% endhint %}
+
+### Configuring Slack delivery for a report
+
+1. Open the project **Reports** section and create or edit a report (see [Managing Automated Reports](../../../dashboard/automated-reports.md#managing-automated-reports)).
+2. Enable the report and configure label, filters, lookback period, and schedule as for email delivery.
+3. In the report's **Slack** settings, enable **Send to Slack**.
+4. Select one or more Slack channels for the report. The channel picker lists channels visible to the Currents Slack App in the connected workspace. If a channel does not appear, use **Manual Input** and enter the channel ID and name (same approach as [notification destinations](#notification-destinations)).
+5. Optionally keep **email recipients** configured so the same report is sent to both email and Slack.
+6. Save the report and use **Preview** to validate settings before the next scheduled send.
+
+### What appears in Slack
+
+When a scheduled report runs, Currents posts a **Block Kit** message to each configured channel. The message summarizes the same performance insights as the email report (runs, tests, specs, and trend highlights for the selected period) and includes links to open the full report and related views in the Currents dashboard.
+
+Slack messages are optimized for channel reading; they do not duplicate the full HTML email layout. Teams that need the complete email formatting can continue to use email recipients, or the [email-to-Slack forwarding](../../../dashboard/automated-reports.md#forward-automated-reports-email-to-slack) workaround described in the Automated Reports documentation.
+
+### Troubleshooting report delivery
+
+| Symptom | What to check |
+| --- | --- |
+| No Slack message at the scheduled time | Report **Enable/Disable** is on; **Send to Slack** is enabled; at least one channel is selected; schedule and timezone are correct |
+| Email arrives but Slack does not | Slack-specific settings on the report; organization [installation status](#installation-status-and-recovery) (`Credentials expired`, `Installation archived`, and similar) |
+| Slack API errors for a channel | App membership in the channel (especially private channels); channel ID when using manual entry |
+| Run notifications work but reports do not | Reports use per-report Slack settings on the **Reports** page, not integration **destinations** |
+
 ## Disabling Slack Integration
 
 ### Disable for a Project

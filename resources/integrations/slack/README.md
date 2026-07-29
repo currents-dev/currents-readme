@@ -28,13 +28,12 @@ The Slack App integration provides a rich, feature-complete experience for test 
 * ✅ Advanced filtering by tags, branches, and commit messages
 * ✅ Annotation-based mentions (users, groups, emails)
 * ✅ UI-based mention rules configuration
+* ✅ Scheduled [Automated Reports](../../../dashboard/automated-reports.md) to Slack channels (Block Kit summaries with dashboard links)
 * ✅ Improved security with OAuth 2.0
 
 The Slack App also delivers independently configured [Action lifecycle notifications](../../../guides/currents-actions/lifecycle-notifications.md) for actions that are created, disabled, re-enabled, archived, expiring, or expired. Connecting Slack under **Integrations** does not enable these notifications; Action notifications are configured under **Actions > Settings**.
 
-{% hint style="info" %}
-**Automated reports:** Scheduled automated reports to Slack ([ENG-179](https://linear.app/currents-dev/issue/ENG-179)) are still in development and are not documented here yet.
-{% endhint %}
+Scheduled automated reports are configured per report on the project **Reports** page; see [Automated Reports to Slack](slack-app.md#automated-reports-to-slack).
 
 ## [Slack Webhook](slack-webhook.md) Integration (Legacy)
 

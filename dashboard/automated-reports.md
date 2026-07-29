@@ -68,7 +68,26 @@ Configure the settings and enable the automated report:
 
 9. Use **Preview** to examine and change the report settings.
 
+### Send automated reports to Slack (Slack App)
+
+Projects with the [Slack App](../resources/integrations/slack/slack-app.md) connected at the organization level can deliver the same scheduled report to Slack channels.
+
+On the report customization page:
+
+1. Enable the report and configure label, filters, lookback period, and schedule as for email.
+2. In the report **Slack** settings, enable **Send to Slack**.
+3. Select the Slack channel or channels that should receive the report. The Currents app must be able to post in each channel (invite the app to private channels if needed).
+4. Save the report. Email recipients and Slack channels can be used together or independently.
+
+At the scheduled time, Currents posts a Block Kit summary to each selected channel, with links to the full report in the dashboard. Message content matches the report’s filters and period; it is a channel-friendly summary rather than a copy of the HTML email.
+
+For prerequisites, channel selection, and troubleshooting, see [Automated Reports to Slack](../resources/integrations/slack/slack-app.md#automated-reports-to-slack).
+
 ### Forward automated reports email to Slack
+
+{% hint style="info" %}
+**Recommendation:** When the organization uses the Currents Slack App, prefer [native Slack delivery](#send-automated-reports-to-slack-slack-app) on the report instead of forwarding email. Native delivery posts structured Block Kit messages and does not depend on Slack inbound email addresses.
+{% endhint %}
 
 Slack currently allows receiving emails in a Slack channel or private message.
 
