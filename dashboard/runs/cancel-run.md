@@ -96,7 +96,7 @@ The associated Currents run will be cancelled with the corresponding notes:
 
 <figure><img src="../../.gitbook/assets/currents-2023-07-04-14.18.17@2x.png" alt=""><figcaption></figcaption></figure>
 
-#### Cancelling with an API key
+### Cancelling with an API key
 
 The action also accepts an [api-keys.md](../administration/api-keys.md "mention") instead of a record key. It then identifies the run by the GitHub run id and attempt recorded on it, so no other input is needed:
 
