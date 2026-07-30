@@ -8,6 +8,8 @@ description: Learn how to cancel a run from CI using the currents cancel CLI com
 
 A cancelled CI job stops reporting mid-run, so without an explicit cancellation the run stays in progress until it hits the project's [run-timeouts.md](../../../dashboard/runs/run-timeouts.md "mention").
 
+The command is available from `@currents/cmd` 1.10.0. `npx currents` resolves the latest version, so no change is needed unless the version is pinned.
+
 ### Usage
 
 {% hint style="info" %}
