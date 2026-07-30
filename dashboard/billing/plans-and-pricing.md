@@ -26,11 +26,11 @@ Skipped[^2] recordings do not count for billing purpose. Number of attempts or t
 
 #### Team Members
 
-Every non-guest account associated with your organization is considered a team member for billing purposes. Each plan has a predetermined limit of seats (Team Members). You can purchase additional seats, up to 30 seats total, using [usage-and-spend-control.md](usage-and-spend-control.md "mention") section.
+Every non-guest account associated with your organization is a team member for billing purposes. Scale and Business plans include up to 50 team members.
 
-[Guest accounts](administration/manage-team.md) do not count toward the organization limit and can be invited without limits.&#x20;
+[Guest accounts](administration/manage-team.md) are read-only. They do not count toward your limit and are free and unlimited.
 
-If you need more seats please contact us at [hello@currents.dev](mailto:hello@currents.dev).
+Enterprise plans support custom seat arrangements.
 
 ## Usage Estimation
 
@@ -42,41 +42,43 @@ To have a more accurate estimation, create a free trial account and start sendin
 
 ## Subscription Types
 
+### Plans
+
+Currents offers three plan types:
+
+* **Scale** provides the core product through self-service. It supports tiers from 10K to 500K test recordings per month.
+* **Business** provides self-service access to enterprise features, including SSO and SCIM.
+* **Enterprise** provides custom contracts, dedicated Slack support, and other custom arrangements.
+
 ### Monthly Subscriptions
 
-You pay a monthly fee for the selected plan. For example consider a 10K plan that costs $49:
+You pay a monthly fee for the selected plan. Your plan includes a monthly test recording allowance.
 
-* we charge a $49 prepayment for the first 10K test recordings;
-* we charge an Extra Usage fee for every additional 1K tests (or portion of it) at the end of usage cycle.
+If you exceed that allowance, the extra usage has the same per-test rate as your plan. You can control extra usage limits, see more at [usage-and-spend-control.md](usage-and-spend-control.md "mention")
 
 The usage cycle resets each month when you renew the subscription.
 
+{% hint style="info" %}
+Higher tiers provide a lower per-test rate through volume discounts.
+{% endhint %}
+
 ### **Annual Subscriptions**
 
-You pay an annual fee (with a discount) for the selected plan. For example consider a 10K plan that costs $539/year:
+You pay an annual fee for the selected plan and receive a big discount, equivalent to two months free.
 
-* we charge a $539 prepayment for the 10K test recordings available each month;
-* if you record more than 10K test recordings in any month, we will charge the Extra Usage fee for every additional 1K tests (or portion of it) at the end of usage cycle.
+Your annual allowance is pooled across the year. For example, the 10K tier on a yearly plan includes 120K test recordings for the year.
 
-The usage cycle resets each month on the day of subscription creation.
+This lets you use more recordings during busy months and fewer during quieter months. Extra usage applies only after you use the annual allowance.
 
-### Extra Seats
-
-Each plan has a predetermined limit of seats (Team Members). You can purchase additional seats, up to 30 seats total, using [usage-and-spend-control.md](usage-and-spend-control.md "mention") section.
-
-If you need more seats please contact us at [hello@currents.dev](mailto:hello@currents.dev).
+The usage cycle resets each year on the day of subscription creation.
 
 ### Extra Usage
 
-We will charge the Extra Usage fee for every additional 1K tests (or portion of it) at the end of usage cycle. The price for the extra usage unit depends on the plan and varies.
+Extra usage is billed at the same per-test rate as your selected plan. It does not carry a higher rate.
 
-When your organization start incurring Extra Usage fee Currents sends a period email notification to organization owners with an alert. Additionally, you can set up usage warning in [usage-and-spend-control.md](usage-and-spend-control.md "mention") section of the dashboard.
+When your organization starts incurring extra usage, Currents sends a periodic alert to organization owners. You can also configure usage warnings in the [usage-and-spend-control.md](usage-and-spend-control.md "mention") dashboard section.
 
-Depending on the Usage and Billing Cycle (see below) and payment method, we will charge the fee on Monthly, Quarterly or Annual Basis.
-
-{% hint style="info" %}
-We recommend switching to a higher-tier plan to avoid incurring extra usage fees.
-{% endhint %}
+You can upgrade mid-cycle if you consistently exceed your allowance. Extra usage is recalculated against the new tier's limit and rate, allowing you to pay less.
 
 ### Capping Extra Usage
 
@@ -100,7 +102,7 @@ When the cap is reached, your CI pipelines and test runners continue running, bu
 
 ## Enterprise Plans
 
-Enterprise Plans allows customizing the terms and cadence of billing and usage cycle, in addition to premium support, unlimited seats and other contract customizations.
+Enterprise plans support custom contracts, dedicated Slack support, and custom billing, usage, and seat arrangements.
 
 ### Usage Cycle vs Billing Cycle
 
@@ -135,20 +137,36 @@ Skipped[^2] recordings do not count for billing purpose, we only count **passed 
 
 #### What happens if I exceed the plan limits?
 
-We will charge a small amount of Extra Usage fees for every 1K extra recording or portion of it. The exact amount depends on your plan and varies.
+Extra usage is billed at the same per-test rate as your plan. You can upgrade mid-cycle to apply a higher tier's allowance and rate immediately.
 
 #### Are there limits on the number of team members I can have? <a href="#are-there-limits-on-the-number-of-team-members-i-can-have-3f" id="are-there-limits-on-the-number-of-team-members-i-can-have-3f"></a>
 
-No limit for [guest accounts](administration/manage-team.md).&#x20;
+Read-only [guest accounts](administration/manage-team.md) are free and unlimited.
 
-Up to 30 team members for non-enterprise plans. No limit for enterprise plans.&#x20;
-
-If you need more seats please contact us at [hello@currents.dev](mailto:hello@currents.dev).
+Scale and Business plans include up to 50 team members. Enterprise plans support custom seat arrangements.
 
 ### What kind of support is included in each tier? <a href="#what-kind-of-support-is-included-in-each-tier-3f" id="what-kind-of-support-is-included-in-each-tier-3f"></a>
 
 * Non-enterprise plans: email + in-app chat during business hours
 * Enterprise plans: 24/7 support, direct access to Slack and the product-engineering team
+
+### Is there a free plan?
+
+Currents doesn't have a free plan.
+
+### How do upgrades work?
+
+When upgrading your plan, the change will be effective immediately and you'll be billed a prorated amount by Stripe.
+
+We consider an upgrade any move from monthly to yearly plans, or any move where the spend is higher. The proration will fully refund the amount charged for your previous plan, and charge the full amount of the new plan. We don't do time-based proration as our pricing is based on usage. &#x20;
+
+### How do downgrades work?
+
+When downgrading your plan. the change is not effective immediately. Downgrades are scheduled to happen at the end of your billing cycle. You can cancel a scheduled downgrade anytime before it's effective.&#x20;
+
+We consider a downgrade any move from yearly to monthly plans, or any move where the spend is lower. There's no proration on downgrades, as they happen after you fully utilize your current plan.&#x20;
+
+If you have specifics needs to change your plan immediately to something our system considers a downgrade, please reach out to us to discuss your options.
 
 ### Is there a free plan?
 
@@ -166,10 +184,10 @@ No, we don't. We periodically delete the data according to [data-retention.md](.
 
 Yes, all of our plans have an embedded volume discount - the more you use the lower is the price per unit. For example:
 
-* 10K plan PPU is $4.9 / 1K
-* 150K plan PPU is $3.32 / 1K
+* 120K Scale (yearly) PPU is $4.08 / 1K
+* 6M Scale (yearly) PPU is $1.65 / 1K
 
-Our custom plan have similar structure but are adjusted per-customer.
+Our custom plans have similar structure but are adjusted per-customer.
 
 ### Are there discounts for annual or multi-year commitments? <a href="#are-there-discounts-for-annual-or-multi-year-commitments-3f" id="are-there-discounts-for-annual-or-multi-year-commitments-3f"></a>
 
