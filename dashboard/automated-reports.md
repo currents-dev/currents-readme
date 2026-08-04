@@ -76,8 +76,8 @@ On the report customization page:
 
 1. Enable the report and configure label, filters, lookback period, and schedule as for email.
 2. In the report **Slack** settings, enable **Send to Slack**.
-3. Select the Slack channel or channels that should receive the report. The Currents app must be able to post in each channel (invite the app to private channels if needed).
-4. Save the report. Email recipients and Slack channels can be used together or independently.
+3. Select the Slack channel that should receive the report. The Currents app must be able to post in the channel (invite the app to private channels if needed).
+4. Save the report. Email recipients and a Slack channel can be used together or independently.
 
 At the scheduled time, Currents posts a Block Kit summary to each selected channel, with links to the full report in the dashboard. Message content matches the report’s filters and period; it is a channel-friendly summary rather than a copy of the HTML email.
 
