@@ -79,7 +79,20 @@ On the report customization page:
 3. Select the Slack channel that should receive the report. The Currents app must be able to post in the channel (invite the app to private channels if needed).
 4. Save the report. Email recipients and a Slack channel can be used together or independently.
 
-At the scheduled time, Currents posts a Block Kit summary to the selected channel. The message includes the report title and period, a link to change report settings, headline metrics (runs, tests, test success rate, flakiness rate, and average run duration), trend comparisons versus the previous period, and action buttons for Runs, Test results, Tests, Specs, and Errors. It is a channel-friendly summary rather than a copy of the full HTML email.
+At the scheduled time, Currents posts a Block Kit summary to the selected channel. The notification is a channel-friendly summary rather than a copy of the full HTML email.
+
+<figure><img src="../.gitbook/assets/automated-report-slack-notification.png" alt="Slack automated report notification showing headline metrics and dashboard links"><figcaption><p>Slack automated report notification</p></figcaption></figure>
+
+Each message includes:
+
+* **Header** — report title (for example, `📊 Weekly update for General testing`), project name, reporting period date range, and a **Change report settings** link.
+* **Headline metrics** — a 2×2 grid with:
+  * **Runs** — total runs and run success rate
+  * **Tests** — total tests and flakiness rate
+  * **Test success rate** — overall pass rate for the period
+  * **Avg run duration** — average time per run
+* **Trend comparison** — changes versus the previous lookback period (for example, test success rate and average run duration), with up/down indicators.
+* **Action buttons** — quick links to open the related views in the Currents dashboard: **Runs**, **Test results**, **Tests**, **Specs**, and **Errors**.
 
 For prerequisites, channel selection, and troubleshooting, see [Automated Reports to Slack](../resources/integrations/slack/slack-app.md#automated-reports-to-slack).
 
