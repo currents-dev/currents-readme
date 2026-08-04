@@ -52,7 +52,7 @@ If you click **Show Usage Details**, you can see a breakdown of all recorded tes
 
 #### Usage cycle types
 
-* **Team Plans:** The usage cycle is **monthly**.
+* **Scale /** **Business Plans:** The usage cycle follows the billing cycle chosen. Monthly plans will have monthly usage cycle, while annual plans (discounted at 20%) will have annual usage cycles.
 * **Enterprise Plans:** An **annual usage cycle** is available, with monthly cycle is also supported.\
   The annual cycle is recommended for teams with **seasonal usage patterns** or **peaks in usage** during certain times of the year.
 
@@ -70,7 +70,7 @@ At the end of the monthly cycle, the billing will include the additional usage r
 
 The cost for extra recordings ranges and depends on your plan. For detailed pricing information, please check our [**pricing page**](https://currents.dev/#pricing). If you have any questions or concerns, please don't hesitate to contact us via _support@currents.dev_ or our in-app support chat.
 
-To limit how much extra usage can accrue, see [Usage Alerts and Spend Control](#usage-alerts-and-spend-control) below.
+To limit how much extra usage can accrue, see [Usage Alerts and Spend Control](usage-and-spend-control.md#usage-alerts-and-spend-control) below.
 
 ### Usage Alerts and Spend Control
 
