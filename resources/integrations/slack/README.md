@@ -23,7 +23,7 @@ The Slack App integration provides a rich, feature-complete experience for test 
 * ✅ Run-level notifications with thread-based grouping
 * ✅ Individual failed or flaky test notifications
 * ✅ Fix with AI from failed-test messages
-* ✅ Run attachment colors for in-progress, success, and error states
+* ✅ Run attachment colors for in-progress, success, error, and timed-out states
 * ✅ Live updates to the groups table on threaded run notifications
 * ✅ Advanced filtering by tags, branches, and commit messages
 * ✅ Annotation-based mentions (users, groups, emails)
