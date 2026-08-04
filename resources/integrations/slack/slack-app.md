@@ -157,15 +157,15 @@ When **Message Threading** is disabled, each notification is sent as a standalon
 
 ### Run message appearance
 
-Run notifications set the Slack attachment [`color`](https://api.slack.com/reference/messaging/attachments) field (the colored bar beside the message).
+Run notifications include a colored bar beside the message that reflects the run state:
 
-| Slack `color` value | Run state |
+| Color | Run state |
 | --- | --- |
-| `warning` | The run is still in progress |
-| `good` | The run finished with a passing outcome for the configured notification mode |
-| `danger` | The run finished with a failed or otherwise error outcome for the configured notification mode |
+| Yellow | The run is still in progress |
+| Green | The run finished with a passing outcome for the configured notification mode |
+| Red | The run finished with a failed, timed-out, or otherwise error outcome for the configured notification mode |
 
-A recovery notification after a prior failure uses `good` when the run completes with a passing outcome.
+A recovery notification after a prior failure shows green when the run completes with a passing outcome.
 
 The threaded **groups** table uses separate status styling in the message body (not the attachment `color` field): <mark style="color:green;">green</mark> for passed tests, <mark style="color:red;">red</mark> for failed and skipped tests, grey for ignored tests, and <mark style="color:purple;">purple</mark> for flaky tests.
 
