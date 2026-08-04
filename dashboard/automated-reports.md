@@ -79,7 +79,7 @@ On the report customization page:
 3. Select the Slack channel that should receive the report. The Currents app must be able to post in the channel (invite the app to private channels if needed).
 4. Save the report. Email recipients and a Slack channel can be used together or independently.
 
-At the scheduled time, Currents posts a Block Kit summary to each selected channel, with links to the full report in the dashboard. Message content matches the report’s filters and period; it is a channel-friendly summary rather than a copy of the HTML email.
+At the scheduled time, Currents posts a Block Kit summary to the selected channel. The message includes the report title and period, a link to change report settings, headline metrics (runs, tests, test success rate, flakiness rate, and average run duration), trend comparisons versus the previous period, and action buttons for Runs, Test results, Tests, Specs, and Errors. It is a channel-friendly summary rather than a copy of the full HTML email.
 
 For prerequisites, channel selection, and troubleshooting, see [Automated Reports to Slack](../resources/integrations/slack/slack-app.md#automated-reports-to-slack).
 
