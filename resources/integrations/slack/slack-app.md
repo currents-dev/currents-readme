@@ -157,7 +157,7 @@ When **Message Threading** is disabled, each notification is sent as a standalon
 
 ### Run message appearance
 
-Run notifications set the Slack attachment [`color`](https://api.slack.com/reference/messaging/attachments) field (the colored bar beside the message). Only Slack-defined values are valid for `attachments[].color`; do not use display labels such as “Success” or “In progress” as the field value.
+Run notifications set the Slack attachment [`color`](https://api.slack.com/reference/messaging/attachments) field (the colored bar beside the message).
 
 | Slack `color` value | Run state |
 | --- | --- |
