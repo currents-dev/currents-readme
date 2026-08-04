@@ -85,10 +85,6 @@ For prerequisites, channel selection, and troubleshooting, see [Automated Report
 
 ### Forward automated reports email to Slack
 
-{% hint style="info" %}
-**Recommendation:** When the organization uses the Currents Slack App, prefer [native Slack delivery](#send-automated-reports-to-slack-slack-app) on the report instead of forwarding email. Native delivery posts structured Block Kit messages and does not depend on Slack inbound email addresses.
-{% endhint %}
-
 Slack currently allows receiving emails in a Slack channel or private message.
 
 Slack generates an email where the automated reports will be sent and that must be registered in the dashboard. Slack then receives the email and forwards the email to the previously setup channel.
