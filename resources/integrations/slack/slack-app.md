@@ -377,10 +377,6 @@ Before a report can post to Slack:
 1. The organization must [connect the Slack App](#connecting-slack-to-your-organization) with a user who has the required Slack administrator role (see [Requirements and permissions](#requirements-and-permissions)).
 2. The Currents app must be allowed to post in the target channel. For **private channels**, the app must be invited to the channel before delivery succeeds (see [Public and Private Channels](#public-and-private-channels)).
 
-{% hint style="info" %}
-Native Slack App delivery for automated reports is available on Currents cloud. It does not replace per-project Incoming Webhook integrations or on-premises report configuration.
-{% endhint %}
-
 ### Configuring Slack delivery for a report
 
 1. Open the project **Reports** section and create or edit a report (see [Managing Automated Reports](../../../dashboard/automated-reports.md#managing-automated-reports)).
