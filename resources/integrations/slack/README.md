@@ -1,18 +1,17 @@
 ---
 description: >-
-  Integrating Slack with Currents dashboard for Playwright and Cypress test
-  notifications
+  Integrating Slack with Currents dashboard for test notifications
 icon: slack
 ---
 
 # Slack
 
-Currents integration with Slack allows posting test results of your Playwright or Cypress tests directly into Slack channels, helping your team stay informed about test outcomes without leaving Slack.
+Currents integration with Slack allows posting test results directly into Slack channels, helping teams stay informed about test outcomes without leaving Slack.
 
 There are two versions of Slack integration available:
 
 {% hint style="info" %}
-**Recommendation:** We recommend using the Slack App integration due to its advanced features and improved security model.
+**Recommendation:** Currents recommends using the Slack App integration due to its advanced features and improved security model.
 {% endhint %}
 
 ## [Slack App](slack-app.md) Integration (Recommended)
@@ -20,13 +19,21 @@ There are two versions of Slack integration available:
 The Slack App integration provides a rich, feature-complete experience for test notifications:
 
 * ✅ Organization-level installation with per-project configuration
-* ✅ Multiple destinations (up to 10 channels per project)
+* ✅ Multiple destinations (the dashboard shows the organization's limit; the default is 10)
 * ✅ Run-level notifications with thread-based grouping
-* ✅ Individual test failure notifications
+* ✅ Individual failed or flaky test notifications
+* ✅ Fix with AI from failed-test messages
+* ✅ Run attachment colors for in-progress, timed-out, success, error, and cancelled states
+* ✅ Live updates to the groups table on threaded run notifications
 * ✅ Advanced filtering by tags, branches, and commit messages
 * ✅ Annotation-based mentions (users, groups, emails)
 * ✅ UI-based mention rules configuration
+* ✅ Scheduled [Automated Reports](../../../dashboard/automated-reports.md) to a Slack channel (Block Kit summaries with dashboard links)
 * ✅ Improved security with OAuth 2.0
+
+The Slack App also delivers independently configured [Action lifecycle notifications](../../../guides/currents-actions/lifecycle-notifications.md) for actions that are created, disabled, re-enabled, archived, expiring, or expired. Connecting Slack under **Integrations** does not enable these notifications; Action notifications are configured under **Actions > Settings**.
+
+Scheduled automated reports are configured per report on the project **Reports** page; see [Automated Reports to Slack](slack-app.md#automated-reports-to-slack).
 
 ## [Slack Webhook](slack-webhook.md) Integration (Legacy)
 

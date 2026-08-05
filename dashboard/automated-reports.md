@@ -68,13 +68,18 @@ Configure the settings and enable the automated report:
 
 9. Use **Preview** to examine and change the report settings.
 
-### Forward automated reports email to Slack
+### Send automated reports to Slack
 
-Slack currently allows receiving emails in a Slack channel or private message.
+Projects with the [Slack App](../resources/integrations/slack/slack-app.md) connected at the organization level can deliver the same scheduled report to a Slack channel.
 
-Slack generates an email where the automated reports will be sent and that must be registered in the dashboard. Slack then receives the email and forwards the email to the previously setup channel.
+On the report customization page:
 
-Check the [Slack documentation](https://slack.com/help/articles/206819278-Send-emails-to-Slack) for more information and detailed steps.
+1. Enable the report and configure label, filters, lookback period, and schedule as for email.
+2. In the **Slack** setting, enable **Send to Slack**.
+3. Select the Slack channel that should receive the report.
+4. Save the report. Email recipients and a Slack channel can be used together or independently.
+
+At the scheduled time, Currents posts a summary to the selected channel. For details on the message format, prerequisites, channel selection, and troubleshooting, see [Automated Reports to Slack](../resources/integrations/slack/slack-app.md#automated-reports-to-slack).
 
 ### Report Structure
 
