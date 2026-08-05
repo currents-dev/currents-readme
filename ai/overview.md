@@ -87,7 +87,7 @@ This is the bridge from investigation to action: whoever is looking at the faili
 
 ### Fix with AI from Slack
 
-Failed-test notifications from the [Slack App](../resources/integrations/slack/slack-app.md#fix-with-ai) include a **Fix with AI** button. This sends the failed test context to Cursor, GitHub Copilot, Claude, Codex, Zed, Conductor, and other AI agents. Anyone monitoring a team channel can route a failure to an agent without opening the Currents dashboard.
+Failed-test notifications from the [Slack App](../resources/integrations/slack/slack-app.md#fix-with-ai) include a **Fix with AI** button. You can send the failed test context to Cursor, GitHub Copilot, Claude Code, Codex, Zed, Conductor, and other AI agents - routing a failure to an agent from a team channel without opening the Currents dashboard.
 
 ### Playwright Skill
 

@@ -271,7 +271,7 @@ Messages display up to five test results. When more tests require attention, the
 Failed-test messages include a **Fix with AI** button. Clicking it presents options to:
 
 - Open the failure context directly in Cursor or GitHub Copilot
-- Copy a prompt for Claude, Codex, Zed, Conductor, or another AI tool
+- Copy a prompt for Claude Code, Codex, Zed, Conductor, or another AI tool
 - Install the [Currents MCP server](../../../ai/mcp-server.md) so an agent can retrieve additional test and run context
 
 See [AI-powered test troubleshooting](../../../ai/overview.md) for other Fix with AI entry points.
