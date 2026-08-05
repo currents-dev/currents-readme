@@ -79,7 +79,7 @@ On the report customization page:
 3. Select the Slack channel that should receive the report.
 4. Save the report. Email recipients and a Slack channel can be used together or independently.
 
-At the scheduled time, Currents posts a Block Kit summary to the selected channel. For details on the message format, prerequisites, channel selection, and troubleshooting, see [Automated Reports to Slack](../resources/integrations/slack/slack-app.md#automated-reports-to-slack).
+At the scheduled time, Currents posts a summary to the selected channel. For details on the message format, prerequisites, channel selection, and troubleshooting, see [Automated Reports to Slack](../resources/integrations/slack/slack-app.md#automated-reports-to-slack).
 
 ### Report Structure
 
