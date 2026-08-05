@@ -68,41 +68,18 @@ Configure the settings and enable the automated report:
 
 9. Use **Preview** to examine and change the report settings.
 
-### Send automated reports to Slack (Slack App)
+### Send automated reports to Slack
 
-Projects with the [Slack App](../resources/integrations/slack/slack-app.md) connected at the organization level can deliver the same scheduled report to Slack channels.
+Projects with the [Slack App](../resources/integrations/slack/slack-app.md) connected at the organization level can deliver the same scheduled report to a Slack channel.
 
 On the report customization page:
 
 1. Enable the report and configure label, filters, lookback period, and schedule as for email.
-2. In the report **Slack** settings, enable **Send to Slack**.
-3. Select the Slack channel that should receive the report. The Currents app must be able to post in the channel (invite the app to private channels if needed).
+2. In the **Slack** setting, enable **Send to Slack**.
+3. Select the Slack channel that should receive the report.
 4. Save the report. Email recipients and a Slack channel can be used together or independently.
 
-At the scheduled time, Currents posts a Block Kit summary to the selected channel. The notification is a channel-friendly summary rather than a copy of the full HTML email.
-
-<figure><img src="../.gitbook/assets/automated-report-slack-notification.png" alt="Slack automated report notification showing headline metrics and dashboard links"><figcaption><p>Slack automated report notification</p></figcaption></figure>
-
-Each message includes:
-
-* **Header** — report title (for example, `📊 Weekly update for General testing`), project name, reporting period date range, and a **Change report settings** link.
-* **Headline metrics** — a 2×2 grid with:
-  * **Runs** — total runs and run success rate
-  * **Tests** — total tests and flakiness rate
-  * **Test success rate** — overall pass rate for the period
-  * **Avg run duration** — average time per run
-* **Trend comparison** — changes versus the previous lookback period (for example, test success rate and average run duration), with up/down indicators.
-* **Action buttons** — quick links to open the related views in the Currents dashboard: **Runs**, **Test results**, **Tests**, **Specs**, and **Errors**.
-
-For prerequisites, channel selection, and troubleshooting, see [Automated Reports to Slack](../resources/integrations/slack/slack-app.md#automated-reports-to-slack).
-
-### Forward automated reports email to Slack
-
-Slack currently allows receiving emails in a Slack channel or private message.
-
-Slack generates an email where the automated reports will be sent and that must be registered in the dashboard. Slack then receives the email and forwards the email to the previously setup channel.
-
-Check the [Slack documentation](https://slack.com/help/articles/206819278-Send-emails-to-Slack) for more information and detailed steps.
+At the scheduled time, Currents posts a Block Kit summary to the selected channel. For details on the message format, prerequisites, channel selection, and troubleshooting, see [Automated Reports to Slack](../resources/integrations/slack/slack-app.md#automated-reports-to-slack).
 
 ### Report Structure
 

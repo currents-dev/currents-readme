@@ -33,7 +33,7 @@ Every entry point below delivers this same context - they differ in where you ar
 | [MCP Server](mcp-server.md)                                  | Any MCP-capable agent             | Agents querying runs, tests, and analytics on demand; autonomous troubleshooting |
 | [IDE Extension](ide-extension.md)                            | VS Code, Cursor, compatible forks | Debugging CI failures without leaving the editor                                 |
 | [Fix with AI](overview.md#fix-with-ai-from-the-dashboard)    | Currents dashboard                | Handing a failure to an agent while triaging a run                               |
-| [Slack Fix with AI](../resources/integrations/slack/slack-app.md#fix-with-ai) | Slack | Handing a failed-test notification to an agent from a team channel |
+| [Slack Fix with AI](../resources/integrations/slack/slack-app.md#fix-with-ai) | Slack | Handing a failed-test notification to an agent from a channel |
 | [Playwright Skill](agent-skill-playwright-best-practices.md) | Claude Code, Cursor, other agents | Teaching agents how to write and fix Playwright tests correctly                  |
 | [n8n](../resources/integrations/n8n.md)                      | n8n workflows                     | Automated triage, notifications, and agent pipelines without code                |
 
@@ -87,7 +87,7 @@ This is the bridge from investigation to action: whoever is looking at the faili
 
 ### Fix with AI from Slack
 
-Failed-test notifications from the [Slack App](../resources/integrations/slack/slack-app.md#fix-with-ai) include a **Fix with AI** button. Clicking it opens options to route the failure to Cursor or GitHub Copilot, copy a prompt for Claude, Codex, Zed, Conductor, and other tools, or open the Currents MCP installation. This lets anyone monitoring a team channel route a failure to an agent without first opening the Currents dashboard.
+Failed-test notifications from the [Slack App](../resources/integrations/slack/slack-app.md#fix-with-ai) include a **Fix with AI** button. This sends the failed test context to Cursor, GitHub Copilot, Claude, Codex, Zed, Conductor, and other AI agents. Anyone monitoring a team channel can route a failure to an agent without opening the Currents dashboard.
 
 ### Playwright Skill
 

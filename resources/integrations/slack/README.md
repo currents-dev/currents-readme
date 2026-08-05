@@ -23,12 +23,12 @@ The Slack App integration provides a rich, feature-complete experience for test 
 * ✅ Run-level notifications with thread-based grouping
 * ✅ Individual failed or flaky test notifications
 * ✅ Fix with AI from failed-test messages
-* ✅ Run attachment colors for in-progress, success, error, and timed-out states
+* ✅ Run attachment colors for in-progress, timed-out, success, error, and cancelled states
 * ✅ Live updates to the groups table on threaded run notifications
 * ✅ Advanced filtering by tags, branches, and commit messages
 * ✅ Annotation-based mentions (users, groups, emails)
 * ✅ UI-based mention rules configuration
-* ✅ Scheduled [Automated Reports](../../../dashboard/automated-reports.md) to Slack channels (Block Kit summaries with dashboard links)
+* ✅ Scheduled [Automated Reports](../../../dashboard/automated-reports.md) to a Slack channel (Block Kit summaries with dashboard links)
 * ✅ Improved security with OAuth 2.0
 
 The Slack App also delivers independently configured [Action lifecycle notifications](../../../guides/currents-actions/lifecycle-notifications.md) for actions that are created, disabled, re-enabled, archived, expiring, or expired. Connecting Slack under **Integrations** does not enable these notifications; Action notifications are configured under **Actions > Settings**.

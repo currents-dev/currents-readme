@@ -161,13 +161,13 @@ Run notifications include a colored bar beside the message that reflects the run
 
 | Color | Run state |
 | --- | --- |
-| Yellow | The run is still in progress |
-| Green | The run finished with a passing outcome for the configured notification mode |
-| Red | The run finished with a failed, timed-out, or otherwise error outcome for the configured notification mode |
+| Blue | The run is still in progress |
+| Green | The run finished with a passing outcome |
+| Red | The run finished with a failed or otherwise error outcome |
+| Yellow | The run timed out |
+| Gray | The run was cancelled |
 
-A recovery notification after a prior failure shows green when the run completes with a passing outcome.
-
-The threaded **groups** table uses separate status styling in the message body (not the attachment `color` field): <mark style="color:green;">green</mark> for passed tests, <mark style="color:red;">red</mark> for failed and skipped tests, grey for ignored tests, and <mark style="color:purple;">purple</mark> for flaky tests.
+The threaded **groups** table displays test results with status colors in the message: <mark style="color:green;">green</mark> for passed tests, <mark style="color:red;">red</mark> for failed and skipped tests, grey for ignored tests, and <mark style="color:purple;">purple</mark> for flaky tests.
 
 ### Results table updates during a run
 
@@ -268,10 +268,9 @@ Messages display up to five test results. When more tests require attention, the
 
 ### Fix with AI
 
-Failed-test messages include a **Fix with AI** button. The modal provides options to:
+Failed-test messages include a **Fix with AI** button. Clicking it presents options to:
 
-- Open the failure context directly in Cursor
-- Open it in GitHub Copilot
+- Open the failure context directly in Cursor or GitHub Copilot
 - Copy a prompt for Claude, Codex, Zed, Conductor, or another AI tool
 - Install the [Currents MCP server](../../../ai/mcp-server.md) so an agent can retrieve additional test and run context
 
@@ -382,15 +381,13 @@ Before a report can post to Slack:
 1. Open the project **Reports** section and create or edit a report (see [Managing Automated Reports](../../../dashboard/automated-reports.md#managing-automated-reports)).
 2. Enable the report and configure label, filters, lookback period, and schedule as for email delivery.
 3. In the report's **Slack** settings, enable **Send to Slack**.
-4. Select one or more Slack channels for the report. The channel picker lists channels visible to the Currents Slack App in the connected workspace. If a channel does not appear, use **Manual Input** and enter the channel ID and name (same approach as [notification destinations](#notification-destinations)).
+4. Select the Slack channel for the report. If the channel does not appear in the picker, use **Manual Input** and enter the channel ID and name.
 5. Optionally keep **email recipients** configured so the same report is sent to both email and Slack.
-6. Save the report and use **Preview** to validate settings before the next scheduled send.
+6. Save the report.
 
 ### What appears in Slack
 
-When a scheduled report runs, Currents posts a **Block Kit** message to each configured channel. The message summarizes the same performance insights as the email report (runs, tests, specs, and trend highlights for the selected period) and includes links to open the full report and related views in the Currents dashboard.
-
-Slack messages are optimized for channel reading; they do not duplicate the full HTML email layout. Teams that need the complete email formatting can continue to use email recipients, or the [email-to-Slack forwarding](../../../dashboard/automated-reports.md#forward-automated-reports-email-to-slack) workaround described in the Automated Reports documentation.
+When a scheduled report runs, Currents posts a message on the configured channel. The message summarizes the same performance insights as the email report (runs, tests, specs, and trend highlights for the selected period) and includes links to open the full report and related views in the Currents dashboard.
 
 ### Troubleshooting report delivery
 
