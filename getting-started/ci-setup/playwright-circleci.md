@@ -10,11 +10,11 @@ TL;DR Check out the example repository:
 [https://github.com/currents-dev/currents-examples](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/circleci)
 {% endhint %}
 
-Run Playwright tests in [parallel on CircleCI](https://circleci.com/docs/2.0/parallelism-faster-jobs/) using the native [Playwright Sharding](https://playwright.dev/docs/test-sharding) to split the tests between multiple containers. Parallelizing the test will help in decreasing the overall run duration.&#x20;
+Run Playwright tests in [parallel on CircleCI](https://circleci.com/docs/parallelism-faster-jobs/) using the native [Playwright Sharding](https://playwright.dev/docs/test-sharding) to split the tests between multiple containers. Parallelizing the test will help in decreasing the overall run duration.&#x20;
 
 Currents collects the results of distributed parallel CircleCI builds for more efficient troubleshooting. Each container will receive a unique set of tests to run so that your tests will run faster and you can receive faster feedback from your browser test suite.
 
-Create multiple containers that will run your tests in parallel by setting the desired amount of containers with [`parallelism`](https://circleci.com/docs/2.0/configuration-reference/#parallelism) flag in  `config.yaml` file.
+Create multiple containers that will run your tests in parallel by setting the desired amount of containers with [`parallelism`](https://circleci.com/docs/configuration-reference/#parallelism) flag in  `config.yaml` file.
 
 Please refer to the [example repository](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/circleci) demonstrating how to set up [CircleCI](https://circleci.com) for running Playwright tests in parallel using [Currents](https://currents.dev) service.
 

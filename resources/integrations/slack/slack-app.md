@@ -299,7 +299,7 @@ Both [Annotation-Based Mentions](#annotation-based-mentions) and [UI-Based Menti
 | **Multiple Mentions** | Comma-separated combination of formats      | `user:U01RWNBFGER, team:S07JCUP81EG, miguel@currents.dev` |
 
 {% hint style="info" %}
-**Finding Slack IDs:** See [Slack's documentation](https://slack.com/help/articles/360057541954-Get-user-and-group-IDs) for instructions on finding user and group IDs.
+**Finding Slack IDs:** See [Slack's documentation](https://slack.com/help/articles/221769328-Locate-your-Slack-URL-or-ID) for instructions on finding user and group IDs.
 {% endhint %}
 
 ## Disabling Slack Integration

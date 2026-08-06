@@ -166,7 +166,7 @@
       * [pwc-p discover](resources/reporters/currents-playwright/pwc-p-discover.md)
       * [pwc-p run](resources/reporters/currents-playwright/pwc-p-run.md)
     * [Playwright Fixtures](resources/reporters/currents-playwright/playwright-fixtures.md)
-    * [Changelog](https://github.com/currents-dev/currents-playwright/blob/main/CHANGELOG.md)
+    * [Changelog](https://github.com/currents-dev/currents-playwright-changelog/blob/main/CHANGELOG.md)
   * [@currents/cmd](resources/reporters/currents-cmd/README.md)
     * [currents api](resources/reporters/currents-cmd/currents-api.md)
     * [currents upload](resources/reporters/currents-cmd/currents-upload.md)

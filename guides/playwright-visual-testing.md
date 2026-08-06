@@ -222,5 +222,5 @@ function assertEnvVariable(name: string) {
 
 You can use the same concept to send a "finalize" command to other visual testing tools like Applitools and Percy.
 
-* Applitools - refer to [Closing the Batch](https://applitools.com/tutorials/guides/advanced-use-cases/parallel-test-suites#step-3-closing-the-batch) section the Parallel Test Suites guide
+* Applitools - refer to [Closing the Batch](https://applitools.com/docs/eyes/concepts/test-execution/parallel-test-suites#step-3-closing-the-batch) section the Parallel Test Suites guide
 * Percy - refer to `percy build:finalize` step in [Percy documentation](https://www.browserstack.com/docs/percy/integrate/parallel-test-suites)
