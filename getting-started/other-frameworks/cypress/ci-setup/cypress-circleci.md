@@ -21,9 +21,9 @@ The example [config file](https://github.com/currents-dev/currents-examples/blob
 * Create an account at https:/app.currents.dev.
 * Obtain **ProjectId** and **Record Key**.
 * Set `CURRENTS_RECORD_KEY`:
-  * create [CircleCI context](https://circleci.com/docs/contexts/) and set `CURRENTS_RECORD_KEY`.
-  * alternatively, set [Environment variable](https://circleci.com/docs/env-vars/) `CURRENTS_RECORD_KEY`
-* Follow the setup instructions at [https://currents.dev/readme/integration-with-cypress/cypress-cloud](https://currents.dev/readme/integration-with-cypress/cypress-cloud) to create `currents.config.js` set your `projectId`
+  * create [CircleCI context](https://circleci.com/docs/guides/security/contexts/) and set `CURRENTS_RECORD_KEY`.
+  * alternatively, set [Environment variable](https://circleci.com/docs/guides/security/env-vars/) `CURRENTS_RECORD_KEY`
+* Follow the setup instructions at [cypress-cloud](../../../../resources/reporters/cypress-cloud/README.md "mention") to create `currents.config.js` set your `projectId`
 
 ### Bare CircleCI configuration
 

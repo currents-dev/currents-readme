@@ -35,7 +35,7 @@ Use `--ci-build-id` for cancelling from CI. Set `CURRENTS_CI_BUILD_ID` on the jo
 Use `--run-id` when you already have the run id: it is the last segment of the run URL, `https://app.currents.dev/run/<run-id>`. This is the option for cancelling a specific run from a script or by hand.
 
 {% hint style="warning" %}
-If the job does not set `CURRENTS_CI_BUILD_ID`, Currents generates a CI build id from the CI environment, and the generated value includes the test framework — for example `pw:owner/repo-16873-1`. A cancelling step that rebuilds the CI build id from environment variables will not produce that string and will report that there is no run to cancel. Set `CURRENTS_CI_BUILD_ID` explicitly on any job you want to cancel from CI.
+If the job does not set `CURRENTS_CI_BUILD_ID`, Currents generates one, and neither of the two forms it can take is reproducible by a separate step. On a CI provider Currents recognises, the value is derived from that provider's environment variables and carries a test framework prefix — for example `pw:owner/repo-16873-1`. On a provider it does not recognise, the value is a random id that never leaves the reporting process. Either way a cancelling step that rebuilds the CI build id from the environment produces a different string and reports that there is no run to cancel. Set `CURRENTS_CI_BUILD_ID` explicitly on any job you want to cancel from CI.
 {% endhint %}
 
 ### Cancelling from GitHub Actions
@@ -43,38 +43,46 @@ If the job does not set `CURRENTS_CI_BUILD_ID`, Currents generates a CI build id
 A job that already exports the record key, project and CI build id needs no arguments:
 
 ```yaml
-- name: Run tests
-  env:
-    CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
-    CURRENTS_PROJECT_ID: my-project-id
-    CURRENTS_CI_BUILD_ID: ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
-  run: npx playwright test
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    env:
+      CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
+      CURRENTS_PROJECT_ID: my-project-id
+      CURRENTS_CI_BUILD_ID: ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - name: Run tests
+        run: npx playwright test
 
-- name: Cancel the run if the workflow is cancelled
-  if: ${{ cancelled() }}
-  env:
-    CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
-    CURRENTS_PROJECT_ID: my-project-id
-    CURRENTS_CI_BUILD_ID: ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
-  run: npx currents cancel
+      - name: Cancel the run if the workflow is cancelled
+        if: ${{ cancelled() }}
+        run: npx currents cancel
 ```
+
+Declaring them on the job rather than on each step is what makes "no arguments" work: a step's `env` is visible only to that step.
 
 ### Cancelling from other CI providers
 
-The command only needs the record key, the project and the CI build id, so the same step works anywhere. Set the CI build id for the whole pipeline, so the job that reports and the job that cancels use the same value. GitLab CI, for example:
+The command only needs the record key, the project and the CI build id, so the same step works anywhere. Set the CI build id for the whole pipeline, so the reporting job and the cancelling step use the same value. GitLab CI, for example:
 
 ```yaml
 variables:
   CURRENTS_CI_BUILD_ID: $CI_PIPELINE_ID
 
-cancel_currents_run:
-  stage: .post
-  when: on_failure
+playwright_tests:
   script:
-    - npx currents cancel
+    - npx playwright test
+  after_script:
+    - if [ "$CI_JOB_STATUS" = "canceled" ]; then npx currents cancel; fi
 ```
 
 `CURRENTS_RECORD_KEY` and `CURRENTS_PROJECT_ID` come from the pipeline's variables, the same ones the reporting job uses.
+
+GitLab runs `after_script` when a job is cancelled, which is what makes this work; there is no `when:` value that matches cancellation. `when: on_failure` in particular does not fire — it triggers on a failed job, and a cancelled job is not a failed one.
+
+{% hint style="info" %}
+Force cancelling a job skips `after_script`, so those runs still end at the [run-timeouts.md](../../../dashboard/runs/run-timeouts.md "mention") instead.
+{% endhint %}
 
 ### Notes
 

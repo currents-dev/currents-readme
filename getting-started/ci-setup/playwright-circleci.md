@@ -10,18 +10,18 @@ TL;DR Check out the example repository:
 [https://github.com/currents-dev/currents-examples](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/circleci)
 {% endhint %}
 
-Run Playwright tests in [parallel on CircleCI](https://circleci.com/docs/parallelism-faster-jobs/) using the native [Playwright Sharding](https://playwright.dev/docs/test-sharding) to split the tests between multiple containers. Parallelizing the test will help in decreasing the overall run duration.&#x20;
+Run Playwright tests in [parallel on CircleCI](https://circleci.com/docs/guides/optimize/parallelism-faster-jobs/) using the native [Playwright Sharding](https://playwright.dev/docs/test-sharding) to split the tests between multiple containers. Parallelizing the test will help in decreasing the overall run duration.&#x20;
 
 Currents collects the results of distributed parallel CircleCI builds for more efficient troubleshooting. Each container will receive a unique set of tests to run so that your tests will run faster and you can receive faster feedback from your browser test suite.
 
-Create multiple containers that will run your tests in parallel by setting the desired amount of containers with [`parallelism`](https://circleci.com/docs/configuration-reference/#parallelism) flag in  `config.yaml` file.
+Create multiple containers that will run your tests in parallel by setting the desired amount of containers with the [`parallelism`](https://circleci.com/docs/reference/configuration-reference/#parallelism) key in the `.circleci/config.yml` file.
 
 Please refer to the [example repository](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/circleci) demonstrating how to set up [CircleCI](https://circleci.com) for running Playwright tests in parallel using [Currents](https://currents.dev) service.
 
 * Create an organization at https://app.currents.dev
 * Create a new project
 * Grab `CURRENTS_RECORD_KEY` [record-key.md](../../guides/record-key.md "mention") and `CURRENTS_PROJECT_ID` &#x20;
-* Store `CURRENTS_RECORD_KEY`: [https://circleci.com/docs/contexts/](https://circleci.com/docs/contexts/)
+* Store `CURRENTS_RECORD_KEY`: [https://circleci.com/docs/guides/security/contexts/](https://circleci.com/docs/guides/security/contexts/)
 
 <pre class="language-yaml"><code class="lang-yaml"># .circleci/config.yml
 version: 2.1
