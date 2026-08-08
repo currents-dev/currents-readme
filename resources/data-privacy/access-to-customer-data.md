@@ -52,4 +52,5 @@ We collect diverse data from our users' test suites, which are strictly limited 
 * **GitHub**: No access to data or repos source code; we post comments and status check updates for Pull Requests. The integration application is listed here: [https://github.com/apps/currents-bot](https://github.com/apps/currents-bot), and the list of permissions appears as part of the setup.
 * **GitLab**: We list repositories and projects, refresh oAuth tokens, post notes and status check updates to Merge Requests, fetching Merge Request details.
 * **BitBucket**: No access to data; we only post status check updates for Pull Requests.
-* **Microsoft Teams, Slack**: No access to data, just posting messages within the restrictions of the platform's rules.
+* **Microsoft Teams**: No access to data; we only post messages within the restrictions of the platform's rules.
+* **Slack**: No access to test data; we list channels, read workspace/user metadata, and post messages, limited by the OAuth permissions granted during installation.

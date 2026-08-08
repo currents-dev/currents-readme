@@ -1,24 +1,31 @@
 ---
-description: Slack App integration for Currents - Playwright test notifications and alerts
+description: Slack App integration for Currents - test notifications and alerts
 ---
 
 # Slack App
 
-Integrate Slack with Currents to receive real-time Playwright test notifications and failure alerts directly in your team's channels. The Slack App helps engineering teams stay informed about test results without leaving their workflow.
+Integrate Slack with Currents to receive real-time test notifications and failure alerts directly in team channels. The Slack App helps engineering teams stay informed about test results without leaving their workflow.
 
 ## Use Cases
 
-- **Instant failure alerts**: Get notified immediately when Playwright tests fail, allowing your team to respond quickly before issues reach production.
+- **Instant failure alerts**: Notify teams immediately when tests fail so they can respond quickly before issues reach production.
 - **Flaky test detection**: Receive Slack alerts when tests exhibit flaky behavior, helping maintain test suite reliability.
 - **Team routing**: Automatically mention the right team members based on which tests failed - route checkout failures to the payments team, API failures to backend engineers.
 - **Release gating**: Send notifications to release managers when smoke tests or critical tests fail on main or release branches.
-- **On-call escalation**: Page on-call engineers when critical Playwright tests fail in production environments.
+- **On-call escalation**: Page on-call engineers when critical tests fail in production environments.
 
 The integration supports organization-level installation, per-project configuration, multiple notification destinations, and advanced filtering options.
 
-## Requirements
+## Requirements and permissions
 
-Before installing the Currents Slack App, the installation must be performed by a user with the correct administrator permissions in Slack. The required role depends on how the Slack account is structured:
+Currents and Slack permissions are separate:
+
+| Role | Access |
+| --- | --- |
+| **Currents organization administrator** | Connect, re-authenticate, disconnect, and change the Slack App settings in Currents |
+| **Slack administrator** | Authorize the Currents app in Slack; the exact role depends on whether Slack uses a single workspace or Enterprise Grid |
+
+A Currents organization administrator starts the connection from Currents. The Slack authorization step must be completed by a user with the correct Slack administrator permissions:
 
 | Slack setup                                    | Who must install the app                                                                   |
 | ---------------------------------------------- | ----------------------------------------------------------------------------------------- |
@@ -26,7 +33,7 @@ Before installing the Currents Slack App, the installation must be performed by 
 | **Enterprise Grid (multiple workspaces / org)** | An **Org Owner** or **Org Admin** (workspace-level admins are not sufficient on their own) |
 
 {% hint style="warning" %}
-**The app must be installed by an Org Admin when the Slack account belongs to an Enterprise Grid organization.**
+**When the Slack account belongs to an Enterprise Grid organization, the app must be installed by an Org Owner or Org Admin.**
 
 If a workspace-level admin installs the app while the workspace is part of a larger Slack organization, the installation may appear to succeed and Currents will store the access token, but Slack can later invalidate that token. When this happens, Currents receives an [`account_inactive`](https://docs.slack.dev/reference/methods/admin.apps.uninstall/#errors) error from the Slack API and notifications silently stop working.
 
@@ -55,7 +62,7 @@ The Slack App integration is installed at the organization level and can be conf
 3. You'll be redirected to Slack to authorize the Currents app
 4. Click **Allow** to install the application in your Slack workspace
 
-<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.24.02@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.24.02@2x.png" alt="Slack authorization page showing the Currents app permissions and Allow button"><figcaption><p>Review and authorize the Currents app in Slack.</p></figcaption></figure>
 
 After installation, you'll receive a welcome message in Slack confirming the connection.
 
@@ -74,11 +81,26 @@ After connecting Slack to your organization:
 
 You can enable or disable Slack notifications for each project independently without affecting the organization-level installation.
 
-<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.51.04@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.51.04@2x.png" alt="Slack project integration settings with the Enable Notifications control"><figcaption><p>Enable Slack notifications independently for each project.</p></figcaption></figure>
+
+## Installation Status and Recovery
+
+The Slack integration page reports installation and configuration issues and provides the appropriate recovery action.
+
+| Status | Recommended action |
+| --- | --- |
+| **Credentials expired** | Select **Re-authenticate** |
+| **Installation archived** | Re-authenticate or reinstall |
+| **Installed but not configured** | Enable notifications and save the project settings |
+| **Project notifications disabled** | Enable the project-level toggle |
+| **Destination has no channel** | Select or manually enter a channel |
+| **All destinations disabled** | Enable at least one destination |
+
+Re-authenticating normally preserves the existing project configuration. If Slack continues returning `account_inactive`, [disconnect](#disconnect-slack) the integration and reinstall it using the required Slack administrator role.
 
 ## Notification Destinations
 
-Each project can have up to **10 notification destinations**, allowing you to send notifications to different Slack channels based on your needs.
+The dashboard shows the destination limit for the organization; the default is **10**. Destinations allow notifications to be sent to different Slack channels based on project needs.
 
 ### Adding a Destination
 
@@ -90,6 +112,12 @@ Each project can have up to **10 notification destinations**, allowing you to se
 {% hint style="info" %}
 **Manual Channel Entry:** For organizations with many channels, you can manually enter the Channel ID and Channel Name instead of selecting from the dropdown. This is useful when Slack's API limitations prevent listing all channels.
 {% endhint %}
+
+### Public and Private Channels
+
+The channel picker can return public channels and private channels that are visible to the Currents Slack App, even if the dashboard label says **Slack Channel (Public Only)**.
+
+The Currents app must be invited to a private channel before it can post there. If an accessible channel does not appear in search, select **Manual Input** and enter its Channel ID and Channel Name.
 
 ### Managing Destinations
 
@@ -113,7 +141,7 @@ Message threading is enabled by default for new destinations. Disable it if your
 
 Run notifications provide a summary of the entire test run. These are sent when a run completes and can use Slack threads to organize related messages.
 
-<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.29.21@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.29.21@2x.png" alt="Threaded Slack run notification with project, commit, branch, and grouped test results"><figcaption><p>A run summary and its detailed results grouped in a Slack thread.</p></figcaption></figure>
 
 ### How Threading Works
 
@@ -127,6 +155,24 @@ This keeps your Slack channels organized and prevents notification overload.
 
 When **Message Threading** is disabled, each notification is sent as a standalone message in the channel.
 
+### Run message appearance
+
+Run notifications include a colored bar beside the message that reflects the run state:
+
+| Color | Run state |
+| --- | --- |
+| Blue | The run is still in progress |
+| Green | The run finished with a passing outcome |
+| Red | The run finished with a failed or otherwise error outcome |
+| Yellow | The run timed out |
+| Gray | The run was cancelled |
+
+The threaded **groups** table displays test results with status colors in the message: <mark style="color:green;">green</mark> for passed tests, <mark style="color:red;">red</mark> for failed and skipped tests, grey for ignored tests, and <mark style="color:purple;">purple</mark> for flaky tests.
+
+### Results table updates during a run
+
+When **Message Threading** is enabled, Currents posts a main thread for the run and **updates the groups table on that thread** as groups finish while the run is still in progress. Teams see partial group results without waiting for every group to complete first.
+
 ### Notification Modes
 
 Configure when run notifications are sent:
@@ -134,8 +180,11 @@ Configure when run notifications are sent:
 | Mode                    | Description                                             |
 | ----------------------- | ------------------------------------------------------- |
 | **Always send**         | Send notifications for every run, regardless of outcome |
-| **Only on failures**    | Send notifications only when there are failed tests     |
-| **Only on flaky tests** | Send notifications only when flaky tests are detected   |
+| **Only when there are failures** | Send notifications only when there are failed tests |
+| **Only when there are failed or flaky tests** | Send notifications when failed or flaky tests are detected |
+| **Only when all tests are passing** | Send notifications only when all tests pass (passing-only run outcome) |
+
+When **Only when there are failures** is selected, the platform can also send a **recovery** notification: if a run already triggered a failure notification for that destination, a later completion with a passing outcome can post a success update so the channel shows when the pipeline is green again.
 
 ### Additional Run Events
 
@@ -162,13 +211,13 @@ Or to notify only for main branch runs:
 
 - Set **Git Branch** `matches`: `main`
 
-<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.49.45@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.49.45@2x.png" alt="Run notification settings with lifecycle events, result mode, and a main branch filter"><figcaption><p>Configure run-result delivery and optional conditions for each destination.</p></figcaption></figure>
 
 ## Individual Test Notifications
 
-Individual test notifications send a dedicated message for each failed or flaky test, providing detailed information about specific failures.
+Individual test notifications provide detailed information about failed or flaky tests.
 
-<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.37.31@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.37.31@2x.png" alt="Failed-test Slack message with test details, retry attempts, error output, and a user mention"><figcaption><p>An individual failed-test notification with retry and error details.</p></figcaption></figure>
 
 ### Enabling Individual Test Notifications
 
@@ -215,6 +264,18 @@ Individual test notifications include:
 - Direct link to the test in Currents dashboard
 - Mentioned users (if configured)
 
+Messages display up to five test results. When more tests require attention, the message includes the number of omitted tests, mentions collected from the omitted tests, and a **View in Currents** button.
+
+### Fix with AI
+
+Failed-test messages include a **Fix with AI** button. Clicking it presents options to:
+
+- Open the failure context directly in Cursor or GitHub Copilot
+- Copy a prompt for Claude Code, Codex, Zed, Conductor, or another AI tool
+- Install the [Currents MCP server](../../../ai/mcp-server.md) so an agent can retrieve additional test and run context
+
+See [AI-powered test troubleshooting](../../../ai/overview.md) for other Fix with AI entry points.
+
 ## Annotation-Based Mentions
 
 The Slack App integration supports mentioning users directly in notifications based on test annotations. When a test fails, the configured users or groups are notified in the Slack message.
@@ -252,7 +313,7 @@ See [Playwright Annotations](../../../guides/playwright-annotations.md#annotatio
 
 In addition to code annotations, you can configure mention rules directly in the Currents UI. This allows you to set up notification routing without modifying your test code.
 
-<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.50.22@2x.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.50.22@2x.png" alt="Slack mention rule matching smoke tests on the main branch and routing notifications to users and groups"><figcaption><p>Route matching test notifications with UI-based mention rules.</p></figcaption></figure>
 
 ### Creating Mention Rules
 
@@ -302,6 +363,41 @@ Both [Annotation-Based Mentions](#annotation-based-mentions) and [UI-Based Menti
 **Finding Slack IDs:** See [Slack's documentation](https://slack.com/help/articles/221769328-Locate-your-Slack-URL-or-ID) for instructions on finding user and group IDs.
 {% endhint %}
 
+## Automated Reports to Slack
+
+Scheduled [Automated Reports](../../../dashboard/automated-reports.md) can be delivered to Slack channels through the **Currents Slack App**, in addition to email. Delivery uses the same report definition (schedule, lookback period, and tag, author, and branch filters) as email; only the destination changes.
+
+Automated report messages are separate from [run notifications](#run-notifications) and [individual test notifications](#individual-test-notifications). Report Slack settings are configured on each report in the **Reports** section of the project, not under **Project Settings > Integrations > Slack** destinations.
+
+### Prerequisites
+
+Before a report can post to Slack:
+
+1. The organization must [connect the Slack App](#connecting-slack-to-your-organization) with a user who has the required Slack administrator role (see [Requirements and permissions](#requirements-and-permissions)).
+2. The Currents app must be allowed to post in the target channel. For **private channels**, the app must be invited to the channel before delivery succeeds (see [Public and Private Channels](#public-and-private-channels)).
+
+### Configuring Slack delivery for a report
+
+1. Open the project **Reports** section and create or edit a report (see [Managing Automated Reports](../../../dashboard/automated-reports.md#managing-automated-reports)).
+2. Enable the report and configure label, filters, lookback period, and schedule as for email delivery.
+3. In the report's **Slack** settings, enable **Send to Slack**.
+4. Select the Slack channel for the report. If the channel does not appear in the picker, use **Manual Input** and enter the channel ID and name.
+5. Optionally keep **email recipients** configured so the same report is sent to both email and Slack.
+6. Save the report.
+
+### What appears in Slack
+
+When a scheduled report runs, Currents posts a message on the configured channel. The message summarizes the same performance insights as the email report (runs, tests, specs, and trend highlights for the selected period) and includes links to open the full report and related views in the Currents dashboard.
+
+### Troubleshooting report delivery
+
+| Symptom | What to check |
+| --- | --- |
+| No Slack message at the scheduled time | Report **Enable/Disable** is on; **Send to Slack** is enabled; at least one channel is selected; schedule and timezone are correct |
+| Email arrives but Slack does not | Slack-specific settings on the report; organization [installation status](#installation-status-and-recovery) (`Credentials expired`, `Installation archived`, and similar) |
+| Slack API errors for a channel | App membership in the channel (especially private channels); channel ID when using manual entry |
+| Run notifications work but reports do not | Reports use per-report Slack settings on the **Reports** page, not integration **destinations** |
+
 ## Disabling Slack Integration
 
 ### Disable for a Project
@@ -326,7 +422,7 @@ This removes the organization-level Slack installation and disables notification
 
 ### Can I send notifications to multiple channels?
 
-Yes, each project supports up to 10 destinations. Each destination can target a different Slack channel with its own configuration.
+Yes. The dashboard shows the destination limit for the organization; the default is 10. Each destination can target a different Slack channel with its own configuration.
 
 ### Why am I not receiving notifications?
 
@@ -334,16 +430,16 @@ Check the following:
 
 1. **Project-level toggle** - Ensure "Enable Notifications" is turned on
 2. **Destination toggle** - Ensure the specific destination is enabled
-3. **Notification mode** - If set to "Only on failures", passing runs won't trigger notifications
-4. **Filters** - Check if any tag or branch filters are excluding your runs
-5. **Mention rules** - Ensure conditions match your test properties
+3. **Notification mode** - Confirm the selected run-result mode matches the expected outcome
+4. **Filters** - Check whether any tag or branch filters are excluding runs
+5. **Mention rules** - Ensure conditions match test properties
 6. **Installation permissions** - If notifications stopped entirely, the Slack token may have been invalidated (`account_inactive`). See [Why did notifications stop with an `account_inactive` error?](#why-did-notifications-stop-with-an-account_inactive-error)
 
 ### Why did notifications stop with an `account_inactive` error?
 
 This usually means the Slack access token was invalidated because the app was installed without the required administrator permissions. In an Enterprise Grid organization, apps must be installed (or approved) by an **Org Owner/Admin** - a workspace-level admin alone is not sufficient, and Slack may later deactivate that installation's token.
 
-The fix is to [disconnect](#disconnect-slack) the integration and reinstall it with an Org Owner/Admin (or a Workspace Owner/Admin for single-workspace accounts). See [Requirements](#requirements) for the full breakdown.
+The fix is to [disconnect](#disconnect-slack) the integration and reinstall it with an Org Owner/Admin (or a Workspace Owner/Admin for single-workspace accounts). See [Requirements and permissions](#requirements-and-permissions) for the full breakdown.
 
 ### Can I use both annotation mentions and UI rules?
 
@@ -351,4 +447,4 @@ Yes, both methods work together. Annotation-based mentions take precedence and a
 
 ### What happens when a run has multiple groups?
 
-By default, notifications are sent when all groups complete. You may still receive multiple notifications if one group finishes before others are discovered. For example, if one group completes before other groups are known, an early notification may be sent.
+With **Message Threading** enabled, Currents keeps one run thread per destination and updates the **groups** table on that thread as groups complete during the run. Individual test failures and run-result replies stay in the same thread instead of filling the channel with separate run summaries for each group.
