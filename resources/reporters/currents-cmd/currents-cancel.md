@@ -61,6 +61,8 @@ jobs:
 
 Declaring them on the job rather than on each step is what makes "no arguments" work: a step's `env` is visible only to that step.
 
+The snippet above is trimmed to the parts that matter for cancelling. [cancel-runs.md](../../../getting-started/ci-setup/github-actions/cancel-runs.md "mention") holds the complete workflow — checkout, setup, `concurrency` — and is the page to change when the workflow itself changes.
+
 ## Cancelling from other CI providers
 
 The command only needs the record key, the project and the CI build id, so the same step works anywhere. Set the CI build id for the whole pipeline, so the reporting job and the cancelling step use the same value. GitLab CI, for example:
@@ -81,7 +83,11 @@ playwright_tests:
 GitLab runs `after_script` when a job is cancelled, which is what makes this work; there is no `when:` value that matches cancellation. `when: on_failure` in particular does not fire — it triggers on a failed job, and a cancelled job is not a failed one.
 
 {% hint style="warning" %}
-`$CI_PIPELINE_ID` is stable across all jobs in a pipeline, which is what a CI build id needs, but it does not change when an individual job is retried. Currents requires a distinct CI build id per attempt, so a retried job reports against the completed run rather than a new one. Re-run the whole pipeline, or append a value that changes per attempt to `CURRENTS_CI_BUILD_ID`. See [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention").
+`$CI_PIPELINE_ID` is stable across every job in a pipeline, which is what a CI build id needs, but it does not change when an individual job is retried. Currents requires a distinct CI build id per attempt, so a retried job reports against the completed run rather than a new one.
+
+Whatever value you choose, set it in `variables:` as above. Both `script` and `after_script` read `CURRENTS_CI_BUILD_ID` from the job's environment, so a discriminator applied to the reporting command alone would leave `currents cancel` looking for a different run than the one that was recorded.
+
+If a single job reports the whole run, `$CI_JOB_ID` changes on every retry and works. If the run is split across parallel jobs, no GitLab variable is both per-attempt and shared by all of them — re-run the pipeline instead, which yields a new `$CI_PIPELINE_ID`. See [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention").
 {% endhint %}
 
 {% hint style="info" %}
