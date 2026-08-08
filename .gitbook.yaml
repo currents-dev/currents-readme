@@ -1,50 +1,50 @@
 root: ./
 
 redirects:
-  api/api-keys: resources/api/api-keys.md
+  api/api-keys: dashboard/administration/api-keys.md
   ci-setup: getting-started/ci-setup/github-actions/README.md
   ci-setup/gitlab/playwright-gitlab-ci-cd: getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md
-  ci-setup/azure-devops/playwright-azure-devops: getting-started/ci-setup/azure-devops/playwright-azure-devops.md
-  ci-setup/aws-code-build/playwright-aws-code-build: getting-started/ci-setup/aws-code-build/playwright-aws-code-build.md
-  ci-setup/circleci/playwright-circleci: getting-started/ci-setup/circleci/playwright-circleci.md
+  ci-setup/azure-devops/playwright-azure-devops: getting-started/ci-setup/playwright-azure-devops.md
+  ci-setup/aws-code-build/playwright-aws-code-build: getting-started/ci-setup/playwright-aws-code-build.md
+  ci-setup/circleci/playwright-circleci: getting-started/ci-setup/playwright-circleci.md
   ci-setup/github-actions/playwright-github-actions: getting-started/ci-setup/github-actions/playwright-github-actions.md
-  ci-setup/gitlab/cypress-gitlab-ci-cd: getting-started/ci-setup/gitlab/cypress-gitlab-ci-cd.md
-  ci-setup/bitbucket/cypress-bitbucket-pipelines: getting-started/ci-setup/bitbucket/cypress-bitbucket-pipelines.md
-  ci-setup/jenkins/jenkins-playwright: getting-started/ci-setup/jenkins/jenkins-playwright.md
-  ci-setup/aws-code-build/cypress-aws-code-build: getting-started/ci-setup/aws-code-build/cypress-aws-code-build.md
+  ci-setup/gitlab/cypress-gitlab-ci-cd: getting-started/other-frameworks/cypress/ci-setup/cypress-gitlab-ci-cd.md
+  ci-setup/bitbucket/cypress-bitbucket-pipelines: getting-started/other-frameworks/cypress/ci-setup/cypress-bitbucket-pipelines.md
+  ci-setup/jenkins/jenkins-playwright: getting-started/ci-setup/jenkins.md
+  ci-setup/aws-code-build/cypress-aws-code-build: getting-started/other-frameworks/cypress/ci-setup/cypress-aws-code-build.md
   ci-setup/nx: getting-started/ci-setup/nx.md
   ci-setup/github-actions/commit-data-for-github-actions: getting-started/ci-setup/github-actions/commit-data-for-github-actions.md
-  ci-setup/circleci/cypress-circleci: getting-started/ci-setup/circleci/cypress-circleci.md
-  ci-setup/jenkins/cypress-jenkins: getting-started/ci-setup/jenkins/cypress-jenkins.md
-  ci-setup/azure-devops/cypress-azure-devops: getting-started/ci-setup/azure-devops/cypress-azure-devops.md
+  ci-setup/circleci/cypress-circleci: getting-started/other-frameworks/cypress/ci-setup/cypress-circleci.md
+  ci-setup/jenkins/cypress-jenkins: getting-started/other-frameworks/cypress/ci-setup/cypress-jenkins.md
+  ci-setup/azure-devops/cypress-azure-devops: getting-started/other-frameworks/cypress/ci-setup/cypress-azure-devops.md
   administration/email-domain-based-access: dashboard/administration/email-domain-based-access.md
-  getting-started/you-first-cypress-run: getting-started/cypress/you-first-cypress-run.md
-  guides/parallelization: guides/parallelization-guide/cypress-parallelization.md
-  guides/pw-parallelization/playwright-orchestration: guides/parallelization-guide/pw-parallelization/playwright-orchestration.md
+  getting-started/you-first-cypress-run: getting-started/other-frameworks/cypress/you-first-cypress-run.md
+  guides/parallelization: guides/parallelization-guide/README.md
+  guides/pw-parallelization/playwright-orchestration: guides/ci-optimization/playwright-orchestration.md
   guides/ci-optimization/playwright-orchestration-v2: guides/ci-optimization/playwright-orchestration-v1.md
-  guides/pw-parallelization/playwright-sharding: guides/parallelization-guide/pw-parallelization/playwright-sharding.md
-  guides/load-balancing: guides/parallelization-guide/load-balancing.md
-  guides/fail-fast-strategy: guides/parallelization-guide/fail-fast-strategy.md
+  guides/pw-parallelization/playwright-sharding: guides/parallelization-guide/playwright-sharding.md
+  guides/load-balancing: guides/ci-optimization/load-balancing.md
+  guides/fail-fast-strategy: guides/ci-optimization/fail-fast-strategy.md
   insights/runs-analytics: dashboard/analytics/README.md
   tests/test-status: dashboard/tests/test-status.md
   tests/flaky-tests: dashboard/tests/flaky-tests.md
-  tests/spec-file-status: dashboard/tests/spec-file-status.md
+  tests/spec-file-status: dashboard/spec-file-status/README.md
   tests/test-history: dashboard/tests/test-history.md
   runs/run-timeouts: dashboard/runs/run-timeouts.md
   runs/run-details: dashboard/runs/run-details.md
-  runs/run-status: dashboard/runs/run-status.md
+  runs/run-status: dashboard/analytics/run-status.md
   runs/cancel-run: dashboard/runs/cancel-run.md
   runs/deleting-runs: dashboard/runs/deleting-runs.md
   resources/reporters/currents-playwright/pwc-p-orchestration: resources/reporters/currents-playwright/pwc-p.md
-  integration-with-playwright/currents-playwright: resources/reporters/currents-playwright.md
-  integration-with-playwright/playwright-component-testing: getting-started/playwright/integration-with-playwright/playwright-component-testing.md
-  integration-with-playwright/troubleshooting: getting-started/playwright/troubleshooting-playwright.md
+  integration-with-playwright/currents-playwright: resources/reporters/currents-playwright/README.md
+  integration-with-playwright/playwright-component-testing: guides/playwright-component-testing.md
+  integration-with-playwright/troubleshooting: guides/troubleshooting-playwright.md
   insights/insights-and-analytics: dashboard/analytics/README.md
   dashboard/insights-and-analytics: dashboard/analytics/README.md
   integrations/github/github-app: resources/integrations/github/github-app.md
   integrations/github/github-oauth: resources/integrations/github/github-oauth.md
   integrations/github: resources/integrations/github/README.md
-  integrations/slack: resources/integrations/slack.md
+  integrations/slack: resources/integrations/slack/README.md
   integrations/gitlab: resources/integrations/gitlab.md
   integrations/microsoft-teams: resources/integrations/microsoft-teams.md
   integrations/http-webhooks: resources/integrations/http-webhooks.md
@@ -54,3 +54,17 @@ redirects:
   projects/archive-and-unarchive-projects: dashboard/projects/archive-and-unarchive-projects.md
   dashboard/billing-and-pricing: dashboard/billing/plans-and-pricing.md
   dashboard/administration/billing-and-usage: dashboard/billing/usage-and-spend-control.md
+  billing-and-pricing: dashboard/billing/plans-and-pricing.md
+  administration/billing-and-usage: dashboard/billing/usage-and-spend-control.md
+  dashboard/administration/team-management: dashboard/administration/manage-team.md
+  dashboard/runs/run-status: dashboard/analytics/run-status.md
+  getting-started/playwright: getting-started/your-first-playwright-run.md
+  guides/pw-parallelization: guides/ci-optimization/playwright-parallelization.md
+  guides/parallelization-guide/pw-parallelization: guides/ci-optimization/playwright-parallelization.md
+  guides/pw-parallelization/ci-tests-on-spot-instances: guides/ci-optimization/ci-tests-on-spot-instances.md
+  guides/playwright-rerun-failed-tests: guides/ci-optimization/re-run-only-failed-tests.md
+  getting-started/ci-setup/circleci: getting-started/ci-setup/playwright-circleci.md
+  getting-started/ci-setup/azure-devops: getting-started/ci-setup/playwright-azure-devops.md
+  getting-started/ci-setup/aws-code-build: getting-started/ci-setup/playwright-aws-code-build.md
+  getting-started/ci-setup/bitbucket: getting-started/other-frameworks/cypress/ci-setup/cypress-bitbucket-pipelines.md
+  getting-started/ci-setup/nx/playwright-nx: getting-started/ci-setup/nx.md

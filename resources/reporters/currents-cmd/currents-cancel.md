@@ -4,13 +4,13 @@ description: Learn how to cancel a run from CI using the currents cancel CLI com
 
 # currents cancel
 
-`currents cancel` cancels a run that is still in progress, for example when the CI job that recorded it is cancelled.
+`currents cancel` cancels a run that is still in progress, for example when you stop the associated CI job.
 
 A cancelled CI job stops reporting mid-run, so without an explicit cancellation the run stays in progress until it hits the project's [run-timeouts.md](../../../dashboard/runs/run-timeouts.md "mention").
 
-The command is available from `@currents/cmd` 1.10.0. `npx currents` resolves the latest version, so no change is needed unless the version is pinned.
+The command is available from `@currents/cmd` 1.10.0.
 
-### Usage
+## Usage
 
 {% hint style="info" %}
 The command authenticates with the [record-key.md](../../../guides/record-key.md "mention") the job already uses to report results — no API key is needed. It accepts `--key`, `--project-id`, `--ci-build-id` and `--run-id`, or the `CURRENTS_RECORD_KEY`, `CURRENTS_PROJECT_ID`, `CURRENTS_CI_BUILD_ID` and `CURRENTS_RUN_ID` environment variables.
@@ -20,7 +20,7 @@ The command authenticates with the [record-key.md](../../../guides/record-key.md
 npx currents cancel --key <record-key> --project-id <project-id> --ci-build-id <ci-build-id>
 ```
 
-### Identifying the run
+## Identifying the run
 
 Pass either the [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention") the run was recorded with, or the run id:
 
@@ -35,49 +35,67 @@ Use `--ci-build-id` for cancelling from CI. Set `CURRENTS_CI_BUILD_ID` on the jo
 Use `--run-id` when you already have the run id: it is the last segment of the run URL, `https://app.currents.dev/run/<run-id>`. This is the option for cancelling a specific run from a script or by hand.
 
 {% hint style="warning" %}
-If the job does not set `CURRENTS_CI_BUILD_ID`, Currents generates a CI build id from the CI environment, and the generated value includes the test framework — for example `pw:owner/repo-16873-1`. A cancelling step that rebuilds the CI build id from environment variables will not produce that string and will report that there is no run to cancel. Set `CURRENTS_CI_BUILD_ID` explicitly on any job you want to cancel from CI.
+Set `CURRENTS_CI_BUILD_ID` on any job you want to cancel from CI. Without it, Currents generates the value from the CI environment, or at random on a provider it does not detect. `currents cancel` cannot reproduce either form, so the command reports that there is no run to cancel.
 {% endhint %}
 
-### Cancelling from GitHub Actions
+## Cancelling from GitHub Actions
 
-A job that already exports the record key, project and CI build id needs no arguments:
+A job that already exports the record key, project and CI Build ID needs no arguments:
 
 ```yaml
-- name: Run tests
-  env:
-    CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
-    CURRENTS_PROJECT_ID: my-project-id
-    CURRENTS_CI_BUILD_ID: ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
-  run: npx playwright test
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    env:
+      CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
+      CURRENTS_PROJECT_ID: my-project-id
+      CURRENTS_CI_BUILD_ID: ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - name: Run tests
+        run: npx playwright test
 
-- name: Cancel the run if the workflow is cancelled
-  if: ${{ cancelled() }}
-  env:
-    CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
-    CURRENTS_PROJECT_ID: my-project-id
-    CURRENTS_CI_BUILD_ID: ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
-  run: npx currents cancel
+      - name: Cancel the run if the workflow is cancelled
+        if: ${{ cancelled() }}
+        run: npx currents cancel
 ```
 
-### Cancelling from other CI providers
+Declaring them on the job is what lets the cancel step run with no arguments. A step's `env` is visible only to that step.
 
-The command only needs the record key, the project and the CI build id, so the same step works anywhere. Set the CI build id for the whole pipeline, so the job that reports and the job that cancels use the same value. GitLab CI, for example:
+The snippet above is trimmed to the parts that matter for cancelling. [cancel-runs.md](../../../getting-started/ci-setup/github-actions/cancel-runs.md "mention") holds the complete workflow, including checkout, setup and `concurrency`. Change that page when the workflow itself changes.
+
+## Cancelling from other CI providers
+
+The command only needs the record key, the project and the CI Build ID, so the same step works anywhere. Set the CI Build ID for the whole pipeline, so the reporting job and the cancelling step use the same value. GitLab CI, for example:
 
 ```yaml
 variables:
   CURRENTS_CI_BUILD_ID: $CI_PIPELINE_ID
 
-cancel_currents_run:
-  stage: .post
-  when: on_failure
+playwright_tests:
   script:
-    - npx currents cancel
+    - npx playwright test
+  after_script:
+    - if [ "$CI_JOB_STATUS" = "canceled" ]; then npx currents cancel; fi
 ```
 
-`CURRENTS_RECORD_KEY` and `CURRENTS_PROJECT_ID` come from the pipeline's variables, the same ones the reporting job uses.
+`CURRENTS_RECORD_KEY` and `CURRENTS_PROJECT_ID` come from the pipeline's variables, the same ones the reporting job uses. Set `CURRENTS_RECORD_KEY` as a masked CI/CD variable, and protected where your branch policy allows it. Masking keeps the key out of the job log. `CURRENTS_PROJECT_ID` is not a secret and needs neither.
 
-### Notes
+The guard relies on GitLab running `after_script` on cancellation. No `when:` value matches a cancelled job, including `when: on_failure`, which fires only on failure.
 
-* Every job of a parallelized run records into the same run. Cancelling a run that is already cancelled succeeds, so it is safe for each job to run the command.
-* A run only exists once results have been recorded. Cancelling before the first results were uploaded reports that there is no run to cancel and exits successfully, so the step does not fail on an already cancelled job.
-* Cancelled runs are marked in the dashboard and trigger the usual integrations. See [cancel-run.md](../../../dashboard/runs/cancel-run.md "mention") for what cancelling a run affects.
+Cancelling from `after_script` requires GitLab 17.0 with GitLab Runner 16.11.1, the first versions where `$CI_JOB_STATUS` reads `canceled`. Runner 16.10 runs `after_script` on cancellation but reports `failed`, so the guard never matches.
+
+Two cases skip `after_script` on any version: a job cancelled while still pending, and a force cancelled job. Those runs end at the [run-timeouts.md](../../../dashboard/runs/run-timeouts.md "mention") instead.
+
+{% hint style="warning" %}
+A CI Build ID has to stay the same across every job in a pipeline, and `$CI_PIPELINE_ID` does. Retrying a single job does not change the value. Currents requires a distinct CI Build ID per attempt, so a retried job reports against the completed run instead of a new one.
+
+Whatever value you pick, set it in `variables:` as above. Both `script` and `after_script` read `CURRENTS_CI_BUILD_ID` from the job's environment. Add the discriminator to the reporting command alone and `currents cancel` looks for a different run than the one you recorded.
+
+If a single job reports the whole run, use `$CI_JOB_ID`, which changes on every retry. If the run is split across parallel jobs, no GitLab variable is both per-attempt and shared by all of them. Re-run the pipeline instead, so the jobs get a new `$CI_PIPELINE_ID`. See [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention").
+{% endhint %}
+
+## Notes
+
+- Every job of a parallelized run records into the same run. Cancelling a run that is already cancelled succeeds, so it is safe for each job to run the command.
+- A run only exists once results have been recorded. Cancelling before the first results were uploaded reports that there is no run to cancel and exits successfully, so the step does not fail on an already cancelled job.
+- Cancelled runs are marked in the dashboard and trigger the usual integrations. See [cancel-run.md](../../../dashboard/runs/cancel-run.md "mention") for what cancelling a run affects.

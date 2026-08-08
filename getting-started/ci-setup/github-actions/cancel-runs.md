@@ -32,7 +32,7 @@ The [cancel-run-gh-action](https://github.com/currents-dev/cancel-run-gh-action)
   uses: currents-dev/cancel-run-gh-action@v1
 ```
 
-With no inputs it reads `CURRENTS_RECORD_KEY`, `CURRENTS_PROJECT_ID` and `CURRENTS_CI_BUILD_ID` from the environment the reporting step already sets. Like the command, it can also identify the run by its run id — the `run-id` input, or `CURRENTS_RUN_ID`. See the [action's README](https://github.com/currents-dev/cancel-run-gh-action#inputs) for every input.
+With no inputs it reads `CURRENTS_RECORD_KEY`, `CURRENTS_PROJECT_ID` and `CURRENTS_CI_BUILD_ID` from the job's environment, the way the full example below declares them. Declare them on the reporting step instead and they arrive empty here, because a step's `env` is visible only to that step. Like the command, it can also identify the run by its run id — the `run-id` input, or `CURRENTS_RUN_ID`. See the [action's README](https://github.com/currents-dev/cancel-run-gh-action#inputs) for every input.
 
 ## Full example
 

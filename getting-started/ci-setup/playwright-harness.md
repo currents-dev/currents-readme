@@ -4,7 +4,7 @@ description: Running Playwright tests on Harness CI with Currents reporting and 
 
 # Harness
 
-This guide explains how to run Playwright tests on [Harness Continuous Integration](https://developer.harness.io/docs/category/set-up-cicd-pipelines) and report results to [Currents](https://currents.dev). It follows Harness NextGen pipeline patterns ([Run steps](https://developer.harness.io/docs/continuous-integration/use-ci/run-step-settings), [stage parallelism](https://developer.harness.io/docs/continuous-integration/use-ci/run-tests/speed-up-ci-test-pipelines-using-parallelism), [secrets](https://developer.harness.io/docs/platform/secrets/add-use-text-secrets)).
+This guide explains how to run Playwright tests on [Harness Continuous Integration](https://developer.harness.io/docs/continuous-integration/) and report results to [Currents](https://currents.dev). It follows Harness NextGen pipeline patterns ([Run steps](https://developer.harness.io/docs/continuous-integration/use-ci/run-step-settings), [stage parallelism](https://developer.harness.io/docs/continuous-integration/use-ci/run-tests/speed-up-ci-test-pipelines-using-parallelism), [secrets](https://developer.harness.io/docs/platform/secrets/add-use-text-secrets)).
 
 {% hint style="warning" %}
 **`CURRENTS_CI_BUILD_ID` is mandatory** for Harness. Harness is **not** in Currents’ [auto-detected CI providers](../../guides/parallelization-guide/ci-build-id.md#build-id-for-popular-ci-providers). If you omit it, Currents may generate a **different** build ID per job or shard: parallel Playwright shards **will not merge into one run**, reporting and orchestration **break**, and **retries** can collide with or duplicate prior runs. Always set `CURRENTS_CI_BUILD_ID` in every Run step (see below).

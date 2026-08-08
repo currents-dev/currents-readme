@@ -110,20 +110,27 @@ The action also accepts an [api-keys.md](../administration/api-keys.md "mention"
 
 Pass `project-id` and `ci-build-id` as well to identify the run by its [ci-build-id.md](../../guides/parallelization-guide/ci-build-id.md "mention") instead — which is what you need when the workflow records under a CI build ID of its own:
 
+Declare the variables on the job, not on the reporting step. A step's `env` is
+visible only to that step, so the cancelling step reads them as empty:
+
 ```yaml
-  - name: Run tests
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
     env:
       CURRENTS_CI_BUILD_ID: "a-custom-ci-build-id"
       CURRENTS_PROJECT_ID: "my-project-id"
-    run: npx pwc --key ${{ secrets.CURRENTS_RECORD_KEY }}
+    steps:
+      - name: Run tests
+        run: npx pwc --key ${{ secrets.CURRENTS_RECORD_KEY }}
 
-  - name: Cancel the run if the workflow is cancelled
-    if: ${{ cancelled() }}
-    uses: currents-dev/cancel-run-gh-action@v1
-    with:
-      api-token: ${{ secrets.CURRENTS_API_KEY }}
-      project-id: ${{ env.CURRENTS_PROJECT_ID }}
-      ci-build-id: ${{ env.CURRENTS_CI_BUILD_ID }}
+      - name: Cancel the run if the workflow is cancelled
+        if: ${{ cancelled() }}
+        uses: currents-dev/cancel-run-gh-action@v1
+        with:
+          api-token: ${{ secrets.CURRENTS_API_KEY }}
+          project-id: ${{ env.CURRENTS_PROJECT_ID }}
+          ci-build-id: ${{ env.CURRENTS_CI_BUILD_ID }}
 ```
 
 ## FAQ
