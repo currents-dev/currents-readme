@@ -111,7 +111,7 @@ The action also accepts an [api-keys.md](../administration/api-keys.md "mention"
 Pass `project-id` and `ci-build-id` as well to identify the run by its [ci-build-id.md](../../guides/parallelization-guide/ci-build-id.md "mention") instead — which is what you need when the workflow records under a CI build ID of its own:
 
 Declare the variables on the job, not on the reporting step. A step's `env` is
-visible only to that step, so the cancelling step would read them as empty:
+visible only to that step, so the cancelling step reads them as empty:
 
 ```yaml
 jobs:

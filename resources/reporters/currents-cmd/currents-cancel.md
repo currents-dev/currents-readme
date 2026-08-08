@@ -35,12 +35,12 @@ Use `--ci-build-id` for cancelling from CI. Set `CURRENTS_CI_BUILD_ID` on the jo
 Use `--run-id` when you already have the run id: it is the last segment of the run URL, `https://app.currents.dev/run/<run-id>`. This is the option for cancelling a specific run from a script or by hand.
 
 {% hint style="warning" %}
-If the job does not set `CURRENTS_CI_BUILD_ID`, Currents generates one, and a separate step cannot reproduce either form it takes. On a CI provider Currents detects, the value comes from that provider's environment variables and carries a test framework prefix, such as `pw:owner/repo-16873-1`. On any other provider it is a random id. Either way `currents cancel` rebuilds the id from the environment, gets a different string, and reports that there is no run to cancel. Set `CURRENTS_CI_BUILD_ID` yourself on any job you want to cancel from CI.
+If the job does not set `CURRENTS_CI_BUILD_ID`, Currents generates one, and a separate step cannot reproduce either form the value takes. On a CI provider Currents detects, the value comes from that provider's environment variables and carries a test framework prefix, such as `pw:owner/repo-16873-1`. On any other provider the value is a random id. Either way `currents cancel` rebuilds the CI Build ID from the environment, gets a different string, and reports that there is no run to cancel. Set `CURRENTS_CI_BUILD_ID` yourself on any job you want to cancel from CI.
 {% endhint %}
 
 ## Cancelling from GitHub Actions
 
-A job that already exports the record key, project and CI build id needs no arguments:
+A job that already exports the record key, project and CI Build ID needs no arguments:
 
 ```yaml
 jobs:
@@ -65,7 +65,7 @@ The snippet above is trimmed to the parts that matter for cancelling. [cancel-ru
 
 ## Cancelling from other CI providers
 
-The command only needs the record key, the project and the CI build id, so the same step works anywhere. Set the CI build id for the whole pipeline, so the reporting job and the cancelling step use the same value. GitLab CI, for example:
+The command only needs the record key, the project and the CI Build ID, so the same step works anywhere. Set the CI Build ID for the whole pipeline, so the reporting job and the cancelling step use the same value. GitLab CI, for example:
 
 ```yaml
 variables:
@@ -78,20 +78,18 @@ playwright_tests:
     - if [ "$CI_JOB_STATUS" = "canceled" ]; then npx currents cancel; fi
 ```
 
-`CURRENTS_RECORD_KEY` and `CURRENTS_PROJECT_ID` come from the pipeline's variables, the same ones the reporting job uses. Set `CURRENTS_RECORD_KEY` as a masked CI/CD variable, and protected where your branch policy allows it. Any job that echoes its environment would otherwise print the key. `CURRENTS_PROJECT_ID` is not a secret and needs neither.
+`CURRENTS_RECORD_KEY` and `CURRENTS_PROJECT_ID` come from the pipeline's variables, the same ones the reporting job uses. Set `CURRENTS_RECORD_KEY` as a masked CI/CD variable, and protected where your branch policy allows it. Masking keeps the key out of the job log. `CURRENTS_PROJECT_ID` is not a secret and needs neither.
 
-This works because GitLab runs `after_script` when a job is cancelled. No `when:` value matches cancellation. `when: on_failure` does not fire either: it triggers on a failed job, and a cancelled job is not a failed one.
+The guard works because GitLab runs `after_script` when a job is cancelled. No `when:` value matches cancellation. `when: on_failure` does not fire either: the trigger is a failed job, and a cancelled job is not a failed one.
+
+The example requires GitLab 17.0 with GitLab Runner 16.11.1, the first combination where `$CI_JOB_STATUS` reads `canceled` while `after_script` runs. GitLab 17.3 made the behavior generally available. Runner 16.10 also runs `after_script` on cancellation, but reports the status as `failed`, so the guard never matches. Two cases skip `after_script` on every version: a job cancelled while still pending never starts, and force cancelling ends the job immediately. Runs cancelled either way end at the [run-timeouts.md](../../../dashboard/runs/run-timeouts.md "mention") instead.
 
 {% hint style="warning" %}
-A CI build id has to stay the same across every job in a pipeline, and `$CI_PIPELINE_ID` does. It does not change when you retry a single job. Currents requires a distinct CI build id per attempt, so a retried job reports against the completed run instead of a new one.
+A CI Build ID has to stay the same across every job in a pipeline, and `$CI_PIPELINE_ID` does. Retrying a single job does not change the value. Currents requires a distinct CI Build ID per attempt, so a retried job reports against the completed run instead of a new one.
 
 Whatever value you pick, set it in `variables:` as above. Both `script` and `after_script` read `CURRENTS_CI_BUILD_ID` from the job's environment. Add the discriminator to the reporting command alone and `currents cancel` looks for a different run than the one you recorded.
 
-If a single job reports the whole run, use `$CI_JOB_ID`. It changes on every retry. If the run is split across parallel jobs, no GitLab variable is both per-attempt and shared by all of them, so re-run the pipeline instead. That gives you a new `$CI_PIPELINE_ID`. See [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention").
-{% endhint %}
-
-{% hint style="info" %}
-The example needs GitLab 17.0 with GitLab Runner 16.11.1. That is the first combination where `$CI_JOB_STATUS` reads `canceled` while `after_script` runs, and it became generally available in GitLab 17.3. Runner 16.10 already ran `after_script` on cancellation, but reported the status as `failed`, so the guard above never matches. Two cases skip `after_script` on every version. A job cancelled while still pending never starts, and force cancelling ends the job immediately. Runs cancelled either way end at the [run-timeouts.md](../../../dashboard/runs/run-timeouts.md "mention") instead.
+If a single job reports the whole run, use `$CI_JOB_ID`, which changes on every retry. If the run is split across parallel jobs, no GitLab variable is both per-attempt and shared by all of them. Re-run the pipeline instead, so the jobs get a new `$CI_PIPELINE_ID`. See [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention").
 {% endhint %}
 
 ## Notes
