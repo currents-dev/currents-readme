@@ -80,9 +80,11 @@ playwright_tests:
 
 `CURRENTS_RECORD_KEY` and `CURRENTS_PROJECT_ID` come from the pipeline's variables, the same ones the reporting job uses. Set `CURRENTS_RECORD_KEY` as a masked CI/CD variable, and protected where your branch policy allows it. Masking keeps the key out of the job log. `CURRENTS_PROJECT_ID` is not a secret and needs neither.
 
-The guard works because GitLab runs `after_script` when a job is cancelled. No `when:` value matches cancellation. `when: on_failure` does not fire either: the trigger is a failed job, and a cancelled job is not a failed one.
+The guard relies on GitLab running `after_script` on cancellation. No `when:` value matches a cancelled job, including `when: on_failure`, which fires only on failure.
 
-The example requires GitLab 17.0 with GitLab Runner 16.11.1, the first combination where `$CI_JOB_STATUS` reads `canceled` while `after_script` runs. GitLab 17.3 made the behavior generally available. Runner 16.10 also runs `after_script` on cancellation, but reports the status as `failed`, so the guard never matches. Two cases skip `after_script` on every version: a job cancelled while still pending never starts, and force cancelling ends the job immediately. Runs cancelled either way end at the [run-timeouts.md](../../../dashboard/runs/run-timeouts.md "mention") instead.
+Cancelling from `after_script` requires GitLab 17.0 with GitLab Runner 16.11.1, the first versions where `$CI_JOB_STATUS` reads `canceled`. Runner 16.10 runs `after_script` on cancellation but reports `failed`, so the guard never matches.
+
+Two cases skip `after_script` on any version: a job cancelled while still pending, and a force cancelled job. Those runs end at the [run-timeouts.md](../../../dashboard/runs/run-timeouts.md "mention") instead.
 
 {% hint style="warning" %}
 A CI Build ID has to stay the same across every job in a pipeline, and `$CI_PIPELINE_ID` does. Retrying a single job does not change the value. Currents requires a distinct CI Build ID per attempt, so a retried job reports against the completed run instead of a new one.
