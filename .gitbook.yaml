@@ -68,3 +68,15 @@ redirects:
   getting-started/ci-setup/aws-code-build: getting-started/ci-setup/playwright-aws-code-build.md
   getting-started/ci-setup/bitbucket: getting-started/other-frameworks/cypress/ci-setup/cypress-bitbucket-pipelines.md
   getting-started/ci-setup/nx/playwright-nx: getting-started/ci-setup/nx.md
+  ci-setup/circleci: getting-started/ci-setup/playwright-circleci.md
+  ci-setup/azure-devops: getting-started/ci-setup/playwright-azure-devops.md
+  ci-setup/bitbucket: getting-started/other-frameworks/cypress/ci-setup/cypress-bitbucket-pipelines.md
+  ci-setup/jenkins-playwright: getting-started/ci-setup/jenkins.md
+  guides/currents-cli: resources/reporters/currents-cli.md
+  guides/cypress-11: getting-started/other-frameworks/cypress/integrating-with-cypress/compatibility.md
+  guides/parallelization-guide/cypress-parallelization: getting-started/other-frameworks/cypress/README.md
+  guides/ci-optimization/re-run-only-failed-tests/re-run-only-failed-tests-orchestrated: guides/ci-optimization/re-run-only-failed-tests-orchestrated-v2.md
+  integrations/jira/projects: resources/integrations/jira.md
+  projects: dashboard/projects/README.md
+  webhooks: resources/integrations/http-webhooks.md
+  actions: guides/currents-actions/README.md
