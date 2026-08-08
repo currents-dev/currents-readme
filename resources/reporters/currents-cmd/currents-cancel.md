@@ -35,7 +35,7 @@ Use `--ci-build-id` for cancelling from CI. Set `CURRENTS_CI_BUILD_ID` on the jo
 Use `--run-id` when you already have the run id: it is the last segment of the run URL, `https://app.currents.dev/run/<run-id>`. This is the option for cancelling a specific run from a script or by hand.
 
 {% hint style="warning" %}
-If the job does not set `CURRENTS_CI_BUILD_ID`, Currents generates one, and a separate step cannot reproduce either form the value takes. On a CI provider Currents detects, the value comes from that provider's environment variables and carries a test framework prefix, such as `pw:owner/repo-16873-1`. On any other provider the value is a random id. Either way `currents cancel` rebuilds the CI Build ID from the environment, gets a different string, and reports that there is no run to cancel. Set `CURRENTS_CI_BUILD_ID` yourself on any job you want to cancel from CI.
+Set `CURRENTS_CI_BUILD_ID` on any job you want to cancel from CI. Without it, Currents generates the value from the CI environment, or at random on a provider it does not detect. `currents cancel` cannot reproduce either form, so the command reports that there is no run to cancel.
 {% endhint %}
 
 ## Cancelling from GitHub Actions
