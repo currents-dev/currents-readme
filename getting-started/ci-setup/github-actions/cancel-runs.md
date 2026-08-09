@@ -4,7 +4,7 @@ description: Cancel the Currents run when a GitHub Actions workflow is cancelled
 
 # Cancel Runs on Workflow Cancellation
 
-A cancelled workflow stops reporting mid-run. Currents has no way to tell that apart from a job that is still working, so the run stays in progress until it hits the project's [run-timeouts.md](../../../dashboard/runs/run-timeouts.md "mention") — up to an hour of a run sitting in the feed as if it were live.
+A cancelled workflow stops reporting mid-run. Currents has no way to tell that apart from a job that is still working, so the run stays in progress until it hits the project's [run-timeouts.md](../../../dashboard/runs/run-timeouts.md "mention"). That leaves a run sitting in the feed as if it were live, for up to an hour.
 
 Add a step that cancels the run when the job is cancelled:
 
@@ -21,7 +21,7 @@ Add a step that cancels the run when the job is cancelled:
 [`currents cancel`](../../../resources/reporters/currents-cmd/currents-cancel.md) authenticates with the [record-key.md](../../../guides/record-key.md "mention") the job already uses to report results, so no additional secret is needed. It identifies the run by its [ci-build-id.md](../../../guides/parallelization-guide/ci-build-id.md "mention") or its run ID, which means the same step works on any CI provider.
 
 {% hint style="warning" %}
-Set `CURRENTS_CI_BUILD_ID` on the job, as the example below does. Without it Currents generates a CI build id that includes the test framework, and the cancelling step cannot reconstruct that value from the environment — it would report that there is no run to cancel.
+Set `CURRENTS_CI_BUILD_ID` on the job, as the example below does. Without it Currents generates a CI Build ID that includes the test framework. The cancelling step cannot reconstruct that value from the environment, so it reports that there is no run to cancel.
 {% endhint %}
 
 The [cancel-run-gh-action](https://github.com/currents-dev/cancel-run-gh-action) does the same as a GitHub action and accepts either a record key or an [api-keys.md](../../../dashboard/administration/api-keys.md "mention"):
@@ -32,7 +32,9 @@ The [cancel-run-gh-action](https://github.com/currents-dev/cancel-run-gh-action)
   uses: currents-dev/cancel-run-gh-action@v1
 ```
 
-With no inputs it reads `CURRENTS_RECORD_KEY`, `CURRENTS_PROJECT_ID` and `CURRENTS_CI_BUILD_ID` from the job's environment, the way the full example below declares them. Declare them on the reporting step instead and they arrive empty here, because a step's `env` is visible only to that step. Like the command, it can also identify the run by its run id — the `run-id` input, or `CURRENTS_RUN_ID`. See the [action's README](https://github.com/currents-dev/cancel-run-gh-action#inputs) for every input.
+With no inputs, the action reads `CURRENTS_RECORD_KEY`, `CURRENTS_PROJECT_ID` and `CURRENTS_CI_BUILD_ID` from the environment. Declare them on the job, the way the full example below does — a step's `env` is visible only to that step, so variables set on the reporting step reach the cancelling step empty.
+
+Like the command, the action can also identify the run by its run ID, through the `run-id` input or `CURRENTS_RUN_ID`. The [action's README](https://github.com/currents-dev/cancel-run-gh-action#inputs) lists every input.
 
 ## Full example
 
@@ -75,6 +77,6 @@ jobs:
 
 * **Parallel jobs.** Every job of a parallelized run records into the same run, and every one of them can run the cancellation step. Cancelling a run that is already cancelled succeeds.
 * **Nothing recorded yet.** A workflow cancelled before the first results reached Currents has no run to cancel. The step reports that and succeeds, so it does not add a failed step to an already cancelled workflow.
-* **Hard cancellations.** A job killed without running its remaining steps — a cancelled job that does not honour `if: cancelled()`, or a runner that disappears — never reaches the step. Those runs still end at the inactivity timeout.
+* **Hard cancellations.** A job killed without running its remaining steps never reaches the step. That covers a cancelled job that does not honour `if: cancelled()`, and a runner that disappears. Those runs still end at the inactivity timeout.
 
 See [cancel-run.md](../../../dashboard/runs/cancel-run.md "mention") for what cancelling a run affects: test statuses, plan usage, analytics and integrations.
