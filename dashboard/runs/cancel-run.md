@@ -113,6 +113,9 @@ Pass `project-id` and `ci-build-id` as well to identify the run by its [ci-build
 Declare the variables on the job, not on the reporting step. A step's `env` is
 visible only to that step, so the cancelling step reads them as empty:
 
+Declare the variables on the job, not on the reporting step. A step's `env` is
+visible only to that step, so the cancelling step reads them as empty:
+
 ```yaml
 jobs:
   run-tests:
