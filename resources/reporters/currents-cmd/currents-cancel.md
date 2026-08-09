@@ -13,7 +13,7 @@ The command is available from `@currents/cmd` 1.10.0.
 ## Usage
 
 {% hint style="info" %}
-The command authenticates with the [record-key.md](../../../guides/record-key.md "mention") the job already uses to report results — no API key is needed. It accepts `--key`, `--project-id`, `--ci-build-id` and `--run-id`, or the `CURRENTS_RECORD_KEY`, `CURRENTS_PROJECT_ID`, `CURRENTS_CI_BUILD_ID` and `CURRENTS_RUN_ID` environment variables.
+The command authenticates with the [record-key.md](../../../guides/record-key.md "mention") the job already uses to report results, so it needs no API key. The command accepts `--key`, `--project-id`, `--ci-build-id` and `--run-id`, or the `CURRENTS_RECORD_KEY`, `CURRENTS_PROJECT_ID`, `CURRENTS_CI_BUILD_ID` and `CURRENTS_RUN_ID` environment variables.
 {% endhint %}
 
 ```bash
@@ -30,7 +30,7 @@ npx currents cancel --key <record-key> --project-id <project-id> --run-id <run-i
 
 `--run-id` takes precedence when both are set.
 
-Use `--ci-build-id` for cancelling from CI. Set `CURRENTS_CI_BUILD_ID` on the job — for example `${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}` — and both the reporting step and the cancelling step read the same variable, so no value has to be passed between them.
+Use `--ci-build-id` for cancelling from CI. Set `CURRENTS_CI_BUILD_ID` on the job, for example `${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}`. The reporting step and the cancelling step then read the same variable, so no value has to be passed between them.
 
 Use `--run-id` when you already have the run id: it is the last segment of the run URL, `https://app.currents.dev/run/<run-id>`. This is the option for cancelling a specific run from a script or by hand.
 
