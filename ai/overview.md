@@ -26,6 +26,8 @@ Currents post-processes test results on the server into a structured troubleshoo
 
 Every entry point below delivers this same context - they differ in where you are when you use them and how much of the loop is automated.
 
+Sending that context to an AI provider requires your organization's consent, which an administrator grants once for the whole organization. See [Data Usage and Consent](data-usage-and-consent.md) for what is sent and how to grant or revoke it.
+
 ## Entry points
 
 | Method                                                       | Where                             | Best for                                                                         |
