@@ -39,7 +39,7 @@ Your test data is not used to train models. Requests are made through the provid
 
 Only **organization administrators** can change the consent setting. The decision applies to the entire organization: every project, every user, every AI entry point.
 
-Consent is off by default. A newly created organization has AI features disabled until an admin turns them on, except where the person creating the organization grants consent during signup.
+The organization creation form offers **Allow AI analysis**, ticked by default. Leaving it ticked records the grant against the person creating the organization; clearing it records nothing at all, so the organization reads as never asked rather than as having refused, and its AI features stay off until an admin grants consent in settings.
 
 ## Granting and revoking consent
 
