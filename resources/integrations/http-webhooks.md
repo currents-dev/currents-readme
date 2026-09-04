@@ -82,7 +82,7 @@ curl --location --request POST 'https://yourserver.com/webhook/currents.dev' \
 	overall: number;  // overall number of tests
 	passes: number;   // number of passed tests 
 	failures: number; // number of failed tests 
-	pending: number;  // number of tests that haven't reported results yet
+	pending: number;  // number of tests that were not executed
 	skipped: number;  // number of skipped tests
 	retries: number;  // number of test retries for the run
 	flaky: number;    // number of flaky tests for the run
@@ -91,23 +91,21 @@ curl --location --request POST 'https://yourserver.com/webhook/currents.dev' \
 
 #### Interpreting the results for Playwright runs
 
-The counters reflect the status Currents assigns to each test after all its attempts have completed, which is a composition of Playwright's expected status and the outcome of every attempt - see [test-status.md](../../dashboard/tests/test-status.md "mention") for the full mapping.
+For every test that reported a result, the counters reflect the status Currents assigns to it - a composition of Playwright's expected status and the outcome of all its attempts, see [test-status.md](../../dashboard/tests/test-status.md "mention") for the full mapping. `RUN_START`, `RUN_TIMEOUT` and `RUN_CANCELED` payloads carry the results known at that point, so they describe only the tests reported so far.
 
 | Field      | Playwright meaning                                                                                                                                                    |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `overall`  | All the tests recorded for the run or group, regardless of their outcome                                                                                               |
+| `overall`  | All the tests that reported a result for the run or group, regardless of their outcome                                                                                 |
 | `passes`   | Tests whose outcome matched their expected status, including tests marked with `test.fail()` that did fail                                                             |
 | `failures` | Tests whose outcome did not match their expected status, e.g. a failed assertion, an exception or a `timedOut` attempt                                                 |
-| `pending`  | Tests that were detected but haven't reported results yet - typically non-zero for `RUN_START`, `RUN_TIMEOUT` and `RUN_CANCELED`                                       |
-| `skipped`  | Tests that didn't run because of an error in `beforeEach` / `beforeAll`, or because a preceding test in a [serial group](https://playwright.dev/docs/test-retries#serial-mode) failed. Tests marked with `test.skip()` or `test.fixme()` are reported as `ignored` and are not counted here |
+| `pending`  | Tests that were not executed, e.g. tests marked with `test.skip()` or `test.fixme()`. These appear as `ignored` in the dashboard and are excluded from the success rate |
+| `skipped`  | Tests that didn't run because of an error in `beforeEach` / `beforeAll`, or because a preceding test in a [serial group](https://playwright.dev/docs/test-retries#serial-mode) failed. This is a separate counter from `failures`, though the dashboard groups the two together when reporting failed tests |
 | `retries`  | Total number of retry attempts across the run or group                                                                                                                |
-| `flaky`    | Tests that had at least one attempt matching the expected status and at least one that didn't, see [flaky-tests.md](../../dashboard/tests/flaky-tests.md "mention")    |
+| `flaky`    | Tests that had at least one attempt matching the expected status and at least one that didn't, see [flaky-tests.md](../../dashboard/tests/flaky-tests.md "mention"). This counter overlaps the ones above - a flaky test is also counted under its final outcome |
 
-{% hint style="info" %}
-`RUN_TIMEOUT` and `RUN_CANCELED` payloads carry the **last known results** for the run or group - tests that never reported are counted in `pending`.
-{% endhint %}
+`passes`, `failures`, `pending` and `skipped` add up to `overall`. Tests that never reported a result - because the run timed out or was cancelled before reaching them - are not represented in any of these counters, so `overall` in a `RUN_TIMEOUT` or `RUN_CANCELED` payload is smaller than the number of tests the run set out to execute.
 
-The `tags` field contains the run tags reported with `--tag`, see [tags.md](../../dashboard/runs/tags.md "mention").
+The `tags` field contains the run tags reported with `--tag` as well as the tags applied to the executed tests and test groups, see [tags.md](../../dashboard/runs/tags.md "mention").
 
 ### Security
 
