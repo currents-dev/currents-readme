@@ -1,5 +1,5 @@
 ---
-description: HTTP Webhooks for Playwright tests dashboard
+description: HTTP Webhooks for getting runs information
 icon: webhook
 ---
 
