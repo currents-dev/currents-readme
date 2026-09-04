@@ -96,7 +96,7 @@ For every test that reported a result, the counters reflect the status Currents 
 | Field      | Playwright meaning                                                                                                                                                    |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `overall`  | All the tests that reported a result for the run or group, regardless of their outcome                                                                                 |
-| `passes`   | Tests whose outcome matched their expected status, including tests marked with `test.fail()` that did fail                                                             |
+| `passes`   | Tests that were executed and whose outcome matched their expected status - tests that passed, plus tests marked with `test.fail()` that did fail. Tests that never executed also match their expected status, but are counted in `pending` rather than here |
 | `failures` | Tests whose outcome did not match their expected status, e.g. a failed assertion, an exception or a `timedOut` attempt                                                 |
 | `pending`  | Tests that were not executed, e.g. tests marked with `test.skip()` or `test.fixme()`. These appear as `ignored` in the dashboard and are excluded from the success rate |
 | `skipped`  | Tests that didn't run because of an error in `beforeEach` / `beforeAll`, or because a preceding test in a [serial group](https://playwright.dev/docs/test-retries#serial-mode) failed. This is a separate counter from `failures`, though the dashboard groups the two together when reporting failed tests |
