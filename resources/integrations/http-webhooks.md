@@ -105,6 +105,10 @@ For every test that reported a result, the counters reflect the status Currents 
 
 `passes`, `failures`, `pending` and `skipped` add up to `overall`. Tests that never reported a result - because the run timed out or was cancelled before reaching them - are not represented in any of these counters, so `overall` in a `RUN_TIMEOUT` or `RUN_CANCELED` payload is smaller than the number of tests the run set out to execute.
 
+{% hint style="warning" %}
+A `RUN_CANCELED` payload is a snapshot rather than the settled state of the run. Tests already in progress when the run is cancelled continue to completion and Currents accepts their results, see [cancel-run.md](../../dashboard/runs/cancel-run.md "mention") - so the counters can still change after the request is sent. Read the run through the dashboard or the API if your integration needs the final numbers.
+{% endhint %}
+
 The `tags` field contains the run tags reported with `--tag` as well as the tags applied to the executed tests and test groups, see [tags.md](../../dashboard/runs/tags.md "mention").
 
 ### Security
