@@ -28,14 +28,15 @@ Every entry point below delivers this same context - they differ in where you ar
 
 ## Entry points
 
-| Method                                                       | Where                             | Best for                                                                         |
-| ------------------------------------------------------------ | --------------------------------- | -------------------------------------------------------------------------------- |
-| [MCP Server](mcp-server.md)                                  | Any MCP-capable agent             | Agents querying runs, tests, and analytics on demand; autonomous troubleshooting |
-| [IDE Extension](ide-extension.md)                            | VS Code, Cursor, compatible forks | Debugging CI failures without leaving the editor                                 |
-| [Fix with AI](overview.md#fix-with-ai-from-the-dashboard)    | Currents dashboard                | Handing a failure to an agent while triaging a run                               |
-| [Slack Fix with AI](../resources/integrations/slack/slack-app.md#fix-with-ai) | Slack | Handing a failed-test notification to an agent from a channel |
-| [Playwright Skill](agent-skill-playwright-best-practices.md) | Claude Code, Cursor, other agents | Teaching agents how to write and fix Playwright tests correctly                  |
-| [n8n](../resources/integrations/n8n.md)                      | n8n workflows                     | Automated triage, notifications, and agent pipelines without code                |
+| Method                                                                        | Where                             | Best for                                                                         |
+| ----------------------------------------------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------- |
+| [MCP Server](mcp-server.md)                                                   | Any MCP-capable agent             | Agents querying runs, tests, and analytics on demand; autonomous troubleshooting |
+| [IDE Extension](ide-extension.md)                                             | VS Code, Cursor, compatible forks | Debugging CI failures without leaving the editor                                 |
+| [Fix with AI](overview.md#fix-with-ai-from-the-dashboard)                     | Currents dashboard                | Handing a failure to an agent while triaging a run                               |
+| [Slack Fix with AI](../resources/integrations/slack/slack-app.md#fix-with-ai) | Slack                             | Handing a failed-test notification to an agent from a channel                    |
+| [Shareable Context](shareable-context.md)                                     | Dashboad, Slack                   | Handing a failure to an agent, or to someone with no Currents account            |
+| [Playwright Skill](agent-skill-playwright-best-practices.md)                  | Claude Code, Cursor, other agents | Teaching agents how to write and fix Playwright tests correctly                  |
+| [n8n](../resources/integrations/n8n.md)                                       | n8n workflows                     | Automated triage, notifications, and agent pipelines without code                |
 
 ### MCP Server
 
@@ -79,15 +80,17 @@ When you're triaging a run in the dashboard, every failed test attempt has a **F
 
 You can copy the prompt to your clipboard for any agent, or open it directly in a supported tool - Cursor, GitHub Copilot, Claude Code, Zed, Conductor, or Codex. The dashboard remembers your preferred target.
 
+The same menu offers **Share a public link**, which turns the failure into a link that opens without the need of Currents credentials - useful when the agent fetches URLs itself, or when whoever needs the failure is outside your organization. See [shareable-context.md](shareable-context.md "mention").
+
 <figure><img src="../.gitbook/assets/CleanShot 2026-07-22 at 16.39.43@2x.png" alt=""><figcaption></figcaption></figure>
-
-
 
 This is the bridge from investigation to action: whoever is looking at the failing run - not necessarily the person with the repo open - can package the failure with its full context and route it to an agent in one click.
 
 ### Fix with AI from Slack
 
 Failed-test notifications from the [Slack App](../resources/integrations/slack/slack-app.md#fix-with-ai) include a **Fix with AI** button. You can send the failed test context to Cursor, GitHub Copilot, Claude Code, Codex, Zed, Conductor, and other AI agents - routing a failure to an agent from a team channel without opening the Currents dashboard.
+
+When public context sharing is enabled, the button creates a [shareable link](shareable-context.md#from-slack) rather than a prompt to copy: the modal returns a page for a person and a raw Markdown URL for an agent, both readable without signing in. If an admin has turned public sharing off, the button falls back to the copyable prompt.
 
 ### Playwright Skill
 
@@ -116,5 +119,5 @@ Combined with [HTTP webhooks](../resources/integrations/http-webhooks.md) as a t
 These methods compose - most teams end up using several:
 
 * **Interactive debugging**: the IDE extension for the failure feed and one-click fixes, with the MCP server (auto-registered) letting the agent query beyond the initial prompt, and the Playwright skill shaping the fixes it writes.
-* **Triage to fix**: whoever monitors the dashboard uses Fix with AI to package failures for the engineer's agent of choice - the MCP identifiers in the prompt let that agent pick up the investigation with full access to the run.
+* **Triage to fix**: whoever monitors the dashboard uses Fix with AI to package failures for the engineer's agent of choice - the MCP identifiers in the prompt let that agent pick up the investigation with full access to the run. When the recipient has no Currents account, a shared link carries the same context without one.
 * **Auto-healing CI**: an n8n workflow or webhook triggers on run completion, an agent with the MCP server and the Playwright skill analyzes the failures and drafts a fix - a triaged ticket, a root-cause summary, or a PR that heals the failing test before anyone opens the run.
