@@ -11,14 +11,12 @@ Currents supports SSO integration via SAML 2.0, including JIT provisioning and S
 * Setup with [jumpcloud](jumpcloud/ "mention")
 * Manual [saml2.0-configuration.md](saml2.0-configuration.md "mention")
 
-### SSO Features
+### Before you start
 
-Please note that there are certain limitations to Currents SSO integration.
-
-* SSO integration is only available for customers with an **active Enterprise subscription.**
-* Enabling SSO will for **all the team members.**
-* Follow the guide on enabling [idp-initiated-sessions.md](idp-initiated-sessions.md "mention")
-* Follow the guides on enabling [scim-user-provisioning.md](scim-user-provisioning.md "mention")
+* SSO is part of the Enterprise plan.
+* Once SSO is on, people with an email on your listed domains sign in through your IdP. They can't use a password or social sign-in for Currents.
+* Users are created the first time they sign in. Add [scim-user-provisioning.md](scim-user-provisioning.md "mention") if you also want your IdP to create and remove users.
+* To open Currents from your IdP's app list, see [idp-initiated-sessions.md](idp-initiated-sessions.md "mention").
 
 ### Troubleshooting
 
