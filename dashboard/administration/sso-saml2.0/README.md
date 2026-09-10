@@ -13,7 +13,7 @@ Currents supports SSO integration via SAML 2.0, including JIT provisioning and S
 
 ### Before you start
 
-* SSO is part of the Enterprise plan.
+* SSO is part of the Business and Enterprise plans.
 * Once SSO is on, people with an email on your listed domains sign in through your IdP. They can't use a password or social sign-in for Currents.
 * Users are created the first time they sign in. Add [scim-user-provisioning.md](scim-user-provisioning.md "mention") if you also want your IdP to create and remove users.
 * To open Currents from your IdP's app list, see [idp-initiated-sessions.md](idp-initiated-sessions.md "mention").
