@@ -51,6 +51,7 @@ The best part: **they don’t count toward your organization member limit**. You
 | View integrations                      | ✅     | ✅             | ✅      | ✅     |
 | Manage actions and rules               | ✅     | ✅             | ❌      | ❌     |
 | Create, edit, and archive projects     | ✅     | ❌             | ❌      | ❌     |
+| Manage projects structure and labels   | ✅     | ❌             | ❌      | ❌     |
 | Manage integrations                    | ✅     | ❌             | ❌      | ❌     |
 
 ***

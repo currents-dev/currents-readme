@@ -15,6 +15,8 @@ Customize project settings within the default Projects Summary view by adjusting
 
 Once you’ve configured the view, save the settings to maintain your customized view for future sessions.
 
+To change how the projects themselves are grouped and presented — folders, ordering, labels, icons and the preview cards — see [manage-projects.md](../administration/manage-projects.md "mention").
+
 {% embed url="https://www.loom.com/share/aca843df76464339a2d8201ac9aa0676?hideEmbedTopBar=true&hide_title=true" %}
 Customizable Project Summary View
 {% endembed %}
