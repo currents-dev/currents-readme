@@ -31,7 +31,7 @@ Every tab shows who last saved the configuration and when — or **Not yet publi
 
 ## Project Structure
 
-The **Project Structure** tab renders the organization's projects as a file tree: folders with the projects they contain, alongside the projects that are not in any folder. Folders and top-level projects share one ordering, so a top-level project can sit above, between or below the folders.
+The **Project Structure** tab renders the organization's projects as a file tree: folders with the projects they contain, alongside the projects that are not in any folder. In the editor, folders and folder-less projects share a single root ordering, so a folder-less project can sit above, between or below the folders. The Projects page presents the same layout differently — see [Where the layout shows up](manage-projects.md#where-the-layout-shows-up).
 
 <figure><img src="../../.gitbook/assets/manage-projects-structure.png" alt=""><figcaption><p>The Project Structure tab, with the resulting folders mirrored in the sidebar</p></figcaption></figure>
 
@@ -114,15 +114,17 @@ Edits in Manage Projects are held as a local draft — nothing changes for the r
 * **Discard changes** reverts the draft back to the currently published layout.
 * The **Project Structure** and **Project Labels** tabs edit the same draft, so saving from either publishes both. **Project Preview** has its own draft and its own save.
 
+Structure, labels and preview metrics are separate sections of one organization configuration. Saving one section leaves the others untouched, but the configuration carries a single audit stamp and a single version: the "last saved" line on every tab reflects whichever section was published most recently.
+
 <figure><img src="../../.gitbook/assets/manage-projects-save.png" alt=""><figcaption><p>Publishing a draft layout to the whole organization</p></figcaption></figure>
 
 {% hint style="warning" %}
-If another admin publishes a layout while a draft has unsaved edits, the save is rejected to avoid overwriting that work. Reloading the page picks up the latest layout, after which the edits can be re-applied.
+Publishing is checked against the configuration version the draft was based on. If anything has saved the configuration in the meantime — another admin publishing, a save from one of the other tabs, or an immediate **Project Settings → Appearance** change — the save is rejected rather than overwriting that work. Reloading the page picks up the latest configuration, after which the edits can be re-applied.
 {% endhint %}
 
 ## Where the layout shows up
 
-Once published, the folders, ordering, icons and labels are used on the Projects page and in the sidebar. On the Projects page each folder becomes a collapsible group; projects that are not in a folder are listed after the folders.
+Once published, the folders, ordering, icons and labels are used on the Projects page and in the sidebar. On the Projects page each folder becomes a collapsible group, and every project that is not in a folder is collected into a single group after the folders — regardless of where those projects sit in the editor's root ordering.
 
 <figure><img src="../../.gitbook/assets/projects-page-folders.png" alt=""><figcaption><p>The published layout on the Projects page</p></figcaption></figure>
 
