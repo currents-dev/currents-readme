@@ -40,7 +40,7 @@ The usage is aggregated **hourly** to allow precise reporting and calculation of
 
 #### Usage Information filters
 
-You can filter usage by period and view all past billing cycles. Moreover, you can filter by **tests** or **runs**. Most customer contracts are metered by **runs**.
+You can filter usage by period and view all past billing cycles. Moreover, you can filter by **tests** or **runs**.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2026-01-19 at 19.42.07.png" alt=""><figcaption><p>Example - Usage history chart and filters</p></figcaption></figure>
 
