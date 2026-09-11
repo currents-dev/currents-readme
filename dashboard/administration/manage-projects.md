@@ -114,7 +114,7 @@ Edits in Manage Projects are held as a local draft — nothing changes for the r
 * **Discard changes** reverts the draft back to the currently published layout.
 * The **Project Structure** and **Project Labels** tabs edit the same draft, so saving from either publishes both. **Project Preview** has its own draft and its own save.
 
-Structure, labels and preview metrics are separate sections of one organization configuration. Saving one section leaves the others untouched, but the configuration carries a single audit stamp and a single version: the "last saved" line on every tab reflects whichever section was published most recently.
+One organization configuration holds both, in two sections: the **layout** — folders, ordering, appearance and labels together — and the **preview metrics**. That is why saving from either the Project Structure or the Project Labels tab publishes the whole layout, while a Project Preview save leaves the layout untouched and vice versa. Both sections share a single audit stamp and a single version, so the "last saved" line on every tab reflects whichever section was published most recently.
 
 <figure><img src="../../.gitbook/assets/manage-projects-save.png" alt=""><figcaption><p>Publishing a draft layout to the whole organization</p></figcaption></figure>
 
