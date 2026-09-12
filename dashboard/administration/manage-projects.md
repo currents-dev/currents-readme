@@ -69,7 +69,7 @@ The **⋮** menu on a project row, also revealed on hover, offers:
 * Pick an **icon** and an accent color, shown wherever the project appears — the sidebar, the project switcher and the project lists.
 * Toggle the project's **labels**.
 * **Manage project** — opens the project's settings page.
-* **Archive project** — or **Unarchive project**, if it is already archived.
+* **Archive project** — or **Unarchive project**, when it is archived.
 
 <figure><img src="../../.gitbook/assets/manage-projects-project-labels.png" alt=""><figcaption><p>Attaching labels to a project</p></figcaption></figure>
 
@@ -85,7 +85,7 @@ Archived projects are hidden by default. When the organization has any, a **Show
 
 ## Project Labels
 
-Labels are defined once for the organization on the **Project Labels** tab, then attached to projects and folders from the **Project Structure** tab. A label might be `team-web`, `nightly` or `critical`.
+Labels such as `team-web`, `nightly` or `critical` are defined once for the organization on the **Project Labels** tab, then attached to projects and folders from the **Project Structure** tab.
 
 * **Create** — type a name into **New label name** and click **Add label**. A distinct color is assigned automatically by cycling the palette. Names can be up to 32 characters.
 * **Rename** — edit the label's name inline. `Enter` commits the change, `Esc` reverts it.
@@ -117,12 +117,12 @@ Edits in Manage Projects are held as a draft, so nothing changes for the rest of
 <figure><img src="../../.gitbook/assets/manage-projects-save.png" alt=""><figcaption><p>Publishing a draft layout to the whole organization</p></figcaption></figure>
 
 {% hint style="warning" %}
-If anything else saves while a draft is open, the pending save is rejected rather than overwriting that work. That covers another admin publishing, a save from one of the other tabs, and a **Project Settings → Appearance** change. Reload the page to pick up what was saved, then re-apply the edits.
+Publishing is refused if a newer save already exists, rather than overwriting it. A newer save can come from another admin publishing, from one of the other tabs, or from a change in **Project Settings → Appearance**. Reload the page to pick up that save, then re-apply the edits.
 {% endhint %}
 
 ## Where the Layout Shows Up
 
-Once published, the layout is used on the Projects page and in the sidebar. There, each folder becomes a collapsible group; a folder with no visible projects is left out. The projects that are not in any folder follow the folders as a single group labelled **Ungrouped**, regardless of where they sit in the editor's order.
+Once published, the layout is used on the Projects page and in the sidebar. On the Projects page, each folder becomes a collapsible group; a folder with no visible projects is left out. The projects that are not in any folder follow the folders as a single group labelled **Ungrouped**, regardless of where they sit in the editor's order.
 
 ## What Stays Personal
 
