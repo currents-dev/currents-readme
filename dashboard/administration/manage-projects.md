@@ -10,6 +10,8 @@ description: >-
 
 The folders, ordering, appearance and labels it controls make up the organization's project **layout**. The layout is organization-wide: once published, every member sees the same one.
 
+Nothing in the editor is live until it is published, and an unpublished draft does not survive a page reload.
+
 {% hint style="info" %}
 Only **Admins** can make changes here. Other roles that open the Manage Projects page see the regular, read-only Projects list. See [Roles and Permissions](manage-team.md#roles-and-permissions).
 {% endhint %}
@@ -23,7 +25,7 @@ There are two ways to open it:
 
 <figure><img src="../../.gitbook/assets/projects-customize-menu.png" alt=""><figcaption><p>Opening the editor from the Projects page</p></figcaption></figure>
 
-The editor is also labelled **Organize & Settings** in the Customize menu and **Organize Projects** on the project settings page. It is split into three tabs:
+The editor is also labelled **Organize & Settings** in the Customize menu, and [the project settings page](../projects/project-settings.md) links to it as **Organize Projects**. It is split into three tabs:
 
 <table><thead><tr><th width="200">Tab</th><th>What it controls</th></tr></thead><tbody><tr><td><strong>Project Structure</strong></td><td>Folders, ordering, moving projects between them, per-project and per-folder appearance</td></tr><tr><td><strong>Project Labels</strong></td><td>The organization's labels — create, rename, re-color and delete</td></tr><tr><td><strong>Project Preview</strong></td><td>Which runs count towards the project preview cards</td></tr></tbody></table>
 
@@ -49,11 +51,9 @@ Hover a row to reveal its drag handle (the grip on the left). Dragging rearrange
 * Drop a project **onto a folder** to move it into that folder.
 * Drag a project out of a folder and onto the top level to ungroup it.
 
-Each folder header shows a count of the projects visible in it, and a chevron to collapse or expand it.
-
 ### Folder Actions
 
-The **⋮** menu on a folder row, revealed on hover, offers:
+A folder header shows a count of the projects visible in it and a chevron to collapse or expand it. Its **⋮** menu, revealed on hover, offers:
 
 * **Rename** the folder.
 * Pick the folder's **icon** and color, on the **Icons** tab.
@@ -69,14 +69,14 @@ The **⋮** menu on a project row, also revealed on hover, offers:
 * Pick an **icon** and an accent color, shown wherever the project appears — the sidebar, the project switcher and the project lists.
 * Toggle the project's **labels**.
 * **Manage project** — opens the project's settings page.
-* **Archive** or **Unarchive** the project.
+* **Archive project** — or **Unarchive project**, if it is already archived.
 
 <figure><img src="../../.gitbook/assets/manage-projects-project-labels.png" alt=""><figcaption><p>Attaching labels to a project</p></figcaption></figure>
 
-A project or folder can carry up to three labels.
+Each project and each folder can carry up to three labels.
 
 {% hint style="info" %}
-The same icon, accent color and labels can also be set per project from **Project Settings → Appearance**. Changes made there are saved immediately, whereas edits in Manage Projects are held as a draft until they are published.
+The same icon, accent color and labels can also be set per project from **Project Settings → Appearance**. Changes made there are saved immediately, rather than held as a draft.
 {% endhint %}
 
 ### Archived Projects
@@ -85,7 +85,7 @@ Archived projects are hidden by default. When the organization has any, a **Show
 
 ## Project Labels
 
-Labels — for example `team-web`, `nightly` or `critical` — are defined once for the organization on the **Project Labels** tab, then attached to projects and folders from the **Project Structure** tab.
+Labels are defined once for the organization on the **Project Labels** tab, then attached to projects and folders from the **Project Structure** tab. A label might be `team-web`, `nightly` or `critical`.
 
 * **Create** — type a name into **New label name** and click **Add label**. A distinct color is assigned automatically by cycling the palette. Names can be up to 32 characters.
 * **Rename** — edit the label's name inline. `Enter` commits the change, `Esc` reverts it.
@@ -117,14 +117,12 @@ Edits in Manage Projects are held as a draft, so nothing changes for the rest of
 <figure><img src="../../.gitbook/assets/manage-projects-save.png" alt=""><figcaption><p>Publishing a draft layout to the whole organization</p></figcaption></figure>
 
 {% hint style="warning" %}
-If anything else saves while a draft is open — another admin publishing, a save from one of the other tabs, or a **Project Settings → Appearance** change — the pending save is rejected rather than overwriting that work. Reload the page to pick up what was saved, then re-apply the edits.
+If anything else saves while a draft is open, the pending save is rejected rather than overwriting that work. That covers another admin publishing, a save from one of the other tabs, and a **Project Settings → Appearance** change. Reload the page to pick up what was saved, then re-apply the edits.
 {% endhint %}
 
 ## Where the Layout Shows Up
 
 Once published, the layout is used on the Projects page and in the sidebar. There, each folder becomes a collapsible group; a folder with no visible projects is left out. The projects that are not in any folder follow the folders as a single group labelled **Ungrouped**, regardless of where they sit in the editor's order.
-
-<figure><img src="../../.gitbook/assets/projects-page-folders.png" alt=""><figcaption><p>The published layout on the Projects page</p></figcaption></figure>
 
 ## What Stays Personal
 
@@ -136,6 +134,6 @@ The layout is shared, but a few view preferences remain per user and are never p
 
 ## Placing a New Project Into a Folder
 
-The **New Project** form has a **Directory** field for placing the project straight into an existing folder, so it does not have to be moved afterwards. Directory is this form's name for a folder. Like every other layout change, the placement applies to the whole organization. If someone else saves between opening the form and submitting it, the project is still created but stays at the top level, and a message says so — move it in the **Project Structure** tab.
+The **New Project** form has a **Directory** field for placing the project straight into an existing folder, so it does not have to be moved afterwards. Directory is this form's name for a folder. Like every other layout change, the placement applies to the whole organization. If someone else saves between opening the form and submitting it, the project is still created but stays at the top level, and a message says so.
 
 Folders themselves can only be created, renamed, re-ordered and deleted in Manage Projects. To move an existing project, drag it in the **Project Structure** tab.

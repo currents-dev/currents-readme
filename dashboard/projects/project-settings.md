@@ -10,6 +10,7 @@ Below are the settings available and their descriptions:
 
 * **Project ID**: This ID is immutable and cannot be edited, but you can copy the Project ID to include it in your Continuous Integration (CI) settings.
 * **Project Name**: It can be edited at any time to reflect the nature or stage of your project.
+* **Appearance**: The icon, accent color and labels shown for this project across the sidebar, project switcher and project lists. Changes here save immediately, unlike edits in [Manage Projects](../administration/manage-projects.md), which are held as a draft. Only Admins can edit them; other roles see them read-only.
 * **Time Out Minutes**: The duration (in min[utes) after which](#user-content-fn-1)[^1] a run will timeout if it hasn't been completed. Adjust this setting based on your tests' complexity and expected duration to avoid premature terminations or unnecessary waiting times. Read more on [Run Timeouts](../runs/run-timeouts.md).
 * **Default Branch Name**: The name of the branch that will be used as a reference when presenting [Analytics](../analytics/README.md "mention"). E.g:
   * The change in coverage is measured compared to the default branch.
