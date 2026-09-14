@@ -8,11 +8,11 @@ Integrate Slack with Currents to receive real-time test notifications and failur
 
 ## Use Cases
 
-- **Instant failure alerts**: Notify teams immediately when tests fail so they can respond quickly before issues reach production.
-- **Flaky test detection**: Receive Slack alerts when tests exhibit flaky behavior, helping maintain test suite reliability.
-- **Team routing**: Automatically mention the right team members based on which tests failed - route checkout failures to the payments team, API failures to backend engineers.
-- **Release gating**: Send notifications to release managers when smoke tests or critical tests fail on main or release branches.
-- **On-call escalation**: Page on-call engineers when critical tests fail in production environments.
+* **Instant failure alerts**: Notify teams immediately when tests fail so they can respond quickly before issues reach production.
+* **Flaky test detection**: Receive Slack alerts when tests exhibit flaky behavior, helping maintain test suite reliability.
+* **Team routing**: Automatically mention the right team members based on which tests failed - route checkout failures to the payments team, API failures to backend engineers.
+* **Release gating**: Send notifications to release managers when smoke tests or critical tests fail on main or release branches.
+* **On-call escalation**: Page on-call engineers when critical tests fail in production environments.
 
 The integration supports organization-level installation, per-project configuration, multiple notification destinations, and advanced filtering options.
 
@@ -20,16 +20,16 @@ The integration supports organization-level installation, per-project configurat
 
 Currents and Slack permissions are separate:
 
-| Role | Access |
-| --- | --- |
-| **Currents organization administrator** | Connect, re-authenticate, disconnect, and change the Slack App settings in Currents |
-| **Slack administrator** | Authorize the Currents app in Slack; the exact role depends on whether Slack uses a single workspace or Enterprise Grid |
+| Role                                    | Access                                                                                                                  |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **Currents organization administrator** | Connect, re-authenticate, disconnect, and change the Slack App settings in Currents                                     |
+| **Slack administrator**                 | Authorize the Currents app in Slack; the exact role depends on whether Slack uses a single workspace or Enterprise Grid |
 
 A Currents organization administrator starts the connection from Currents. The Slack authorization step must be completed by a user with the correct Slack administrator permissions:
 
-| Slack setup                                    | Who must install the app                                                                   |
-| ---------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| **Single workspace**                           | A **Workspace Owner** or **Workspace Admin**                                               |
+| Slack setup                                     | Who must install the app                                                                   |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **Single workspace**                            | A **Workspace Owner** or **Workspace Admin**                                               |
 | **Enterprise Grid (multiple workspaces / org)** | An **Org Owner** or **Org Admin** (workspace-level admins are not sufficient on their own) |
 
 {% hint style="warning" %}
@@ -87,16 +87,16 @@ You can enable or disable Slack notifications for each project independently wit
 
 The Slack integration page reports installation and configuration issues and provides the appropriate recovery action.
 
-| Status | Recommended action |
-| --- | --- |
-| **Credentials expired** | Select **Re-authenticate** |
-| **Installation archived** | Re-authenticate or reinstall |
-| **Installed but not configured** | Enable notifications and save the project settings |
-| **Project notifications disabled** | Enable the project-level toggle |
-| **Destination has no channel** | Select or manually enter a channel |
-| **All destinations disabled** | Enable at least one destination |
+| Status                             | Recommended action                                 |
+| ---------------------------------- | -------------------------------------------------- |
+| **Credentials expired**            | Select **Re-authenticate**                         |
+| **Installation archived**          | Re-authenticate or reinstall                       |
+| **Installed but not configured**   | Enable notifications and save the project settings |
+| **Project notifications disabled** | Enable the project-level toggle                    |
+| **Destination has no channel**     | Select or manually enter a channel                 |
+| **All destinations disabled**      | Enable at least one destination                    |
 
-Re-authenticating normally preserves the existing project configuration. If Slack continues returning `account_inactive`, [disconnect](#disconnect-slack) the integration and reinstall it using the required Slack administrator role.
+Re-authenticating normally preserves the existing project configuration. If Slack continues returning `account_inactive`, [disconnect](slack-app.md#disconnect-slack) the integration and reinstall it using the required Slack administrator role.
 
 ## Notification Destinations
 
@@ -123,8 +123,8 @@ The Currents app must be invited to a private channel before it can post there. 
 
 Each destination can be:
 
-- **Enabled/Disabled individually** - Toggle notifications for specific channels without deleting the configuration
-- **Configured independently** - Each destination has its own notification settings, filters, and mention rules
+* **Enabled/Disabled individually** - Toggle notifications for specific channels without deleting the configuration
+* **Configured independently** - Each destination has its own notification settings, filters, and mention rules
 
 ### Message Threading
 
@@ -159,13 +159,13 @@ When **Message Threading** is disabled, each notification is sent as a standalon
 
 Run notifications include a colored bar beside the message that reflects the run state:
 
-| Color | Run state |
-| --- | --- |
-| Blue | The run is still in progress |
-| Green | The run finished with a passing outcome |
-| Red | The run finished with a failed or otherwise error outcome |
-| Yellow | The run timed out |
-| Gray | The run was cancelled |
+| Color  | Run state                                                 |
+| ------ | --------------------------------------------------------- |
+| Blue   | The run is still in progress                              |
+| Green  | The run finished with a passing outcome                   |
+| Red    | The run finished with a failed or otherwise error outcome |
+| Yellow | The run timed out                                         |
+| Gray   | The run was cancelled                                     |
 
 The threaded **groups** table displays test results with status colors in the message: <mark style="color:green;">green</mark> for passed tests, <mark style="color:red;">red</mark> for failed and skipped tests, grey for ignored tests, and <mark style="color:purple;">purple</mark> for flaky tests.
 
@@ -177,12 +177,12 @@ When **Message Threading** is enabled, Currents posts a main thread for the run 
 
 Configure when run notifications are sent:
 
-| Mode                    | Description                                             |
-| ----------------------- | ------------------------------------------------------- |
-| **Always send**         | Send notifications for every run, regardless of outcome |
-| **Only when there are failures** | Send notifications only when there are failed tests |
-| **Only when there are failed or flaky tests** | Send notifications when failed or flaky tests are detected |
-| **Only when all tests are passing** | Send notifications only when all tests pass (passing-only run outcome) |
+| Mode                                          | Description                                                            |
+| --------------------------------------------- | ---------------------------------------------------------------------- |
+| **Always send**                               | Send notifications for every run, regardless of outcome                |
+| **Only when there are failures**              | Send notifications only when there are failed tests                    |
+| **Only when there are failed or flaky tests** | Send notifications when failed or flaky tests are detected             |
+| **Only when all tests are passing**           | Send notifications only when all tests pass (passing-only run outcome) |
 
 When **Only when there are failures** is selected, the platform can also send a **recovery** notification: if a run already triggered a failure notification for that destination, a later completion with a passing outcome can post a success update so the channel shows when the pipeline is green again.
 
@@ -190,26 +190,21 @@ When **Only when there are failures** is selected, the platform can also send a 
 
 You can also enable notifications for:
 
-- **Run Canceled** - When a run is canceled manually or via fail-fast strategy
-- **Run Timeout** - When a run times out before completion
+* **Run Canceled** - When a run is canceled manually or via fail-fast strategy
+* **Run Timeout** - When a run times out before completion
 
 ### Filtering Run Notifications
 
-Apply conditions to control which runs trigger notifications:
-
-| Filter                 | Type   | Description                                   |
-| ---------------------- | ------ | --------------------------------------------- |
-| **Git Branch**         | String | The git branch name for the test run          |
-| **Git Commit Message** | String | The git commit message that triggered the run |
-| **Tags**               | Array  | The tags associated with the test run         |
+Apply conditions to control which runs trigger notifications. The available fields, operators,\
+and value formats are described in [#conditions-and-filters](slack-app.md#conditions-and-filters "mention").
 
 **Example:** To only receive notifications for production deployments:
 
-- Set **Tags** `includes any`: `production`
+* Set **Tags** `includes any`: `production`
 
 Or to notify only for main branch runs:
 
-- Set **Git Branch** `matches`: `main`
+* Set **Git Branch** `matches`: `main`
 
 <figure><img src="../../../.gitbook/assets/currents-2026-01-08-00.49.45@2x.png" alt="Run notification settings with lifecycle events, result mode, and a main branch filter"><figcaption><p>Configure run-result delivery and optional conditions for each destination.</p></figcaption></figure>
 
@@ -236,33 +231,25 @@ Individual test notifications provide detailed information about failed or flaky
 
 ### Filtering Test Notifications
 
-Filter individual test notifications based on test and run properties:
-
-| Filter                 | Type   | Description                                   |
-| ---------------------- | ------ | --------------------------------------------- |
-| **Git Branch**         | String | The git branch name for the test run          |
-| **Git Commit Message** | String | The git commit message that triggered the run |
-| **Tags**               | Array  | The tags associated with the test             |
-| **Test Title**         | String | The title of the test                         |
-| **Test File Path**     | String | The file path of the test                     |
+Filter individual test notifications based on test and run properties - see [#conditions-and-filters](slack-app.md#conditions-and-filters "mention").
 
 **Example:** To only receive notifications for checkout tests:
 
-- Set **Test File Path** `matches`: `checkout/.*`
+* Set **Test File Path** `matches`: `checkout/.*`
 
 Or to notify for critical tests:
 
-- Set **Tags** `includes any`: `critical, smoke`
+* Set **Tags** `includes any`: `critical, smoke`
 
 ### Message Content
 
 Individual test notifications include:
 
-- Test name and file location
-- Failure reason and error message
-- Attempt details (for retried tests)
-- Direct link to the test in Currents dashboard
-- Mentioned users (if configured)
+* Test name and file location
+* Failure reason and error message
+* Attempt details (for retried tests)
+* Direct link to the test in Currents dashboard
+* Mentioned users (if configured)
 
 Messages display up to five test results. When more tests require attention, the message includes the number of omitted tests, mentions collected from the omitted tests, and a **View in Currents** button.
 
@@ -270,9 +257,9 @@ Messages display up to five test results. When more tests require attention, the
 
 Failed-test messages include a **Fix with AI** button. Clicking it presents options to:
 
-- Open the failure context directly in Cursor or GitHub Copilot
-- Copy a prompt for Claude Code, Codex, Zed, Conductor, or another AI tool
-- Install the [Currents MCP server](../../../ai/mcp-server.md) so an agent can retrieve additional test and run context
+* Open the failure context directly in Cursor or GitHub Copilot
+* Copy a prompt for Claude Code, Codex, Zed, Conductor, or another AI tool
+* Install the [Currents MCP server](../../../ai/mcp-server.md) so an agent can retrieve additional test and run context
 
 See [AI-powered test troubleshooting](../../../ai/overview.md) for other Fix with AI entry points.
 
@@ -286,7 +273,7 @@ The Slack App integration supports mentioning users directly in notifications ba
 2. Toggle **Enable** to activate annotation-based mentions
 3. Notifications will now include mentions based on test annotations
 
-Add annotations to your tests to trigger Slack mentions using the `notify:slack` annotation type. See [Mention Formats](#mention-formats) for supported formats.
+Add annotations to your tests to trigger Slack mentions using the `notify:slack` annotation type. See [Mention Formats](slack-app.md#mention-formats) for supported formats.
 
 #### Example
 
@@ -320,7 +307,7 @@ In addition to code annotations, you can configure mention rules directly in the
 1. In your destination settings, find the **Mention Rules** section
 2. Click **Add Rule**
 3. Configure conditions using the available filters
-4. Add the users and groups to mention (see [Mention Formats](#mention-formats) for supported formats)
+4. Add the users and groups to mention (see [Mention Formats](slack-app.md#mention-formats) for supported formats)
 5. Click **Save**
 
 {% hint style="info" %}
@@ -329,15 +316,7 @@ If no conditions are defined in a rule, the specified users and groups will be m
 
 ### Available Conditions
 
-Mention rules support the following filters:
-
-| Filter                 | Type   | Description                                   |
-| ---------------------- | ------ | --------------------------------------------- |
-| **Git Branch**         | String | The git branch name for the test run          |
-| **Git Commit Message** | String | The git commit message that triggered the run |
-| **Tags**               | Array  | The tags associated with the test             |
-| **Test Title**         | String | The title of the test                         |
-| **Test File Path**     | String | The file path of the test                     |
+Mention rules use the same fields as individual test notifications - including **Test Title** and **Test File Path**. See [#conditions-and-filters](slack-app.md#conditions-and-filters "mention") for the fields, operators, and value formats.
 
 ### Rule Examples
 
@@ -349,7 +328,7 @@ Mention rules support the following filters:
 
 ## Mention Formats
 
-Both [Annotation-Based Mentions](#annotation-based-mentions) and [UI-Based Mention Rules](#ui-based-mention-rules) support the following formats for specifying users and groups to mention:
+Both [Annotation-Based Mentions](slack-app.md#annotation-based-mentions) and [UI-Based Mention Rules](slack-app.md#ui-based-mention-rules) support the following formats for specifying users and groups to mention:
 
 | Format                | Description                                 | Example Value                                             |
 | --------------------- | ------------------------------------------- | --------------------------------------------------------- |
@@ -363,18 +342,63 @@ Both [Annotation-Based Mentions](#annotation-based-mentions) and [UI-Based Menti
 **Finding Slack IDs:** See [Slack's documentation](https://slack.com/help/articles/221769328-Locate-your-Slack-URL-or-ID) for instructions on finding user and group IDs.
 {% endhint %}
 
+### Conditions & Filters
+
+Run notifications, individual test notifications, and mention rules all use the same condition editor. A filter with no conditions matches everything. When a filter has more than one condition, the **Match** selector chooses between All (AND) and Any (OR).
+
+#### Fields
+
+| Field                  | Type   | Available in          | Description                                                            |
+| ---------------------- | ------ | --------------------- | ---------------------------------------------------------------------- |
+| **Git Branch**         | String | Runs, tests, mentions | The git branch name for the test run                                   |
+| **Git Commit Message** | String | Runs, tests, mentions | The git commit message that triggered the run                          |
+| **Tags**               | Array  | Runs, tests, mentions | The run or test tags                                                   |
+| **Test Title**         | String | Tests, mentions       | The full test title, including parent describe blocks, joined with `>` |
+| **Test File Path**     | String | Tests, mentions       | The spec file path of the test                                         |
+
+{% hint style="info" %}
+Run tags come from two places:
+
+* the tags set with `--tag` or the `tag` config option
+* the tags of every test in the run
+
+Test tags drop their leading `@`, so a test tagged `@release-major` becomes the tag `release-major`.
+
+This means a run filter matches if any test in the run has the tag. Test filters and mention rules match each test's own tags.
+{% endhint %}
+
+#### Operators
+
+The operators offered depend on the field's **Type**. `matches` is available for **Git Branch**, but not for **Tags**.
+
+<table><thead><tr><th width="182.359375">Operator</th><th>Type</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td><code>eq</code> / <code>ne</code></td><td>String</td><td>Single value</td><td>Exact match / not equal to the value</td></tr><tr><td><code>is in</code> / <code>is not in</code></td><td>String</td><td>Multiple values</td><td>Value is / is not one of the items in the list</td></tr><tr><td><code>matches</code> / <code>does not match</code></td><td>String</td><td>Regex</td><td>Matches / does not match the pattern</td></tr><tr><td><code>matches any</code></td><td>String, Array</td><td>Regexes</td><td>Matches any of the patterns; for arrays, one matching item is enough</td></tr><tr><td><code>does not match all</code></td><td>String</td><td>Regexes</td><td>Does not match all of the patterns</td></tr><tr><td><code>includes any</code> / <code>includes all</code></td><td>Array</td><td>Multiple values</td><td>Array includes at least one / all of the items</td></tr><tr><td><code>missing any</code> / <code>missing all</code></td><td>Array</td><td>Multiple values</td><td>At least one of the items is missing / none of the items are present</td></tr><tr><td><code>.length ===</code>, <code>.length ></code>, ...</td><td>Array</td><td>Number</td><td>Compare the number of items in the array</td></tr><tr><td><code>exists</code> / <code>is missing</code></td><td>String, Array</td><td>-</td><td>Field is / is not present</td></tr></tbody></table>
+
+#### Values
+
+* **Exact values** (`eq`, `is in`, `includes any`, and similar) are compared in full and case-insensitively. The value `release` does not match a tag named `release-major`.
+* **Regular expressions** (`matches`, `matches any`, and similar) are unanchored, so `main` also matches `main-hotfix` and `domain`. Use `^main$`, or the `eq` operator, for an exact match. Matching is case-insensitive unless **Case sensitive** is enabled.
+* **Multiple values** are entered one at a time: type a value and press **Enter**. A comma-separated list typed into the field is stored as a single value.
+
+#### Examples
+
+| Goal                                                             | Condition                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------- |
+| Runs carrying any release tag (`release-major`, `release-minor`) | **Tags** `matches any` `^release-`             |
+| Only runs on the main branch                                     | **Git Branch** `eq` `main`                     |
+| Everything except dependabot branches                            | **Git Branch** `does not match` `^dependabot/` |
+
 ## Automated Reports to Slack
 
 Scheduled [Automated Reports](../../../dashboard/automated-reports.md) can be delivered to Slack channels through the **Currents Slack App**, in addition to email. Delivery uses the same report definition (schedule, lookback period, and tag, author, and branch filters) as email; only the destination changes.
 
-Automated report messages are separate from [run notifications](#run-notifications) and [individual test notifications](#individual-test-notifications). Report Slack settings are configured on each report in the **Reports** section of the project, not under **Project Settings > Integrations > Slack** destinations.
+Automated report messages are separate from [run notifications](slack-app.md#run-notifications) and [individual test notifications](slack-app.md#individual-test-notifications). Report Slack settings are configured on each report in the **Reports** section of the project, not under **Project Settings > Integrations > Slack** destinations.
 
 ### Prerequisites
 
 Before a report can post to Slack:
 
-1. The organization must [connect the Slack App](#connecting-slack-to-your-organization) with a user who has the required Slack administrator role (see [Requirements and permissions](#requirements-and-permissions)).
-2. The Currents app must be allowed to post in the target channel. For **private channels**, the app must be invited to the channel before delivery succeeds (see [Public and Private Channels](#public-and-private-channels)).
+1. The organization must [connect the Slack App](slack-app.md#connecting-slack-to-your-organization) with a user who has the required Slack administrator role (see [Requirements and permissions](slack-app.md#requirements-and-permissions)).
+2. The Currents app must be allowed to post in the target channel. For **private channels**, the app must be invited to the channel before delivery succeeds (see [Public and Private Channels](slack-app.md#public-and-private-channels)).
 
 ### Configuring Slack delivery for a report
 
@@ -391,12 +415,12 @@ When a scheduled report runs, Currents posts a message on the configured channel
 
 ### Troubleshooting report delivery
 
-| Symptom | What to check |
-| --- | --- |
-| No Slack message at the scheduled time | Report **Enable/Disable** is on; **Send to Slack** is enabled; at least one channel is selected; schedule and timezone are correct |
-| Email arrives but Slack does not | Slack-specific settings on the report; organization [installation status](#installation-status-and-recovery) (`Credentials expired`, `Installation archived`, and similar) |
-| Slack API errors for a channel | App membership in the channel (especially private channels); channel ID when using manual entry |
-| Run notifications work but reports do not | Reports use per-report Slack settings on the **Reports** page, not integration **destinations** |
+| Symptom                                   | What to check                                                                                                                                                                          |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| No Slack message at the scheduled time    | Report **Enable/Disable** is on; **Send to Slack** is enabled; at least one channel is selected; schedule and timezone are correct                                                     |
+| Email arrives but Slack does not          | Slack-specific settings on the report; organization [installation status](slack-app.md#installation-status-and-recovery) (`Credentials expired`, `Installation archived`, and similar) |
+| Slack API errors for a channel            | App membership in the channel (especially private channels); channel ID when using manual entry                                                                                        |
+| Run notifications work but reports do not | Reports use per-report Slack settings on the **Reports** page, not integration **destinations**                                                                                        |
 
 ## Disabling Slack Integration
 
@@ -431,15 +455,15 @@ Check the following:
 1. **Project-level toggle** - Ensure "Enable Notifications" is turned on
 2. **Destination toggle** - Ensure the specific destination is enabled
 3. **Notification mode** - Confirm the selected run-result mode matches the expected outcome
-4. **Filters** - Check whether any tag or branch filters are excluding runs
+4. **Filters** - [Check whether any tag or branch filters are excluding runs](slack-app.md#conditions-and-filters)
 5. **Mention rules** - Ensure conditions match test properties
-6. **Installation permissions** - If notifications stopped entirely, the Slack token may have been invalidated (`account_inactive`). See [Why did notifications stop with an `account_inactive` error?](#why-did-notifications-stop-with-an-account_inactive-error)
+6. **Installation permissions** - If notifications stopped entirely, the Slack token may have been invalidated (`account_inactive`). See [Why did notifications stop with an `account_inactive` error?](slack-app.md#why-did-notifications-stop-with-an-account_inactive-error)
 
 ### Why did notifications stop with an `account_inactive` error?
 
 This usually means the Slack access token was invalidated because the app was installed without the required administrator permissions. In an Enterprise Grid organization, apps must be installed (or approved) by an **Org Owner/Admin** - a workspace-level admin alone is not sufficient, and Slack may later deactivate that installation's token.
 
-The fix is to [disconnect](#disconnect-slack) the integration and reinstall it with an Org Owner/Admin (or a Workspace Owner/Admin for single-workspace accounts). See [Requirements and permissions](#requirements-and-permissions) for the full breakdown.
+The fix is to [disconnect](slack-app.md#disconnect-slack) the integration and reinstall it with an Org Owner/Admin (or a Workspace Owner/Admin for single-workspace accounts). See [Requirements and permissions](slack-app.md#requirements-and-permissions) for the full breakdown.
 
 ### Can I use both annotation mentions and UI rules?
 
