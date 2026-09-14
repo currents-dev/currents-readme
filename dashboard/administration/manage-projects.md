@@ -101,6 +101,8 @@ The Projects page shows a preview card per project with its run (or test) totals
 
 <table><thead><tr><th width="180">State</th><th>Runs it covers</th></tr></thead><tbody><tr><td><strong>Cancelled</strong></td><td>Runs cancelled before they finished reporting</td></tr><tr><td><strong>Timed out</strong></td><td>Runs that hit the inactivity timeout</td></tr><tr><td><strong>In progress</strong></td><td>Runs still reporting — not all specs are in yet</td></tr></tbody></table>
 
+The three states are mutually exclusive, in that order of precedence: a cancelled run counts as **Cancelled** even if it also timed out or never finished reporting, and a timed-out run counts as **Timed out** rather than **In progress**. **In progress** is decided purely by whether every spec has reported — a run that reported in full counts as complete whether its tests passed or failed.
+
 All three states are counted by default. Turning one off excludes those runs **entirely** from the preview's totals and success rate — useful when, for example, cancelled runs are dragging the success rate down.
 
 <figure><img src="../../.gitbook/assets/manage-projects-preview.png" alt=""><figcaption><p>Choosing which run states count towards the project preview cards</p></figcaption></figure>
