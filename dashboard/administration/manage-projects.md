@@ -84,6 +84,12 @@ The same icon, accent color and labels can also be set per project from **Projec
 
 Archived projects are hidden by default. When the organization has any, a **Show archived** button appears above the tree, opposite **Add folder**, showing how many. Click it to bring them into the tree, where they can be re-ordered or placed into folders; each is marked with an **Archived** badge. See [Archive and Unarchive Projects](../projects/archive-and-unarchive-projects.md).
 
+### Placing a New Project Into a Folder
+
+The **New Project** form has a **Directory** field for placing the project straight into an existing folder, so it does not have to be moved afterwards. Directory is this form's name for a folder. Like every other layout change, the placement applies to the whole organization. If someone else saves between opening the form and submitting it, the project is still created but stays at the top level, and a message says so.
+
+Folders themselves can only be created, renamed, re-ordered and deleted here. To move an existing project, drag it in the tree as described above.
+
 ## Project Labels
 
 Labels such as `team-web`, `nightly` or `critical` are defined once for the organization on the **Project Labels** tab, then attached to projects and folders from the **Project Structure** tab.
@@ -136,9 +142,3 @@ The layout is shared, but a few view preferences remain per user and are never s
 * **Favorites** — starring a project pins it to a group at the top of the Projects page. The project still appears in its folder as well.
 * **Collapsed folders** — collapsing a folder affects only the current user's view, and the Manage Projects editor keeps its collapsed folders separate from the sidebar's.
 * **Customize** menu preferences — **Cards** or **List** view, and whether the preview cards show **Runs** or **Tests**.
-
-## Placing a New Project Into a Folder
-
-The **New Project** form has a **Directory** field for placing the project straight into an existing folder, so it does not have to be moved afterwards. Directory is this form's name for a folder. Like every other layout change, the placement applies to the whole organization. If someone else saves between opening the form and submitting it, the project is still created but stays at the top level, and a message says so.
-
-Folders themselves can only be created, renamed, re-ordered and deleted in Manage Projects. To move an existing project, drag it in the **Project Structure** tab.
