@@ -1,16 +1,17 @@
 ---
 description: >-
   Organize projects into folders, label them, control their ordering and
-  appearance, and configure the project preview cards
+  appearance, and choose which run states count towards the project preview
+  metrics
 ---
 
 # Manage Projects
 
 **Manage Projects** is the editor that controls how projects appear across the dashboard — on the Projects page, in the sidebar and in the project switcher. It also sets which runs count towards the project preview cards.
 
-The folders, ordering, appearance and labels it controls make up the organization's project **layout**. The layout is organization-wide: once published, every member sees the same one.
+The folders, ordering, appearance and labels it controls make up the organization's project **layout**. The layout is organization-wide: once saved, every member sees the same one.
 
-Nothing in the editor is live until it is published, and an unpublished draft does not survive a page reload.
+Nothing in the editor is live until it is saved, and an unsaved draft does not survive a page reload.
 
 {% hint style="info" %}
 Only **Admins** can make changes here. Other roles that open the Manage Projects page see the regular, read-only Projects list. See [Roles and Permissions](manage-team.md#roles-and-permissions).
@@ -76,7 +77,7 @@ The **⋮** menu on a project row, also revealed on hover, offers:
 Each project and each folder can carry up to three labels.
 
 {% hint style="info" %}
-The same icon, accent color and labels can also be set per project from **Project Settings → Appearance**. Changes made there are saved immediately, rather than held as a draft.
+The same icon, accent color and labels can also be set per project from **Project Settings → Appearance**. Changes made there take effect immediately, rather than being held as a draft.
 {% endhint %}
 
 ### Archived Projects
@@ -100,6 +101,8 @@ The Projects page shows a preview card per project with its run (or test) totals
 
 <table><thead><tr><th width="180">State</th><th>Runs in this state</th></tr></thead><tbody><tr><td><strong>Cancelled</strong></td><td>Runs cancelled before they finished reporting</td></tr><tr><td><strong>Timed out</strong></td><td>Runs that hit the inactivity timeout</td></tr><tr><td><strong>In progress</strong></td><td>Runs still reporting — not all specs are in yet</td></tr></tbody></table>
 
+The three states are mutually exclusive, in that order of precedence: a cancelled run counts as **Cancelled** even if it also timed out or never finished reporting, and a timed-out run counts as **Timed out** rather than **In progress**. **In progress** is decided purely by whether every spec has reported — a run that reported in full counts as complete whether its tests passed or failed.
+
 All three states are counted by default. Turning one off excludes those runs entirely from the preview's totals and success rate — useful when, for example, cancelled runs are dragging the success rate down.
 
 <figure><img src="../../.gitbook/assets/manage-projects-preview.png" alt=""><figcaption><p>Choosing which runs count towards the project preview cards</p></figcaption></figure>
@@ -108,25 +111,27 @@ These settings are organization-wide and are saved independently of the layout.
 
 ## Saving Changes
 
-Edits in Manage Projects are held as a draft, so nothing changes for the rest of the organization until the draft is published. The draft lives only while the page is open: reloading or leaving the editor discards unsaved edits.
+Edits in Manage Projects are held as a draft, so nothing changes for the rest of the organization until the draft is saved. The draft lives only while the page is open: reloading or leaving the editor discards unsaved edits.
 
-* **Save for everyone** publishes the draft. Because that replaces the layout for every member, the button asks for confirmation first.
-* **Discard changes** reverts the draft to the currently published layout.
-* The **Project Structure** and **Project Labels** tabs edit the same draft, so saving from either publishes both. **Project Preview** has its own draft and its own save, and the "last saved" line on every tab reflects whichever draft was saved most recently.
+* **Save for everyone** saves the draft for the whole organization. Because that replaces the layout for every member, the button asks for confirmation first.
+* **Discard changes** reverts the draft to the currently saved layout.
+* The **Project Structure** and **Project Labels** tabs edit the same draft, so saving from either saves both. **Project Preview** has its own draft and its own save, and the "last saved" line on every tab reflects whichever draft was saved most recently.
 
-<figure><img src="../../.gitbook/assets/manage-projects-save.png" alt=""><figcaption><p>Publishing a draft layout to the whole organization</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/manage-projects-save.png" alt=""><figcaption><p>Saving a draft layout for the whole organization</p></figcaption></figure>
 
 {% hint style="warning" %}
-Publishing is refused if a newer save already exists, rather than overwriting it. A newer save can come from another admin publishing, from one of the other tabs, or from a change in **Project Settings → Appearance**. Reload the page to pick up that save, then re-apply the edits.
+Saving is refused if a newer save already exists, rather than overwriting it. A newer save can come from another admin, from one of the other tabs, or from a change in **Project Settings → Appearance**. Reload the page to pick up that save, then re-apply the edits.
 {% endhint %}
 
 ## Where the Layout Shows Up
 
-Once published, the layout is used on the Projects page and in the sidebar. On the Projects page, each folder becomes a collapsible group; a folder with no visible projects is left out. The projects that are not in any folder follow the folders as a single group labelled **Ungrouped**, regardless of where they sit in the editor's order.
+Once saved, the layout is used on the Projects page and in the sidebar. On the Projects page, each folder becomes a collapsible group; a folder with no visible projects is left out. The projects that are not in any folder follow the folders as a single group, regardless of where they sit in the editor's order. In **Cards** view that group is headed **Ungrouped**; in **List** view its projects simply appear after the last folder.
+
+<figure><img src="../../.gitbook/assets/projects-page-folders.png" alt=""><figcaption><p>The saved layout on the Projects page</p></figcaption></figure>
 
 ## What Stays Personal
 
-The layout is shared, but a few view preferences remain per user and are never published:
+The layout is shared, but a few view preferences remain per user and are never shared with the organization:
 
 * **Favorites** — starring a project pins it to a group at the top of the Projects page. The project still appears in its folder as well.
 * **Collapsed folders** — collapsing a folder affects only the current user's view, and the Manage Projects editor keeps its collapsed folders separate from the sidebar's.
