@@ -113,9 +113,9 @@ These settings are organization-wide and are saved independently of the layout.
 
 Edits in Manage Projects are held as a draft, so nothing changes for the rest of the organization until the draft is saved. The draft lives only while the page is open: reloading or leaving the editor discards unsaved edits.
 
-* **Save for everyone** saves the draft for the whole organization. Because that replaces the layout for every member, the button asks for confirmation first.
-* **Discard changes** reverts the draft to the currently saved layout.
-* The **Project Structure** and **Project Labels** tabs edit the same draft, so saving from either saves both. **Project Preview** has its own draft and its own save, and the "last saved" line on every tab reflects whichever draft was saved most recently.
+* **Save for everyone** saves the current tab's draft for the whole organization. Because that replaces what every member sees, the button asks for confirmation first.
+* **Discard changes** reverts the current tab's draft to what was last saved.
+* The **Project Structure** and **Project Labels** tabs edit the same layout draft, so saving from either saves both. **Project Preview** has its own draft, saved and discarded independently of the layout. The "last saved" line on every tab reflects whichever draft was saved most recently.
 
 <figure><img src="../../.gitbook/assets/manage-projects-save.png" alt=""><figcaption><p>Saving a draft layout for the whole organization</p></figcaption></figure>
 
