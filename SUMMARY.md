@@ -143,6 +143,7 @@
   * [Test Flakiness](dashboard/analytics/test-flakiness.md)
   * [Suite Size](dashboard/analytics/suite-size.md)
 * [Administration](dashboard/administration/README.md)
+  * [Manage Projects](dashboard/administration/manage-projects.md)
   * [Manage Team](dashboard/administration/manage-team.md)
   * [API Keys](dashboard/administration/api-keys.md)
   * [Email Domain Based Access](dashboard/administration/email-domain-based-access.md)
