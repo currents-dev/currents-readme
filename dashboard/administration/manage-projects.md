@@ -1,14 +1,15 @@
 ---
 description: >-
   Organize projects into folders, label them, control their ordering and
-  appearance, and configure the project preview cards
+  appearance, and choose which run states count towards the project preview
+  metrics
 ---
 
 # Manage Projects
 
 **Manage Projects** is the organization-wide editor that controls how an organization's projects are presented across the dashboard — on the Projects page, in the sidebar and in the project switcher. It groups projects into folders, sets their order, gives them icons and accent colors, maintains a shared set of project labels, and defines which run states count towards the project preview cards.
 
-The layout is **organization-wide**: once published, every member of the organization sees the same folders, order, labels and appearance.
+The layout is **organization-wide**: once saved, every member of the organization sees the same folders, order, labels and appearance.
 
 {% hint style="info" %}
 Only **Admins** can edit the project structure. Other roles that open the Manage Projects page see the regular, read-only Projects list. See [Roles and Permissions](manage-team.md#roles-and-permissions).
@@ -76,7 +77,7 @@ The **⋯** menu on a project row offers:
 A project or folder can carry up to **3** labels.
 
 {% hint style="info" %}
-The same icon, accent and labels can also be set per project from **Project Settings → Appearance**. Changes made there are saved immediately, whereas edits in Manage Projects are held as a draft until they are published.
+The same icon, accent and labels can also be set per project from **Project Settings → Appearance**. Changes made there take effect immediately, whereas edits in Manage Projects are held as a draft until saved.
 {% endhint %}
 
 ### Archived projects
@@ -108,29 +109,29 @@ This setting is organization-wide and is saved independently from the folders an
 
 ## Saving changes
 
-Edits in Manage Projects are held as a local draft — nothing changes for the rest of the organization until the draft is published.
+Edits in Manage Projects are held as a local draft — nothing changes for the rest of the organization until the draft is saved.
 
-* **Save for everyone** publishes the draft. Because it replaces the org-wide layout for every member, the action asks for a confirmation first.
-* **Discard changes** reverts the draft back to the currently published layout.
-* The **Project Structure** and **Project Labels** tabs edit the same draft, so saving from either publishes both. **Project Preview** has its own draft and its own save.
+* **Save for everyone** saves the draft for the whole organization. Because it replaces the existing layout for every member, the action asks for a confirmation first.
+* **Discard changes** reverts the draft back to the currently saved layout.
+* The **Project Structure** and **Project Labels** tabs edit the same draft, so saving from either saves both. **Project Preview** has its own draft and its own save.
 
-One organization configuration holds both, in two sections: the **layout** — folders, ordering, appearance and labels together — and the **preview metrics**. That is why saving from either the Project Structure or the Project Labels tab publishes the whole layout, while a Project Preview save leaves the layout untouched and vice versa. Both sections share a single audit stamp and a single version, so the "last saved" line on every tab reflects whichever section was published most recently.
+One organization configuration holds both, in two sections: the **layout** — folders, ordering, appearance and labels together — and the **preview metrics**. That is why saving from either the Project Structure or the Project Labels tab saves the whole layout, while a Project Preview save leaves the layout untouched and vice versa. Both sections share a single audit stamp and a single version, so the "last saved" line on every tab reflects whichever section was saved most recently.
 
-<figure><img src="../../.gitbook/assets/manage-projects-save.png" alt=""><figcaption><p>Publishing a draft layout to the whole organization</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/manage-projects-save.png" alt=""><figcaption><p>Saving a draft layout for the whole organization</p></figcaption></figure>
 
 {% hint style="warning" %}
-Publishing is checked against the configuration version the draft was based on. If anything has saved the configuration in the meantime — another admin publishing, a save from one of the other tabs, or an immediate **Project Settings → Appearance** change — the save is rejected rather than overwriting that work. Reloading the page picks up the latest configuration, after which the edits can be re-applied.
+Saving is checked against the configuration version the draft was based on. If anything has saved the configuration in the meantime — another admin saving, a save from one of the other tabs, or an immediate **Project Settings → Appearance** change — the save is rejected rather than overwriting that work. Reloading the page picks up the latest configuration, after which the edits can be re-applied.
 {% endhint %}
 
 ## Where the layout shows up
 
-Once published, the folders, ordering, icons and labels are used on the Projects page and in the sidebar. On the Projects page each folder becomes a collapsible group, and every project that is not in a folder is collected into a single group after the folders — regardless of where those projects sit in the editor's root ordering.
+Once saved, the folders, ordering, icons and labels are used on the Projects page and in the sidebar. On the Projects page each folder becomes a collapsible group, and every project that is not in a folder is collected into a single group after the folders — regardless of where those projects sit in the editor's root ordering.
 
-<figure><img src="../../.gitbook/assets/projects-page-folders.png" alt=""><figcaption><p>The published layout on the Projects page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/projects-page-folders.png" alt=""><figcaption><p>The saved layout on the Projects page</p></figcaption></figure>
 
 ## What stays personal
 
-The structure, labels and appearance are shared, but a few view preferences remain per user and are never published:
+The structure, labels and appearance are shared, but a few view preferences remain per user and are never shared with the organization:
 
 * **Favorites** — starring a project pins it to a **Favorites** group at the top of the Projects page. It is additive: the project still appears in its folder as well.
 * **Collapsed folders** — collapsing a folder affects only the current user's view. The Manage Projects editor also tracks its collapsed folders separately from the sidebar's.
