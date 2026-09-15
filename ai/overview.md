@@ -1,13 +1,30 @@
 ---
 description: >-
-  Fix and auto-heal failing Playwright tests in CI with AI agents - MCP server,
-  IDE extension, dashboard prompts, agent skills, and automation
+  Debug failing Playwright tests with AI - Explain error and Explain test in the
+  dashboard, plus context for your own agent via MCP server, IDE extension,
+  dashboard prompts, agent skills, and automation
 icon: sparkles
 ---
 
 # Overview
 
-Currents captures everything about your Playwright test runs in CI: errors, stack traces, traces, console and network logs, historical pass/fail data, flakiness rates, and performance metrics. This page is an overview of the ways to put that data in front of an AI agent - whether you are debugging interactively in your editor, triaging failures from the dashboard, or building pipelines that auto-heal failing tests before anyone looks at the run.
+Currents captures everything about your Playwright test runs in CI: errors, stack traces, traces, console and network logs, historical pass/fail data, flakiness rates, and performance metrics. Currents uses that data for AI in two ways:
+
+* **Currents calls the AI model.** [Explain error and Explain test](explain.md) send a test's recorded data to an AI model from an AI provider and show the result in the dashboard: a root cause, an AI error category, and suggested fixes for a failure, or a plain-language description of what a test does.
+* **Your agent calls the AI model.** The MCP server, IDE extension, Fix with AI, shareable context, and the Playwright skill do not run a model. They give test data and instructions to an AI agent you already use, such as Claude Code or Cursor.
+
+## Explain error and Explain test
+
+In the test sidebar, the **Explain it** card has an **Explain test** row and, for a failed test, an **Explain error** row. Expand a row and Currents generates the answer with an AI model:
+
+* **Explain error** - a root cause, an [AI error category](explain.md#ai-error-categories), and up to three suggested fixes with code snippets and a confidence level for each
+* **Explain test** - what the test does, what it checks, and what it depends on
+
+Both are off by default. Currents enables AI analysis for the organization, and an organization admin grants AI usage consent in organization settings. See [explain.md](explain.md "mention") for the setup and for the data Currents sends to the model.
+
+## Context for your own agent
+
+The rest of this page covers the features that put Currents data in front of your own AI agent - whether you are debugging interactively in your editor, triaging failures from the dashboard, or building pipelines that auto-heal failing tests before anyone looks at the run.
 
 ## Why context matters
 

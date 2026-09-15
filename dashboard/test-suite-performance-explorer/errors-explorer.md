@@ -95,6 +95,10 @@ Currents has been trained on hundreds of thousands of CI errors to identify patt
 A `null` value indicates that Currents could not classify the corresponding field
 {% endhint %}
 
+{% hint style="info" %}
+The **Category** field here is not the AI error category from [Explain error](../../ai/explain.md#ai-error-categories). Explain error uses an AI model to categorize one test failure on request. The fields on this page come from the Error Classification Engine.
+{% endhint %}
+
 ### Combining Error Fields
 
 By combining **Error Message**, **Category**, **Action**, and **Target** fields, you can explore how often errors occur, and also which parts of your UI contribute most to test suite instability.
