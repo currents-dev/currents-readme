@@ -61,6 +61,7 @@
 
 * [Overview](ai/overview.md)
 * [MCP Server](ai/mcp-server.md)
+* [Remote MCP Server](ai/remote-mcp.md)
 * [Agent Skill: Playwright Best Practices](ai/agent-skill-playwright-best-practices.md "Playwright Skill")
 * [IDE Extension](ai/ide-extension.md)
 
