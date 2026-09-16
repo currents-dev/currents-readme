@@ -41,8 +41,8 @@ Once you configured the IdP, contact Currents support via in-app chat or email, 
 - IdP Metadata or publicly available metadata document endpoint URL
 - Domains list that your organization members will use to access the dashboard (for example user@**example.com**)
 
-{% hint style="warning" %}
-Currents does not guarantee correct SSO operation when your IdP uses mixed-case format for emails and/or domains. Ensure that your system is either sending lowercase `NameID` and `Email` , or be prepared to verify mixed-case users during SSO setup verification.
+{% hint style="info" %}
+Send `NameID` and `Email` in lowercase. Some IdPs, including Entra ID, send mixed-case emails by default. If yours does, we'll check a mixed-case user with you while we test the setup.
 
 See [troubleshooting-sso.md](troubleshooting-sso.md "mention").
 {% endhint %}
@@ -51,7 +51,7 @@ See [troubleshooting-sso.md](troubleshooting-sso.md "mention").
 
 ### Common Errors
 
-{% hint style="danger" %}
+{% hint style="info" %}
 **`Invalid ProviderName/Username combination`**
 
 This error typically occurs when:

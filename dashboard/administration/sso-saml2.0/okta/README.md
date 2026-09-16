@@ -6,12 +6,10 @@ description: Setting up SAML2.0 SSO with Okta as an IdP - Currents SSO
 
 ### Prerequisites
 
-SAML as the SSO mode with provisioning is available for customers with an active Enterprise subscription. Please follow the guide below to enable the integration and provide the necessary details to Currents support team.
+SAML as the SSO mode with provisioning is available on the Business and Enterprise plans. Please follow the guide below to enable the integration and provide the necessary details to Currents support team.
 
 {% hint style="info" %}
-**Please note**
-
-Enabling SSO will affect all users of your organization who access Currents, users would not be able to sign in to Currents using a different authorization method when SSO is enabled for your organization.
+Once SSO is on, people with an email on your listed domains sign in through your IdP. They can't use a password or social sign-in for Currents.
 {% endhint %}
 
 ### Supported Features

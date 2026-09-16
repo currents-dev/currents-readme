@@ -5,7 +5,7 @@ description: Setting up SAML2.0 SSO with JumpCloud as an IdP for Currents
 # JumpCloud
 
 {% hint style="info" %}
-Enabling SSO will affect all users of your organization, users would not be able to sign in to Currents using a different authorization method when SSO is enabled.
+Once SSO is on, people with an email on your listed domains sign in through your IdP. They can't use a password or social sign-in for Currents.
 {% endhint %}
 
 ### Supported Features
