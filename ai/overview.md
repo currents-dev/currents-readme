@@ -28,16 +28,16 @@ Every entry point below delivers this same context - they differ in where you ar
 
 ## Entry points
 
-| Method                                                                        | Where                             | Best for                                                                           |
-| ----------------------------------------------------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------- |
-| [MCP Server](mcp-server.md)                                                   | Any MCP-capable agent             | Agents querying runs, tests, and analytics on demand; autonomous troubleshooting   |
+| Method                                                                        | Where                             | Best for                                                                         |
+| ----------------------------------------------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------- |
+| [MCP Server](mcp-server.md)                                                   | Any MCP-capable agent             | Agents querying runs, tests, and analytics on demand; autonomous troubleshooting |
 | [Remote MCP Server](remote-mcp.md)                                            | Any MCP-capable agent             | The same tools hosted by Currents - OAuth instead of a key, and nothing to install |
-| [IDE Extension](ide-extension.md)                                             | VS Code, Cursor, compatible forks | Debugging CI failures without leaving the editor                                   |
-| [Fix with AI](overview.md#fix-with-ai-from-the-dashboard)                     | Currents dashboard                | Handing a failure to an agent while triaging a run                                 |
-| [Slack Fix with AI](../resources/integrations/slack/slack-app.md#fix-with-ai) | Slack                             | Handing a failed-test notification to an agent from a channel                      |
-| [Shareable Context](shareable-context.md)                                     | Dashboad, Slack                   | Handing a failure to an agent, or to someone with no Currents account              |
-| [Playwright Skill](agent-skill-playwright-best-practices.md)                  | Claude Code, Cursor, other agents | Teaching agents how to write and fix Playwright tests correctly                    |
-| [n8n](../resources/integrations/n8n.md)                                       | n8n workflows                     | Automated triage, notifications, and agent pipelines without code                  |
+| [IDE Extension](ide-extension.md)                                             | VS Code, Cursor, compatible forks | Debugging CI failures without leaving the editor                                 |
+| [Fix with AI](overview.md#fix-with-ai-from-the-dashboard)                     | Currents dashboard                | Handing a failure to an agent while triaging a run                               |
+| [Slack Fix with AI](../resources/integrations/slack/slack-app.md#fix-with-ai) | Slack                             | Handing a failed-test notification to an agent from a channel                    |
+| [Shareable Context](shareable-context.md)                                     | Dashboad, Slack                   | Handing a failure to an agent, or to someone with no Currents account            |
+| [Playwright Skill](agent-skill-playwright-best-practices.md)                  | Claude Code, Cursor, other agents | Teaching agents how to write and fix Playwright tests correctly                  |
+| [n8n](../resources/integrations/n8n.md)                                       | n8n workflows                     | Automated triage, notifications, and agent pipelines without code                |
 
 ### MCP Server
 
