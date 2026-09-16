@@ -61,9 +61,11 @@ Allowing it returns the client to its own callback, and the connection is live. 
 
 Consent cannot grant more than the member's role already permits. A permission the role does not allow is dropped from the request before consent records it, and the screen says which permission was withheld and which role holds it. Raising the role and authorizing again is what adds it.
 
+A role that changes later is applied the same way, on every request rather than at consent: lowering a member's role takes the permissions it covered out of the connection, and the tools behind them stop being listed. Raising it again brings them back with no re-authorization. This is what an API key cannot do - a key's access level is read when the call is made, but a token would otherwise carry whatever the role allowed at the moment it was minted.
+
 ## Connect with an API key
 
-Every MCP client that can send a header can reach the endpoint with a Currents API key, including clients that cannot complete the OAuth flow. The key goes in an `Authorization` header:
+Every MCP client that can send a header can reach the endpoint with a Currents API key, including clients that cannot complete the OAuth flow. The key goes in an `Authorization` header, in place of the `your-api-key` placeholder below:
 
 ```json
 {
@@ -72,7 +74,7 @@ Every MCP client that can send a header can reach the endpoint with a Currents A
       "type": "http",
       "url": "https://api.currents.dev/mcp",
       "headers": {
-        "Authorization": "Bearer CURRENTS_API_KEY"
+        "Authorization": "Bearer your-api-key"
       }
     }
   }
@@ -83,7 +85,7 @@ A key is an organization credential rather than a personal one: it names no user
 
 ## What a connection can reach
 
-The tool list is a property of the connection. The endpoint registers only the tools whose permission the caller holds, so a task with no matching tool is access the connection lacks rather than something Currents cannot do - and an agent is never handed a tool it would only collect a `403` from.
+The tool list is a property of the connection, and it is rebuilt on every request from the permissions the grant holds capped by the role the member holds at that moment. The endpoint registers only the tools whose permission survives that, so a task with no matching tool is access the connection lacks rather than something Currents cannot do - and an agent is not handed a tool it would only collect a `403` from.
 
 | Permission       | Tools                                                                                                                                                                         |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -139,13 +141,13 @@ A token minted for the REST API is refused here, and a token minted for this end
 | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | `401` with a `WWW-Authenticate` header          | No credential, or an expired one. The header names the metadata document a client starts discovery from.                              |
 | `403` `organization_not_enabled`                | The endpoint is not served to that organization. Contact [support@currents.dev](mailto:support@currents.dev).                          |
-| `403` `insufficient_scope`                      | The route behind the tool needs a permission the connection was not granted. Authorizing again with it added is what restores the call. |
-| `403` `insufficient_role`                       | The permission is on the grant, but the role no longer allows it. Re-authorizing changes nothing until the role is raised.             |
 | `405` with `Allow: POST`                        | The client opened a `GET` stream. This server is stateless and answers `POST` alone.                                                   |
 | `406` or `415`                                  | A missing `Accept` or `Content-Type` header.                                                                                          |
 | `does not support dynamic client registration`  | The client can only register itself dynamically. Use an API key header instead.                                                        |
 
-A tool that is refused reports the status and the body it got back, so the permission a call is short of reaches the agent that made it.
+A tool that is refused reports the status and the body it got back, so the reason a call failed reaches the agent that made it rather than only the transport.
+
+A missing permission is not one of those refusals. The tool for it is not listed in the first place, so an agent that asks for it by name is told the tool does not exist - which is the signal that the connection lacks that access, not that Currents lacks the feature.
 
 ## Related
 
