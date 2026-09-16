@@ -61,7 +61,9 @@ Allowing it returns the client to its own callback, and the connection is live. 
 
 Consent cannot grant more than the member's role already permits. A permission the role does not allow is dropped from the request before consent records it, and the screen says which permission was withheld and which role holds it. Raising the role and authorizing again is what adds it.
 
-A role that changes later is applied the same way, on every request rather than at consent: lowering a member's role takes the permissions it covered out of the connection, and the tools behind them stop being listed. Raising it again brings them back with no re-authorization. This is what an API key cannot do - a key's access level is read when the call is made, but a token would otherwise carry whatever the role allowed at the moment it was minted.
+A role that changes after consent behaves differently, because the grant already holds the permission. The role is re-checked on every request rather than at consent alone, so lowering a member's role takes the permissions it covered out of the connection and the tools behind them stop being listed, and raising it again brings them back with nothing to re-authorize.
+
+What separates the two cases is whether the grant holds the permission at all. One withheld at consent was never recorded, so a higher role only makes it grantable - the client still has to ask for it again. One recorded and later capped by a lower role is still on the grant, and comes back on its own.
 
 ## Connect with an API key
 
