@@ -164,6 +164,7 @@
 
 ## Authentication
 
+* [Overview](authentication/README.md)
 * [OAuth](authentication/oauth.md)
 
 ## Resources

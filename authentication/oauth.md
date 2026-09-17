@@ -61,7 +61,7 @@ The consent screen names the application, the address it will receive authorizat
 
 Currents verifies nothing an application claims about itself unless it is marked **Listed**, which means Currents ships the definition of that client. Anything else is marked **3rd Party**: its name, its icon and its description are its own claims. The redirect address on the screen is the part worth reading - it is where the authorization code goes, and a familiar application sending codes to an unfamiliar address is the signal that something is wrong.
 
-Approving returns the application to its own callback with the grant in place. From there it refreshes its own access tokens, so nobody is asked again unless the grant is revoked or the application starts asking for something new.
+Approving returns the application to its own callback with the grant in place. An application that asked to stay connected - the `offline_access` permission on the screen - can renew its own access tokens from there, so nobody is asked again unless the grant is revoked or the application starts asking for something new. One that did not ask for it holds a single access token and sends the person back through this flow once that token expires.
 
 ## Permissions
 
@@ -90,9 +90,24 @@ Each API endpoint names the single permission it needs, so a grant is not a blan
 
 ### The role sets the ceiling
 
-Consent cannot grant more than the member's role already permits. A permission the role does not allow is dropped from the request before the grant records it, and the screen says which permission was withheld and which role holds it.
+Consent cannot grant more than the person's organization role already permits. A permission the role does not allow is dropped from the request before the grant records it, and the screen says which permission was withheld and which role holds it.
 
-The role is then re-checked on every request rather than only at consent, so a role that changes later takes effect immediately: lowering a member's role suspends the permissions it covered, and raising it again restores them.
+| Permission       | Admin | Actions Admin | Member | Guest |
+| ---------------- | :---: | :-----------: | :----: | :---: |
+| `projects:read`  |   ✅   |       ✅       |   ✅    |   ✅   |
+| `results:read`   |   ✅   |       ✅       |   ✅    |   ✅   |
+| `analytics:read` |   ✅   |       ✅       |   ✅    |   ❌   |
+| `actions:read`   |   ✅   |       ✅       |   ✅    |   ❌   |
+| `issues:write`   |   ✅   |       ✅       |   ✅    |   ❌   |
+| `runs:write`     |   ✅   |       ✅       |   ✅    |   ❌   |
+| `actions:write`  |   ✅   |       ✅       |   ❌    |   ❌   |
+| `projects:write` |   ✅   |       ❌       |   ❌    |   ❌   |
+| `webhooks:read`  |   ✅   |       ❌       |   ❌    |   ❌   |
+| `webhooks:write` |   ✅   |       ❌       |   ❌    |   ❌   |
+
+A Guest authorizing an application that asked for everything leaves with `projects:read` and `results:read`, and the screen names the rest as withheld. See [manage-team.md](../dashboard/administration/manage-team.md "mention") for what each role is for.
+
+The role is then re-checked on every request rather than only at consent, so a role that changes later takes effect immediately: lowering someone's role suspends the permissions it covered, and raising it again restores them.
 
 What separates the two cases is whether the grant holds the permission at all. One withheld at consent was never recorded, so a higher role only makes it grantable - the application still has to ask for it again. One recorded and later suspended by a lower role is still on the grant, and returns on its own.
 
@@ -108,11 +123,11 @@ An organization administrator sees the same grants for everyone under **Manage O
 
 <figure><img src="../.gitbook/assets/oauth-org-connections.png" alt="The organization-wide Connected Applications panel, listing an application, how many people authorized it, and when it was last used"><figcaption><p>Manage Organization → Connected Applications</p></figcaption></figure>
 
-Removing a grant takes the consent and the application's ability to renew with it, so it cannot quietly resume, and it covers every machine the application was installed on - one grant is not one computer. The application asks for authorization again the next time it runs.
+Removing a grant takes the consent and the application's ability to renew with it, so it cannot quietly resume, and it covers every machine the application was installed on - one grant is not one computer.
 
 <figure><img src="../.gitbook/assets/oauth-revoke-connection.png" alt="The remove connection dialog, naming the application, the organization it loses access to, and the up to one hour window"><figcaption><p>What removing a connection does, and when it takes effect</p></figcaption></figure>
 
-**An access token already issued keeps working until it expires, up to an hour.** Each service checks a token's signature rather than asking the authorization server about it on every call, so a revoked grant cannot recall one that is already out. Revocation stops renewal at once; it stops the current token when that token runs out.
+**An access token already issued keeps working until it expires, up to an hour.** Each service checks a token's signature rather than asking the authorization server about it on every call, so a revoked grant cannot recall one that is already out. Revocation stops renewal at once; it stops the current token when that token runs out - including across a restart, since the application still holds the token it cached. Once that token expires there is nothing to renew it with, and the application sends the person back through the flow.
 
 Ending a membership is the exception, and it is immediate. The organization and role behind a token are read on every request, so someone removed from an organization loses access there on the next call the application makes - there is no window.
 
@@ -131,7 +146,7 @@ Each email names the organization access was lost in and the grants the person s
 
 ## For client developers
 
-An application needs nothing arranged with Currents in advance. Pointed at `https://api.currents.dev`, it discovers everything else:
+An application needs nothing arranged with Currents in advance. Pointed at the address of the service it intends to call - `https://api.currents.dev` for the REST API, `https://api.currents.dev/mcp` for the MCP server - it discovers everything else:
 
 | It reads                                                              | It learns                                            |
 | --------------------------------------------------------------------- | ---------------------------------------------------- |
@@ -149,7 +164,7 @@ An application needs nothing arranged with Currents in advance. Pointed at `http
 
 Two things are worth knowing before building against it:
 
-- **The service has to be named.** An authorization request states which service the token is for, and one that names none is refused - a token with no audience would be rejected by every service it was then spent at.
+- **The service has to be named, and it has to be the right one.** An authorization request states which service the token is for, and one that names none is refused - a token with no audience would be rejected by every service it was then spent at. Naming the wrong one fails later and less obviously: a client that read the REST API's metadata document and authorized for `https://api.currents.dev` comes back with a token the MCP endpoint refuses, and sees the same `401` it started from. Each service's document names its own identifier; use the one belonging to the address being called.
 - **Client registration is not dynamic.** Currents does not accept dynamic client registration. A client identifies itself with a [Client ID Metadata Document](https://datatracker.ietf.org/doc/draft-parecki-oauth-client-id-metadata-document/) - an HTTPS URL it serves its own metadata at, which Currents fetches - or it is one of the clients Currents ships a definition for. A client with neither reports something like `does not support dynamic client registration`, and has to use an API key instead.
 
 ### Refusals
@@ -157,7 +172,7 @@ Two things are worth knowing before building against it:
 | Code                  | Meaning                                                                                                   |
 | --------------------- | ---------------------------------------------------------------------------------------------------------- |
 | `insufficient_scope`  | The endpoint needs a permission the grant does not hold. The refusal names it, so the application can ask for that one and retry. |
-| `insufficient_role`   | The permission is on the grant, but the member's role no longer allows it. Authorizing again changes nothing until the role is raised. |
+| `insufficient_role`   | The permission is on the grant, but the holder's role no longer allows it. Authorizing again changes nothing until the role is raised. |
 | `api_key_required`    | The endpoint takes an API key and not a token. No permission grants access to it.                          |
 
 A `401` always carries the pointer an application needs to authorize or re-authorize; a `403` carries the reason and, where there is one to ask for, the permission to ask for.
