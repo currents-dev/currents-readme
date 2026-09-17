@@ -10,7 +10,7 @@ icon: key
 
 OAuth is how an application outside Currents gets access without anyone handing it a key. A person signs in, picks one organization, and approves a named list of permissions; the application receives an access token that acts as that person, inside that organization, limited to what was approved.
 
-It is the alternative to an [API key](../dashboard/administration/api-keys.md), not a replacement for it. The two answer different questions:
+It is the alternative to an [API key](../../dashboard/administration/api-keys.md), not a replacement for it. The two answer different questions:
 
 |                       | OAuth access token                                        | API key                                     |
 | --------------------- | --------------------------------------------------------- | ------------------------------------------- |
@@ -35,7 +35,7 @@ Two Currents services do, and they are separate as far as a token is concerned:
 
 A token is minted for one of them and named in the request that created it. A token for the REST API is refused by the MCP endpoint, and a token for the MCP endpoint is refused by the REST API - so authorizing an agent to use the tools does not hand it the whole API. An application that needs both asks for both, and holds a token per service.
 
-See [remote-mcp.md](../ai/remote-mcp.md "mention") for connecting an agent to the MCP endpoint.
+See [remote-mcp.md](../../ai/remote-mcp.md "mention") for connecting an agent to the MCP endpoint.
 
 ## Authorizing an application
 
@@ -49,7 +49,7 @@ Only when that browser has no Currents session yet. Whatever the organization us
 
 A token reaches one organization, and every call the application makes acts inside it. The screen lists the organizations the account belongs to with the role held in each, and names the access level that role allows.
 
-<figure><img src="../.gitbook/assets/oauth-select-organization.png" alt="The organization selection screen, listing two organizations with the role held in each"><figcaption><p>An application authorized here reaches this organization and no other</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/oauth-select-organization.png" alt="The organization selection screen, listing two organizations with the role held in each"><figcaption><p>An application authorized here reaches this organization and no other</p></figcaption></figure>
 
 Authorizing the same application for a second organization is a separate grant, made by going through the flow again. Revoking one leaves the other alone.
 
@@ -57,7 +57,7 @@ Authorizing the same application for a second organization is a separate grant, 
 
 The consent screen names the application, the address it will receive authorization codes at, and every permission it asked for, marked as a read or a write.
 
-<figure><img src="../.gitbook/assets/oauth-consent.png" alt="The Currents consent screen, listing the permissions an application requested as reads and writes"><figcaption><p>Nothing is granted that is not on this screen</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/oauth-consent.png" alt="The Currents consent screen, listing the permissions an application requested as reads and writes"><figcaption><p>Nothing is granted that is not on this screen</p></figcaption></figure>
 
 Currents verifies nothing an application claims about itself unless it is marked **Listed**, which means Currents ships the definition of that client. Anything else is marked **3rd Party**: its name, its icon and its description are its own claims. The redirect address on the screen is the part worth reading - it is where the authorization code goes, and a familiar application sending codes to an unfamiliar address is the signal that something is wrong.
 
@@ -102,15 +102,15 @@ This is the part an API key cannot do. A key's access level is read when a call 
 
 Each person sees every application they authorized under **Account → Connected Applications**, grouped by organization, with the permissions each grant holds and when it was last used.
 
-<figure><img src="../.gitbook/assets/oauth-connected-applications.png" alt="The Connected Applications panel in a Currents account, showing one authorized application with its permissions and a remove control"><figcaption><p>Account → Connected Applications</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/oauth-connected-applications.png" alt="The Connected Applications panel in a Currents account, showing one authorized application with its permissions and a remove control"><figcaption><p>Account → Connected Applications</p></figcaption></figure>
 
 An organization administrator sees the same grants for everyone under **Manage Organization → Connected Applications**, listed by application or by person, and can revoke any of them.
 
-<figure><img src="../.gitbook/assets/oauth-org-connections.png" alt="The organization-wide Connected Applications panel, listing an application, how many people authorized it, and when it was last used"><figcaption><p>Manage Organization → Connected Applications</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/oauth-org-connections.png" alt="The organization-wide Connected Applications panel, listing an application, how many people authorized it, and when it was last used"><figcaption><p>Manage Organization → Connected Applications</p></figcaption></figure>
 
 Removing a grant takes the consent and the application's ability to renew with it, so it cannot quietly resume, and it covers every machine the application was installed on - one grant is not one computer. The application asks for authorization again the next time it runs.
 
-<figure><img src="../.gitbook/assets/oauth-revoke-connection.png" alt="The remove connection dialog, naming the application, the organization it loses access to, and the up to one hour window"><figcaption><p>What removing a connection does, and when it takes effect</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/oauth-revoke-connection.png" alt="The remove connection dialog, naming the application, the organization it loses access to, and the up to one hour window"><figcaption><p>What removing a connection does, and when it takes effect</p></figcaption></figure>
 
 **An access token already issued keeps working until it expires, up to an hour.** Each service checks a token's signature rather than asking the authorization server about it on every call, so a revoked grant cannot recall one that is already out. Revocation stops renewal at once; it stops the current token when that token runs out.
 
@@ -164,6 +164,6 @@ A `401` always carries the pointer an application needs to authorize or re-autho
 
 ## Related
 
-* [Remote MCP Server](../ai/remote-mcp.md) - connecting an agent over OAuth
-* [API Keys](../dashboard/administration/api-keys.md) - the organization credential
-* [Manage Team](../dashboard/administration/manage-team.md) - the roles that set the ceiling
+* [Remote MCP Server](../../ai/remote-mcp.md) - connecting an agent over OAuth
+* [API Keys](../../dashboard/administration/api-keys.md) - the organization credential
+* [Manage Team](../../dashboard/administration/manage-team.md) - the roles that set the ceiling

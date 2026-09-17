@@ -25,7 +25,7 @@ It serves the same tools as the [`@currents/mcp`](mcp-server.md) package that ru
 
 ## Connect with OAuth
 
-A connection made this way acts as the person who authorized it, inside the one organization they picked, and carries only the permissions they consented to. Nothing is stored in the repository, and an administrator can revoke it from the dashboard - see [oauth.md](../authentication/oauth.md "mention").
+A connection made this way acts as the person who authorized it, inside the one organization they picked, and carries only the permissions they consented to. Nothing is stored in the repository, and an administrator can revoke it from the dashboard - see [oauth.md](../resources/authentication/oauth.md "mention").
 
 {% tabs %}
 {% tab title="Claude Code" %}
@@ -37,11 +37,11 @@ Then run `/mcp` and choose **Authenticate**, which opens the browser. On a headl
 {% endtab %}
 
 {% tab title="Other clients" %}
-Any client that speaks Streamable HTTP and can identify itself the way Currents requires completes the flow against `https://api.currents.dev/mcp` with nothing arranged in advance. A client that can only register itself dynamically cannot, and uses an API key instead - see [for client developers](../authentication/oauth.md#for-client-developers).
+Any client that speaks Streamable HTTP and can identify itself the way Currents requires completes the flow against `https://api.currents.dev/mcp` with nothing arranged in advance. A client that can only register itself dynamically cannot, and uses an API key instead - see [for client developers](../resources/authentication/oauth.md#for-client-developers).
 {% endtab %}
 {% endtabs %}
 
-The browser then walks through signing in, choosing the organization the connection will act in, and approving the permissions the client asked for. [oauth.md](../authentication/oauth.md "mention") covers those screens, what each permission reaches, and how to review or revoke a connection afterwards.
+The browser then walks through signing in, choosing the organization the connection will act in, and approving the permissions the client asked for. [oauth.md](../resources/authentication/oauth.md "mention") covers those screens, what each permission reaches, and how to review or revoke a connection afterwards.
 
 ## Connect with an API key
 
@@ -65,7 +65,7 @@ A key is an organization credential rather than a personal one: it names no user
 
 ## What a connection can reach
 
-The tool list is a property of the connection, and it is rebuilt on every request from the permissions the grant holds, capped by the role the member holds at that moment ([the role sets the ceiling](../authentication/oauth.md#the-role-sets-the-ceiling)). The endpoint registers only the tools whose permission survives that, so a task with no matching tool is access the connection lacks rather than something Currents cannot do - and an agent is not handed a tool it would only collect a `403` from.
+The tool list is a property of the connection, and it is rebuilt on every request from the permissions the grant holds, capped by the role the member holds at that moment ([the role sets the ceiling](../resources/authentication/oauth.md#the-role-sets-the-ceiling)). The endpoint registers only the tools whose permission survives that, so a task with no matching tool is access the connection lacks rather than something Currents cannot do - and an agent is not handed a tool it would only collect a `403` from.
 
 | Permission       | Tools                                                                                                                                                                         |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -98,7 +98,7 @@ An API key is filtered the same way, by access level rather than by permission: 
 | OAuth resource identifier | `https://api.currents.dev/mcp` |
 | OAuth metadata document | `https://api.currents.dev/.well-known/oauth-protected-resource/mcp` |
 
-This endpoint and the REST API are separate OAuth resource servers, so a token minted for one is refused by the other: authorizing an agent to use the tools is not authorizing it to use the whole API. The rest of what a client needs - the authorization server, PKCE, how a client identifies itself - is in [for client developers](../authentication/oauth.md#for-client-developers).
+This endpoint and the REST API are separate OAuth resource servers, so a token minted for one is refused by the other: authorizing an agent to use the tools is not authorizing it to use the whole API. The rest of what a client needs - the authorization server, PKCE, how a client identifies itself - is in [for client developers](../resources/authentication/oauth.md#for-client-developers).
 
 ## Troubleshooting
 
@@ -116,7 +116,7 @@ A missing permission is not one of those refusals. The tool for it is not listed
 
 ## Related
 
-* [OAuth](../authentication/oauth.md) - the connection flow, permissions, and revoking access
+* [OAuth](../resources/authentication/oauth.md) - the connection flow, permissions, and revoking access
 * [MCP Server](mcp-server.md) - the local `@currents/mcp` package
 * [Overview](overview.md) - every way to put Currents data in front of an agent
 * [API Keys](../dashboard/administration/api-keys.md) - creating and scoping a key

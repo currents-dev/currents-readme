@@ -162,13 +162,11 @@
   * [Plans & Pricing](dashboard/billing/plans-and-pricing.md)
   * [Usage & Spend Control](dashboard/billing/usage-and-spend-control.md)
 
-## Authentication
-
-* [OAuth](authentication/oauth.md)
-
 ## Resources
 
 * [API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/)
+* [Authentication](resources/authentication/README.md)
+  * [OAuth](resources/authentication/oauth.md)
 * [Reporters](resources/reporters/README.md)
   * [@currents/playwright](resources/reporters/currents-playwright/README.md)
     * [Compatibility Guide](resources/reporters/currents-playwright/compatibility.md)
