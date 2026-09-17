@@ -11,6 +11,10 @@ MCP stands for [**Model Context Protocol**](https://modelcontextprotocol.io/intr
 
 [Currents MCP server](https://github.com/currents-dev/currents-mcp) is a context layer for AI tools that leverage information about Playwright test results, such as failed tests, errors, and more.
 
+{% hint style="info" %}
+This page covers the `@currents/mcp` package, which runs locally over stdio and authenticates with an API key alone. Currents also hosts the same tools at `https://api.currents.dev/mcp`, where a client connects over OAuth with no key to paste and no package to install - see [remote-mcp.md](remote-mcp.md "mention").
+{% endhint %}
+
 ### Get started
 
 **Install our NPM package**
