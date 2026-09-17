@@ -105,7 +105,9 @@ Consent cannot grant more than the person's organization role already permits. A
 | `webhooks:read`  |   ✅   |       ❌       |   ❌    |   ❌   |
 | `webhooks:write` |   ✅   |       ❌       |   ❌    |   ❌   |
 
-A Guest authorizing an application that asked for everything leaves with `projects:read` and `results:read`, and the screen names the rest as withheld. See [manage-team.md](../dashboard/administration/manage-team.md "mention") for what each role is for.
+A Guest authorizing an application that asked for everything leaves with `projects:read` and `results:read`, and the screen names the rest as withheld.
+
+This is a ceiling on what consent may grant, not a list of what a role does in the dashboard: the two are set separately, and a permission being available to a role here means an application can be authorized for it, not that it is granted. Nothing is granted that the person did not approve on the consent screen. See [manage-team.md](../dashboard/administration/manage-team.md "mention") for what each role is for.
 
 The role is then re-checked on every request rather than only at consent, so a role that changes later takes effect immediately: lowering someone's role suspends the permissions it covered, and raising it again restores them.
 
