@@ -18,6 +18,10 @@ Domain verification sits on the **Manage Team** page, in the **Domain access & S
 
 **Manage domains** opens the list of verified and pending domains. An organization can verify more than one.
 
+{% hint style="warning" %}
+Self-serve verification is for cloud organizations that do not use SSO. An organization with SSO enabled keeps its domains in the SSO configuration instead — see [sso-saml2.0](sso-saml2.0/ "mention"). On-premise installations cannot use it; contact Currents support to have a domain added.
+{% endhint %}
+
 ## Verifying a domain
 
 1. Enter the domain — the bare name, such as `company.com` — and select **Add domain**. The request appears as **Pending**.
@@ -38,7 +42,7 @@ The record has three parts, each with a copy control next to it:
 
 The token is generated per request and belongs to that request alone. **Verify** fails while the record is still propagating; the check can be repeated until it succeeds.
 
-A pending request **expires after 7 days**. Once it has, the domain has to be added again, which issues a new token. **Cancel** withdraws a pending request without waiting for it to expire.
+A pending request **expires after 7 days**, and a reminder goes out 2 days before that. Once it has expired, the domain has to be added again, which issues a new token. **Cancel** withdraws a pending request without waiting for it to expire.
 
 ## What a verified domain does
 
@@ -50,6 +54,24 @@ The role they receive depends on seats:
 * **Guest**, when it does not — until an administrator upgrades them. Guests do not occupy a seat, so the upgrade is what takes one.
 
 To change which role new users receive, contact Currents support from the link on the page.
+
+## Keeping a domain verified
+
+Currents re-checks each verified domain's TXT record once a day, so the record has to stay published after verification. A failed check notifies the organization's administrators, and after **7 failed checks in a row** the domain is removed and auto-join stops with it. Getting it back means adding the domain again and verifying a fresh token.
+
+**Remove** takes a verified domain off the list at any time. New users on that domain stop joining the organization automatically; accounts that already joined keep their membership.
+
+## Emails to administrators
+
+An organization's administrators are emailed at each point in a domain's life:
+
+| Email                      | Sent when                                                                        |
+| -------------------------- | -------------------------------------------------------------------------------- |
+| **Domain verified**        | the TXT record is found and the domain starts accepting new users                  |
+| **Reminder before expiry** | a pending request is 2 days from expiring                                          |
+| **Request expired**        | a pending request reaches 7 days without being verified                            |
+| **Daily check failed**     | a daily re-check of a verified domain cannot find its record                       |
+| **Domain removed**         | a verified domain is removed, by an administrator or after 7 failed checks in a row |
 
 {% hint style="info" %}
 Verifying a domain does not change how anyone signs in. It decides which organization a new account joins. To make an identity provider the way an organization signs in, see [sso-saml2.0](sso-saml2.0/ "mention") — SSO carries its own domain list.
