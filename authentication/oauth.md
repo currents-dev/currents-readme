@@ -69,15 +69,17 @@ A badge sits beside the application name on both the consent screen and the [con
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Verified publisher · _host_** | That publisher's own servers, and nowhere else. The host on the badge is the one receiving them.                                                                                   |
 | **Currents**                    | Loopback, on the signer's own machine.                                                                                                                                            |
-| **3rd Party · _host_**          | Loopback, or an address the client named. The host comes from the client id, which is the one part of its identity a client cannot invent - only that host can serve its metadata document. |
+| **3rd Party · _host_**          | Loopback, or an address the client named - not necessarily the host on the badge.                                                                                                 |
 | **Unlisted**                    | An address the client named, with no host to put on the badge.                                                                                                                    |
 
 Only **Verified publisher** is green, because it is the only case where the codes cannot reach anyone else. Everywhere else they go to a machine, and any program on that machine can present the same client id - which is why a client Currents knows perfectly well still gets a neutral mark.
 
+The _host_ on a badge is not an address, and outside **Verified publisher** it is not where anything is sent. It is taken from the client id, which for these clients is the URL of the metadata document identifying them - the one part of an identity a client cannot invent, since only that host can serve that document. So `3rd Party · claude.ai` says Currents fetched the identity from `claude.ai`; the codes still go wherever the **Sends codes to** line on the screen says, which for a local agent is loopback.
+
 **3rd Party covers two different situations**, and the note under the badge separates them:
 
-* _Codes go to an app on this computer_ - Currents holds this client's definition, so the name and icon on the screen are Currents' own rather than the client's. Only the loopback redirect keeps it from being verified, so the screen asks for confirmation that the signer started the application themselves.
-* _Currents has not checked this application_ - Currents holds nothing. Every field is the client's own claim, and its icon is not drawn at all.
+* _Codes go to an app on this computer_ - Currents holds this client's definition. The name and icon on the screen are still the vendor's own - Claude Code shows as Claude Code, with its own logo - but they are read from Currents' register of known clients rather than from anything the client said about itself. Only the loopback redirect keeps it from being verified, so the screen asks for confirmation that the signer started the application themselves.
+* _Currents has not checked this application_ - Currents holds nothing. Every field is the client's own claim, and its icon is not drawn at all, so an unfamiliar application cannot borrow the look of a familiar one.
 
 A **Currents** badge is likewise not a claim that Currents built the application, only that it holds the definition.
 
