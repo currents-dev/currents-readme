@@ -20,7 +20,7 @@ Provisioning is available on the Business and Enterprise plans.
 In order to setup provisioning you first need to:
 
 * Setup the SAML integration with [.](./ "mention")
-* Reach out to the Currents support team to have provisioning enabled for your organization.
+* Request provisioning in the same SSO request — select **Also set up SCIM provisioning** in step 3 of [setting-up-sso.md](../setting-up-sso.md "mention"). Currents support enables it along with SSO.
 
 ## Configuration Steps <a href="#configuration-steps" id="configuration-steps"></a>
 
