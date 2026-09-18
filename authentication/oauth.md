@@ -47,7 +47,7 @@ Only when that browser has no Currents session yet. Whatever the organization us
 
 ### 2. Choose an organization
 
-A token reaches one organization, and every call the application makes acts inside it. The screen lists the organizations the account belongs to with the role held in each, and names the access level that role allows.
+A token reaches one organization, and every call the application makes acts inside it. The screen lists the organizations the account belongs to with the role held in each, above everything the application asked for.
 
 <figure><img src="../.gitbook/assets/oauth-select-organization.png" alt="The organization selection screen, listing two organizations with the role held in each"><figcaption><p>An application authorized here reaches this organization and no other</p></figcaption></figure>
 
@@ -55,11 +55,38 @@ Authorizing the same application for a second organization is a separate grant, 
 
 ### 3. Authorize
 
-The consent screen names the application, the address it will receive authorization codes at, and every permission it asked for, marked as a read or a write.
+The consent screen names the application, the address it will receive authorization codes at, the account signing in and the organization chosen in the previous step, and every permission it asked for. Permissions are grouped by the area they reach - the signer's own account first, then projects, runs, analytics, quarantine and skip rules, the issue tracker, webhooks - and each line carries a **Read** or a **Write** mark. Only the groups a request actually asks for are drawn, and a scope Currents has no area for falls under **Other**.
 
-<figure><img src="../.gitbook/assets/oauth-consent.png" alt="The Currents consent screen, listing the permissions an application requested as reads and writes"><figcaption><p>Nothing is granted that is not on this screen</p></figcaption></figure>
+The `mcp` scope is the one thing an application can ask for that the screen does not list. It names [which service the token is for](oauth.md#what-accepts-an-oauth-token), not something the token may do - what it may do comes from the API scopes requested beside it - so listing it would suggest a permission that was never granted.
 
-Currents verifies nothing an application claims about itself unless it is marked **Listed**, which means Currents ships the definition of that client. Anything else is marked **3rd Party**: its name, its icon and its description are its own claims. The redirect address on the screen is the part worth reading - it is where the authorization code goes, and a familiar application sending codes to an unfamiliar address is the signal that something is wrong.
+<figure><img src="../.gitbook/assets/oauth-consent.png" alt="The Currents consent screen, listing the permissions an application requested grouped by area and marked as reads and writes"><figcaption><p>Nothing is granted that is not on this screen</p></figcaption></figure>
+
+### What the badge next to the name means
+
+A badge sits beside the application name on both the consent screen and the [connections](oauth.md#reviewing-and-revoking-access) lists. It answers one question - **where do the authorization codes land** - and says nothing about who wrote the application.
+
+| Badge                           | Where the codes land                                                                                                                                                              |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Verified publisher · _host_** | That publisher's own servers, and nowhere else. The host on the badge is the one receiving them.                                                                                   |
+| **Currents**                    | Loopback, on the signer's own machine.                                                                                                                                            |
+| **3rd Party · _host_**          | Loopback, or an address the client named - not necessarily the host on the badge.                                                                                                 |
+| **Unlisted**                    | An address the client named, with no host to put on the badge.                                                                                                                    |
+
+Only **Verified publisher** is green, because it is the only case where the codes cannot reach anyone else. Everywhere else they go to a machine, and any program on that machine can present the same client id - which is why a client Currents knows perfectly well still gets a neutral mark.
+
+The _host_ on a badge is not an address, and outside **Verified publisher** it is not where anything is sent. It is taken from the client id, which for these clients is the URL of the metadata document identifying them - the one part of an identity a client cannot invent, since only that host can serve that document. So `3rd Party · claude.ai` says Currents fetched the identity from `claude.ai`; the codes still go wherever the **Sends codes to** line on the screen says, which for a local agent is loopback.
+
+The note under the badge is the second signal, and it does not follow the badge one-for-one - **3rd Party** appears against both notes, depending on whether Currents holds a definition of that client:
+
+| Note                                        | Appears on                                                      | What it means                                                                                                                                                                                                                       |
+| ------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| _(none)_                                    | **Verified publisher**                                          | Nothing to warn about: the codes reach that publisher and no one else.                                                                                                                                                              |
+| _Codes go to an app on this computer_       | **Currents**, and the **3rd Party** clients Currents has a definition of | The name and icon are the vendor's own - Claude Code shows as Claude Code, with its own logo - but read from Currents' register of known clients rather than from anything the client said. Only the loopback redirect keeps it from being verified, so the screen asks for confirmation that the signer started the application themselves. |
+| _Currents has not checked this application_ | the remaining **3rd Party** clients, and every **Unlisted** one | Currents holds nothing: every field is the client's own claim. Its icon is not loaded at all - a neutral placeholder is drawn instead - so an unfamiliar application cannot borrow the look of a familiar one.                        |
+
+A **Currents** badge is not a claim that Currents built the application either, only that it holds the definition.
+
+The redirect address is the part worth reading in every case: it is where the authorization code goes, and a familiar application sending codes to an unfamiliar address is the signal that something is wrong.
 
 Approving returns the application to its own callback with the grant in place. An application that asked to stay connected - the `offline_access` permission on the screen - can renew its own access tokens from there, so nobody is asked again unless the grant is revoked or the application starts asking for something new. One that did not ask for it holds a single access token and sends the person back through this flow once that token expires.
 
