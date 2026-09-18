@@ -55,24 +55,33 @@ Authorizing the same application for a second organization is a separate grant, 
 
 ### 3. Authorize
 
-The consent screen names the application, the address it will receive authorization codes at, the account signing in and the organization chosen in the previous step, and every permission it asked for. Permissions are grouped by the area they cover - the account, projects, runs, analytics, quarantine and skip rules, the issue tracker, webhooks - and each line carries a **Read** or a **Write** mark.
+The consent screen names the application, the address it will receive authorization codes at, the account signing in and the organization chosen in the previous step, and every permission it asked for. Permissions are grouped by the area they reach - the signer's own account first, then projects, runs, analytics, quarantine and skip rules, the issue tracker, webhooks - and each line carries a **Read** or a **Write** mark. Only the groups a request actually asks for are drawn, and a scope Currents has no area for falls under **Other**.
+
+The `mcp` scope is the one thing an application can ask for that the screen does not list. It names [which service the token is for](oauth.md#what-accepts-an-oauth-token), not something the token may do - what it may do comes from the API scopes requested beside it - so listing it would suggest a permission that was never granted.
 
 <figure><img src="../.gitbook/assets/oauth-consent.png" alt="The Currents consent screen, listing the permissions an application requested grouped by area and marked as reads and writes"><figcaption><p>Nothing is granted that is not on this screen</p></figcaption></figure>
 
 ### What the badge next to the name means
 
-A badge sits beside the application name on both the consent screen and the [connections](oauth.md#reviewing-and-revoking-access) lists. It says how much of what the application claims about itself - its name, its icon, its description - Currents has actually checked.
+A badge sits beside the application name on both the consent screen and the [connections](oauth.md#reviewing-and-revoking-access) lists. It answers one question - **where do the authorization codes land** - and says nothing about who wrote the application.
 
-| Badge                            | What Currents checked                                                                                                                                 |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Currents**                     | Currents ships the definition of this client. It redirects only to loopback on the signer's own machine.                                               |
-| **Verified publisher · _host_**  | Currents ships the definition, and authorization codes reach only that publisher's own servers - so the host named on the badge is the one receiving them. |
-| **3rd Party · _host_**           | Nothing. The client registered itself by serving its own metadata, and everything on the screen is its own claim.                                      |
-| **Unlisted**                     | Nothing, and not even a host to name.                                                                                                                  |
+| Badge                           | Where the codes land                                                                                                                                                              |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Verified publisher · _host_** | That publisher's own servers, and nowhere else. The host on the badge is the one receiving them.                                                                                   |
+| **Currents**                    | Loopback, on the signer's own machine.                                                                                                                                            |
+| **3rd Party · _host_**          | Loopback, or an address the client named. The host comes from the client id, which is the one part of its identity a client cannot invent - only that host can serve its metadata document. |
+| **Unlisted**                    | An address the client named, with no host to put on the badge.                                                                                                                    |
 
-A **Currents** badge is not a claim that Currents built the application - only that Currents holds its definition. Because a loopback client redirects to the signer's own machine, any local program can present the same identifier, which is why it earns the same neutral mark as a 3rd Party client rather than a green one.
+Only **Verified publisher** is green, because it is the only case where the codes cannot reach anyone else. Everywhere else they go to a machine, and any program on that machine can present the same client id - which is why a client Currents knows perfectly well still gets a neutral mark.
 
-The redirect address on the screen is the part worth reading: it is where the authorization code goes, and a familiar application sending codes to an unfamiliar address is the signal that something is wrong. A client that sends codes to loopback says so in its own note on the screen, since that case is only safe when the signer started the application themselves.
+**3rd Party covers two different situations**, and the note under the badge separates them:
+
+* _Codes go to an app on this computer_ - Currents holds this client's definition, so the name and icon on the screen are Currents' own rather than the client's. Only the loopback redirect keeps it from being verified, so the screen asks for confirmation that the signer started the application themselves.
+* _Currents has not checked this application_ - Currents holds nothing. Every field is the client's own claim, and its icon is not drawn at all.
+
+A **Currents** badge is likewise not a claim that Currents built the application, only that it holds the definition.
+
+The redirect address is the part worth reading in every case: it is where the authorization code goes, and a familiar application sending codes to an unfamiliar address is the signal that something is wrong.
 
 Approving returns the application to its own callback with the grant in place. An application that asked to stay connected - the `offline_access` permission on the screen - can renew its own access tokens from there, so nobody is asked again unless the grant is revoked or the application starts asking for something new. One that did not ask for it holds a single access token and sends the person back through this flow once that token expires.
 
