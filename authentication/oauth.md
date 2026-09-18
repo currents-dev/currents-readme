@@ -47,7 +47,7 @@ Only when that browser has no Currents session yet. Whatever the organization us
 
 ### 2. Choose an organization
 
-A token reaches one organization, and every call the application makes acts inside it. The screen lists the organizations the account belongs to with the role held in each, and names the access level that role allows.
+A token reaches one organization, and every call the application makes acts inside it. The screen lists the organizations the account belongs to with the role held in each, above everything the application asked for.
 
 <figure><img src="../.gitbook/assets/oauth-select-organization.png" alt="The organization selection screen, listing two organizations with the role held in each"><figcaption><p>An application authorized here reaches this organization and no other</p></figcaption></figure>
 
@@ -55,11 +55,24 @@ Authorizing the same application for a second organization is a separate grant, 
 
 ### 3. Authorize
 
-The consent screen names the application, the address it will receive authorization codes at, and every permission it asked for, marked as a read or a write.
+The consent screen names the application, the address it will receive authorization codes at, the account signing in and the organization chosen in the previous step, and every permission it asked for. Permissions are grouped by the area they cover - the account, projects, runs, analytics, quarantine and skip rules, the issue tracker, webhooks - and each line carries a **Read** or a **Write** mark.
 
-<figure><img src="../.gitbook/assets/oauth-consent.png" alt="The Currents consent screen, listing the permissions an application requested as reads and writes"><figcaption><p>Nothing is granted that is not on this screen</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/oauth-consent.png" alt="The Currents consent screen, listing the permissions an application requested grouped by area and marked as reads and writes"><figcaption><p>Nothing is granted that is not on this screen</p></figcaption></figure>
 
-Currents verifies nothing an application claims about itself unless it is marked **Listed**, which means Currents ships the definition of that client. Anything else is marked **3rd Party**: its name, its icon and its description are its own claims. The redirect address on the screen is the part worth reading - it is where the authorization code goes, and a familiar application sending codes to an unfamiliar address is the signal that something is wrong.
+### What the badge next to the name means
+
+A badge sits beside the application name on both the consent screen and the [connections](oauth.md#reviewing-and-revoking-access) lists. It says how much of what the application claims about itself - its name, its icon, its description - Currents has actually checked.
+
+| Badge                            | What Currents checked                                                                                                                                 |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Currents**                     | Currents ships the definition of this client. It redirects only to loopback on the signer's own machine.                                               |
+| **Verified publisher · _host_**  | Currents ships the definition, and authorization codes reach only that publisher's own servers - so the host named on the badge is the one receiving them. |
+| **3rd Party · _host_**           | Nothing. The client registered itself by serving its own metadata, and everything on the screen is its own claim.                                      |
+| **Unlisted**                     | Nothing, and not even a host to name.                                                                                                                  |
+
+A **Currents** badge is not a claim that Currents built the application - only that Currents holds its definition. Because a loopback client redirects to the signer's own machine, any local program can present the same identifier, which is why it earns the same neutral mark as a 3rd Party client rather than a green one.
+
+The redirect address on the screen is the part worth reading: it is where the authorization code goes, and a familiar application sending codes to an unfamiliar address is the signal that something is wrong. A client that sends codes to loopback says so in its own note on the screen, since that case is only safe when the signer started the application themselves.
 
 Approving returns the application to its own callback with the grant in place. An application that asked to stay connected - the `offline_access` permission on the screen - can renew its own access tokens from there, so nobody is asked again unless the grant is revoked or the application starts asking for something new. One that did not ask for it holds a single access token and sends the person back through this flow once that token expires.
 
