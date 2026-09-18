@@ -63,7 +63,7 @@ Configure SSO Settings
 {% step %}
 #### Done
 
-* Share the Metadata XML file together with other details appearing in [saml2.0-configuration.md](../saml2.0-configuration.md "mention") with Currents support team to active the SSO.
+* Submit the Metadata XML file together with other details appearing in [saml2.0-configuration.md](../saml2.0-configuration.md "mention") from the dashboard — see [setting-up-sso.md](../setting-up-sso.md "mention").
 * Assign users or groups to the newly created SSO application
 * Set Login URL after Currents support team activated the integration. See [idp-initiated-sessions.md](../idp-initiated-sessions.md "mention").
 {% endstep %}

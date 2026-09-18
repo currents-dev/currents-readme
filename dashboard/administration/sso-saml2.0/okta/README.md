@@ -37,7 +37,7 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 <figure><img src="../../../../.gitbook/assets/currents-2023-05-23-15.07.42@2x.png" alt=""><figcaption><p>Getting Metadata URL from Currents SAML ION application</p></figcaption></figure>
 
 * Copy the Metadata URL from the Okta Admin Console, SAML 2.0 Sign on methods section.
-* Contact the **Currents** support team (support@currents.dev) and request that they enable SAML 2.0 for your account. Include the "Metadata URL" value from the previous step.
+* Submit the request from the dashboard — see [setting-up-sso.md](../setting-up-sso.md "mention") — pasting the "Metadata URL" value from the previous step into step 3.
 
 Your SAML configuration for **Currents** is complete. You can start assigning people to the application.
 
