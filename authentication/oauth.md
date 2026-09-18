@@ -84,7 +84,7 @@ The note under the badge is the second signal, and it does not follow the badge 
 | _Codes go to an app on this computer_       | **Currents**, and the **3rd Party** clients Currents has a definition of | The name and icon are the vendor's own - Claude Code shows as Claude Code, with its own logo - but read from Currents' register of known clients rather than from anything the client said. Only the loopback redirect keeps it from being verified, so the screen asks for confirmation that the signer started the application themselves. |
 | _Currents has not checked this application_ | the remaining **3rd Party** clients, and every **Unlisted** one | Currents holds nothing: every field is the client's own claim. Its icon is not loaded at all - a neutral placeholder is drawn instead - so an unfamiliar application cannot borrow the look of a familiar one.                        |
 
-A **Currents** badge is likewise not a claim that Currents built the application, only that it holds the definition.
+A **Currents** badge is not a claim that Currents built the application either, only that it holds the definition.
 
 The redirect address is the part worth reading in every case: it is where the authorization code goes, and a familiar application sending codes to an unfamiliar address is the signal that something is wrong.
 
