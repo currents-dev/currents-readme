@@ -26,7 +26,7 @@ Four choices: **Okta**, **Microsoft Entra ID (Azure AD)**, **JumpCloud**, and **
 
 For a provider with a Currents app in its catalog — Okta is the case called out — the step names the catalog path and links to the full guide. The catalog app arrives with these values already set.
 
-Where there is no catalog app, the step lists the values a SAML application needs, each with a copy control next to it: the **ACS URL (Reply URL)**, the **Entity ID (Audience URI)**, the **Name ID format**, and the **email** and **name** attribute names. They match [saml2.0-configuration.md](saml2.0-configuration.md "mention"), which also covers the requirements the wizard summarizes in one line — chiefly that the Name ID must be the user's email address in lowercase.
+Where there is no catalog app, the step lists the values a SAML application needs, each with a copy control next to it: the **ACS URL (Reply URL)**, the **Entity ID (Audience URI)**, the **Name ID format**, and the **email** and **name** attribute names. They match [saml2.0-configuration.md](saml2.0-configuration.md "mention"), which also covers the requirements the wizard summarizes in one line — chiefly that the Name ID must be the user's email address in lowercase, and that the `identifier` claim must carry that same value.
 
 ## Step 3 — Details
 
@@ -37,7 +37,7 @@ Where there is no catalog app, the step lists the values a SAML application need
 | **IdP metadata**       | Either a metadata URL or an uploaded metadata file. The step names where to find it in the chosen provider. |
 | **Email domains**      | The domains whose users sign in through the identity provider, separated by commas.                        |
 | **Role for new users** | **Member** or **Guest**. New users receive this role while seats are free; after that they join as guests until an administrator upgrades them. |
-| **SCIM provisioning**  | An optional checkbox. Selecting it includes [scim-user-provisioning.md](scim-user-provisioning.md "mention") in the same request; the SCIM token is generated on this page once SSO is on. |
+| **SCIM provisioning**  | An optional checkbox. Selecting it includes [scim-user-provisioning.md](scim-user-provisioning.md "mention") in the same request. Once SSO is on, the **SCIMv2 Endpoint** and **Authorization Bearer Token** appear under **Manage Team**. |
 
 The domains listed here are what SSO applies to, and they are separate from the domains under [email-domain-based-access.md](../email-domain-based-access.md "mention") — that list decides which organization a new account joins, this one decides how people sign in.
 

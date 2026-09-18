@@ -39,7 +39,7 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 * Copy the Metadata URL from the Okta Admin Console, SAML 2.0 Sign on methods section.
 * Submit the request from the dashboard — see [setting-up-sso.md](../setting-up-sso.md "mention") — pasting the "Metadata URL" value from the previous step into step 3.
 
-Your SAML configuration for **Currents** is complete. You can start assigning people to the application.
+Your SAML configuration for **Currents** is complete. You can start assigning people to the application. Currents support connects the integration and sends a link to test sign-in before SSO applies to the rest of the organization.
 
 ### SP-initiated SSO
 

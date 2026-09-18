@@ -36,7 +36,7 @@ Define the following SAML2.0 configuration on your Identity Provider:
 
 ### Sharing SAML Configuration
 
-Once the IdP is configured, submit it from the dashboard — see [setting-up-sso.md](setting-up-sso.md "mention"). The wizard asks for the same two things:
+Once the IdP is configured, submit it from the dashboard — see [setting-up-sso.md](setting-up-sso.md "mention"). The wizard asks for these, plus the role new users get and an optional SCIM provisioning request:
 
 - IdP Metadata or publicly available metadata document endpoint URL
 - Domains list that your organization members will use to access the dashboard (for example user@**example.com**)
