@@ -10,7 +10,7 @@ TL;DR Check out the example repository:
 [https://github.com/currents-dev/currents-examples](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/aws-codebuild)
 {% endhint %}
 
-Executing Playwright tests in parallel on AWS CodeBuild can significantly reduce the overall run duration. AWS CodeBuild supports [Batched Build](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build.html) in [matrix mode](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build.html#batch_build_matrix) for launching several workers in parallel.&#x20;
+Executing Playwright tests in parallel on AWS CodeBuild can significantly reduce the overall run duration. AWS CodeBuild supports [Batched Build](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build.html) in [matrix mode](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build.html#batch_build_matrix) for launching several workers in parallel.
 
 <figure><img src="../../.gitbook/assets/currents-2023-11-15-13.23.30@2x.png" alt=""><figcaption><p>Use AWS CodeBulld Matrix mode to run Playwright tests in parallel with Currents. 1 batch job (1) triggering 3 parallel build jobs (2).</p></figcaption></figure>
 
@@ -22,11 +22,11 @@ To enable parallel runs, please make sure that you have privileged access to you
 
 #### Obtain Currents Credentials <a href="#user-content-obtain-currents-credentials" id="user-content-obtain-currents-credentials"></a>
 
-Create an organization, and get  [record-key.md](../../guides/record-key.md "mention") and **Project ID** at [https://app.currents.dev](https://app.currents.dev/).&#x20;
+Create an organization, and get [record-key.md](../../guides/record-key.md "mention") and **Project ID** at [https://app.currents.dev](https://app.currents.dev/).
 
 #### Create `buildspec.yml`
 
-Create a `buildspec.yml` file in the root directory of your application's source code repository. This file defines the build and test steps for your application.&#x20;
+Create a `buildspec.yml` file in the root directory of your application's source code repository. This file defines the build and test steps for your application.
 
 Set the **Project ID** for `pwc` command, for example:
 
@@ -92,9 +92,9 @@ Save the [record-key.md](../../guides/record-key.md "mention") as `CURRENTS_RECO
   * Variable value: the ARN of previously created secret + json\_key, for example: `<secret-arn>:<json-key>`
 * Update the IAM execution role to allow reading of previously created secret
 
-#### Configure AWS Project&#x20;
+#### Configure AWS Project
 
-Configure AWS-specific project settings like IAM execution policy, resources class and so on.  Please refer to [AWS CodeBuild documentation](https://docs.aws.amazon.com/codebuild/) for details to explore possible configuration settings.
+Configure AWS-specific project settings like IAM execution policy, resources class and so on. Please refer to [AWS CodeBuild documentation](https://docs.aws.amazon.com/codebuild/) for details to explore possible configuration settings.
 
 **Configure Source Batch Mode**
 
@@ -102,11 +102,11 @@ Configure AWS-specific project settings like IAM execution policy, resources cla
 * Configure the repository details, the events that should trigger new builds
 * Configure **Primary source webhook events > Build Type** to **Batch build** to start 3 parallel workers in [matrix mode](https://docs.aws.amazon.com/codebuild/latest/userguide/batch-build)
 
-### Example: Triggering Parallel Playwright AWS CodeBuild&#x20;
+### Example: Triggering Parallel Playwright AWS CodeBuild
 
 This [example repository](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/aws-codebuild) showcases running Playwright tests on AWS CodeBuild in parallel while using [Currents](https://currents.dev/) as the reporting dashboard. It has an example [AWS CodeBuilld Project configuration](https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/aws-codebuild/aws-project-config-output.json).
 
-{% embed url="https://www.loom.com/share/36d9130a292949668cc875599927e83c?hideEmbedTopBar=true&hide_share=true&sid=4f798cda-d45f-4d05-841b-40aa6eed6f94?hide_owner=true" %}
+{% embed url="https://player.mux.com/My3U014yc3mr6CzXNad701cZdvT900Nz2ooVlMR6aqoBmE?min-resolution=1080p" %}
 Example of triggering an AWS CodeBuild Playwright Tests via a commit
 {% endembed %}
 

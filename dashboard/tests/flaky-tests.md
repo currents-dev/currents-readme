@@ -6,17 +6,15 @@ description: Guide to Playwright Flaky Tests
 
 ## What is a flaky test?
 
-A flaky test is a test that did not succeed on the first attempt. It fails only occasionally: one time it passes, another time fails, and the next time pass again, without any changes.&#x20;
-
-
+A flaky test is a test that did not succeed on the first attempt. It fails only occasionally: one time it passes, another time fails, and the next time pass again, without any changes.
 
 Flaky tests are marked with a dedicated badge.
 
-![Run Summary with 1 flaky test detected](<../../.gitbook/assets/cypress-flaky-tests (1).png>)
+<div data-with-frame="true"><img src="../../.gitbook/assets/Screenshot 2026-09-17 at 11.17.53.png" alt="Run Summary with 1 flaky test detected"></div>
 
 ## How to activate flaky test detection?
 
-Flaky tests are automatically activated for [when](https://playwright.dev/docs/test-retries) retries are enabled. When a test has retries enabled and it doesn't pass on the first attempt, it is marked as flaky.&#x20;
+Flaky tests are automatically activated for [when](https://playwright.dev/docs/test-retries) retries are enabled. When a test has retries enabled and it doesn't pass on the first attempt, it is marked as flaky.
 
 ## Why are flaky tests bad?
 
@@ -33,22 +31,20 @@ In summary, flaky tests are considered harmful because:
 
 ### Measure and Identify Flakiness
 
-Use [tests-explorer.md](../test-suite-performance-explorer/tests-explorer.md "mention") to see the tests with the highest flakiness rate.&#x20;
+Use [tests-explorer.md](../test-suite-performance-explorer/tests-explorer.md "mention") to see the tests with the highest flakiness rate.
 
-<figure><img src="../../.gitbook/assets/currents-2025-07-17-23.25.10@2x.png" alt=""><figcaption></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/Screenshot 2026-09-17 at 11.32.35.png" alt=""><figcaption></figcaption></figure></div>
 
 ## Eliminate Flaky Tests
 
-Brows past test executions  and examine what error messages cause flakiness using [#individual-test-analysis](../test-suite-performance-explorer/tests-explorer.md#individual-test-analysis "mention").
+Brows past test executions and examine what error messages cause flakiness using [#individual-test-analysis](../test-suite-performance-explorer/tests-explorer.md#individual-test-analysis "mention").
 
-<figure><img src="../../.gitbook/assets/currents-2025-07-17-23.29.50@2x.png" alt=""><figcaption><p>Test history tab show flaky execution for a particular test</p></figcaption></figure>
+<div data-with-frame="true"><figure><img src="../../.gitbook/assets/Screenshot 2026-09-17 at 11.36.23.png" alt=""><figcaption></figcaption></figure></div>
 
-<figure><img src="../../.gitbook/assets/currents-2025-07-17-23.26.50@2x.png" alt=""><figcaption><p>The error above is a 100% cause of flakiness for the test</p></figcaption></figure>
-
-Most common reason for flakiness&#x20;
+Most common reason for flakiness
 
 * Using fixed wait times
-* Long complex and fragile&#x20;
+* Long complex and fragile
 * Sharing data and state between tests
 
 ## Fail on Flaky Tests

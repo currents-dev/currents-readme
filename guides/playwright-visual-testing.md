@@ -20,10 +20,10 @@ test('example test', async ({ page }) => {
 );
 ```
 
-Currents automatically detects  tests with visual comparison enabled and shows a dedicated widget for the relevant tests:
+Currents automatically detects tests with visual comparison enabled and shows a dedicated widget for the relevant tests:
 
-{% embed url="https://www.loom.com/share/3554b321e8a8409c9e37a4181b9bab1a?hideEmbedTopBar=true" %}
-Current Visual Comparison Widget for Playwright Tests
+{% embed url="https://player.mux.com/bko2aSPrrf3aiB6Uzsiqf201kXAIGU53oQEft248dgfc?min-resolution=1080p" %}
+Visual Diff
 {% endembed %}
 
 ### Playwright Visual Testing with Argos
@@ -105,7 +105,7 @@ Requires @currents/playwright 1.6.0+
 
 <figure><img src="../.gitbook/assets/Currents Orchestration.png" alt="Currents Orchestration onFinish callback finalizes Parallel Argos build"><figcaption><p>Currents Orchestration onFinish callback finalizes Parallel Argos build</p></figcaption></figure>
 
-See the [example repository](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/github-actions/argos) which showcases using GitHub Actions with 3 parallel containers + Currents Orchestration + Argos.&#x20;
+See the [example repository](https://github.com/currents-dev/currents-examples/tree/main/playwright/ci/github-actions/argos) which showcases using GitHub Actions with 3 parallel containers + Currents Orchestration + Argos.
 
 <details>
 
@@ -138,13 +138,11 @@ const config: PlaywrightTestConfig = {
 }
 ```
 
-
-
 </details>
 
 <details>
 
-<summary><a href="https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/argos/argos-example.yml">GitHub Actions Workflow</a> </summary>
+<summary><a href="https://github.com/currents-dev/currents-examples/blob/main/playwright/ci/github-actions/argos/argos-example.yml">GitHub Actions Workflow</a></summary>
 
 ```yaml
 strategy:
@@ -213,7 +211,7 @@ function assertEnvVariable(name: string) {
 ```
 {% endcode %}
 
-* set `orchestration.skipReporterInjection` to `true`&#x20;
+* set `orchestration.skipReporterInjection` to `true`
 * note the use of `onFinish` lifecycle hook - the corresponding function will run and receive `OrchestrationStatus` object that can be used to determine run's completion
 
 </details>
