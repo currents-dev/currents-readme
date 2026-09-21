@@ -100,7 +100,7 @@ Once a token is past its expiry, requests made with it are refused and the row i
 
 The token is shown once, in the **Token created** dialog, and never again. Currents stores only a hash of it, so there is no way to recover a secret that was not copied. A token whose secret was lost is revoked and replaced.
 
-<figure><img src="../.gitbook/assets/pat-token-created.png" alt="The Token created dialog showing the generated token and a warning that Currents stores only a hash and cannot show it again"><figcaption><p>The only time the token is displayed</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/pat-token-created.png" alt="The Token created dialog, showing the crnts_pat_ prefix with the rest of the token masked, and a warning that Currents stores only a hash and cannot show it again"><figcaption><p>The only time the token is displayed. The secret is masked here; the dialog shows it in full.</p></figcaption></figure>
 
 Tokens begin with `crnts_pat_`, which makes them recognizable on sight in logs, configuration files and pull requests.
 
