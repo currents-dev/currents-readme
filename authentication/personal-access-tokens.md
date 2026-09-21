@@ -59,7 +59,7 @@ A token reaches one organization and is never moved to another. An administrator
 
 A token carries a set of named permissions chosen when it is created. Each one covers a specific area, and an endpoint that needs a permission the token does not hold refuses the request.
 
-The permission list is grouped by resource. Selecting a write permission selects its matching read permission as well, because a write operation reads before it writes; clearing the read permission clears the write with it.
+The permission list is grouped by resource. Where a resource has both a read and a write permission, selecting the write selects the read with it, because a write operation reads before it writes, and clearing the read clears the write. `issues:write` and `runs:write` have no read counterpart and stand on their own, so selecting either one grants exactly what it says and nothing else.
 
 | Permission       | What it reaches                                                                                                     |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -157,7 +157,7 @@ The owner of a token can revoke it even after leaving the organization it belong
 
 ## When a token stops working
 
-A token stops authenticating when any of the following happens. Most of these revoke it outright; the rest refuse it while leaving the record in place.
+A token stops authenticating when any of the following happens. The two effects are different in a way that matters when reading the token list. **Revoked** means the token record itself is marked dead, which is what removes it from the list. **Refused** means every request with it is denied while the record stays in place, so the token can still be listed as though it were live until someone revokes it.
 
 | What happened                                                 | Effect                                         |
 | ------------------------------------------------------------- | ---------------------------------------------- |
@@ -170,7 +170,7 @@ A token stops authenticating when any of the following happens. Most of these re
 | The token passed its expiry date                              | Refused, and shown as **Expired** in the list  |
 | The owner left the organization and later rejoined            | Refused                                        |
 
-The last row is worth spelling out. Losing administrator access to an organization takes that organization's tokens with it, and regaining access does not bring them back. A person removed from an organization and later re-added starts with no tokens there and creates new ones.
+The last row is the backstop for the fourth. Removing someone from an organization revokes their tokens there, but that cleanup is best effort, and a token whose revocation did not land is still a live record. Authentication closes the gap from the other side: it refuses any token issued before its owner's current membership began. So leaving and rejoining never restores a token, whether or not the revocation succeeded, and a person re-added to an organization starts with none there.
 
 {% hint style="info" %}
 A token that appears in the list is not necessarily a token that works. The list reports whether a token was revoked; it does not re-check the conditions that are evaluated on each request. A token whose owner is no longer an administrator may still be listed, and revoking it there is still what removes it.
