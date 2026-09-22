@@ -96,11 +96,11 @@ The **Expires** field offers 7, 30, 60 and 90 days and 1 year, and defaults to *
 
 Once a token is past its expiry, requests made with it are refused and the row in the token list shows an **Expired** badge. Expired tokens stay in the list so they can still be revoked, and an expired token cannot be renewed or extended - it is replaced by a new one.
 
-## The token secret
+## Copying the token
 
-The token is shown once, in the **Token created** dialog, and never again. Currents stores only a hash of it, so there is no way to recover a secret that was not copied. A token whose secret was lost is revoked and replaced.
+The token is shown once, in the **Token created** dialog, and never again. Currents stores only a hash of it, so a token that was not copied cannot be recovered - it is revoked and replaced.
 
-<figure><img src="../.gitbook/assets/pat-token-created.png" alt="The Token created dialog, showing the crnts_pat_ prefix with the rest of the token masked, and a warning that Currents stores only a hash and cannot show it again"><figcaption><p>The only time the token is displayed. The secret is masked here; the dialog shows it in full.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/pat-token-created.png" alt="The Token created dialog, showing the crnts_pat_ prefix with the rest of the value obscured for this screenshot, and a warning that Currents stores only a hash and cannot show it again"><figcaption><p>The only time the token is displayed. The value is obscured in this screenshot; the dialog shows it in full.</p></figcaption></figure>
 
 Tokens begin with `crnts_pat_`, which makes them recognizable on sight in logs, configuration files and pull requests.
 
@@ -114,14 +114,25 @@ A token is sent as a bearer token in the `Authorization` header, the same way an
 
 ### REST API
 
+Each endpoint requires one named permission, so a token is not a blanket read or write.
+
 ```bash
-curl https://api.currents.dev/v1/runs \
+# projects:read - list the organization's projects
+curl https://api.currents.dev/v1/projects \
+-H "Authorization: Bearer crnts_pat_TOKEN_HERE"
+
+# results:read - read a run
+curl https://api.currents.dev/v1/runs/RUN_ID \
+-H "Authorization: Bearer crnts_pat_TOKEN_HERE"
+
+# runs:write - cancel a run
+curl -X PUT https://api.currents.dev/v1/runs/RUN_ID/cancel \
+-H "Authorization: Bearer crnts_pat_TOKEN_HERE"
+
+# webhooks:read - list a project's webhooks
+curl "https://api.currents.dev/v1/webhooks?projectId=PROJECT_ID" \
 -H "Authorization: Bearer crnts_pat_TOKEN_HERE"
 ```
-
-Each endpoint names the single permission it requires, so a token is not a blanket read or write: `runs:write` cancels a run and does not touch a webhook. A request for an endpoint whose permission the token does not hold is refused, and the refusal names what is missing.
-
-A few endpoints take an API key and nothing else, and refuse a personal access token whatever permissions it carries. They are operations no permission describes, such as posting into an organization's connected Slack workspace.
 
 ### Remote MCP server
 
