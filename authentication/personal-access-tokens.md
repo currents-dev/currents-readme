@@ -10,7 +10,7 @@ icon: key
 
 A personal access token is a credential an administrator creates for themselves, in one organization, carrying a named set of permissions. Requests made with it act as its owner and reach exactly what those permissions cover.
 
-It answers the case the other two credentials leave open. An [API key](../dashboard/administration/api-keys.md) belongs to the organization and carries a single **Read Only** or **Read & Write** level over the whole API, so it cannot be narrowed to one job. An [OAuth](oauth.md) grant is granular and belongs to a person, but it exists to authorize an *application*: something has to run the browser flow and hold a refresh token. A personal access token is granular and belongs to a person, with nothing to install and no flow to complete - it is created in the dashboard, copied once, and pasted wherever it is needed.
+It answers the case the other two credentials leave open. An [API key](../dashboard/administration/api-keys.md) belongs to the organization and carries a single **Read Only** or **Read & Write** level over the whole API, so it cannot be narrowed to one job. An [OAuth](oauth.md) grant is granular and belongs to a person, but it exists to authorize an *application*: something has to run the browser flow, and staying connected past the first access token means holding a refresh token. A personal access token is granular and belongs to a person, with nothing to install and no flow to complete - it is created in the dashboard, copied once, and pasted wherever it is needed.
 
 |                | Personal access token                             | OAuth access token                                | API key                                    |
 | -------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------ |
@@ -19,8 +19,8 @@ It answers the case the other two credentials leave open. An [API key](../dashbo
 | Permissions    | The set chosen at creation, fixed for its life    | The set consented to, capped by the member's role | One **Read Only** or **Read & Write** level |
 | Obtained by    | Creating it in the dashboard and copying it once  | Approving a screen in the browser                 | Copying a value out of the dashboard       |
 | Created by     | An administrator, for themselves only             | Any member, by authorizing an application         | An administrator                           |
-| Expires        | On a date set at creation, at most a year out     | On its own, and renews while the grant stands     | Never                                      |
-| Ends when      | It expires, is revoked, or its owner stops being an administrator | The person or an administrator revokes it | The key is deleted                         |
+| Expires        | On a date set at creation, at most a year out     | On its own; an application that asked for `offline_access` renews it while the grant stands, and one that did not sends the person back through the flow | Never                                      |
+| Ends when      | It expires, is revoked, or its owner stops being an administrator | The person or an administrator revokes it, which stops renewal at once and leaves an issued access token working for up to an hour | The key is deleted                         |
 | Attributable   | Yes - it names the person who created it          | Yes - actions carry the person who authorized it  | No - a key names no user                   |
 
 Those last two rows go together. An organization API key names no user and outlives whoever created it, which is why a key left behind by someone who has since left the company keeps working. A personal access token names its owner and is tied to their administrator access, so it goes when that access goes.
@@ -175,13 +175,13 @@ A token stops authenticating when any of the following happens. The two effects 
 | The owner revoked it                                          | Revoked                                        |
 | An administrator revoked it                                   | Revoked                                        |
 | The owner's role dropped below **Admin**                      | Revoked                                        |
-| The owner was removed from the organization, or left it       | Revoked                                        |
+| The owner was removed from the organization, or left it       | Refused at once, and revoked once the cleanup lands |
 | The owner was deprovisioned through SCIM                      | Revoked                                        |
 | The organization was deactivated                              | Revoked                                        |
 | The token passed its expiry date                              | Refused, and shown as **Expired** in the list  |
 | The owner left the organization and later rejoined            | Refused                                        |
 
-The last row is the backstop for the fourth. Removing someone from an organization revokes their tokens there, but that cleanup is best effort, and a token whose revocation did not land is still a live record. Authentication closes the gap from the other side: it refuses any token issued before its owner's current membership began. So leaving and rejoining never restores a token, whether or not the revocation succeeded, and a person re-added to an organization starts with none there.
+The last row is the backstop for the fourth. Removing someone from an organization stops their tokens there on the next request, because membership and role are re-read every time. Marking those records revoked is a separate, best-effort cleanup, so a token whose revocation did not land is already refused while still listed as live. Authentication closes the gap from the other side as well: it refuses any token issued before its owner's current membership began. So leaving and rejoining never restores a token, whether or not the revocation succeeded, and a person re-added to an organization starts with none there.
 
 {% hint style="info" %}
 A token that appears in the list is not necessarily a token that works. The list reports whether a token was revoked; it does not re-check the conditions that are evaluated on each request. A token whose owner is no longer an administrator may still be listed, and revoking it there is still what removes it.
