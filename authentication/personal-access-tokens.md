@@ -138,7 +138,9 @@ curl "https://api.currents.dev/v1/webhooks?projectId=PROJECT_ID" \
 
 The remote MCP server at `https://api.currents.dev/mcp` accepts a personal access token in the same header. The tool list is filtered to the token's permissions: a tool whose permission the token does not hold is not offered at all, rather than offered and then refused. An agent connected with a `results:read` token is handed the tools that read runs and test results, and never sees the tool that deletes a run.
 
-Because a tool the token cannot reach is absent rather than rejected, a client that names it anyway is told no such tool exists.
+One tool sits outside that filter. `currents-get-tests-signatures` computes a signature from values the caller already holds and reaches no organization data, so it is listed for every connection whatever the token carries.
+
+Because a permission-gated tool the token cannot reach is absent rather than rejected, a client that names it anyway is told no such tool exists.
 
 Widening what an agent can do means creating a new token with the extra permissions and reconnecting with it. Unlike an OAuth connection, a personal access token cannot be re-authorized in place.
 
@@ -174,7 +176,7 @@ A token stops authenticating when any of the following happens. The two effects 
 | ------------------------------------------------------------- | ---------------------------------------------- |
 | The owner revoked it                                          | Revoked                                        |
 | An administrator revoked it                                   | Revoked                                        |
-| The owner's role dropped below **Admin**                      | Revoked                                        |
+| The owner's role dropped below **Admin**                      | Refused, and the record stays listed until someone revokes it |
 | The owner was removed from the organization, or left it       | Refused at once, and revoked once the cleanup lands |
 | The owner was deprovisioned through SCIM                      | Revoked                                        |
 | The organization was deactivated                              | Revoked                                        |
