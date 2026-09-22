@@ -114,7 +114,7 @@ A token is sent as a bearer token in the `Authorization` header, the same way an
 
 ### REST API
 
-Each endpoint requires one named permission, so a token is not a blanket read or write.
+Almost every endpoint requires one named permission, so a token is not a blanket read or write. A few take an API key and nothing else, and refuse a token whatever it carries - see [Refusals](personal-access-tokens.md#refusals).
 
 ```bash
 # projects:read - list the organization's projects
