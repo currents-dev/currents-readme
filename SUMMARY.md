@@ -166,6 +166,7 @@
 
 * [Overview](authentication/README.md)
 * [OAuth](authentication/oauth.md)
+* [Personal Access Tokens](authentication/personal-access-tokens.md)
 
 ## Resources
 
