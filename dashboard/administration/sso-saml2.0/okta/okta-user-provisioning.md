@@ -26,9 +26,9 @@ Provisioning is available on the Business and Enterprise plans.
 In order to setup provisioning you first need to:
 
 * Setup the the [Okta integration for SAML](./).
-* Reach out to the Current support team to have provisioning enabled for your organization.
+* Request provisioning in the same SSO request — select **Also set up SCIM provisioning** in step 3 of [setting-up-sso.md](../setting-up-sso.md "mention"). Currents support enables it along with SSO.
 
-Please follow the guide below to enable the provisioning integration.
+With SCIM enabled, follow the guide below to configure the provisioning integration.
 
 ### Configuration Steps
 

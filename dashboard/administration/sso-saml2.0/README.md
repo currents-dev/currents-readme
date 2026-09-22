@@ -4,7 +4,9 @@ description: SSO SAML2.0 Instructions for Currents
 
 # SSO SAML2.0
 
-Currents supports SSO integration via SAML 2.0, including JIT provisioning and SCIMv2. When enabled, authentication will be deferred to your Identity Provider (IdP). Follow the instructions for your IdP:
+Currents supports SSO integration via SAML 2.0, including JIT provisioning and SCIMv2. When enabled, authentication will be deferred to your Identity Provider (IdP).
+
+[setting-up-sso.md](setting-up-sso.md "mention") walks through the request from the dashboard. Follow the instructions for your IdP alongside it:
 
 * Setup with [azure-ad.md](azure-ad.md "mention")
 * Setup with [okta](okta/ "mention")
