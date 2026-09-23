@@ -158,11 +158,13 @@ Discriminate on the `code` field rather than on the message, which is free-form.
 
 ## Reviewing and revoking tokens
 
-Each person sees their own tokens across every organization under **Account → Personal Access Tokens**, with the organization each one belongs to, its permissions, when it was created, when it expires and when it was last used.
+Each person sees their own tokens across every organization under **Account → Personal Access Tokens**, with the organization each one belongs to, whether it can read or write, when it was created, when it expires and when it was last used. Opening a row shows the token's description and the areas its permissions cover.
 
 An administrator sees every token in their organization, whoever owns it, in the **Personal access tokens** section of **Organization → API & Record Keys**, and can revoke any of them. Administrators cannot create a token for anyone else - that section is for oversight, and the link in it leads to account settings for creating one's own.
 
-<figure><img src="../.gitbook/assets/pat-token-list.png" alt="The Personal access tokens table listing four tokens with their organization, permission count, creation and expiry dates, and last use"><figcaption><p>Account → Personal Access Tokens</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/pat-token-list.png" alt="The Personal access tokens table listing four tokens with their organization, Read and Write access badges, creation and expiry dates, and last use"><figcaption><p>Account → Personal Access Tokens</p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/pat-token-details.png" alt="The Token details dialog for ci-deploy, showing its description, organization, creation and expiry dates, last use, and read access to Projects, Runs and Analytics"><figcaption><p>A token's details, opened from its row</p></figcaption></figure>
 
 Revoking is immediate. Anything using the token fails on its next request, and other tokens and the organization's API keys are unaffected. A token cannot be un-revoked.
 

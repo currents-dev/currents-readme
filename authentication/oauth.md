@@ -55,9 +55,9 @@ Authorizing the same application for a second organization is a separate grant, 
 
 ### 3. Authorize
 
-The consent screen names the application, the address it will receive authorization codes at, and every permission it asked for, marked as a read or a write.
+The consent screen names the application, the address it will receive authorization codes at, and every permission it asked for, grouped by area and marked as a read or a write.
 
-<figure><img src="../.gitbook/assets/oauth-consent.png" alt="The Currents consent screen, listing the permissions an application requested as reads and writes"><figcaption><p>Nothing is granted that is not on this screen</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/oauth-consent.png" alt="The Currents consent screen, listing the permissions an application requested grouped by area, each marked Read or Write"><figcaption><p>Nothing is granted that is not on this screen</p></figcaption></figure>
 
 Currents verifies nothing an application claims about itself unless it is marked **Listed**, which means Currents ships the definition of that client. Anything else is marked **3rd Party**: its name, its icon and its description are its own claims. The redirect address on the screen is the part worth reading - it is where the authorization code goes, and a familiar application sending codes to an unfamiliar address is the signal that something is wrong.
 
@@ -117,13 +117,17 @@ This is the part an API key cannot do. A key's access level is read when a call 
 
 ## Reviewing and revoking access
 
-Each person sees every application they authorized under **Account → Connected Applications**, grouped by organization, with the permissions each grant holds and when it was last used.
+Each person sees every application they authorized under **Account → Connected Applications**, grouped by organization, with whether each grant can read or write, its status and when it was last used.
 
-<figure><img src="../.gitbook/assets/oauth-connected-applications.png" alt="The Connected Applications panel in a Currents account, showing one authorized application with its permissions and a remove control"><figcaption><p>Account → Connected Applications</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/oauth-connected-applications.png" alt="The Connected Applications panel in a Currents account, showing one authorized application with Write and Read access badges, its status, when it was last used and a remove control"><figcaption><p>Account → Connected Applications</p></figcaption></figure>
+
+Opening a row shows the grant in full: the address the application sends codes to, when it was granted, and the areas it can write and read.
+
+<figure><img src="../.gitbook/assets/oauth-connection-details.png" alt="The Connection details dialog, naming the application, its organization, status, grant date and last use, and listing the areas it can write and the areas it can only read"><figcaption><p>The permissions a grant holds, grouped by area</p></figcaption></figure>
 
 An organization administrator sees the same grants for everyone under **Manage Organization → Connected Applications**, listed by application or by person, and can revoke any of them.
 
-<figure><img src="../.gitbook/assets/oauth-org-connections.png" alt="The organization-wide Connected Applications panel, listing an application, how many people authorized it, and when it was last used"><figcaption><p>Manage Organization → Connected Applications</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/oauth-org-connections.png" alt="The organization-wide Connected Applications panel, listing an application and how many people authorized it, expanded to show one member's grant with its access and last use"><figcaption><p>Manage Organization → Connected Applications</p></figcaption></figure>
 
 Removing a grant takes the consent and the application's ability to renew with it, so it cannot quietly resume, and it covers every machine the application was installed on - one grant is not one computer.
 
