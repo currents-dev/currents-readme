@@ -4,14 +4,14 @@ description: Browse a project's runs grouped by the pull request that triggered 
 
 # Pull Requests
 
-The **Pull Requests** page lists every pull request that CI reported runs for, one row per pull request, with the status of its latest run and a strip of its recent runs. It answers "which open pull requests are failing, and since when?" without scanning the flat run feed.
+The **Pull Requests** page lists the pull requests that CI reported runs for within the selected date range (the last 30 days by default), one row per pull request, with the status of its latest run and a strip of its recent runs. It answers "which open pull requests are failing, and since when?" without scanning the flat run feed.
 
 To open it, select a project and click **Pull Requests** in the sidebar.
 
 <figure><img src="../../.gitbook/assets/pull-requests-list.png" alt="The Pull Requests page listing six pull requests with their author, latest run status, recent runs and run count"><figcaption><p>Pull requests of a project, most recently run first</p></figcaption></figure>
 
 {% hint style="info" %}
-A run appears on this page only when CI reports it with pull request information, for example a GitHub Actions `pull_request` workflow or a GitLab merge request pipeline. Runs from branch pushes stay on the Runs page only. Titles, authors and commit messages come from the run's git data; see [commit-information.md](commit-information.md "mention").
+A run appears on this page only when CI reports it with pull request information, for example a GitHub Actions `pull_request` workflow or a GitLab merge request pipeline. Runs from branch pushes stay on the Runs page only. A row's title is the pull request title that CI reports, or the latest run's commit message when CI sends no title. It does not follow the project's Run Title Source setting. Authors and commit messages come from the run's git data; see [commit-information.md](commit-information.md "mention").
 {% endhint %}
 
 ## Columns
