@@ -121,7 +121,7 @@ Each person sees every application they authorized under **Account → Connected
 
 <figure><img src="../.gitbook/assets/oauth-connected-applications.png" alt="The Connected Applications panel in a Currents account, showing one authorized application with Write and Read access badges, its status, when it was last used and a remove control"><figcaption><p>Account → Connected Applications</p></figcaption></figure>
 
-Opening a row shows the grant in full: the address the application sends codes to, when it was granted, and the areas it can write and read.
+Opening a row shows more of the grant: the address the application sends codes to, when it was granted, and the areas it can write and read.
 
 <figure><img src="../.gitbook/assets/oauth-connection-details.png" alt="The Connection details dialog, naming the application, its organization, status, grant date and last use, and listing the areas it can write and the areas it can only read"><figcaption><p>The permissions a grant holds, grouped by area</p></figcaption></figure>
 
