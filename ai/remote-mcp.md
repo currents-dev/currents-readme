@@ -25,7 +25,7 @@ It serves the same tools as the [`@currents/mcp`](mcp-server.md) package that ru
 
 ## Connect with OAuth
 
-A connection made this way acts as the person who authorized it, inside the one organization they picked, and carries only the permissions they consented to. Nothing is stored in the repository, and an administrator can revoke it from the dashboard - see [oauth.md](../authentication/oauth.md "mention").
+A connection made this way acts as the person who authorized it, inside the one organization they picked, and carries only the permissions they consented to. The client keeps the token in its own credential store rather than in a project configuration file, so no credential is committed alongside the code the way an [API key](remote-mcp.md#connect-with-an-api-key) would be. An administrator can revoke the connection from the dashboard - see [oauth.md](../authentication/oauth.md "mention").
 
 {% tabs %}
 {% tab title="Claude Code" %}
