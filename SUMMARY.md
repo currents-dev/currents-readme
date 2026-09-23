@@ -112,6 +112,7 @@
   * [Archive and Unarchive Projects](dashboard/projects/archive-and-unarchive-projects.md)
 * [Runs](dashboard/runs/README.md)
   * [Run Details](dashboard/runs/run-details.md)
+  * [Pull Requests](dashboard/runs/pull-requests.md)
   * [Commit Information](dashboard/runs/commit-information.md)
   * [Tags](dashboard/runs/tags.md)
   * [Run Timeouts](dashboard/runs/run-timeouts.md)
