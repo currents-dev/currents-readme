@@ -13,7 +13,7 @@ Currents receives the results of Detox tests through the [currents-jest](../../.
 * `detox.trace.json`, the Detox trace of the session
 
 {% hint style="info" %}
-Detox support is in the beta versions of the packages: `@currents/jest` `1.4.0-beta.0` and `@currents/cmd` `1.11.0-beta.0`. See [the example project](https://github.com/currents-dev/currents-examples/tree/main/generic-reporter/jest/detox) for a React Native app that runs Detox in GitHub Actions and reports to Currents.
+Detox support is in the beta versions of the packages: `@currents/jest` `1.4.0-beta.1` and `@currents/cmd` `1.11.0-beta.1`. See [the example project](https://github.com/currents-dev/currents-examples/tree/main/generic-reporter/jest/detox) for a React Native app that runs Detox in GitHub Actions and reports to Currents.
 {% endhint %}
 
 ### Install the packages
