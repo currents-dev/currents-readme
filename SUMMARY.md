@@ -118,6 +118,7 @@
   * [Cancelling Runs](dashboard/runs/cancel-run.md)
   * [Deleting Runs](dashboard/runs/deleting-runs.md)
   * [Run Progress](dashboard/runs/run-progress.md)
+* [Pull Requests](dashboard/pull-requests.md)
 * [Tests](dashboard/tests/README.md)
   * [Test View](dashboard/tests/test-view.md)
   * [Test Details](dashboard/tests/run-details.md)
