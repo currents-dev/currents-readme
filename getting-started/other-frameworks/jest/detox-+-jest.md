@@ -101,14 +101,17 @@ On `pull_request` events, GitHub Actions checks out a merge commit that GitHub c
     HEAD_REF: ${{ github.event.pull_request.head.ref }}
   run: |
     git fetch --depth=1 origin "$HEAD_SHA"
+    # A random delimiter: a commit message line equal to a fixed one would end the
+    # value early and add the lines after it as variables.
+    delimiter="EOF_$(openssl rand -hex 16)"
     {
       echo "COMMIT_INFO_SHA=$HEAD_SHA"
       echo "COMMIT_INFO_BRANCH=$HEAD_REF"
       echo "COMMIT_INFO_AUTHOR=$(git log -1 --format=%an "$HEAD_SHA")"
       echo "COMMIT_INFO_EMAIL=$(git log -1 --format=%ae "$HEAD_SHA")"
-      echo "COMMIT_INFO_MESSAGE<<COMMIT_INFO_EOF"
+      echo "COMMIT_INFO_MESSAGE<<$delimiter"
       git log -1 --format=%B "$HEAD_SHA"
-      echo "COMMIT_INFO_EOF"
+      echo "$delimiter"
     } >> "$GITHUB_ENV"
 
 - name: Upload the results to Currents
