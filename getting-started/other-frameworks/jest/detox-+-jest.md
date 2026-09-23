@@ -1,165 +1,131 @@
 ---
-description: Follow this guide to enable integrating Detox + Jest with Currents
+description: Send the results of Detox + Jest tests to Currents
 ---
 
 # Detox + Jest
 
-[Detox](https://wix.github.io/Detox/) is a popular gray-box end-to-end testing and automation framework for React Native apps.&#x20;
+[Detox](https://wix.github.io/Detox/) is a gray-box end-to-end testing framework for React Native apps. Detox runs the tests with a test runner, and Jest is the recommended one.
 
-Detox delegates scheduling and running tests onto a test runner. Jest is the default and the recommended choice, for many reasons, including - but not limited to, parallel test suite execution capability, and complete integration with Detox API.
+Currents receives the results of Detox tests through the [currents-jest](../../../resources/reporters/currents-jest/ "mention") reporter and the `currents upload` command of [currents-cmd](../../../resources/reporters/currents-cmd/ "mention"). A Detox run in Currents includes:
 
-Currents integration with Jest allows sending the results of your Detox tests to Currents.&#x20;
+* the result of every test attempt, including the attempts of `detox test --retries`
+* the videos, screenshots and device logs that Detox records, attached to the attempt they belong to
+* `detox.trace.json`, the Detox trace of the session
 
-### Add Currents Reporter for Jest
+{% hint style="info" %}
+Detox support is in the beta versions of the packages: `@currents/jest` `1.4.0-beta.1` and `@currents/cmd` `1.11.0-beta.1`. See [the example project](https://github.com/currents-dev/currents-examples/tree/main/generic-reporter/jest/detox) for a React Native app that runs Detox in GitHub Actions and reports to Currents.
+{% endhint %}
 
-After you setup and configure Detox for your mobile application, add [currents-jest](../../../resources/reporters/currents-jest/ "mention") reporter to `jest.config.js`
+### Install the packages
 
-{% code title="jest.config.js" %}
+```bash
+npm install --save-dev @currents/jest@beta @currents/cmd@beta
+```
+
+### Add the reporter
+
+Add `@currents/jest` next to the Detox reporter in the Jest configuration of your Detox tests:
+
+{% code title="e2e/jest.config.js" %}
 ```javascript
 /** @type {import('jest').Config} */
 module.exports = {
+  rootDir: '..',
+  testMatch: ['<rootDir>/e2e/**/*.test.js'],
+  testTimeout: 120000,
   maxWorkers: 1,
-  globalSetup: './globalSetup.ts',
+  globalSetup: 'detox/runners/jest/globalSetup',
   globalTeardown: 'detox/runners/jest/globalTeardown',
   testEnvironment: 'detox/runners/jest/testEnvironment',
-  setupFilesAfterEnv: ['./setup.ts'],
-  testRunner: 'jest-circus/runner',
-  testTimeout: 120000,
-  testMatch: ['**/*.test.ts'],
-  transform: {
-    '\\.tsx?$': 'ts-jest'
-  },
   reporters: ['detox/runners/jest/reporter', '@currents/jest'], // 👈🏻
-  verbose: true
+  verbose: true,
 };
 ```
 {% endcode %}
 
-### Run Detox Tests
+### Record artifacts
 
-Run detox tests:
-
-```
-npx detox test --configuration android.emu.release
-```
-
-Running this command with [currents-jest](../../../resources/reporters/currents-jest/ "mention") reporter enabled generates results in a format compatible for processing by Currents.
-
-In order to send the results for processing you'd invoke an additional command `currents upload` from [currents-cmd](../../../resources/reporters/currents-cmd/ "mention") npm package.
-
-### Uploading Results to Currents
-
-Run the following command to upload the results to Currents (see [currents-upload.md](../../../resources/reporters/currents-cmd/currents-upload.md "mention") for details)
-
-```
-npx currents upload --key=KPEvZL0LDYzcZH3U --project-id=X7niCl
-```
-
-Before running `currents upload`  you must explicitly define detox configuration that matches the configuration used to run the tests.&#x20;
-
-For example, if you run the tests using `--configuration android.emu.release`, then you should also define the same configuration value for `currents upload` command.
-
-{% hint style="warning" %}
-Without specifying the configuration, you may encounter an error:
-
-{% code overflow="wrap" %}
-```
-Jest: Got error running globalSetup
-Cannot determine which configuration to use from Detox config at path:
-_path/detox-example/.detoxrc.js
-
-HINT: Use --configuration to choose one of the following:
-* android.emu.release
-* ios
-```
-{% endcode %}
-{% endhint %}
-
-#### Setting Detox Configuration
-
-To explicitly set Detox configuration set the `selectedConfiguration: <configuration key>` in the Detox [config file](https://wix.github.io/Detox/docs/config/overview/#config-structure):
+Currents uploads the files that Detox records. Turn on the artifact plugins in the Detox configuration, or with the `--record-logs`, `--take-screenshots` and `--record-videos` options of `detox test`:
 
 {% code title=".detoxrc.js" %}
 ```javascript
-  selectedConfiguration: "android.emu.release",
-  configurations: {
-    "android.emu.release": {
-      device: "emulator",
-      app: "android.release",
-    },
-    ios: {
-      device: "ios.simulator",
-      app: "ios",
-    },
-  }
-```
-{% endcode %}
-
-If you have only one configuration value in the `configurations` object of detox configuration file, Detox will pick it by default and there's no need to explicitly set the configuration.&#x20;
-
-{% hint style="info" %}
-The `currents upload` command will execute `jest` to discover the full test suite. During this process, the `globalSetup` script will be run, which can only utilize the `selectedConfiguration` option or the single value from the `configurations` object.
-{% endhint %}
-
-### Detox retries limitation
-
-When retries are used (e.g. with Detox), results can end up in **multiple report directories** or show **only the last attempt**. This section explains why and how to configure the reporter.
-
-#### How the report directory works
-
-The reporter writes results into a **report directory**. One Jest process uses one directory per run.
-
-* **Not set:** A new unique directory is created for each run (e.g. `.currents/2025-03-05-…-uuid`). If your workflow starts Jest **more than once** (e.g. Detox re-runs failed tests in a new process), each run gets its own directory. Results are split across folders and upload may see only one or fail.
-* **Set:** Every run writes to the same folder. Upload sees one report. If a later run only re-runs failed tests, it **overwrites** those tests results in that folder, so Currents shows only the **last attempt** for retried specs.
-
-**Configuration:** Set the path in Jest config (`reportDir` in the reporter options) or with the `CURRENTS_REPORT_DIR` environment variable. Env var overrides the config option when both are set.
-
-#### Why Detox is different
-
-Detox runs tests via Jest in separate processes. With [`detox test --retries <n>`](https://wix.github.io/Detox/docs/config/testRunner/#testrunnerretries-number), Detox **starts Jest again** for failed test files only. So you get multiple Jest runs in one logical run - which leads to either multiple report directories (if report dir is not set) or overwritten retry results (if it is set). The same applies to any setup that runs Jest more than once.
-
-#### What to do
-
-**Option 1: Use Jest retries (recommended)**
-
-Use **Jest's built-in retries** (e.g. [`jest.retryTimes()`](https://jestjs.io/docs/jest-object#jestretrytimesnumretries-options) in config). Retries stay in the same Jest process, so there is one run, one report directory, and full retry history in Currents.
-
-Use this when Jest-level retries are enough and you don't need Detox’s “re-run only failed files in a new process” behavior.
-
-**Option 2: Fixed report directory with Detox retries**
-
-When you must use [Detox's retries](https://wix.github.io/Detox/docs/config/testRunner/#testrunnerretries-number), set a **fixed report directory** so every run writes to the same place and upload finds a single report.
-
-**Jest config:**
-
-```js
-// jest.config.js
 module.exports = {
-  reporters: [
-    'detox/runners/jest/reporter',
-    ['@currents/jest', { reportDir: './e2e/.test-results' }],
-  ],
+  artifacts: {
+    plugins: {
+      log: 'all',
+      screenshot: 'failing',
+      video: 'failing',
+    },
+  },
   // ...
 };
 ```
+{% endcode %}
 
-**Or environment variable:**
+Detox writes `detox.trace.json` only when it records logs.
+
+### Run the tests and upload the results
 
 ```bash
-CURRENTS_REPORT_DIR=./e2e/.test-results
+npx detox test --configuration android.emu.release --retries 1
+npx currents upload --project-id=<project id> --key=<record key>
 ```
 
-**Trade-off:** The retry run writes to the same directory and overwrites the first run’s results for those tests, so Currents shows only the last attempt for retried specs.
+Run `currents upload` after `detox test` exits. Detox finishes writing the videos and logs only when the test run ends. See [currents-upload.md](../../../resources/reporters/currents-cmd/currents-upload.md "mention") for the options of the command.
 
-#### Quick reference
+### Retries
 
-| Scenario                                         | No fixed report directory                    | Fixed report directory                                             |
-| ------------------------------------------------ | -------------------------------------------- | ------------------------------------------------------------------ |
-| Single Jest run (or Jest retries in one process) | One directory, full results                  | One directory, full results                                        |
-| Multiple Jest runs (e.g. Detox `--retries`)      | Several directories; upload may use only one | One directory; retried tests overwrite → only last attempt visible |
+`detox test --retries <n>` starts Jest again for the spec files that failed. The reporter adds the attempts of every rerun to the results of the same test, so a test that fails on the first run and passes on the rerun shows both attempts and is marked flaky in Currents.
 
-**Recommendation:** Prefer Jest retries when possible (one directory, full retry history). If using Detox `--retries`, set a fixed report directory and accept that retried specs show only the last attempt.
+Jest retries ([`jest.retryTimes()`](https://jestjs.io/docs/jest-object#jestretrytimesnumretries-options)) also work: they run in the same Jest process.
+
+### Report directory
+
+All the Jest processes of one `detox test` write their results to `.currents/<session>`, named after the Detox artifacts directory of the session. `currents upload` reads the most recent directory in `.currents`.
+
+To use another directory, set `reportDir` in the reporter options or the `CURRENTS_REPORT_DIR` environment variable, and pass the same directory to `currents upload --report-dir`. The results of an earlier `detox test` stay in that directory, so remove it before each run.
 
 {% hint style="info" %}
-Improved support for Detox-style retries (e.g. merging retry runs into one report or full retry history in Currents) is proposed on [Featurebase](https://currents.featurebase.app/p/improved-detox-retries-support). Upvote there to help prioritise implementation.
+We recommend adding `.currents` to `.gitignore`
 {% endhint %}
+
+### Pull requests in GitHub Actions
+
+On `pull_request` events, GitHub Actions checks out a merge commit that GitHub creates, so Currents shows the commit message as `Merge <sha> into <sha>`. To show the last commit of the pull request, set the `COMMIT_INFO_*` variables before `currents upload`:
+
+```yaml
+- name: Use the pull request commit for Currents
+  if: ${{ !cancelled() && github.event_name == 'pull_request' }}
+  env:
+    HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+    HEAD_REF: ${{ github.event.pull_request.head.ref }}
+  run: |
+    git fetch --depth=1 origin "$HEAD_SHA"
+    # A random delimiter: a commit message line equal to a fixed one would end the
+    # value early and add the lines after it as variables.
+    delimiter="EOF_$(openssl rand -hex 16)"
+    {
+      echo "COMMIT_INFO_SHA=$HEAD_SHA"
+      echo "COMMIT_INFO_BRANCH=$HEAD_REF"
+      echo "COMMIT_INFO_AUTHOR=$(git log -1 --format=%an "$HEAD_SHA")"
+      echo "COMMIT_INFO_EMAIL=$(git log -1 --format=%ae "$HEAD_SHA")"
+      echo "COMMIT_INFO_MESSAGE<<$delimiter"
+      git log -1 --format=%B "$HEAD_SHA"
+      echo "$delimiter"
+    } >> "$GITHUB_ENV"
+
+- name: Upload the results to Currents
+  if: ${{ !cancelled() }}
+  run: npx currents upload
+  env:
+    CURRENTS_PROJECT_ID: ${{ vars.CURRENTS_PROJECT_ID }}
+    CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
+```
+
+### Earlier versions
+
+With `@currents/jest` before `1.4.0-beta.0`:
+
+* `currents upload` runs Jest to list the tests, which runs the Detox `globalSetup`. Set `selectedConfiguration` in the [Detox config file](https://wix.github.io/Detox/docs/config/overview/#config-structure) to the configuration you run the tests with, or upload fails with `Cannot determine which configuration to use from Detox config`.
+* Every rerun of `detox test --retries` writes to a new report directory, or replaces the results of the earlier run when the report directory is set. Currents shows only one attempt of a retried test.
+* Detox artifacts are not uploaded.
