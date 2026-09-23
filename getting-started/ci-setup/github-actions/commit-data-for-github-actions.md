@@ -20,36 +20,38 @@ The recent (Jan 30, 2024) releases of `@currents/playwright@0.12.0` and `cypress
 
 <figure><img src="../../../.gitbook/assets/currents-2024-01-30-14.57.07@2x.png" alt=""><figcaption><p>Capturing GitHub PR data</p></figcaption></figure>
 
-### Temporary commit in GitHub Pull Requests
+### Merge commit in pull request runs
 
-Running tests using GitHub Actions can generate confusing git information. For example, instead of the last commit message (or pull request title), one can see something like:
+{% hint style="info" %}
+`@currents/playwright@2.5.1` and `@currents/cmd@1.11.0` record the last commit of the pull request when GitHub Actions checks out a merge commit.
+{% endhint %}
+
+On [`pull_request`](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request) events, `actions/checkout` checks out a merge commit that GitHub creates by merging the pull request into the base branch. Its message looks like this:
 
 ```
 Merge de7282540ac30ee4e32a0b1fede4f6391b4cc321 into fa58941d8a807b83ec5a3e5bfb83418ce12173c7
 ```
 
-Also, the branch name becomes `refs/pull/12/merge` instead of the expected branch name. Why is that happening?
+The reporter detects the merge commit and records the last commit of the pull request instead: its SHA, message, author and timestamp.
 
-That happens when your GitHub Actions workflow is triggered by [`pull_request`](https://docs.github.com/en/github-ae@latest/actions/using-workflows/events-that-trigger-workflows#pull_request).
+With the default `actions/checkout` settings, the clone has only the merge commit, so the reporter fetches the pull request commit:
 
-It changes the behaviour of `@actions/checkout` - it creates a **new merge commit,** which is created from merging the base to the head.
+```
+git fetch --depth=1 --no-tags origin <pull request commit SHA>
+```
 
-Specifically:
+The fetch uses the credentials that `actions/checkout` stores in the clone, and times out after 3 seconds. If it fails, Currents records the merge commit. For example, the fetch fails in a private repository checked out with `persist-credentials: false`.
 
-* it performs `git checkout` to `github.ref` environment variable
-* it sets the git `ref` to `refs/remotes/pull/##/merge`
-* it sets the commit SHA to an arbitrary value that is different from the commit that triggered the workflow
+To turn the fetch off, set `CURRENTS_DISABLE_HEAD_COMMIT_FETCH=true`. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") for other CI providers.
 
-For example, a developer creates a pull request from the `feat/login` branch to be merged into the `main` branch with the title "_Add new login feature_". When the GitHub Actions workflow is triggered, instead of checking out the `feat/login` branch, the action creates a merge commit. In the GitHub Actions log, the commit message appears as "_Merge de7282540ac30ee4e32a0b1fede4f6391b4cc321 into fa58941d8a807b83ec5a3e5bfb83418ce12173c7_", which is a merge of the `feat/login` branch into the `main` branch. Consequently, the branch name in the CI environment shows as `refs/pull/12/merge`, not the expected `feat/login`.
+#### Earlier versions and Cypress
 
-To change the default behaviour and checkout the triggering commit, use the following `@actions/checkout` configuration
+`cypress-cloud` and earlier versions of the reporters record the merge commit. To record the last commit of the pull request, check out that commit:
 
 ```yaml
-- uses: actions/checkout@v2
+- uses: actions/checkout@v4
   with:
     ref: ${{ github.event.pull_request.head.sha }}
 ```
 
-The workflow will check out the last commit from the **head** branch of the pull request that triggered the workflow. Beware, that this approach might not detect issues that could arise when the pull request is eventually merged into the base branch. If the base branch has been updated since the pull request was created, there might be merge conflicts or integration issues that won't be detected with this configuration.
-
-Read more about [GitHub Actions and `pull_request`](https://frontside.com/blog/2020-05-26-github-actions-pull_request/) (by frontside.com).
+The workflow then tests the last commit of the pull request, not the result of merging it into the base branch. It does not catch conflicts or failures that appear only after the merge.
