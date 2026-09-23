@@ -61,6 +61,7 @@
 
 * [Overview](ai/overview.md)
 * [MCP Server](ai/mcp-server.md)
+* [Remote MCP Server](ai/remote-mcp.md)
 * [Agent Skill: Playwright Best Practices](ai/agent-skill-playwright-best-practices.md "Playwright Skill")
 * [IDE Extension](ai/ide-extension.md)
 * [Shareable Context](ai/shareable-context.md)
@@ -161,6 +162,12 @@
 * [Billing](dashboard/billing/README.md)
   * [Plans & Pricing](dashboard/billing/plans-and-pricing.md)
   * [Usage & Spend Control](dashboard/billing/usage-and-spend-control.md)
+
+## Authentication
+
+* [Overview](authentication/README.md)
+* [OAuth](authentication/oauth.md)
+* [Personal Access Tokens](authentication/personal-access-tokens.md)
 
 ## Resources
 

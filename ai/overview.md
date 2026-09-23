@@ -31,6 +31,7 @@ Every entry point below delivers this same context - they differ in where you ar
 | Method                                                                        | Where                             | Best for                                                                         |
 | ----------------------------------------------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------- |
 | [MCP Server](mcp-server.md)                                                   | Any MCP-capable agent             | Agents querying runs, tests, and analytics on demand; autonomous troubleshooting |
+| [Remote MCP Server](remote-mcp.md)                                            | Any MCP-capable agent             | The same tools hosted by Currents - OAuth instead of a key, and nothing to install |
 | [IDE Extension](ide-extension.md)                                             | VS Code, Cursor, compatible forks | Debugging CI failures without leaving the editor                                 |
 | [Fix with AI](overview.md#fix-with-ai-from-the-dashboard)                     | Currents dashboard                | Handing a failure to an agent while triaging a run                               |
 | [Slack Fix with AI](../resources/integrations/slack/slack-app.md#fix-with-ai) | Slack                             | Handing a failed-test notification to an agent from a channel                    |
