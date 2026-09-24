@@ -70,18 +70,18 @@ The tool list is a property of the connection, and it is rebuilt on every reques
 | Permission       | Tools                                                                                                                                                                         |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `projects:read`  | `currents-get-projects`, `currents-get-project`, `currents-list-project-terms`                                                                                                 |
-| `results:read`   | `currents-get-runs`, `currents-get-run-details`, `currents-find-run`, `currents-get-spec-instance`, `currents-get-test-results`, `currents-get-test-evidence`, `currents-get-context`, `currents-list-pull-requests` |
+| `results:read`   | `currents-get-runs`, `currents-get-run-details`, `currents-find-run`, `currents-get-spec-instance`, `currents-get-test-results`, `currents-get-test-evidence`, `currents-create-evidence-links`, `currents-get-context`, `currents-list-pull-requests` |
 | `analytics:read` | `currents-get-project-insights`, `currents-get-spec-files-performance`, `currents-get-tests-performance`, `currents-get-errors-explorer`                                       |
-| `actions:read`   | `currents-list-actions`, `currents-get-action`, `currents-list-affected-tests`, `currents-get-affected-test-executions`, `currents-get-affected-executions`                     |
+| `actions:read`   | `currents-list-actions`, `currents-get-action`, `currents-list-affected-tests`, `currents-get-affected-test-executions`, `currents-get-action-executions`                     |
 | `actions:write`  | `currents-create-action`, `currents-update-action`, `currents-delete-action`, `currents-enable-action`, `currents-disable-action`                                              |
-| `runs:write`     | `currents-cancel-run`, `currents-reset-run`, `currents-delete-run`, `currents-cancel-run-github-ci`                                                                            |
+| `runs:write`     | `currents-create-session`, `currents-cancel-run`, `currents-reset-run`, `currents-delete-run`, `currents-cancel-run-github-ci`                                                                            |
 | `webhooks:read`  | `currents-list-webhooks`, `currents-get-webhook`                                                                                                                              |
 | `webhooks:write` | `currents-create-webhook`, `currents-update-webhook`, `currents-delete-webhook`                                                                                               |
 | `issues:write`   | `currents-create-jira-issue`, `currents-link-jira-issue`, `currents-list-jira-projects`, `currents-list-jira-issue-types`                                                      |
 
 `currents-get-tests-signatures` computes a test signature from values the caller already holds, so it is listed for every connection. `projects:write` reaches the REST API and no tool here.
 
-An API key is filtered the same way, by access level rather than by permission: a **Read Only** key is handed the read tools and the two Jira lookups, and a **Read & Write** key is handed the whole catalog.
+An API key is filtered the same way, by access level rather than by permission: a **Read Only** key is handed the read tools, the two Jira lookups, and `currents-create-evidence-links`, and a **Read & Write** key is handed the whole catalog.
 
 {% hint style="danger" %}
 **Some write tools are irreversible.** `currents-delete-run` permanently deletes a run and everything recorded with it, and `currents-delete-webhook` and `currents-delete-action` remove a configuration outright. None of them has a confirmation step inside Currents - whether the agent asks first is up to the client. Grant `runs:write`, `webhooks:write` and `actions:write`, or a **Read & Write** key, only to an agent that needs them.
@@ -118,5 +118,6 @@ A missing permission is not one of those refusals. The tool for it is not listed
 
 * [OAuth](../authentication/oauth.md) - the connection flow, permissions, and revoking access
 * [MCP Server](mcp-server.md) - the local `@currents/mcp` package
+* [Evidence Sharing](evidence-sharing.md) - have an agent prove its change with before-and-after evidence
 * [Overview](overview.md) - every way to put Currents data in front of an agent
 * [API Keys](../dashboard/administration/api-keys.md) - creating and scoping a key
