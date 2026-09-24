@@ -76,10 +76,10 @@ The badge and note say how much Currents can vouch for the application and for w
 
 | Badge                           | Note                                        | What it means                                                                                                                                           |
 | ------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Verified publisher · _host_** | _(none)_                                    | Reviewed by Currents. Codes go only to its publisher's servers.                                                                                         |
-| **Currents**                    | _Codes go to an app on this computer_       | Shipped with Currents, such as the IDE extension. Codes go to this computer.                                                                            |
-| **3rd Party · _host_**          | _Codes go to an app on this computer_       | Reviewed by Currents. Codes go to this computer.                                                                                                        |
-| **3rd Party · _host_**          | _Currents has not checked this application_ | Not reviewed. Its name is its own claim, and its icon is hidden.                                                                                        |
+| **Verified publisher · _host_** | _(none)_                                    | Currents has checked that its codes go only to its publisher's servers.                                                                                 |
+| **Currents**                    | _Codes go to an app on this computer_       | Currents holds this application's definition, as it does for the IDE extension. Codes go to this computer.                                              |
+| **3rd Party · _host_**          | _Codes go to an app on this computer_       | Known to Currents, which supplies its icon. Codes go to this computer.                                                                                  |
+| **3rd Party · _host_**          | _Currents has not checked this application_ | Not checked by Currents. Its name is its own claim, and its icon is hidden.                                                                             |
 | **Unlisted**                    | _Currents has not checked this application_ | Neither shipped by Currents nor identified by a [metadata document](oauth.md#for-client-developers). Its name is its own claim, and its icon is hidden. |
 
 The _host_ on a badge is the site the application's identity comes from, which is not necessarily where its codes go. The **Sends codes to** line shows that.
