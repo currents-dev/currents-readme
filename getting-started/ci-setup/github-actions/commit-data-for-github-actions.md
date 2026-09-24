@@ -40,7 +40,7 @@ With the default `actions/checkout` settings, the clone has only the merge commi
 git fetch --depth=1 --no-tags origin <pull request commit SHA>
 ```
 
-The fetch uses the credentials that `actions/checkout` stores in the clone, and times out after 3 seconds. If it fails, Currents records the merge commit. For example, the fetch fails in a private repository checked out with `persist-credentials: false`.
+The fetch uses the credentials that `actions/checkout` stores in the clone, and times out after 3 seconds. If it fails, the run shows the merge commit's message and author, as with earlier versions. For example, the fetch fails in a private repository checked out with `persist-credentials: false`. The commit SHA and branch still come from the pull request, so PR comments and commit statuses are not affected.
 
 To turn the fetch off, set `CURRENTS_DISABLE_HEAD_COMMIT_FETCH=true`. See [commit-information.md](../../../dashboard/runs/commit-information.md "mention") for other CI providers.
 
