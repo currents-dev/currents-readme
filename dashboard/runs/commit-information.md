@@ -62,7 +62,7 @@ On pull request runs, some CI providers check out a merge commit that they creat
 | Buildkite                            | `BUILDKITE_PULL_REQUEST_HEAD_COMMIT`                         |
 | Bitbucket Pipelines                  | `BITBUCKET_COMMIT`                                           |
 
-The reporter uses the commit only when it is a parent of the checked-out merge commit. When a shallow clone doesn't have the commit, the reporter fetches it with `git fetch --depth=1 origin <sha>`, with a 3 second timeout. If the fetch fails, Currents records the merge commit.
+The reporter uses the commit only when it is a parent of the checked-out merge commit. When a shallow clone doesn't have the commit, the reporter fetches it with `git fetch --depth=1 origin <sha>`, with a 3 second timeout. If the fetch fails, the run shows the merge commit's message and author. In GitHub Actions, the commit SHA and branch still come from the pull request.
 
 * Set `CURRENTS_DISABLE_HEAD_COMMIT_FETCH=true` to turn the fetch off.
 * Set `COMMIT_INFO_SHA` to record a specific commit. The reporter then skips this step.
