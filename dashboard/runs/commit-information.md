@@ -48,6 +48,27 @@ Currents automatically detects PR information, including PR title and the target
 
 You can change this behavior in [project-settings.md](../projects/project-settings.md "mention").
 
+### Merge Commits in Pull Request Runs
+
+On pull request runs, some CI providers check out a merge commit that they create by merging the pull request into the target branch, for example `Merge <sha> into <sha>` in GitHub Actions. `@currents/playwright` `2.5.1` and `@currents/cmd` `1.11.0` record the last commit of the pull request instead. They read its SHA from:
+
+| CI provider                          | Pull request commit SHA                                      |
+| ------------------------------------ | ------------------------------------------------------------ |
+| GitHub Actions                       | `pull_request.head.sha` in the event file (`GITHUB_EVENT_PATH`) |
+| GitLab CI, merged results pipelines  | `CI_MERGE_REQUEST_SOURCE_BRANCH_SHA`                         |
+| Azure Pipelines                      | `SYSTEM_PULLREQUEST_SOURCECOMMITID`                          |
+| Travis CI                            | `TRAVIS_PULL_REQUEST_SHA`                                    |
+| Semaphore                            | `SEMAPHORE_GIT_PR_SHA`                                       |
+| Buildkite                            | `BUILDKITE_PULL_REQUEST_HEAD_COMMIT`                         |
+| Bitbucket Pipelines                  | `BITBUCKET_COMMIT`                                           |
+
+The reporter uses the commit only when it is a parent of the checked-out merge commit. When a shallow clone doesn't have the commit, the reporter fetches it with `git fetch --depth=1 origin <sha>`, with a 3 second timeout. If the fetch fails, the run shows the merge commit's message and author. In GitHub Actions, the commit SHA and branch still come from the pull request.
+
+* Set `CURRENTS_DISABLE_HEAD_COMMIT_FETCH=true` to turn the fetch off.
+* Set `COMMIT_INFO_SHA` to record a specific commit. The reporter then skips this step.
+
+Jenkins sets no variable with the pull request commit, so Currents records the merge commit that Jenkins creates.
+
 ### Overriding Commit Info
 
 You can override the commit info by manually setting environment variables:
