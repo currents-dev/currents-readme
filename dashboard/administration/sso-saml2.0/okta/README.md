@@ -22,7 +22,7 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 
 ### Non Supported Features
 
-* Custom Roles for team members are not supported at the moment - the roles need to be manually configured for each user via the dashboard; new accounts will be created with "member" role
+* Role mapping from Okta is not supported - Okta cannot set a team member's role. New users get the role chosen in step 3 of [setting-up-sso.md](../setting-up-sso.md "mention"), subject to the seat fallback described there, and a role is changed after that from the dashboard
 * Enabling SSO will mandate the auth method for all the team members
 * IdP-initiated SSO (through [Third-party Initiated Login](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin))
 
