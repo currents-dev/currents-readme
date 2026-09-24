@@ -105,12 +105,12 @@ Use the **ToLowercase** transformation for email values so mixed-case addresses 
 {% step %}
 **Share Configuration with Currents**
 
-Contact Currents support (support@currents.dev or via in-app chat) and provide:
+Submit the request from the dashboard — see [setting-up-sso.md](setting-up-sso.md "mention") — and provide:
 
 * The downloaded Federation Metadata XML file
 * List of email domains your organization uses (e.g., `@example.com`, `@example.org`)
 
-Currents support will configure your SSO integration and notify you when it's ready.
+Currents support will configure your SSO integration and send a link to test sign-in before it applies to the rest of the organization.
 {% endstep %}
 
 {% step %}

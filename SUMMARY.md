@@ -147,8 +147,9 @@
   * [Manage Projects](dashboard/administration/manage-projects.md)
   * [Manage Team](dashboard/administration/manage-team.md)
   * [API Keys](dashboard/administration/api-keys.md)
-  * [Email Domain Based Access](dashboard/administration/email-domain-based-access.md)
+  * [Verified Domains](dashboard/administration/email-domain-based-access.md)
   * [SSO SAML2.0](dashboard/administration/sso-saml2.0/README.md)
+    * [Setting Up SSO](dashboard/administration/sso-saml2.0/setting-up-sso.md)
     * [SAML2.0 Configuration](dashboard/administration/sso-saml2.0/saml2.0-configuration.md)
     * [SCIM User Provisioning](dashboard/administration/sso-saml2.0/scim-user-provisioning.md)
     * [IdP-initiated Sessions](dashboard/administration/sso-saml2.0/idp-initiated-sessions.md)
@@ -166,6 +167,7 @@
 
 * [Overview](authentication/README.md)
 * [OAuth](authentication/oauth.md)
+* [Personal Access Tokens](authentication/personal-access-tokens.md)
 
 ## Resources
 

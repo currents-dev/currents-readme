@@ -85,6 +85,12 @@ Script execution finished
 | `ciBuildId` | `string` | The [CI Build ID](../../../guides/parallelization-guide/ci-build-id.md) | CURRENTS\_CI\_BUILD\_ID | Auto-generated                     |
 | `reportDir` | `string` | Test results directory                                                  | `CURRENTS_REPORT_DIR`   | `.currents/[timestamp]-[uuidv4()]` |
 
+### Detox
+
+The reporter supports [Detox](https://wix.github.io/Detox/) tests run with Jest, starting with `1.4.0-beta.0`: it merges the reruns of `detox test --retries` into one result per test, and `currents upload` attaches the videos, screenshots and logs that Detox records. See [detox-+-jest.md](../../../getting-started/other-frameworks/jest/detox-+-jest.md "mention").
+
+Under Detox, the default report directory is `.currents/<session>`, named after the Detox artifacts directory of the session.
+
 ### Troubleshooting
 
 Set `DEBUG=currents*` before running `jest` to obtain detailed information about the reporter execution process.

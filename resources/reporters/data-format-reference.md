@@ -345,6 +345,7 @@ Object that describes an individual attempt of a test.
 | duration  | number                                  | Yes      | The duration of the step in milliseconds. Example: 200                              |
 | error     | [Error](data-format-reference.md#error) | No       | An optional error object describing any issue encountered during the step execution |
 | startTime | string                                  | Yes      | Step start date time, in ISO 8601 format                                            |
+| steps     | [Step](data-format-reference.md#step)\[] | Yes      | Nested steps. Use an empty array for a step without nested steps                    |
 
 #### Error
 
