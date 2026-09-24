@@ -97,4 +97,4 @@ With `@currents/jest` before `1.4.0-beta.0`:
 * Every rerun of `detox test --retries` writes to a new report directory, or replaces the results of the earlier run when the report directory is set. Currents shows only one attempt of a retried test.
 * Detox artifacts are not uploaded.
 
-With `@currents/cmd` `1.11.0-beta.1`, runs of `pull_request` workflows in GitHub Actions show the merge commit that GitHub creates (`Merge <sha> into <sha>`) instead of the last commit of the pull request.
+With `@currents/cmd` `1.11.0-beta.1`, runs of `pull_request` workflows in GitHub Actions show the merge commit that GitHub creates (`Merge <sha> into <sha>`) instead of the last commit of the pull request. To set the commit yourself, use the `COMMIT_INFO_*` variables, see [Overriding Commit Info](../../../dashboard/runs/commit-information.md#overriding-commit-info).
