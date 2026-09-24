@@ -37,7 +37,7 @@ Run `/mcp`, choose **currents**, and choose **Authenticate**. For other clients 
 {% step %}
 ### Grant write access for browser evidence
 
-`collect-evidence` works with read access. `browser-evidence` uploads its recordings to Currents, so it needs the `runs:write` permission, or a **Read & Write** API key. See [what a connection can reach](remote-mcp.md#what-a-connection-can-reach).
+`collect-evidence` works with read access. `browser-evidence` uploads its recordings to Currents, so it needs the `runs:write` permission on top of `projects:read` and `results:read`, or a **Read & Write** API key. See [what a connection can reach](remote-mcp.md#what-a-connection-can-reach).
 {% endstep %}
 
 {% step %}
