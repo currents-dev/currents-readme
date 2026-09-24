@@ -13,7 +13,7 @@ Currents receives the results of Detox tests through the [currents-jest](../../.
 * `detox.trace.json`, the Detox trace of the session
 
 {% hint style="info" %}
-Detox support is in the beta versions of the packages: `@currents/jest` `1.4.0-beta.1` and `@currents/cmd` `1.11.0-beta.1`. See [the example project](https://github.com/currents-dev/currents-examples/tree/main/generic-reporter/jest/detox) for a React Native app that runs Detox in GitHub Actions and reports to Currents.
+Detox support is in the beta versions of the packages: `@currents/jest` `1.4.0-beta.1` and `@currents/cmd` `1.11.0-beta.2`. See [the example project](https://github.com/currents-dev/currents-examples/tree/main/generic-reporter/jest/detox) for a React Native app that runs Detox in GitHub Actions and reports to Currents.
 {% endhint %}
 
 ### Install the packages
@@ -89,39 +89,6 @@ To use another directory, set `reportDir` in the reporter options or the `CURREN
 We recommend adding `.currents` to `.gitignore`
 {% endhint %}
 
-### Pull requests in GitHub Actions
-
-On `pull_request` events, GitHub Actions checks out a merge commit that GitHub creates, so Currents shows the commit message as `Merge <sha> into <sha>`. To show the last commit of the pull request, set the `COMMIT_INFO_*` variables before `currents upload`:
-
-```yaml
-- name: Use the pull request commit for Currents
-  if: ${{ !cancelled() && github.event_name == 'pull_request' }}
-  env:
-    HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-    HEAD_REF: ${{ github.event.pull_request.head.ref }}
-  run: |
-    git fetch --depth=1 origin "$HEAD_SHA"
-    # A random delimiter: a commit message line equal to a fixed one would end the
-    # value early and add the lines after it as variables.
-    delimiter="EOF_$(openssl rand -hex 16)"
-    {
-      echo "COMMIT_INFO_SHA=$HEAD_SHA"
-      echo "COMMIT_INFO_BRANCH=$HEAD_REF"
-      echo "COMMIT_INFO_AUTHOR=$(git log -1 --format=%an "$HEAD_SHA")"
-      echo "COMMIT_INFO_EMAIL=$(git log -1 --format=%ae "$HEAD_SHA")"
-      echo "COMMIT_INFO_MESSAGE<<$delimiter"
-      git log -1 --format=%B "$HEAD_SHA"
-      echo "$delimiter"
-    } >> "$GITHUB_ENV"
-
-- name: Upload the results to Currents
-  if: ${{ !cancelled() }}
-  run: npx currents upload
-  env:
-    CURRENTS_PROJECT_ID: ${{ vars.CURRENTS_PROJECT_ID }}
-    CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
-```
-
 ### Earlier versions
 
 With `@currents/jest` before `1.4.0-beta.0`:
@@ -129,3 +96,5 @@ With `@currents/jest` before `1.4.0-beta.0`:
 * `currents upload` runs Jest to list the tests, which runs the Detox `globalSetup`. Set `selectedConfiguration` in the [Detox config file](https://wix.github.io/Detox/docs/config/overview/#config-structure) to the configuration you run the tests with, or upload fails with `Cannot determine which configuration to use from Detox config`.
 * Every rerun of `detox test --retries` writes to a new report directory, or replaces the results of the earlier run when the report directory is set. Currents shows only one attempt of a retried test.
 * Detox artifacts are not uploaded.
+
+With `@currents/cmd` `1.11.0-beta.1`, runs of `pull_request` workflows in GitHub Actions show the merge commit that GitHub creates (`Merge <sha> into <sha>`) instead of the last commit of the pull request. To set the commit yourself, use the `COMMIT_INFO_*` variables, see [Overriding Commit Info](../../../dashboard/runs/commit-information.md#overriding-commit-info).
