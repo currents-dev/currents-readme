@@ -118,6 +118,6 @@ A missing permission is not one of those refusals. The tool for it is not listed
 
 * [OAuth](../authentication/oauth.md) - the connection flow, permissions, and revoking access
 * [MCP Server](mcp-server.md) - the local `@currents/mcp` package
-* [Evidence Sharing](evidence-sharing.md) - have an agent post before-and-after evidence of its change
+* [Evidence Sharing](evidence-sharing.md) - have an agent prove its change with before-and-after evidence
 * [Overview](overview.md) - every way to put Currents data in front of an agent
 * [API Keys](../dashboard/administration/api-keys.md) - creating and scoping a key
