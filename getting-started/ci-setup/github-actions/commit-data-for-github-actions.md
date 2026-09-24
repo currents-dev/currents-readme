@@ -46,7 +46,7 @@ To turn the fetch off, set `CURRENTS_DISABLE_HEAD_COMMIT_FETCH=true`. See [commi
 
 #### Earlier versions and Cypress
 
-`cypress-cloud` and earlier versions of the reporters record the merge commit. To record the last commit of the pull request, check out that commit:
+With `cypress-cloud` and earlier versions of the reporters, runs show the merge commit's message and author. To record the last commit of the pull request, check out that commit:
 
 ```yaml
 - uses: actions/checkout@v4
