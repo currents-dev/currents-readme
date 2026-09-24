@@ -53,20 +53,22 @@ claude mcp add playwright -- npx @playwright/mcp@latest --caps=devtools
 
 ## Ask for evidence
 
-The Remote MCP Server tells the agent about both skills when it connects, so asking for proof in plain words is enough.
+Name the Currents MCP and the skill in the prompt, so the agent reads that workflow instead of improvising its own.
 
 From CI, with `collect-evidence`:
 
 ```text
-Fix the checkout total bug, then collect before/after evidence from the CI run
-on this branch.
+Fix the checkout total bug. Once CI has run on this branch, use the Currents
+MCP collect-evidence skill to collect before/after evidence from the Currents
+runs.
 ```
 
 From a browser session, with `browser-evidence`:
 
 ```text
-Reproduce the checkout total bug at http://localhost:3000, fix it, and record
-before/after browser evidence in the "web-app" Currents project.
+Use the Currents MCP browser-evidence skill: reproduce the checkout total bug
+at http://localhost:3000 with Playwright MCP, fix it, and record the before and
+after as sessions in the "web-app" Currents project.
 ```
 
 The agent writes the evidence up as a comment: what changed, the before and after, and the links. Currents does not post it anywhere. To have the agent post a pull request or ticket comment, give it a tool that can, such as a GitHub or Linear MCP server, and say where to post in the prompt. We recommend it: a reviewer then sees the before and after next to the code.
