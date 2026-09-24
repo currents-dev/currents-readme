@@ -72,7 +72,7 @@ A badge sits beside the application name on both the consent screen and the [con
 | **3rd Party · _host_**          | Loopback, or an address the client named - not necessarily the host on the badge.                                                                                                 |
 | **Unlisted**                    | An address the client named, with no host to put on the badge.                                                                                                                    |
 
-Only **Verified publisher** is green, because it is the only case where Currents knows where the codes land. A **Currents** client always sends them to loopback on the signer's own machine; a **3rd Party** or **Unlisted** client may name some other address, which Currents does not vouch for. That is what a neutral badge withholds.
+Only **Verified publisher** is green, because it is the only case where Currents has verified the destination: that publisher's own servers. A **Currents** client always sends codes to loopback on the signer's own machine - a destination Currents knows, but one it cannot tie to a single recipient - and a **3rd Party** or **Unlisted** client may name some other address that Currents does not vouch for at all. That is what a neutral badge withholds.
 
 Loopback is why a client Currents knows perfectly well still gets a neutral mark: any program on that machine can listen on the port and present the same client id. [PKCE](oauth.md#for-client-developers) is required, so a code intercepted that way cannot be redeemed without the verifier that asked for it - but nothing stops a local program from starting a request of its own under a familiar name, which is what the note on the screen asks the signer to rule out.
 
