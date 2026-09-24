@@ -82,11 +82,7 @@ Permissions are fixed for the life of a token. There is no way to add one to a t
 
 ### Permissions a token cannot carry
 
-Two groups of permissions exist elsewhere in Currents and are not offered to a token.
-
-**`ai:invoke`**, which starts AI failure analysis, is not offered and is refused if requested. It bills the organization and sends test data to the model provider, so it is kept out of the advertised set the token picker is built from. It remains available to an OAuth grant, where a person approves it on a consent screen.
-
-**The identity permissions** - `openid`, `profile`, `email` and `offline_access` - are excluded because they describe sign-in rather than access. They shape what an application learns about the person who authorized it and whether it may stay connected. A personal access token already names its owner and is renewed by creating a new one, so none of them mean anything here.
+The identity permissions - `openid`, `profile`, `email` and `offline_access` - exist elsewhere in Currents and are not offered to a token. They are excluded because they describe sign-in rather than access. They shape what an application learns about the person who authorized it and whether it may stay connected. A personal access token already names its owner and is renewed by creating a new one, so none of them mean anything here.
 
 ## Expiry
 
