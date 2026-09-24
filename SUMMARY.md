@@ -65,6 +65,7 @@
 * [Agent Skill: Playwright Best Practices](ai/agent-skill-playwright-best-practices.md "Playwright Skill")
 * [IDE Extension](ai/ide-extension.md)
 * [Shareable Context](ai/shareable-context.md)
+* [Evidence Sharing](ai/evidence-sharing.md)
 
 ## Guides
 
