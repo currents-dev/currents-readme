@@ -72,7 +72,9 @@ A badge sits beside the application name on both the consent screen and the [con
 | **3rd Party · _host_**          | Loopback, or an address the client named - not necessarily the host on the badge.                                                                                                 |
 | **Unlisted**                    | An address the client named, with no host to put on the badge.                                                                                                                    |
 
-Only **Verified publisher** is green, because it is the only case where the codes cannot reach anyone else. Everywhere else they go to a machine, and any program on that machine can present the same client id - which is why a client Currents knows perfectly well still gets a neutral mark.
+Only **Verified publisher** is green, because it is the only case where Currents knows where the codes land. A **Currents** client always sends them to loopback on the signer's own machine; a **3rd Party** or **Unlisted** client may name some other address, which Currents does not vouch for. That is what a neutral badge withholds.
+
+Loopback is why a client Currents knows perfectly well still gets a neutral mark: any program on that machine can listen on the port and present the same client id. [PKCE](oauth.md#for-client-developers) is required, so a code intercepted that way cannot be redeemed without the verifier that asked for it - but nothing stops a local program from starting a request of its own under a familiar name, which is what the note on the screen asks the signer to rule out.
 
 The _host_ on a badge is not an address, and outside **Verified publisher** it is not where anything is sent. It is taken from the client id, which for these clients is the URL of the metadata document identifying them - the one part of an identity a client cannot invent, since only that host can serve that document. So `3rd Party · claude.ai` says Currents fetched the identity from `claude.ai`; the codes still go wherever the **Sends codes to** line on the screen says, which for a local agent is loopback.
 
