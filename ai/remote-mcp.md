@@ -116,6 +116,7 @@ A missing permission is not one of those refusals. The tool for it is not listed
 
 ## Related
 
+* [Connect Your AI](connect/README.md) - step-by-step setup for Claude Code, Claude Desktop and claude.ai
 * [OAuth](../authentication/oauth.md) - the connection flow, permissions, and revoking access
 * [MCP Server](mcp-server.md) - the local `@currents/mcp` package
 * [Evidence Sharing](evidence-sharing.md) - have an agent prove its change with before-and-after evidence

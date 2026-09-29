@@ -60,6 +60,9 @@
 ## AI
 
 * [Overview](ai/overview.md)
+* [Connect Your AI](ai/connect/README.md)
+  * [Claude Code](ai/connect/claude-code.md)
+  * [Claude Desktop and claude.ai](ai/connect/claude.md)
 * [MCP Server](ai/mcp-server.md)
 * [Remote MCP Server](ai/remote-mcp.md)
 * [Agent Skill: Playwright Best Practices](ai/agent-skill-playwright-best-practices.md "Playwright Skill")
