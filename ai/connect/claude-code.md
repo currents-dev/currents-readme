@@ -81,7 +81,7 @@ Claude Code asks before it calls an MCP tool. To stop it asking for tools that o
 }
 ```
 
-`mcp__currents` alone would allow every Currents tool, including `currents-delete-run`, which permanently deletes a run. [What a connection can reach](../remote-mcp.md#what-a-connection-can-reach) lists which tools read and which write.
+`mcp__currents` alone would allow every Currents tool, including `currents-delete-run`, which permanently deletes a run. [Tools](../mcp-server/README.md#tools) lists every tool and the permission it needs.
 
 ## Use an API key instead
 
@@ -127,4 +127,4 @@ npx skills add https://github.com/currents-dev/playwright-best-practices-skill
 | The wrong organization's data          | Each connection reaches one organization. Run `claude mcp logout currents`, then authenticate again and choose the other one. |
 | `403` `organization_not_enabled`       | Contact <support@currents.dev>.                                                                     |
 
-More causes are listed under [Remote MCP Server troubleshooting](../remote-mcp.md#troubleshooting).
+More causes are listed under [Remote MCP Server troubleshooting](../mcp-server/remote.md#troubleshooting).

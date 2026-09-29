@@ -1,6 +1,6 @@
 ---
 description: >-
-  Connect Claude, your editor or any other MCP client to Currents, and pick the
+  Connect Claude, ChatGPT, Codex, your editor or any other MCP client to Currents, and pick the
   setup that fits where you work
 icon: plug
 ---
@@ -13,12 +13,14 @@ The pages in this section walk through the setup for each assistant. They all en
 
 ## Pick your assistant
 
-| Assistant                                    | Where you use it                     | Setup                                                                   |
-| -------------------------------------------- | ------------------------------------ | ----------------------------------------------------------------------- |
-| [Claude Code](claude-code.md)                | Terminal, VS Code, JetBrains         | One `claude mcp add` command, then sign in from the browser             |
-| [Claude Desktop and claude.ai](claude.md)    | Claude Desktop app, claude.ai, mobile | Add Currents as a custom connector, then sign in from the browser      |
-| [Cursor, VS Code and compatible editors](../ide-extension.md) | The editor                | Install the Currents extension, which registers the MCP server for the editor's agent |
-| [Any other MCP client](../remote-mcp.md)     | Wherever the client runs             | Point the client at `https://api.currents.dev/mcp`, with OAuth or an API key |
+| Assistant                                                     | Where you use it                                      | Setup                                                                        |
+| ------------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------- |
+| [Claude Code](claude-code.md)                                 | Terminal, VS Code, JetBrains                          | One `claude mcp add` command, then sign in from the browser                  |
+| [Claude Desktop and claude.ai](claude.md)                     | Claude Desktop app, claude.ai                         | Add Currents as a custom connector, then sign in from the browser            |
+| [ChatGPT](chatgpt.md)                                         | chatgpt.com                                           | Create a developer-mode app, then sign in from the browser                   |
+| [Codex](codex.md)                                             | Codex CLI, Codex IDE extension, ChatGPT desktop app   | One `codex mcp add` command, then `codex mcp login`                          |
+| [Cursor, VS Code and compatible editors](../ide-extension.md) | The editor                                            | Install the Currents extension, which registers the MCP server for the editor's agent |
+| [Other MCP clients](other-clients.md)                         | Wherever the client runs                              | Enter the server URL by hand, with OAuth or an API key                       |
 
 ## Before you start
 
@@ -37,7 +39,7 @@ Every assistant listed above connects the same way. The first time it calls Curr
 The assistant renews its own access from then on, so you are not asked again unless the connection is revoked or the assistant starts asking for more. [OAuth](../../authentication/oauth.md) explains each screen and each permission.
 
 {% hint style="info" %}
-A client that cannot complete this sign-in can send a Currents API key instead. A key acts as the organization rather than as you, with a single **Read Only** or **Read & Write** level - see [Connect with an API key](../remote-mcp.md#connect-with-an-api-key).
+A client that cannot complete this sign-in can send a Currents API key instead. A key acts as the organization rather than as you, with a single **Read Only** or **Read & Write** level - see [Other MCP clients](other-clients.md#with-an-api-key).
 {% endhint %}
 
 ## Try it
@@ -49,7 +51,7 @@ Once connected, ask about your own projects in plain language:
 * "Is this pull request safe to merge? Compare its runs with main."
 * "Which spec files got slowest over the last 30 days, and which errors fail them most often?"
 
-The assistant chooses the tools itself. [What a connection can reach](../remote-mcp.md#what-a-connection-can-reach) lists every tool and the permission it needs.
+The assistant chooses the tools itself. [Tools](../mcp-server/README.md#tools) lists every tool and the permission it needs.
 
 {% hint style="danger" %}
 Some tools cannot be undone: `currents-delete-run` permanently deletes a run and everything recorded with it. Currents does not ask for confirmation, so leave your assistant set to ask you before it calls a write tool.
@@ -61,6 +63,7 @@ Every assistant you authorized is listed under **Account → Connected Applicati
 
 ## Related
 
-* [Remote MCP Server](../remote-mcp.md) - the endpoint, every tool, and troubleshooting
+* [MCP Server](../mcp-server/README.md) - every tool, and hosted versus local
+* [Remote MCP Server](../mcp-server/remote.md) - the endpoint, authentication and troubleshooting
 * [OAuth](../../authentication/oauth.md) - the sign-in screens, permissions and roles
-* [MCP Server](../mcp-server.md) - the `@currents/mcp` package, which runs locally with an API key
+* [Local MCP Server](../mcp-server/local.md) - the `@currents/mcp` package, which runs locally with an API key

@@ -4,7 +4,7 @@ description: Create and manage API keys to access the Currents REST API, MCP ser
 
 # API Keys
 
-API keys authenticate programmatic access to Currents - the [REST API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/), the [MCP Server](../../ai/mcp-server.md), the CLI tools, and other integrations. Every request is authorized against the permissions of the API key it carries, not the dashboard role of the user who created it.
+API keys authenticate programmatic access to Currents - the [REST API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/), the [MCP Server](../../ai/mcp-server/README.md), the CLI tools, and other integrations. Every request is authorized against the permissions of the API key it carries, not the dashboard role of the user who created it.
 
 {% hint style="info" %}
 API keys are **organization-wide** credentials. They should be treated like passwords - stored in a secret manager and never committed to source control.
@@ -50,4 +50,4 @@ curl https://api.currents.dev/v1/runs \
 -H "Authorization: Bearer API_KEY_HERE"
 ```
 
-For MCP and integration setups, the key is provided through the relevant configuration (for example the `CURRENTS_API_KEY` environment variable). See the [MCP Server](../../ai/mcp-server.md) documentation for details.
+For MCP and integration setups, the key is provided through the relevant configuration (for example the `CURRENTS_API_KEY` environment variable). See the [Local MCP Server](../../ai/mcp-server/local.md) and [Remote MCP Server](../../ai/mcp-server/remote.md#connect-with-an-api-key) pages for details.

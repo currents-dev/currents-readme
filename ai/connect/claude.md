@@ -63,7 +63,7 @@ Disconnecting in **Customize → Connectors** removes Currents from Claude. To r
 
 ## Run the server locally instead
 
-Claude Desktop can also run the [`@currents/mcp`](../mcp-server.md) package on your computer, authenticated with an API key rather than your own sign-in. It works in Claude Desktop only, not on claude.ai. Open **Settings → Developer → Edit Config** and add Currents to `claude_desktop_config.json`:
+Claude Desktop can also run the [`@currents/mcp`](../mcp-server/local.md) package on your computer, authenticated with an API key rather than your own sign-in. It works in Claude Desktop only, not on claude.ai. Open **Settings → Developer → Edit Config** and add Currents to `claude_desktop_config.json`:
 
 ```json
 {
@@ -90,4 +90,4 @@ Restart Claude Desktop after saving. The hosted connector above is the simpler o
 | The wrong organization's data          | Each connection reaches one organization. Disconnect, connect again, and choose the other one.     |
 | `403` `organization_not_enabled`       | Contact <support@currents.dev>.                                                                     |
 
-More causes are listed under [Remote MCP Server troubleshooting](../remote-mcp.md#troubleshooting).
+More causes are listed under [Remote MCP Server troubleshooting](../mcp-server/remote.md#troubleshooting).

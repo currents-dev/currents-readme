@@ -1,6 +1,7 @@
 root: ./
 
 redirects:
+  ai/remote-mcp: ai/mcp-server/remote.md
   api/api-keys: dashboard/administration/api-keys.md
   ci-setup: getting-started/ci-setup/github-actions/README.md
   ci-setup/gitlab/playwright-gitlab-ci-cd: getting-started/ci-setup/gitlab/playwright-gitlab-ci-cd.md

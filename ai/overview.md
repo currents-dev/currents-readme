@@ -22,7 +22,7 @@ Currents post-processes test results on the server into a structured troubleshoo
 * Full error message, stack trace, and code frame (ANSI codes stripped)
 * An **error-context snapshot** captured at the moment of failure: the page accessibility tree, console output, and network logs
 * Historical pass/fail data and flakiness rates for the test
-* Run, spec, instance, and attempt identifiers the agent can use to query further details via [MCP](mcp-server.md)
+* Run, spec, instance, and attempt identifiers the agent can use to query further details via [MCP](mcp-server/README.md)
 
 Every entry point below delivers this same context - they differ in where you are when you use them and how much of the loop is automated.
 
@@ -30,9 +30,9 @@ Every entry point below delivers this same context - they differ in where you ar
 
 | Method                                                                        | Where                             | Best for                                                                         |
 | ----------------------------------------------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------- |
-| [MCP Server](mcp-server.md)                                                   | Any MCP-capable agent             | Agents querying runs, tests, and analytics on demand; autonomous troubleshooting |
+| [MCP Server](mcp-server/README.md)                                                   | Any MCP-capable agent             | Agents querying runs, tests, and analytics on demand; autonomous troubleshooting |
 | [Connect Your AI](connect/README.md)                                          | Claude Code, Claude Desktop, claude.ai, editors | Step-by-step setup of the hosted MCP server for each assistant |
-| [Remote MCP Server](remote-mcp.md)                                            | Any MCP-capable agent             | The same tools hosted by Currents - OAuth instead of a key, and nothing to install |
+| [Remote MCP Server](mcp-server/remote.md)                                            | Any MCP-capable agent             | The same tools hosted by Currents - OAuth instead of a key, and nothing to install |
 | [IDE Extension](ide-extension.md)                                             | VS Code, Cursor, compatible forks | Debugging CI failures without leaving the editor                                 |
 | [Fix with AI](overview.md#fix-with-ai-from-the-dashboard)                     | Currents dashboard                | Handing a failure to an agent while triaging a run                               |
 | [Slack Fix with AI](../resources/integrations/slack/slack-app.md#fix-with-ai) | Slack                             | Handing a failed-test notification to an agent from a channel                    |
@@ -43,7 +43,7 @@ Every entry point below delivers this same context - they differ in where you ar
 
 ### MCP Server
 
-The [Currents MCP server](mcp-server.md) is the foundation the other entry points build on. It exposes tools for retrieving projects, runs, test results, spec instances, and performance analytics, so any MCP-capable agent - Claude Code, Cursor, or a custom agent built on the Model Context Protocol - can pull test data on demand instead of relying on what you paste into the prompt.
+The [Currents MCP server](mcp-server/README.md) is the foundation the other entry points build on. It exposes tools for retrieving projects, runs, test results, spec instances, and performance analytics, so any MCP-capable agent - Claude Code, Cursor, or a custom agent built on the Model Context Protocol - can pull test data on demand instead of relying on what you paste into the prompt.
 
 This is what makes auto-healing possible rather than one-shot fixes: an agent given a run ID can enumerate the failures, fetch each test's error details and history, decide which failures share a root cause, implement a fix, and verify it - querying for more context at every step instead of working from a fixed snapshot.
 
@@ -65,7 +65,7 @@ Example prompts:
 
 The Currents MCP server pairs well with browser-automation MCP servers such as [Playwright MCP](https://github.com/microsoft/playwright-mcp): Currents supplies what failed in CI and why, and the browser tools let the agent reproduce the failure in a live browser before committing a fix.
 
-Access is scoped by the API key you configure. Use a **Read Only** key when the agent only needs to read results; a **Read & Write** key additionally allows operations like canceling runs or managing webhooks, including some irreversible deletions. See [MCP Server](mcp-server.md) for the permission model and [API Keys](../dashboard/administration/api-keys.md) for creating scoped keys.
+Access is scoped by the API key you configure. Use a **Read Only** key when the agent only needs to read results; a **Read & Write** key additionally allows operations like canceling runs or managing webhooks, including some irreversible deletions. See [MCP Server](mcp-server/README.md) for the permission model and [API Keys](../dashboard/administration/api-keys.md) for creating scoped keys.
 
 ### IDE Extension
 

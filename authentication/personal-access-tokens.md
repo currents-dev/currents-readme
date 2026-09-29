@@ -140,7 +140,7 @@ Because a permission-gated tool the token cannot reach is absent rather than rej
 
 Widening what an agent can do means creating a new token with the extra permissions and reconnecting with it. Unlike an OAuth connection, a personal access token cannot be re-authorized in place.
 
-See [remote-mcp.md](../ai/remote-mcp.md "mention") for connecting an agent to that endpoint.
+See [remote.md](../ai/mcp-server/remote.md "mention") for connecting an agent to that endpoint.
 
 ### Refusals
 
@@ -191,5 +191,5 @@ A token that appears in the list is not necessarily a token that works. The list
 
 * [OAuth](oauth.md) - authorizing an application to act as a person
 * [API Keys](../dashboard/administration/api-keys.md) - the organization-wide credential
-* [Remote MCP Server](../ai/remote-mcp.md) - connecting an agent to Currents
+* [Remote MCP Server](../ai/mcp-server/remote.md) - connecting an agent to Currents
 * [Manage Team](../dashboard/administration/manage-team.md) - the roles, and who holds **Admin**
