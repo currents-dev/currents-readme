@@ -108,6 +108,8 @@ In a committed `.mcp.json`, reference the key from the environment so it never l
 }
 ```
 
+To stop using it, run `claude mcp remove currents`; the key itself keeps working until an Admin revokes it under **Organization → API Keys**.
+
 A key acts as the organization rather than as a person, with a single **Read Only** or **Read & Write** level. A **Read Only** key gets the read tools, the two Jira lookups and `currents-create-evidence-links`, and nothing else.
 
 ## Pair it with the Playwright skill

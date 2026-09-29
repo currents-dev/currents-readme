@@ -79,7 +79,9 @@ Claude Desktop can also run the [`@currents/mcp`](../mcp-server/local.md) packag
 }
 ```
 
-Restart Claude Desktop after saving. The hosted connector above is the simpler option for most people: nothing to install, and access that follows your own Currents role.
+Restart Claude Desktop after saving. To stop using it, delete the `currents` entry and restart again. A local setup creates no entry under **Connected Applications**: the key keeps working until an Admin revokes it under **Organization → API Keys**.
+
+The hosted connector above is the simpler option for most people: nothing to install, and access that follows your own Currents role.
 
 ## Troubleshooting
 

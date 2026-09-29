@@ -67,7 +67,7 @@ url = "https://api.currents.dev/mcp"
 bearer_token_env_var = "CURRENTS_API_KEY"
 ```
 
-A key acts as the organization rather than as a person, with a single **Read Only** or **Read & Write** level.
+A key acts as the organization rather than as a person, with a single **Read Only** or **Read & Write** level. It creates no entry under **Connected Applications**, so ending it means revoking the key under **Organization → API Keys**.
 
 ## Troubleshooting
 

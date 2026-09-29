@@ -28,7 +28,7 @@ Each key is assigned one of two permission levels that govern what it can do acr
 
 | Permission        | Access                                                                 |
 | ----------------- | --------------------------------------------------------------------- |
-| **Read Only**     | Read-only access to `GET` endpoints (runs, tests, analytics, metrics). |
+| **Read Only**     | `GET` endpoints (runs, tests, analytics, metrics), plus creating [trace links](../../ai/evidence-sharing.md) to recorded test evidence. |
 | **Read & Write**  | Full read access plus write operations (create, update, delete).       |
 
 Authorization is enforced **server-side at the REST API layer**. A **Read Only** key that attempts a write operation - deleting a run, creating a webhook, changing an action, or creating a Jira issue - is rejected with an **HTTP 403 Forbidden**, regardless of which client or tool issued the request.

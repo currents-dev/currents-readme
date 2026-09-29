@@ -26,11 +26,11 @@ The pages in this section walk through the setup for each assistant. They all en
 
 * **A Currents account in the organization you want to connect.** You choose the organization while signing in, and the connection reaches that organization only. To use two organizations, connect twice.
 * **The right role for what you want the assistant to do.** Your role caps the permissions you can approve: a Guest can let the assistant read projects and results only, and webhooks are for Admins. See [the role sets the ceiling](../../authentication/oauth.md#the-role-sets-the-ceiling).
-* **Nothing to install.** The server is hosted by Currents, so there is no package to keep up to date.
+* **Nothing to install for the hosted server.** Currents runs it, so there is no package to keep up to date. The [local package](../mcp-server/local.md) is the exception, for clients that can only start a local server.
 
 ## Sign in once, with OAuth
 
-Every assistant listed above connects the same way. The first time it calls Currents, a browser window opens and walks you through three screens:
+Every assistant that connects to the hosted server with OAuth signs in the same way. The first time it calls Currents, a browser window opens and walks you through three screens:
 
 1. **Sign in** to Currents, if that browser is not signed in already. SSO applies as it does for the dashboard.
 2. **Choose an organization.** The assistant will act in this one and no other.
@@ -60,6 +60,8 @@ Some tools cannot be undone: `currents-delete-run` permanently deletes a run and
 ## Review or revoke a connection
 
 Every assistant you authorized is listed under **Account → Connected Applications**, with what it can read and write and when it was last used. Removing it there ends the assistant's access within the hour, on every machine it was set up on. An organization administrator sees and can revoke everyone's connections under **Manage Organization → Connected Applications**. See [reviewing and revoking access](../../authentication/oauth.md#reviewing-and-revoking-access).
+
+A connection made with an API key is not listed there, because a key names no user and creates no grant. To end it, remove the key from the assistant's configuration, and have an Admin revoke the key under **Organization → API Keys** - until then it keeps working anywhere else it was pasted.
 
 ## Related
 
