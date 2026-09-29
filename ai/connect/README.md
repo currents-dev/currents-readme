@@ -20,7 +20,7 @@ The pages in this section walk through the setup for each assistant. They all en
 | [ChatGPT](chatgpt.md)                                         | chatgpt.com                                           | Create a developer-mode app, then sign in from the browser                   |
 | [Codex](codex.md)                                             | Codex CLI, Codex IDE extension, ChatGPT desktop app   | One `codex mcp add` command, then `codex mcp login`                          |
 | [Cursor, VS Code and compatible editors](../ide-extension.md) | The editor                                            | Install the Currents extension, which registers the MCP server for the editor's agent |
-| [Other MCP clients](other-clients.md)                         | Wherever the client runs                              | Enter the server URL by hand, with OAuth or an API key                       |
+| [Other MCP clients](../mcp-server/remote.md)                  | Wherever the client runs                              | Enter the server URL by hand, with OAuth or an API key                       |
 
 ## Before you start
 
@@ -39,7 +39,7 @@ Every assistant that connects to the hosted server with OAuth signs in the same 
 The assistant renews its own access from then on, so you are not asked again unless the connection is revoked or the assistant starts asking for more. [OAuth](../../authentication/oauth.md) explains each screen and each permission.
 
 {% hint style="info" %}
-A client that cannot complete this sign-in can send a Currents API key instead. A key acts as the organization rather than as you, with a single **Read Only** or **Read & Write** level - see [Other MCP clients](other-clients.md#with-an-api-key).
+A client that cannot complete this sign-in can send a Currents API key instead. A key acts as the organization rather than as you, with a single **Read Only** or **Read & Write** level - see [Connect with an API key](../mcp-server/remote.md#connect-with-an-api-key).
 {% endhint %}
 
 ## Try it

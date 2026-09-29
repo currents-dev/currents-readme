@@ -65,7 +65,7 @@
   * [Claude Desktop and claude.ai](ai/connect/claude.md)
   * [ChatGPT](ai/connect/chatgpt.md)
   * [Codex](ai/connect/codex.md)
-  * [Other MCP Clients](ai/connect/other-clients.md)
+  * [Other MCP Clients](https://docs.currents.dev/ai/mcp-server/remote)
 * [MCP Server](ai/mcp-server/README.md)
   * [Remote MCP Server](ai/mcp-server/remote.md)
   * [Local MCP Server](ai/mcp-server/local.md)

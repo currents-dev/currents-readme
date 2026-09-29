@@ -22,7 +22,7 @@ Setup differs by client:
 * [Claude Desktop and claude.ai](../connect/claude.md)
 * [ChatGPT](../connect/chatgpt.md)
 * [Codex](../connect/codex.md)
-* [Other MCP clients](../connect/other-clients.md) - any client that speaks Streamable HTTP and can identify itself the way Currents requires. A client that can only register itself dynamically cannot, and uses an API key instead - see [for client developers](../../authentication/oauth.md#for-client-developers).
+* Any other client that speaks Streamable HTTP and can identify itself the way Currents requires: point it at `https://api.currents.dev/mcp` and leave any client ID and secret empty. A client that can only register itself dynamically cannot, and uses an API key instead - see [for client developers](../../authentication/oauth.md#for-client-developers).
 
 The browser then walks through signing in, choosing the organization the connection will act in, and approving the permissions the client asked for. [oauth.md](../../authentication/oauth.md "mention") covers those screens, what each permission reaches, and how to review or revoke a connection afterwards.
 
