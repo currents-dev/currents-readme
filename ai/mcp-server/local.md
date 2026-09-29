@@ -1,18 +1,14 @@
 ---
-description: Connect AI Agents to Currents
-icon: message-bot
+description: Run the Currents MCP server on your own machine with the @currents/mcp package and an API key
+icon: laptop-code
 ---
 
-# MCP Server
-
-### What is MCP
-
-MCP stands for [**Model Context Protocol**](https://modelcontextprotocol.io/introduction). It's an open pattern, introduced by Anthropic, that provides a consistent way for systems to expose tools and resources that can be used by AI models.
+# Local MCP Server
 
 [Currents MCP server](https://github.com/currents-dev/currents-mcp) is a context layer for AI tools that leverage information about Playwright test results, such as failed tests, errors, and more.
 
 {% hint style="info" %}
-This page covers the `@currents/mcp` package, which runs locally over stdio and authenticates with an API key alone. Currents also hosts the same tools at `https://api.currents.dev/mcp`, where a client connects over OAuth with no key to paste and no package to install - see [remote-mcp.md](remote-mcp.md "mention").
+This page covers the `@currents/mcp` package, which runs locally over stdio and authenticates with an API key alone. Currents also hosts the same tools at `https://api.currents.dev/mcp`, where a client connects over OAuth with no key to paste and no package to install - see [remote.md](remote.md "mention").
 {% endhint %}
 
 ### Get started
@@ -99,7 +95,7 @@ The MCP server authenticates with the configured `CURRENTS_API_KEY`, and **every
 * When the server is configured with a **Read Only** API key, all write operations (for example deleting a run, creating a webhook, or changing an action) are rejected by the Currents API with an **HTTP 403 Forbidden** - regardless of which tools the MCP server exposes to the agent.
 * A **Read & Write** key allows the agent to perform write operations. A Read Only key is recommended when the agent only needs to read test results and analytics.
 
-A dedicated key with the appropriate permission should be created to restrict what an AI agent can do through the MCP server. See [api-keys.md](../dashboard/administration/api-keys.md "mention") for how to create and scope API keys.
+A dedicated key with the appropriate permission should be created to restrict what an AI agent can do through the MCP server. See [api-keys.md](../../dashboard/administration/api-keys.md "mention") for how to create and scope API keys.
 
 {% hint style="danger" %}
 **Beware of destructive, irrecoverable operations.** When used with a **Read & Write** key, the MCP server can perform permanent deletions with no confirmation step and no way to restore the data. Currently the irrecoverable tools are:

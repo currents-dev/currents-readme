@@ -4,7 +4,7 @@ description: Create and manage API keys to access the Currents REST API, MCP ser
 
 # API Keys
 
-API keys authenticate programmatic access to Currents - the [REST API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/), the [MCP Server](../../ai/mcp-server.md), the CLI tools, and other integrations. Every request is authorized against the permissions of the API key it carries, not the dashboard role of the user who created it.
+API keys authenticate programmatic access to Currents - the [REST API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/), the [MCP Server](../../ai/mcp-server/README.md), the CLI tools, and other integrations. Every request is authorized against the permissions of the API key it carries, not the dashboard role of the user who created it.
 
 {% hint style="info" %}
 API keys are **organization-wide** credentials. They should be treated like passwords - stored in a secret manager and never committed to source control.
@@ -28,7 +28,7 @@ Each key is assigned one of two permission levels that govern what it can do acr
 
 | Permission        | Access                                                                 |
 | ----------------- | --------------------------------------------------------------------- |
-| **Read Only**     | Read-only access to `GET` endpoints (runs, tests, analytics, metrics). |
+| **Read Only**     | `GET` endpoints (runs, tests, analytics, metrics), plus creating [trace links](../../ai/evidence-sharing.md) to recorded test evidence. |
 | **Read & Write**  | Full read access plus write operations (create, update, delete).       |
 
 Authorization is enforced **server-side at the REST API layer**. A **Read Only** key that attempts a write operation - deleting a run, creating a webhook, changing an action, or creating a Jira issue - is rejected with an **HTTP 403 Forbidden**, regardless of which client or tool issued the request.
@@ -50,4 +50,4 @@ curl https://api.currents.dev/v1/runs \
 -H "Authorization: Bearer API_KEY_HERE"
 ```
 
-For MCP and integration setups, the key is provided through the relevant configuration (for example the `CURRENTS_API_KEY` environment variable). See the [MCP Server](../../ai/mcp-server.md) documentation for details.
+For MCP and integration setups, the key is provided through the relevant configuration (for example the `CURRENTS_API_KEY` environment variable). See the [Local MCP Server](../../ai/mcp-server/local.md) and [Remote MCP Server](../../ai/mcp-server/remote.md#connect-with-an-api-key) pages for details.

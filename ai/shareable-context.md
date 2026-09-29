@@ -85,7 +85,7 @@ A run-level share is broader and shallower than a test-level one: it lists asset
 {% endtab %}
 {% endtabs %}
 
-Every share ends with a **Details for Currents MCP** footer carrying the MCP identifiers for what was shared - the project and run, plus the instance, test and attempt when the share is one test. An agent with the [mcp-server.md](mcp-server.md "mention") can use those identifiers to fetch anything the snapshot left out.
+Every share ends with a **Details for Currents MCP** footer carrying the MCP identifiers for what was shared - the project and run, plus the instance, test and attempt when the share is one test. An agent with the [README.md](mcp-server/README.md "mention") can use those identifiers to fetch anything the snapshot left out.
 
 ### Hand the context to an agent
 
@@ -107,7 +107,7 @@ That is the form to paste into an agent that fetches URLs for itself. The bare l
 
 #### Continue with the MCP server
 
-A share is a snapshot, and an agent often wants more - the other attempts, a different test in the same run, the run's history. The MCP footer carries the identifiers for exactly that. Point your agent at the [mcp-server.md](mcp-server.md "mention") and it can keep going from where the share ends.
+A share is a snapshot, and an agent often wants more - the other attempts, a different test in the same run, the run's history. The MCP footer carries the identifiers for exactly that. Point your agent at the [README.md](mcp-server/README.md "mention") and it can keep going from where the share ends.
 
 ### Control who can share
 

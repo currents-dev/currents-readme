@@ -60,8 +60,15 @@
 ## AI
 
 * [Overview](ai/overview.md)
-* [MCP Server](ai/mcp-server.md)
-* [Remote MCP Server](ai/remote-mcp.md)
+* [Connect Your AI](ai/connect/README.md)
+  * [Claude Code](ai/connect/claude-code.md)
+  * [Claude Desktop and claude.ai](ai/connect/claude.md)
+  * [ChatGPT](ai/connect/chatgpt.md)
+  * [Codex](ai/connect/codex.md)
+  * [Other MCP Clients](https://docs.currents.dev/ai/mcp-server/remote)
+* [MCP Server](ai/mcp-server/README.md)
+  * [Remote MCP Server](ai/mcp-server/remote.md)
+  * [Local MCP Server](ai/mcp-server/local.md)
 * [Agent Skill: Playwright Best Practices](ai/agent-skill-playwright-best-practices.md "Playwright Skill")
 * [IDE Extension](ai/ide-extension.md)
 * [Shareable Context](ai/shareable-context.md)

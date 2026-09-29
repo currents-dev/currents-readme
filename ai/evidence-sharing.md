@@ -14,7 +14,7 @@ icon: file-certificate
 
 When you delegate a task to an AI agent, it comes back with a diff and a claim that the task is done. Evidence sharing lets the agent back that claim with proof: the traces, screenshots, and attachments of the broken behavior and of the fixed one, as links anyone can open without a Currents account.
 
-Evidence sharing is part of the [Remote MCP Server](remote-mcp.md). It publishes two skills, workflows the agent reads before it calls any tools:
+Evidence sharing is part of the [Remote MCP Server](mcp-server/remote.md). It publishes two skills, workflows the agent reads before it calls any tools:
 
 | Skill              | Use it when                                               | Evidence comes from                            |
 | ------------------ | --------------------------------------------------------- | ---------------------------------------------- |
@@ -31,13 +31,13 @@ Evidence sharing is part of the [Remote MCP Server](remote-mcp.md). It publishes
 claude mcp add --transport http currents https://api.currents.dev/mcp
 ```
 
-Run `/mcp`, choose **currents**, and choose **Authenticate**. For other clients and for API keys, see [remote-mcp.md](remote-mcp.md "mention").
+Run `/mcp`, choose **currents**, and choose **Authenticate**. For other clients and for API keys, see [remote.md](mcp-server/remote.md "mention").
 {% endstep %}
 
 {% step %}
 ### Grant write access for browser evidence
 
-`collect-evidence` works with read access. `browser-evidence` uploads its recordings to Currents, so it needs the `runs:write` permission on top of `projects:read` and `results:read`, or a **Read & Write** API key. See [what a connection can reach](remote-mcp.md#what-a-connection-can-reach).
+`collect-evidence` works with read access. `browser-evidence` uploads its recordings to Currents, so it needs the `runs:write` permission on top of `projects:read` and `results:read`, or a **Read & Write** API key. See [what a connection can reach](mcp-server/remote.md#what-a-connection-can-reach).
 {% endstep %}
 
 {% step %}
@@ -107,7 +107,7 @@ A link lasts 24 hours by default, up to 7 days. Artifacts behind the links follo
 
 | Symptom                                   | Fix                                                                                                                       |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| The agent cannot record a browser session | The connection lacks `runs:write`, or uses a Read Only key. See [what a connection can reach](remote-mcp.md#what-a-connection-can-reach). |
+| The agent cannot record a browser session | The connection lacks `runs:write`, or uses a Read Only key. See [what a connection can reach](mcp-server/remote.md#what-a-connection-can-reach). |
 | `No trace found for this test attempt`    | The attempt recorded no trace. Set `trace: 'on'` for the tests that prove the change.                                    |
 | The agent reports an older run than yours | The run on the branch is still in progress. Ask again once CI finishes.                                                   |
 | A link or artifact returns `404`          | The link expired, or the artifact is past retention. Ask the agent for a new link.                                        |

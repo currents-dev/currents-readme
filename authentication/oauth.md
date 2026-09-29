@@ -35,7 +35,7 @@ Two Currents services do, and they are separate as far as a token is concerned:
 
 A token is minted for one of them and named in the request that created it. A token for the REST API is refused by the MCP endpoint, and a token for the MCP endpoint is refused by the REST API - so authorizing an agent to use the tools does not hand it the whole API. An application that needs both asks for both, and holds a token per service.
 
-See [remote-mcp.md](../ai/remote-mcp.md "mention") for connecting an agent to the MCP endpoint.
+See [remote.md](../ai/mcp-server/remote.md "mention") for connecting an agent to the MCP endpoint.
 
 ## Authorizing an application
 
@@ -208,6 +208,6 @@ A `401` always carries the pointer an application needs to authorize or re-autho
 
 ## Related
 
-* [Remote MCP Server](../ai/remote-mcp.md) - connecting an agent over OAuth
+* [Remote MCP Server](../ai/mcp-server/remote.md) - connecting an agent over OAuth
 * [API Keys](../dashboard/administration/api-keys.md) - the organization credential
 * [Manage Team](../dashboard/administration/manage-team.md) - the roles that set the ceiling

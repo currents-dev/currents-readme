@@ -43,7 +43,7 @@ See [#limitations](jira/usage.md#limitations "mention")
 
 ### Security & API Access
 
-The Jira integration is designed so that programmatic access - including through the [REST API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/) and the [MCP Server](../../ai/mcp-server.md) - never grants more capability than the dashboard itself:
+The Jira integration is designed so that programmatic access - including through the [REST API](https://app.gitbook.com/o/-MT4mUcrnbXWgd1xvl_x/s/lcxad7NaXT7D2V6owvHN/) and the [MCP Server](../../ai/mcp-server/README.md) - never grants more capability than the dashboard itself:
 
 * **Strictly contained to dashboard functionality.** API and MCP access to Jira is limited to the same operations available in the Currents dashboard: listing Jira projects and issue types, and creating or linking issues. There are no additional or privileged Jira operations exposed through the API.
 * **Jira credentials are never disclosed.** The Jira access tokens used by the integration are stored encrypted and are never exposed through the API, the MCP server, or any response. Requests are proxied through Currents using the organization's configured Jira installation - clients never receive the underlying Jira API keys or tokens.
