@@ -7,14 +7,14 @@ icon: terminal
 
 # Claude Code
 
-Claude Code connects to the hosted Currents MCP server at `https://api.currents.dev/mcp`. You add the server once, sign in from the browser, and Claude Code can then read your runs and test results and act on them from any session.
+Claude Code connects to the hosted Currents MCP server at `https://mcp.currents.dev/mcp`. You add the server once, sign in from the browser, and Claude Code can then read your runs and test results and act on them from any session.
 
 ## Add the server
 
 Run this in a terminal:
 
 ```bash
-claude mcp add --transport http --scope user currents https://api.currents.dev/mcp
+claude mcp add --transport http --scope user currents https://mcp.currents.dev/mcp
 ```
 
 `--scope` decides where the entry is saved and who gets it:
@@ -32,7 +32,7 @@ To share the server with your team, add it with `--scope project` and commit the
   "mcpServers": {
     "currents": {
       "type": "http",
-      "url": "https://api.currents.dev/mcp"
+      "url": "https://mcp.currents.dev/mcp"
     }
   }
 }
@@ -96,7 +96,7 @@ If **claude.ai Currents** is missing from `/mcp`, run `/status` to see which cre
 For a CI job or anywhere no one can complete the browser sign-in, send a Currents [API key](../../dashboard/administration/api-keys.md) in a header:
 
 ```bash
-claude mcp add --transport http currents https://api.currents.dev/mcp \
+claude mcp add --transport http currents https://mcp.currents.dev/mcp \
   --header "Authorization: Bearer $CURRENTS_API_KEY"
 ```
 
@@ -107,7 +107,7 @@ In a committed `.mcp.json`, reference the key from the environment so it never l
   "mcpServers": {
     "currents": {
       "type": "http",
-      "url": "https://api.currents.dev/mcp",
+      "url": "https://mcp.currents.dev/mcp",
       "headers": {
         "Authorization": "Bearer ${CURRENTS_API_KEY}"
       }

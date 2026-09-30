@@ -8,7 +8,7 @@ icon: cloud-bolt
 
 # Remote MCP Server
 
-Currents hosts the MCP server at `https://api.currents.dev/mcp`. A client points at that URL and connects: there is no package to install, no local process to keep alive, and - in a client that supports OAuth - no key to paste into a configuration file.
+Currents hosts the MCP server at `https://mcp.currents.dev/mcp`. A client points at that URL and connects: there is no package to install, no local process to keep alive, and - in a client that supports OAuth - no key to paste into a configuration file.
 
 It serves the tools listed under [MCP Server](README.md#tools), the same ones the [local package](local.md) runs over stdio. This page covers what is specific to the hosted endpoint: how a client authenticates, which tools a connection is handed, and what to check when a connection fails. For step-by-step setup in a particular assistant, see [Connect Your AI](../connect/README.md).
 
@@ -22,7 +22,7 @@ Setup differs by client:
 * [Claude Desktop and claude.ai](../connect/claude.md), from the [Claude connectors directory](https://claude.ai/directory/currents)
 * [ChatGPT](../connect/chatgpt.md)
 * [Codex](../connect/codex.md)
-* Any other client that speaks Streamable HTTP and can identify itself the way Currents requires: point it at `https://api.currents.dev/mcp` and leave any client ID and secret empty. A client that can only register itself dynamically cannot, and uses an API key instead - see [for client developers](../../authentication/oauth.md#for-client-developers).
+* Any other client that speaks Streamable HTTP and can identify itself the way Currents requires: point it at `https://mcp.currents.dev/mcp` and leave any client ID and secret empty. A client that can only register itself dynamically cannot, and uses an API key instead - see [for client developers](../../authentication/oauth.md#for-client-developers).
 
 The browser then walks through signing in, choosing the organization the connection will act in, and approving the permissions the client asked for. [oauth.md](../../authentication/oauth.md "mention") covers those screens, what each permission reaches, and how to review or revoke a connection afterwards.
 
@@ -35,7 +35,7 @@ Every MCP client that can send a header can reach the endpoint with a Currents A
   "mcpServers": {
     "currents": {
       "type": "http",
-      "url": "https://api.currents.dev/mcp",
+      "url": "https://mcp.currents.dev/mcp",
       "headers": {
         "Authorization": "Bearer your-api-key"
       }
@@ -62,12 +62,12 @@ An API key is filtered the same way, by access level rather than by permission: 
 
 | | |
 | --- | --- |
-| Endpoint | `https://api.currents.dev/mcp` |
+| Endpoint | `https://mcp.currents.dev/mcp` |
 | Method | `POST` only - `GET` and `DELETE` answer `405` |
 | Transport | Streamable HTTP, stateless, one exchange per request |
 | Headers | `Content-Type: application/json`, `Accept: application/json, text/event-stream` |
-| OAuth resource identifier | `https://api.currents.dev/mcp` |
-| OAuth metadata document | `https://api.currents.dev/.well-known/oauth-protected-resource/mcp` |
+| OAuth resource identifier | `https://mcp.currents.dev/mcp` |
+| OAuth metadata document | `https://mcp.currents.dev/.well-known/oauth-protected-resource/mcp` |
 
 This endpoint and the REST API are separate OAuth resource servers, so a token minted for one is refused by the other: authorizing an agent to use the tools is not authorizing it to use the whole API. The rest of what a client needs - the authorization server, PKCE, how a client identifies itself - is in [for client developers](../../authentication/oauth.md#for-client-developers).
 

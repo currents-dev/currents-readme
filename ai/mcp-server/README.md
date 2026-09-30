@@ -17,7 +17,7 @@ The same tools are served two ways:
 
 |               | [Remote MCP Server](remote.md)                      | [Local MCP Server](local.md)           |
 | ------------- | --------------------------------------------------- | -------------------------------------- |
-| Address       | `https://api.currents.dev/mcp`                      | The `@currents/mcp` npm package        |
+| Address       | `https://mcp.currents.dev/mcp`                      | The `@currents/mcp` npm package        |
 | Runs          | Hosted by Currents                                  | On your machine                        |
 | Transport     | Streamable HTTP                                     | stdio                                  |
 | Credentials   | OAuth sign-in, or an API key                        | API key only                           |

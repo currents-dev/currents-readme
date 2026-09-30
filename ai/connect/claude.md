@@ -49,13 +49,13 @@ Use a custom connector only when you cannot connect from the directory listing.
 
 1. In Claude Desktop or claude.ai, open **Customize → Connectors**.
 2. Click **+**, then **Add custom connector**.
-3. Name it `Currents` and enter the URL `https://api.currents.dev/mcp`.
+3. Name it `Currents` and enter the URL `https://mcp.currents.dev/mcp`.
 4. Leave **Advanced settings** empty. Claude identifies itself to Currents on its own, so there is no client ID or secret to enter.
 5. Click **Add**, then **Connect**.
 
 On the Free plan, Claude allows one custom connector.
 
-**Team and Enterprise:** an Owner opens **Organization settings → Connectors**, clicks **Add**, hovers over **Custom** and chooses **Web**, enters `https://api.currents.dev/mcp` with **Advanced settings** empty, and clicks **Add**. Members then connect as described in the **Team and Enterprise** tab above.
+**Team and Enterprise:** an Owner opens **Organization settings → Connectors**, clicks **Add**, hovers over **Custom** and chooses **Web**, enters `https://mcp.currents.dev/mcp` with **Advanced settings** empty, and clicks **Add**. Members then connect as described in the **Team and Enterprise** tab above.
 
 </details>
 

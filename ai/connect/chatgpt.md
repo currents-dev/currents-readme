@@ -7,7 +7,7 @@ icon: comments
 
 # ChatGPT
 
-ChatGPT connects to Currents as an app built from the hosted MCP server at `https://api.currents.dev/mcp`. You create the app once in developer mode, sign in to Currents, and then choose it in any conversation.
+ChatGPT connects to Currents as an app built from the hosted MCP server at `https://mcp.currents.dev/mcp`. You create the app once in developer mode, sign in to Currents, and then choose it in any conversation.
 
 Developer mode is available on the web for Plus, Pro, Business, Enterprise and Education accounts. On a Business, Enterprise or Education workspace, an admin may need to allow it first.
 
@@ -21,7 +21,7 @@ In [ChatGPT](https://chatgpt.com), open **Settings → Security and login** and 
 2. Fill in the app details:
    * **Name**: `Currents`
    * **Description**: `Test results, flaky tests and CI failures from Currents`
-   * **MCP server URL**: `https://api.currents.dev/mcp`
+   * **MCP server URL**: `https://mcp.currents.dev/mcp`
    * **Authentication**: OAuth
 3. Leave the client ID and secret empty. Currents supports Client ID Metadata Documents, so ChatGPT can identify itself without a pre-registered client. If you are asked how ChatGPT should register, choose the Client ID Metadata Document option.
 4. Create the app. It is listed under **Drafts** in your app settings.
