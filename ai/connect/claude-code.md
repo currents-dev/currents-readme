@@ -87,7 +87,9 @@ Claude Code asks before it calls an MCP tool. To stop it asking for tools that o
 
 If you sign in to Claude Code with a claude.ai account, a Currents connector you connected in claude.ai is available in Claude Code with no `claude mcp add` command. Connect it once from the [Claude connectors directory](claude.md#connect-from-the-claude-directory), and it follows your Claude account to every machine you sign in on.
 
-The connector shows in `/mcp` as **claude.ai Currents**. Its tool names start with `mcp__claude_ai_Currents__` instead of `mcp__currents__`, so write permission rules with that prefix: `mcp__claude_ai_Currents__currents-get-runs`. See [Use MCP servers from claude.ai](https://code.claude.com/docs/en/mcp#use-mcp-servers-from-claude-ai) in the Claude Code documentation.
+The connector shows in `/mcp` as **claude.ai Currents**. Its tool names start with `mcp__claude_ai_Currents__` instead of `mcp__currents__`, so write permission rules with that prefix: `mcp__claude_ai_Currents__currents-get-runs`.
+
+If **claude.ai Currents** is missing from `/mcp`, run `/status` to see which credential Claude Code uses. Claude Code loads claude.ai connectors only when your claude.ai login is that credential, not `ANTHROPIC_API_KEY` or a `claude setup-token` token. See [Use MCP servers from claude.ai](https://code.claude.com/docs/en/mcp#use-mcp-servers-from-claude-ai) in the Claude Code documentation.
 
 ## Use an API key instead
 
