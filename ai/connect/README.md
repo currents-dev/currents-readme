@@ -16,7 +16,7 @@ The pages in this section walk through the setup for each assistant. They all en
 | Assistant                                                     | Where you use it                                      | Setup                                                                        |
 | ------------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------- |
 | [Claude Code](claude-code.md)                                 | Terminal, VS Code, JetBrains                          | One `claude mcp add` command, then sign in from the browser                  |
-| [Claude Desktop and claude.ai](claude.md)                     | Claude Desktop app, claude.ai                         | Add Currents as a custom connector, then sign in from the browser            |
+| [Claude Desktop and claude.ai](claude.md)                     | Claude Desktop app, claude.ai, Claude mobile app      | Connect from the Claude directory, then sign in from the browser             |
 | [ChatGPT](chatgpt.md)                                         | chatgpt.com                                           | Create a developer-mode app, then sign in from the browser                   |
 | [Codex](codex.md)                                             | Codex CLI, Codex IDE extension, ChatGPT desktop app   | One `codex mcp add` command, then `codex mcp login`                          |
 | [Cursor, VS Code and compatible editors](../ide-extension.md) | The editor                                            | Install the Currents extension, which registers the MCP server for the editor's agent |
@@ -26,6 +26,7 @@ The pages in this section walk through the setup for each assistant. They all en
 
 * **A Currents account in the organization you want to connect.** You choose the organization while signing in, and the connection reaches that organization only. To use two organizations, connect twice.
 * **The right role for what you want the assistant to do.** Your role caps the permissions you can approve: a Guest can let the assistant read projects and results only, and webhooks are for Admins. See [the role sets the ceiling](../../authentication/oauth.md#the-role-sets-the-ceiling).
+* **The official listing and endpoint.** Currents is listed in the [Claude connectors directory](https://claude.ai/directory/currents). The only MCP endpoint Currents publishes is `https://api.currents.dev/mcp`.
 * **Nothing to install for the hosted server.** Currents runs it, so there is no package to keep up to date. The [local package](../mcp-server/local.md) is the exception, for clients that can only start a local server.
 
 ## Sign in once, with OAuth

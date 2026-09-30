@@ -19,7 +19,7 @@ A connection made this way acts as the person who authorized it, inside the one 
 Setup differs by client:
 
 * [Claude Code](../connect/claude-code.md)
-* [Claude Desktop and claude.ai](../connect/claude.md)
+* [Claude Desktop and claude.ai](../connect/claude.md), from the [Claude connectors directory](https://claude.ai/directory/currents)
 * [ChatGPT](../connect/chatgpt.md)
 * [Codex](../connect/codex.md)
 * Any other client that speaks Streamable HTTP and can identify itself the way Currents requires: point it at `https://api.currents.dev/mcp` and leave any client ID and secret empty. A client that can only register itself dynamically cannot, and uses an API key instead - see [for client developers](../../authentication/oauth.md#for-client-developers).
