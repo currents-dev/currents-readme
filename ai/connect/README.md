@@ -7,7 +7,7 @@ icon: plug
 
 # Connect Your AI
 
-Currents hosts an MCP server at `https://api.currents.dev/mcp`. Once your AI assistant is connected to it, the assistant can read your runs, test results, failure evidence and analytics, and act on them - quarantine a flaky test, open a Jira issue, cancel or reset a run - without you pasting anything into the chat.
+Currents hosts an MCP server at `https://mcp.currents.dev/mcp`. Once your AI assistant is connected to it, the assistant can read your runs, test results, failure evidence and analytics, and act on them - quarantine a flaky test, open a Jira issue, cancel or reset a run - without you pasting anything into the chat.
 
 The pages in this section walk through the setup for each assistant. They all end at the same place: an assistant that acts as you, inside one Currents organization, with the permissions you approved.
 
@@ -26,7 +26,7 @@ The pages in this section walk through the setup for each assistant. They all en
 
 * **A Currents account in the organization you want to connect.** You choose the organization while signing in, and the connection reaches that organization only. To use two organizations, connect twice.
 * **The right role for what you want the assistant to do.** Your role caps the permissions you can approve: a Guest can let the assistant read projects and results only, and webhooks are for Admins. See [the role sets the ceiling](../../authentication/oauth.md#the-role-sets-the-ceiling).
-* **The official listing and endpoint.** Currents is listed in the [Claude connectors directory](https://claude.ai/directory/currents). The only MCP endpoint Currents publishes is `https://api.currents.dev/mcp`.
+* **The official listing and endpoint.** Currents is listed in the [Claude connectors directory](https://claude.ai/directory/currents). The only MCP endpoint Currents publishes is `https://mcp.currents.dev/mcp`.
 * **Nothing to install for the hosted server.** Currents runs it, so there is no package to keep up to date. The [local package](../mcp-server/local.md) is the exception, for clients that can only start a local server.
 
 ## Sign in once, with OAuth

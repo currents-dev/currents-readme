@@ -28,7 +28,7 @@ Evidence sharing is part of the [Remote MCP Server](mcp-server/remote.md). It pu
 ### Connect the Remote MCP Server
 
 ```bash
-claude mcp add --transport http currents https://api.currents.dev/mcp
+claude mcp add --transport http currents https://mcp.currents.dev/mcp
 ```
 
 Run `/mcp`, choose **currents**, and choose **Authenticate**. For other clients and for API keys, see [remote.md](mcp-server/remote.md "mention").

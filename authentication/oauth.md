@@ -31,7 +31,7 @@ Two Currents services do, and they are separate as far as a token is concerned:
 | Service              | Address                        |
 | -------------------- | ------------------------------ |
 | The REST API         | `https://api.currents.dev`     |
-| The remote MCP server | `https://api.currents.dev/mcp` |
+| The remote MCP server | `https://mcp.currents.dev/mcp` |
 
 A token is minted for one of them and named in the request that created it. A token for the REST API is refused by the MCP endpoint, and a token for the MCP endpoint is refused by the REST API - so authorizing an agent to use the tools does not hand it the whole API. An application that needs both asks for both, and holds a token per service.
 
@@ -175,7 +175,7 @@ Each email names the organization access was lost in and the grants the person s
 
 ## For client developers
 
-An application needs nothing arranged with Currents in advance. Pointed at the address of the service it intends to call - `https://api.currents.dev` for the REST API, `https://api.currents.dev/mcp` for the MCP server - it discovers everything else:
+An application needs nothing arranged with Currents in advance. Pointed at the address of the service it intends to call - `https://api.currents.dev` for the REST API, `https://mcp.currents.dev/mcp` for the MCP server - it discovers everything else:
 
 | It reads                                                              | It learns                                            |
 | --------------------------------------------------------------------- | ---------------------------------------------------- |
@@ -187,7 +187,7 @@ An application needs nothing arranged with Currents in advance. Pointed at the a
 | --- | --- |
 | Authorization server | `https://id.currents.dev` |
 | REST API metadata | `https://api.currents.dev/.well-known/oauth-protected-resource` |
-| MCP metadata | `https://api.currents.dev/.well-known/oauth-protected-resource/mcp` |
+| MCP metadata | `https://mcp.currents.dev/.well-known/oauth-protected-resource/mcp` |
 | Grant types | `authorization_code`, `refresh_token` |
 | PKCE | Required, `S256` |
 

@@ -132,7 +132,7 @@ curl "https://api.currents.dev/v1/webhooks?projectId=PROJECT_ID" \
 
 ### Remote MCP server
 
-The remote MCP server at `https://api.currents.dev/mcp` accepts a personal access token in the same header. The tool list is filtered to the token's permissions: a tool whose permission the token does not hold is not offered at all, rather than offered and then refused. An agent connected with a `results:read` token is handed the tools that read runs and test results, and never sees the tool that deletes a run.
+The remote MCP server at `https://mcp.currents.dev/mcp` accepts a personal access token in the same header. The tool list is filtered to the token's permissions: a tool whose permission the token does not hold is not offered at all, rather than offered and then refused. An agent connected with a `results:read` token is handed the tools that read runs and test results, and never sees the tool that deletes a run.
 
 One tool sits outside that filter. `currents-get-tests-signatures` computes a signature from values the caller already holds and reaches no organization data, so it is listed for every connection whatever the token carries.
 
