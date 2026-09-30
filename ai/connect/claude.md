@@ -1,18 +1,52 @@
 ---
 description: >-
-  Add Currents as a connector in Claude Desktop and claude.ai, for yourself or
-  for your whole Claude organization
+  Connect Currents to Claude Desktop and claude.ai from the Claude connectors
+  directory, for yourself or for your whole Claude organization
 icon: message-bot
 ---
 
 # Claude Desktop and claude.ai
 
-Claude connects to Currents as a custom connector pointing at `https://api.currents.dev/mcp`. A connector belongs to your Claude account rather than to one device, so adding it once makes Currents available in Claude Desktop and on claude.ai.
+Currents is listed in the Claude connectors directory at [claude.ai/directory/currents](https://claude.ai/directory/currents). A connector belongs to your Claude account rather than to one device, so connecting once makes Currents available in Claude Desktop, claude.ai, the Claude mobile app, Cowork and [Claude Code](claude-code.md#use-the-connector-from-claude.ai-instead).
 
-## Add the connector
+## Connect from the Claude directory
 
 {% tabs %}
 {% tab title="Free, Pro and Max" %}
+1. Open [claude.ai/directory/currents](https://claude.ai/directory/currents). Or, in Claude Desktop or claude.ai, open **Customize → Connectors**, select **Discover** and search for **Currents**.
+2. Click **Connect to Claude**, then [sign in](#sign-in).
+
+The directory listing works on every plan, including Free, and there is no URL to enter.
+{% endtab %}
+
+{% tab title="Team and Enterprise" %}
+An Owner adds Currents for the organization first:
+
+1. Open [claude.ai/directory/currents](https://claude.ai/directory/currents).
+2. Click **Connect for your team**. Currents is now available to everyone in the organization.
+3. Click **Connect to Claude** to connect your own Currents account.
+
+Owners can also add Currents from **Organization settings → Connectors → Browse connectors**.
+
+Each member then connects with their own Currents account:
+
+1. Open **Customize → Connectors** and find **Currents**.
+2. Click **Connect to Claude**, then [sign in](#sign-in).
+
+On a Team plan, a member without permission to enable connectors sees **Request** instead of a connect button. **Request** sends the request to the organization's Owners, who approve it under **Organization settings → Connectors**.
+
+Adding the connector gives nobody access to Currents data. Each member signs in to Currents themselves, and their connection carries their own Currents role.
+{% endtab %}
+{% endtabs %}
+
+<details>
+
+<summary>Add Currents by URL, if the directory is not available to you</summary>
+
+Use a custom connector only when you cannot connect from the directory listing.
+
+**Free, Pro and Max:**
+
 1. In Claude Desktop or claude.ai, open **Customize → Connectors**.
 2. Click **+**, then **Add custom connector**.
 3. Name it `Currents` and enter the URL `https://api.currents.dev/mcp`.
@@ -20,28 +54,24 @@ Claude connects to Currents as a custom connector pointing at `https://api.curre
 5. Click **Add**, then **Connect**.
 
 On the Free plan, Claude allows one custom connector.
-{% endtab %}
 
-{% tab title="Team and Enterprise" %}
-An owner adds the connector for the organization first:
+**Team and Enterprise:** an Owner opens **Organization settings → Connectors**, clicks **Add**, hovers over **Custom** and chooses **Web**, enters `https://api.currents.dev/mcp` with **Advanced settings** empty, and clicks **Add**. Members then connect as described in the **Team and Enterprise** tab above.
 
-1. Open **Organization settings → Connectors**.
-2. Click **Add**, hover over **Custom** and choose **Web**.
-3. Enter the URL `https://api.currents.dev/mcp` and leave **Advanced settings** empty.
-4. Click **Add**.
+</details>
 
-Each member then connects with their own Currents account:
+### If you added Currents by URL before
 
-1. Open **Customize → Connectors**.
-2. Find **Currents** and click **Connect**.
+A custom connector you added earlier keeps working. It shows under **Custom** in **Customize → Connectors**, and the directory listing shows Currents as not connected. Connecting from the directory without removing it gives you two Currents connections.
 
-Adding the connector gives nobody access to Currents data. Each member signs in to Currents themselves, and their connection carries their own Currents role.
-{% endtab %}
-{% endtabs %}
+To move to the directory listing:
+
+1. In **Customize → Connectors**, open the Currents connector under **Custom**.
+2. Open the three-dot menu and select **Remove**. On Team and Enterprise plans, an Owner removes it under **Organization settings → Connectors**.
+3. Connect from [claude.ai/directory/currents](https://claude.ai/directory/currents) and sign in again.
 
 ## Sign in
 
-Clicking **Connect** opens a Currents sign-in page:
+Clicking **Connect to Claude** opens a Currents sign-in page:
 
 1. Sign in to Currents.
 2. Choose the organization Claude will work in.
@@ -90,6 +120,7 @@ The hosted connector above is the simpler option for most people: nothing to ins
 | Claude does not use Currents           | Check that **Currents** is turned on under **+ → Connectors** for this conversation.                |
 | A tool you expect is missing           | Your grant or your role does not include its permission. See [the role sets the ceiling](../../authentication/oauth.md#the-role-sets-the-ceiling). |
 | The wrong organization's data          | Each connection reaches one organization. Disconnect, connect again, and choose the other one.     |
+| Two Currents connectors in the list    | One is a custom connector added by URL. Remove the one under **Custom**. See [If you added Currents by URL before](#if-you-added-currents-by-url-before). |
 | `403` `organization_not_enabled`       | Contact <support@currents.dev>.                                                                     |
 
 More causes are listed under [Remote MCP Server troubleshooting](../mcp-server/remote.md#troubleshooting).

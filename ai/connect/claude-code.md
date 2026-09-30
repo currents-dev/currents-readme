@@ -83,6 +83,12 @@ Claude Code asks before it calls an MCP tool. To stop it asking for tools that o
 
 `mcp__currents` alone would allow every Currents tool, including `currents-delete-run`, which permanently deletes a run. [Tools](../mcp-server/README.md#tools) lists every tool and the permission it needs.
 
+## Use the connector from claude.ai instead
+
+If you sign in to Claude Code with a claude.ai account, a Currents connector you connected in claude.ai is available in Claude Code with no `claude mcp add` command. Connect it once from the [Claude connectors directory](claude.md#connect-from-the-claude-directory), and it follows your Claude account to every machine you sign in on.
+
+The connector shows in `/mcp` as **claude.ai Currents**. Its tool names start with `mcp__claude_ai_Currents__` instead of `mcp__currents__`, so write permission rules with that prefix: `mcp__claude_ai_Currents__currents-get-runs`. See [Use MCP servers from claude.ai](https://code.claude.com/docs/en/mcp#use-mcp-servers-from-claude-ai) in the Claude Code documentation.
+
 ## Use an API key instead
 
 For a CI job or anywhere no one can complete the browser sign-in, send a Currents [API key](../../dashboard/administration/api-keys.md) in a header:
