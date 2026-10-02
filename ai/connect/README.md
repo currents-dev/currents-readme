@@ -17,9 +17,9 @@ The pages in this section walk through the setup for each assistant. They all en
 | ------------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------- |
 | [Claude Code](claude-code.md)                                 | Terminal, VS Code, JetBrains                          | One `claude mcp add` command, then sign in from the browser                  |
 | [Claude Desktop and claude.ai](claude.md)                     | Claude Desktop app, claude.ai, Claude mobile app      | Connect from the Claude directory, then sign in from the browser             |
+| [Cursor](cursor.md)                                           | Cursor, Cursor CLI                                    | Install the plugin from the Cursor Marketplace, then sign in from the browser |
 | [ChatGPT](chatgpt.md)                                         | chatgpt.com                                           | Create a developer-mode app, then sign in from the browser                   |
 | [Codex](codex.md)                                             | Codex CLI, Codex IDE extension, ChatGPT desktop app   | One `codex mcp add` command, then `codex mcp login`                          |
-| [Cursor](cursor.md)                                           | Cursor, Cursor CLI                                    | Install the plugin from the Cursor Marketplace, then sign in from the browser |
 | [Cursor, VS Code and compatible editors](../ide-extension.md) | The editor                                            | Install the Currents extension, which registers the MCP server for the editor's agent |
 | [Other MCP clients](../mcp-server/remote.md)                  | Wherever the client runs                              | Enter the server URL by hand, with OAuth or an API key                       |
 
