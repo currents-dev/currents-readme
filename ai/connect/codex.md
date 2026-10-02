@@ -9,6 +9,12 @@ icon: terminal
 
 Codex connects to the hosted Currents MCP server at `https://mcp.currents.dev/mcp`. The Codex CLI, the Codex IDE extension and the ChatGPT desktop app read the same configuration, so adding Currents once makes it available in all three.
 
+## Install the Currents plugin
+
+Currents is listed in the plugin directory that Codex shares with [ChatGPT](chatgpt.md). In the Codex CLI, enter `/plugins`, find **Currents** and install it. Codex asks you to [sign in](#sign-in) when the plugin connects.
+
+To add only the server, follow the steps below instead.
+
 ## Add the server
 
 ```bash
