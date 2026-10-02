@@ -59,6 +59,19 @@ copilot mcp add --transport http currents https://mcp.currents.dev/mcp
 
 The first time Copilot calls Currents, a browser window opens for the same sign-in as above. Sign in from an interactive session: `copilot -p` cannot open the browser. Enter `/mcp` to see the server and its status.
 
+## Install the Currents plugin
+
+The Currents plugin adds the same server plus the Currents skills: fixing failing CI tests, collecting evidence from CI runs, and recording a browser session as evidence. It is listed in [awesome-copilot](https://github.com/github/awesome-copilot), a plugin marketplace that VS Code and Copilot CLI read by default.
+
+* **VS Code:** open the Extensions view, enter `@agentPlugins currents` in the search field, and select **Install**.
+* **Copilot CLI:**
+
+  ```bash
+  copilot plugin install currents@awesome-copilot
+  ```
+
+Sign in as described above. If you already added the server on its own, remove that entry so Currents is not connected twice.
+
 ## Troubleshooting
 
 | What you see                           | What to do                                                                                          |
