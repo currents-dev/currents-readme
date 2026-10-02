@@ -10,6 +10,8 @@ icon: cloud-bolt
 
 Currents hosts the MCP server at `https://mcp.currents.dev/mcp`. A client points at that URL and connects: there is no package to install, no local process to keep alive, and - in a client that supports OAuth - no key to paste into a configuration file.
 
+The server is listed in the [official MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers/dev.currents%2Fmcp/versions/latest) as `dev.currents/mcp`. Clients and catalogs that read the registry can add it from there, with the same URL.
+
 It serves the tools listed under [MCP Server](README.md#tools), the same ones the [local package](local.md) runs over stdio. This page covers what is specific to the hosted endpoint: how a client authenticates, which tools a connection is handed, and what to check when a connection fails. For step-by-step setup in a particular assistant, see [Connect Your AI](../connect/README.md).
 
 ## Connect with OAuth
